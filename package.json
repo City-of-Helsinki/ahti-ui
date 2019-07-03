@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "dotenv": "^8.0.0",
+    "firebase": "^6.2.4",
     "immutable": "^4.0.0-rc.12",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
