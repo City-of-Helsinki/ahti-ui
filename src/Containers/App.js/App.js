@@ -16,7 +16,9 @@ export default () => {
     longitude: 24.944,
     zoom: 10,
     bearing: 0,
-    pitch: 0
+    pitch: 0,
+    minzoom: 3,
+    maxzoom: 9,
   })
 
   const [map, setMap] = useState({})
@@ -122,7 +124,7 @@ export default () => {
           setMap(mapObject.target)
         }}
         {...viewport}
-        mapStyle="mapbox://styles/ohel/cjxn6rfmg1ezf1coa93y1wj5w?fresh=true"//{asd}//mapbox://styles/ohel/cjxlhu6ec0ovd1dlmhs284s73"
+        mapStyle="mapbox://styles/ohel/cjxodqmm92eao1cqnjz85qnww"//{asd}//mapbox://styles/ohel/cjxlhu6ec0ovd1dlmhs284s73"
         mapboxApiAccessToken={accessToken}
         width="100%"
         height="100%"
