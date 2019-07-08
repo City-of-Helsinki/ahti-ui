@@ -25,6 +25,7 @@
   },
   "husky": {
     "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook",
       "pre-commit": "lint-staged && pretty-quick --staged"
     }
   },
@@ -47,7 +48,14 @@
     ]
   },
   "devDependencies": {
+    "commitizen": "^3.1.1",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint-plugin-prettier": "^3.1.0",
     "pretty-quick": "^1.11.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
