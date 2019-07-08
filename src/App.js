@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MapGL, { Marker, Popup } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { accessToken } from './config';
-// import styles from './Containers/App.js/App.module.css';
 import firebase from './DataServices/firebase';
 import CityPin from './Components/Utils/city-pin';
 
@@ -66,7 +64,7 @@ export default () => {
         ref={map}
         {...viewport}
         mapStyle="mapbox://styles/ohel/cjxodqmm92eao1cqnjz85qnww"
-        mapboxApiAccessToken={accessToken}
+        mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
         width="100%"
         height="100%"
         onViewportChange={viewport => setViewport(viewport)}
