@@ -1,10 +1,17 @@
-import React, {PureComponent} from 'react';
-import {fromJS} from 'immutable';
-import MAP_STYLE from '../../resources/defaultMapStyle.json'
+import React, { PureComponent } from 'react';
+import { fromJS } from 'immutable';
+import MAP_STYLE from '../../resources/defaultMapStyle.json';
 
 const defaultMapStyle = fromJS(MAP_STYLE);
 
-const categories = ['labels', 'roads', 'buildings', 'parks', 'water', 'background'];
+const categories = [
+  'labels',
+  'roads',
+  'buildings',
+  'parks',
+  'water',
+  'background',
+];
 
 // Layer id patterns by category
 const layerSelector = {
@@ -13,7 +20,7 @@ const layerSelector = {
   parks: /park/,
   buildings: /building/,
   roads: /bridge|road|tunnel/,
-  labels: /label|place|poi/
+  labels: /label|place|poi/,
 };
 
 // Layer color class by type
@@ -21,10 +28,12 @@ const colorClass = {
   line: 'line-color',
   fill: 'fill-color',
   background: 'background-color',
-  symbol: 'text-color'
+  symbol: 'text-color',
 };
 
-const defaultContainer = ({children}) => <div className="control-panel">{children}</div>;
+const defaultContainer = ({ children }) => (
+  <div className="control-panel">{children}</div>
+);
 
 export default class StyleControls extends PureComponent {
   constructor(props) {
@@ -39,7 +48,7 @@ export default class StyleControls extends PureComponent {
         buildings: true,
         roads: true,
         labels: true,
-        background: true
+        background: true,
       },
       color: {
         water: '#DBE2E6',
@@ -47,8 +56,8 @@ export default class StyleControls extends PureComponent {
         buildings: '#c0c0c8',
         roads: '#ffffff',
         labels: '#78888a',
-        background: '#EBF0F0'
-      }
+        background: '#EBF0F0',
+      },
     };
   }
 
@@ -57,25 +66,27 @@ export default class StyleControls extends PureComponent {
   }
 
   _onColorChange(name, event) {
-    const color = {...this.state.color, [name]: event.target.value};
-    this.setState({color});
-    this._updateMapStyle({...this.state, color});
+    const color = { ...this.state.color, [name]: event.target.value };
+    this.setState({ color });
+    this._updateMapStyle({ ...this.state, color });
   }
 
   _onVisibilityChange(name, event) {
     const visibility = {
       ...this.state.visibility,
-      [name]: event.target.checked
+      [name]: event.target.checked,
     };
-    this.setState({visibility});
-    this._updateMapStyle({...this.state, visibility});
+    this.setState({ visibility });
+    this._updateMapStyle({ ...this.state, visibility });
   }
 
-  _updateMapStyle({visibility, color}) {
+  _updateMapStyle({ visibility, color }) {
     const layers = this._defaultLayers
       .filter(layer => {
         const id = layer.get('id');
-        return categories.every(name => visibility[name] || !layerSelector[name].test(id));
+        return categories.every(
+          name => visibility[name] || !layerSelector[name].test(id)
+        );
       })
       .map(layer => {
         const id = layer.get('id');
@@ -91,7 +102,7 @@ export default class StyleControls extends PureComponent {
   }
 
   _renderLayerControl(name) {
-    const {visibility, color} = this.state;
+    const { visibility, color } = this.state;
 
     return (
       <div key={name} className="input">
