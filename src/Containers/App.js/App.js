@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
-import MapGL, { Marker, Popup } from 'react-map-gl'
-import 'mapbox-gl/dist/mapbox-gl.css'
-import { accessToken } from '../../config'
-import styles from './App.module.css'
-import firebase from '../../services/firebase'
-import CityPin from '../city-pin'
+import React, { useState, useEffect, useRef } from 'react';
+import MapGL, { Marker, Popup } from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import { accessToken } from '../../config';
+import styles from './App.module.css';
+import firebase from '../../services/firebase';
+import CityPin from '../city-pin';
 
 const defaultViewport = {
   latitude: 60.15,
@@ -14,19 +14,21 @@ const defaultViewport = {
   pitch: 0,
   minzoom: 3,
   maxzoom: 9,
-}
+};
 
 export default () => {
-  const map = useRef(null)
-  const [viewport, setViewport] = useState(defaultViewport)
-  const [popupInfo, setPopupInfo] = useState(null)
-  const [pointData, setPointData] = useState([])
+  const map = useRef(null);
+  const [viewport, setViewport] = useState(defaultViewport);
+  const [popupInfo, setPopupInfo] = useState(null);
+  const [pointData, setPointData] = useState([]);
 
   useEffect(() => {
-    firebase().getData().then(data => {
-      setPointData(data)
-    })
-  }, [])
+    firebase()
+      .getData()
+      .then(data => {
+        setPointData(data);
+      });
+  }, []);
 
   const _renderPopup = () => {
     return (
@@ -46,17 +48,17 @@ export default () => {
           </div>
         </Popup>
       )
-    )
-  }
+    );
+  };
 
   const _markerOnClick = point => {
-    const { longitude, latitude } = point.location
+    const { longitude, latitude } = point.location;
     setPopupInfo({
       longitude,
       latitude,
-      text: point.name
-    })
-  }
+      text: point.name,
+    });
+  };
 
   return (
     <div className={styles.container}>
@@ -67,17 +69,21 @@ export default () => {
         mapboxApiAccessToken={accessToken}
         width="100%"
         height="100%"
-        onViewportChange={(viewport) => setViewport(viewport)}
+        onViewportChange={viewport => setViewport(viewport)}
         clickRadius={2}
       >
         {_renderPopup()}
 
-        {pointData.map((point, index) =>
-          <Marker key={`marker-${index}`} longitude={point.location.longitude} latitude={point.location.latitude}>
+        {pointData.map((point, index) => (
+          <Marker
+            key={`marker-${index}`}
+            longitude={point.location.longitude}
+            latitude={point.location.latitude}
+          >
             <CityPin size={50} onClick={() => _markerOnClick(point)} />
           </Marker>
-        )}
+        ))}
       </MapGL>
     </div>
-  )
-}
+  );
+};
