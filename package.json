@@ -5,7 +5,10 @@
   "dependencies": {
     "dotenv": "^8.0.0",
     "firebase": "^6.2.4",
+    "husky": "^3.0.0",
     "immutable": "^4.0.0-rc.12",
+    "lint-staged": "^9.1.0",
+    "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-map-gl": "^5.0.3",
@@ -19,6 +22,17 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   },
   "browserslist": {
     "production": [
