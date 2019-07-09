@@ -1,0 +1,15 @@
+This is a TODO-list for the map project:
+
+☐ add sanitizze.css to project instead of normalize.css
+☐ ensure eslint rules
+☐ add mock data into app in geojson format https://tools.ietf.org/html/rfc7946
+    ☐ create the 
+    ☐ test
+    ☐ dcbdhscnbhds
+    ☐ dfsdksdf
+☐ Investigate fetching weather data from API
+☐ Implement state management for displaying & filtering data on map
+☐ Investigate carousel components for the map view
+☐ Add i18n
+☐ Add dummy components
+☐ Add nearby information support
