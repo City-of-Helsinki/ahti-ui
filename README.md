@@ -1,3 +1,35 @@
+# Helsinki City Ahti project
+
+## Data
+
+In order to create data we use
+geojson.io
+
+http://geojson.io/#map=12/60.1367/24.9237
+
+The fule is in /src/mapData.geojson
+
+### TODO #1
+
+Add these locations:
+Beaches
+https://theculturetrip.com/europe/finland/articles/7-beaches-you-need-to-visit-in-helsinki/
+https://www.hel.fi/helsinki/en/culture/sports/outdoor/outdoor-swimming/
+https://www.hel.fi/helsinki/en/culture/sports/outdoor/outdoor-swimming/nudist-beaches
+
+Add types:
+'beaches'
+'restaurants'
+'islands'
+
+### TODO #2
+
+Swimming suggestins
+
+https://www.hel.fi/helsinki/en/culture/sports/outdoor/outdoor-swimming/quality
+
+https://ulkoliikunta.fi/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
