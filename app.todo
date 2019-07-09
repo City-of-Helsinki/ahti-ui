@@ -7,5 +7,9 @@ This is a TODO-list for the map project:
     ☐ test
     ☐ dcbdhscnbhds
     ☐ dfsdksdf
-    ☐ 
-s
+☐ Investigate fetching weather data from API
+☐ Implement state management for displaying & filtering data on map
+☐ Investigate carousel components for the map view
+☐ Add i18n
+☐ Add dummy components
+☐ Add nearby information support
