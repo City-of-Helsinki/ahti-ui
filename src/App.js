@@ -17,8 +17,14 @@ export default () => {
   const [pointData, setPointData] = useState([]);
 
   useEffect(() => {
-    import('./data.json').then(data => setPointData(data.default.locations));
-  }, []);
+    import('./mapData.json').then(data => {
+      setPointData(data.default.features);
+    });
+  }, [pointData]);
+
+  const dataTypes = () => {
+    return [...new Set(pointData.map(point => point.properties.type))];
+  };
 
   return (
     <Router>
@@ -37,22 +43,30 @@ export default () => {
           <div>
             <Header as="h1">Discover</Header>
             <div>
-              {pointData.map((point, id) => {
-                return (
-                  <React.Fragment>
-                    <Link to={`/locations/${id}`}>
-                      <Header as="h3">{point.name}</Header>
-                    </Link>
-                    <div key={id}>
-                      <Slider {...settings}>
-                        {point.items.map((item, ind) => {
-                          return <p>{item.name}</p>;
-                        })}
-                      </Slider>
-                    </div>
-                  </React.Fragment>
-                );
-              })}
+              {pointData &&
+                dataTypes().map((point, id) => (
+                  <Header as="h3">{point}</Header>
+                ))}
+            </div>
+            <div>
+              {pointData &&
+                pointData.map((point, id) => {
+                  return (
+                    <React.Fragment key={id}>
+                      <Link to={`/locations/${id}`}>
+                        <Header as="h3">{point.properties.name}</Header>
+                      </Link>
+                      <div>
+                        <Slider {...settings}>
+                          {point.items &&
+                            point.items.map(item => {
+                              return <p>{item.name}</p>;
+                            })}
+                        </Slider>
+                      </div>
+                    </React.Fragment>
+                  );
+                })}
             </div>
           </div>
         )}
