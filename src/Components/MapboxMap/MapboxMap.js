@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { withRouter } from 'react-router-dom';
-import MapGL, { Marker, Popup } from 'react-map-gl';
+import MapGL, {
+  Marker,
+  Popup,
+  FlyToInterpolator,
+  GeolocateControl,
+} from 'react-map-gl';
 import { Header } from 'semantic-ui-react';
 import CityPin from '../Utils/city-pin';
 import CityInfo from '../Utils/city-info';
 import queryString from 'query-string';
+import Slider from 'react-slick';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 export default withRouter(({ pointData, location, history }) => {
+  const map = useRef(null);
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
@@ -40,18 +47,39 @@ export default withRouter(({ pointData, location, history }) => {
     setDisplayedPoints(filteredPoints);
   }, [location, pointData]);
 
-  const _renderCityMarker = (city, index) => {
+  const sliderSettings = {
+    dots: false,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    beforeChange: (current, next) => {
+      if (displayedPoints[next]) {
+        const longitude = displayedPoints[next].geometry.coordinates[0];
+        const latitude = displayedPoints[next].geometry.coordinates[1];
+        setViewport({
+          longitude,
+          latitude,
+          zoom: 15,
+          transitionInterpolator: new FlyToInterpolator(),
+          transitionDuration: 2000,
+        });
+      }
+    },
+  };
+
+  const _renderMarker = (point, index) => {
     return (
       <Marker
         key={`marker-${index}`}
-        longitude={city.geometry.coordinates[0]}
-        latitude={city.geometry.coordinates[1]}
+        longitude={point.geometry.coordinates[0]}
+        latitude={point.geometry.coordinates[1]}
       >
         <CityPin
           size={20}
           onClick={() => {
-            setPopupInfo(city);
-            history.push(`/map?name=${city.properties.name}`);
+            setPopupInfo(point);
+            history.push(`/map?name=${point.properties.name}`);
           }}
         />
       </Marker>
@@ -84,15 +112,29 @@ export default withRouter(({ pointData, location, history }) => {
         Displayed collection: {queryString.parse(location.search).collection}
       </Header>
       <MapGL
+        ref={map}
         {...viewport}
         onViewportChange={viewport => setViewport(viewport)}
         mapStyle="mapbox://styles/ohel/cjxodqmm92eao1cqnjz85qnww"
         mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
         className="map"
       >
-        {displayedPoints && displayedPoints.map(_renderCityMarker)}
+        <GeolocateControl
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+        />
+        {displayedPoints && displayedPoints.map(_renderMarker)}
         {_renderPopup()}
+        {/* {map.current && console.log(map.current.getMap().setLayoutProperty)} */}
       </MapGL>
+      <Slider {...sliderSettings}>
+        {displayedPoints &&
+          displayedPoints.map((point, id) => (
+            <div key={id}>
+              <Header as="h3">{point.properties.name}</Header>
+            </div>
+          ))}
+      </Slider>
     </React.Fragment>
   );
 });
