@@ -7,7 +7,7 @@ import CityInfo from '../Utils/city-info';
 import queryString from 'query-string';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-export default withRouter(({ pointData, location }) => {
+export default withRouter(({ pointData, location, history }) => {
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
@@ -25,11 +25,18 @@ export default withRouter(({ pointData, location }) => {
   useEffect(() => {
     const query = queryString.parse(location.search);
     let filteredPoints = pointData;
+
     if (query.collection) {
       filteredPoints = filteredPoints.filter(
         point => point.properties.type === query.collection
       );
     }
+    if (query.name) {
+      filteredPoints = filteredPoints.filter(
+        point => point.properties.name === query.name
+      );
+    }
+
     setDisplayedPoints(filteredPoints);
   }, [location, pointData]);
 
@@ -40,7 +47,13 @@ export default withRouter(({ pointData, location }) => {
         longitude={city.geometry.coordinates[0]}
         latitude={city.geometry.coordinates[1]}
       >
-        <CityPin size={20} onClick={() => setPopupInfo(city)} />
+        <CityPin
+          size={20}
+          onClick={() => {
+            setPopupInfo(city);
+            history.push(`/map?name=${city.properties.name}`);
+          }}
+        />
       </Marker>
     );
   };
@@ -54,7 +67,10 @@ export default withRouter(({ pointData, location }) => {
           longitude={popupInfo.geometry.coordinates[0]}
           latitude={popupInfo.geometry.coordinates[1]}
           closeOnClick={false}
-          onClose={() => setPopupInfo(null)}
+          onClose={() => {
+            setPopupInfo(null);
+            history.push('/map');
+          }}
         >
           <CityInfo info={popupInfo.properties} />
         </Popup>
