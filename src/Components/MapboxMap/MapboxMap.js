@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import MapGL from 'react-map-gl';
+import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
+import MapGL, { Marker, Popup } from 'react-map-gl';
 import { Header } from 'semantic-ui-react';
+import CityPin from '../Utils/city-pin';
+import CityInfo from '../Utils/city-info';
 import queryString from 'query-string';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
-export default ({ pointData }) => {
+export default withRouter(({ pointData, location }) => {
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
@@ -16,24 +19,53 @@ export default ({ pointData }) => {
     bearing: 0,
     pitch: 0,
   });
+  const [displayedPoints, setDisplayedPoints] = useState([]);
+  const [popupInfo, setPopupInfo] = useState(null);
 
-  const [displayedPoints, setDisplayedPoints] = useState(() => {
-    const query = queryString.parse(window.location.search);
+  useEffect(() => {
+    const query = queryString.parse(location.search);
     let filteredPoints = pointData;
     if (query.collection) {
-      filteredPoints = filteredPoints.find(
+      filteredPoints = filteredPoints.filter(
         point => point.properties.type === query.collection
       );
     }
+    setDisplayedPoints(filteredPoints);
+  }, [location, pointData]);
 
-    return filteredPoints;
-  });
+  const _renderCityMarker = (city, index) => {
+    return (
+      <Marker
+        key={`marker-${index}`}
+        longitude={city.geometry.coordinates[0]}
+        latitude={city.geometry.coordinates[1]}
+      >
+        <CityPin size={20} onClick={() => setPopupInfo(city)} />
+      </Marker>
+    );
+  };
+
+  const _renderPopup = () => {
+    return (
+      popupInfo && (
+        <Popup
+          tipSize={5}
+          anchor="top"
+          longitude={popupInfo.geometry.coordinates[0]}
+          latitude={popupInfo.geometry.coordinates[1]}
+          closeOnClick={false}
+          onClose={() => setPopupInfo(null)}
+        >
+          <CityInfo info={popupInfo.properties} />
+        </Popup>
+      )
+    );
+  };
 
   return (
     <React.Fragment>
       <Header as="h4">
-        Displayed collection:{' '}
-        {queryString.parse(window.location.search).collection}
+        Displayed collection: {queryString.parse(location.search).collection}
       </Header>
       <MapGL
         {...viewport}
@@ -41,7 +73,10 @@ export default ({ pointData }) => {
         mapStyle="mapbox://styles/ohel/cjxodqmm92eao1cqnjz85qnww"
         mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
         className="map"
-      />
+      >
+        {displayedPoints && displayedPoints.map(_renderCityMarker)}
+        {_renderPopup()}
+      </MapGL>
     </React.Fragment>
   );
-};
+});

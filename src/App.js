@@ -56,26 +56,6 @@ export default () => {
                   </Link>
                 ))}
             </div>
-            <div>
-              {pointData &&
-                pointData.map((point, id) => {
-                  return (
-                    <React.Fragment key={id}>
-                      <Link to={`/locations/${id}`}>
-                        <Header as="h3">{point.properties.name}</Header>
-                      </Link>
-                      <div>
-                        <Slider {...settings}>
-                          {point.items &&
-                            point.items.map(item => {
-                              return <p>{item.name}</p>;
-                            })}
-                        </Slider>
-                      </div>
-                    </React.Fragment>
-                  );
-                })}
-            </div>
           </div>
         )}
       />
