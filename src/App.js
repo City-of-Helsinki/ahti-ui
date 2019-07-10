@@ -45,7 +45,15 @@ export default () => {
             <div>
               {pointData &&
                 dataTypes().map((point, id) => (
-                  <Header as="h3">{point}</Header>
+                  <Link
+                    to={{
+                      pathname: '/map',
+                      search: `?collection=${point}`,
+                    }}
+                    key={id}
+                  >
+                    <Header as="h3">{point}</Header>
+                  </Link>
                 ))}
             </div>
             <div>
@@ -71,7 +79,10 @@ export default () => {
           </div>
         )}
       />
-      <Route path="/map" component={MapboxMap} />
+      <Route
+        path="/map"
+        component={() => <MapboxMap pointData={pointData} />}
+      />
     </Router>
   );
 };
