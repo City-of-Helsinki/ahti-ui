@@ -23,17 +23,17 @@ const MapPage = ({ location, history }) => {
   });
 
   useEffect(() => {
-    const query = queryString.parse(location.search);
+    console.log('I go second');
 
     let filteredPoints = pointData;
-    if (query.collection) {
+
+    const browserQuery = queryString.parse(location.search);
+
+    if (browserQuery.type || browserQuery.name) {
       filteredPoints = filteredPoints.filter(
-        point => point.properties.type === query.collection
-      );
-    }
-    if (query.name) {
-      filteredPoints = filteredPoints.filter(
-        point => point.properties.name === query.name
+        point =>
+          point.properties.type === browserQuery.type ||
+          point.properties.name === browserQuery.name
       );
     }
 
@@ -42,9 +42,8 @@ const MapPage = ({ location, history }) => {
 
   return (
     <React.Fragment>
-      <Header as="h4">
-        Displayed collection: {queryString.parse(location.search).collection}
-      </Header>
+      {console.log('I go first')}
+      <Header as="h4">Displayed collection:</Header>
       {displayedPoints.length > 0 && (
         <React.Fragment>
           <MapboxMap

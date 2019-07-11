@@ -18,9 +18,9 @@ export default ({ viewport, setViewport, displayedPoints }) => {
         setViewport({
           longitude,
           latitude,
-          zoom: 15,
+          zoom: 12,
           transitionInterpolator: new FlyToInterpolator(),
-          transitionDuration: 2000,
+          transitionDuration: 300,
         });
       }
     },
