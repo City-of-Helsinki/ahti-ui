@@ -20,11 +20,7 @@ export default () => {
     import('./mapData.json').then(data => {
       setPointData(data.default.features);
     });
-  }, [pointData]);
-
-  const dataTypes = () => {
-    return [...new Set(pointData.map(point => point.properties.type))];
-  };
+  }, []);
 
   return (
     <Router>
@@ -44,17 +40,19 @@ export default () => {
             <Header as="h1">Discover</Header>
             <div>
               {pointData &&
-                dataTypes().map((point, id) => (
-                  <Link
-                    to={{
-                      pathname: '/map',
-                      search: `?collection=${point}`,
-                    }}
-                    key={id}
-                  >
-                    <Header as="h3">{point}</Header>
-                  </Link>
-                ))}
+                [...new Set(pointData.map(point => point.properties.type))].map(
+                  (point, id) => (
+                    <Link
+                      to={{
+                        pathname: '/map',
+                        search: `?collection=${point}`,
+                      }}
+                      key={id}
+                    >
+                      <Header as="h3">{point}</Header>
+                    </Link>
+                  )
+                )}
             </div>
           </div>
         )}
