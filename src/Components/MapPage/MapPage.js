@@ -45,17 +45,21 @@ const MapPage = ({ location, history }) => {
       <Header as="h4">
         Displayed collection: {queryString.parse(location.search).collection}
       </Header>
-      <MapboxMap
-        history={history}
-        viewport={viewport}
-        setViewport={setViewport}
-        displayedPoints={displayedPoints}
-      />
-      <Carousel
-        viewport={viewport}
-        setViewport={setViewport}
-        displayedPoints={displayedPoints}
-      />
+      {displayedPoints.length > 0 && (
+        <React.Fragment>
+          <MapboxMap
+            history={history}
+            viewport={viewport}
+            setViewport={setViewport}
+            displayedPoints={displayedPoints}
+          />
+          <Carousel
+            viewport={viewport}
+            setViewport={setViewport}
+            displayedPoints={displayedPoints}
+          />
+        </React.Fragment>
+      )}
     </React.Fragment>
   );
 };
