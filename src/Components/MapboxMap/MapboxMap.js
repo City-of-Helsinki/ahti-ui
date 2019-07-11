@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import MapGL, { Marker, Popup } from 'react-map-gl';
 import { Header } from 'semantic-ui-react';
@@ -6,8 +6,9 @@ import CityPin from '../Utils/city-pin';
 import CityInfo from '../Utils/city-info';
 import queryString from 'query-string';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import AppContext from '../../App';
 
-export default withRouter(({ pointData, location, history }) => {
+export default withRouter(({ location, history }) => {
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
@@ -22,9 +23,11 @@ export default withRouter(({ pointData, location, history }) => {
   const [displayedPoints, setDisplayedPoints] = useState([]);
   const [popupInfo, setPopupInfo] = useState(null);
 
+  const geoData = useContext(AppContext);
+
   useEffect(() => {
     const query = queryString.parse(location.search);
-    let filteredPoints = pointData;
+    let filteredPoints = geoData;
 
     if (query.collection) {
       filteredPoints = filteredPoints.filter(
@@ -36,9 +39,8 @@ export default withRouter(({ pointData, location, history }) => {
         point => point.properties.name === query.name
       );
     }
-
     setDisplayedPoints(filteredPoints);
-  }, [location, pointData]);
+  }, [location, geoData]);
 
   const _renderCityMarker = (city, index) => {
     return (
