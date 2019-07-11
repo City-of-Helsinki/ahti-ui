@@ -1,33 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import MapboxMap from './Components/MapboxMap/MapboxMap';
+import React from 'react';
+import MapPage from './Components/MapPage/MapPage';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Header } from 'semantic-ui-react';
 import Home from './Components/Home/Home';
 
-export default () => {
-  const [pointData, setPointData] = useState([]);
+export const GlobalGeoContext = React.createContext();
 
-  useEffect(() => {
+export class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pointData: [],
+    };
+  }
+
+  componentDidMount() {
     import('./mapData.json').then(data => {
-      setPointData(data.default.features);
+      this.setState({
+        pointData: data.default.features,
+      });
     });
-  }, []);
+  }
 
-  return (
-    <Router>
-      <div>
-        <Link to="/">
-          <Header as="h3">Home</Header>
-        </Link>
-        <Link to="/map">
-          <Header as="h3">Map</Header>
-        </Link>
-      </div>
-      <Route exact path="/" component={() => <Home pointData={pointData} />} />
-      <Route
-        path="/map"
-        component={() => <MapboxMap pointData={pointData} />}
-      />
-    </Router>
-  );
-};
+  render() {
+    return (
+      <GlobalGeoContext.Provider value={this.state.pointData}>
+        <Router>
+          <div>
+            <Link to="/">
+              <Header as="h3">Home</Header>
+            </Link>
+            <Link to="/map">
+              <Header as="h3">Map</Header>
+            </Link>
+          </div>
+          <Route exact path="/" component={() => <Home />} />
+          <Route path="/map" component={() => <MapPage />} />
+        </Router>
+      </GlobalGeoContext.Provider>
+    );
+  }
+}

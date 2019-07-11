@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Slider from 'react-slick';
 import { Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { GlobalGeoContext } from '../../App';
 import './Home.scss';
 
 const sliderSettings = {
@@ -14,16 +15,16 @@ const sliderSettings = {
 };
 
 export default ({ pointData }) => {
-  const dataTypes = () => {
-    return [...new Set(pointData.map(point => point.properties.type))];
-  };
-
   return (
     <div>
       <Header as="h1">Discover</Header>
       <Slider {...sliderSettings}>
-        {pointData &&
-          dataTypes().map((point, id) => (
+        {useContext(GlobalGeoContext) &&
+          [
+            ...new Set(
+              useContext(GlobalGeoContext).map(point => point.properties.type)
+            ),
+          ].map((point, id) => (
             <Link
               to={{
                 pathname: '/map',
