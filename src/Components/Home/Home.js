@@ -14,7 +14,7 @@ const sliderSettings = {
   adaptiveHeight: true,
 };
 
-export default ({ pointData }) => {
+export default () => {
   return (
     <div>
       <Header as="h1">Discover</Header>
