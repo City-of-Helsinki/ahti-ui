@@ -68,21 +68,24 @@ export default withRouter(({ pointData, location, history }) => {
     },
   };
 
-  const _renderMarker = (point, index) => {
+  const _renderMarker = () => {
     return (
-      <Marker
-        key={`marker-${index}`}
-        longitude={point.geometry.coordinates[0]}
-        latitude={point.geometry.coordinates[1]}
-      >
-        <CityPin
-          size={20}
-          onClick={() => {
-            setPopupInfo(point);
-            history.push(`/map?name=${point.properties.name}`);
-          }}
-        />
-      </Marker>
+      displayedPoints &&
+      displayedPoints.map((point, index) => (
+        <Marker
+          key={`marker-${index}`}
+          longitude={point.geometry.coordinates[0]}
+          latitude={point.geometry.coordinates[1]}
+        >
+          <CityPin
+            size={20}
+            onClick={() => {
+              setPopupInfo(point);
+              history.push(`/map?name=${point.properties.name}`);
+            }}
+          />
+        </Marker>
+      ))
     );
   };
 
@@ -106,6 +109,20 @@ export default withRouter(({ pointData, location, history }) => {
     );
   };
 
+  const _renderSlider = () => {
+    return (
+      displayedPoints && (
+        <Slider {...sliderSettings}>
+          {displayedPoints.map((point, id) => (
+            <div key={id}>
+              <Header as="h3">{point.properties.name}</Header>
+            </div>
+          ))}
+        </Slider>
+      )
+    );
+  };
+
   return (
     <React.Fragment>
       <Header as="h4">
@@ -123,18 +140,11 @@ export default withRouter(({ pointData, location, history }) => {
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation={true}
         />
-        {displayedPoints && displayedPoints.map(_renderMarker)}
+        {_renderMarker()}
         {_renderPopup()}
         {/* {map.current && console.log(map.current.getMap().setLayoutProperty)} */}
       </MapGL>
-      <Slider {...sliderSettings}>
-        {displayedPoints &&
-          displayedPoints.map((point, id) => (
-            <div key={id}>
-              <Header as="h3">{point.properties.name}</Header>
-            </div>
-          ))}
-      </Slider>
+      {_renderSlider()}
     </React.Fragment>
   );
 });

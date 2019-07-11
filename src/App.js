@@ -11,7 +11,7 @@ export default () => {
     import('./mapData.json').then(data => {
       setPointData(data.default.features);
     });
-  }, [pointData]);
+  }, []);
 
   return (
     <Router>
