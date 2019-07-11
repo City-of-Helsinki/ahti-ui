@@ -1,76 +1,43 @@
-import React, { useState, useEffect, useContext, lazy, Suspense } from 'react';
-// import MapboxMap from './Components/MapboxMap/MapboxMap';
+import React from 'react';
+import MapPage from './Components/MapPage/MapPage';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Header } from 'semantic-ui-react';
-import Slider from 'react-slick';
+import Home from './Components/Home/Home';
 
-const MapboxMap = lazy(() => import('./Components/MapboxMap/MapboxMap'));
+export const GlobalGeoContext = React.createContext();
 
-const AppContext = React.createContext();
-export { AppContext };
+export class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pointData: [],
+    };
+  }
 
-const settings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  adaptiveHeight: true,
-};
-
-export default () => {
-  const [geoData, setGeoData] = useState([]);
-
-  useEffect(() => {
+  componentDidMount() {
     import('./mapData.json').then(data => {
-      setGeoData(data.default.features);
+      this.setState({
+        pointData: data.default.features,
+      });
     });
-  }, [geoData]);
+  }
 
-  return (
-    <Router>
-      <div>
-        <Link to="/">
-          <Header as="h3">Home</Header>
-        </Link>
-        <Link to="/map">
-          <Header as="h3">Map</Header>
-        </Link>
-      </div>
-      <Suspense fallback={<div>Map Data Loading...</div>}>
-        <AppContext.Provider value={geoData}>
-          <Route
-            exact
-            path="/"
-            component={() => (
-              <div>
-                <Header as="h1">Discover</Header>
-                <div>
-                  {useContext(AppContext) &&
-                    [
-                      ...new Set(
-                        useContext(AppContext).map(
-                          point => point.properties.type
-                        )
-                      ),
-                    ].map((point, id) => (
-                      <Link
-                        to={{
-                          pathname: '/map',
-                          search: `?collection=${point}`,
-                        }}
-                        key={id}
-                      >
-                        <Header as="h3">{point}</Header>
-                      </Link>
-                    ))}
-                </div>
-              </div>
-            )}
-          />
-          <Route path="/map" component={() => <MapboxMap />} />
-        </AppContext.Provider>
-      </Suspense>
-    </Router>
-  );
-};
+  render() {
+    return (
+      <GlobalGeoContext.Provider value={this.state.pointData}>
+        <Router>
+          <div>
+            <Link to="/">
+              <Header as="h3">Home</Header>
+            </Link>
+            <Link to="/map">
+              <Header as="h3">Map</Header>
+            </Link>
+          </div>
+          <Route exact path="/" component={() => <Home />} />
+          <Route path="/map" component={() => <MapPage />} />
+        </Router>
+      </GlobalGeoContext.Provider>
+    );
+  }
+}
