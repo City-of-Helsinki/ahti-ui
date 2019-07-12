@@ -23,8 +23,6 @@ const MapPage = ({ location, history }) => {
   });
 
   useEffect(() => {
-    console.log('I go second');
-
     let filteredPoints = pointData;
 
     const browserQuery = queryString.parse(location.search);
@@ -42,7 +40,6 @@ const MapPage = ({ location, history }) => {
 
   return (
     <React.Fragment>
-      {console.log('I go first')}
       <Header as="h4">Displayed collection:</Header>
       {displayedPoints.length > 0 && (
         <React.Fragment>

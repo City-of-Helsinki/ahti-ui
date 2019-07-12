@@ -6,9 +6,8 @@ import Slider from 'react-slick';
 export default ({ viewport, setViewport, displayedPoints }) => {
   const sliderSettings = {
     dots: false,
-    infinite: false,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
     beforeChange: (current, next) => {
@@ -29,6 +28,7 @@ export default ({ viewport, setViewport, displayedPoints }) => {
   let sortedPoints = displayedPoints.sort(
     (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
   );
+
   return (
     <Slider {...sliderSettings}>
       {sortedPoints.map((point, id) => (
