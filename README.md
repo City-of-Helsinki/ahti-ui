@@ -1,13 +1,54 @@
 # Helsinki City Ahti project
 
+![Helsinki City Ahti project](Mockup-1.png)
+
+## General information
+
+This project is a two-weeks long project for solely demo purposes.
+We are planning to show it to Helsinki City organisation for it to get more finances.
+
+### Scope of the project
+
+For now scope of the project includes:
+
+- map with markers of places
+- list of places of interest by type and category
+- views and UIs that comply with Helsinki City brand guidelines
+- localization
+
+Not in scope:
+
+- accesibility
+- server site rendering
+- visual and programmatic testing
+
+## Design sources
+
+Are in Figma https://www.figma.com/file/ZKAH36THbAPVs9gNdmH8N6Dh/Ahti?node-id=0%3A1
+
+## Map
+
+The map we use is Mapbox:
+
+- minimal style: `mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf`
+
 ## Data
 
-In order to create data we use
-geojson.io
+In order to create data we use [geojson.io](geojson.io)
 
 http://geojson.io/#map=12/60.1367/24.9237
 
-The fule is in /src/mapData.geojson
+The file is in /src/mapData.geojson that is remporarily changed to `.json` for import reasons
+
+We filter data by data types and tags. So far the types that we have are:
+
+- 'beach'
+- 'restaurant'
+- 'island'
+- 'cafe'
+- 'church'
+
+## TODO
 
 ### TODO #1
 
@@ -16,25 +57,14 @@ Beaches
 https://theculturetrip.com/europe/finland/articles/7-beaches-you-need-to-visit-in-helsinki/
 https://www.hel.fi/helsinki/en/culture/sports/outdoor/outdoor-swimming/
 https://www.hel.fi/helsinki/en/culture/sports/outdoor/outdoor-swimming/nudist-beaches
-
-Add types:
-'beaches'
-'restaurants'
-'islands'
-
-### TODO #2
-
-Swimming suggestins
-
+https://ulkoliikunta.fi/
 https://www.hel.fi/helsinki/en/culture/sports/outdoor/outdoor-swimming/quality
 
-https://ulkoliikunta.fi/
+## Technical details
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-In the project directory, you can run:
+## Available Scripts (we use yarn instead of npm)
 
 ### `npm start`
 
@@ -59,7 +89,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `npm run eject` WE DID NOT DO IT YET AND NOT REALLY SURE IF WE NEED TO
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
