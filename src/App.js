@@ -24,7 +24,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { t } = this.props;
+    const { i18n } = this.props;
 
     return (
       <GlobalGeoContext.Provider value={this.state.pointData}>
@@ -36,7 +36,8 @@ class App extends React.Component {
             <Link to="/map">
               <Header as="h3">Map</Header>
             </Link>
-            <h1>{t('Greetings')}</h1>
+            <button onClick={() => i18n.changeLanguage('en')}>en</button>
+            <button onClick={() => i18n.changeLanguage('fi')}>fi</button>
           </div>
           <Route exact path="/" component={() => <Home />} />
           <Route path="/map" component={() => <MapPage />} />
