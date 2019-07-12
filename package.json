@@ -10,6 +10,7 @@
     "lint-staged": "^9.1.0",
     "normalize.css": "^8.0.1",
     "prettier": "1.18.2",
+    "query-string": "^6.8.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-map-gl": "^5.0.3",

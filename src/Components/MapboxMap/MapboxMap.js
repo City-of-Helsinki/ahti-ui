@@ -1,67 +1,73 @@
-import React from 'react';
-import MapGL, { Marker, Popup } from 'react-map-gl';
+import React, { useState, useRef } from 'react';
+import MapGL, { Marker, Popup, GeolocateControl } from 'react-map-gl';
+import CityPin from '../Utils/city-pin';
+import CityInfo from '../Utils/city-info';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import AppContext from '../../App';
 
-// const defaultViewport = {
-//   latitude: 60.15,
-//   longitude: 24.944,
-//   zoom: 10,
-//   bearing: 0,
-//   pitch: 0,
-//   minzoom: 3,
-//   maxzoom: 9,
-// };
+export default ({ viewport, setViewport, displayedPoints, history }) => {
+  const map = useRef(null);
 
-// function MapboxMap(props) {
-//   return (
-//     <MapGL
-//       ref={map}
-//       {...viewport}
-//       mapStyle="mapbox://styles/ohel/cjxodqmm92eao1cqnjz85qnww"
-//       mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
-//       width="100%"
-//       height="100%"
-//       onViewportChange={viewport => setViewport(viewport)}
-//       clickRadius={2}
-//     >
-//       {pointData.map((point, index) => (
-//         <Marker
-//           key={`marker-${index}`}
-//           longitude={point.location.longitude}
-//           latitude={point.location.latitude}
-//         >
-//           <CityPin size={50} onClick={() => _markerOnClick(point)} />
-//         </Marker>
-//       ))}
-//     </MapGL>
-//   );
-// }
+  const [popupInfo, setPopupInfo] = useState(null);
 
-export default class MapboxMap extends React.Component {
-  state = {
-    viewport: {
-      width: 400,
-      height: 400,
-      latitude: 60.15,
-      longitude: 24.944,
-      zoom: 10,
-      minzoom: 3,
-      maxzoom: 9,
-      bearing: 0,
-      pitch: 0,
-    },
+  const _renderMarker = () => {
+    return (
+      displayedPoints &&
+      displayedPoints.map((point, index) => (
+        <Marker
+          key={`marker-${index}`}
+          longitude={point.geometry.coordinates[0]}
+          latitude={point.geometry.coordinates[1]}
+        >
+          <CityPin
+            size={20}
+            onClick={() => {
+              setPopupInfo(point);
+              history.push(`/map?name=${point.properties.name}`);
+            }}
+          />
+        </Marker>
+      ))
+    );
   };
 
-  render() {
-    console.log('hello, map');
+  const _renderPopup = () => {
     return (
+      popupInfo && (
+        <Popup
+          tipSize={5}
+          anchor="top"
+          longitude={popupInfo.geometry.coordinates[0]}
+          latitude={popupInfo.geometry.coordinates[1]}
+          closeOnClick={false}
+          onClose={() => {
+            setPopupInfo(null);
+            history.push('/map');
+          }}
+        >
+          <CityInfo info={popupInfo.properties} />
+        </Popup>
+      )
+    );
+  };
+
+  return (
+    <React.Fragment>
       <MapGL
-        {...this.state.viewport}
-        onViewportChange={viewport => this.setState({ viewport })}
+        ref={map}
+        {...viewport}
+        onViewportChange={viewport => setViewport(viewport)}
         mapStyle="mapbox://styles/ohel/cjxodqmm92eao1cqnjz85qnww"
         mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
         className="map"
-      />
-    );
-  }
-}
+      >
+        <GeolocateControl
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+        />
+        {_renderMarker()}
+        {_renderPopup()}
+      </MapGL>
+    </React.Fragment>
+  );
+};
