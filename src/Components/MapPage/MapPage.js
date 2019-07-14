@@ -10,6 +10,7 @@ const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
 
   const [displayedPoints, setDisplayedPoints] = useState([]);
+  const [useLocation, setUseLocation] = useState(false);
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
@@ -23,7 +24,8 @@ const MapPage = ({ location, history }) => {
   });
 
   useEffect(() => {
-    let filteredPoints = pointData;
+    // shallow copy so global context is not mutated
+    let filteredPoints = [...pointData];
 
     const browserQuery = queryString.parse(location.search);
 
@@ -37,8 +39,14 @@ const MapPage = ({ location, history }) => {
       );
     }
 
+    if (useLocation) {
+      filteredPoints.sort(
+        (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
+      );
+    }
+
     setDisplayedPoints(filteredPoints);
-  }, [location.search, pointData]);
+  }, [location.search, pointData, useLocation]);
 
   return (
     <React.Fragment>

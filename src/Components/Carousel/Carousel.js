@@ -25,13 +25,9 @@ export default ({ viewport, setViewport, displayedPoints }) => {
     },
   };
 
-  let sortedPoints = displayedPoints.sort(
-    (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
-  );
-
   return (
     <Slider {...sliderSettings}>
-      {sortedPoints.map((point, id) => (
+      {displayedPoints.map((point, id) => (
         <div key={id}>
           <Header as="h3">{point.properties.name}</Header>
         </div>
