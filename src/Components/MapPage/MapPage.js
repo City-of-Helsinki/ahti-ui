@@ -27,11 +27,13 @@ const MapPage = ({ location, history }) => {
 
     const browserQuery = queryString.parse(location.search);
 
-    if (browserQuery.type || browserQuery.name) {
+    if (browserQuery.type || browserQuery.name || browserQuery.tag) {
       filteredPoints = filteredPoints.filter(
         point =>
           point.properties.type === browserQuery.type ||
-          point.properties.name === browserQuery.name
+          point.properties.name === browserQuery.name ||
+          (point.properties.tag &&
+            point.properties.tag.includes(browserQuery.tag))
       );
     }
 
@@ -41,21 +43,21 @@ const MapPage = ({ location, history }) => {
   return (
     <React.Fragment>
       <Header as="h4">Displayed collection:</Header>
-      {displayedPoints.length > 0 && (
-        <React.Fragment>
-          <MapboxMap
-            history={history}
-            viewport={viewport}
-            setViewport={setViewport}
-            displayedPoints={displayedPoints}
-          />
+      <React.Fragment>
+        <MapboxMap
+          history={history}
+          viewport={viewport}
+          setViewport={setViewport}
+          displayedPoints={displayedPoints}
+        />
+        {displayedPoints.length > 0 && (
           <Carousel
             viewport={viewport}
             setViewport={setViewport}
             displayedPoints={displayedPoints}
           />
-        </React.Fragment>
-      )}
+        )}
+      </React.Fragment>
     </React.Fragment>
   );
 };
