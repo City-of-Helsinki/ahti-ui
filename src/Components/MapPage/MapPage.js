@@ -32,8 +32,10 @@ const MapPage = ({ location, history }) => {
     if (browserQuery.type || browserQuery.name || browserQuery.tag) {
       filteredPoints = filteredPoints.filter(
         point =>
-          point.properties.type === browserQuery.type ||
-          point.properties.name === browserQuery.name ||
+          (point.properties.type &&
+            point.properties.type === browserQuery.type) ||
+          (point.properties.name &&
+            point.properties.name === browserQuery.name) ||
           (point.properties.tag &&
             point.properties.tag.includes(browserQuery.tag))
       );
