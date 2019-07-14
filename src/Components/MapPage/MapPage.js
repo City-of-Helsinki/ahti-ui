@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Header } from 'semantic-ui-react';
 import { GlobalGeoContext } from '../../App';
 import queryString from 'query-string';
 import MapboxMap from '../MapboxMap/MapboxMap';
@@ -52,22 +51,15 @@ const MapPage = ({ location, history }) => {
 
   return (
     <React.Fragment>
-      <Header as="h4">Displayed collection:</Header>
-      <React.Fragment>
-        <MapboxMap
-          history={history}
-          viewport={viewport}
-          setViewport={setViewport}
-          displayedPoints={displayedPoints}
-        />
-        {displayedPoints.length > 0 && (
-          <Carousel
-            viewport={viewport}
-            setViewport={setViewport}
-            displayedPoints={displayedPoints}
-          />
-        )}
-      </React.Fragment>
+      <MapboxMap
+        history={history}
+        viewport={viewport}
+        setViewport={setViewport}
+        displayedPoints={displayedPoints}
+      />
+      {displayedPoints.length > 0 && (
+        <Carousel setViewport={setViewport} displayedPoints={displayedPoints} />
+      )}
     </React.Fragment>
   );
 };

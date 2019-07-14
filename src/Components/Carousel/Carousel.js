@@ -3,7 +3,7 @@ import { FlyToInterpolator } from 'react-map-gl';
 import { Header } from 'semantic-ui-react';
 import Slider from 'react-slick';
 
-export default ({ viewport, setViewport, displayedPoints }) => {
+const Carousel = ({ setViewport, displayedPoints }) => {
   const sliderSettings = {
     dots: false,
     speed: 500,
@@ -35,3 +35,5 @@ export default ({ viewport, setViewport, displayedPoints }) => {
     </Slider>
   );
 };
+
+export default React.memo(Carousel);
