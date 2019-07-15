@@ -66,7 +66,15 @@ const MapPage = ({ location, history }) => {
         displayedPoints={displayedPoints}
       />
       {displayedPoints.length > 0 && (
-        <Carousel setViewport={setViewport} displayedPoints={displayedPoints} />
+        <Carousel
+          viewport={viewport}
+          setViewport={setViewport}
+          displayedPoints={displayedPoints}
+          history={history}
+        />
+      )}
+      {queryString.parse(location.search).name && (
+        <button onClick={history.goBack}>Back</button>
       )}
     </React.Fragment>
   );
