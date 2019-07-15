@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import MapboxMap from '../MapboxMap/MapboxMap';
 import Carousel from '../Carousel/Carousel';
 import MapCard from '../MapCard/MapCard';
+import { FlyToInterpolator } from 'react-map-gl';
 
 const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
@@ -56,7 +57,25 @@ const MapPage = ({ location, history }) => {
     }
 
     setDisplayedPoints(filteredPoints);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search, pointData, useLocation]);
+
+  const flyToPoint = (index, transitionDuration) => {
+    const longitude = displayedPoints[index].geometry.coordinates[0];
+    const latitude = displayedPoints[index].geometry.coordinates[1];
+    if (
+      Math.abs(viewport.latitude - latitude) > 0.000001 &&
+      Math.abs(viewport.longitude - longitude) > 0.000001
+    ) {
+      setViewport({
+        longitude,
+        latitude,
+        zoom: 12,
+        transitionInterpolator: new FlyToInterpolator(),
+        transitionDuration,
+      });
+    }
+  };
 
   return (
     <React.Fragment>
@@ -74,10 +93,11 @@ const MapPage = ({ location, history }) => {
             setCurrentSlide={setCurrentSlide}
             previousSlide={previousSlide}
             setPreviousSlide={setPreviousSlide}
-            location={location}
             viewport={viewport}
             setViewport={setViewport}
+            flyToPoint={flyToPoint}
             displayedPoints={displayedPoints}
+            location={location}
             history={history}
           />
         )}

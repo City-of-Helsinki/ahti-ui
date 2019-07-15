@@ -1,28 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FlyToInterpolator } from 'react-map-gl';
 import { Header } from 'semantic-ui-react';
 import Slider from 'react-slick';
 import queryString from 'query-string';
 
 export default class Carousel extends React.Component {
-  flyToPoint(index, transitionDuration) {
-    const longitude = this.props.displayedPoints[index].geometry.coordinates[0];
-    const latitude = this.props.displayedPoints[index].geometry.coordinates[1];
-    if (
-      Math.abs(this.props.viewport.latitude - latitude) > 0.000001 &&
-      Math.abs(this.props.viewport.longitude - longitude) > 0.000001
-    ) {
-      this.props.setViewport({
-        longitude,
-        latitude,
-        zoom: 12,
-        transitionInterpolator: new FlyToInterpolator(),
-        transitionDuration,
-      });
-    }
-  }
-
   sliderSettings = {
     dots: false,
     infinite: false,
@@ -32,7 +14,7 @@ export default class Carousel extends React.Component {
     adaptiveHeight: true,
     beforeChange: (current, next) => {
       if (current !== next && this.props.displayedPoints[next]) {
-        this.flyToPoint(next, 300);
+        this.props.flyToPoint(next, 300);
       }
     },
     afterChange: current => this.props.setCurrentSlide(current),
@@ -59,7 +41,7 @@ export default class Carousel extends React.Component {
     } else {
       setTimeout(() => {
         if (this.props.displayedPoints[0]) {
-          this.flyToPoint(0, 1000);
+          this.props.flyToPoint(0, 1000);
         }
       }, 500);
     }
