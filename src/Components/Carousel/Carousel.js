@@ -12,7 +12,7 @@ const Carousel = ({ setViewport, displayedPoints }) => {
     slidesToScroll: 1,
     adaptiveHeight: true,
     beforeChange: (current, next) => {
-      if (displayedPoints[next]) {
+      if (current !== next && displayedPoints[next]) {
         const longitude = displayedPoints[next].geometry.coordinates[0];
         const latitude = displayedPoints[next].geometry.coordinates[1];
         setViewport({
