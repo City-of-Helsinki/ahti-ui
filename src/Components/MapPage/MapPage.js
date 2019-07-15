@@ -10,6 +10,8 @@ const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
 
   const [displayedPoints, setDisplayedPoints] = useState([]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [previousSlide, setPreviousSlide] = useState(false);
   const [useLocation, setUseLocation] = useState(false);
 
   // TODO: only rerender map center in state
@@ -68,6 +70,10 @@ const MapPage = ({ location, history }) => {
       {displayedPoints.length > 0 &&
         !queryString.parse(location.search).name && (
           <Carousel
+            currentSlide={currentSlide}
+            setCurrentSlide={setCurrentSlide}
+            previousSlide={previousSlide}
+            setPreviousSlide={setPreviousSlide}
             location={location}
             viewport={viewport}
             setViewport={setViewport}

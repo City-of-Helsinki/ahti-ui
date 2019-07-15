@@ -2,7 +2,7 @@ import React from 'react';
 
 export default ({ pointData }) => {
   return (
-    pointData && (
+    (pointData && (
       <div>
         {pointData.properties.name && (
           <h1>name: {pointData.properties.name}</h1>
@@ -15,6 +15,7 @@ export default ({ pointData }) => {
         )}
         <p>other stuff goes here</p>
       </div>
-    )
+    )) ||
+    ''
   );
 };
