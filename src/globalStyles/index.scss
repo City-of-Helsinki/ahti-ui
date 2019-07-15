@@ -1,0 +1,78 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/sanitize.css/2.0.0/sanitize.min.css';
+@import './html5doctor.css';
+@import './fonts.css';
+
+/* my own reset*/
+
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
+/*variables*/
+
+$font-primary: sans-serif;
+$font-fallback-primary: Helvetica;
+$font-fallback-secondary: Arial;
+$font-family-primary: 'Helsinki Grotesk Regular';
+$font-size-primary: 12px;
+
+/* set base values */
+$text-base-size: 1em;
+$text-scale-ratio: 1.2;
+
+/* see https://css-tricks.com/snippets/css/system-font-stack/ */
+
+$font-family: $font-family-primary, $font-fallback-primary,
+  $font-fallback-secondary, $font-primary;
+
+/* type scale */
+$text-xs: calc($text-base-size / ($text-scale-ratio * $text-scale-ratio));
+$text-sm: calc($text-base-size / var(--text-scale-ratio));
+$text-md: calc($text-base-size * var(--text-scale-ratio));
+$text-lg: calc(
+  $text-base-size * var(--text-scale-ratio) * var(--text-scale-ratio)
+);
+$text-xl: calc(
+  $text-base-size * var(--text-scale-ratio) * var(--text-scale-ratio) *
+    var(--text-scale-ratio)
+);
+$text-xxl: calc(
+  $text-base-size * var(--text-scale-ratio) * var(--text-scale-ratio) *
+    var(--text-scale-ratio) * var(--text-scale-ratio)
+);
+$text-xxxl: calc(
+  $text-base-size * var(--text-scale-ratio) * var(--text-scale-ratio) *
+    var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio)
+);
+
+:root {
+  font-size: $font-size-primary;
+}
+
+/* rewrite libraries*/
+
+.slick-slide {
+  box-sizing: border-box;
+  padding-right: 1rem;
+}
+
+/* own css*/
+
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+  max-width: 100vw;
+
+  font-size: $text-base-size;
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+
+  color: black;
+
+  #root {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
