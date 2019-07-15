@@ -57,10 +57,15 @@ export default class Carousel extends React.Component {
     return (
       <Slider {...this.sliderSettings}>
         {this.props.displayedPoints.map((point, id) => {
-          const query = queryString.stringify({
-            ...queryString.parse(this.props.location.search),
-            name: point.properties.name,
-          });
+          const query =
+            point.properties.type === 'island'
+              ? queryString.stringify({
+                  tag: point.properties.name,
+                })
+              : queryString.stringify({
+                  ...queryString.parse(this.props.location.search),
+                  name: point.properties.name,
+                });
           return (
             <div key={id}>
               <Link
