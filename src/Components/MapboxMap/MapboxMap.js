@@ -3,7 +3,6 @@ import MapGL, { Marker, Popup, GeolocateControl } from 'react-map-gl';
 import CityPin from '../Utils/city-pin';
 import CityInfo from '../Utils/city-info';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import AppContext from '../../App';
 
 export default ({ viewport, setViewport, displayedPoints, history }) => {
   const map = useRef(null);
@@ -57,7 +56,7 @@ export default ({ viewport, setViewport, displayedPoints, history }) => {
         ref={map}
         {...viewport}
         onViewportChange={viewport => setViewport(viewport)}
-        mapStyle="mapbox://styles/ohel/cjxodqmm92eao1cqnjz85qnww"
+        mapStyle="mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf"
         mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
         className="map"
       >
