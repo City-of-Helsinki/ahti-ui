@@ -11,7 +11,6 @@ const MapPage = ({ location, history }) => {
   const [displayedPoints, setDisplayedPoints] = useState([]);
   const [useLocation, setUseLocation] = useState(false);
 
-
   // TODO: only rerender map center in state
   // (maybe this will prevvent the components from re-renderinng)
   // https://www.robinwieruch.de/react-prevent-rerender-component/https://www.robinwieruch.de/react-prevent-rerender-component/
@@ -47,10 +46,12 @@ const MapPage = ({ location, history }) => {
       );
     }
 
-    if (useLocation) {
+    if (!useLocation) {
       filteredPoints.sort(
         (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
       );
+    } else {
+      // Add location based sorting later
     }
 
     setDisplayedPoints(filteredPoints);
