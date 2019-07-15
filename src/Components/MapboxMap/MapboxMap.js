@@ -1,13 +1,25 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import MapGL, { Marker, Popup, GeolocateControl } from 'react-map-gl';
 import CityPin from '../Utils/city-pin';
 import CityInfo from '../Utils/city-info';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { useTranslation } from 'react-i18next';
 
 export default ({ viewport, setViewport, displayedPoints, history }) => {
+  const { t, i18n } = useTranslation();
   const map = useRef(null);
-
+  const [mapStyle, setMapStyle] = useState(
+    'mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf'
+  );
   const [popupInfo, setPopupInfo] = useState(null);
+
+  useEffect(() => {
+    if (i18n.language && i18n.language !== 'fi') {
+      setMapStyle('mapbox://styles/strawshield/cjxx3eh3t2oib1cpm9fxw4i9j');
+    } else {
+      setMapStyle('mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf');
+    }
+  }, [i18n.language]);
 
   const _renderMarker = () => {
     return (
@@ -56,7 +68,7 @@ export default ({ viewport, setViewport, displayedPoints, history }) => {
         ref={map}
         {...viewport}
         onViewportChange={viewport => setViewport(viewport)}
-        mapStyle="mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf"
+        mapStyle={mapStyle}
         mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
         className="map"
       >
@@ -67,6 +79,7 @@ export default ({ viewport, setViewport, displayedPoints, history }) => {
         {_renderMarker()}
         {_renderPopup()}
       </MapGL>
+      <h2>{t('Greetings')}</h2>
     </React.Fragment>
   );
 };
