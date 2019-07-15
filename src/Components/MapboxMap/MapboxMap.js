@@ -34,6 +34,16 @@ export default ({
           queryString.parse(location.search).name === point.properties.name
             ? 50
             : 20;
+
+        const query =
+          point.properties.type === 'island'
+            ? queryString.stringify({
+                tag: point.properties.name,
+              })
+            : queryString.stringify({
+                ...queryString.parse(location.search),
+                name: point.properties.name,
+              });
         return (
           <Marker
             key={`marker-${index}`}
@@ -43,7 +53,7 @@ export default ({
             <CityPin
               size={pinSize}
               onClick={() => {
-                history.push(`/map?name=${point.properties.name}`);
+                history.push(`/map?${query}`);
               }}
             />
           </Marker>
