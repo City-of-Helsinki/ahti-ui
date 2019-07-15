@@ -3,16 +3,16 @@ import { FlyToInterpolator } from 'react-map-gl';
 import { Header } from 'semantic-ui-react';
 import Slider from 'react-slick';
 
-export default ({ viewport, setViewport, displayedPoints }) => {
+const Carousel = ({ setViewport, displayedPoints }) => {
   const sliderSettings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
     beforeChange: (current, next) => {
-      if (displayedPoints[next]) {
+      if (current !== next && displayedPoints[next]) {
         const longitude = displayedPoints[next].geometry.coordinates[0];
         const latitude = displayedPoints[next].geometry.coordinates[1];
         setViewport({
@@ -26,12 +26,9 @@ export default ({ viewport, setViewport, displayedPoints }) => {
     },
   };
 
-  let sortedPoints = displayedPoints.sort(
-    (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
-  );
   return (
     <Slider {...sliderSettings}>
-      {sortedPoints.map((point, id) => (
+      {displayedPoints.map((point, id) => (
         <div key={id}>
           <Header as="h3">{point.properties.name}</Header>
         </div>
@@ -39,3 +36,5 @@ export default ({ viewport, setViewport, displayedPoints }) => {
     </Slider>
   );
 };
+
+export default React.memo(Carousel);

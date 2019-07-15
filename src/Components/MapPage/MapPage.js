@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
-import { Header } from 'semantic-ui-react';
 import { GlobalGeoContext } from '../../App';
 import queryString from 'query-string';
 import MapboxMap from '../MapboxMap/MapboxMap';
@@ -10,11 +9,13 @@ const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
 
   const [displayedPoints, setDisplayedPoints] = useState([]);
+  const [useLocation, setUseLocation] = useState(false);
 
   // TODO: only rerender map center in state
   // (maybe this will prevvent the components from re-renderinng)
   // https://www.robinwieruch.de/react-prevent-rerender-component/https://www.robinwieruch.de/react-prevent-rerender-component/
   // https://stackoverflow.com/questions/42068283/how-prevent-rerender-of-parent-component-in-react-js
+
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
@@ -28,41 +29,44 @@ const MapPage = ({ location, history }) => {
   });
 
   useEffect(() => {
-    console.log('I go second');
-
-    let filteredPoints = pointData;
+    // shallow copy so global context is not mutated
+    let filteredPoints = [...pointData];
 
     const browserQuery = queryString.parse(location.search);
 
-    if (browserQuery.type || browserQuery.name) {
+    if (browserQuery.type || browserQuery.name || browserQuery.tag) {
       filteredPoints = filteredPoints.filter(
         point =>
-          point.properties.type === browserQuery.type ||
-          point.properties.name === browserQuery.name
+          (point.properties.type &&
+            point.properties.type === browserQuery.type) ||
+          (point.properties.name &&
+            point.properties.name === browserQuery.name) ||
+          (point.properties.tag &&
+            point.properties.tag.includes(browserQuery.tag))
       );
     }
 
+    if (!useLocation) {
+      filteredPoints.sort(
+        (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
+      );
+    } else {
+      // Add location based sorting later
+    }
+
     setDisplayedPoints(filteredPoints);
-  }, [location.search, pointData]);
+  }, [location.search, pointData, useLocation]);
 
   return (
     <React.Fragment>
-      {console.log('I go first')}
-      <Header as="h4">Displayed collection:</Header>
+      <MapboxMap
+        history={history}
+        viewport={viewport}
+        setViewport={setViewport}
+        displayedPoints={displayedPoints}
+      />
       {displayedPoints.length > 0 && (
-        <React.Fragment>
-          <MapboxMap
-            history={history}
-            viewport={viewport}
-            setViewport={setViewport}
-            displayedPoints={displayedPoints}
-          />
-          <Carousel
-            viewport={viewport}
-            setViewport={setViewport}
-            displayedPoints={displayedPoints}
-          />
-        </React.Fragment>
+        <Carousel setViewport={setViewport} displayedPoints={displayedPoints} />
       )}
     </React.Fragment>
   );
