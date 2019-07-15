@@ -4,6 +4,7 @@ import { GlobalGeoContext } from '../../App';
 import queryString from 'query-string';
 import MapboxMap from '../MapboxMap/MapboxMap';
 import Carousel from '../Carousel/Carousel';
+import MapCard from '../MapCard/MapCard';
 
 const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
@@ -34,13 +35,11 @@ const MapPage = ({ location, history }) => {
 
     const browserQuery = queryString.parse(location.search);
 
-    if (browserQuery.type || browserQuery.name || browserQuery.tag) {
+    if (browserQuery.type || browserQuery.tag) {
       filteredPoints = filteredPoints.filter(
         point =>
           (point.properties.type &&
             point.properties.type === browserQuery.type) ||
-          (point.properties.name &&
-            point.properties.name === browserQuery.name) ||
           (point.properties.tag &&
             point.properties.tag.includes(browserQuery.tag))
       );
@@ -65,16 +64,29 @@ const MapPage = ({ location, history }) => {
         setViewport={setViewport}
         displayedPoints={displayedPoints}
       />
-      {displayedPoints.length > 0 && (
-        <Carousel
-          viewport={viewport}
-          setViewport={setViewport}
-          displayedPoints={displayedPoints}
-          history={history}
-        />
-      )}
+      {displayedPoints.length > 0 &&
+        !queryString.parse(location.search).name && (
+          <Carousel
+            location={location}
+            viewport={viewport}
+            setViewport={setViewport}
+            displayedPoints={displayedPoints}
+            history={history}
+          />
+        )}
       {queryString.parse(location.search).name && (
-        <button onClick={history.goBack}>Back</button>
+        <React.Fragment>
+          <button onClick={history.goBack}>Back</button>
+          <MapCard
+            pointData={
+              displayedPoints.filter(
+                point =>
+                  point.properties.name ===
+                  queryString.parse(location.search).name
+              )[0]
+            }
+          />
+        </React.Fragment>
       )}
     </React.Fragment>
   );

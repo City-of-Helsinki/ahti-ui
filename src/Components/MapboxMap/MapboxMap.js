@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import MapGL, { Marker, Popup, GeolocateControl } from 'react-map-gl';
+import MapGL, { Marker, GeolocateControl } from 'react-map-gl';
 import CityPin from '../Utils/city-pin';
-import CityInfo from '../Utils/city-info';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
 
@@ -11,7 +10,6 @@ export default ({ viewport, setViewport, displayedPoints, history }) => {
   const [mapStyle, setMapStyle] = useState(
     'mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf'
   );
-  const [popupInfo, setPopupInfo] = useState(null);
 
   useEffect(() => {
     if (i18n.language && i18n.language !== 'fi') {
@@ -33,32 +31,11 @@ export default ({ viewport, setViewport, displayedPoints, history }) => {
           <CityPin
             size={20}
             onClick={() => {
-              setPopupInfo(point);
               history.push(`/map?name=${point.properties.name}`);
             }}
           />
         </Marker>
       ))
-    );
-  };
-
-  const _renderPopup = () => {
-    return (
-      popupInfo && (
-        <Popup
-          tipSize={5}
-          anchor="top"
-          longitude={popupInfo.geometry.coordinates[0]}
-          latitude={popupInfo.geometry.coordinates[1]}
-          closeOnClick={false}
-          onClose={() => {
-            setPopupInfo(null);
-            history.push('/map');
-          }}
-        >
-          <CityInfo info={popupInfo.properties} />
-        </Popup>
-      )
     );
   };
 
@@ -77,7 +54,6 @@ export default ({ viewport, setViewport, displayedPoints, history }) => {
           trackUserLocation={true}
         />
         {_renderMarker()}
-        {_renderPopup()}
       </MapGL>
       <h2>{t('Greetings')}</h2>
     </React.Fragment>

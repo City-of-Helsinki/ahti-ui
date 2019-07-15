@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FlyToInterpolator } from 'react-map-gl';
 import { Header } from 'semantic-ui-react';
 import Slider from 'react-slick';
+import queryString from 'query-string';
 
 export default class Carousel extends React.Component {
   flyToPoint(index, transitionDuration) {
@@ -55,18 +56,24 @@ export default class Carousel extends React.Component {
   render() {
     return (
       <Slider {...this.sliderSettings}>
-        {this.props.displayedPoints.map((point, id) => (
-          <div key={id}>
-            <Link
-              to={{
-                pathname: '/map',
-                search: `?name=${point.properties.name}`,
-              }}
-            >
-              <Header as="h3">{point.properties.name}</Header>
-            </Link>
-          </div>
-        ))}
+        {this.props.displayedPoints.map((point, id) => {
+          const query = queryString.stringify({
+            ...queryString.parse(this.props.location.search),
+            name: point.properties.name,
+          });
+          return (
+            <div key={id}>
+              <Link
+                to={{
+                  pathname: '/map',
+                  search: query,
+                }}
+              >
+                <Header as="h3">{point.properties.name}</Header>
+              </Link>
+            </div>
+          );
+        })}
       </Slider>
     );
   }
