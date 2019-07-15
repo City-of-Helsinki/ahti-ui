@@ -3,7 +3,6 @@ import Slider from 'react-slick';
 import { Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { GlobalGeoContext } from '../../App';
-import './Home.scss';
 import Button from '../Button/Button';
 import MapOverlay from '../MapOverlay/MapOverlay';
 import Section from '../Section/Section';
