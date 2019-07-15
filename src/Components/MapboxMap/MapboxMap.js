@@ -3,8 +3,15 @@ import MapGL, { Marker, GeolocateControl } from 'react-map-gl';
 import CityPin from '../Utils/city-pin';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
+import queryString from 'query-string';
 
-export default ({ viewport, setViewport, displayedPoints, history }) => {
+export default ({
+  viewport,
+  setViewport,
+  displayedPoints,
+  history,
+  location,
+}) => {
   const { t, i18n } = useTranslation();
   const map = useRef(null);
   const [mapStyle, setMapStyle] = useState(
@@ -22,20 +29,26 @@ export default ({ viewport, setViewport, displayedPoints, history }) => {
   const _renderMarker = () => {
     return (
       displayedPoints &&
-      displayedPoints.map((point, index) => (
-        <Marker
-          key={`marker-${index}`}
-          longitude={point.geometry.coordinates[0]}
-          latitude={point.geometry.coordinates[1]}
-        >
-          <CityPin
-            size={20}
-            onClick={() => {
-              history.push(`/map?name=${point.properties.name}`);
-            }}
-          />
-        </Marker>
-      ))
+      displayedPoints.map((point, index) => {
+        const pinSize =
+          queryString.parse(location.search).name === point.properties.name
+            ? 50
+            : 20;
+        return (
+          <Marker
+            key={`marker-${index}`}
+            longitude={point.geometry.coordinates[0]}
+            latitude={point.geometry.coordinates[1]}
+          >
+            <CityPin
+              size={pinSize}
+              onClick={() => {
+                history.push(`/map?name=${point.properties.name}`);
+              }}
+            />
+          </Marker>
+        );
+      })
     );
   };
 

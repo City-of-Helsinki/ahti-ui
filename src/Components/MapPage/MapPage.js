@@ -59,6 +59,7 @@ const MapPage = ({ location, history }) => {
   return (
     <React.Fragment>
       <MapboxMap
+        location={location}
         history={history}
         viewport={viewport}
         setViewport={setViewport}
