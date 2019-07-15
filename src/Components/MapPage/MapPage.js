@@ -10,6 +10,13 @@ const MapPage = ({ location, history }) => {
 
   const [displayedPoints, setDisplayedPoints] = useState([]);
   const [useLocation, setUseLocation] = useState(false);
+
+
+  // TODO: only rerender map center in state
+  // (maybe this will prevvent the components from re-renderinng)
+  // https://www.robinwieruch.de/react-prevent-rerender-component/https://www.robinwieruch.de/react-prevent-rerender-component/
+  // https://stackoverflow.com/questions/42068283/how-prevent-rerender-of-parent-component-in-react-js
+
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
