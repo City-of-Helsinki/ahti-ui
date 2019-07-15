@@ -375,6 +375,123 @@
         "type": "Point",
         "coordinates": [24.946440160274506, 60.1529601590748]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Suomenlinna",
+        "address": "00190 Helsinki",
+        "website": "https://www.suomenlinna.fi/en/",
+        "type": "island"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.98544216156006, 60.14834108584633]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Cafe Bar Valimo",
+        "address": "Suomenlinna B 13, 00190 Helsinki",
+        "website": "http://www.valimo.org/",
+        "type": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.942398071289062, 60.15257036640497]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Piper",
+        "address": "Suomenlinna C 40, 00190 Helsinki",
+        "website": "https://www.suomenlinna.fi/en/visitor/restaurants-and-cafes/piper/",
+        "type": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.952783584594727, 60.15316840257971]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Boat house",
+        "address": "Boat house, Merisatamanranta, 0014 Helsinki, Finland",
+        "website": "https://www.tripadvisor.com/Restaurant_Review-g189934-d947342-Reviews-Boathouse-Helsinki_Uusimaa.html",
+        "type": "restaurant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.947075843811035, 60.1514169802039]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Suomenlinna Church",
+        "address": "Suomenlinna Church, Susisaaren silta C 43, 00190 Helsinki, Finland",
+        "website": "https://www.suomenlinna.fi/en/visitor/sights/suomenlinna-church/",
+        "type": "church"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.9863862991333, 60.147849770513815]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Löyly",
+        "address": "Löyly, Hernesaarenranta 4, 00150 Helsinki, Finland",
+        "website": "http://www.loylyhelsinki.fi/en/front-page/",
+        "type": "restaurant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.93051052093506, 60.152356779420444]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hernesaarenranta",
+        "address": "Teltta, Hernesaarenranta, 00150 Helsinki, Finland",
+        "website": "http://www.hernesaarenranta.fi/",
+        "type": "beach"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.92626190185547, 60.147849770513815]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hietaranta beach",
+        "address": "Hiekkarannantie 11, 00100 Helsinki",
+        "website": "https://www.myhelsinki.fi/en/see-and-do/activities/hietaranta-beach",
+        "type": "beach"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.906638860702515, 60.174183530783836]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Isosaari island",
+        "address": "Isosaari, 00860 Helsinki",
+        "website": "https://www.myhelsinki.fi/en/see-and-do/activities/isosaari",
+        "type": "island"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.052947998046875, 60.10148359904609]
+      }
     }
   ]
 }
