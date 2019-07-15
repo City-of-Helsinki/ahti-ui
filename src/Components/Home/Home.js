@@ -7,6 +7,7 @@ import './Home.scss';
 
 const sliderSettings = {
   dots: false,
+  infinite: false,
   speed: 500,
   slidesToShow: 2,
   slidesToScroll: 1,
