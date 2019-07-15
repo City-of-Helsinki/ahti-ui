@@ -57,6 +57,17 @@ const MapPage = ({ location, history }) => {
     }
 
     setDisplayedPoints(filteredPoints);
+
+    if (browserQuery.name) {
+      const index = displayedPoints.findIndex(
+        point => point.properties.name === browserQuery.name
+      );
+      if (displayedPoints[index]) {
+        flyToPoint(index, 700);
+        setPreviousSlide(index);
+      }
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search, pointData, useLocation]);
 

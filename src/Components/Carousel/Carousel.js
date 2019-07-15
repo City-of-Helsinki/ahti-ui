@@ -12,6 +12,11 @@ export default class Carousel extends React.Component {
     slidesToShow: 1,
     slidesToScroll: 1,
     adaptiveHeight: true,
+    initialSlide:
+      this.props.previousSlide &&
+      this.props.displayedPoints[this.props.previousSlide]
+        ? this.props.previousSlide
+        : 0,
     beforeChange: (current, next) => {
       if (current !== next && this.props.displayedPoints[next]) {
         this.props.flyToPoint(next, 300);
@@ -26,25 +31,6 @@ export default class Carousel extends React.Component {
     }
 
     return nextProps.viewport === this.props.viewport;
-  }
-
-  componentDidMount() {
-    if (this.props.previousSlide) {
-      if (this.props.displayedPoints[this.props.previousSlide]) {
-        setTimeout(() => {
-          this.slider.slickGoTo(this.props.previousSlide);
-          this.props.setPreviousSlide(false);
-        }, 100);
-      } else {
-        this.props.setPreviousSlide(false);
-      }
-    } else {
-      setTimeout(() => {
-        if (this.props.displayedPoints[0]) {
-          this.props.flyToPoint(0, 1000);
-        }
-      }, 500);
-    }
   }
 
   render() {
