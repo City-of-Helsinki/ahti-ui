@@ -46,9 +46,21 @@ const sliderSettings2 = {
 
 export default () => {
   const contextGeoData = useContext(GlobalGeoContext);
+  const unmutatedGeoData = [...contextGeoData];
+  const unmutatedGeoDataTypesList = [
+    ...new Set(contextGeoData.map(point => point.properties.type)),
+  ];
   const geoDataByTypes = [
     ...new Set(contextGeoData.map(point => point.properties.type)),
   ].filter(type => type !== 'island');
+
+  const selectedIslands = unmutatedGeoData.filter(
+    point => point.properties.type === 'island'
+  );
+
+  let selectedIsland = selectedIslands.length > 0 ? selectedIslands[0] : {};
+
+  console.log('selectedIsland', selectedIsland);
   return (
     <React.Fragment>
       <MapOverlay>
@@ -60,7 +72,7 @@ export default () => {
       <Section>
         <SecondaryTitle>Popular places around</SecondaryTitle>
         <Slider {...sliderSettings1}>
-          {contextGeoData
+          {/* {contextGeoData
             .filter(point => point.properties.type === 'beach')
             .map((location, id) => (
               <div key={id}>
@@ -75,38 +87,47 @@ export default () => {
                   </Header>
                 </Link>
               </div>
-            ))}
+            ))} */}
           <RoundBoxWithText
             icon={<Beach />}
             title={<TertiaryTitle> Beaches </TertiaryTitle>}
-            pathToList={'/map?type=beach' || 'map'}
+            pathToList={'/map?type=island' || '/map'}
           ></RoundBoxWithText>
           <RoundBoxWithText
             icon={<Boat />}
             title={<TertiaryTitle> Boat rentals </TertiaryTitle>}
+            pathToList={'/map?type=boat' || '/map'}
           ></RoundBoxWithText>
           <RoundBoxWithText
             icon={<Park />}
             title={<TertiaryTitle> Parks </TertiaryTitle>}
+            pathToList={'/map?type=park' || '/map'}
           ></RoundBoxWithText>
           <RoundBoxWithText
             icon={<Park />}
             title={<TertiaryTitle> Parks </TertiaryTitle>}
+            pathToList={'/map?type=beach' || '/map'}
           ></RoundBoxWithText>
           <RoundBoxWithText
             icon={<Park />}
             title={<TertiaryTitle> Parks </TertiaryTitle>}
+            pathToList={'/map?type=beach' || '/map'}
           ></RoundBoxWithText>
         </Slider>
       </Section>
-      {contextGeoData && (
+      {selectedIsland.properties && (
         <Section
           withImage="true"
           imageURL="https://images.unsplash.com/photo-1562593028-2e975fe28a0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
         >
-          <SecondaryTitle>Lonna Island</SecondaryTitle>
-          <p>An island where you can spend the whole day with the family</p>
-          <Link to="/map?type=island">
+          {/* {[Math.floor(Math.random() * arr.length)]} */}
+          <SecondaryTitle>{selectedIsland.properties.name}</SecondaryTitle>
+          <p>
+            {selectedIsland.properties.header ||
+              `An island where you can spend the
+            whole day with the family`}
+          </p>
+          <Link to="/map?tag=suomenlinna">
             <Button whiteBtn="true">See all</Button>
           </Link>
         </Section>
