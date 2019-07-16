@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-export default ({ pointData }) => {
+const MapCard = ({ pointData }) => {
   return (
     (pointData && (
       <div>
@@ -19,3 +19,5 @@ export default ({ pointData }) => {
     ''
   );
 };
+
+export default memo(MapCard);

@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import MapboxMap from '../MapboxMap/MapboxMap';
 import Carousel from '../Carousel/Carousel';
 import MapCard from '../MapCard/MapCard';
+import TagCard from '../TagCard/TagCard';
 import { FlyToInterpolator } from 'react-map-gl';
 
 const MapPage = ({ location, history }) => {
@@ -100,7 +101,8 @@ const MapPage = ({ location, history }) => {
       )}
 
       {displayedPoints.length > 0 &&
-        !queryString.parse(location.search).name && (
+        !queryString.parse(location.search).name &&
+        !queryString.parse(location.search).tag && (
           <Carousel
             currentSlide={currentSlide}
             setCurrentSlide={setCurrentSlide}
@@ -126,6 +128,12 @@ const MapPage = ({ location, history }) => {
               )[0]
             }
           />
+        </React.Fragment>
+      )}
+      {queryString.parse(location.search).tag && (
+        <React.Fragment>
+          <button onClick={history.goBack}>Back</button>
+          <TagCard />
         </React.Fragment>
       )}
     </React.Fragment>
