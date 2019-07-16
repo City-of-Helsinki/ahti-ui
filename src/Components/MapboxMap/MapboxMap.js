@@ -30,20 +30,21 @@ export default ({
     return (
       displayedPoints &&
       displayedPoints.map((point, index) => {
-        const pinSize =
-          queryString.parse(location.search).name === point.properties.fi.name
-            ? 50
-            : 20;
+        const isActive =
+          queryString.parse(location.search).name ===
+            point.properties.fi.name ||
+          queryString.parse(location.search).tag === point.properties.fi.name;
 
-        const query =
-          point.properties.type === 'island'
-            ? queryString.stringify({
-                tag: point.properties.fi.name,
-              })
-            : queryString.stringify({
-                ...queryString.parse(location.search),
-                name: point.properties.fi.name,
-              });
+        const isTag = point.properties.type === 'island';
+
+        const query = isTag
+          ? queryString.stringify({
+              tag: point.properties.fi.name,
+            })
+          : queryString.stringify({
+              ...queryString.parse(location.search),
+              name: point.properties.fi.name,
+            });
         return (
           <Marker
             key={`marker-${index}`}
@@ -51,7 +52,8 @@ export default ({
             latitude={point.geometry.coordinates[1]}
           >
             <CityPin
-              size={pinSize}
+              isActive={isActive}
+              isTag={isTag}
               onClick={() => {
                 history.push(`/map?${query}`);
               }}
