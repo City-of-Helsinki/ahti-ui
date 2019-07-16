@@ -1,27 +1,29 @@
 const mapData = require('../mapData.json');
+const fs = require('fs');
 
-const checkForRequiredFields = logInfo => {
-  //required features object
-  const correctFeatures = {
+//required features object
+const correctFeatures = {
+  type: true,
+  properties: {
+    fi: {
+      name: true,
+      header: true,
+      description: true,
+    },
+    en: {
+      name: true,
+      header: true,
+      description: true,
+    },
+    tag: true,
+  },
+  geometry: {
     type: true,
-    properties: {
-      fi: {
-        name: true,
-        header: true,
-        description: true,
-      },
-      en: {
-        name: true,
-        header: true,
-        description: true,
-      },
-      tag: true,
-    },
-    geometry: {
-      type: true,
-      coordinates: true,
-    },
-  };
+    coordinates: true,
+  },
+};
+
+const checkForRequiredFields = (logInfo, populateEmptyFields) => {
   // check single feature for required fields recursively
   const recursivelyCheckForKeys = (feature, requiredFeatures) => {
     let missingFields = [];
@@ -34,6 +36,11 @@ const checkForRequiredFields = logInfo => {
         }
       } else {
         missingFields.push(key);
+        if (populateEmptyFields) {
+          const populateWith = key === 'tag' ? [] : '';
+          feature[key] = populateWith;
+          console.log(`Populated missing ${key}`);
+        }
       }
     }
     return missingFields;
@@ -60,6 +67,30 @@ const checkForRequiredFields = logInfo => {
     console.log('\n');
   };
 
+  // log amount of missing fields
+  const logTotalMissingFields = missingFields => {
+    if (missingFields.length > 0) {
+      let missingFieldsByAmount = {};
+      [...new Set(missingFields)].forEach(
+        field => (missingFieldsByAmount[field] = 0)
+      );
+      missingFields.forEach(field => (missingFieldsByAmount[field] += 1));
+      console.log('\nTotal missing fields in mapData.json:');
+      console.log(missingFieldsByAmount);
+      console.log(
+        '\n\n-------------------------------------------------------------'
+      );
+      console.log(
+        'Please consider fixing these missing fields before commiting!'
+      );
+      console.log(
+        '-------------------------------------------------------------\n'
+      );
+    } else {
+      console.log('\nmapData.json is ok!\n');
+    }
+  };
+
   let totalMissingFields = [];
 
   // iterate features
@@ -71,27 +102,28 @@ const checkForRequiredFields = logInfo => {
     }
   }
 
-  // log amount of missing fields
-  if (totalMissingFields.length > 0) {
-    let missingFieldsByAmount = {};
-    [...new Set(totalMissingFields)].forEach(
-      field => (missingFieldsByAmount[field] = 0)
+  logTotalMissingFields(totalMissingFields);
+
+  if (populateEmptyFields) {
+    fs.writeFile(
+      'src/mapData.json',
+      JSON.stringify(mapData, null, 4),
+      'utf8',
+      (err, data) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('done');
+        }
+      }
     );
-    totalMissingFields.forEach(field => (missingFieldsByAmount[field] += 1));
-    console.log('\nTotal missing fields in mapData.json:');
-    console.log(missingFieldsByAmount);
-    console.log(
-      '\n\n-------------------------------------------------------------'
-    );
-    console.log(
-      'Please consider fixing these missing fields before commiting!'
-    );
-    console.log(
-      '-------------------------------------------------------------\n'
-    );
-  } else {
-    console.log('\nmapData.json is ok!\n');
   }
 };
 
-checkForRequiredFields();
+// run this to populate empty fields according to correctFeatures
+const populateEmptyFields = () => checkForRequiredFields(false, true);
+
+const preCommitHook = () => checkForRequiredFields(false);
+
+// keep this here to run on each precommit
+preCommitHook();
