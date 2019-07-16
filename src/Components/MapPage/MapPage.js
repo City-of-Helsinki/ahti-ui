@@ -137,7 +137,14 @@ const MapPage = ({ location, history }) => {
       {queryString.parse(location.search).tag && (
         <React.Fragment>
           <button onClick={history.goBack}>Back</button>
-          <TagCard />
+          <TagCard
+            pointData={displayedPoints.filter(
+              point =>
+                point.properties.fi.name !==
+                queryString.parse(location.search).tag
+            )}
+            tagName={queryString.parse(location.search).tag}
+          />
         </React.Fragment>
       )}
     </React.Fragment>
