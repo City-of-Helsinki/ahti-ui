@@ -46,9 +46,29 @@ const sliderSettings2 = {
 
 export default () => {
   const contextGeoData = useContext(GlobalGeoContext);
+  const unmutatedGeoData = [...contextGeoData];
+  const unmutatedGeoDataTypesList = [
+    ...new Set(contextGeoData.map(point => point.properties.type)),
+  ];
   const geoDataByTypes = [
     ...new Set(contextGeoData.map(point => point.properties.type)),
   ].filter(type => type !== 'island');
+
+  const selectedIslands = [...unmutatedGeoData].filter(
+    point => point.properties.type === 'island'
+  );
+
+  let selectedIsland =
+    selectedIslands.length > 0
+      ? selectedIslands[Math.floor(Math.random() * selectedIslands.length)]
+      : {};
+
+  const filteredSummerActivities = [...unmutatedGeoData].filter(point =>
+    ['island', 'cafe', 'beach', 'boat', 'pool'].includes(point.properties.type)
+  );
+
+  let demoImage = '';
+
   return (
     <React.Fragment>
       <MapOverlay>
@@ -60,7 +80,7 @@ export default () => {
       <Section>
         <SecondaryTitle>Popular places around</SecondaryTitle>
         <Slider {...sliderSettings1}>
-          {contextGeoData
+          {/* {contextGeoData
             .filter(point => point.properties.type === 'beach')
             .map((location, id) => (
               <div key={id}>
@@ -75,82 +95,82 @@ export default () => {
                   </Header>
                 </Link>
               </div>
-            ))}
-          <RoundBoxWithText
-            icon={<Beach />}
-            title={<TertiaryTitle> Beaches </TertiaryTitle>}
-            pathToList={'/map?type=beach' || 'map'}
-          ></RoundBoxWithText>
+            ))} */}
+          {[...unmutatedGeoDataTypesList].map(type => {
+            return (
+              <RoundBoxWithText
+                icon={<Beach />}
+                title={<TertiaryTitle> {type} </TertiaryTitle>}
+                pathToList={`/map?type=${type}` || '/map'}
+              ></RoundBoxWithText>
+            );
+          })}
+
+          {/** they are here for demo purposes, all types should be automatically generated */}
           <RoundBoxWithText
             icon={<Boat />}
             title={<TertiaryTitle> Boat rentals </TertiaryTitle>}
+            pathToList={'/map?type=boat' || '/map'}
           ></RoundBoxWithText>
           <RoundBoxWithText
             icon={<Park />}
             title={<TertiaryTitle> Parks </TertiaryTitle>}
-          ></RoundBoxWithText>
-          <RoundBoxWithText
-            icon={<Park />}
-            title={<TertiaryTitle> Parks </TertiaryTitle>}
-          ></RoundBoxWithText>
-          <RoundBoxWithText
-            icon={<Park />}
-            title={<TertiaryTitle> Parks </TertiaryTitle>}
+            pathToList={'/map?type=park' || '/map'}
           ></RoundBoxWithText>
         </Slider>
       </Section>
-      {contextGeoData && (
+      {selectedIsland.properties && (
         <Section
           withImage="true"
           imageURL="https://images.unsplash.com/photo-1562593028-2e975fe28a0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
         >
-          <SecondaryTitle>Lonna Island</SecondaryTitle>
-          <p>An island where you can spend the whole day with the family</p>
-          <Link to="/map?type=island">
+          <SecondaryTitle>{selectedIsland.properties.fi.name}</SecondaryTitle>
+          <p>
+            {selectedIsland.properties.fi.header ||
+              `An island where you can spend the
+            whole day with the family`}
+          </p>
+          <Link to={`/map?tag=${selectedIsland.properties.en.name}`}>
             <Button whiteBtn="true">See all</Button>
           </Link>
         </Section>
       )}
-      {contextGeoData && (
-        <Slider {...sliderSettings}>
-          {contextGeoData
-            .filter(point => point.properties.type === 'island')
-            .map((location, id) => (
-              <div key={id}>
-                <Link
-                  to={{
-                    pathname: '/map',
-                    search: `?tag=${location.properties.fi.name}`,
-                  }}
-                >
-                  <Header as="h3" className="collection-header">
-                    {location.properties.fi.name}
-                  </Header>
-                </Link>
-              </div>
-            ))}
-        </Slider>
-      )}
       <Section>
         <SecondaryTitle>Things to try during the summer</SecondaryTitle>
         <Slider {...sliderSettings2}>
-          {/*https://www.hel.fi//wps/wcm/connect/088dcc21-55c8-4a22-8df1-b1cb5ca6bfaa/allas.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-088dcc21-55c8-4a22-8df1-b1cb5ca6bfaa-mJh0fQ- */}
-          <VerticalBlock
-            withImage="true"
-            imageURL="https://www.hel.fi//wps/wcm/connect/088dcc21-55c8-4a22-8df1-b1cb5ca6bfaa/allas.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-088dcc21-55c8-4a22-8df1-b1cb5ca6bfaa-mJh0fQ-"
-          ></VerticalBlock>
-          <VerticalBlock
-            withImage="true"
-            imageURL="https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-          ></VerticalBlock>
-          <VerticalBlock
-            withImage="true"
-            imageURL="https://images.unsplash.com/photo-1542668595-fa9394e5b686?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-          ></VerticalBlock>
-          <VerticalBlock
-            withImage="true"
-            imageURL="https://images.unsplash.com/photo-1496048977749-6c44d362880c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-          ></VerticalBlock>
+          {[...unmutatedGeoDataTypesList]
+            .filter(type =>
+              ['island', 'cafe', 'beach', 'boat', 'pool'].includes(type)
+            )
+            .map(type => {
+              if (type === 'island') {
+                demoImage =
+                  'https://images.unsplash.com/photo-1509280951623-4a17506e3eb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
+              } else if (type === 'cafe') {
+                demoImage =
+                  'https://images.unsplash.com/photo-1496048977749-6c44d362880c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
+              } else if (type === 'pool') {
+                demoImage =
+                  'https://images.unsplash.com/photo-1542668595-fa9394e5b686?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
+              } else if (type === 'beach') {
+                demoImage =
+                  'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
+              }
+              return (
+                <Link to={`/map?type=${type}` || '/map'}>
+                  <VerticalBlock
+                    withImage="true"
+                    imageURL={
+                      demoImage ||
+                      'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'
+                    }
+                    key={type + Math.random()}
+                  >
+                    <SecondaryTitle>Popular place {type}</SecondaryTitle>
+                  </VerticalBlock>
+                </Link>
+              );
+            })}
         </Slider>
       </Section>
 
@@ -166,28 +186,6 @@ export default () => {
           <Button whiteBtn="true">View service providers</Button>
         </Link>
       </Section>
-      {geoDataByTypes && (
-        <Slider {...sliderSettings}>
-          {geoDataByTypes.map((location, id) => (
-            <div key={id}>
-              <Link
-                to={{
-                  pathname: '/map',
-                  search: `?type=${location}`,
-                }}
-              >
-                <Header as="h3" className="collection-header">
-                  {location}
-                </Header>
-                <img
-                  src="https://images.unsplash.com/photo-1562670652-e5947bddb335?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-                  alt="moroQ"
-                />
-              </Link>
-            </div>
-          ))}
-        </Slider>
-      )}
     </React.Fragment>
   );
 };

@@ -34,7 +34,6 @@ const RoundBox = styled.div`
 `;
 
 const RoundBoxWithText = ({ icon, title, pathToList }) => {
-  console.log('pathToList', pathToList);
   return (
     <Link to={pathToList}>
       <RoundBox>{icon}</RoundBox>

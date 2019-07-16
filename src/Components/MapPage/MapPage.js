@@ -35,7 +35,6 @@ const MapPage = ({ location, history }) => {
   useEffect(() => {
     // shallow copy so global context is not mutated
     let filteredPoints = [...pointData];
-
     const browserQuery = queryString.parse(location.search);
 
     if (browserQuery.type || browserQuery.tag) {
@@ -90,13 +89,16 @@ const MapPage = ({ location, history }) => {
 
   return (
     <React.Fragment>
-      <MapboxMap
-        location={location}
-        history={history}
-        viewport={viewport}
-        setViewport={setViewport}
-        displayedPoints={displayedPoints}
-      />
+      {displayedPoints.length > 0 && (
+        <MapboxMap
+          location={location}
+          history={history}
+          viewport={viewport}
+          setViewport={setViewport}
+          displayedPoints={displayedPoints}
+        />
+      )}
+
       {displayedPoints.length > 0 &&
         !queryString.parse(location.search).name && (
           <Carousel
