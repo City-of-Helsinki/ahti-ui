@@ -40,11 +40,11 @@ export default class Carousel extends React.Component {
           const query =
             point.properties.type === 'island'
               ? queryString.stringify({
-                  tag: point.properties.name,
+                  tag: point.properties.fi.name,
                 })
               : queryString.stringify({
                   ...queryString.parse(this.props.location.search),
-                  name: point.properties.name,
+                  name: point.properties.fi.name,
                 });
           return (
             <div key={id}>
@@ -57,7 +57,7 @@ export default class Carousel extends React.Component {
                   this.props.setPreviousSlide(this.props.currentSlide);
                 }}
               >
-                <Header as="h3">{point.properties.name}</Header>
+                <Header as="h3">{point.properties.fi.name}</Header>
               </Link>
             </div>
           );

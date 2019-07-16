@@ -53,11 +53,11 @@ export default () => {
                 <Link
                   to={{
                     pathname: '/map',
-                    search: `?tag=${location.properties.name}`,
+                    search: `?tag=${location.properties.fi.name}`,
                   }}
                 >
                   <Header as="h3" className="collection-header">
-                    {location.properties.name}
+                    {location.properties.fi.name}
                   </Header>
                 </Link>
               </div>
