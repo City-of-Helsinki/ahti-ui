@@ -4,9 +4,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Suomenlinna",
-        "header": "Historiallinen sotilassaari",
-        "description": "Unescon maailmanperintökohde Suomenlinna on kulttuuriaarre, jonka rakentaminen alkoi 1700-luvun puolivälissä Suomen kuuluessa Ruotsiin. Nykyään linnoitus on mieleenpainuva kokemus kaikenikäisille. Suomenlinna on paitsi matkailukohde, myös 800 helsinkiläisen koti. Tervetuloa Suomenlinnaan!",
+        "fi": {
+          "name": "Suomenlinna",
+          "header": "Historiallinen sotilassaari",
+          "description": "Unescon maailmanperintökohde Suomenlinna on kulttuuriaarre, jonka rakentaminen alkoi 1700-luvun puolivälissä Suomen kuuluessa Ruotsiin. Nykyään linnoitus on mieleenpainuva kokemus kaikenikäisille. Suomenlinna on paitsi matkailukohde, myös 800 helsinkiläisen koti. Tervetuloa Suomenlinnaan!"
+        },
+        "en": {
+          "name": "Suomenlinna",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "type": "island",
         "tag": ["Suomenlinna", "Historical"]
       },
@@ -18,13 +25,17 @@
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#fd0006",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "name": "HSL",
-        "header": "HSL:n lautta Kauppatori-Suomenlinna",
+        "fi": {
+          "name": "HSL Kauppatori-Suomenlinna",
+          "header": "HSL:n lautta Kauppatori-Suomenlinna",
+          "description": "Pääset Suomenlinnan linnoitussaarelle kesät talvet lauttojen kyydissä. Suomenlinnan lauttaliikenne on osa pääkaupunkiseudun joukkoliikennettä, joten lautoilla käyvät niin Helsingin sisäiset liput kuin seutuliputkin. Jos sinulla ei ole HSL:n lippua, sinun tulee hankkia lippu mantereella olevasta automaatista, sillä lautoilla ei ole käteisrahastusta. Kertalippu maksaa 2,8€(80-110min) ja suomenlinna-lippu 5€(12h). Matka Suomenlinnaan kestää vartin verran"
+        },
+        "en": {
+          "name": "HSL Kauppatori-Suomenlinna",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "price": "2,80€",
-        "description": "Pääset Suomenlinnan linnoitussaarelle kesät talvet lauttojen kyydissä. Suomenlinnan lauttaliikenne on osa pääkaupunkiseudun joukkoliikennettä, joten lautoilla käyvät niin Helsingin sisäiset liput kuin seutuliputkin. Jos sinulla ei ole HSL:n lippua, sinun tulee hankkia lippu mantereella olevasta automaatista, sillä lautoilla ei ole käteisrahastusta. Kertalippu maksaa 2,8€(80-110min) ja suomenlinna-lippu 5€(12h). Matka Suomenlinnaan kestää vartin verran",
         "website": "https://www.suomenlinnanliikenne.fi/",
         "phone_number": "(09) 3102 1000",
         "app_store": "https://apps.apple.com/fi/app/apple-store/id1340229182?l=fi",
@@ -40,13 +51,17 @@
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#fd0006",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "name": "HSL",
-        "header": "HSL:n huoltolautta Suomenlinna-Katajanokka",
+        "fi": {
+          "name": "HSL huoltolautta Suomenlinna",
+          "header": "HSL:n huoltolautta Suomenlinna-Katajanokka",
+          "description": "Katajanokalta lähtevä huoltolautta palvelee tavara- ja matkustajaliikennettä arkipäivisin ympäri vuoden. Huoltolautta kulkee noin tunnin välein.  Huoltolautan kyytiin mahtuu useampi ajoneuvo, ja lautalla kelpaavat HSL:n liput."
+        },
+        "en": {
+          "name": "HSL service ferry Suomenlinna",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "price": "2,80€",
-        "description": "Katajanokalta lähtevä huoltolautta palvelee tavara- ja matkustajaliikennettä arkipäivisin ympäri vuoden. Huoltolautta kulkee noin tunnin välein.  Huoltolautan kyytiin mahtuu useampi ajoneuvo, ja lautalla kelpaavat HSL:n liput.",
         "website": "https://www.suomenlinna.fi/kavijalle/kulkuyhteydet/huoltolautta/",
         "phone_number": "(09) 3102 1000",
         "app_store": "https://apps.apple.com/fi/app/apple-store/id1340229182?l=fi",
@@ -62,13 +77,17 @@
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#fd0006",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "name": "HSL",
-        "header": "HSL:n huoltolautta Suomenlinna-Katajanokka",
+        "fi": {
+          "name": "HSL huoltolautta Katajanokka",
+          "header": "HSL:n huoltolautta Suomenlinna-Katajanokka",
+          "description": "Katajanokalta lähtevä huoltolautta palvelee tavara- ja matkustajaliikennettä arkipäivisin ympäri vuoden. Huoltolautta kulkee noin tunnin välein.  Huoltolautan kyytiin mahtuu useampi ajoneuvo, ja lautalla kelpaavat HSL:n liput."
+        },
+        "en": {
+          "name": "HSL huoltolautta Katajanokka",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "price": "2,80€",
-        "description": "Katajanokalta lähtevä huoltolautta palvelee tavara- ja matkustajaliikennettä arkipäivisin ympäri vuoden. Huoltolautta kulkee noin tunnin välein.  Huoltolautan kyytiin mahtuu useampi ajoneuvo, ja lautalla kelpaavat HSL:n liput.",
         "website": "https://www.suomenlinna.fi/kavijalle/kulkuyhteydet/huoltolautta/",
         "phone_number": "(09) 3102 1000",
         "app_store": "https://apps.apple.com/fi/app/apple-store/id1340229182?l=fi",
@@ -84,13 +103,17 @@
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#fd0006",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "name": "JT-Line",
-        "header": "Vesibussi Kauppatori-Suomenlinna",
+        "fi": {
+          "name": "JT-Line Kauppatori",
+          "header": "Vesibussi Kauppatori-Suomenlinna",
+          "description": "JT-Linen alukset liikennöivät aikataulunmukaista vesibussiliikennettä Kauppatorilta Suomenlinnaan (Tykistölahteen ja Kuninkaanportille), Vallisaareen ja Lonnaan, sekä Hakaniemestä Suomenlinnaan (Tykistölahteen). Menolippu Kauppatori-Suomenlinna alkaen 4,5€. Lippuja voi ostaa joko verkkokaupastamme, Kauppatorin lipunmyyntikioskista tai suoraan aluksista. Maksuvälineinä käyvät käteinen, suomalaiset pankkikortit ja yleisimmät luottokortit (Visa, Mastercard, Amex, Diners). Huomioithan, että verkkokaupassa myydään ainoastaan meno-paluulippuja. Yhdensuuntaisia lippuja voi ostaa Kauppatorin lipunmyyntikioskista ja suoraan aluksista.Tarkastathan aikataulut ja tarkemmat reitit kotisivuilta."
+        },
+        "en": {
+          "name": "JT-Line Kauppatori",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "price": "4,50 €",
-        "description": "JT-Linen alukset liikennöivät aikataulunmukaista vesibussiliikennettä Kauppatorilta Suomenlinnaan (Tykistölahteen ja Kuninkaanportille), Vallisaareen ja Lonnaan, sekä Hakaniemestä Suomenlinnaan (Tykistölahteen). Menolippu Kauppatori-Suomenlinna alkaen 4,5€. Lippuja voi ostaa joko verkkokaupastamme, Kauppatorin lipunmyyntikioskista tai suoraan aluksista. Maksuvälineinä käyvät käteinen, suomalaiset pankkikortit ja yleisimmät luottokortit (Visa, Mastercard, Amex, Diners). Huomioithan, että verkkokaupassa myydään ainoastaan meno-paluulippuja. Yhdensuuntaisia lippuja voi ostaa Kauppatorin lipunmyyntikioskista ja suoraan aluksista.Tarkastathan aikataulut ja tarkemmat reitit kotisivuilta.",
         "website": "https://www.jt-line.fi/suomenlinna-vallisaari-lonna/aikataulu-kauppatori-suomenlinna/",
         "phone_number": "+358 45 3290501",
         "facebook": "https://fi-fi.facebook.com/JtLineOy",
@@ -106,12 +129,16 @@
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#4500fd",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "name": "Cafe Silo",
-        "header": "Cafe Silo",
-        "description": "Tervetuloa Suomenlinnaan Cafe Siloon. Tule nauttimaan ainutlaatuisesta linnoituksen tunnelmasta, hyvästä kahvista ja tuoreista leivonnaisista. Come and enjoy a cup of delicious coffee and fresh pastries in a unique athmosphere in Café Silo!",
+        "fi": {
+          "name": "Cafe Silo",
+          "header": "Cafe Silo",
+          "description": "Tervetuloa Suomenlinnaan Cafe Siloon. Tule nauttimaan ainutlaatuisesta linnoituksen tunnelmasta, hyvästä kahvista ja tuoreista leivonnaisista. Come and enjoy a cup of delicious coffee and fresh pastries in a unique athmosphere in Café Silo!"
+        },
+        "en": {
+          "name": "Cafe Silo",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "website": "https://www.silo.fi/",
         "phone_number": " +358 40 535 6610",
         "facebook": "https://www.facebook.com/Cafe-Silo-362942440723443/",
@@ -126,13 +153,17 @@
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#fd0006",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "name": "JT-Line",
-        "header": "Vesibussi Suomenlinna(Tykistölahti)-Kauppatori",
+        "fi": {
+          "name": "JT-Line Tykistölahti",
+          "header": "Vesibussi Suomenlinna(Tykistölahti)-Kauppatori",
+          "description": "JT-Linen alukset liikennöivät aikataulunmukaista vesibussiliikennettä Kauppatorilta Suomenlinnaan (Tykistölahteen ja Kuninkaanportille), Vallisaareen ja Lonnaan, sekä Hakaniemestä Suomenlinnaan (Tykistölahteen). Menolippu Suomenlinna-Kauppatori alkaen 4,5€. Lippuja voi ostaa joko verkkokaupastamme, Kauppatorin lipunmyyntikioskista tai suoraan aluksista. Maksuvälineinä käyvät käteinen, suomalaiset pankkikortit ja yleisimmät luottokortit (Visa, Mastercard, Amex, Diners). Huomioithan, että verkkokaupassa myydään ainoastaan meno-paluulippuja. Yhdensuuntaisia lippuja voi ostaa Kauppatorin lipunmyyntikioskista ja suoraan aluksista. Tarkastathan aikataulut ja tarkemmat reitit kotisivuilta."
+        },
+        "en": {
+          "name": "JT-Line Tykistölahti",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "price": "4,50 €",
-        "description": "JT-Linen alukset liikennöivät aikataulunmukaista vesibussiliikennettä Kauppatorilta Suomenlinnaan (Tykistölahteen ja Kuninkaanportille), Vallisaareen ja Lonnaan, sekä Hakaniemestä Suomenlinnaan (Tykistölahteen). Menolippu Suomenlinna-Kauppatori alkaen 4,5€. Lippuja voi ostaa joko verkkokaupastamme, Kauppatorin lipunmyyntikioskista tai suoraan aluksista. Maksuvälineinä käyvät käteinen, suomalaiset pankkikortit ja yleisimmät luottokortit (Visa, Mastercard, Amex, Diners). Huomioithan, että verkkokaupassa myydään ainoastaan meno-paluulippuja. Yhdensuuntaisia lippuja voi ostaa Kauppatorin lipunmyyntikioskista ja suoraan aluksista. Tarkastathan aikataulut ja tarkemmat reitit kotisivuilta.",
         "website": "https://www.jt-line.fi/suomenlinna-vallisaari-lonna/aikataulu-kauppatori-suomenlinna/",
         "phone_number": "+358 45 3290501",
         "facebook": "https://fi-fi.facebook.com/JtLineOy",
@@ -148,13 +179,17 @@
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#fd0006",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "name": "JT-Line",
-        "header": "Vesibussi Suomenlinna(Kuninkaanportti)-Kauppatori",
+        "fi": {
+          "name": "JT-Line Kuninkaanportti",
+          "header": "Vesibussi Suomenlinna(Kuninkaanportti)-Kauppatori",
+          "description": "JT-Linen alukset liikennöivät aikataulunmukaista vesibussiliikennettä Kauppatorilta Suomenlinnaan (Tykistölahteen ja Kuninkaanportille), Vallisaareen ja Lonnaan, sekä Hakaniemestä Suomenlinnaan (Tykistölahteen). Menolippu Suomenlinna-Kauppatori alkaen 4,5€. Lippuja voi ostaa joko verkkokaupastamme, Kauppatorin lipunmyyntikioskista tai suoraan aluksista. Maksuvälineinä käyvät käteinen, suomalaiset pankkikortit ja yleisimmät luottokortit (Visa, Mastercard, Amex, Diners). Huomioithan, että verkkokaupassa myydään ainoastaan meno-paluulippuja. Yhdensuuntaisia lippuja voi ostaa Kauppatorin lipunmyyntikioskista ja suoraan aluksista.Tarkastathan aikataulut ja tarkemmat reitit kotisivuilta."
+        },
+        "en": {
+          "name": "JT-Line Kuninkaanportti",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "price": "4,50 €",
-        "description": "JT-Linen alukset liikennöivät aikataulunmukaista vesibussiliikennettä Kauppatorilta Suomenlinnaan (Tykistölahteen ja Kuninkaanportille), Vallisaareen ja Lonnaan, sekä Hakaniemestä Suomenlinnaan (Tykistölahteen). Menolippu Suomenlinna-Kauppatori alkaen 4,5€. Lippuja voi ostaa joko verkkokaupastamme, Kauppatorin lipunmyyntikioskista tai suoraan aluksista. Maksuvälineinä käyvät käteinen, suomalaiset pankkikortit ja yleisimmät luottokortit (Visa, Mastercard, Amex, Diners). Huomioithan, että verkkokaupassa myydään ainoastaan meno-paluulippuja. Yhdensuuntaisia lippuja voi ostaa Kauppatorin lipunmyyntikioskista ja suoraan aluksista.Tarkastathan aikataulut ja tarkemmat reitit kotisivuilta.",
         "website": "https://www.jt-line.fi/suomenlinna-vallisaari-lonna/aikataulu-kauppatori-suomenlinna/",
         "phone_number": "+358 45 3290501",
         "facebook": "https://fi-fi.facebook.com/JtLineOy",
@@ -170,12 +205,16 @@
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#4500fd",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "name": "Viaporin Deli & Café",
-        "header": "Viaporin Deli & Café",
-        "description": "Lauttarannan Rantakasarmissa sijaitseva Viaporin Deli & Café tarjoaa salaatteja, täytettyjä leipiä, leivonnaisia ja jäätelöä sekä erikoiskahveja. Tuotteita voi nauttia joko paikan päällä tai ostaa mukaan. Kahvilan yhteydessä toimii kauppa, jossa myydään mm. luomu- ja lähiruokatuotteita sekä Suomenlinnan panimon oluita.",
+        "fi": {
+          "name": "Viaporin Deli & Café",
+          "header": "Viaporin Deli & Café",
+          "description": "Lauttarannan Rantakasarmissa sijaitseva Viaporin Deli & Café tarjoaa salaatteja, täytettyjä leipiä, leivonnaisia ja jäätelöä sekä erikoiskahveja. Tuotteita voi nauttia joko paikan päällä tai ostaa mukaan. Kahvilan yhteydessä toimii kauppa, jossa myydään mm. luomu- ja lähiruokatuotteita sekä Suomenlinnan panimon oluita."
+        },
+        "en": {
+          "name": "Viaporin Deli & Café",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "website": "https://viaporindeli.fi/",
         "phone_number": "+358 9 6981011",
         "facebook": "https://www.facebook.com/Viaporin-Deli-Cafe-780607395304628/?fref=ts",
@@ -190,12 +229,16 @@
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#4500fd",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "name": "Suomenlinnan Panimo",
-        "header": "Suomenlinnan Panimo",
-        "description": "JO YLI 250 VUOTTA OLUEN VIRTAA. Suomenlinna on historiallinen linnoitussaari, jonka perinteeseen panimotoiminta kuuluu vahvana osana. Kun ensimmäiset ruotuarmeijan sotilaat saapuivat Helsingin edustalle Suomenlinnaan rakennustöihin 1700-luvulla, toivat he mukanaan myös ensimmäiset oluttynnyrit, kuuluihan olut tuolloin päivittäiseen ravitsemukseen. Suomenlinna kasvoi vilkkaaksi linnoituskaupungiksi, jossa panimo- ja ravintolatoiminta kukoistivat. Suomenlinnalaista hienoa oluenpanon perinnettä jatkamaan perustettiin Suomenlinnan Panimo vuonna 1995.",
+        "fi": {
+          "name": "Suomenlinnan Panimo",
+          "header": "Suomenlinnan Panimo",
+          "description": "JO YLI 250 VUOTTA OLUEN VIRTAA. Suomenlinna on historiallinen linnoitussaari, jonka perinteeseen panimotoiminta kuuluu vahvana osana. Kun ensimmäiset ruotuarmeijan sotilaat saapuivat Helsingin edustalle Suomenlinnaan rakennustöihin 1700-luvulla, toivat he mukanaan myös ensimmäiset oluttynnyrit, kuuluihan olut tuolloin päivittäiseen ravitsemukseen. Suomenlinna kasvoi vilkkaaksi linnoituskaupungiksi, jossa panimo- ja ravintolatoiminta kukoistivat. Suomenlinnalaista hienoa oluenpanon perinnettä jatkamaan perustettiin Suomenlinnan Panimo vuonna 1995."
+        },
+        "en": {
+          "name": "Suomenlinnan Panimo",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "website": "https://suomenlinnanpanimo.fi/",
         "phone_number": " 020-7425 307",
         "facebook": "https://www.facebook.com/SuomenlinnanPanimo/",
@@ -210,9 +253,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Harakka",
-        "header": "Taidetta ja merellisiä luontokokemuksia",
-        "description": "Harakan saari tarjoaa sekä ainutlaatuisen retkikohteen, työtiloja taiteilijoille ja käsityöläisille, elämyksiä taide- ja luontonäyttelyiden muodossa että kokoustiloja sellaista etsiville. Lue lisää verkkosivuilta.",
+        "fi": {
+          "name": "Harakka",
+          "header": "Taidetta ja merellisiä luontokokemuksia",
+          "description": "Harakan saari tarjoaa sekä ainutlaatuisen retkikohteen, työtiloja taiteilijoille ja käsityöläisille, elämyksiä taide- ja luontonäyttelyiden muodossa että kokoustiloja sellaista etsiville. Lue lisää verkkosivuilta."
+        },
+        "en": {
+          "name": "Harakka",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "type": "island",
         "website": "http://www.harakansaari.fi/",
         "address": "Harakan saari, 00140 Helsinki",
@@ -227,9 +277,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Työtiloja taiteilijoille",
-        "header": "Harakansaaren taitelijatalo",
-        "description": "Taiteilijatalossa on yhteensä 30 työhuonetta, joita vapautuu harvakseltaan. Työtiloja voivat hakea ensisijaisesti helsinkiläiset kuvataiteilijat ja käsityöläistaiteilijat. Työhuoneet vuokrataan kalusteineen viiden vuoden määräajaksi. Tiloissa ei saa yöpyä. Vapaista työhuoneista ilmoitamme nettisivuillamme. Lisäksi huoneista tiedotetaan kulttuurikeskuksen verkkosivujen uutisvirrassa. Hakemuksia otetaan vastaan vain silloin, kun vapaasta työhuoneesta on ilmoitettu. Työhuoneita ei ole mahdollista jonottaa.",
+        "fi": {
+          "name": "Työtiloja taiteilijoille",
+          "header": "Harakansaaren taitelijatalo",
+          "description": "Taiteilijatalossa on yhteensä 30 työhuonetta, joita vapautuu harvakseltaan. Työtiloja voivat hakea ensisijaisesti helsinkiläiset kuvataiteilijat ja käsityöläistaiteilijat. Työhuoneet vuokrataan kalusteineen viiden vuoden määräajaksi. Tiloissa ei saa yöpyä. Vapaista työhuoneista ilmoitamme nettisivuillamme. Lisäksi huoneista tiedotetaan kulttuurikeskuksen verkkosivujen uutisvirrassa. Hakemuksia otetaan vastaan vain silloin, kun vapaasta työhuoneesta on ilmoitettu. Työhuoneita ei ole mahdollista jonottaa."
+        },
+        "en": {
+          "name": "Työtiloja taiteilijoille",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "type": "Artist Workspaces",
         "address": "Harakan saari 00140 Helsinki",
         "website": "http://www.harakansaari.fi/fi/vuokraa#ateljeetilat",
@@ -244,8 +301,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Särkkä",
-        "description": "Särkkä on pieni saari Helsingin Kaivopuiston edustalla, Länsi-Mustasaaren luoteispuolella. Särkkä kuuluu Suomenlinnan kaupunginosaan, ja saarella on myös osia Suomenlinnan linnoitusjärjestelmästä.",
+        "fi": {
+          "name": "Särkkä",
+          "header": "<header or translation missing>",
+          "description": "Särkkä on pieni saari Helsingin Kaivopuiston edustalla, Länsi-Mustasaaren luoteispuolella. Särkkä kuuluu Suomenlinnan kaupunginosaan, ja saarella on myös osia Suomenlinnan linnoitusjärjestelmästä."
+        },
+        "en": {
+          "name": "Särkkä",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "type": "island",
         "address": "Särkänsaari, 00130 HELSINKI",
         "website": "https://www.suomenlinna.fi/linnoitus/alue/sarkka/",
@@ -265,9 +330,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Ravintola Särkänlinna",
-        "header": "Uniikki ravintola Särkän saarella",
-        "description": "Historiallisessa saarilinnakkeessa sijaitsevassa Ravintola Särkänlinnassa vietät merellisessä miljöössä ikimuistoiset häät tai muut kesäiset tilaisuudet.",
+        "fi": {
+          "name": "Ravintola Särkänlinna",
+          "header": "Uniikki ravintola Särkän saarella",
+          "description": "Historiallisessa saarilinnakkeessa sijaitsevassa Ravintola Särkänlinnassa vietät merellisessä miljöössä ikimuistoiset häät tai muut kesäiset tilaisuudet."
+        },
+        "en": {
+          "name": "Ravintola Särkänlinna",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "type": "restaurant",
         "address": "Särkänsaari, 00130 HELSINKI",
         "website": "https://www.ravintolasarkanlinna.fi/",
@@ -283,8 +355,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Liuskasaari",
-        "description": "Saaresta löytyy liuskoistaan tunnettu Ravintola Skiffer, ravintola HSS Paviljong , Huoltoasema Seapoint ja septiasema. Suojainen satama tarjoaa vierasvenepaikkoja läpi koko kesän. Vierasvenepaikat sijaitsevat ponttoonilaiturissa. Veneet kiinnitetään poijukiinnityksellä. Täyden palvelun vierasvenesataman palveluihin kuuluu sähkö, vesi ja peseytymismahdollisuudet. Saunan voi varata kansliasta tai satamahenkilökunnalta erikseen. Lisäksi teidän käytössä on pyykinpesukone sekä kuivausrumpu. Polttoainetäytdennykset onnistuvat helposti SeaPoint meripalveluasemalla jossa voit myös tyhjentää septitankkisi. Kun saavut satamaan, ilmoittaudu sataman henkilökunnalle kiinnityksen jälkeen. Henkilökunnan löytää useimmiten HSS:n kansliasta tai lautasta ja heidät tunnistaa sinisistä staff-vaatteista.",
+        "fi": {
+          "name": "Liuskasaari",
+          "header": "<header or translation missing>",
+          "description": "Saaresta löytyy liuskoistaan tunnettu Ravintola Skiffer, ravintola HSS Paviljong , Huoltoasema Seapoint ja septiasema. Suojainen satama tarjoaa vierasvenepaikkoja läpi koko kesän. Vierasvenepaikat sijaitsevat ponttoonilaiturissa. Veneet kiinnitetään poijukiinnityksellä. Täyden palvelun vierasvenesataman palveluihin kuuluu sähkö, vesi ja peseytymismahdollisuudet. Saunan voi varata kansliasta tai satamahenkilökunnalta erikseen. Lisäksi teidän käytössä on pyykinpesukone sekä kuivausrumpu. Polttoainetäytdennykset onnistuvat helposti SeaPoint meripalveluasemalla jossa voit myös tyhjentää septitankkisi. Kun saavut satamaan, ilmoittaudu sataman henkilökunnalle kiinnityksen jälkeen. Henkilökunnan löytää useimmiten HSS:n kansliasta tai lautasta ja heidät tunnistaa sinisistä staff-vaatteista."
+        },
+        "en": {
+          "name": "Liuskasaari",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "type": "island",
         "address": "Liuskasaari, 00140 Helsinki",
         "website": "https://helsinkisailing.com/",
@@ -299,8 +379,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "HSS PAVILJONG",
-        "description": "Ravintola HSS Paviljong on tyylikäs ja raikas kesäravintola Helsingin parhaalla paikalla, Merisataman edustalla, Liuskasaaren vierasvenesataman vieressä.",
+        "fi": {
+          "name": "HSS PAVILJONG",
+          "header": "<header or translation missing>",
+          "description": "Ravintola HSS Paviljong on tyylikäs ja raikas kesäravintola Helsingin parhaalla paikalla, Merisataman edustalla, Liuskasaaren vierasvenesataman vieressä."
+        },
+        "en": {
+          "name": "HSS PAVILJONG",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "type": "restaurant",
         "address": "Liuskasaari, 00140 Helsinki",
         "website": "https://www.hsspaviljong.fi/",
@@ -316,11 +404,16 @@
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#7e7e7e",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "name": "Liuskaluoto",
-        "description": "Liuskaluoto on nimensä mukaisesti pieni luoto, joka on liitetty kulkuyhteydellä isompaan Liuskasaareen. Luodolla toimii Seapoint-benari ja ravintola Skiffer. ",
+        "fi": {
+          "name": "Liuskaluoto",
+          "header": "<header or translation missing>",
+          "description": "Liuskaluoto on nimensä mukaisesti pieni luoto, joka on liitetty kulkuyhteydellä isompaan Liuskasaareen. Luodolla toimii Seapoint-benari ja ravintola Skiffer. "
+        },
+        "en": {
+          "name": "Liuskaluoto",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "type": "island",
         "address": "Liuskaluoto, 00140 Helsinki",
         "website": "https://helsinkisailing.com/"
@@ -333,13 +426,17 @@
     {
       "type": "Feature",
       "properties": {
-        "marker-color": "#7e7e7e",
-        "marker-size": "medium",
-        "marker-symbol": "",
-        "name": "Vierasvenesatama",
-        "header": "HSS Vierasvenesatama",
+        "fi": {
+          "name": "Vierasvenesatama",
+          "header": "HSS Vierasvenesatama",
+          "description": "HSS tarjoaa täyden palvelun vierasvenesataman koko kesäkauden ajan kotisatamassaan Liuskaluodolla. Vieraspaikat ovat betonilaiturilla poijukiinnityksellä. Kaikkiin vieraspaikkoihin tulee vettä ja maasähköä. Vieraspaikat ovat pohjoisimman betonilaiturin pohjoispuolen alkupäässä. Paikat E1-E21 ovat merkitty Guest-lapulla. Vieraspaikkojen syvyys on 3-4 metriä."
+        },
+        "en": {
+          "name": "Vierasvenesatama",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "price": "15 EUR päivämaksu / 35 EUR/vrk / 175 EUR/viikko + 20 EUR/lisävuorokausi. Vierasvenemaksu suoritetaan yhteysveneeseen tai HSS kansliaan.",
-        "description": "HSS tarjoaa täyden palvelun vierasvenesataman koko kesäkauden ajan kotisatamassaan Liuskaluodolla. Vieraspaikat ovat betonilaiturilla poijukiinnityksellä. Kaikkiin vieraspaikkoihin tulee vettä ja maasähköä. Vieraspaikat ovat pohjoisimman betonilaiturin pohjoispuolen alkupäässä. Paikat E1-E21 ovat merkitty Guest-lapulla. Vieraspaikkojen syvyys on 3-4 metriä.",
         "type": "guest harbor"
       },
       "geometry": {
@@ -350,9 +447,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Venepolttoaineasema",
-        "header": "Seapoint Liuskaluoto",
-        "description": "Polttoainemyynti veneille toimii korttiautomaatilla 24h, joka palvelee huhtikuusta myöhäissyksyyn aina jäiden tuloon asti. Tarkista tarkemmat tiedot verkkosivuilta.",
+        "fi": {
+          "name": "Venepolttoaineasema",
+          "header": "Seapoint Liuskaluoto",
+          "description": "Polttoainemyynti veneille toimii korttiautomaatilla 24h, joka palvelee huhtikuusta myöhäissyksyyn aina jäiden tuloon asti. Tarkista tarkemmat tiedot verkkosivuilta."
+        },
+        "en": {
+          "name": "Venepolttoaineasema",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "type": "Meripalveluasema",
         "website": "https://www.seapoint.fi/asemat/",
         "phone_number": "+35850 300 9553",
@@ -366,9 +470,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Ravintola",
-        "header": "Skiffer Liuskaluoto",
-        "description": "Helsingissä Kaivopuiston edustalla sijaitsevalla Liuskaluodolla pääset nauttimaan merellisestä ilmastosta Skifferin tunnelmallisella terassilla. Pizzan serkkuja Liuskoja on tarjolla heti kevään tultua sään salliessa aina elokuun loppuun asti päivittäin ja syyskuussa säävarauksella. Liuskaluodolla joka viikko keskiviikosta lauantaihin vaihtuva Dj (säävarauksella) kesäkuun alusta alkaen. Sunnuntaisin juhlimme Söndag sound tapahtuman tahdissa.",
+        "fi": {
+          "name": "Ravintola",
+          "header": "Skiffer Liuskaluoto",
+          "description": "Helsingissä Kaivopuiston edustalla sijaitsevalla Liuskaluodolla pääset nauttimaan merellisestä ilmastosta Skifferin tunnelmallisella terassilla. Pizzan serkkuja Liuskoja on tarjolla heti kevään tultua sään salliessa aina elokuun loppuun asti päivittäin ja syyskuussa säävarauksella. Liuskaluodolla joka viikko keskiviikosta lauantaihin vaihtuva Dj (säävarauksella) kesäkuun alusta alkaen. Sunnuntaisin juhlimme Söndag sound tapahtuman tahdissa."
+        },
+        "en": {
+          "name": "Ravintola",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "type": "restaurant"
       },
       "geometry": {
@@ -379,20 +490,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Suomenlinna",
-        "address": "00190 Helsinki",
-        "website": "https://www.suomenlinna.fi/en/",
-        "type": "island"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [24.98544216156006, 60.14834108584633]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "name": "Cafe Bar Valimo",
+        "fi": {
+          "name": "Cafe Bar Valimo",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
+        "en": {
+          "name": "Cafe Bar Valimo",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "address": "Suomenlinna B 13, 00190 Helsinki",
         "website": "http://www.valimo.org/",
         "type": "cafe"
@@ -405,7 +512,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Piper",
+        "fi": {
+          "name": "Piper",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
+        "en": {
+          "name": "Piper",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "address": "Suomenlinna C 40, 00190 Helsinki",
         "website": "https://www.suomenlinna.fi/en/visitor/restaurants-and-cafes/piper/",
         "type": "cafe"
@@ -418,7 +534,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Boat house",
+        "fi": {
+          "name": "Boat house",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
+        "en": {
+          "name": "Boat house",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "address": "Boat house, Merisatamanranta, 0014 Helsinki, Finland",
         "website": "https://www.tripadvisor.com/Restaurant_Review-g189934-d947342-Reviews-Boathouse-Helsinki_Uusimaa.html",
         "type": "restaurant"
@@ -431,7 +556,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Suomenlinna Church",
+        "fi": {
+          "name": "Suomenlinnan kirkko",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
+        "en": {
+          "name": "Suomenlinna Church",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "address": "Suomenlinna Church, Susisaaren silta C 43, 00190 Helsinki, Finland",
         "website": "https://www.suomenlinna.fi/en/visitor/sights/suomenlinna-church/",
         "type": "church"
@@ -444,7 +578,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Löyly",
+        "fi": {
+          "name": "Löyly",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
+        "en": {
+          "name": "Löyly",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "address": "Löyly, Hernesaarenranta 4, 00150 Helsinki, Finland",
         "website": "http://www.loylyhelsinki.fi/en/front-page/",
         "type": "restaurant"
@@ -457,7 +600,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Hernesaarenranta",
+        "fi": {
+          "name": "Hernesaaren ranta",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
+        "en": {
+          "name": "Hernesaarenranta",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "address": "Teltta, Hernesaarenranta, 00150 Helsinki, Finland",
         "website": "http://www.hernesaarenranta.fi/",
         "type": "beach"
@@ -470,7 +622,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Hietaranta beach",
+        "fi": {
+          "name": "Hietaranta",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
+        "en": {
+          "name": "Hietaranta beach",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "address": "Hiekkarannantie 11, 00100 Helsinki",
         "website": "https://www.myhelsinki.fi/en/see-and-do/activities/hietaranta-beach",
         "type": "beach"
@@ -483,7 +644,16 @@
     {
       "type": "Feature",
       "properties": {
-        "name": "Isosaari island",
+        "fi": {
+          "name": "Isosaari",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
+        "en": {
+          "name": "Isosaari island",
+          "header": "<header or translation missing>",
+          "description": "<description or translation missing>"
+        },
         "address": "Isosaari, 00860 Helsinki",
         "website": "https://www.myhelsinki.fi/en/see-and-do/activities/isosaari",
         "type": "island"
