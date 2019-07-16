@@ -59,7 +59,7 @@ const MapPage = ({ location, history }) => {
 
     if (browserQuery.name) {
       const index = displayedPoints.findIndex(
-        point => point.properties.name === browserQuery.name
+        point => point.properties.fi.name === browserQuery.name
       );
       if (displayedPoints[index]) {
         flyToPoint(index, 700);
@@ -121,7 +121,7 @@ const MapPage = ({ location, history }) => {
             pointData={
               displayedPoints.filter(
                 point =>
-                  point.properties.name ===
+                  point.properties.fi.name ===
                   queryString.parse(location.search).name
               )[0]
             }
