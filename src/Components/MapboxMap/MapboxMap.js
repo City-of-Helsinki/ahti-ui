@@ -31,18 +31,18 @@ export default ({
       displayedPoints &&
       displayedPoints.map((point, index) => {
         const pinSize =
-          queryString.parse(location.search).name === point.properties.name
+          queryString.parse(location.search).name === point.properties.fi.name
             ? 50
             : 20;
 
         const query =
           point.properties.type === 'island'
             ? queryString.stringify({
-                tag: point.properties.name,
+                tag: point.properties.fi.name,
               })
             : queryString.stringify({
                 ...queryString.parse(location.search),
-                name: point.properties.name,
+                name: point.properties.fi.name,
               });
         return (
           <Marker
