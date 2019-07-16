@@ -38,6 +38,7 @@ const MapPage = ({ location, history }) => {
     let filteredPoints = [...pointData];
     const browserQuery = queryString.parse(location.search);
 
+    // filter points according to search query
     if (browserQuery.type || browserQuery.tag) {
       filteredPoints = filteredPoints.filter(
         point =>
@@ -48,6 +49,7 @@ const MapPage = ({ location, history }) => {
       );
     }
 
+    // sort filtered points
     if (!useLocation) {
       filteredPoints.sort(
         (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
@@ -58,9 +60,11 @@ const MapPage = ({ location, history }) => {
 
     setDisplayedPoints(filteredPoints);
 
-    if (browserQuery.name) {
+    // fly to point on location.search update, prioritize name over tag
+    const destination = browserQuery.name || browserQuery.tag;
+    if (destination) {
       const index = displayedPoints.findIndex(
-        point => point.properties.fi.name === browserQuery.name
+        point => point.properties.fi.name === destination
       );
       if (displayedPoints[index]) {
         flyToPoint(index, 700);
