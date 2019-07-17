@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import MapGL, { Marker, GeolocateControl } from 'react-map-gl';
+import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl';
 import CityPin from '../Utils/city-pin';
-import 'mapbox-gl/dist/mapbox-gl.css';
+// import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
+
+// using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
 
 export default ({
   viewport,
@@ -65,22 +67,19 @@ export default ({
   };
 
   return (
-    <React.Fragment>
-      <MapGL
-        ref={map}
-        {...viewport}
-        onViewportChange={viewport => setViewport(viewport)}
-        mapStyle={mapStyle}
-        mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
-        className="map"
-      >
-        <GeolocateControl
-          positionOptions={{ enableHighAccuracy: true }}
-          trackUserLocation={true}
-        />
-        {_renderMarker()}
-      </MapGL>
-      <h2>{t('Greetings')}</h2>
-    </React.Fragment>
+    <ReactMapGL
+      ref={map}
+      {...viewport}
+      onViewportChange={viewport => setViewport(viewport)}
+      mapStyle={mapStyle}
+      mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
+      className="map"
+    >
+      <GeolocateControl
+        positionOptions={{ enableHighAccuracy: true }}
+        trackUserLocation={true}
+      />
+      {_renderMarker()}
+    </ReactMapGL>
   );
 };

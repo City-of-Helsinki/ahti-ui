@@ -6,7 +6,9 @@ import MapboxMap from '../MapboxMap/MapboxMap';
 import Carousel from '../Carousel/Carousel';
 import MapCard from '../MapCard/MapCard';
 import TagCard from '../TagCard/TagCard';
+import MapWrapper from '../MapWrapper/MapWrapper';
 import { FlyToInterpolator } from 'react-map-gl';
+import CarouselWrapper from '../CarouselWrapper/CarouselWrapper';
 
 const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
@@ -15,17 +17,9 @@ const MapPage = ({ location, history }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [previousSlide, setPreviousSlide] = useState(false);
   const [useLocation, setUseLocation] = useState(false);
-
-  // TODO: only rerender map center in state
-  // (maybe this will prevvent the components from re-renderinng)
-  // https://www.robinwieruch.de/react-prevent-rerender-component/https://www.robinwieruch.de/react-prevent-rerender-component/
-  // https://stackoverflow.com/questions/42068283/how-prevent-rerender-of-parent-component-in-react-js
-
-  // TODO: get rid of react memeo as soon as we optimize the map page component
-
   const [viewport, setViewport] = useState({
-    width: 400,
-    height: 400,
+    width: window.innerWidth || document.documentElement.clientWidth || 400,
+    height: window.innerHeight || document.documentElement.clientHeight || 400,
     latitude: 60.15,
     longitude: 24.944,
     zoom: 10,
@@ -34,6 +28,14 @@ const MapPage = ({ location, history }) => {
     bearing: 0,
     pitch: 0,
   });
+
+  // TODO: only rerender map center in state
+  // (maybe this will prevvent the components from re-renderinng)
+  // https://www.robinwieruch.de/react-prevent-rerender-component/https://www.robinwieruch.de/react-prevent-rerender-component/
+  // https://stackoverflow.com/questions/42068283/how-prevent-rerender-of-parent-component-in-react-js
+
+  // TODO: get rid of react memeo as soon as we optimize the map page component
+  // get screen dimensions to make map 100% width
 
   useEffect(() => {
     // shallow copy so global context is not mutated
@@ -97,33 +99,38 @@ const MapPage = ({ location, history }) => {
   return (
     <React.Fragment>
       {displayedPoints.length > 0 && (
-        <MapboxMap
-          location={location}
-          history={history}
-          viewport={viewport}
-          setViewport={setViewport}
-          displayedPoints={displayedPoints}
-        />
+        <MapWrapper>
+          <MapboxMap
+            location={location}
+            history={history}
+            viewport={viewport}
+            setViewport={setViewport}
+            displayedPoints={displayedPoints}
+          />
+          <button onClick={history.goBack}>Back</button>
+        </MapWrapper>
       )}
 
       {displayedPoints.length > 0 &&
         !queryString.parse(location.search).name &&
         !queryString.parse(location.search).tag && (
-          <Carousel
-            currentSlide={currentSlide}
-            setCurrentSlide={setCurrentSlide}
-            previousSlide={previousSlide}
-            setPreviousSlide={setPreviousSlide}
-            viewport={viewport}
-            setViewport={setViewport}
-            flyToPoint={flyToPoint}
-            displayedPoints={displayedPoints}
-            location={location}
-            history={history}
-          />
+          <CarouselWrapper>
+            <Carousel
+              currentSlide={currentSlide}
+              setCurrentSlide={setCurrentSlide}
+              previousSlide={previousSlide}
+              setPreviousSlide={setPreviousSlide}
+              viewport={viewport}
+              setViewport={setViewport}
+              flyToPoint={flyToPoint}
+              displayedPoints={displayedPoints}
+              location={location}
+              history={history}
+            />
+          </CarouselWrapper>
         )}
       {queryString.parse(location.search).name && (
-        <React.Fragment>
+        <CarouselWrapper>
           <button onClick={history.goBack}>Back</button>
           <MapCard
             pointData={
@@ -134,10 +141,10 @@ const MapPage = ({ location, history }) => {
               )[0]
             }
           />
-        </React.Fragment>
+        </CarouselWrapper>
       )}
       {queryString.parse(location.search).tag && (
-        <React.Fragment>
+        <CarouselWrapper>
           <button onClick={history.goBack}>Back</button>
           <TagCard
             pointData={displayedPoints.filter(
@@ -147,7 +154,7 @@ const MapPage = ({ location, history }) => {
             )}
             tagName={queryString.parse(location.search).tag}
           />
-        </React.Fragment>
+        </CarouselWrapper>
       )}
     </React.Fragment>
   );

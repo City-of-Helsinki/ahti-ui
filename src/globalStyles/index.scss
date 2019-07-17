@@ -51,6 +51,16 @@ $text-xxxl: calc(
 
 /* rewrite libraries*/
 
+.slick-slider {
+  margin-right: -2rem;
+  margin-left: -2rem;
+  box-sizing: border-box;
+}
+
+.slick-list {
+  padding-left: 2rem;
+}
+
 .slick-slide {
   box-sizing: border-box;
   padding-right: 1rem;

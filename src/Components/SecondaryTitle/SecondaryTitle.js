@@ -5,8 +5,8 @@ const SecondaryTitle = styled.h2`
   display: block;
   font-family: ${props => props.theme.fonts.fontFamilyBold};
   margin-bottom: 2rem;
-  line-height: 1.25;
-  width: 60%;
+  line-height: 1.15;
+  width: 20rem;
 `;
 
 export default SecondaryTitle;

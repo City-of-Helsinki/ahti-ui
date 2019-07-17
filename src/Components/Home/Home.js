@@ -89,6 +89,7 @@ export default () => {
       {selectedIsland.properties && (
         <Section
           withImage="true"
+          widthShadow="true"
           imageURL="https://images.unsplash.com/photo-1562593028-2e975fe28a0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
         >
           <SecondaryTitle>{selectedIsland.properties.fi.name}</SecondaryTitle>
@@ -143,6 +144,7 @@ export default () => {
 
       <Section
         withImage="true"
+        widthShadow="true"
         imageURL="https://images.unsplash.com/photo-1507911618740-de629a41dd34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
       >
         <SecondaryTitle>Going with a boat?</SecondaryTitle>

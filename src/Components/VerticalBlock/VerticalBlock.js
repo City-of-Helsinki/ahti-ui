@@ -20,6 +20,7 @@ const VerticalBlock = styled.div`
     props.withImage ? props.theme.colors.white : props.theme.colors.black};
 
   padding: 4rem 2rem;
+  box-shadow: inset 0px -28rem 28rem -28rem black;
 
   // TODO: refactor later!!!!!
   // flex most likely wont work on most mobile devices, refactor this later
@@ -29,6 +30,7 @@ const VerticalBlock = styled.div`
 
   h2 {
     display: inline;
+    margin: 0;
     width: 100%;
     color: ${props =>
       props.withImage ? props.theme.colors.white : props.theme.colors.black};

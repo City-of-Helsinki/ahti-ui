@@ -13,6 +13,11 @@ const Section = styled.section`
   background-repeat: no-repeat;
   background-size: cover;
 
+  box-shadow: ${props =>
+    props.withImage && props.widthShadow
+      ? `inset 0px 28rem 28rem -28rem rgba(0,0,0,0.5)`
+      : null};
+
   color: ${props =>
     props.withImage ? props.theme.colors.white : props.theme.colors.black};
   .slick-slider {
