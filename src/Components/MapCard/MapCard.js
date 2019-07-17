@@ -20,4 +20,5 @@ const MapCard = ({ pointData }) => {
   );
 };
 
+// TODO: get rid of react memeo as soon as we optimize the map page component
 export default memo(MapCard);

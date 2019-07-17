@@ -21,6 +21,8 @@ const MapPage = ({ location, history }) => {
   // https://www.robinwieruch.de/react-prevent-rerender-component/https://www.robinwieruch.de/react-prevent-rerender-component/
   // https://stackoverflow.com/questions/42068283/how-prevent-rerender-of-parent-component-in-react-js
 
+  // TODO: get rid of react memeo as soon as we optimize the map page component
+
   const [viewport, setViewport] = useState({
     width: 400,
     height: 400,
