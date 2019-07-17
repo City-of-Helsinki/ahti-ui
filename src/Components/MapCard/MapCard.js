@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 
-export default ({ pointData }) => {
+const MapCard = ({ pointData }) => {
   return (
     (pointData && (
       <div>
@@ -19,3 +19,6 @@ export default ({ pointData }) => {
     ''
   );
 };
+
+// TODO: get rid of react memeo as soon as we optimize the map page component
+export default memo(MapCard);

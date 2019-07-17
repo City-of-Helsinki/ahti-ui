@@ -6,6 +6,7 @@ const TertiaryTitle = styled.h3`
   line-height: 1.25;
   text-align: center;
   font-weight: 400;
+  color: ${props => props.theme.colors.black};
 `;
 
 export default TertiaryTitle;
