@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import MapboxMap from '../MapboxMap/MapboxMap';
 import Carousel from '../Carousel/Carousel';
 import MapCard from '../MapCard/MapCard';
+import TagCard from '../TagCard/TagCard';
 import { FlyToInterpolator } from 'react-map-gl';
 
 const MapPage = ({ location, history }) => {
@@ -19,6 +20,8 @@ const MapPage = ({ location, history }) => {
   // (maybe this will prevvent the components from re-renderinng)
   // https://www.robinwieruch.de/react-prevent-rerender-component/https://www.robinwieruch.de/react-prevent-rerender-component/
   // https://stackoverflow.com/questions/42068283/how-prevent-rerender-of-parent-component-in-react-js
+
+  // TODO: get rid of react memeo as soon as we optimize the map page component
 
   const [viewport, setViewport] = useState({
     width: 400,
@@ -37,6 +40,7 @@ const MapPage = ({ location, history }) => {
     let filteredPoints = [...pointData];
     const browserQuery = queryString.parse(location.search);
 
+    // filter points according to search query
     if (browserQuery.type || browserQuery.tag) {
       filteredPoints = filteredPoints.filter(
         point =>
@@ -47,6 +51,7 @@ const MapPage = ({ location, history }) => {
       );
     }
 
+    // sort filtered points
     if (!useLocation) {
       filteredPoints.sort(
         (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
@@ -57,9 +62,11 @@ const MapPage = ({ location, history }) => {
 
     setDisplayedPoints(filteredPoints);
 
-    if (browserQuery.name) {
+    // fly to point on location.search update, prioritize name over tag
+    const destination = browserQuery.name || browserQuery.tag;
+    if (destination) {
       const index = displayedPoints.findIndex(
-        point => point.properties.fi.name === browserQuery.name
+        point => point.properties.fi.name === destination
       );
       if (displayedPoints[index]) {
         flyToPoint(index, 700);
@@ -100,7 +107,8 @@ const MapPage = ({ location, history }) => {
       )}
 
       {displayedPoints.length > 0 &&
-        !queryString.parse(location.search).name && (
+        !queryString.parse(location.search).name &&
+        !queryString.parse(location.search).tag && (
           <Carousel
             currentSlide={currentSlide}
             setCurrentSlide={setCurrentSlide}
@@ -125,6 +133,19 @@ const MapPage = ({ location, history }) => {
                   queryString.parse(location.search).name
               )[0]
             }
+          />
+        </React.Fragment>
+      )}
+      {queryString.parse(location.search).tag && (
+        <React.Fragment>
+          <button onClick={history.goBack}>Back</button>
+          <TagCard
+            pointData={displayedPoints.filter(
+              point =>
+                point.properties.fi.name !==
+                queryString.parse(location.search).tag
+            )}
+            tagName={queryString.parse(location.search).tag}
           />
         </React.Fragment>
       )}
