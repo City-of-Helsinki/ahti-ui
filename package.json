@@ -34,7 +34,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && pretty-quick --staged",
+      "pre-commit": "lint-staged && pretty-quick --staged && node src/scripts/mapDataManager.js",
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook"
     }
   },

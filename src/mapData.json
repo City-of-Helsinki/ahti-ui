@@ -345,7 +345,8 @@
         "website": "https://www.ravintolasarkanlinna.fi/",
         "phone_number": "09 6128 5550",
         "facebook": "https://fi-fi.facebook.com/RavintolaSarkanlinna",
-        "instagram": "https://www.instagram.com/ravintolasarkanlinna/?hl=fi"
+        "instagram": "https://www.instagram.com/ravintolasarkanlinna/?hl=fi",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -369,7 +370,8 @@
         "address": "Liuskasaari, 00140 Helsinki",
         "website": "https://helsinkisailing.com/",
         "facebook": "https://www.facebook.com/Helsinkisailing/",
-        "instagram": "https://www.instagram.com/hssjuniors/"
+        "instagram": "https://www.instagram.com/hssjuniors/",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -394,7 +396,8 @@
         "website": "https://www.hsspaviljong.fi/",
         "phone_number": "+358 (0)10 2740740",
         "facebook": "https://fi-fi.facebook.com/HSSPaviljong/",
-        "instagram": "https://www.instagram.com/explore/locations/1250543228396729/ravintola-hss-paviljong/?hl=fi"
+        "instagram": "https://www.instagram.com/explore/locations/1250543228396729/ravintola-hss-paviljong/?hl=fi",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -416,7 +419,8 @@
         },
         "type": "island",
         "address": "Liuskaluoto, 00140 Helsinki",
-        "website": "https://helsinkisailing.com/"
+        "website": "https://helsinkisailing.com/",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -437,7 +441,8 @@
           "description": "<description or translation missing>"
         },
         "price": "15 EUR päivämaksu / 35 EUR/vrk / 175 EUR/viikko + 20 EUR/lisävuorokausi. Vierasvenemaksu suoritetaan yhteysveneeseen tai HSS kansliaan.",
-        "type": "guest harbor"
+        "type": "guest harbor",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -460,7 +465,8 @@
         "type": "Meripalveluasema",
         "website": "https://www.seapoint.fi/asemat/",
         "phone_number": "+35850 300 9553",
-        "facebook": "https://www.facebook.com/seapoint.fi/?ref=hl"
+        "facebook": "https://www.facebook.com/seapoint.fi/?ref=hl",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -480,7 +486,8 @@
           "header": "<header or translation missing>",
           "description": "<description or translation missing>"
         },
-        "type": "restaurant"
+        "type": "restaurant",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -502,7 +509,8 @@
         },
         "address": "Suomenlinna B 13, 00190 Helsinki",
         "website": "http://www.valimo.org/",
-        "type": "cafe"
+        "type": "cafe",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -524,7 +532,8 @@
         },
         "address": "Suomenlinna C 40, 00190 Helsinki",
         "website": "https://www.suomenlinna.fi/en/visitor/restaurants-and-cafes/piper/",
-        "type": "cafe"
+        "type": "cafe",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -546,7 +555,8 @@
         },
         "address": "Boat house, Merisatamanranta, 0014 Helsinki, Finland",
         "website": "https://www.tripadvisor.com/Restaurant_Review-g189934-d947342-Reviews-Boathouse-Helsinki_Uusimaa.html",
-        "type": "restaurant"
+        "type": "restaurant",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -568,7 +578,8 @@
         },
         "address": "Suomenlinna Church, Susisaaren silta C 43, 00190 Helsinki, Finland",
         "website": "https://www.suomenlinna.fi/en/visitor/sights/suomenlinna-church/",
-        "type": "church"
+        "type": "church",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -590,7 +601,8 @@
         },
         "address": "Löyly, Hernesaarenranta 4, 00150 Helsinki, Finland",
         "website": "http://www.loylyhelsinki.fi/en/front-page/",
-        "type": "restaurant"
+        "type": "restaurant",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -612,7 +624,8 @@
         },
         "address": "Teltta, Hernesaarenranta, 00150 Helsinki, Finland",
         "website": "http://www.hernesaarenranta.fi/",
-        "type": "beach"
+        "type": "beach",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -634,7 +647,8 @@
         },
         "address": "Hiekkarannantie 11, 00100 Helsinki",
         "website": "https://www.myhelsinki.fi/en/see-and-do/activities/hietaranta-beach",
-        "type": "beach"
+        "type": "beach",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -656,7 +670,8 @@
         },
         "address": "Isosaari, 00860 Helsinki",
         "website": "https://www.myhelsinki.fi/en/see-and-do/activities/isosaari",
-        "type": "island"
+        "type": "island",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
