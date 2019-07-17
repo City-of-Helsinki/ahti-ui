@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl';
+import MapGL, { Marker } from 'react-map-gl';
 import CityPin from '../Utils/city-pin';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
+import Cluster from '../Cluster/Cluster';
 
 // using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
 
@@ -67,19 +68,48 @@ export default ({
   };
 
   return (
-    <ReactMapGL
-      ref={map}
-      {...viewport}
-      onViewportChange={viewport => setViewport(viewport)}
-      mapStyle={mapStyle}
-      mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
-      className="map"
-    >
-      <GeolocateControl
-        positionOptions={{ enableHighAccuracy: true }}
-        trackUserLocation={true}
-      />
-      {_renderMarker()}
-    </ReactMapGL>
+    <React.Fragment>
+      <MapGL
+        {...viewport}
+        ref={map}
+        mapStyle={mapStyle}
+        mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
+        onViewportChange={viewport => setViewport(viewport)}
+      >
+        {map.current && (
+          <Cluster
+            map={map.current.getMap()}
+            radius={20}
+            extent={512}
+            nodeSize={40}
+            element={e => {
+              return <CityPin {...e} isActive={true} isTag={true} />;
+            }}
+          >
+            {displayedPoints.map((point, i) => (
+              <Marker
+                key={i}
+                longitude={point.geometry.coordinates[0]}
+                latitude={point.geometry.coordinates[1]}
+              >
+                <CityPin isActive={false} isTag={false} />
+              </Marker>
+            ))}
+          </Cluster>
+        )}
+      </MapGL>
+      {/* <MapGL
+        ref={map}
+        {...viewport}
+        onViewportChange={viewport => setViewport(viewport)}
+        mapStyle={mapStyle}
+        mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
+        className="map"
+      >
+        />
+        {_renderMarker()}
+      </MapGL>
+      <h2>{t('Greetings')}</h2> */}
+    </React.Fragment>
   );
 };
