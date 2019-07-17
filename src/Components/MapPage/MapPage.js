@@ -6,7 +6,9 @@ import MapboxMap from '../MapboxMap/MapboxMap';
 import Carousel from '../Carousel/Carousel';
 import MapCard from '../MapCard/MapCard';
 import TagCard from '../TagCard/TagCard';
+import MapWrapper from '../MapWrapper/MapWrapper';
 import { FlyToInterpolator } from 'react-map-gl';
+import CarouselWrapper from '../CarouselWrapper/CarouselWrapper';
 
 const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
@@ -15,6 +17,7 @@ const MapPage = ({ location, history }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [previousSlide, setPreviousSlide] = useState(false);
   const [useLocation, setUseLocation] = useState(false);
+  const [viewport, setViewport] = useState({});
 
   // TODO: only rerender map center in state
   // (maybe this will prevvent the components from re-renderinng)
@@ -22,20 +25,32 @@ const MapPage = ({ location, history }) => {
   // https://stackoverflow.com/questions/42068283/how-prevent-rerender-of-parent-component-in-react-js
 
   // TODO: get rid of react memeo as soon as we optimize the map page component
+  // get screen dimensions to make map 100% width
 
-  const [viewport, setViewport] = useState({
-    width: 400,
-    height: 400,
-    latitude: 60.15,
-    longitude: 24.944,
-    zoom: 10,
-    minzoom: 3,
-    maxzoom: 9,
-    bearing: 0,
-    pitch: 0,
-  });
+  function recalculateMapSize() {
+    let inner_w = window.innerWidth;
+    let inner_h = window.innerHeight;
+    let client_w = document.documentElement.clientWidth;
+    let client_h = document.documentElement.clientHeight;
+
+    setViewport({
+      width: inner_w,
+      height: inner_h,
+      latitude: 60.15,
+      longitude: 24.944,
+      zoom: 10,
+      minzoom: 3,
+      maxzoom: 9,
+      bearing: 0,
+      pitch: 0,
+    });
+  }
 
   useEffect(() => {
+    if (window) {
+      recalculateMapSize();
+      window.onresize = recalculateMapSize;
+    }
     // shallow copy so global context is not mutated
     let filteredPoints = [...pointData];
     const browserQuery = queryString.parse(location.search);
@@ -97,30 +112,35 @@ const MapPage = ({ location, history }) => {
   return (
     <React.Fragment>
       {displayedPoints.length > 0 && (
-        <MapboxMap
-          location={location}
-          history={history}
-          viewport={viewport}
-          setViewport={setViewport}
-          displayedPoints={displayedPoints}
-        />
+        <MapWrapper>
+          <MapboxMap
+            location={location}
+            history={history}
+            viewport={viewport}
+            setViewport={setViewport}
+            displayedPoints={displayedPoints}
+          />
+          <button onClick={history.goBack}>Back</button>
+        </MapWrapper>
       )}
 
       {displayedPoints.length > 0 &&
         !queryString.parse(location.search).name &&
         !queryString.parse(location.search).tag && (
-          <Carousel
-            currentSlide={currentSlide}
-            setCurrentSlide={setCurrentSlide}
-            previousSlide={previousSlide}
-            setPreviousSlide={setPreviousSlide}
-            viewport={viewport}
-            setViewport={setViewport}
-            flyToPoint={flyToPoint}
-            displayedPoints={displayedPoints}
-            location={location}
-            history={history}
-          />
+          <CarouselWrapper>
+            <Carousel
+              currentSlide={currentSlide}
+              setCurrentSlide={setCurrentSlide}
+              previousSlide={previousSlide}
+              setPreviousSlide={setPreviousSlide}
+              viewport={viewport}
+              setViewport={setViewport}
+              flyToPoint={flyToPoint}
+              displayedPoints={displayedPoints}
+              location={location}
+              history={history}
+            />
+          </CarouselWrapper>
         )}
       {queryString.parse(location.search).name && (
         <React.Fragment>

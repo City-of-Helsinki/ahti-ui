@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import MapGL, { Marker, GeolocateControl } from 'react-map-gl';
+import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl';
 import CityPin from '../Utils/city-pin';
-import 'mapbox-gl/dist/mapbox-gl.css';
+// import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
 
@@ -65,22 +65,19 @@ export default ({
   };
 
   return (
-    <React.Fragment>
-      <MapGL
-        ref={map}
-        {...viewport}
-        onViewportChange={viewport => setViewport(viewport)}
-        mapStyle={mapStyle}
-        mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
-        className="map"
-      >
-        <GeolocateControl
-          positionOptions={{ enableHighAccuracy: true }}
-          trackUserLocation={true}
-        />
-        {_renderMarker()}
-      </MapGL>
-      <h2>{t('Greetings')}</h2>
-    </React.Fragment>
+    <ReactMapGL
+      ref={map}
+      {...viewport}
+      onViewportChange={viewport => setViewport(viewport)}
+      mapStyle={mapStyle}
+      mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
+      className="map"
+    >
+      <GeolocateControl
+        positionOptions={{ enableHighAccuracy: true }}
+        trackUserLocation={true}
+      />
+      {_renderMarker()}
+    </ReactMapGL>
   );
 };
