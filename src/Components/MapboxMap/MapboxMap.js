@@ -5,6 +5,8 @@ import CityPin from '../Utils/city-pin';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
 
+// using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
+
 export default ({
   viewport,
   setViewport,
