@@ -23,7 +23,10 @@ const correctFeatures = {
   },
 };
 
-const checkForRequiredFields = (logInfo, populateEmptyFields) => {
+const checkForRequiredFields = (
+  LogInfoOnMissingFields,
+  populateEmptyFields
+) => {
   // check single feature for required fields recursively
   const recursivelyCheckForKeys = (feature, requiredFeatures) => {
     let missingFields = [];
@@ -97,7 +100,7 @@ const checkForRequiredFields = (logInfo, populateEmptyFields) => {
   for (let feature of mapData.features) {
     const missingFields = recursivelyCheckForKeys(feature, correctFeatures);
     if (missingFields) {
-      if (logInfo) logMissingFields(feature, missingFields);
+      if (LogInfoOnMissingFields) logMissingFields(feature, missingFields);
       totalMissingFields = totalMissingFields.concat(missingFields);
     }
   }
@@ -120,7 +123,7 @@ const checkForRequiredFields = (logInfo, populateEmptyFields) => {
   }
 };
 
-// run this to populate empty fields according to correctFeatures
+// replace preCommitHook() with this one to populate empty fields. Just remember to change it back before commiting!
 const populateEmptyFields = () => checkForRequiredFields(false, true);
 
 const preCommitHook = () => checkForRequiredFields(false);
