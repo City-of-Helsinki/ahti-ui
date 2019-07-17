@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import Slider from 'react-slick';
-import { Header } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import { GlobalGeoContext } from '../../App';
 import Button from '../Button/Button';
@@ -14,15 +13,6 @@ import VerticalBlock from '../VerticalBlock/VerticalBlock';
 import { ReactComponent as Beach } from '../../assets/icons/beach.svg';
 import { ReactComponent as Boat } from '../../assets/icons/boat.svg';
 import { ReactComponent as Park } from '../../assets/icons/park.svg';
-
-const sliderSettings = {
-  dots: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 2,
-  slidesToScroll: 1,
-  adaptiveHeight: true,
-};
 
 // TODO: show different amount of components based on width
 const sliderSettings1 = {
@@ -50,11 +40,8 @@ export default () => {
   const unmutatedGeoDataTypesList = [
     ...new Set(contextGeoData.map(point => point.properties.type)),
   ];
-  const geoDataByTypes = [
-    ...new Set(contextGeoData.map(point => point.properties.type)),
-  ].filter(type => type !== 'island');
 
-  const selectedIslands = [...unmutatedGeoData].filter(
+  const selectedIslands = unmutatedGeoData.filter(
     point => point.properties.type === 'island'
   );
 
@@ -62,10 +49,6 @@ export default () => {
     selectedIslands.length > 0
       ? selectedIslands[Math.floor(Math.random() * selectedIslands.length)]
       : {};
-
-  const filteredSummerActivities = [...unmutatedGeoData].filter(point =>
-    ['island', 'cafe', 'beach', 'boat', 'pool'].includes(point.properties.type)
-  );
 
   let demoImage = '';
 
@@ -80,23 +63,7 @@ export default () => {
       <Section>
         <SecondaryTitle>Popular places around</SecondaryTitle>
         <Slider {...sliderSettings1}>
-          {/* {contextGeoData
-            .filter(point => point.properties.type === 'beach')
-            .map((location, id) => (
-              <div key={id}>
-                <Link
-                  to={{
-                    pathname: '/map',
-                    search: `?tag=${location.properties.name}`,
-                  }}
-                >
-                  <Header as="h3" className="collection-header">
-                    {location.properties.name}
-                  </Header>
-                </Link>
-              </div>
-            ))} */}
-          {[...unmutatedGeoDataTypesList].map(type => {
+          {unmutatedGeoDataTypesList.map(type => {
             return (
               <RoundBoxWithText
                 icon={<Beach />}
@@ -138,7 +105,7 @@ export default () => {
       <Section>
         <SecondaryTitle>Things to try during the summer</SecondaryTitle>
         <Slider {...sliderSettings2}>
-          {[...unmutatedGeoDataTypesList]
+          {unmutatedGeoDataTypesList
             .filter(type =>
               ['island', 'cafe', 'beach', 'boat', 'pool'].includes(type)
             )
