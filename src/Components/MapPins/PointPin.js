@@ -11,13 +11,13 @@ const pinStyle = {
 
 export default class CityPin extends PureComponent {
   render() {
-    const { onClick, isTag, isActive } = this.props;
+    const { onClick, isActive } = this.props;
     const size = isActive ? 50 : 20;
     return (
       <svg
         height={size}
         viewBox="0 0 24 24"
-        fill={isTag ? 'blue' : 'red'}
+        fill={'red'}
         style={{
           ...pinStyle,
           transform: `translate(${-size / 2}px,${-size}px)`,

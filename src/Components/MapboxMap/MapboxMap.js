@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import MapGL, { Marker } from 'react-map-gl';
-import CityPin from '../Utils/city-pin';
+import PointPin from '../MapPins/PointPin';
+import TagPin from '../MapPins/TagPin';
+import ClusterPin from '../MapPins/ClusterPin';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
@@ -54,13 +56,21 @@ export default ({
             longitude={point.geometry.coordinates[0]}
             latitude={point.geometry.coordinates[1]}
           >
-            <CityPin
-              isActive={isActive}
-              isTag={isTag}
-              onClick={() => {
-                history.push(`/map?${query}`);
-              }}
-            />
+            {isTag ? (
+              <TagPin
+                isActive={isActive}
+                onClick={() => {
+                  history.push(`/map?${query}`);
+                }}
+              />
+            ) : (
+              <PointPin
+                isActive={isActive}
+                onClick={() => {
+                  history.push(`/map?${query}`);
+                }}
+              />
+            )}
           </Marker>
         );
       })
@@ -83,18 +93,10 @@ export default ({
             extent={512}
             nodeSize={40}
             element={e => {
-              return <CityPin {...e} isActive={true} isTag={true} />;
+              return <ClusterPin {...e} />;
             }}
           >
-            {displayedPoints.map((point, i) => (
-              <Marker
-                key={i}
-                longitude={point.geometry.coordinates[0]}
-                latitude={point.geometry.coordinates[1]}
-              >
-                <CityPin isActive={false} isTag={false} />
-              </Marker>
-            ))}
+            {_renderMarker()}
           </Cluster>
         )}
       </MapGL>
