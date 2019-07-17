@@ -8,6 +8,7 @@ const CarouselWrapper = styled.div`
   position: relative;
   width: 100%;
   z-index: 100000;
+  background-color: white;
 
   // todo: fix this later;
   /* rewrite libraries*/
