@@ -35,7 +35,7 @@ export default class Carousel extends React.Component {
 
   render() {
     return (
-      <Slider {...this.sliderSettings} ref={slider => (this.slider = slider)}>
+      <Slider {...this.sliderSettings}>
         {this.props.displayedPoints.map((point, id) => {
           const query =
             point.properties.type === 'island'
