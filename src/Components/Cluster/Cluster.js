@@ -4,6 +4,7 @@
 import supercluster from 'supercluster';
 import { point } from '@turf/helpers';
 import { Children, PureComponent, createElement } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { Marker } from 'react-map-gl';
@@ -57,6 +58,7 @@ class Cluster extends PureComponent {
       newProps.radius !== this.props.radius ||
       newProps.extent !== this.props.extent ||
       newProps.nodeSize !== this.props.nodeSize ||
+      newProps.location !== this.props.location ||
       !shallowCompareChildren(this.props.children, newProps.children);
 
     if (shouldUpdate) {
@@ -162,4 +164,4 @@ Cluster.propTypes = {
   children: PropTypes.node,
 };
 
-export default Cluster;
+export default withRouter(Cluster);

@@ -5,7 +5,7 @@ import { ReactComponent as Location } from '../../assets/icons/location.svg';
 export default class CityPin extends PureComponent {
   render() {
     const { onClick, isActive } = this.props;
-    const size = isActive ? 50 : 24;
+    const size = isActive ? 48 : 24;
     return (
       <Location
         viewBox="0 0 48 48"
