@@ -20,7 +20,7 @@ export default class CityPin extends PureComponent {
         fill={'blue'}
         style={{
           ...pinStyle,
-          transform: `translate(${-size / 2}px,${-size}px)`,
+          transform: 'translate(-50 %, -50 %)',
         }}
         onClick={onClick}
       >

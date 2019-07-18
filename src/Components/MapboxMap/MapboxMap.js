@@ -89,7 +89,7 @@ export default ({
         {map.current && (
           <Cluster
             map={map.current.getMap()}
-            radius={20}
+            radius={40}
             extent={512}
             nodeSize={40}
             element={e => {
@@ -100,18 +100,6 @@ export default ({
           </Cluster>
         )}
       </MapGL>
-      {/* <MapGL
-        ref={map}
-        {...viewport}
-        onViewportChange={viewport => setViewport(viewport)}
-        mapStyle={mapStyle}
-        mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
-        className="map"
-      >
-        />
-        {_renderMarker()}
-      </MapGL>
-      <h2>{t('Greetings')}</h2> */}
     </React.Fragment>
   );
 };
