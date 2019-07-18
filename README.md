@@ -1,5 +1,7 @@
 # Helsinki City Ahti project
 
+## last updated 17-07-2019
+
 ![Helsinki City Ahti project](Mockup-1.png)
 
 ## General information
@@ -20,6 +22,7 @@ Not in scope:
 - accesibility
 - server site rendering
 - visual and programmatic testing
+- UX reserach and multiple use cases
 
 ## Design sources
 
@@ -29,7 +32,7 @@ Are in Figma https://www.figma.com/file/ZKAH36THbAPVs9gNdmH8N6Dh/Ahti?node-id=0%
 
 The map we use is Mapbox:
 
-- minimal style: `mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf`
+- minimal style: `mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf` by Olli Kilpi
 
 ## Data
 
@@ -47,11 +50,14 @@ We filter data by data types and tags. So far the types that we have are:
 - 'cafe'
 - 'church'
 
-## TODO
+We can add locations manually to mapData.json file
+The script to check file is at ./src/scripts/mapDataManager.js
+also runs on commit as a hook.
 
-### TODO #1
+### TODO
 
 Add these locations:
+
 Beaches
 https://theculturetrip.com/europe/finland/articles/7-beaches-you-need-to-visit-in-helsinki/
 https://www.hel.fi/helsinki/en/culture/sports/outdoor/outdoor-swimming/
@@ -65,7 +71,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts (we use yarn instead of npm)
 
-### `yarm start`
+### `yarn start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -97,28 +103,15 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deployment
 
-### Code Splitting
+We deploy using Netlify. The repository is already linked to Netlify instance.
+Some rules:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+1. Include variables from .env file into deploy rules
+2. Make sure you deploy from master branch
+3. Make sure you deploy from `build` folder
+4. Make sure your `yarn build` script in package.json is like this: "build": "react-scripts build && echo '/\* /index.html 200' | cat >build/\_redirects" if you are ranning a non-SSRed version of create-react-app (the one we have now) otherwise things will crushhhhhhhhhh
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+To setup deploy from CLI, do:
+`npm install netlify-cli -g netlify deploy`
