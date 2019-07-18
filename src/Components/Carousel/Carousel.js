@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import queryString from 'query-string';
-import Section from '../Section/Section';
-import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
+import SliderCard from '../SliderCard/SliderCard';
 
 // TODO: add actions on swipe http://hammerjs.github.io/getting-started/
 
@@ -14,9 +12,9 @@ export default class Carousel extends React.Component {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    adaptiveHeight: true,
     centerMode: true,
-    centerPadding: '0',
+    //this doesn't understand rem for some reason
+    centerPadding: '18px',
     initialSlide:
       this.props.previousSlide &&
       this.props.displayedPoints[this.props.previousSlide]
@@ -52,24 +50,12 @@ export default class Carousel extends React.Component {
                   name: point.properties.fi.name,
                 });
           return (
-            <Section
+            <SliderCard
+              point={point}
               key={id}
-              withImage="true"
-              widthShadow="true"
-              imageURL="https://images.unsplash.com/photo-1536420124982-bd9d18fc47ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-            >
-              <Link
-                to={{
-                  pathname: '/map',
-                  search: query,
-                }}
-                onClick={() => {
-                  this.props.setPreviousSlide(this.props.currentSlide);
-                }}
-              >
-                <SecondaryTitle>{point.properties.fi.name}</SecondaryTitle>
-              </Link>
-            </Section>
+              query={query}
+              _onClick={this.props.setPreviousSlide(this.props.currentSlide)}
+            />
           );
         })}
       </Slider>

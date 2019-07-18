@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 const Menu = styled.nav`
+  z-index: 1337;
+  position: absolute;
   box-sizing: border-box;
   width: 100%;
   height: 5rem;

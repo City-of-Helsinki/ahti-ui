@@ -108,7 +108,6 @@ const MapPage = ({ location, history }) => {
             setViewport={setViewport}
             displayedPoints={displayedPoints}
           />
-          <button onClick={history.goBack}>Back</button>
         </MapWrapper>
       )}
 
