@@ -130,18 +130,16 @@ const MapPage = ({ location, history }) => {
           </CarouselWrapper>
         )}
       {queryString.parse(location.search).name && (
-        <CarouselWrapper>
-          <button onClick={history.goBack}>Back</button>
-          <MapCard
-            pointData={
-              displayedPoints.filter(
-                point =>
-                  point.properties.fi.name ===
-                  queryString.parse(location.search).name
-              )[0]
-            }
-          />
-        </CarouselWrapper>
+        <MapCard
+          onBack={history.goBack}
+          pointData={
+            displayedPoints.filter(
+              point =>
+                point.properties.fi.name ===
+                queryString.parse(location.search).name
+            )[0]
+          }
+        />
       )}
       {queryString.parse(location.search).tag && (
         <CarouselWrapper>
