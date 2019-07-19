@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ReactMapGL, { Marker, GeolocateControl } from 'react-map-gl';
-import CityPin from '../Utils/city-pin';
+import MapGL, { Marker } from 'react-map-gl';
+import PointPin from '../MapPins/PointPin';
+import TagPin from '../MapPins/TagPin';
+import ClusterPin from '../MapPins/ClusterPin';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
+import Cluster from '../Cluster/Cluster';
 
 // using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
 
@@ -53,13 +56,21 @@ export default ({
             longitude={point.geometry.coordinates[0]}
             latitude={point.geometry.coordinates[1]}
           >
-            <CityPin
-              isActive={isActive}
-              isTag={isTag}
-              onClick={() => {
-                history.push(`/map?${query}`);
-              }}
-            />
+            {isTag ? (
+              <TagPin
+                isActive={isActive}
+                onClick={() => {
+                  history.push(`/map?${query}`);
+                }}
+              />
+            ) : (
+              <PointPin
+                isActive={isActive}
+                onClick={() => {
+                  history.push(`/map?${query}`);
+                }}
+              />
+            )}
           </Marker>
         );
       })
@@ -67,19 +78,28 @@ export default ({
   };
 
   return (
-    <ReactMapGL
-      ref={map}
-      {...viewport}
-      onViewportChange={viewport => setViewport(viewport)}
-      mapStyle={mapStyle}
-      mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
-      className="map"
-    >
-      <GeolocateControl
-        positionOptions={{ enableHighAccuracy: true }}
-        trackUserLocation={true}
-      />
-      {_renderMarker()}
-    </ReactMapGL>
+    <React.Fragment>
+      <MapGL
+        {...viewport}
+        ref={map}
+        mapStyle={mapStyle}
+        mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
+        onViewportChange={viewport => setViewport(viewport)}
+      >
+        {map.current && (
+          <Cluster
+            map={map.current.getMap()}
+            radius={40}
+            extent={512}
+            nodeSize={40}
+            element={e => {
+              return <ClusterPin {...e} />;
+            }}
+          >
+            {_renderMarker()}
+          </Cluster>
+        )}
+      </MapGL>
+    </React.Fragment>
   );
 };

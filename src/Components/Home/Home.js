@@ -63,9 +63,10 @@ export default () => {
       <Section>
         <SecondaryTitle>Popular places around</SecondaryTitle>
         <Slider {...sliderSettings1}>
-          {unmutatedGeoDataTypesList.map(type => {
+          {unmutatedGeoDataTypesList.map((type, id) => {
             return (
               <RoundBoxWithText
+                key={id}
                 icon={<Beach />}
                 title={<TertiaryTitle> {type} </TertiaryTitle>}
                 pathToList={`/map?type=${type}` || '/map'}
@@ -110,7 +111,7 @@ export default () => {
             .filter(type =>
               ['island', 'cafe', 'beach', 'boat', 'pool'].includes(type)
             )
-            .map(type => {
+            .map((type, id) => {
               if (type === 'island') {
                 demoImage =
                   'https://images.unsplash.com/photo-1509280951623-4a17506e3eb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
@@ -125,7 +126,7 @@ export default () => {
                   'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
               }
               return (
-                <Link to={`/map?type=${type}` || '/map'}>
+                <Link to={`/map?type=${type}` || '/map'} key={id}>
                   <VerticalBlock
                     withImage="true"
                     imageURL={

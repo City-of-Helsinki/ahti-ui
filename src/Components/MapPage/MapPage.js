@@ -23,6 +23,7 @@ const MapPage = ({ location, history }) => {
     latitude: 60.15,
     longitude: 24.944,
     zoom: 10,
+    // the min/max zooms are not working for some reason, needs to be investigated
     minzoom: 3,
     maxzoom: 9,
     bearing: 0,
@@ -89,7 +90,7 @@ const MapPage = ({ location, history }) => {
       setViewport({
         longitude,
         latitude,
-        zoom: 12,
+        zoom: 14,
         transitionInterpolator: new FlyToInterpolator(),
         transitionDuration,
       });
