@@ -19,13 +19,15 @@ const MapPage = ({ location, history }) => {
   const [useLocation, setUseLocation] = useState(false);
   const [viewport, setViewport] = useState({
     width: window.innerWidth || document.documentElement.clientWidth || 400,
-    height: window.innerHeight || document.documentElement.clientHeight || 400,
+    height:
+      window.innerHeight * 0.92 ||
+      document.documentElement.clientHeight * 0.92 ||
+      400,
     latitude: 60.15,
     longitude: 24.944,
     zoom: 10,
-    // the min/max zooms are not working for some reason, needs to be investigated
-    minzoom: 3,
-    maxzoom: 9,
+    minZoom: 8,
+    maxZoom: 18,
     bearing: 0,
     pitch: 0,
   });
@@ -88,6 +90,7 @@ const MapPage = ({ location, history }) => {
       Math.abs(viewport.longitude - longitude) > 0.000001
     ) {
       setViewport({
+        ...viewport,
         longitude,
         latitude,
         zoom: 14,
@@ -121,7 +124,6 @@ const MapPage = ({ location, history }) => {
               previousSlide={previousSlide}
               setPreviousSlide={setPreviousSlide}
               viewport={viewport}
-              setViewport={setViewport}
               flyToPoint={flyToPoint}
               displayedPoints={displayedPoints}
               location={location}
@@ -141,19 +143,22 @@ const MapPage = ({ location, history }) => {
           }
         />
       )}
-      {queryString.parse(location.search).tag && (
-        <CarouselWrapper>
-          <button onClick={history.goBack}>Back</button>
+      {!queryString.parse(location.search).name &&
+        queryString.parse(location.search).tag && (
           <TagCard
+            location={location}
             pointData={displayedPoints.filter(
               point =>
                 point.properties.fi.name !==
                 queryString.parse(location.search).tag
             )}
-            tagName={queryString.parse(location.search).tag}
+            tagData={displayedPoints.filter(
+              point =>
+                point.properties.fi.name ===
+                queryString.parse(location.search).tag
+            )}
           />
-        </CarouselWrapper>
-      )}
+        )}
     </React.Fragment>
   );
 };

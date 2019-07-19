@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
+import TypeTitle from '../TypeTitle/TypeTitle';
 
 import styled from 'styled-components';
 
@@ -43,6 +44,7 @@ export default ({ point, query, _onClick }) => {
     >
       <Container imageURL="https://images.unsplash.com/photo-1536420124982-bd9d18fc47ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80">
         <SecondaryTitle>{point.properties.fi.name}</SecondaryTitle>
+        <TypeTitle>{point.properties.type}</TypeTitle>
       </Container>
     </Link>
   );
