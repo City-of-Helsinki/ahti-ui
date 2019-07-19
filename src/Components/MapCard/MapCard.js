@@ -90,9 +90,10 @@ const Button = styled.button`
 `;
 
 const MapCard = ({ pointData, onBack }) => {
-  const website = (pointData && pointData.properties.website) || 'huutista.fi';
+  const website =
+    (pointData && pointData.properties.website) || '<placeholder site>';
   const phone =
-    (pointData && pointData.properties.phone_number) || '050368109t';
+    (pointData && pointData.properties.phone_number) || '<placeholder #>';
   return (
     (pointData && (
       <React.Fragment>
@@ -104,8 +105,8 @@ const MapCard = ({ pointData, onBack }) => {
             {pointData.properties.fi.name && (
               <SecondaryTitle>{pointData.properties.fi.name}</SecondaryTitle>
             )}
-            {pointData.properties.fi.description && (
-              <p>{pointData.properties.fi.description}</p>
+            {pointData.properties.fi.header && (
+              <p>{pointData.properties.fi.header}</p>
             )}
           </Header>
           <Body>
