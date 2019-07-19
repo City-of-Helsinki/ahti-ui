@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const MapWrapper = styled.div`
   box-sizing: border-box;
-  position: relative;
+  position: absolute;
   width: 100%;
   min-height: 100vh;
 

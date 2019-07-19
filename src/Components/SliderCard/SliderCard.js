@@ -7,8 +7,8 @@ import styled from 'styled-components';
 const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
-  min-height: 12rem;
-  max-height: 12rem;
+  min-height: 18vh;
+  max-height: 18vh;
   padding: 2.5rem 2.2rem;
 
   background-image: url(${props => props.imageURL || null});

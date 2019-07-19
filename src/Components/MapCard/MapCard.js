@@ -10,9 +10,8 @@ const Container = styled.div`
   z-index: 34058052930;
   box-sizing: border-box;
   height: 60vh;
-  top: -60vh;
-  margin-bottom: -60vh;
-  position: relative;
+  top: 40vh;
+  position: absolute;
   width: 100%;
   background-color: ${props => props.theme.colors.white};
 `;

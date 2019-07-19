@@ -4,11 +4,10 @@ import styled from 'styled-components';
 // TODO: make sure there is padding around the component like in designs, not 100% finished for now
 const CarouselWrapper = styled.div`
   box-sizing: border-box;
-  // make this into vh
-  top: -12rem;
-  margin-bottom: -12rem;
-  position: relative;
+  position: absolute;
+  top: 82vh;
   width: 100%;
+  overflow: hidden;
   z-index: 100000;
 
   // todo: fix this later;
