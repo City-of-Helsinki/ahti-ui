@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
 import { ReactComponent as PhoneIcon } from '../../assets/icons/phone.svg';
-import BackButton from '../BackButton/BackButton';
+import { ReactComponent as Back } from '../../assets/icons/back.svg';
 
 import styled from 'styled-components';
 
@@ -11,7 +11,7 @@ const Container = styled.div`
   box-sizing: border-box;
   height: 60vh;
   top: -60vh;
-  margin-bottom: -63vh;
+  margin-bottom: -60vh;
   position: relative;
   width: 100%;
   background-color: ${props => props.theme.colors.white};
@@ -83,6 +83,13 @@ const Line = styled.hr`
   border-color: ${props => props.theme.colors.black};
 `;
 
+const Button = styled.button`
+  position: absolute;
+  z-index: 1399;
+  top: 35vh;
+  padding: 0.5rem;
+`;
+
 const MapCard = ({ pointData, onBack }) => {
   const website = (pointData && pointData.properties.website) || 'huutista.fi';
   const phone =
@@ -90,7 +97,9 @@ const MapCard = ({ pointData, onBack }) => {
   return (
     (pointData && (
       <React.Fragment>
-        <BackButton onBack={onBack} />
+        <Button onClick={() => onBack()}>
+          <Back />
+        </Button>
         <Container>
           <Header imageURL="https://images.unsplash.com/photo-1536420124982-bd9d18fc47ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80">
             {pointData.properties.fi.name && (
