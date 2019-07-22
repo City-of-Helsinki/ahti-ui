@@ -24,13 +24,6 @@ const Container = styled.div`
   .slick-slider {
     margin-right: -2rem;
   }
-
-  p {
-    font-size: 1.3rem;
-    line-height: 1.2;
-    max-width: 80%;
-    margin-top: -1rem;
-  }
 `;
 
 export default ({ point, query, _onClick }) => {

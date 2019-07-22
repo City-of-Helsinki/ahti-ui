@@ -5,6 +5,9 @@ import queryString from 'query-string';
 import { ReactComponent as LocationIcon } from '../../assets/icons/location_white.svg';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import TypeTitle from '../TypeTitle/TypeTitle';
+import BodyText from '../BodyText/BodyText';
+import CardImageContainer from '../CardImageContainer/CardImageContainer';
+import CardTextContainerBase from '../CardTextContainer/CardTextContainer';
 
 import styled from 'styled-components';
 
@@ -17,52 +20,9 @@ const Container = styled.div`
   background-color: ${props => props.theme.colors.white};
 `;
 
-const Header = styled.div`
-  box-sizing: border-box;
-  position: relative;
-  width: 100%;
-  min-height: 30vh;
-  max-height: 30vh;
-  padding: 2.5rem 2.2rem;
-
-  background-image: url(${props => props.imageURL || null});
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  box-shadow: ${props =>
-    props.imageURL ? `inset 4rem 7rem 21rem 0.5rem rgba(0,0,0,0.75)` : null};
-
-  color: ${props =>
-    props.imageURL ? props.theme.colors.white : props.theme.colors.black};
-
+const CardTextContainer = styled(CardTextContainerBase)`
   p {
-    font-size: 1.3rem;
-    line-height: 1.2;
-    max-width: 80%;
     margin-top: -1rem;
-  }
-`;
-
-const Body = styled.div`
-  box-sizing: border-box;
-  padding: 2rem 2rem;
-  position: relative;
-  width: 100%;
-  background-color: ${props => props.theme.colors.white};
-  color: ${props =>
-    props.imageURL ? props.theme.colors.white : props.theme.colors.black};
-
-  p {
-    font-size: 1.3rem;
-    line-height: 1.2;
-    max-width: 80%;
-    margin-top: -1rem;
-  }
-
-  a {
-    display: flex;
-    color: inherit;
-    align-items: center;
   }
 `;
 
@@ -103,13 +63,6 @@ const TagListItem = styled.div`
   .slick-slider {
     margin-right: -2rem;
   }
-
-  p {
-    font-size: 1.3rem;
-    line-height: 1.2;
-    max-width: 80%;
-    margin-top: -1rem;
-  }
 `;
 
 const TagCard = ({ pointData, tagData, location }) =>
@@ -117,24 +70,26 @@ const TagCard = ({ pointData, tagData, location }) =>
   tagData.length > 0 && (
     <div>
       <Container>
-        <Header imageURL="https://images.unsplash.com/photo-1536420124982-bd9d18fc47ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80">
+        <CardImageContainer imageURL="https://images.unsplash.com/photo-1536420124982-bd9d18fc47ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80">
           {tagData[0].properties.fi.name && (
             <SecondaryTitle>{tagData[0].properties.fi.name}</SecondaryTitle>
           )}
           {tagData[0].properties.fi.description && (
-            <p>{tagData[0].properties.fi.description.slice(0, 100)}</p>
+            <BodyText>
+              {tagData[0].properties.fi.description.slice(0, 100)}
+            </BodyText>
           )}
           <LocationContainer>
             <Location viewBox="0 0 48 48" height="24" />
-            <p>{pointData.length} locations</p>
+            <BodyText>{pointData.length} locations</BodyText>
           </LocationContainer>
-        </Header>
-        <Body>
+        </CardImageContainer>
+        <CardTextContainer>
           <SecondaryTitle>Things to do</SecondaryTitle>
-          <p>
+          <BodyText>
             Locations available for travellers in{' '}
             {tagData[0].properties.fi.name}
-          </p>
+          </BodyText>
           <TagListContainer>
             {pointData.map((point, id) => {
               const query =
@@ -163,7 +118,7 @@ const TagCard = ({ pointData, tagData, location }) =>
               );
             })}
           </TagListContainer>
-        </Body>
+        </CardTextContainer>
       </Container>
     </div>
   );
