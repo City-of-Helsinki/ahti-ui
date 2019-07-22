@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 import { GlobalGeoContext } from '../../App';
-import Button from '../Button/Button';
+import LinkBox from '../LinkBox/LinkBox';
 import MapOverlay from '../MapOverlay/MapOverlay';
 import Section from '../Section/Section';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
@@ -57,7 +57,7 @@ export default () => {
       <MapOverlay>
         <SecondaryTitle>Find your way around the sea</SecondaryTitle>
         <Link to="/map">
-          <Button>See all places</Button>
+          <LinkBox>See all places</LinkBox>
         </Link>
       </MapOverlay>
       <Section>
@@ -100,7 +100,7 @@ export default () => {
             whole day with the family`}
           </p>
           <Link to={`/map?tag=${selectedIsland.properties.en.name}`}>
-            <Button whiteBtn="true">See all</Button>
+            <LinkBox variant="white">See all</LinkBox>
           </Link>
         </Section>
       )}
@@ -153,7 +153,7 @@ export default () => {
           Discover visitor harbours, water routes and critical signs in one map
         </p>
         <Link to="/map">
-          <Button whiteBtn="true">View service providers</Button>
+          <LinkBox variant="white">View service providers</LinkBox>
         </Link>
       </Section>
     </React.Fragment>
