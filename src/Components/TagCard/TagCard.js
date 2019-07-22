@@ -66,7 +66,6 @@ const TagListItem = styled.div`
 `;
 
 const TagCard = ({ pointData, tagData, location }) =>
-  pointData.length > 0 &&
   tagData.length > 0 && (
     <div>
       <Container>
@@ -114,49 +113,50 @@ const TagCard = ({ pointData, tagData, location }) =>
             {tagData[0].properties.fi.name}
           </BodyText>
           <TagListContainer>
-            {pointData.map((point, id) => {
-              const query =
-                point.properties.type === 'island'
-                  ? queryString.stringify({
-                      tag: point.properties.fi.name,
-                    })
-                  : queryString.stringify({
-                      ...queryString.parse(location.search),
-                      name: point.properties.fi.name,
-                    });
+            {pointData.length > 0 &&
+              pointData.map((point, id) => {
+                const query =
+                  point.properties.type === 'island'
+                    ? queryString.stringify({
+                        tag: point.properties.fi.name,
+                      })
+                    : queryString.stringify({
+                        ...queryString.parse(location.search),
+                        name: point.properties.fi.name,
+                      });
 
-              return (
-                <Link
-                  to={{
-                    pathname: '/map',
-                    search: query,
-                  }}
-                  key={id}
-                >
-                  <LazyImage
-                    src={`/images/${point.properties.imageId}.jpeg`}
-                    placeholder={({ ref }) => (
-                      <TagListItem ref={ref}>
-                        <SecondaryTitle>
-                          {point.properties.fi.name}
-                        </SecondaryTitle>
-                        <TypeTitle>{point.properties.type}</TypeTitle>
-                      </TagListItem>
-                    )}
-                    actual={() => (
-                      <TagListItem
-                        imageURL={`/images/${point.properties.imageId}.jpeg`}
-                      >
-                        <SecondaryTitle>
-                          {point.properties.fi.name}
-                        </SecondaryTitle>
-                        <TypeTitle>{point.properties.type}</TypeTitle>
-                      </TagListItem>
-                    )}
-                  />
-                </Link>
-              );
-            })}
+                return (
+                  <Link
+                    to={{
+                      pathname: '/map',
+                      search: query,
+                    }}
+                    key={id}
+                  >
+                    <LazyImage
+                      src={`/images/${point.properties.imageId}.jpeg`}
+                      placeholder={({ ref }) => (
+                        <TagListItem ref={ref}>
+                          <SecondaryTitle>
+                            {point.properties.fi.name}
+                          </SecondaryTitle>
+                          <TypeTitle>{point.properties.type}</TypeTitle>
+                        </TagListItem>
+                      )}
+                      actual={() => (
+                        <TagListItem
+                          imageURL={`/images/${point.properties.imageId}.jpeg`}
+                        >
+                          <SecondaryTitle>
+                            {point.properties.fi.name}
+                          </SecondaryTitle>
+                          <TypeTitle>{point.properties.type}</TypeTitle>
+                        </TagListItem>
+                      )}
+                    />
+                  </Link>
+                );
+              })}
           </TagListContainer>
         </CardTextContainer>
       </Container>

@@ -385,7 +385,7 @@
         "website": "https://helsinkisailing.com/",
         "facebook": "https://www.facebook.com/Helsinkisailing/",
         "instagram": "https://www.instagram.com/hssjuniors/",
-        "tag": [],
+        "tag": ["Liuskasaari"],
         "imageId": "4"
       },
       "geometry": {
@@ -436,7 +436,7 @@
         "type": "island",
         "address": "Liuskaluoto, 00140 Helsinki",
         "website": "https://helsinkisailing.com/",
-        "tag": [],
+        "tag": ["Liuskaluoto"],
         "imageId": "6"
       },
       "geometry": {
@@ -698,7 +698,7 @@
         "address": "Isosaari, 00860 Helsinki",
         "website": "https://www.myhelsinki.fi/en/see-and-do/activities/isosaari",
         "type": "island",
-        "tag": [],
+        "tag": ["Isosaari"],
         "imageId": "1"
       },
       "geometry": {
