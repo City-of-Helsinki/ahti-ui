@@ -74,7 +74,7 @@ const MapPage = ({ location, history }) => {
         point => point.properties.fi.name === destination
       );
       if (displayedPoints[index]) {
-        flyToPoint(index, 700);
+        flyToPoint(index, 700, true);
         setPreviousSlide(index);
       }
     }
@@ -82,22 +82,21 @@ const MapPage = ({ location, history }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search, pointData, useLocation]);
 
-  const flyToPoint = (index, transitionDuration) => {
+  const flyToPoint = (index, transitionDuration, cardView) => {
     const longitude = displayedPoints[index].geometry.coordinates[0];
-    const latitude = displayedPoints[index].geometry.coordinates[1];
-    if (
-      Math.abs(viewport.latitude - latitude) > 0.000001 &&
-      Math.abs(viewport.longitude - longitude) > 0.000001
-    ) {
-      setViewport({
-        ...viewport,
-        longitude,
-        latitude,
-        zoom: 14,
-        transitionInterpolator: new FlyToInterpolator(),
-        transitionDuration,
-      });
-    }
+
+    // make the map roughly centered even when a card is displayed
+    const latitude = cardView
+      ? displayedPoints[index].geometry.coordinates[1] - 0.005
+      : displayedPoints[index].geometry.coordinates[1] - 0.0015;
+    setViewport({
+      ...viewport,
+      longitude,
+      latitude,
+      zoom: 14,
+      transitionInterpolator: new FlyToInterpolator(),
+      transitionDuration,
+    });
   };
 
   return (
