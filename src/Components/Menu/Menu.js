@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 const Menu = styled.nav`
+  z-index: 1337;
+  position: absolute;
+  position: fixed;
   box-sizing: border-box;
   width: 100%;
-  height: 5rem;
+  height: 8vh;
   padding: 2rem 1.75rem;
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.menuShadow};
