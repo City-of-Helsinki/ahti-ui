@@ -7,3 +7,9 @@
   to = "/index.html"
   status = 200
 
+
+# COMMENT: This a rule for Single Page Applications
+[[redirects]]
+  from = "/serviceWorker.js'"
+  to = "/serviceWorker.js'"
+  status = 200
