@@ -13,6 +13,7 @@ const CardTextContainer = styled.div`
     display: flex;
     color: inherit;
     align-items: center;
+    word-break: break-all;
   }
 `;
 export default CardTextContainer;
