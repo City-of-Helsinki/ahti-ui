@@ -1,0 +1,9 @@
+# COMMENT: These are two redirect rules with all the fields expanded
+
+
+# COMMENT: This a rule for Single Page Applications
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
