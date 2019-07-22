@@ -1,26 +1,35 @@
 import styled from 'styled-components';
 
 const Menu = styled.nav`
+  box-sizing: border-box;
+
   z-index: 1337;
   position: absolute;
   position: fixed;
-  box-sizing: border-box;
+
+  display: flex;
+
+  /* NOTE: This height matters for overlapping the map  */
+  min-height: 8vh;
   width: 100%;
-  height: 8vh;
   padding: 2rem 1.75rem;
+
+  justify-content: space-between;
+  align-items: center;
+
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.menuShadow};
 
   .mainTitle {
-    height: 100%;
-    font-size: 2rem;
     display: block;
+    height: 100%;
+    margin: 0;
+    font-size: 2rem;
     color: ${props => props.theme.colors.black};
   }
 
   button {
-    display: block;
-    float: right;
+    display: inline-block;
   }
 `;
 

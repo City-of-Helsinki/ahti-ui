@@ -64,8 +64,10 @@ class App extends React.Component {
               <Link to="/">
                 <h1 className="mainTitle">Ahti</h1>
               </Link>
-              <button onClick={() => i18n.changeLanguage('en')}>en</button>
-              <button onClick={() => i18n.changeLanguage('fi')}>fi</button>
+              <div>
+                <button onClick={() => i18n.changeLanguage('en')}>en</button>
+                <button onClick={() => i18n.changeLanguage('fi')}>fi</button>
+              </div>
             </Menu>
 
             <Route exact path="/" component={() => <Home />} />
