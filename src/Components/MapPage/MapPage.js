@@ -19,13 +19,15 @@ const MapPage = ({ location, history }) => {
   const [useLocation, setUseLocation] = useState(false);
   const [viewport, setViewport] = useState({
     width: window.innerWidth || document.documentElement.clientWidth || 400,
-    height: window.innerHeight || document.documentElement.clientHeight || 400,
+    height:
+      window.innerHeight * 0.92 ||
+      document.documentElement.clientHeight * 0.92 ||
+      400,
     latitude: 60.15,
     longitude: 24.944,
     zoom: 10,
-    // the min/max zooms are not working for some reason, needs to be investigated
-    minzoom: 3,
-    maxzoom: 9,
+    minZoom: 8,
+    maxZoom: 18,
     bearing: 0,
     pitch: 0,
   });
@@ -72,7 +74,7 @@ const MapPage = ({ location, history }) => {
         point => point.properties.fi.name === destination
       );
       if (displayedPoints[index]) {
-        flyToPoint(index, 700);
+        flyToPoint(index, 700, true);
         setPreviousSlide(index);
       }
     }
@@ -80,21 +82,21 @@ const MapPage = ({ location, history }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search, pointData, useLocation]);
 
-  const flyToPoint = (index, transitionDuration) => {
+  const flyToPoint = (index, transitionDuration, cardView) => {
     const longitude = displayedPoints[index].geometry.coordinates[0];
-    const latitude = displayedPoints[index].geometry.coordinates[1];
-    if (
-      Math.abs(viewport.latitude - latitude) > 0.000001 &&
-      Math.abs(viewport.longitude - longitude) > 0.000001
-    ) {
-      setViewport({
-        longitude,
-        latitude,
-        zoom: 14,
-        transitionInterpolator: new FlyToInterpolator(),
-        transitionDuration,
-      });
-    }
+
+    // make the map roughly centered even when a card is displayed
+    const latitude = cardView
+      ? displayedPoints[index].geometry.coordinates[1] - 0.005
+      : displayedPoints[index].geometry.coordinates[1] - 0.0015;
+    setViewport({
+      ...viewport,
+      longitude,
+      latitude,
+      zoom: 14,
+      transitionInterpolator: new FlyToInterpolator(),
+      transitionDuration,
+    });
   };
 
   return (
@@ -108,7 +110,6 @@ const MapPage = ({ location, history }) => {
             setViewport={setViewport}
             displayedPoints={displayedPoints}
           />
-          <button onClick={history.goBack}>Back</button>
         </MapWrapper>
       )}
 
@@ -122,7 +123,6 @@ const MapPage = ({ location, history }) => {
               previousSlide={previousSlide}
               setPreviousSlide={setPreviousSlide}
               viewport={viewport}
-              setViewport={setViewport}
               flyToPoint={flyToPoint}
               displayedPoints={displayedPoints}
               location={location}
@@ -131,32 +131,33 @@ const MapPage = ({ location, history }) => {
           </CarouselWrapper>
         )}
       {queryString.parse(location.search).name && (
-        <CarouselWrapper>
-          <button onClick={history.goBack}>Back</button>
-          <MapCard
-            pointData={
-              displayedPoints.filter(
-                point =>
-                  point.properties.fi.name ===
-                  queryString.parse(location.search).name
-              )[0]
-            }
-          />
-        </CarouselWrapper>
+        <MapCard
+          onBack={history.goBack}
+          pointData={
+            displayedPoints.filter(
+              point =>
+                point.properties.fi.name ===
+                queryString.parse(location.search).name
+            )[0]
+          }
+        />
       )}
-      {queryString.parse(location.search).tag && (
-        <CarouselWrapper>
-          <button onClick={history.goBack}>Back</button>
+      {!queryString.parse(location.search).name &&
+        queryString.parse(location.search).tag && (
           <TagCard
+            location={location}
             pointData={displayedPoints.filter(
               point =>
                 point.properties.fi.name !==
                 queryString.parse(location.search).tag
             )}
-            tagName={queryString.parse(location.search).tag}
+            tagData={displayedPoints.filter(
+              point =>
+                point.properties.fi.name ===
+                queryString.parse(location.search).tag
+            )}
           />
-        </CarouselWrapper>
-      )}
+        )}
     </React.Fragment>
   );
 };

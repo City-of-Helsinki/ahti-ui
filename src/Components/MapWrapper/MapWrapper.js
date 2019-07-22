@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 const MapWrapper = styled.div`
   box-sizing: border-box;
-  position: relative;
+  position: absolute;
+  position: fixed;
   width: 100%;
-  min-height: 120vh;
+  min-height: 92vh;
+  top: 8vh;
 
   // todo: fix this later;
 
@@ -16,12 +18,6 @@ const MapWrapper = styled.div`
     left: 0;
     bottom: 0;
     right: 0;
-  }
-
-  button {
-    position: absolute;
-    bottom: 0;
-    z-index: 100000000;
   }
 `;
 

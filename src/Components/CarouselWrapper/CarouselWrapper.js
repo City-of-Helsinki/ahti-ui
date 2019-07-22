@@ -4,11 +4,11 @@ import styled from 'styled-components';
 // TODO: make sure there is padding around the component like in designs, not 100% finished for now
 const CarouselWrapper = styled.div`
   box-sizing: border-box;
-  top: -50vh;
-  position: relative;
+  position: absolute;
+  top: 82vh;
   width: 100%;
+  overflow: hidden;
   z-index: 100000;
-  background-color: white;
 
   // todo: fix this later;
   /* rewrite libraries*/
@@ -25,8 +25,7 @@ const CarouselWrapper = styled.div`
 
   .slick-slide {
     box-sizing: border-box;
-    min-width: 28rem;
-    padding: 0rem 0rem;
+    padding: 0rem 0.5rem;
     color: inherit;
 
     a {
