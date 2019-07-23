@@ -9,11 +9,12 @@ import TagCard from '../TagCard/TagCard';
 import MapWrapper from '../MapWrapper/MapWrapper';
 import { FlyToInterpolator } from 'react-map-gl';
 import CarouselWrapper from '../CarouselWrapper/CarouselWrapper';
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
 
 import styled from 'styled-components';
 import { ReactComponent as ShowAll } from '../../assets/icons/show_all.svg';
 
-const ShowAllButton = styled(ShowAll)`
+const ShowAllButton = styled(UnstyledLink)`
   z-index: 1;
   position: absolute;
   top: 2.7rem;
@@ -118,7 +119,9 @@ const MapPage = ({ location, history }) => {
   return (
     <React.Fragment>
       <MapWrapper>
-        <ShowAllButton onClick={() => history.push('/map')} />
+        <ShowAllButton to="/map">
+          <ShowAll />
+        </ShowAllButton>
         <MapboxMap
           location={location}
           history={history}
