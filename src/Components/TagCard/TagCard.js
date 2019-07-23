@@ -8,6 +8,7 @@ import TypeTitle from '../TypeTitle/TypeTitle';
 import BodyText from '../BodyText/BodyText';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainerBase from '../CardTextContainer/CardTextContainer';
+import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 
 import styled from 'styled-components';
 
@@ -106,6 +107,7 @@ const TagCard = ({ pointData, tagData, location }) =>
             </CardImageContainer>
           )}
         />
+        <HelsinkiWave />
         <CardTextContainer>
           <SecondaryTitle>Things to do</SecondaryTitle>
           <BodyText>

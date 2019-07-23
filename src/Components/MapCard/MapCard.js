@@ -4,6 +4,7 @@ import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BodyText from '../BodyText/BodyText';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
+import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
 import { ReactComponent as PhoneIcon } from '../../assets/icons/phone.svg';
 import { ReactComponent as ArrowLeft } from '../../assets/icons/arrow_left.svg';
@@ -110,6 +111,7 @@ const MapCard = ({ pointData, onBack }) => {
             )}
           />
 
+          <HelsinkiWave />
           <CardTextContainer>
             <a href={website}>
               <Home height="24" viewBox="0 0 48 48" />

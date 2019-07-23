@@ -18,7 +18,7 @@ TODO
     ☐ use new style for Finnish
 ✔ Add borders in desktop @done(19-07-23 11:47)
 ☐ Add "show all" button to map
-☐ Add City of Helsinki wave according to design
+✔ Add City of Helsinki wave according to design @done(19-07-23 15:07)
 ☐ Fix clustering
     ☐ Position clusters correctly
     ☐ Add onClick handler
@@ -31,6 +31,7 @@ TODO
 ☐ refactor flexbox used in app since might not work on mobile
 ☐ Carousel component is rendered twice, check why
 ☐ Refactor MapPage and add shouldComponentUpdate
+☐ Fix flyTo for tiny screens
 
 TODO if there is time left
 

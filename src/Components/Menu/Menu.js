@@ -5,15 +5,13 @@ const Menu = styled.nav`
 
   z-index: 1337;
   position: absolute;
-  position: fixed;
-
-  display: flex;
-
-  /* NOTE: This is the arbitrary max-width for wide screens */
-  max-width: 474px;
+  box-sizing: border-box;
 
   /* NOTE: This height matters for overlapping the map  */
   min-height: 8vh;
+
+  /* NOTE: This is the arbitrary max-width for wide screens */
+  max-width: 474px;
   width: 100%;
   padding: 2rem 1.75rem;
 
