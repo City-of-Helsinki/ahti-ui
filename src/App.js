@@ -61,9 +61,9 @@ class App extends React.Component {
         <GlobalGeoContext.Provider value={this.state.pointData}>
           <Router>
             <Menu>
-              <Link to="/">
-                <h1 className="mainTitle">Ahti</h1>
-              </Link>
+              <h1 className="mainTitle">
+                <Link to="/">Ahti</Link>
+              </h1>
               <div>
                 <button onClick={() => i18n.changeLanguage('en')}>en</button>
                 <button onClick={() => i18n.changeLanguage('fi')}>fi</button>

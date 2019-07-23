@@ -24,10 +24,12 @@ const Menu = styled.nav`
   box-shadow: ${props => props.theme.shadows.menuShadow};
 
   .mainTitle {
-    display: block;
-    height: 100%;
     margin: 0;
     font-size: 2rem;
+  }
+
+  .mainTitle > a {
+    text-decoration: none;
     color: ${props => props.theme.colors.black};
   }
 
