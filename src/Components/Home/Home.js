@@ -8,6 +8,7 @@ import Section from '../Section/Section';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import RoundBoxWithText from '../RoundBox/RoundBox';
 import TertiaryTitle from '../TertiaryTitle/TertiaryTitle';
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import VerticalBlock from '../VerticalBlock/VerticalBlock';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 
@@ -145,7 +146,7 @@ export default () => {
                   'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
               }
               return (
-                <Link to={`/map?type=${type}` || '/map'} key={id}>
+                <UnstyledLink to={`/map?type=${type}` || '/map'} key={id}>
                   <VerticalBlock
                     withImage="true"
                     imageURL={
@@ -156,7 +157,7 @@ export default () => {
                   >
                     <SecondaryTitle>Popular place {type}</SecondaryTitle>
                   </VerticalBlock>
-                </Link>
+                </UnstyledLink>
               );
             })}
         </Slider>
