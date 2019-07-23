@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { LazyImage } from 'react-lazy-images';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BodyText from '../BodyText/BodyText';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
@@ -56,16 +57,40 @@ const MapCard = ({ pointData, onBack }) => {
           <Back />
         </Button>
         <Container>
-          <CardImageContainer imageURL="https://images.unsplash.com/photo-1536420124982-bd9d18fc47ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80">
-            {pointData.properties.fi.name && (
-              <SecondaryTitle>{pointData.properties.fi.name}</SecondaryTitle>
+          <LazyImage
+            src={`/images/${pointData.properties.imageId}.jpeg`}
+            placeholder={({ ref }) => (
+              <CardImageContainer ref={ref}>
+                {pointData.properties.fi.name && (
+                  <SecondaryTitle>
+                    {pointData.properties.fi.name}
+                  </SecondaryTitle>
+                )}
+                {pointData.properties.fi.header && (
+                  <div>
+                    <BodyText>{pointData.properties.fi.header}</BodyText>
+                  </div>
+                )}
+              </CardImageContainer>
             )}
-            {pointData.properties.fi.header && (
-              <div>
-                <BodyText>{pointData.properties.fi.header}</BodyText>
-              </div>
+            actual={() => (
+              <CardImageContainer
+                imageURL={`/images/${pointData.properties.imageId}.jpeg`}
+              >
+                {pointData.properties.fi.name && (
+                  <SecondaryTitle>
+                    {pointData.properties.fi.name}
+                  </SecondaryTitle>
+                )}
+                {pointData.properties.fi.header && (
+                  <div>
+                    <BodyText>{pointData.properties.fi.header}</BodyText>
+                  </div>
+                )}
+              </CardImageContainer>
             )}
-          </CardImageContainer>
+          />
+
           <CardTextContainer>
             <a href={website}>
               <Home height="24" viewBox="0 0 48 48" />

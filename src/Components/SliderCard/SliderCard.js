@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
+import { LazyImage } from 'react-lazy-images';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import TypeTitle from '../TypeTitle/TypeTitle';
 
@@ -26,7 +27,7 @@ const Container = styled.div`
   }
 `;
 
-export default ({ point, query, _onClick }) => {
+const SliderCard = ({ point, query, _onClick }) => {
   return (
     <Link
       to={{
@@ -35,10 +36,23 @@ export default ({ point, query, _onClick }) => {
       }}
       onClick={_onClick}
     >
-      <Container imageURL="https://images.unsplash.com/photo-1536420124982-bd9d18fc47ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80">
-        <SecondaryTitle>{point.properties.fi.name}</SecondaryTitle>
-        <TypeTitle>{point.properties.type}</TypeTitle>
-      </Container>
+      <LazyImage
+        src={`/images/${point.properties.imageId}.jpeg`}
+        placeholder={({ ref }) => (
+          <Container ref={ref}>
+            <SecondaryTitle>{point.properties.fi.name}</SecondaryTitle>
+            <TypeTitle>{point.properties.type}</TypeTitle>
+          </Container>
+        )}
+        actual={() => (
+          <Container imageURL={`/images/${point.properties.imageId}.jpeg`}>
+            <SecondaryTitle>{point.properties.fi.name}</SecondaryTitle>
+            <TypeTitle>{point.properties.type}</TypeTitle>
+          </Container>
+        )}
+      />
     </Link>
   );
 };
+
+export default memo(SliderCard);
