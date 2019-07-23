@@ -5,6 +5,7 @@ const Menu = styled.nav`
   position: absolute;
   position: fixed;
   box-sizing: border-box;
+  max-width: 474px;
   width: 100%;
   height: 8vh;
   padding: 2rem 1.75rem;

@@ -11,7 +11,7 @@ import { ReactComponent as Back } from '../../assets/icons/back.svg';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  z-index: 34058052930;
+  z-index: 1399;
   box-sizing: border-box;
   height: 60vh;
   top: 40vh;
@@ -53,7 +53,7 @@ const MapCard = ({ pointData, onBack }) => {
   return (
     (pointData && (
       <React.Fragment>
-        <Button onClick={() => onBack()}>
+        <Button onClick={onBack}>
           <Back />
         </Button>
         <Container>

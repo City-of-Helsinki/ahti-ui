@@ -12,7 +12,7 @@ import CardTextContainerBase from '../CardTextContainer/CardTextContainer';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  z-index: 34058052930;
+  z-index: 1;
   box-sizing: border-box;
   margin-top: 40vh;
   position: relative;
