@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { LazyImage } from 'react-lazy-images';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
+import BaseButton from '../BaseButton/BaseButton';
 import BodyText from '../BodyText/BodyText';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
@@ -39,22 +40,15 @@ const Line = styled.hr`
   border-color: ${props => props.theme.colors.black};
 `;
 
-const Button = styled.button`
+const Button = styled(BaseButton)`
   /** Positioning */
   position: absolute;
   z-index: 1399;
   top: 35vh;
 
   /** Styling */
-  /** NOTE: appearance does not exist unprefixed yet in browsers */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  box-sizing: border-box;
-
   padding: 1rem;
 
-  border: none;
   color: ${props =>
     props.whiteBtn ? props.theme.colors.white : props.theme.colors.black};
   background-color: ${props => props.theme.colors.transparent};
