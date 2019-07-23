@@ -8,7 +8,6 @@ const LinkBox = styled.div`
 
   min-width: 13rem;
   max-width: 26rem;
-  height: 3rem;
 
   border: ${props => props.theme.borders.buttonBorder};
   border-color: ${props =>
