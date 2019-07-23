@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 const Menu = styled.nav`
-  box-sizing: border-box;
+  display: flex;
 
-  z-index: 1337;
   position: absolute;
-  box-sizing: border-box;
+  z-index: 1337;
 
   /* NOTE: This height matters for overlapping the map  */
   min-height: 8vh;
