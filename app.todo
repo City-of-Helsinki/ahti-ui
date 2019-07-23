@@ -1,27 +1,37 @@
 This is a TODO-list for the map project:
 
-☐ ensure eslint rules - done
-☐ add mock data into app in geojson format https://tools.ietf.org/html/rfc7946 - done
+✔ ensure eslint rules @done(19-07-22 17:32)
+✔ add mock data into app in geojson format https://tools.ietf.org/html/rfc7946 @done(19-07-22 17:32)
 
 TODO
 
-☐ Routing for basic places - done
-☐ State management with Context api by  displaying & filtering data on map  - done
-☐ How to make MapPage not re-render on zoom
-☐ Carousel component is rendered twice, check why
+✔ Routing for basic places @done(19-07-22 17:32)
+✔ State management with Context api by  displaying & filtering data on map @done(19-07-22 17:32)
+✔ add sanitize.css to project instead of normalize.css @done(19-07-22 17:33)
+✔ import fornt and static assets @done(19-07-22 17:33)
+✔ import new information to .json/.geojson @done(19-07-22 17:33)
+✔ get screen width and hight for map @done(19-07-22 17:33)
+✔ add style config @done(19-07-22 17:34)
 ☐ Add i18nv for FI and EN
     ☐ add support for EN with name_en for the map
-    ☐ use fallback browser language
+    ✔ use fallback browser language @done(19-07-22 17:35)
     ☐ use new style for Finnish
-☐ add sanitize.css to project instead of normalize.css - done
-☐ import fornt and static assets - done
-☐ import new information to .json/.geojson - done
-☐ add style config
+☐ Add borders in desktop
+☐ Add "show all" button to map
+☐ Add City of Helsinki wave according to design
+☐ Fix clustering
+    ☐ Position clusters correctly
+    ☐ Add onClick handler
+☐ find ways to lock the screen to be horizontal orientation only
+☐ Highlight focused point on swipe
+☐ Finish cards according to design
+☐ Finish home view according to design
+ 
 ☐ refactor flexbox used in app since might not work on mobile
-☐ find ways to lock the screen to be landscape orientation only
-☐ get screen width and hight for map
+☐ Carousel component is rendered twice, check why
+☐ Refactor MapPage and add shouldComponentUpdate
 
-TODO later
+TODO if there is time left
 
 ☐ Add nearby information support
 ☐ Investigate fetching weather data from API
