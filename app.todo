@@ -31,6 +31,7 @@ TODO
 ☐ refactor flexbox used in app since might not work on mobile
 ☐ Carousel component is rendered twice, check why
 ☐ Refactor MapPage and add shouldComponentUpdate
+☐ Fix flyTo for tiny screens
 
 TODO if there is time left
 

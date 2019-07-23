@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const MapWrapper = styled.div`
   box-sizing: border-box;
   position: absolute;
-  position: fixed;
   width: 100%;
   min-height: 92vh;
   top: 8vh;

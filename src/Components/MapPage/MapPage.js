@@ -10,6 +10,16 @@ import MapWrapper from '../MapWrapper/MapWrapper';
 import { FlyToInterpolator } from 'react-map-gl';
 import CarouselWrapper from '../CarouselWrapper/CarouselWrapper';
 
+import styled from 'styled-components';
+import { ReactComponent as ShowAll } from '../../assets/icons/show_all.svg';
+
+const ShowAllButton = styled(ShowAll)`
+  z-index: 1;
+  position: absolute;
+  top: 2.7rem;
+  right: 2rem;
+`;
+
 const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
 
@@ -107,17 +117,16 @@ const MapPage = ({ location, history }) => {
 
   return (
     <React.Fragment>
-      {displayedPoints.length > 0 && (
-        <MapWrapper>
-          <MapboxMap
-            location={location}
-            history={history}
-            viewport={viewport}
-            setViewport={setViewport}
-            displayedPoints={displayedPoints}
-          />
-        </MapWrapper>
-      )}
+      <MapWrapper>
+        <ShowAllButton onClick={() => history.push('/map')} />
+        <MapboxMap
+          location={location}
+          history={history}
+          viewport={viewport}
+          setViewport={setViewport}
+          displayedPoints={displayedPoints}
+        />
+      </MapWrapper>
 
       {displayedPoints.length > 0 &&
         !queryString.parse(location.search).name &&
