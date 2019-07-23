@@ -11,10 +11,11 @@ import { ReactComponent as Back } from '../../assets/icons/back.svg';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  z-index: 34058052930;
+  z-index: 1399;
   box-sizing: border-box;
-  min-height: 60vh;
-  margin-top: 40vh;
+  height: 60vh;
+  top: 40vh;
+  position: absolute;
   width: 100%;
   background-color: ${props => props.theme.colors.white};
 `;
