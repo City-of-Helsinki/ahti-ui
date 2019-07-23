@@ -16,8 +16,8 @@ import { ReactComponent as ShowAll } from '../../assets/icons/show_all.svg';
 const ShowAllButton = styled(ShowAll)`
   z-index: 1;
   position: absolute;
-  top: 11vh;
-  right: 5%;
+  top: 2.7rem;
+  right: 2rem;
 `;
 
 const MapPage = ({ location, history }) => {
@@ -117,8 +117,8 @@ const MapPage = ({ location, history }) => {
 
   return (
     <React.Fragment>
-      <ShowAllButton onClick={() => history.push('/map')} />
       <MapWrapper>
+        <ShowAllButton onClick={() => history.push('/map')} />
         <MapboxMap
           location={location}
           history={history}

@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const Menu = styled.nav`
   z-index: 1337;
   position: absolute;
-  position: fixed;
   box-sizing: border-box;
   max-width: 474px;
   width: 100%;
