@@ -18,7 +18,11 @@ const MapPage = ({ location, history }) => {
   const [previousSlide, setPreviousSlide] = useState(false);
   const [useLocation, setUseLocation] = useState(false);
   const [viewport, setViewport] = useState({
-    width: window.innerWidth || document.documentElement.clientWidth || 400,
+    width:
+      Math.min(
+        window.innerWidth || document.documentElement.clientWidth,
+        474
+      ) || 400,
     height:
       window.innerHeight * 0.92 ||
       document.documentElement.clientHeight * 0.92 ||

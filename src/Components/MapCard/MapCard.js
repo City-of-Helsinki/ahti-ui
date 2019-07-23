@@ -13,9 +13,8 @@ import styled from 'styled-components';
 const Container = styled.div`
   z-index: 34058052930;
   box-sizing: border-box;
-  height: 60vh;
-  top: 40vh;
-  position: absolute;
+  min-height: 60vh;
+  margin-top: 40vh;
   width: 100%;
   background-color: ${props => props.theme.colors.white};
 `;
@@ -53,7 +52,7 @@ const MapCard = ({ pointData, onBack }) => {
   return (
     (pointData && (
       <React.Fragment>
-        <Button onClick={() => onBack()}>
+        <Button onClick={onBack}>
           <Back />
         </Button>
         <Container>

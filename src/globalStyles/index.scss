@@ -70,8 +70,8 @@ $text-xxxl: calc(
 
 body {
   overflow-x: hidden;
-  max-width: 100%;
-  max-width: 100vw;
+  max-width: 474px;
+  margin: 0 auto;
 
   font-size: $text-base-size;
   font-family: $font-family;
