@@ -20,7 +20,7 @@ TODO
 ☐ Add "show all" button to map
 ✔ Add City of Helsinki wave according to design @done(19-07-23 15:07)
 ☐ Fix clustering
-    ☐ Position clusters correctly
+    ✔ Position clusters correctly @done(19-07-23 15:50)
     ☐ Add onClick handler
 ☐ find ways to lock the screen to be horizontal orientation only
 ☐ Highlight focused point on swipe

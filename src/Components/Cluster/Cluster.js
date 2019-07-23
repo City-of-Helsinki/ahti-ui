@@ -59,6 +59,7 @@ class Cluster extends PureComponent {
       newProps.extent !== this.props.extent ||
       newProps.nodeSize !== this.props.nodeSize ||
       newProps.location !== this.props.location ||
+      newProps.currentSlide !== this.props.currentSlide ||
       !shallowCompareChildren(this.props.children, newProps.children);
 
     if (shouldUpdate) {
@@ -114,8 +115,8 @@ class Cluster extends PureComponent {
           longitude,
           latitude,
           // TODO size
-          offsetLeft: -28 / 2,
-          offsetTop: -28,
+          offsetLeft: -48 / 2,
+          offsetTop: -48,
           children: createElement(this.props.element, {
             cluster,
             superCluster: this.cluster,

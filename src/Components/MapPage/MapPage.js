@@ -7,7 +7,7 @@ import Carousel from '../Carousel/Carousel';
 import MapCard from '../MapCard/MapCard';
 import TagCard from '../TagCard/TagCard';
 import MapWrapper from '../MapWrapper/MapWrapper';
-import { FlyToInterpolator } from 'react-map-gl';
+import { FlyToInterpolator, LinearInterpolator } from 'react-map-gl';
 import CarouselWrapper from '../CarouselWrapper/CarouselWrapper';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
 
@@ -26,7 +26,6 @@ const MapPage = ({ location, history }) => {
 
   const [displayedPoints, setDisplayedPoints] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [previousSlide, setPreviousSlide] = useState(false);
   const [useLocation, setUseLocation] = useState(false);
   const [viewport, setViewport] = useState({
     // arbitrary max-width of 474px for wide screens
@@ -91,27 +90,42 @@ const MapPage = ({ location, history }) => {
         point => point.properties.fi.name === destination
       );
       if (displayedPoints[index]) {
-        flyToPoint(index, 700, true);
-        setPreviousSlide(index);
+        flyToPoint(displayedPoints[index].geometry, 700, true);
+        setCurrentSlide(index);
       }
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search, pointData, useLocation]);
 
-  const flyToPoint = (index, transitionDuration, cardView) => {
-    const longitude = displayedPoints[index].geometry.coordinates[0];
+  const flyToPoint = (
+    geometry,
+    transitionDuration,
+    cardView,
+    zoomDifference
+  ) => {
+    const longitude = geometry.coordinates[0];
 
     // make the map roughly centered even when a card is displayed
     const latitude = cardView
-      ? displayedPoints[index].geometry.coordinates[1] - 0.005
-      : displayedPoints[index].geometry.coordinates[1] - 0.0015;
+      ? geometry.coordinates[1] - 0.005
+      : geometry.coordinates[1] - 0.0015;
+
+    // always use zoom=14 in cardView, otherwise use zoomDifference if specified
+    const zoom = cardView
+      ? 14
+      : zoomDifference
+      ? viewport.zoom + zoomDifference
+      : 15;
     setViewport({
       ...viewport,
       longitude,
       latitude,
-      zoom: 14,
-      transitionInterpolator: new FlyToInterpolator(),
+      zoom,
+      transitionInterpolator: cardView
+        ? new FlyToInterpolator()
+        : // use LinearInterpolator outside cardView to prevent Clusters from glitching
+          new LinearInterpolator(),
       transitionDuration,
     });
   };
@@ -128,6 +142,7 @@ const MapPage = ({ location, history }) => {
           viewport={viewport}
           setViewport={setViewport}
           displayedPoints={displayedPoints}
+          currentSlide={currentSlide}
         />
       </MapWrapper>
 
@@ -138,8 +153,6 @@ const MapPage = ({ location, history }) => {
             <Carousel
               currentSlide={currentSlide}
               setCurrentSlide={setCurrentSlide}
-              previousSlide={previousSlide}
-              setPreviousSlide={setPreviousSlide}
               viewport={viewport}
               flyToPoint={flyToPoint}
               displayedPoints={displayedPoints}

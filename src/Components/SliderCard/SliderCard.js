@@ -26,14 +26,13 @@ const Container = styled.div`
   }
 `;
 
-const SliderCard = ({ point, query, _onClick }) => {
+const SliderCard = ({ point, query }) => {
   return (
     <UnstyledLink
       to={{
         pathname: '/map',
         search: query,
       }}
-      onClick={_onClick}
     >
       <LazyImage
         src={`/images/${point.properties.imageId}.jpeg`}
