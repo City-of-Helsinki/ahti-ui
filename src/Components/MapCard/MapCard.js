@@ -6,7 +6,7 @@ import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
 import { ReactComponent as PhoneIcon } from '../../assets/icons/phone.svg';
-import { ReactComponent as Back } from '../../assets/icons/back.svg';
+import { ReactComponent as ArrowLeft } from '../../assets/icons/arrow_left.svg';
 
 import styled from 'styled-components';
 
@@ -72,7 +72,8 @@ const MapCard = ({ pointData, onBack }) => {
     (pointData && (
       <React.Fragment>
         <Button onClick={onBack}>
-          <Back />
+          <ArrowLeft />
+          Back
         </Button>
         <Container>
           <LazyImage
