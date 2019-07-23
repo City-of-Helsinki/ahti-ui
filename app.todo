@@ -16,7 +16,7 @@ TODO
     ☐ add support for EN with name_en for the map
     ✔ use fallback browser language @done(19-07-22 17:35)
     ☐ use new style for Finnish
-☐ Add borders in desktop
+✔ Add borders in desktop @done(19-07-23 11:47)
 ☐ Add "show all" button to map
 ☐ Add City of Helsinki wave according to design
 ☐ Fix clustering
@@ -26,6 +26,7 @@ TODO
 ☐ Highlight focused point on swipe
 ☐ Finish cards according to design
 ☐ Finish home view according to design
+☐ Add back button for island if coming from show all
  
 ☐ refactor flexbox used in app since might not work on mobile
 ☐ Carousel component is rendered twice, check why

@@ -84,7 +84,7 @@ export default () => {
                 icon={<Beach />}
                 title={<TertiaryTitle> {type} </TertiaryTitle>}
                 pathToList={`/map?type=${type}` || '/map'}
-              ></RoundBoxWithText>
+              />
             );
           })}
 
@@ -93,12 +93,12 @@ export default () => {
             icon={<Boat />}
             title={<TertiaryTitle> Boat rentals </TertiaryTitle>}
             pathToList={'/map?type=boat' || '/map'}
-          ></RoundBoxWithText>
+          />
           <RoundBoxWithText
             icon={<Park />}
             title={<TertiaryTitle> Parks </TertiaryTitle>}
             pathToList={'/map?type=park' || '/map'}
-          ></RoundBoxWithText>
+          />
         </Slider>
       </Section>
       {selectedIsland.properties && (
