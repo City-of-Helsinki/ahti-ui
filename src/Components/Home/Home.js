@@ -9,6 +9,7 @@ import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import RoundBoxWithText from '../RoundBox/RoundBox';
 import TertiaryTitle from '../TertiaryTitle/TertiaryTitle';
 import VerticalBlock from '../VerticalBlock/VerticalBlock';
+import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 
 import { ReactComponent as Beach } from '../../assets/icons/beach.svg';
 import { ReactComponent as Boat } from '../../assets/icons/boat.svg';
@@ -74,6 +75,7 @@ export default () => {
           <Button>See all places</Button>
         </Link>
       </MapOverlay>
+      <HelsinkiWave />
       <Section>
         <SecondaryTitle>Popular places around</SecondaryTitle>
         <Slider {...sliderSettings1}>
@@ -102,21 +104,24 @@ export default () => {
         </Slider>
       </Section>
       {selectedIsland.properties && (
-        <Section
-          withImage="true"
-          widthShadow="true"
-          imageURL="https://images.unsplash.com/photo-1562593028-2e975fe28a0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
-        >
-          <SecondaryTitle>{selectedIsland.properties.fi.name}</SecondaryTitle>
-          <p>
-            {selectedIsland.properties.fi.header ||
-              `An island where you can spend the
+        <React.Fragment>
+          <Section
+            withImage="true"
+            widthShadow="true"
+            imageURL="https://images.unsplash.com/photo-1562593028-2e975fe28a0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+          >
+            <SecondaryTitle>{selectedIsland.properties.fi.name}</SecondaryTitle>
+            <p>
+              {selectedIsland.properties.fi.header ||
+                `An island where you can spend the
             whole day with the family`}
-          </p>
-          <Link to={`/map?tag=${selectedIsland.properties.en.name}`}>
-            <Button whiteBtn="true">See all</Button>
-          </Link>
-        </Section>
+            </p>
+            <Link to={`/map?tag=${selectedIsland.properties.en.name}`}>
+              <Button whiteBtn="true">See all</Button>
+            </Link>
+          </Section>
+          <HelsinkiWave />
+        </React.Fragment>
       )}
       <Section>
         <SecondaryTitle>Things to try during the summer</SecondaryTitle>
