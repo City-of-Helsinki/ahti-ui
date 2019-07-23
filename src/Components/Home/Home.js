@@ -22,6 +22,20 @@ const sliderSettings1 = {
   slidesToShow: 3.5,
   slidesToScroll: 2,
   adaptiveHeight: true,
+  responsive: [
+    {
+      breakpoint: 390,
+      settings: {
+        slidesToShow: 3,
+      },
+    },
+    {
+      breakpoint: 330,
+      settings: {
+        slidesToShow: 2.5,
+      },
+    },
+  ],
 };
 
 // TODO: show different amount of components based on width
