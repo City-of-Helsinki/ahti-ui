@@ -11,12 +11,12 @@ const CardImageContainer = styled.div`
   background-image: url(${props => props.imageURL || null});
   background-repeat: no-repeat;
   background-size: cover;
+  background: ${props => (props.imageURL ? null : '#8c8c8c')};
 
   box-shadow: ${props =>
     props.imageURL ? `inset 4rem 7rem 21rem 0.5rem rgba(0,0,0,0.75)` : null};
 
-  color: ${props =>
-    props.imageURL ? props.theme.colors.white : props.theme.colors.black};
+  color: ${props => props.theme.colors.white};
 
   p {
     margin-top: -1rem;

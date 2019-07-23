@@ -9,6 +9,9 @@ const Menu = styled.nav`
 
   display: flex;
 
+  /* NOTE: This is the arbitrary max-width for wide screens */
+  max-width: 474px;
+
   /* NOTE: This height matters for overlapping the map  */
   min-height: 8vh;
   width: 100%;

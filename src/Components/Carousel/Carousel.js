@@ -31,9 +31,9 @@ export default class Carousel extends React.Component {
   shouldComponentUpdate(nextProps) {
     if (nextProps.displayedPoints !== this.props.displayedPoints) {
       return true;
+    } else {
+      return false;
     }
-
-    return nextProps.viewport === this.props.viewport;
   }
 
   render() {

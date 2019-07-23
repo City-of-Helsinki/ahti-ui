@@ -20,14 +20,15 @@ export default ({
   const { t, i18n } = useTranslation();
   const map = useRef(null);
   const [mapStyle, setMapStyle] = useState(
-    'mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf'
+    'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv'
   );
 
   useEffect(() => {
     if (i18n.language && i18n.language !== 'fi') {
-      setMapStyle('mapbox://styles/strawshield/cjxx3eh3t2oib1cpm9fxw4i9j');
+      // replace with mapstyle in English
+      setMapStyle('mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv');
     } else {
-      setMapStyle('mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf');
+      setMapStyle('mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv');
     }
   }, [i18n.language]);
 

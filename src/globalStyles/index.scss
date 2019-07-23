@@ -70,8 +70,10 @@ $text-xxxl: calc(
 
 body {
   overflow-x: hidden;
-  max-width: 100%;
-  max-width: 100vw;
+  // arbitrary max-width of 474px for wide screens
+  max-width: 474px;
+  margin: 0 auto;
+  position: relative;
 
   font-size: $text-base-size;
   font-family: $font-family;

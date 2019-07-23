@@ -8,7 +8,7 @@ const CarouselWrapper = styled.div`
   top: 82vh;
   width: 100%;
   overflow: hidden;
-  z-index: 100000;
+  z-index: 1;
 
   // todo: fix this later;
   /* rewrite libraries*/

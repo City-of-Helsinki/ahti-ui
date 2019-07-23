@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
+import { LazyImage } from 'react-lazy-images';
 import queryString from 'query-string';
-
 import { ReactComponent as LocationIcon } from '../../assets/icons/location_white.svg';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import TypeTitle from '../TypeTitle/TypeTitle';
@@ -12,7 +12,7 @@ import CardTextContainerBase from '../CardTextContainer/CardTextContainer';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  z-index: 34058052930;
+  z-index: 1;
   box-sizing: border-box;
   margin-top: 40vh;
   position: relative;
@@ -66,24 +66,46 @@ const TagListItem = styled.div`
 `;
 
 const TagCard = ({ pointData, tagData, location }) =>
-  pointData.length > 0 &&
   tagData.length > 0 && (
     <div>
       <Container>
-        <CardImageContainer imageURL="https://images.unsplash.com/photo-1536420124982-bd9d18fc47ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80">
-          {tagData[0].properties.fi.name && (
-            <SecondaryTitle>{tagData[0].properties.fi.name}</SecondaryTitle>
+        <LazyImage
+          src={`/images/${tagData[0].properties.imageId}.jpeg`}
+          placeholder={({ ref }) => (
+            <CardImageContainer ref={ref}>
+              {tagData[0].properties.fi.name && (
+                <SecondaryTitle>{tagData[0].properties.fi.name}</SecondaryTitle>
+              )}
+              {tagData[0].properties.fi.description && (
+                <BodyText>
+                  {tagData[0].properties.fi.description.slice(0, 100)}
+                </BodyText>
+              )}
+              <LocationContainer>
+                <Location viewBox="0 0 48 48" height="24" />
+                <BodyText>{pointData.length} locations</BodyText>
+              </LocationContainer>
+            </CardImageContainer>
           )}
-          {tagData[0].properties.fi.description && (
-            <BodyText>
-              {tagData[0].properties.fi.description.slice(0, 100)}
-            </BodyText>
+          actual={() => (
+            <CardImageContainer
+              imageURL={`/images/${tagData[0].properties.imageId}.jpeg`}
+            >
+              {tagData[0].properties.fi.name && (
+                <SecondaryTitle>{tagData[0].properties.fi.name}</SecondaryTitle>
+              )}
+              {tagData[0].properties.fi.description && (
+                <BodyText>
+                  {tagData[0].properties.fi.description.slice(0, 100)}
+                </BodyText>
+              )}
+              <LocationContainer>
+                <Location viewBox="0 0 48 48" height="24" />
+                <BodyText>{pointData.length} locations</BodyText>
+              </LocationContainer>
+            </CardImageContainer>
           )}
-          <LocationContainer>
-            <Location viewBox="0 0 48 48" height="24" />
-            <BodyText>{pointData.length} locations</BodyText>
-          </LocationContainer>
-        </CardImageContainer>
+        />
         <CardTextContainer>
           <SecondaryTitle>Things to do</SecondaryTitle>
           <BodyText>
@@ -91,32 +113,50 @@ const TagCard = ({ pointData, tagData, location }) =>
             {tagData[0].properties.fi.name}
           </BodyText>
           <TagListContainer>
-            {pointData.map((point, id) => {
-              const query =
-                point.properties.type === 'island'
-                  ? queryString.stringify({
-                      tag: point.properties.fi.name,
-                    })
-                  : queryString.stringify({
-                      ...queryString.parse(location.search),
-                      name: point.properties.fi.name,
-                    });
+            {pointData.length > 0 &&
+              pointData.map((point, id) => {
+                const query =
+                  point.properties.type === 'island'
+                    ? queryString.stringify({
+                        tag: point.properties.fi.name,
+                      })
+                    : queryString.stringify({
+                        ...queryString.parse(location.search),
+                        name: point.properties.fi.name,
+                      });
 
-              return (
-                <Link
-                  to={{
-                    pathname: '/map',
-                    search: query,
-                  }}
-                  key={id}
-                >
-                  <TagListItem imageURL="https://images.unsplash.com/photo-1536420124982-bd9d18fc47ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80">
-                    <SecondaryTitle>{point.properties.fi.name}</SecondaryTitle>
-                    <TypeTitle>{point.properties.type}</TypeTitle>
-                  </TagListItem>
-                </Link>
-              );
-            })}
+                return (
+                  <Link
+                    to={{
+                      pathname: '/map',
+                      search: query,
+                    }}
+                    key={id}
+                  >
+                    <LazyImage
+                      src={`/images/${point.properties.imageId}.jpeg`}
+                      placeholder={({ ref }) => (
+                        <TagListItem ref={ref}>
+                          <SecondaryTitle>
+                            {point.properties.fi.name}
+                          </SecondaryTitle>
+                          <TypeTitle>{point.properties.type}</TypeTitle>
+                        </TagListItem>
+                      )}
+                      actual={() => (
+                        <TagListItem
+                          imageURL={`/images/${point.properties.imageId}.jpeg`}
+                        >
+                          <SecondaryTitle>
+                            {point.properties.fi.name}
+                          </SecondaryTitle>
+                          <TypeTitle>{point.properties.type}</TypeTitle>
+                        </TagListItem>
+                      )}
+                    />
+                  </Link>
+                );
+              })}
           </TagListContainer>
         </CardTextContainer>
       </Container>
