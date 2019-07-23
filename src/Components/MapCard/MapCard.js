@@ -39,10 +39,28 @@ const Line = styled.hr`
 `;
 
 const Button = styled.button`
+  /** Positioning */
   position: absolute;
   z-index: 1399;
   top: 35vh;
-  padding: 0.5rem;
+
+  /** Styling */
+  /** NOTE: appearance does not exist unprefixed yet in browsers */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+
+  padding: 1rem;
+
+  border: none;
+  color: ${props =>
+    props.whiteBtn ? props.theme.colors.white : props.theme.colors.black};
+  background-color: ${props => props.theme.colors.transparent};
+
+  font-family: ${props => props.theme.fonts.fontFamilyBold};
+  font-size: 1.3rem;
+  line-height: 1.3rem;
 `;
 
 const MapCard = ({ pointData, onBack }) => {
