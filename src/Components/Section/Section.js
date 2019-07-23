@@ -32,7 +32,7 @@ const Section = styled.section`
   }
 
   a {
-    display: block;
+    display: inline-block;
     margin-top: 1rem;
   }
 `;
