@@ -18,7 +18,7 @@ TODO
     ☐ use new style for Finnish
 ✔ Add borders in desktop @done(19-07-23 11:47)
 ☐ Add "show all" button to map
-☐ Add City of Helsinki wave according to design
+✔ Add City of Helsinki wave according to design @done(19-07-23 15:07)
 ☐ Fix clustering
     ☐ Position clusters correctly
     ☐ Add onClick handler
