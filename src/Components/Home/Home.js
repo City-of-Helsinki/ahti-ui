@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
 import { GlobalGeoContext } from '../../App';
-import Button from '../Button/Button';
+import LinkBox from '../LinkBox/LinkBox';
 import MapOverlay from '../MapOverlay/MapOverlay';
 import Section from '../Section/Section';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import RoundBoxWithText from '../RoundBox/RoundBox';
 import TertiaryTitle from '../TertiaryTitle/TertiaryTitle';
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import VerticalBlock from '../VerticalBlock/VerticalBlock';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 
@@ -72,7 +73,7 @@ export default () => {
       <MapOverlay>
         <SecondaryTitle>Find your way around the sea</SecondaryTitle>
         <Link to="/map">
-          <Button>See all places</Button>
+          <LinkBox>See all places</LinkBox>
         </Link>
       </MapOverlay>
       <HelsinkiWave />
@@ -117,7 +118,7 @@ export default () => {
             whole day with the family`}
             </p>
             <Link to={`/map?tag=${selectedIsland.properties.en.name}`}>
-              <Button whiteBtn="true">See all</Button>
+              <LinkBox variant="white">See all</LinkBox>
             </Link>
           </Section>
           <HelsinkiWave />
@@ -145,7 +146,7 @@ export default () => {
                   'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
               }
               return (
-                <Link to={`/map?type=${type}` || '/map'} key={id}>
+                <UnstyledLink to={`/map?type=${type}` || '/map'} key={id}>
                   <VerticalBlock
                     withImage="true"
                     imageURL={
@@ -156,7 +157,7 @@ export default () => {
                   >
                     <SecondaryTitle>Popular place {type}</SecondaryTitle>
                   </VerticalBlock>
-                </Link>
+                </UnstyledLink>
               );
             })}
         </Slider>
@@ -172,7 +173,7 @@ export default () => {
           Discover visitor harbours, water routes and critical signs in one map
         </p>
         <Link to="/map">
-          <Button whiteBtn="true">View service providers</Button>
+          <LinkBox variant="white">View service providers</LinkBox>
         </Link>
       </Section>
     </React.Fragment>

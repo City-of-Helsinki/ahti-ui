@@ -23,6 +23,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-slick": "^0.24.0",
+    "sanitize.css": "^11.0.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.2",
     "supercluster": "^6.0.1"
@@ -30,6 +31,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && echo '/* /index.html  200' | cat >build/_redirects",
+    "analyze": "source-map-explorer 'build/static/js/*.js' --html bundle-analysis.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -68,6 +70,7 @@
     "node-sass": "^4.12.0",
     "pretty-quick": "^1.11.1",
     "slick-carousel": "^1.8.1",
+    "source-map-explorer": "^2.0.1",
     "styled-components": "^4.3.2"
   },
   "config": {

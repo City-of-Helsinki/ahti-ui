@@ -1,13 +1,14 @@
 import React, { memo } from 'react';
 import { LazyImage } from 'react-lazy-images';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
+import BaseButton from '../BaseButton/BaseButton';
 import BodyText from '../BodyText/BodyText';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
 import { ReactComponent as PhoneIcon } from '../../assets/icons/phone.svg';
-import { ReactComponent as Back } from '../../assets/icons/back.svg';
+import { ReactComponent as ArrowLeft } from '../../assets/icons/arrow_left.svg';
 
 import styled from 'styled-components';
 
@@ -39,11 +40,22 @@ const Line = styled.hr`
   border-color: ${props => props.theme.colors.black};
 `;
 
-const Button = styled.button`
+const Button = styled(BaseButton)`
+  /** Positioning */
   position: absolute;
   z-index: 1399;
   top: 35vh;
-  padding: 0.5rem;
+
+  /** Styling */
+  padding: 1rem;
+
+  color: ${props =>
+    props.whiteBtn ? props.theme.colors.white : props.theme.colors.black};
+  background-color: ${props => props.theme.colors.transparent};
+
+  font-family: ${props => props.theme.fonts.fontFamilyBold};
+  font-size: 1.3rem;
+  line-height: 1.3rem;
 `;
 
 const MapCard = ({ pointData, onBack }) => {
@@ -55,7 +67,8 @@ const MapCard = ({ pointData, onBack }) => {
     (pointData && (
       <React.Fragment>
         <Button onClick={onBack}>
-          <Back />
+          <ArrowLeft />
+          Back
         </Button>
         <Container>
           <LazyImage

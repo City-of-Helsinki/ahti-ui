@@ -31,7 +31,8 @@ const Section = styled.section`
     margin-top: -1rem;
   }
 
-  button {
+  a {
+    display: inline-block;
     margin-top: 1rem;
   }
 `;

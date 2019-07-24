@@ -1,10 +1,9 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
 import { LazyImage } from 'react-lazy-images';
+import styled from 'styled-components';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import TypeTitle from '../TypeTitle/TypeTitle';
-
-import styled from 'styled-components';
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -29,7 +28,7 @@ const Container = styled.div`
 
 const SliderCard = ({ point, query, _onClick }) => {
   return (
-    <Link
+    <UnstyledLink
       to={{
         pathname: '/map',
         search: query,
@@ -51,7 +50,7 @@ const SliderCard = ({ point, query, _onClick }) => {
           </Container>
         )}
       />
-    </Link>
+    </UnstyledLink>
   );
 };
 

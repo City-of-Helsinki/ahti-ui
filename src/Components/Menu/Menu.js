@@ -1,26 +1,34 @@
 import styled from 'styled-components';
 
 const Menu = styled.nav`
-  z-index: 1337;
+  display: flex;
+
   position: absolute;
-  box-sizing: border-box;
+  z-index: 1337;
+
+  /* NOTE: This height matters for overlapping the map  */
+  height: 8vh;
+
+  /* NOTE: This is the arbitrary max-width for wide screens */
   max-width: 474px;
   width: 100%;
-  height: 8vh;
-  padding: 2rem 1.75rem;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+
+  justify-content: space-between;
+  align-items: center;
+
   background-color: ${props => props.theme.colors.white};
   box-shadow: ${props => props.theme.shadows.menuShadow};
 
   .mainTitle {
-    height: 100%;
+    margin: 0;
     font-size: 2rem;
-    display: block;
-    color: ${props => props.theme.colors.black};
   }
 
-  button {
-    display: block;
-    float: right;
+  .mainTitle > a {
+    text-decoration: none;
+    color: ${props => props.theme.colors.black};
   }
 `;
 
