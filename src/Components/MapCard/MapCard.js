@@ -1,14 +1,13 @@
 import React, { memo } from 'react';
 import { LazyImage } from 'react-lazy-images';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
-import BaseButton from '../BaseButton/BaseButton';
+import BackButton from '../BackButton/BackButton';
 import BodyText from '../BodyText/BodyText';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
 import { ReactComponent as PhoneIcon } from '../../assets/icons/phone.svg';
-import { ReactComponent as ArrowLeft } from '../../assets/icons/arrow_left.svg';
 
 import styled from 'styled-components';
 
@@ -40,24 +39,6 @@ const Line = styled.hr`
   border-color: ${props => props.theme.colors.black};
 `;
 
-const Button = styled(BaseButton)`
-  /** Positioning */
-  position: absolute;
-  z-index: 1399;
-  top: 35vh;
-
-  /** Styling */
-  padding: 1rem;
-
-  color: ${props =>
-    props.whiteBtn ? props.theme.colors.white : props.theme.colors.black};
-  background-color: ${props => props.theme.colors.transparent};
-
-  font-family: ${props => props.theme.fonts.fontFamilyBold};
-  font-size: 1.3rem;
-  line-height: 1.3rem;
-`;
-
 const MapCard = ({ pointData, onBack }) => {
   const website =
     (pointData && pointData.properties.website) || '<placeholder site>';
@@ -66,10 +47,7 @@ const MapCard = ({ pointData, onBack }) => {
   return (
     (pointData && (
       <React.Fragment>
-        <Button onClick={onBack}>
-          <ArrowLeft />
-          Back
-        </Button>
+        <BackButton onBack={onBack} />
         <Container>
           <LazyImage
             src={`/images/${pointData.properties.imageId}.jpeg`}

@@ -6,6 +6,7 @@ import { ReactComponent as LocationIcon } from '../../assets/icons/location_whit
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import TypeTitle from '../TypeTitle/TypeTitle';
 import BodyText from '../BodyText/BodyText';
+import BackButton from '../BackButton/BackButton';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainerBase from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
@@ -66,9 +67,10 @@ const TagListItem = styled.div`
   }
 `;
 
-const TagCard = ({ pointData, tagData, location }) =>
+const TagCard = ({ pointData, tagData, location, onBack }) =>
   tagData.length > 0 && (
     <div>
+      <BackButton onBack={onBack} />
       <Container>
         <LazyImage
           src={`/images/${tagData[0].properties.imageId}.jpeg`}
