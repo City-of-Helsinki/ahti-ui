@@ -17,13 +17,13 @@ TODO
     ✔ use fallback browser language @done(19-07-22 17:35)
     ☐ use new style for Finnish
 ✔ Add borders in desktop @done(19-07-23 11:47)
-☐ Add "show all" button to map
+✔ Add "show all" button to map @done(19-07-24 10:59)
 ✔ Add City of Helsinki wave according to design @done(19-07-23 15:07)
-☐ Fix clustering
-    ☐ Position clusters correctly
-    ☐ Add onClick handler
+✔ Fix clustering @done(19-07-24 10:59)
+    ✔ Position clusters correctly @done(19-07-23 15:50)
+    ✔ Add onClick handler @done(19-07-24 10:59)
 ☐ find ways to lock the screen to be horizontal orientation only
-☐ Highlight focused point on swipe
+✔ Highlight focused point on swipe @done(19-07-24 10:59)
 ☐ Finish cards according to design
 ☐ Finish home view according to design
 ☐ Add back button for island if coming from show all

@@ -16,13 +16,13 @@ export default class Carousel extends React.Component {
     //this doesn't understand rem for some reason
     centerPadding: '18px',
     initialSlide:
-      this.props.previousSlide &&
-      this.props.displayedPoints[this.props.previousSlide]
-        ? this.props.previousSlide
+      this.props.currentSlide &&
+      this.props.displayedPoints[this.props.currentSlide]
+        ? this.props.currentSlide
         : 0,
     beforeChange: (current, next) => {
       if (current !== next && this.props.displayedPoints[next]) {
-        this.props.flyToPoint(next, 300);
+        this.props.flyToPoint(this.props.displayedPoints[next].geometry, 500);
       }
     },
     afterChange: current => this.props.setCurrentSlide(current),
@@ -49,14 +49,7 @@ export default class Carousel extends React.Component {
                   ...queryString.parse(this.props.location.search),
                   name: point.properties.fi.name,
                 });
-          return (
-            <SliderCard
-              point={point}
-              key={id}
-              query={query}
-              _onClick={this.props.setPreviousSlide(this.props.currentSlide)}
-            />
-          );
+          return <SliderCard point={point} key={id} query={query} />;
         })}
       </Slider>
     );

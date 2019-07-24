@@ -16,6 +16,8 @@ export default ({
   displayedPoints,
   history,
   location,
+  flyToPoint,
+  currentSlide,
 }) => {
   const { t, i18n } = useTranslation();
   const map = useRef(null);
@@ -41,6 +43,8 @@ export default ({
             point.properties.fi.name ||
           queryString.parse(location.search).tag === point.properties.fi.name;
 
+        const isCurrent = index === currentSlide;
+
         const isTag = point.properties.type === 'island';
 
         const query = isTag
@@ -60,6 +64,7 @@ export default ({
             {isTag ? (
               <TagPin
                 isActive={isActive}
+                isCurrent={isCurrent}
                 onClick={() => {
                   history.push(`/map?${query}`);
                 }}
@@ -67,6 +72,7 @@ export default ({
             ) : (
               <PointPin
                 isActive={isActive}
+                isCurrent={isCurrent}
                 onClick={() => {
                   history.push(`/map?${query}`);
                 }}
@@ -90,11 +96,14 @@ export default ({
         {map.current && (
           <Cluster
             map={map.current.getMap()}
-            radius={40}
+            radius={30}
             extent={512}
             nodeSize={40}
+            minZoom={0}
+            maxZoom={13}
+            currentSlide={currentSlide}
             element={e => {
-              return <ClusterPin {...e} />;
+              return <ClusterPin {...e} flyToPoint={flyToPoint} />;
             }}
           >
             {_renderMarker()}
