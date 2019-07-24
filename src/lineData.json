@@ -1,0 +1,130 @@
+{
+  "data": [
+    {
+      "properties": {
+        "fi": {
+          "name": "Suomensaaristokuljetus",
+          "header": "Kauppatori - Vallisaari - Isosaari",
+          "description": "Yhdistelmä lipulla käyt samana päivänä sekä Vallisaaressa että Isosaaressa",
+          "free_text_1": "Vallisaari meno-paluu 10€ / 5€",
+          "free_text_2": "Isosaari meno-paluu 18€ / 9€"
+        },
+        "en": {
+          "name": "Suomensaaristokuljetus",
+          "header": "Kauppatori - Vallisaari - Isosaari",
+          "description": "Combination ticket allows you can visit both Vallisaari and Isosaari.",
+          "free_text_1": "Vallisaari round-trip 10€ / 5€",
+          "free_text_2": "Vallisaari round-trip 10€ / 5€"
+        },
+        "website": "http://www.suomensaaristokuljetus.fi/vallisaari-isosaari/",
+        "phone_number": "0600 390 111",
+        "type": "route",
+        "tag": ["Kauppatori", "Vallisaari", "Isosaari"]
+      }
+    },
+    {
+      "properties": {
+        "fi": {
+          "name": "Aava Lines - Liuskasaari",
+          "header": "Yhteysvene - Liuskasaari",
+          "description": "Yhteysvene kulkee väliä HSS Manner - Liuskaluoto - Liuskasaari - Uunisaari - Kompassilaituri.",
+          "free_text_1": "liuskasaari 5€ / 3€",
+          "free_text_2": "Uunisaari 4€ / 2,5€"
+        },
+        "en": {
+          "name": "Aava Lines - Liuskasaari",
+          "header": "Access boat - Liuskasaari",
+          "description": "Access boat passes HSS Manner - Liuskaluoto - Liuskasaari - Uunisaari - Kompassilaituri.",
+          "free_text_1": "liuskasaari 5€ / 3€",
+          "free_text_2": "Uunisaari 4€ / 2,5"
+        },
+        "website": "https://aavalines.fi",
+        "phone_number": "040 6708845",
+        "type": "route",
+        "tag": [
+          "HSS Manner",
+          "Liuskaluoto",
+          "Liuskasaari",
+          "Uunisaari",
+          "Kompassilaituri"
+        ]
+      }
+    },
+    {
+      "properties": {
+        "fi": {
+          "name": "Suomen Saaristokuljetus Hakaniemi - Korkeasaari",
+          "header": "Korkeasaareen ja takaisin lautalla",
+          "description": "Suomen Saaristokuljetus Oy liikennöi kahdella linjalla Korkeasaaren eläintarhaan Kauppatorilta ja Hakaniemestä.",
+          "free_text_1": "meno-paluu 7 €",
+          "free_text_2": "alle 18-vuotiaat ilmaiseksi"
+        },
+        "en": {
+          "name": "Suomen Saaristokuljetus Hakaniemi - Korkeasaari",
+          "header": "To Korkeasaari and back by a ferry",
+          "description": "Suomen Saaristokuljetus Oy operates two routes to the Korkeasaari Zoo. You can hop on from either the Market Square or Hakaniemi, and return to either.",
+          "free_text_1": "round-trip 7 €",
+          "free_text_2": "children under 18 free"
+        },
+        "website": "http://www.suomensaaristokuljetus.fi/korkeasaari/",
+        "phone_number": "0600 390 111",
+        "type": "route",
+        "tag": ["Hakaniemi", "Korkeasaari"]
+      }
+    },
+    {
+      "properties": {
+        "fi": {
+          "name": "Suomen Saaristokuljetus Kauppatori - Korkeasaari",
+          "header": "Korkeasaareen ja takaisin lautalla",
+          "description": "Suomen Saaristokuljetus Oy liikennöi kahdella linjalla Korkeasaaren eläintarhaan Kauppatorilta ja Hakaniemestä.",
+          "free_text_1": "meno-paluu 7 €",
+          "free_text_2": "alle 18-vuotiaat ilmaiseksi"
+        },
+        "en": {
+          "name": "<missing>",
+          "header": "<To Korkeasaari and back by a ferry>",
+          "description": "Suomen Saaristokuljetus Oy operates two routes to the Korkeasaari Zoo. You can hop on from either the Market Square or Hakaniemi, and return to either.",
+          "free_text_1": "round-trip 7 €",
+          "free_text_2": "children under 18 free"
+        },
+        "website": "http://www.suomensaaristokuljetus.fi/korkeasaari/",
+        "phone_number": "0600 390 111",
+        "type": "route",
+        "tag": ["Kauppatori", "Korkeasaari"]
+      }
+    },
+    {
+      "properties": {
+        "fi": {
+          "name": "Suomen saaristokuljetus - Itäinen Saaristoreitti",
+          "header": "Hakaniemestä aina Vuosaareen ja takaisin",
+          "description": "Suomen Saaristokuljetus Oy liikennöi Helsingin upeinta saaristoreittiä Hakaniemen ja Vuosaaren välillä kesäkuun alusta aina elokuun loppuun saakka. Itäinen saaristoreitti on ainoa Helsingin kaupungin sisäinen vesiliikennereitti mantereelta mantereelle! Matkalla saat maistiaisen todellisesta helsinkiläisestä saaristolaiselämästä.               \n\nRisteilyn kokonaiskesto on 1 h 45 minuuttia. Matkan aikana pääset tutustumaan niihin osiin Helsingin saaristoa, minne muut reitti- tai sightseeing-alukset eivät liikennöi. Reittiin sisältyy Degerön kanavan läpiajo.",
+          "free_text_1": "Hinnat alkaen 5€",
+          "free_text_2": "Polkupyörä 3€"
+        },
+        "en": {
+          "name": "Suomen saaristokuljetus - Eastern archipelago route",
+          "header": "From Hakaniemi to Vuosaari and back",
+          "description": "<missing>",
+          "free_text_1": "Price starts from 5€",
+          "free_text_2": "bicycle 3€"
+        },
+        "website": "http://www.suomensaaristokuljetus.fi/itainen-saaristoreitti/",
+        "phone_number": "0600 390 111",
+        "type": "route",
+        "tag": [
+          "Hakaniemi",
+          "Herttoniemi",
+          "Laajasalo",
+          "Vartiosaari",
+          "Kivisaari",
+          "Satamasaari",
+          "Iiluoto",
+          "Leikonsaari",
+          "Vuosaari"
+        ]
+      }
+    }
+  ]
+}

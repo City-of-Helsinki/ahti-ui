@@ -34,6 +34,20 @@ export default ({
     }
   }, [i18n.language]);
 
+  const _onClick = event => {
+    const { features } = event;
+    const clickedPlace =
+      features && features.find(f => f.layer.id === 'routes');
+
+    clickedPlace &&
+      history.push(
+        `/map?${queryString.stringify({
+          ...queryString.parse(location.search),
+          line: clickedPlace.properties.name,
+        })}`
+      );
+  };
+
   const _renderMarker = () => {
     return (
       displayedPoints &&
@@ -92,6 +106,8 @@ export default ({
         mapStyle={mapStyle}
         mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
         onViewportChange={viewport => setViewport(viewport)}
+        onNativeClick={_onClick}
+        clickRadius={10}
       >
         {map.current && (
           <Cluster
