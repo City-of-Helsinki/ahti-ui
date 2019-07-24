@@ -115,8 +115,8 @@ class Cluster extends PureComponent {
           longitude,
           latitude,
           // TODO size
-          offsetLeft: -48 / 2,
-          offsetTop: -48,
+          offsetLeft: -36 / 2,
+          offsetTop: -36,
           children: createElement(this.props.element, {
             cluster,
             superCluster: this.cluster,
