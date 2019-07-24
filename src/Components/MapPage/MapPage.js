@@ -140,6 +140,7 @@ const MapPage = ({ location, history }) => {
           location={location}
           history={history}
           viewport={viewport}
+          flyToPoint={flyToPoint}
           setViewport={setViewport}
           displayedPoints={displayedPoints}
           currentSlide={currentSlide}
