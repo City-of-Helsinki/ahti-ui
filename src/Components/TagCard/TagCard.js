@@ -14,7 +14,7 @@ import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  z-index: 1;
+  z-index: 10;
   box-sizing: border-box;
   margin-top: 40vh;
   position: relative;
