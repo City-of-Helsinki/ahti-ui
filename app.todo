@@ -27,6 +27,7 @@ TODO
 ☐ Finish cards according to design
 ☐ Finish home view according to design
 ✔ Add back button for island if coming from show all @done(19-07-24 17:33)
+☐ Add support for displaying routes
  
 ☐ refactor flexbox used in app since might not work on mobile
 ☐ Carousel component is rendered twice, check why
@@ -36,4 +37,5 @@ TODO
 TODO if there is time left
 
 ☐ Add nearby information support
+☐ IG feed
 ☐ Investigate fetching weather data from API
