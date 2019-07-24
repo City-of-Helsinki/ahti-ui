@@ -26,7 +26,7 @@ TODO
 ✔ Highlight focused point on swipe @done(19-07-24 10:59)
 ☐ Finish cards according to design
 ☐ Finish home view according to design
-☐ Add back button for island if coming from show all
+✔ Add back button for island if coming from show all @done(19-07-24 17:33)
  
 ☐ refactor flexbox used in app since might not work on mobile
 ☐ Carousel component is rendered twice, check why
