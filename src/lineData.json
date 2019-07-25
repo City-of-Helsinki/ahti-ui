@@ -19,7 +19,8 @@
         "website": "http://www.suomensaaristokuljetus.fi/vallisaari-isosaari/",
         "phone_number": "0600 390 111",
         "type": "route",
-        "tag": ["Kauppatori", "Vallisaari", "Isosaari"]
+        "tag": ["Kauppatori", "Vallisaari", "Isosaari"],
+        "imageId": "7"
       }
     },
     {
@@ -47,7 +48,8 @@
           "Liuskasaari",
           "Uunisaari",
           "Kompassilaituri"
-        ]
+        ],
+        "imageId": "7"
       }
     },
     {
@@ -69,7 +71,8 @@
         "website": "http://www.suomensaaristokuljetus.fi/korkeasaari/",
         "phone_number": "0600 390 111",
         "type": "route",
-        "tag": ["Hakaniemi", "Korkeasaari"]
+        "tag": ["Hakaniemi", "Korkeasaari"],
+        "imageId": "7"
       }
     },
     {
@@ -91,7 +94,8 @@
         "website": "http://www.suomensaaristokuljetus.fi/korkeasaari/",
         "phone_number": "0600 390 111",
         "type": "route",
-        "tag": ["Kauppatori", "Korkeasaari"]
+        "tag": ["Kauppatori", "Korkeasaari"],
+        "imageId": "7"
       }
     },
     {
@@ -123,7 +127,8 @@
           "Iiluoto",
           "Leikonsaari",
           "Vuosaari"
-        ]
+        ],
+        "imageId": "7"
       }
     }
   ]
