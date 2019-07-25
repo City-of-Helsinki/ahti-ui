@@ -28,6 +28,7 @@ const Container = styled.div`
 `;
 
 const SliderCard = ({ point, query }) => {
+  const imageURL = `/images/${point.properties.imageId}.jpeg`;
   return (
     <UnstyledLink
       to={{
@@ -36,7 +37,7 @@ const SliderCard = ({ point, query }) => {
       }}
     >
       <LazyImage
-        src={`/images/${point.properties.imageId}.jpeg`}
+        src={imageURL}
         placeholder={({ ref }) => (
           <Container ref={ref}>
             <SecondaryTitle>{point.properties.fi.name}</SecondaryTitle>
@@ -44,7 +45,7 @@ const SliderCard = ({ point, query }) => {
           </Container>
         )}
         actual={() => (
-          <Container imageURL={`/images/${point.properties.imageId}.jpeg`}>
+          <Container imageURL={imageURL}>
             <SecondaryTitle>{point.properties.fi.name}</SecondaryTitle>
             <TypeTitle>{point.properties.type}</TypeTitle>
           </Container>
