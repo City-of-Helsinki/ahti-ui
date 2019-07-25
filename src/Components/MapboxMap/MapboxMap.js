@@ -33,7 +33,26 @@ export default ({
     } else {
       setMapStyle('mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv');
     }
-  }, [i18n.language]);
+
+    // this updates line width for selected line if possible,
+    // otherwise waits for styles to load before updating
+    const styleUpdateListener = setInterval(() => {
+      if (map.current && map.current.getMap().isStyleLoaded()) {
+        map.current
+          .getMap()
+          .setPaintProperty('routes', 'line-width', [
+            'match',
+            ['get', 'name'],
+            queryString.parse(location.search).line || 'none',
+            8,
+            3,
+          ]);
+        clearInterval(styleUpdateListener);
+      }
+    }, 100);
+
+    return () => clearInterval(styleUpdateListener);
+  }, [i18n.language, location]);
 
   const _onClick = event => {
     const { features } = event;
