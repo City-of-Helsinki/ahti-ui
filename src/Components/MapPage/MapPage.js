@@ -177,6 +177,7 @@ const MapPage = ({ location, history }) => {
       {!queryString.parse(location.search).name &&
         queryString.parse(location.search).tag && (
           <TagCard
+            onBack={history.goBack}
             location={location}
             pointData={displayedPoints.filter(
               point =>

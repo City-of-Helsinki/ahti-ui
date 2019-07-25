@@ -5,6 +5,7 @@ const CardTextContainer = styled.div`
   padding: 2rem 2rem;
   position: relative;
   width: 100 %;
+  min-height: 30vh;
   background-color: ${props => props.theme.colors.white};
   color: ${props =>
     props.imageURL ? props.theme.colors.white : props.theme.colors.black};

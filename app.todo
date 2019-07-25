@@ -22,13 +22,15 @@ TODO
 ✔ Fix clustering @done(19-07-24 10:59)
     ✔ Position clusters correctly @done(19-07-23 15:50)
     ✔ Add onClick handler @done(19-07-24 10:59)
-☐ find ways to lock the screen to be horizontal orientation only
 ✔ Highlight focused point on swipe @done(19-07-24 10:59)
 ☐ Finish cards according to design
 ☐ Finish home view according to design
-☐ Add back button for island if coming from show all
+☐ Add support for "promotions"
+    ☐ Figure out if can be implemented as regular point
+    ☐ Finish promotion view accordingly (prob extends map view)
+✔ Add back button for island if coming from show all @done(19-07-24 17:33)
+☐ Add support for displaying routes
  
-☐ refactor flexbox used in app since might not work on mobile
 ☐ Carousel component is rendered twice, check why
 ☐ Refactor MapPage and add shouldComponentUpdate
 ☐ Fix flyTo for tiny screens
@@ -36,4 +38,5 @@ TODO
 TODO if there is time left
 
 ☐ Add nearby information support
+☐ IG feed
 ☐ Investigate fetching weather data from API
