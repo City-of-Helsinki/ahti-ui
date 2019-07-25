@@ -13,14 +13,15 @@ const Container = styled.div`
   padding: 2.5rem 2.2rem;
 
   background-image: url(${props => props.imageURL || null});
+  background-color: ${props => props.theme.colors.lightGray};
   background-repeat: no-repeat;
   background-size: cover;
 
   box-shadow: ${props =>
     props.imageURL ? `inset 0px 28rem 28rem -28rem rgba(0,0,0,0.5)` : null};
 
-  color: ${props =>
-    props.imageURL ? props.theme.colors.white : props.theme.colors.black};
+  color: ${props => props.theme.colors.white};
+
   .slick-slider {
     margin-right: -2rem;
   }
