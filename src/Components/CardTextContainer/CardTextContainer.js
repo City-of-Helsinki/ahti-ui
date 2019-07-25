@@ -4,7 +4,7 @@ const CardTextContainer = styled.div`
   box-sizing: border - box;
   padding: 2rem 2rem;
   position: relative;
-  width: 100 %;
+  width: 100%;
   min-height: 30vh;
   background-color: ${props => props.theme.colors.white};
   color: ${props =>
