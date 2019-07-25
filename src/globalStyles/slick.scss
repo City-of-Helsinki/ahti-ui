@@ -1,0 +1,39 @@
+// Slick carousel base CSS
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+// Position the buttons flush with container
+.slick-prev {
+  z-index: 1;
+  left: 0;
+}
+
+[dir='rtl'] .slick-prev {
+  right: 0;
+  left: auto;
+}
+
+.slick-next {
+  z-index: 1;
+  right: 0;
+}
+
+[dir='rtl'] .slick-next {
+  right: auto;
+  left: 0;
+}
+
+// Style the buttons to be more obvious
+.slick-prev,
+.slick-next {
+  // Increase the tap target to the recommended one by accessibility guidelines
+  width: 44px;
+  height: 44px;
+}
+
+.slick-prev::before,
+.slick-next::before {
+  // Half-way between 44 (tap target) and 20 (default)
+  font-size: 32px;
+  color: #111111;
+}
