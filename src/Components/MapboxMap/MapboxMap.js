@@ -7,6 +7,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
 import Cluster from '../Cluster/Cluster';
+import { getQuery, getRouteQuery } from '../../utils';
 
 // using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
 
@@ -40,12 +41,8 @@ export default ({
       features && features.find(f => f.layer.id === 'routes');
 
     clickedPlace &&
-      history.push(
-        `/map?${queryString.stringify({
-          ...queryString.parse(location.search),
-          line: clickedPlace.properties.name,
-        })}`
-      );
+      clickedPlace.properties.name &&
+      history.push(`/map?${getRouteQuery(clickedPlace, location.search)}`);
   };
 
   const _renderMarker = () => {
@@ -59,23 +56,14 @@ export default ({
 
         const isCurrent = index === currentSlide;
 
-        const isTag = point.properties.type === 'island';
-
-        const query = isTag
-          ? queryString.stringify({
-              tag: point.properties.fi.name,
-            })
-          : queryString.stringify({
-              ...queryString.parse(location.search),
-              name: point.properties.fi.name,
-            });
+        const query = getQuery(point, location.search);
         return (
           <Marker
             key={`marker-${index}`}
             longitude={point.geometry.coordinates[0]}
             latitude={point.geometry.coordinates[1]}
           >
-            {isTag ? (
+            {point.properties.type === 'island' ? (
               <TagPin
                 isActive={isActive}
                 isCurrent={isCurrent}
