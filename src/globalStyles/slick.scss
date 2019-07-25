@@ -31,6 +31,11 @@
   height: 44px;
 }
 
+.slick-disabled.slick-prev,
+.slick-disabled.slick-next {
+  visibility: hidden;
+}
+
 .slick-prev::before,
 .slick-next::before {
   // Half-way between 44 (tap target) and 20 (default)
