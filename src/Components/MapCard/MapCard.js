@@ -44,13 +44,14 @@ const MapCard = ({ pointData, onBack }) => {
     (pointData && pointData.properties.website) || '<placeholder site>';
   const phone =
     (pointData && pointData.properties.phone_number) || '<placeholder #>';
+  const imageURL = `/images/${pointData.properties.imageId}.jpeg`;
   return (
     (pointData && (
       <React.Fragment>
         <BackButton onBack={onBack} />
         <Container>
           <LazyImage
-            src={`/images/${pointData.properties.imageId}.jpeg`}
+            src={imageURL}
             placeholder={({ ref }) => (
               <CardImageContainer ref={ref}>
                 {pointData.properties.fi.name && (
@@ -66,9 +67,7 @@ const MapCard = ({ pointData, onBack }) => {
               </CardImageContainer>
             )}
             actual={() => (
-              <CardImageContainer
-                imageURL={`/images/${pointData.properties.imageId}.jpeg`}
-              >
+              <CardImageContainer imageURL={imageURL}>
                 {pointData.properties.fi.name && (
                   <SecondaryTitle>
                     {pointData.properties.fi.name}

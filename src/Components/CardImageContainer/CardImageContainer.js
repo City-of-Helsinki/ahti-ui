@@ -9,9 +9,9 @@ const CardImageContainer = styled.div`
   padding: 2.5rem 2.2rem;
 
   background-image: url(${props => props.imageURL || null});
+  background-color: ${props => props.theme.colors.lightGray};
   background-repeat: no-repeat;
   background-size: cover;
-  background: ${props => (props.imageURL ? null : '#8c8c8c')};
 
   box-shadow: ${props =>
     props.imageURL ? `inset 4rem 7rem 21rem 0.5rem rgba(0,0,0,0.75)` : null};

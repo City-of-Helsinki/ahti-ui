@@ -13,20 +13,22 @@ const Container = styled.div`
   padding: 2.5rem 2.2rem;
 
   background-image: url(${props => props.imageURL || null});
+  background-color: ${props => props.theme.colors.lightGray};
   background-repeat: no-repeat;
   background-size: cover;
 
   box-shadow: ${props =>
     props.imageURL ? `inset 0px 28rem 28rem -28rem rgba(0,0,0,0.5)` : null};
 
-  color: ${props =>
-    props.imageURL ? props.theme.colors.white : props.theme.colors.black};
+  color: ${props => props.theme.colors.white};
+
   .slick-slider {
     margin-right: -2rem;
   }
 `;
 
 const SliderCard = ({ point, query }) => {
+  const imageURL = `/images/${point.properties.imageId}.jpeg`;
   return (
     <UnstyledLink
       to={{
@@ -35,7 +37,7 @@ const SliderCard = ({ point, query }) => {
       }}
     >
       <LazyImage
-        src={`/images/${point.properties.imageId}.jpeg`}
+        src={imageURL}
         placeholder={({ ref }) => (
           <Container ref={ref}>
             <SecondaryTitle>{point.properties.fi.name}</SecondaryTitle>
@@ -43,7 +45,7 @@ const SliderCard = ({ point, query }) => {
           </Container>
         )}
         actual={() => (
-          <Container imageURL={`/images/${point.properties.imageId}.jpeg`}>
+          <Container imageURL={imageURL}>
             <SecondaryTitle>{point.properties.fi.name}</SecondaryTitle>
             <TypeTitle>{point.properties.type}</TypeTitle>
           </Container>
