@@ -77,14 +77,12 @@ const MapCard = ({ pointData, onBack }) => {
             placeholder={({ ref }) => (
               <CardImageContainer ref={ref}>
                 {pointData.properties.fi.name && (
-                  <SecondaryTitle>
-                    {pointData.properties.fi.name}
-                  </SecondaryTitle>
+                  <BodyText>{pointData.properties.fi.name}</BodyText>
                 )}
                 {pointData.properties.fi.header && (
-                  <div>
-                    <BodyText>{pointData.properties.fi.header}</BodyText>
-                  </div>
+                  <SecondaryTitle>
+                    {pointData.properties.fi.header}
+                  </SecondaryTitle>
                 )}
               </CardImageContainer>
             )}
