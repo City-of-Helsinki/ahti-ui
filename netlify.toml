@@ -34,6 +34,7 @@
     max-age=31536000,
     immutable'''
 
+[[headers]]
   # Assets under images/ are mutable, but large
   # We cache them for a small time, to avoid excessive data consumption
   for = "/images/*"
