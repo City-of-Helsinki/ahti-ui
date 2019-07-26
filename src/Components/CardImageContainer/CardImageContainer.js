@@ -6,7 +6,7 @@ const CardImageContainer = styled.div`
   width: 100%;
   min-height: 16rem;
   height: 30vh;
-  padding: 1rem 2.2rem;
+  padding: 1rem 2rem;
 
   background-image: url(${props => props.imageURL || null});
   background-color: ${props => props.theme.colors.lightGray};
@@ -17,6 +17,10 @@ const CardImageContainer = styled.div`
     props.imageURL ? `inset 4rem 7rem 21rem 0.5rem rgba(0,0,0,0.75)` : null};
 
   color: ${props => props.theme.colors.white};
+
+  h2 {
+    width: 100%;
+  }
 
   p {
     max-width: 100%;
