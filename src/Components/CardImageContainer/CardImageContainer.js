@@ -4,8 +4,8 @@ const CardImageContainer = styled.div`
   box-sizing: border-box;
   position: relative;
   width: 100%;
-  min-height: 30vh;
-  max-height: 30vh;
+  min-height: 16rem;
+  height: 30vh;
   padding: 2.5rem 2.2rem;
 
   background-image: url(${props => props.imageURL || null});

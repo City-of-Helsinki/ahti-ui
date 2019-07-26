@@ -39,6 +39,24 @@ const Line = styled.hr`
   border-color: ${props => props.theme.colors.black};
 `;
 
+const FreeTextContainer = styled.div`
+  min-height: 7rem;
+  overflow:auto; 
+  width: 100%;
+  margin-top: -3.5rem;
+  position: relative;
+  z-index 1401;
+`;
+
+const FloatingBlock = styled.div`
+  background: ${props => props.theme.colors.lightGray};
+  width: 21rem;
+  margin-right: 1rem;
+  height: 100%;
+  float: right;
+  padding: 1rem;
+`;
+
 const MapCard = ({ pointData, onBack }) => {
   const website =
     (pointData && pointData.properties.website) || '<placeholder site>';
@@ -81,8 +99,17 @@ const MapCard = ({ pointData, onBack }) => {
               </CardImageContainer>
             )}
           />
-
           <HelsinkiWave />
+
+          {pointData.properties.fi.free_text_1 && (
+            <FreeTextContainer>
+              <FloatingBlock>
+                <BodyText>{pointData.properties.fi.free_text_1}</BodyText>
+                <Line />
+                <BodyText>{pointData.properties.fi.free_text_2}</BodyText>
+              </FloatingBlock>
+            </FreeTextContainer>
+          )}
           <CardTextContainer>
             <a href={website}>
               <Home height="24" viewBox="0 0 48 48" />
