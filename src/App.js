@@ -5,11 +5,13 @@ import Home from './Components/Home/Home';
 import { withTranslation } from 'react-i18next';
 import Menu from './Components/Menu/Menu';
 import BaseButton from './Components/BaseButton/BaseButton';
-
+import mapData from './mapData.json';
+import lineData from './lineData.json';
 import styled, { ThemeProvider } from 'styled-components';
 import withTracker from './withTracker';
 
 export const GlobalGeoContext = React.createContext();
+export const GlobalLineContext = React.createContext();
 
 const theme = {
   secondaryColor: 'white',
@@ -57,48 +59,34 @@ const LanguageButton = styled(BaseButton)`
 `;
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pointData: [],
-    };
-  }
-
-  componentDidMount() {
-    import('./mapData.json').then(data => {
-      this.setState({
-        pointData: data.default.features,
-      });
-    });
-  }
-
   render() {
     const { i18n } = this.props;
 
     return (
       <ThemeProvider theme={theme}>
-        <GlobalGeoContext.Provider value={this.state.pointData}>
-          <Router>
-            <Menu>
-              <h1 className="mainTitle">
-                <Link to="/">Ahti</Link>
-              </h1>
-              <div>
-                <LanguageButton onClick={() => i18n.changeLanguage('en')}>
-                  en
-                </LanguageButton>
-                <LanguageButton onClick={() => i18n.changeLanguage('fi')}>
-                  fi
-                </LanguageButton>
-              </div>
-            </Menu>
-
+        <GlobalGeoContext.Provider value={mapData.features}>
+          <GlobalLineContext.Provider value={lineData.data}>
+            <Router>
+              <Menu>
+                <h1 className="mainTitle">
+                  <Link to="/">Ahti</Link>
+                </h1>
+                <div>
+                  <LanguageButton onClick={() => i18n.changeLanguage('en')}>
+                    en
+                  </LanguageButton>
+                  <LanguageButton onClick={() => i18n.changeLanguage('fi')}>
+                    fi
+                  </LanguageButton>
+                </div>
+              </Menu>
             {/* NOTE: Make sure to wrap any other Route components withTracker.
              * An alternative might be to set up a top-level route and only wrap that.
              */}
-            <Route exact path="/" component={withTracker(Home)} />
-            <Route path="/map" component={withTracker(MapPage)} />
-          </Router>
+              <Route exact path="/" component={withTracker(Home)} />
+              <Route path="/map" component={withTracker(MapPage)} />
+            </Router>
+          </GlobalLineContext.Provider>
         </GlobalGeoContext.Provider>
       </ThemeProvider>
     );

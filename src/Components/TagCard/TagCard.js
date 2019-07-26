@@ -10,6 +10,7 @@ import BackButton from '../BackButton/BackButton';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainerBase from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
+import { getPointQuery } from '../../utils';
 
 import styled from 'styled-components';
 
@@ -123,22 +124,16 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
             <TagListContainer>
               {pointData.length > 0 &&
                 pointData.map((point, id) => {
-                  const query =
-                    point.properties.type === 'island'
-                      ? queryString.stringify({
-                          tag: point.properties.fi.name,
-                        })
-                      : queryString.stringify({
-                          ...queryString.parse(location.search),
-                          name: point.properties.fi.name,
-                        });
                   const imageURL = `/images/${point.properties.imageId}.jpeg`;
 
                   return (
                     <Link
                       to={{
                         pathname: '/map',
-                        search: query,
+                        search: getPointQuery(
+                          point,
+                          queryString.parse(location.search)
+                        ),
                       }}
                       key={id}
                     >

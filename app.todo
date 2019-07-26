@@ -25,11 +25,12 @@ TODO
 ✔ Highlight focused point on swipe @done(19-07-24 10:59)
 ☐ Finish cards according to design
 ☐ Finish home view according to design
+☐ Open links in new tab
 ☐ Add support for "promotions"
     ☐ Figure out if can be implemented as regular point
     ☐ Finish promotion view accordingly (prob extends map view)
 ✔ Add back button for island if coming from show all @done(19-07-24 17:33)
-☐ Add support for displaying routes
+✔ Add support for displaying routes @done(19-07-25 18:09)
  
 ☐ Carousel component is rendered twice, check why
 ☐ Refactor MapPage and add shouldComponentUpdate
