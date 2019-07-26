@@ -6,7 +6,7 @@ const CardImageContainer = styled.div`
   width: 100%;
   min-height: 16rem;
   height: 30vh;
-  padding: 2.5rem 2.2rem;
+  padding: 1rem 2.2rem;
 
   background-image: url(${props => props.imageURL || null});
   background-color: ${props => props.theme.colors.lightGray};
@@ -19,7 +19,10 @@ const CardImageContainer = styled.div`
   color: ${props => props.theme.colors.white};
 
   p {
-    margin-top: -1rem;
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-family: ${props => props.theme.fonts.fontFamilyBold};
   }
 `;
 export default CardImageContainer;

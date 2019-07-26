@@ -21,6 +21,10 @@ const Container = styled.div`
   background-color: ${props => props.theme.colors.white};
 `;
 
+const ContactInfoContainer = styled.div`
+  margin-top: 3rem;
+`;
+
 const Home = styled(HomeIcon)`
   margin-right: 1rem;
 `;
@@ -87,14 +91,12 @@ const MapCard = ({ pointData, onBack }) => {
             actual={() => (
               <CardImageContainer imageURL={imageURL}>
                 {pointData.properties.fi.name && (
-                  <SecondaryTitle>
-                    {pointData.properties.fi.name}
-                  </SecondaryTitle>
+                  <BodyText>{pointData.properties.fi.name}</BodyText>
                 )}
                 {pointData.properties.fi.header && (
-                  <div>
-                    <BodyText>{pointData.properties.fi.header}</BodyText>
-                  </div>
+                  <SecondaryTitle>
+                    {pointData.properties.fi.header}
+                  </SecondaryTitle>
                 )}
               </CardImageContainer>
             )}
@@ -111,16 +113,20 @@ const MapCard = ({ pointData, onBack }) => {
             </FreeTextContainer>
           )}
           <CardTextContainer>
-            <a href={website}>
-              <Home height="24" viewBox="0 0 48 48" />
-              <BodyText>{website}</BodyText>
-            </a>
-
-            <Line />
-            <PhoneContainer>
-              <Phone height="24" viewBox="0 0 48 48" />
-              <BodyText>{phone}</BodyText>
-            </PhoneContainer>
+            {pointData.properties.fi.description && (
+              <BodyText>{pointData.properties.fi.description}</BodyText>
+            )}
+            <ContactInfoContainer>
+              <a href={website}>
+                <Home height="24" viewBox="0 0 48 48" />
+                <BodyText>{website}</BodyText>
+              </a>
+              <Line />
+              <PhoneContainer>
+                <Phone height="24" viewBox="0 0 48 48" />
+                <BodyText>{phone}</BodyText>
+              </PhoneContainer>
+            </ContactInfoContainer>
           </CardTextContainer>
         </Container>
       </React.Fragment>
