@@ -7,6 +7,7 @@ import Menu from './Components/Menu/Menu';
 import BaseButton from './Components/BaseButton/BaseButton';
 
 import styled, { ThemeProvider } from 'styled-components';
+import withTracker from './withTracker';
 
 export const GlobalGeoContext = React.createContext();
 
@@ -92,8 +93,11 @@ class App extends React.Component {
               </div>
             </Menu>
 
-            <Route exact path="/" component={() => <Home />} />
-            <Route path="/map" component={() => <MapPage />} />
+            {/* NOTE: Make sure to wrap any other Route components withTracker.
+             * An alternative might be to set up a top-level route and only wrap that.
+             */}
+            <Route exact path="/" component={withTracker(Home)} />
+            <Route path="/map" component={withTracker(MapPage)} />
           </Router>
         </GlobalGeoContext.Provider>
       </ThemeProvider>
