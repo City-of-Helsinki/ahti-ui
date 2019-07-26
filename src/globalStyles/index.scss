@@ -70,6 +70,7 @@ $text-xxxl: calc(
 
 body {
   overflow-x: hidden;
+  height: 100vh;
   // arbitrary max-width of 474px for wide screens
   max-width: 474px;
   margin: 0 auto;

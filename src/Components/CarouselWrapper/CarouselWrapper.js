@@ -5,7 +5,8 @@ import styled from 'styled-components';
 const CarouselWrapper = styled.div`
   box-sizing: border-box;
   position: absolute;
-  top: 82vh;
+  /* NOTE: This is meant to be just about enough space for mapbox logo */
+  bottom: 32px;
   width: 100%;
   overflow: hidden;
   z-index: 2;
