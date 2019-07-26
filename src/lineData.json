@@ -395,6 +395,58 @@
         "tag": ["Vuosaari", "Kaunissaari"],
         "imageId": "7"
       }
+    },
+    {
+      "properties": {
+        "fi": {
+          "name": "Merenkävijät - Särkkä - Harakka",
+          "header": "Yhteysalus - Ullanlinnanlaituri - Särkkä - Harakansaari",
+          "description": "Kutsu vene nostamalla merkkiviitta ylös myös silloin, kun vene on laiturissa. Vene lähtee sieltä, mihin on viimeksi jättänyt matkustajia, ja ajaa tarvittavat välit.",
+          "free_text_1": "Särkkä - meno-paluu 7,50€",
+          "free_text_2": "Harakka - meno-paluu 7,50€"
+        },
+        "en": {
+          "name": "Merenkävijät - Särkkä - Harakka",
+          "header": "Access vessel - Ullanlinnanlaituri - Särkkä - Harakansaari",
+          "description": "Call the boat by lifting the wooden call sign. The boat leaves every 20/30 minutes from Kaivopuisto/Harakka/Särkkä depending on where it has last left passengers. All required crossings will be covered when the boat is moving.​",
+          "free_text_1": "Särkkä - round-trip 7,50€",
+          "free_text_2": "Harakka - round-trip 5€"
+        },
+        "website": "http://www.merenkavijat.fi/yhteysveneen-aikataulut.html",
+        "phone_number": "+358 40 533 9536",
+        "type": "route",
+        "tag": [
+          "Ullanlinnanlaituri",
+          "Harakansaari",
+          "harakka",
+          "Särkänsaari",
+          "särkkä"
+        ],
+        "imageId": "7"
+      }
+    },
+    {
+      "properties": {
+        "fi": {
+          "name": "Mustasaaren Lautta",
+          "header": "Yhteyslautta Töölöstä Mustasaareen",
+          "description": "Mustasaareen pääsee lautalla. Taivallahden laituri sijaitsee Töölössä Eteläisen Hesperiankadun pään lähellä. Lauttamatka kestää noin 15 minuuttia. Lauttaan mahtuu kerrallaan enintään 98 matkustajaa. Lautan kansi on esteetön, ja sinne pääsee lastenvaunuilla ja pyörätuolilla.",
+          "free_text_1": "Meno-paluu 4€",
+          "free_text_2": "Hiekkarannantie 5"
+        },
+        "en": {
+          "name": "Ferry - Mustasaari",
+          "header": "Ferry from Töölö to Mustasaari",
+          "description": "The island is accessible via ferry from Taivallahti from the beginning of June until the middle of August (4.6. - 11.8.) The Taivallahti wharf is located at the end of Eteläinen Hesperiankatu. The exact address is Hiekkarannantie 5. It is advisable to use public transport when travelling to Taivallahti, since there is very limited parking space available. The ferry ride takes circa 15 minutes, during which you can enjoy the refreshing coastal air and scenery. The adult fare for return tickets is 4 euros and children under the age of 10 travel free. Remember that the fares are paid with cash. The ferry is accessible for persons with disabilities.",
+          "free_text_1": "Round-trip 4€",
+          "free_text_2": "Hiekkarannantie 5"
+        },
+        "website": "https://www.mustasaarentoimintakeskus.fi/index/saapuminen.html#lauttaliikenne",
+        "phone_number": "mustasaari@evl.fi",
+        "type": "route",
+        "tag": [],
+        "imageId": "7"
+      }
     }
   ]
 }
