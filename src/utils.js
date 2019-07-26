@@ -6,24 +6,24 @@ import queryString from 'query-string';
     Searching line will clear point/line in query
 */
 
-export const getQuery = (point, search) =>
+export const getPointQuery = (point, parsedSearch) =>
   point.properties.type === 'island'
     ? queryString.stringify({
         tag: point.properties.fi.name,
       })
-    : queryString.parse(search).tag
+    : parsedSearch.tag
     ? queryString.stringify({
-        tag: queryString.parse(search).tag,
+        tag: parsedSearch.tag,
         name: point.properties.fi.name,
       })
     : queryString.stringify({
         name: point.properties.fi.name,
       });
 
-export const getRouteQuery = (clickedPlace, search) => {
-  return queryString.parse(search).tag
+export const getLineQuery = (clickedPlace, parsedSearch) => {
+  return parsedSearch.tag
     ? queryString.stringify({
-        tag: queryString.parse(search).tag,
+        tag: parsedSearch.tag,
         line: clickedPlace.properties.name,
       })
     : queryString.stringify({

@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { LazyImage } from 'react-lazy-images';
+import queryString from 'query-string';
 import { ReactComponent as LocationIcon } from '../../assets/icons/location_white.svg';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import TypeTitle from '../TypeTitle/TypeTitle';
@@ -9,7 +10,7 @@ import BackButton from '../BackButton/BackButton';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainerBase from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
-import { getQuery } from '../../utils';
+import { getPointQuery } from '../../utils';
 
 import styled from 'styled-components';
 
@@ -129,7 +130,10 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
                     <Link
                       to={{
                         pathname: '/map',
-                        search: getQuery(point, location.search),
+                        search: getPointQuery(
+                          point,
+                          queryString.parse(location.search)
+                        ),
                       }}
                       key={id}
                     >

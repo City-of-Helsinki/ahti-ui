@@ -1,7 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
+import queryString from 'query-string';
 import SliderCard from '../SliderCard/SliderCard';
-import { getQuery } from '../../utils';
+import { getPointQuery } from '../../utils';
 
 // TODO: add actions on swipe http://hammerjs.github.io/getting-started/
 
@@ -44,7 +45,10 @@ export default class Carousel extends React.Component {
             <SliderCard
               point={point}
               key={id}
-              query={getQuery(point, this.props.location.search)}
+              query={getPointQuery(
+                point,
+                queryString.parse(this.props.location.search)
+              )}
             />
           );
         })}

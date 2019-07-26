@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import MapGL, { Marker } from 'react-map-gl';
 import PointPin from '../MapPins/PointPin';
 import TagPin from '../MapPins/TagPin';
@@ -7,11 +7,10 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
 import Cluster from '../Cluster/Cluster';
-import { getQuery, getRouteQuery } from '../../utils';
+import { getPointQuery, getLineQuery } from '../../utils';
 
 // using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
-
-export default ({
+const MapboxMap = ({
   viewport,
   setViewport,
   displayedPoints,
@@ -22,37 +21,38 @@ export default ({
 }) => {
   const { t, i18n } = useTranslation();
   const map = useRef(null);
-  const [mapStyle, setMapStyle] = useState(
-    'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv'
-  );
+  const parsedSearch = useMemo(() => queryString.parse(location.search), [
+    location.search,
+  ]);
+  const [mapStyle, setMapStyle] = useState(getMapStyleUrl('fi'));
 
   useEffect(() => {
-    if (i18n.language && i18n.language !== 'fi') {
-      // replace with mapstyle in English
-      setMapStyle('mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv');
-    } else {
-      setMapStyle('mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv');
+    setMapStyle(getMapStyleUrl(i18n.language));
+  }, [i18n.language]);
+
+  // Update line width for active line, or reset it to 3, if not.
+  // NOTE: There seems to be a timing bug, when you zoom in quickly
+  // and then tap on a route. When that happens, the line style might
+  // not change. We suspect this is because of the map style or tiles
+  // loading, but have not figured out what.
+  const paintLineStyles = parsedSearch => {
+    if (map.current && map.current.getMap().isStyleLoaded()) {
+      map.current
+        .getMap()
+        .setPaintProperty('routes', 'line-width', [
+          'match',
+          ['get', 'name'],
+          parsedSearch.line || 'none',
+          8,
+          3,
+        ]);
     }
+  };
 
-    // this updates line width for selected line if possible,
-    // otherwise waits for styles to load before updating
-    const styleUpdateListener = setInterval(() => {
-      if (map.current && map.current.getMap().isStyleLoaded()) {
-        map.current
-          .getMap()
-          .setPaintProperty('routes', 'line-width', [
-            'match',
-            ['get', 'name'],
-            queryString.parse(location.search).line || 'none',
-            8,
-            3,
-          ]);
-        clearInterval(styleUpdateListener);
-      }
-    }, 100);
-
-    return () => clearInterval(styleUpdateListener);
-  }, [i18n.language, location]);
+  // Update line styles whenever the search changes
+  useEffect(() => {
+    paintLineStyles(parsedSearch);
+  }, [parsedSearch]);
 
   const _onClick = event => {
     const { features } = event;
@@ -61,7 +61,7 @@ export default ({
 
     clickedPlace &&
       clickedPlace.properties.name &&
-      history.push(`/map?${getRouteQuery(clickedPlace, location.search)}`);
+      history.push(`/map?${getLineQuery(clickedPlace, parsedSearch)}`);
   };
 
   const _renderMarker = () => {
@@ -69,13 +69,12 @@ export default ({
       displayedPoints &&
       displayedPoints.map((point, index) => {
         const isActive =
-          queryString.parse(location.search).name ===
-            point.properties.fi.name ||
-          queryString.parse(location.search).tag === point.properties.fi.name;
+          parsedSearch.name === point.properties.fi.name ||
+          parsedSearch.tag === point.properties.fi.name;
 
         const isCurrent = index === currentSlide;
 
-        const query = getQuery(point, location.search);
+        const query = getPointQuery(point, parsedSearch);
         return (
           <Marker
             key={`marker-${index}`}
@@ -115,6 +114,7 @@ export default ({
         onViewportChange={viewport => setViewport(viewport)}
         onNativeClick={_onClick}
         clickRadius={10}
+        onLoad={() => paintLineStyles(parsedSearch)}
       >
         {map.current && (
           <Cluster
@@ -136,3 +136,14 @@ export default ({
     </React.Fragment>
   );
 };
+
+// Utils
+function getMapStyleUrl(language) {
+  if (language && language !== 'fi') {
+    return 'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv';
+  } else {
+    return 'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv';
+  }
+}
+
+export default MapboxMap;
