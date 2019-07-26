@@ -101,14 +101,14 @@
     {
       "properties": {
         "fi": {
-          "name": "Suomen saaristokuljetus - Itäinen Saaristoreitti",
+          "name": "Suomen Saaristokuljetus - Itäinen Saaristoreitti",
           "header": "Hakaniemestä aina Vuosaareen ja takaisin",
           "description": "Suomen Saaristokuljetus Oy liikennöi Helsingin upeinta saaristoreittiä Hakaniemen ja Vuosaaren välillä kesäkuun alusta aina elokuun loppuun saakka. Itäinen saaristoreitti on ainoa Helsingin kaupungin sisäinen vesiliikennereitti mantereelta mantereelle! Matkalla saat maistiaisen todellisesta helsinkiläisestä saaristolaiselämästä.\n\nRisteilyn kokonaiskesto on 1 h 45 minuuttia. Matkan aikana pääset tutustumaan niihin osiin Helsingin saaristoa, minne muut reitti- tai sightseeing-alukset eivät liikennöi. Reittiin sisältyy Degerön kanavan läpiajo.",
           "free_text_1": "Hinnat alkaen 5€",
           "free_text_2": "Polkupyörä 3€"
         },
         "en": {
-          "name": "Suomen saaristokuljetus - Eastern archipelago route",
+          "name": "Suomen Saaristokuljetus - Eastern archipelago route",
           "header": "From Hakaniemi to Vuosaari and back",
           "description": "<missing>",
           "free_text_1": "Price starts from 5€",
