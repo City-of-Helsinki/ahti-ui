@@ -3,14 +3,14 @@
     {
       "properties": {
         "fi": {
-          "name": "Suomensaaristokuljetus",
+          "name": "Suomensaaristokuljetus - Isosaari",
           "header": "Kauppatori - Vallisaari - Isosaari",
           "description": "Yhdistelmä lipulla käyt samana päivänä sekä Vallisaaressa että Isosaaressa",
           "free_text_1": "Vallisaari meno-paluu 10€ / 5€",
           "free_text_2": "Isosaari meno-paluu 18€ / 9€"
         },
         "en": {
-          "name": "Suomensaaristokuljetus",
+          "name": "Suomensaaristokuljetus - Isosaari",
           "header": "Kauppatori - Vallisaari - Isosaari",
           "description": "Combination ticket allows you can visit both Vallisaari and Isosaari.",
           "free_text_1": "Vallisaari round-trip 10€ / 5€",
