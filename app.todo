@@ -23,7 +23,7 @@ TODO
     ✔ Position clusters correctly @done(19-07-23 15:50)
     ✔ Add onClick handler @done(19-07-24 10:59)
 ✔ Highlight focused point on swipe @done(19-07-24 10:59)
-☐ Finish cards according to design
+✔ Finish cards according to design @done(19-07-26 16:11)
 ☐ Finish home view according to design
 ☐ Open links in new tab
 ☐ Add support for "promotions"
