@@ -121,7 +121,7 @@ const MapCard = ({ pointData, onBack }) => {
                 <BodyText>{address}</BodyText>
               </IconContainer>
               <Line />
-              <a href={website}>
+              <a target="_blank" rel="noopener noreferrer" href={website}>
                 <IconContainer>
                   <Home height="24" viewBox="0 0 48 48" />
                   <BodyText>{website}</BodyText>
