@@ -10,7 +10,7 @@ i18n.initialize();
 
 // Initialize analytics
 ReactGA.initialize(process.env.REACT_APP_ANALYTICS_ID, {
-  debug: true,
+  debug: process.env.REACT_APP_DEBUG_ANALYTICS === 'true',
   // Let ReactGA know that we initialised the analytics with
   // the default script in <head>. This allows us to send
   // the initial pageView earlier, before downloading this

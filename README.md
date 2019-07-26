@@ -185,3 +185,10 @@ We do this with a higher-order-component, that wraps any page component.
 This sends a `pageView` event with the location path and search, whenever the location updates. The basis for this is [react-ga](https://www.npmjs.com/package/react-ga).
 
 In the future, if we want to track other user interactions (e.g. "User clicked add place button"), we can use [ReactGA.event](https://github.com/react-ga/react-ga#reactgaeventargs).
+
+### Debugging analytics
+
+If you are wondering whether certain events are being sent, you could do either of two things:
+
+- Set the `REACT_APP_DEBUG_ANALYTICS` environment variable. This will make `react-ga` log everything. This can help in development.
+- Alternatively, you can install the [Google Analytics Debugger](https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?hl=en) extension, which also logs things to the console. Might be better if you debug issues directly in production.
