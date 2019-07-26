@@ -8,6 +8,7 @@ import BaseButton from './Components/BaseButton/BaseButton';
 import mapData from './mapData.json';
 import lineData from './lineData.json';
 import styled, { ThemeProvider } from 'styled-components';
+import withTracker from './withTracker';
 
 export const GlobalGeoContext = React.createContext();
 export const GlobalLineContext = React.createContext();
@@ -79,9 +80,11 @@ class App extends React.Component {
                   </LanguageButton>
                 </div>
               </Menu>
-
-              <Route exact path="/" component={() => <Home />} />
-              <Route path="/map" component={() => <MapPage />} />
+            {/* NOTE: Make sure to wrap any other Route components withTracker.
+             * An alternative might be to set up a top-level route and only wrap that.
+             */}
+              <Route exact path="/" component={withTracker(Home)} />
+              <Route path="/map" component={withTracker(MapPage)} />
             </Router>
           </GlobalLineContext.Provider>
         </GlobalGeoContext.Provider>
