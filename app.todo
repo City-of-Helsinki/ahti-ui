@@ -27,11 +27,12 @@ TODO
 ☐ Finish home view according to design
 ☐ Open links in new tab
 ☐ Add support for "promotions"
-    ☐ Figure out if can be implemented as regular point
-    ☐ Finish promotion view accordingly (prob extends map view)
+    ✔ Figure out if can be implemented as regular point <-- yes @done(19-07-26 14:40)
+    ✔ Finish promotion view accordingly (prob extends map view) @done(19-07-26 14:40)
 ✔ Add back button for island if coming from show all @done(19-07-24 17:33)
 ✔ Add support for displaying routes @done(19-07-25 18:09)
  
+☐ Fix stuff with vh/vw for smaller screens (e.g. backButton)
 ☐ Carousel component is rendered twice, check why
 ☐ Refactor MapPage and add shouldComponentUpdate
 ☐ Fix flyTo for tiny screens
