@@ -11,10 +11,8 @@ const CardTextContainer = styled.div`
     props.imageURL ? props.theme.colors.white : props.theme.colors.black};
 
   a {
-    display: flex;
-    color: inherit;
-    align-items: center;
     word-break: break-all;
+    color: inherit;
   }
 `;
 export default CardTextContainer;

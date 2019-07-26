@@ -6,8 +6,9 @@ import BodyText from '../BodyText/BodyText';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
-import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
-import { ReactComponent as PhoneIcon } from '../../assets/icons/phone.svg';
+import { ReactComponent as Home } from '../../assets/icons/home.svg';
+import { ReactComponent as Info } from '../../assets/icons/info.svg';
+import { ReactComponent as Location } from '../../assets/icons/location.svg';
 
 import styled from 'styled-components';
 
@@ -25,17 +26,15 @@ const ContactInfoContainer = styled.div`
   margin-top: 3rem;
 `;
 
-const Home = styled(HomeIcon)`
-  margin-right: 1rem;
-`;
-
-const Phone = styled(PhoneIcon)`
-  margin-right: 1rem;
-`;
-
-const PhoneContainer = styled.div`
+const IconContainer = styled.div`
   display: flex;
   align-items: center;
+  word-break: break-all;
+
+  svg {
+    margin-right: 1rem;
+    min-width: 2rem;
+  }
 `;
 
 const Line = styled.hr`
@@ -64,8 +63,10 @@ const FloatingBlock = styled.div`
 const MapCard = ({ pointData, onBack }) => {
   const website =
     (pointData && pointData.properties.website) || '<placeholder site>';
-  const phone =
-    (pointData && pointData.properties.phone_number) || '<placeholder #>';
+  const info =
+    (pointData && pointData.properties.info_number) || '<placeholder #>';
+  const address =
+    (pointData && pointData.properties.address) || '<placeholder address>';
   const imageURL = pointData && `/images/${pointData.properties.imageId}.jpeg`;
   return (
     (pointData && (
@@ -115,15 +116,22 @@ const MapCard = ({ pointData, onBack }) => {
               <BodyText>{pointData.properties.fi.description}</BodyText>
             )}
             <ContactInfoContainer>
+              <IconContainer>
+                <Location height="24" viewBox="0 0 48 48" />
+                <BodyText>{address}</BodyText>
+              </IconContainer>
+              <Line />
               <a href={website}>
-                <Home height="24" viewBox="0 0 48 48" />
-                <BodyText>{website}</BodyText>
+                <IconContainer>
+                  <Home height="24" viewBox="0 0 48 48" />
+                  <BodyText>{website}</BodyText>
+                </IconContainer>
               </a>
               <Line />
-              <PhoneContainer>
-                <Phone height="24" viewBox="0 0 48 48" />
-                <BodyText>{phone}</BodyText>
-              </PhoneContainer>
+              <IconContainer>
+                <Info height="24" viewBox="0 0 48 48" />
+                <BodyText>{info}</BodyText>
+              </IconContainer>
             </ContactInfoContainer>
           </CardTextContainer>
         </Container>
