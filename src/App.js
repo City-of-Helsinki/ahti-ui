@@ -26,7 +26,7 @@ const theme = {
     white: '#FFFFFF',
     black: '#001A33',
     pink: '#FADCE8',
-    lightGray: '#c2c2c2',
+    lightGray: '#E9EFF3',
   },
   borders: {
     buttonBorder: '2px solid #001A33',
@@ -80,9 +80,9 @@ class App extends React.Component {
                   </LanguageButton>
                 </div>
               </Menu>
-            {/* NOTE: Make sure to wrap any other Route components withTracker.
-             * An alternative might be to set up a top-level route and only wrap that.
-             */}
+              {/* NOTE: Make sure to wrap any other Route components withTracker.
+               * An alternative might be to set up a top-level route and only wrap that.
+               */}
               <Route exact path="/" component={withTracker(Home)} />
               <Route path="/map" component={withTracker(MapPage)} />
             </Router>
