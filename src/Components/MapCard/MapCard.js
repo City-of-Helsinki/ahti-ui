@@ -64,7 +64,7 @@ const MapCard = ({ pointData, onBack }) => {
   const website =
     (pointData && pointData.properties.website) || '<placeholder site>';
   const info =
-    (pointData && pointData.properties.info_number) || '<placeholder #>';
+    (pointData && pointData.properties.phone_number) || '<placeholder #>';
   const address =
     (pointData && pointData.properties.address) || '<placeholder address>';
   const imageURL = pointData && `/images/${pointData.properties.imageId}.jpeg`;
