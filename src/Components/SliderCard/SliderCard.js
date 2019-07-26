@@ -8,8 +8,7 @@ import UnstyledLink from '../UnstyledLink/UnstyledLink';
 const Container = styled.div`
   box-sizing: border-box;
   width: 100%;
-  min-height: 18vh;
-  max-height: 18vh;
+  height: 8rem;
   padding: 2.5rem 2.2rem;
 
   background-image: url(${props => props.imageURL || null});
@@ -24,6 +23,13 @@ const Container = styled.div`
 
   .slick-slider {
     margin-right: -2rem;
+  }
+
+  /* Enhance to a larger card size on taller screens */
+  @media screen and (min-height: 32rem) {
+    & {
+      height: 16rem;
+    }
   }
 `;
 
