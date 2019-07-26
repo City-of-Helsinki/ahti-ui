@@ -33,3 +33,13 @@
     public,
     max-age=31536000,
     immutable'''
+
+  # Assets under images/ are mutable, but large
+  # We cache them for a small time, to avoid excessive data consumption
+  for = "/images/*"
+
+  [headers.values]
+    cache-control =  '''
+    public,
+    max-age=600,
+    must-revalidate'''
