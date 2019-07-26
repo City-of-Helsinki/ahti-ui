@@ -44,7 +44,7 @@ const MapCard = ({ pointData, onBack }) => {
     (pointData && pointData.properties.website) || '<placeholder site>';
   const phone =
     (pointData && pointData.properties.phone_number) || '<placeholder #>';
-  const imageURL = `/images/${pointData.properties.imageId}.jpeg`;
+  const imageURL = pointData && `/images/${pointData.properties.imageId}.jpeg`;
   return (
     (pointData && (
       <React.Fragment>

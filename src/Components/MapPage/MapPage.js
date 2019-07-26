@@ -171,7 +171,9 @@ const MapPage = ({ location, history }) => {
           onBack={history.goBack}
           pointData={
             lineData.filter(
-              line => line.properties.fi.name === browserQuery.line
+              line =>
+                line.properties.fi.name.toLowerCase() ===
+                browserQuery.line.toLowerCase()
             )[0]
           }
         />
@@ -181,7 +183,9 @@ const MapPage = ({ location, history }) => {
           onBack={history.goBack}
           pointData={
             displayedPoints.filter(
-              point => point.properties.fi.name === browserQuery.name
+              point =>
+                point.properties.fi.name.toLowerCase() ===
+                browserQuery.name.toLowerCase()
             )[0]
           }
         />
@@ -191,10 +195,14 @@ const MapPage = ({ location, history }) => {
           onBack={history.goBack}
           location={location}
           pointData={displayedPoints.filter(
-            point => point.properties.fi.name !== browserQuery.tag
+            point =>
+              point.properties.fi.name.toLowerCase() !==
+              browserQuery.tag.toLowerCase()
           )}
           tagData={displayedPoints.filter(
-            point => point.properties.fi.name === browserQuery.tag
+            point =>
+              point.properties.fi.name.toLowerCase() ===
+              browserQuery.tag.toLowerCase()
           )}
         />
       )}
