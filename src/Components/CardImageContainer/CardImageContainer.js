@@ -1,3 +1,5 @@
+import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
+import BodyText from '../BodyText/BodyText';
 import styled from 'styled-components';
 
 const CardImageContainer = styled.div`
@@ -18,11 +20,11 @@ const CardImageContainer = styled.div`
 
   color: ${props => props.theme.colors.white};
 
-  h2 {
+  ${SecondaryTitle} {
     width: 100%;
   }
 
-  p {
+  ${BodyText} {
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
     font-family: ${props => props.theme.fonts.fontFamilyBold};
