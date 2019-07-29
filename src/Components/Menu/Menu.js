@@ -5,11 +5,7 @@ const Menu = styled.nav`
 
   position: absolute;
   z-index: 1337;
-
-  /* NOTE: This height matters for overlapping the map  */
-  height: 8vh;
-
-  /* NOTE: This is the arbitrary max-width for wide screens */
+  margin-top: 1rem;
   max-width: 474px;
   width: 100%;
   padding-left: 1.75rem;
@@ -18,11 +14,8 @@ const Menu = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  background-color: ${props => props.theme.colors.white};
-  box-shadow: ${props => props.theme.shadows.menuShadow};
-
   .mainTitle {
-    margin: 0;
+    margin: 0 auto;
     font-size: 2rem;
   }
 

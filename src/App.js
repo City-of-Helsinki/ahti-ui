@@ -9,6 +9,7 @@ import mapData from './mapData.json';
 import lineData from './lineData.json';
 import styled, { ThemeProvider } from 'styled-components';
 import withTracker from './withTracker';
+import { ReactComponent as AhtiLogo } from './assets/icons/ahti_logo.svg';
 
 export const GlobalGeoContext = React.createContext();
 export const GlobalLineContext = React.createContext();
@@ -58,6 +59,13 @@ const LanguageButton = styled(BaseButton)`
   }
 `;
 
+const TitleContainer = styled.div`
+  background-color: ${props => props.theme.colors.white};
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 30% / 50%;
+  padding: 1.5rem;
+`;
+
 class App extends React.Component {
   render() {
     const { i18n } = this.props;
@@ -68,9 +76,11 @@ class App extends React.Component {
           <GlobalLineContext.Provider value={lineData.data}>
             <Router>
               <Menu>
-                <h1 className="mainTitle">
-                  <Link to="/">Ahti</Link>
-                </h1>
+                <Link to="/">
+                  <TitleContainer>
+                    <AhtiLogo />
+                  </TitleContainer>
+                </Link>
                 <div>
                   <LanguageButton onClick={() => i18n.changeLanguage('en')}>
                     en
