@@ -23,7 +23,6 @@ const CardImageContainer = styled.div`
   }
 
   p {
-    max-width: 100%;
     margin-bottom: 0.5rem;
     font-size: 1.1rem;
     font-family: ${props => props.theme.fonts.fontFamilyBold};
