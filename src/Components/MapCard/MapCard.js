@@ -6,8 +6,9 @@ import BodyText from '../BodyText/BodyText';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
-import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
-import { ReactComponent as PhoneIcon } from '../../assets/icons/phone.svg';
+import { ReactComponent as Home } from '../../assets/icons/home.svg';
+import { ReactComponent as Info } from '../../assets/icons/info.svg';
+import { ReactComponent as Location } from '../../assets/icons/location.svg';
 
 import styled from 'styled-components';
 
@@ -21,17 +22,19 @@ const Container = styled.div`
   background-color: ${props => props.theme.colors.white};
 `;
 
-const Home = styled(HomeIcon)`
-  margin-right: 1rem;
+const ContactInfoContainer = styled.div`
+  margin-top: 3rem;
 `;
 
-const Phone = styled(PhoneIcon)`
-  margin-right: 1rem;
-`;
-
-const PhoneContainer = styled.div`
+const IconContainer = styled.div`
   display: flex;
   align-items: center;
+  word-break: break-all;
+
+  svg {
+    margin-right: 1rem;
+    min-width: 2rem;
+  }
 `;
 
 const Line = styled.hr`
@@ -60,8 +63,10 @@ const FloatingBlock = styled.div`
 const MapCard = ({ pointData, onBack }) => {
   const website =
     (pointData && pointData.properties.website) || '<placeholder site>';
-  const phone =
+  const info =
     (pointData && pointData.properties.phone_number) || '<placeholder #>';
+  const address =
+    (pointData && pointData.properties.address) || '<placeholder address>';
   const imageURL = pointData && `/images/${pointData.properties.imageId}.jpeg`;
   return (
     (pointData && (
@@ -73,28 +78,24 @@ const MapCard = ({ pointData, onBack }) => {
             placeholder={({ ref }) => (
               <CardImageContainer ref={ref}>
                 {pointData.properties.fi.name && (
-                  <SecondaryTitle>
-                    {pointData.properties.fi.name}
-                  </SecondaryTitle>
+                  <BodyText>{pointData.properties.fi.name}</BodyText>
                 )}
                 {pointData.properties.fi.header && (
-                  <div>
-                    <BodyText>{pointData.properties.fi.header}</BodyText>
-                  </div>
+                  <SecondaryTitle>
+                    {pointData.properties.fi.header}
+                  </SecondaryTitle>
                 )}
               </CardImageContainer>
             )}
             actual={() => (
               <CardImageContainer imageURL={imageURL}>
                 {pointData.properties.fi.name && (
-                  <SecondaryTitle>
-                    {pointData.properties.fi.name}
-                  </SecondaryTitle>
+                  <BodyText>{pointData.properties.fi.name}</BodyText>
                 )}
                 {pointData.properties.fi.header && (
-                  <div>
-                    <BodyText>{pointData.properties.fi.header}</BodyText>
-                  </div>
+                  <SecondaryTitle>
+                    {pointData.properties.fi.header}
+                  </SecondaryTitle>
                 )}
               </CardImageContainer>
             )}
@@ -111,16 +112,27 @@ const MapCard = ({ pointData, onBack }) => {
             </FreeTextContainer>
           )}
           <CardTextContainer>
-            <a href={website}>
-              <Home height="24" viewBox="0 0 48 48" />
-              <BodyText>{website}</BodyText>
-            </a>
-
-            <Line />
-            <PhoneContainer>
-              <Phone height="24" viewBox="0 0 48 48" />
-              <BodyText>{phone}</BodyText>
-            </PhoneContainer>
+            {pointData.properties.fi.description && (
+              <BodyText>{pointData.properties.fi.description}</BodyText>
+            )}
+            <ContactInfoContainer>
+              <IconContainer>
+                <Location height="24" viewBox="0 0 48 48" />
+                <BodyText>{address}</BodyText>
+              </IconContainer>
+              <Line />
+              <a target="_blank" rel="noopener noreferrer" href={website}>
+                <IconContainer>
+                  <Home height="24" viewBox="0 0 48 48" />
+                  <BodyText>{website}</BodyText>
+                </IconContainer>
+              </a>
+              <Line />
+              <IconContainer>
+                <Info height="24" viewBox="0 0 48 48" />
+                <BodyText>{info}</BodyText>
+              </IconContainer>
+            </ContactInfoContainer>
           </CardTextContainer>
         </Container>
       </React.Fragment>

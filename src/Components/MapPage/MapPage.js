@@ -199,11 +199,13 @@ const MapPage = ({ location, history }) => {
               point.properties.fi.name.toLowerCase() !==
               browserQuery.tag.toLowerCase()
           )}
-          tagData={displayedPoints.filter(
-            point =>
-              point.properties.fi.name.toLowerCase() ===
-              browserQuery.tag.toLowerCase()
-          )}
+          tagData={
+            displayedPoints.filter(
+              point =>
+                point.properties.fi.name.toLowerCase() ===
+                browserQuery.tag.toLowerCase()
+            )[0]
+          }
         />
       )}
     </React.Fragment>

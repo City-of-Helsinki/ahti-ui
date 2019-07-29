@@ -8,7 +8,7 @@ import TypeTitle from '../TypeTitle/TypeTitle';
 import BodyText from '../BodyText/BodyText';
 import BackButton from '../BackButton/BackButton';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
-import CardTextContainerBase from '../CardTextContainer/CardTextContainer';
+import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 import { getPointQuery } from '../../utils';
 
@@ -21,12 +21,6 @@ const Container = styled.div`
   position: relative;
   width: 100%;
   background-color: ${props => props.theme.colors.white};
-`;
-
-const CardTextContainer = styled(CardTextContainerBase)`
-  p {
-    margin-top: -1rem;
-  }
 `;
 
 const LocationContainer = styled.div`
@@ -44,7 +38,13 @@ const Location = styled(LocationIcon)`
   margin-right: 0.5rem;
 `;
 
-const TagListContainer = styled.ul``;
+const TagListContainer = styled.div`
+  margin-top: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+`;
 
 const TagListItem = styled.div`
   box-sizing: border-box;
@@ -69,9 +69,9 @@ const TagListItem = styled.div`
 `;
 
 const TagCard = ({ pointData, tagData, location, onBack }) => {
-  const imageURL = `/images/${tagData[0].properties.imageId}.jpeg`;
+  const imageURL = tagData && `/images/${tagData.properties.imageId}.jpeg`;
   return (
-    tagData.length > 0 && (
+    tagData && (
       <div>
         <BackButton onBack={onBack} />
         <Container>
@@ -79,15 +79,13 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
             src={imageURL}
             placeholder={({ ref }) => (
               <CardImageContainer ref={ref}>
-                {tagData[0].properties.fi.name && (
-                  <SecondaryTitle>
-                    {tagData[0].properties.fi.name}
-                  </SecondaryTitle>
+                {tagData.properties.fi.name && (
+                  <BodyText>{tagData.properties.fi.name}</BodyText>
                 )}
-                {tagData[0].properties.fi.description && (
-                  <BodyText>
-                    {tagData[0].properties.fi.description.slice(0, 100)}
-                  </BodyText>
+                {tagData.properties.fi.header && (
+                  <SecondaryTitle>
+                    {tagData.properties.fi.header}
+                  </SecondaryTitle>
                 )}
                 <LocationContainer>
                   <Location viewBox="0 0 48 48" height="24" />
@@ -97,15 +95,13 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
             )}
             actual={() => (
               <CardImageContainer imageURL={imageURL}>
-                {tagData[0].properties.fi.name && (
-                  <SecondaryTitle>
-                    {tagData[0].properties.fi.name}
-                  </SecondaryTitle>
+                {tagData.properties.fi.name && (
+                  <BodyText>{tagData.properties.fi.name}</BodyText>
                 )}
-                {tagData[0].properties.fi.description && (
-                  <BodyText>
-                    {tagData[0].properties.fi.description.slice(0, 100)}
-                  </BodyText>
+                {tagData.properties.fi.header && (
+                  <SecondaryTitle>
+                    {tagData.properties.fi.header}
+                  </SecondaryTitle>
                 )}
                 <LocationContainer>
                   <Location viewBox="0 0 48 48" height="24" />
@@ -116,12 +112,16 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
           />
           <HelsinkiWave />
           <CardTextContainer>
-            <SecondaryTitle>Things to do</SecondaryTitle>
-            <BodyText>
-              Locations available for travellers in{' '}
-              {tagData[0].properties.fi.name}
-            </BodyText>
+            {tagData.properties.fi.description && (
+              <BodyText>{tagData.properties.fi.description}</BodyText>
+            )}
+
             <TagListContainer>
+              <SecondaryTitle>Things to do</SecondaryTitle>
+              <BodyText>
+                Locations available for travellers in{' '}
+                {tagData.properties.fi.name}
+              </BodyText>
               {pointData.length > 0 &&
                 pointData.map((point, id) => {
                   const imageURL = `/images/${point.properties.imageId}.jpeg`;

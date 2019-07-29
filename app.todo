@@ -23,9 +23,9 @@ TODO
     ✔ Position clusters correctly @done(19-07-23 15:50)
     ✔ Add onClick handler @done(19-07-24 10:59)
 ✔ Highlight focused point on swipe @done(19-07-24 10:59)
-☐ Finish cards according to design
+✔ Finish cards according to design @done(19-07-26 16:11)
 ☐ Finish home view according to design
-☐ Open links in new tab
+✔ Open links in new tab @done(19-07-26 16:31)
 ☐ Add support for "promotions"
     ✔ Figure out if can be implemented as regular point <-- yes @done(19-07-26 14:40)
     ✔ Finish promotion view accordingly (prob extends map view) @done(19-07-26 14:40)
