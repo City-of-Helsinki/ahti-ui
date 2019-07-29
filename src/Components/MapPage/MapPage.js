@@ -18,7 +18,7 @@ import { ReactComponent as ShowAll } from '../../assets/icons/show_all.svg';
 const ShowAllButton = styled(UnstyledLink)`
   z-index: 1;
   position: absolute;
-  top: 2.7rem;
+  top: 7.5rem;
   right: 2rem;
 `;
 
@@ -37,10 +37,7 @@ const MapPage = ({ location, history }) => {
         474
       ) || 400,
     // Equivalent of 92vh. The styles assume these measures
-    height:
-      window.innerHeight * 0.92 ||
-      document.documentElement.clientHeight * 0.92 ||
-      400,
+    height: window.innerHeight || document.documentElement.clientHeight || 400,
     latitude: 60.15,
     longitude: 24.944,
     zoom: 10,
