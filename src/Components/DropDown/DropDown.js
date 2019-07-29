@@ -62,13 +62,22 @@ const BackgroundShade = styled.div`
   background-color: rgb(0, 0, 0, 0.3);
 `;
 
-const DropDown = ({ onExit }) => {
+const LanguageButton = styled(BaseButton)`
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  }
+`;
+
+const DropDown = ({ onExit, onLanguageFI, onLanguageEN }) => {
   return (
     <Container>
       <ExitButton onClick={onExit}>
         <Exit />
       </ExitButton>
       <Body>
+        <LanguageButton onClick={onLanguageFI}>Suomeksi</LanguageButton>
+        <LanguageButton onClick={onLanguageEN}>In English</LanguageButton>
         <TextSection>
           <Link to="/">
             <BodyText>Moving around</BodyText>
