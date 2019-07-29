@@ -76,11 +76,17 @@ const MenuButton = styled(BaseButton)`
   height: 5rem;
 `;
 
+const AppBody = styled.div`
+  height: 100vh;
+  overflow-y: ${props => (props.menuOpen ? 'hidden' : 'scroll')};
+  overflow-x: hidden;
+`;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menuOpen: true,
+      menuOpen: false,
     };
   }
   render() {
@@ -111,8 +117,10 @@ class App extends React.Component {
               {/* NOTE: Make sure to wrap any other Route components withTracker.
                * An alternative might be to set up a top-level route and only wrap that.
                */}
-              <Route exact path="/" component={withTracker(Home)} />
-              <Route path="/map" component={withTracker(MapPage)} />
+              <AppBody>
+                <Route exact path="/" component={withTracker(Home)} />
+                <Route path="/map" component={withTracker(MapPage)} />
+              </AppBody>
             </Router>
           </GlobalLineContext.Provider>
         </GlobalGeoContext.Provider>

@@ -4,7 +4,7 @@ const Menu = styled.nav`
   display: flex;
 
   position: absolute;
-  z-index: 1337;
+  z-index: 2000;
   margin-top: 1rem;
   max-width: 474px;
   width: 100%;
