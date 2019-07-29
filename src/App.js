@@ -3,7 +3,6 @@ import MapPage from './Components/MapPage/MapPage';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import { withTranslation } from 'react-i18next';
-import Menu from './Components/Menu/Menu';
 import BaseButton from './Components/BaseButton/BaseButton';
 import DropDown from './Components/DropDown/DropDown';
 import mapData from './mapData.json';
@@ -45,23 +44,12 @@ const theme = {
   },
 };
 
-const LanguageButton = styled(BaseButton)`
-  /* Make the buttons stack next to each other.
-   * Might change if we make their parent a flexbox, in the future.
-  */
-  display: inline-block;
-
-  padding: 0.5rem;
-  font-size: 1.3rem;
-  font-weight: 600;
-
-  /* Space the buttons on the horizontal */
-  &:last-of-type {
-    margin-left: 0.5rem;
-  }
-`;
-
 const TitleContainer = styled.div`
+  z-index: 2000;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+
   background-color: ${props => props.theme.colors.white};
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
   border-radius: 30% / 50%;
@@ -69,17 +57,16 @@ const TitleContainer = styled.div`
 `;
 
 const MenuButton = styled(BaseButton)`
+  z-index: 2000;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+
   background-color: ${props => props.theme.colors.white};
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
   border-radius: 50%;
   width: 5rem;
   height: 5rem;
-`;
-
-const AppBody = styled.div`
-  height: 100vh;
-  overflow-y: ${props => (props.menuOpen ? 'hidden' : 'scroll')};
-  overflow-x: hidden;
 `;
 
 class App extends React.Component {
@@ -99,28 +86,33 @@ class App extends React.Component {
             <Router>
               {this.state.menuOpen && (
                 <DropDown
-                  onExit={() => this.setState({ menuOpen: false })}
+                  onExit={() => {
+                    document.body.style.overflowY = 'scroll';
+                    this.setState({ menuOpen: false });
+                  }}
                   onLanguageFI={() => i18n.changeLanguage('fi')}
                   onLanguageEN={() => i18n.changeLanguage('en')}
                 />
               )}
-              <Menu>
-                <Link to="/">
-                  <TitleContainer>
-                    <AhtiLogo />
-                  </TitleContainer>
-                </Link>
-                <MenuButton onClick={() => this.setState({ menuOpen: true })}>
-                  <MenuLogo />
-                </MenuButton>
-              </Menu>
+              <Link to="/">
+                <TitleContainer>
+                  <AhtiLogo />
+                </TitleContainer>
+              </Link>
+              <MenuButton
+                onClick={() => {
+                  document.body.style.overflowY = 'hidden';
+                  this.setState({ menuOpen: true });
+                }}
+              >
+                <MenuLogo />
+              </MenuButton>
+
               {/* NOTE: Make sure to wrap any other Route components withTracker.
                * An alternative might be to set up a top-level route and only wrap that.
                */}
-              <AppBody>
-                <Route exact path="/" component={withTracker(Home)} />
-                <Route path="/map" component={withTracker(MapPage)} />
-              </AppBody>
+              <Route exact path="/" component={withTracker(Home)} />
+              <Route path="/map" component={withTracker(MapPage)} />
             </Router>
           </GlobalLineContext.Provider>
         </GlobalGeoContext.Provider>

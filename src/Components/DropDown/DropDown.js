@@ -17,11 +17,18 @@ const slideIn = keyframes`
 `;
 
 const Container = styled.div`
+  z-index: 5000;
+  position: absolute;
+
+  height: 100vh;
+  width: 100%;
+`;
+
+const Body = styled.div`
   background-color: ${props => props.theme.colors.white};
   position: absolute;
-  z-index: 5000;
   height: 80vh;
-  min-width: 100%;
+  width: 100%;
   padding-top: 1rem;
   animation: ${slideIn} 0.4s;
   overflow: hidden;
@@ -57,11 +64,11 @@ const BackgroundShade = styled.div`
 
 const DropDown = ({ onExit }) => {
   return (
-    <React.Fragment>
+    <Container>
       <ExitButton onClick={onExit}>
         <Exit />
       </ExitButton>
-      <Container>
+      <Body>
         <TextSection>
           <Link to="/">
             <BodyText>Moving around</BodyText>
@@ -85,9 +92,9 @@ const DropDown = ({ onExit }) => {
             <BodyText>About ahti</BodyText>
           </Link>
         </TextSection>
-      </Container>
+      </Body>
       <BackgroundShade />
-    </React.Fragment>
+    </Container>
   );
 };
 

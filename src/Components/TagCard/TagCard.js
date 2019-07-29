@@ -17,8 +17,8 @@ import styled from 'styled-components';
 const Container = styled.div`
   z-index: 10;
   box-sizing: border-box;
-  margin-top: 40vh;
-  position: relative;
+  top: 40vh;
+  position: absolute;
   width: 100%;
   background-color: ${props => props.theme.colors.white};
 `;
