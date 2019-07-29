@@ -705,6 +705,244 @@
         "type": "Point",
         "coordinates": [25.052947998046875, 60.10148359904609]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Skipperi - Nokkalan Venesatama",
+          "header": "Nauti veneilystä ilman veneen omistamiseen liittyviä huolia.",
+          "description": "Soutuveneen voi ottaa käyttöön aina kolmeksi tunniksi kerrallaan. Soutuveneitä ei voi ennakkovarata, joten vapaana oleva vene on aina käytettävissä. Käyttöönotto tapahtuu kirjautumalla Skipperin kaupunkivenesivulle ja valitsemalla soutuveneet. Täältä näet veneiden saatavuuden ja voit ottaa veneen käyttöön. Soutuveneiden avaimet ja varusteet luovuttaa ja vastaanottaa satamissa toimivat kahvilat. Muista näyttää kahvilan henkilökunnalle soutuvenesivulla olevaa varausnäkymää hakiessasi avaimia ja palautusnäkymää palauttaessasi venettä. Soutuveneiden varustukseen kuuluvat sopivat pelastusliivit aikuisille ja lapsille, äyskäri ja kuivaussieni. Varauksia voi olla voimassa yksi kerrallaan.",
+          "free_text_1": "Soutuvene",
+          "free_text_2": "25€ / kausi"
+        },
+        "en": {
+          "name": "Skipperi - Nokkala Harbour",
+          "header": "Enjoy boating without the hassle of owning a boat.",
+          "description": "<missing>",
+          "free_text_1": "Row boat",
+          "free_text_2": "25€ / season"
+        },
+        "website": "https://www.skipperi.fi/kaupunkiveneet",
+        "phone_number": "010 309 4239",
+        "address": "Nokkalanniemi, 02230 Espoo",
+        "type": "actor",
+        "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Nokkala"],
+        "imageId": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.75468635559082, 60.147833749238]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Skipperi - Haukilahti",
+          "header": "Nauti veneilystä ilman veneen omistamiseen liittyviä huolia.",
+          "description": "Soutuveneen voi ottaa käyttöön aina kolmeksi tunniksi kerrallaan. Soutuveneitä ei voi ennakkovarata, joten vapaana oleva vene on aina käytettävissä. Käyttöönotto tapahtuu kirjautumalla Skipperin kaupunkivenesivulle ja valitsemalla soutuveneet. Täältä näet veneiden saatavuuden ja voit ottaa veneen käyttöön. Soutuveneiden avaimet ja varusteet luovuttaa ja vastaanottaa satamissa toimivat kahvilat. Muista näyttää kahvilan henkilökunnalle soutuvenesivulla olevaa varausnäkymää hakiessasi avaimia ja palautusnäkymää palauttaessasi venettä. Soutuveneiden varustukseen kuuluvat sopivat pelastusliivit aikuisille ja lapsille, äyskäri ja kuivaussieni. Varauksia voi olla voimassa yksi kerrallaan.",
+          "free_text_1": "Soutuvene",
+          "free_text_2": "25€ / kausi"
+        },
+        "en": {
+          "name": "Skipperi - Haukilahti",
+          "header": "Enjoy boating without the hassle of owning a boat.",
+          "description": "<missing>",
+          "free_text_1": "Row boat",
+          "free_text_2": "25€ / season"
+        },
+        "website": "https://www.skipperi.fi/kaupunkiveneet",
+        "phone_number": "010 309 4239",
+        "address": "Mellstenintie 6, 02170 Espoo",
+        "type": "actor",
+        "tag": ["Kaupunkivene", "soutuvene", "Skipperi"],
+        "imageId": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.77288246154785, 60.15436444229369]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Skipperi - Otsolahden Satama",
+          "header": "Nauti veneilystä ilman veneen omistamiseen liittyviä huolia.",
+          "description": "Soutuveneen voi ottaa käyttöön aina kolmeksi tunniksi kerrallaan. Soutuveneitä ei voi ennakkovarata, joten vapaana oleva vene on aina käytettävissä. Käyttöönotto tapahtuu kirjautumalla Skipperin kaupunkivenesivulle ja valitsemalla soutuveneet. Täältä näet veneiden saatavuuden ja voit ottaa veneen käyttöön. Soutuveneiden avaimet ja varusteet luovuttaa ja vastaanottaa satamissa toimivat kahvilat. Muista näyttää kahvilan henkilökunnalle soutuvenesivulla olevaa varausnäkymää hakiessasi avaimia ja palautusnäkymää palauttaessasi venettä. Soutuveneiden varustukseen kuuluvat sopivat pelastusliivit aikuisille ja lapsille, äyskäri ja kuivaussieni. Varauksia voi olla voimassa yksi kerrallaan.",
+          "free_text_1": "Soutuvene",
+          "free_text_2": "25€ / kausi"
+        },
+        "en": {
+          "name": "Skipperi - Otsolahti Harbour",
+          "header": "Enjoy boating without the hassle of owning a boat.",
+          "description": "<missing>",
+          "free_text_1": "Row boat",
+          "free_text_2": "25€ / season"
+        },
+        "website": "https://www.skipperi.fi/kaupunkiveneet",
+        "phone_number": "010 309 4239",
+        "address": "Sateenkaari 9, 02100 Espoo",
+        "type": "actor",
+        "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Otsolahti"],
+        "imageId": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.81536865234375, 60.1735698681944]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Skipperi - Keilaniemi",
+          "header": "Nauti veneilystä ilman veneen omistamiseen liittyviä huolia.",
+          "description": "Soutuveneen voi ottaa käyttöön aina kolmeksi tunniksi kerrallaan. Soutuveneitä ei voi ennakkovarata, joten vapaana oleva vene on aina käytettävissä. Käyttöönotto tapahtuu kirjautumalla Skipperin kaupunkivenesivulle ja valitsemalla soutuveneet. Täältä näet veneiden saatavuuden ja voit ottaa veneen käyttöön. Soutuveneiden avaimet ja varusteet luovuttaa ja vastaanottaa satamissa toimivat kahvilat. Muista näyttää kahvilan henkilökunnalle soutuvenesivulla olevaa varausnäkymää hakiessasi avaimia ja palautusnäkymää palauttaessasi venettä. Soutuveneiden varustukseen kuuluvat sopivat pelastusliivit aikuisille ja lapsille, äyskäri ja kuivaussieni. Varauksia voi olla voimassa yksi kerrallaan.",
+          "free_text_1": "Soutuvene",
+          "free_text_2": "25€ / kausi"
+        },
+        "en": {
+          "name": "Skipperi - Keilaniemi",
+          "header": "Enjoy boating without the hassle of owning a boat.",
+          "description": "<missing>",
+          "free_text_1": "Row boat",
+          "free_text_2": "25€ / season"
+        },
+        "website": "https://www.skipperi.fi/kaupunkiveneet",
+        "phone_number": "010 309 4239",
+        "address": "Keilalahdentie 8, 02150 Espoo",
+        "type": "actor",
+        "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Keilaniemi"],
+        "imageId": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.832046627998352, 60.168793580575404]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Skipperi - Keilasatama",
+          "header": "Nauti veneilystä ilman veneen omistamiseen liittyviä huolia.",
+          "description": "7 tunnin varauksia voi olla voimassa kaksi kerrallaan, mikä mahdollistaa pidemmän aikavälin suunnittelun, sekä pikavaraukset samalle tai seuraavalle päivälle. Voit varata veneen viikonlopuksi ja silti lähteä viikolla töiden jälkeen vesille. Uuden varauksen voi tehdä heti, kun edellinen varauksesi on käytetty tai vapautuu.",
+          "free_text_1": "Moottorivene",
+          "free_text_2": "109 € / kuukausi"
+        },
+        "en": {
+          "name": "Skipperi - Keilasatama",
+          "header": "Enjoy boating without the hassle of owning a boat.",
+          "description": "<missing>",
+          "free_text_1": "Motor boat",
+          "free_text_2": "109 € / month"
+        },
+        "website": "https://www.skipperi.fi/kaupunkiveneet",
+        "phone_number": "010 309 4239",
+        "address": "Keilasatama 5, 02150 Espoo",
+        "type": "actor",
+        "tag": [
+          "Kaupunkivene",
+          "moottorivene",
+          "Skipperi",
+          "Keilaniemi",
+          "Keilasatama"
+        ],
+        "imageId": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.831547737121582, 60.172598657015236]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Skipperi - Lauttasaari",
+          "header": "Nauti veneilystä ilman veneen omistamiseen liittyviä huolia.",
+          "description": "7 tunnin varauksia voi olla voimassa kaksi kerrallaan, mikä mahdollistaa pidemmän aikavälin suunnittelun, sekä pikavaraukset samalle tai seuraavalle päivälle. Voit varata veneen viikonlopuksi ja silti lähteä viikolla töiden jälkeen vesille. Uuden varauksen voi tehdä heti, kun edellinen varauksesi on käytetty tai vapautuu.",
+          "free_text_1": "Moottorivene",
+          "free_text_2": "109 € / kuukausi"
+        },
+        "en": {
+          "name": "Skipperi - Lauttasaari",
+          "header": "Enjoy boating without the hassle of owning a boat.",
+          "description": "<missing>",
+          "free_text_1": "Motor boat",
+          "free_text_2": "109 € / month"
+        },
+        "website": "https://www.skipperi.fi/kaupunkiveneet",
+        "phone_number": "010 309 4239",
+        "address": "Vattuniemen puistotie 1, 00210 Helsinki",
+        "type": "actor",
+        "tag": ["Kaupunkivene", "moottorivene", "Skipperi", "Lauttasaari"],
+        "imageId": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.891060590744015, 60.15243153502288]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Skipperi - Hernesaari",
+          "header": "Nauti veneilystä ilman veneen omistamiseen liittyviä huolia.",
+          "description": "7 tunnin varauksia voi olla voimassa kaksi kerrallaan, mikä mahdollistaa pidemmän aikavälin suunnittelun, sekä pikavaraukset samalle tai seuraavalle päivälle. Voit varata veneen viikonlopuksi ja silti lähteä viikolla töiden jälkeen vesille. Uuden varauksen voi tehdä heti, kun edellinen varauksesi on käytetty tai vapautuu.",
+          "free_text_1": "Moottorivene",
+          "free_text_2": "109 € / kuukausi"
+        },
+        "en": {
+          "name": "Skipperi - Hernesaari",
+          "header": "Enjoy boating without the hassle of owning a boat.",
+          "description": "<missing>",
+          "free_text_1": "Motor boat",
+          "free_text_2": "109 € / month"
+        },
+        "website": "https://www.skipperi.fi/kaupunkiveneet",
+        "phone_number": "010 309 4239",
+        "address": "Hernesaarenranta 13, 00150 Helsinki",
+        "type": "actor",
+        "tag": ["Kaupunkivene", "moottorivene", "Skipperi", "Hernesaari"],
+        "imageId": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.92065072059631, 60.14786579178174]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Skipperi - Aurinkolahti",
+          "header": "Nauti veneilystä ilman veneen omistamiseen liittyviä huolia.",
+          "description": "7 tunnin varauksia voi olla voimassa kaksi kerrallaan, mikä mahdollistaa pidemmän aikavälin suunnittelun, sekä pikavaraukset samalle tai seuraavalle päivälle. Voit varata veneen viikonlopuksi ja silti lähteä viikolla töiden jälkeen vesille. Uuden varauksen voi tehdä heti, kun edellinen varauksesi on käytetty tai vapautuu.",
+          "free_text_1": "Moottorivene",
+          "free_text_2": "109 € / kuukausi"
+        },
+        "en": {
+          "name": "Skipperi - Aurinkolahti",
+          "header": "Enjoy boating without the hassle of owning a boat.",
+          "description": "<missing>",
+          "free_text_1": "Motor boat",
+          "free_text_2": "109 € / month"
+        },
+        "website": "https://www.skipperi.fi/kaupunkiveneet",
+        "phone_number": "010 309 4239",
+        "address": "Pursilahdenranta 2, 00980 Helsinki",
+        "type": "actor",
+        "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Aurinkolahti"],
+        "imageId": "8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.147318840026855, 60.200213606100725]
+      }
     }
   ]
 }
