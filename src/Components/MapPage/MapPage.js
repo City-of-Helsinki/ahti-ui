@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { GlobalGeoContext } from '../../App';
 import { GlobalLineContext } from '../../App';
 import queryString from 'query-string';
+import { useTranslation } from 'react-i18next';
 import MapboxMap from '../MapboxMap/MapboxMap';
 import Carousel from '../Carousel/Carousel';
 import MapCard from '../MapCard/MapCard';
@@ -32,6 +33,7 @@ const ShowAllButton = styled(UnstyledLink)`
 const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
   const lineData = useContext(GlobalLineContext);
+  const { t, i18n } = useTranslation();
 
   const [displayedPoints, setDisplayedPoints] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -140,7 +142,7 @@ const MapPage = ({ location, history }) => {
   return (
     <React.Fragment>
       <MapWrapper>
-        <ShowAllButton to="/map">Show all</ShowAllButton>
+        <ShowAllButton to="/map">{t('map.show_all_button')}</ShowAllButton>
         <MapboxMap
           location={location}
           history={history}

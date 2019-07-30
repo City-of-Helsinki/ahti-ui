@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { LazyImage } from 'react-lazy-images';
 import queryString from 'query-string';
+import { useTranslation } from 'react-i18next';
 import { ReactComponent as LocationIcon } from '../../assets/icons/location_white.svg';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import TypeTitle from '../TypeTitle/TypeTitle';
@@ -69,6 +70,7 @@ const TagListItem = styled.div`
 `;
 
 const TagCard = ({ pointData, tagData, location, onBack }) => {
+  const { t, i18n } = useTranslation();
   const imageURL = tagData && `/images/${tagData.properties.imageId}.jpeg`;
   return (
     tagData && (
@@ -89,7 +91,9 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
                 )}
                 <LocationContainer>
                   <Location viewBox="0 0 48 48" height="24" />
-                  <BodyText>{pointData.length} locations</BodyText>
+                  <BodyText>
+                    {pointData.length} {t('map.tag_card.locations')}
+                  </BodyText>
                 </LocationContainer>
               </CardImageContainer>
             )}
@@ -105,7 +109,9 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
                 )}
                 <LocationContainer>
                   <Location viewBox="0 0 48 48" height="24" />
-                  <BodyText>{pointData.length} locations</BodyText>
+                  <BodyText>
+                    {pointData.length} {t('map.tag_card.locations')}
+                  </BodyText>
                 </LocationContainer>
               </CardImageContainer>
             )}
@@ -117,9 +123,11 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
             )}
 
             <TagListContainer>
-              <SecondaryTitle>Things to do</SecondaryTitle>
+              <SecondaryTitle>
+                {t('map.tag_card.point_list_header')}
+              </SecondaryTitle>
               <BodyText>
-                Locations available for travellers in{' '}
+                {t('map.tag_card.point_list_subheader')}{' '}
                 {tagData.properties.fi.name}
               </BodyText>
               {pointData.length > 0 &&

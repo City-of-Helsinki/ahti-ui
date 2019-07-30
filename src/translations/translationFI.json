@@ -1,3 +1,24 @@
 {
-  "Greetings": "Moro"
+  "home": {
+    "main_header": "Löydä tiesi merelle",
+    "see_all_button": "Näytä kaikki kohteet",
+    "section1_header": "Suosittuja kohteita",
+    "section2_button": "Näytä kaikki",
+    "section3_header": "Tapoja nauttia Helsingin merestä"
+  },
+  "dropdown": {
+    "change_language": "Change language to English",
+    "add_location": "Lisää kohde tai palvelu",
+    "give_feedback": "Anna palautetta",
+    "about": "Tietoa Ahti-pavelusta"
+  },
+  "map": {
+    "show_all_button": "Näytä kaikki",
+    "back_button": "Takaisin",
+    "tag_card": {
+      "locations": "kohdetta",
+      "point_list_header": "Tähän joku suomennos",
+      "point_list_subheader": "Suosittuja kohteita paikassa"
+    }
+  }
 }

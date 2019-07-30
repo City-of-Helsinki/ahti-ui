@@ -12,10 +12,11 @@ TODO
 ✔ import new information to .json/.geojson @done(19-07-22 17:33)
 ✔ get screen width and hight for map @done(19-07-22 17:33)
 ✔ add style config @done(19-07-22 17:34)
-☐ Add i18nv for FI and EN
+✔ Add i18nv for FI and EN @done(19-07-30 10:22)
+    ☐ add translations for routes and other dynamic content
     ☐ add support for EN with name_en for the map
     ✔ use fallback browser language @done(19-07-22 17:35)
-    ☐ use new style for Finnish
+    ✔ use new style for Finnish @done(19-07-30 10:22)
 ✔ Add borders in desktop @done(19-07-23 11:47)
 ✔ Add "show all" button to map @done(19-07-24 10:59)
 ✔ Add City of Helsinki wave according to design @done(19-07-23 15:07)
@@ -25,7 +26,7 @@ TODO
 ✔ Highlight focused point on swipe @done(19-07-24 10:59)
 ✔ Finish cards according to design @done(19-07-26 16:11)
 ☐ Finish home view according to design
-✔ Open links in new tab @done(19-07-26 16:31)
+✔ Open links in new tab @done(19-07-26 16:31)s
 ✔ Add support for "promotions" @done(19-07-29 10:59)
     ✔ Figure out if can be implemented as regular point <-- yes @done(19-07-26 14:40)
     ✔ Finish promotion view accordingly (prob extends map view) @done(19-07-26 14:40)
