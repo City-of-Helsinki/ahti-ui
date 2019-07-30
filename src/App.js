@@ -88,7 +88,7 @@ class App extends React.Component {
                 <DropDown
                   onExit={() => {
                     document.body.style.overflowY = 'scroll';
-                    this.setState({ menuOpen: false });
+                    this.setState(() => ({ ...this.state, menuOpen: false }));
                   }}
                   onLanguageFI={() => i18n.changeLanguage('fi')}
                   onLanguageEN={() => i18n.changeLanguage('en')}
@@ -102,7 +102,7 @@ class App extends React.Component {
               <MenuButton
                 onClick={() => {
                   document.body.style.overflowY = 'hidden';
-                  this.setState({ menuOpen: true });
+                  this.setState(() => ({ ...this.state, menuOpen: true }));
                 }}
               >
                 <MenuLogo />
