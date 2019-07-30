@@ -6,7 +6,6 @@ import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 
 import styled from 'styled-components';
-import HeaderSubHeader from 'semantic-ui-react/dist/commonjs/elements/Header/HeaderSubheader';
 
 const Container = styled.div`
   min-height: 21rem;
@@ -29,13 +28,14 @@ const StyledLink = styled(UnstyledLink)`
   margin-right: 1rem;
   margin-bottom: 2rem;
   font-size: 1.4rem;
+  line-height: 1.4;
   font-weight: 700;
-  text-decoration: underline !important;
+  text-decoration: underline;
   color: ${props => props.theme.colors.black};
 `;
 
 const LearnMoreLink = styled(UnstyledLink)`
-  text-decoration: underline !important;
+  text-decoration: underline;
   color: ${props => props.theme.colors.black};
 `;
 
@@ -58,7 +58,10 @@ const Footer = () => {
           {t('footer.body')}{' '}
           <LearnMoreLink to={'#'}>{t('footer.learn_more')}</LearnMoreLink>
         </BodyText>
-        <BodyText>{t('footer.attribution')}</BodyText>
+        <BodyText>
+          {t('footer.attribution')}{' '}
+          <LearnMoreLink to={'www.hel.fi'}>www.hel.fi</LearnMoreLink>
+        </BodyText>
       </Container>
     </footer>
   );
