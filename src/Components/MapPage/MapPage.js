@@ -13,13 +13,20 @@ import CarouselWrapper from '../CarouselWrapper/CarouselWrapper';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
 
 import styled from 'styled-components';
-import { ReactComponent as ShowAll } from '../../assets/icons/show_all.svg';
 
 const ShowAllButton = styled(UnstyledLink)`
   z-index: 1;
   position: absolute;
-  top: 2.7rem;
-  right: 2rem;
+  top: 7.5rem;
+  right: 1rem;
+
+  background-color: ${props => props.theme.colors.white};
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 25% / 50%;
+  color: ${props => props.theme.colors.black};
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
 `;
 
 const MapPage = ({ location, history }) => {
@@ -37,10 +44,7 @@ const MapPage = ({ location, history }) => {
         474
       ) || 400,
     // Equivalent of 92vh. The styles assume these measures
-    height:
-      window.innerHeight * 0.92 ||
-      document.documentElement.clientHeight * 0.92 ||
-      400,
+    height: window.innerHeight || document.documentElement.clientHeight || 400,
     latitude: 60.15,
     longitude: 24.944,
     zoom: 10,
@@ -136,9 +140,7 @@ const MapPage = ({ location, history }) => {
   return (
     <React.Fragment>
       <MapWrapper>
-        <ShowAllButton to="/map">
-          <ShowAll />
-        </ShowAllButton>
+        <ShowAllButton to="/map">Show all</ShowAllButton>
         <MapboxMap
           location={location}
           history={history}
