@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { GlobalGeoContext } from '../../App';
 import LinkBox from '../LinkBox/LinkBox';
 import MapOverlay from '../MapOverlay/MapOverlay';
@@ -51,6 +52,7 @@ const sliderSettings2 = {
 };
 
 export default () => {
+  const { t, i18n } = useTranslation();
   const contextGeoData = useContext(GlobalGeoContext);
   const unmutatedGeoData = [...contextGeoData];
   const unmutatedGeoDataTypesList = [
@@ -71,14 +73,14 @@ export default () => {
   return (
     <React.Fragment>
       <MapOverlay>
-        <SecondaryTitle>Find your way around the sea</SecondaryTitle>
+        <SecondaryTitle> {t('home.main_header')}</SecondaryTitle>
         <Link to="/map">
-          <LinkBox>See all places</LinkBox>
+          <LinkBox>{t('home.see_all_button')}</LinkBox>
         </Link>
       </MapOverlay>
       <HelsinkiWave />
       <Section>
-        <SecondaryTitle>Popular places around</SecondaryTitle>
+        <SecondaryTitle>{t('home.section1_header')}</SecondaryTitle>
         <Slider {...sliderSettings1}>
           {unmutatedGeoDataTypesList.map((type, id) => {
             return (
@@ -118,14 +120,14 @@ export default () => {
             whole day with the family`}
             </p>
             <Link to={`/map?tag=${selectedIsland.properties.en.name}`}>
-              <LinkBox variant="white">See all</LinkBox>
+              <LinkBox variant="white">{t('home.section2_button')}</LinkBox>
             </Link>
           </Section>
           <HelsinkiWave />
         </React.Fragment>
       )}
       <Section>
-        <SecondaryTitle>Things to try during the summer</SecondaryTitle>
+        <SecondaryTitle>{t('home.section3_header')}</SecondaryTitle>
         <Slider {...sliderSettings2}>
           {unmutatedGeoDataTypesList
             .filter(type =>

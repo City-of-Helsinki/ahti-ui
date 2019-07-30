@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import BaseButton from '../BaseButton/BaseButton';
 import { ReactComponent as ArrowLeft } from '../../assets/icons/arrow_left.svg';
 
@@ -22,9 +23,12 @@ const Button = styled(BaseButton)`
   line-height: 1.3rem;
 `;
 
-export default ({ onBack }) => (
-  <Button onClick={onBack}>
-    <ArrowLeft />
-    Back
-  </Button>
-);
+export default ({ onBack }) => {
+  const { t, i18n } = useTranslation();
+  return (
+    <Button onClick={onBack}>
+      <ArrowLeft />
+      {t('map.back_button')}
+    </Button>
+  );
+};

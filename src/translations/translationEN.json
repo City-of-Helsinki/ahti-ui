@@ -1,3 +1,24 @@
 {
-  "Greetings": "Hello"
+  "home": {
+    "main_header": "Find your way around the sea",
+    "see_all_button": "See all places",
+    "section1_header": "Popular places around",
+    "section2_button": "See all",
+    "section3_header": "Things to try during the summer"
+  },
+  "dropdown": {
+    "change_language": "Vaihda kieli Suomeksi",
+    "add_location": "Add location or service",
+    "give_feedback": "Give feedback",
+    "about": "About Ahti"
+  },
+  "map": {
+    "show_all_button": "Show all",
+    "back_button": "Back",
+    "tag_card": {
+      "locations": "locations",
+      "point_list_header": "Things to do",
+      "point_list_subheader": "Locations available for travellers in"
+    }
+  }
 }

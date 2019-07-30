@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import BodyText from '../BodyText/BodyText';
 import BaseButton from '../BaseButton/BaseButton';
 
@@ -68,36 +69,36 @@ const LanguageButton = styled(BaseButton)`
   font-weight: 600;
 `;
 
-const Dropdown = ({ onExit, onLanguageFI, onLanguageEN }) => {
+const Dropdown = ({ onExit }) => {
+  const { t, i18n } = useTranslation();
+
+  const onLanguageChange = () => {
+    i18n.language === 'fi'
+      ? i18n.changeLanguage('en')
+      : i18n.changeLanguage('fi');
+  };
+
   return (
     <Container>
       <ExitButton onClick={onExit}>
         <Exit />
       </ExitButton>
       <Body>
-        <LanguageButton onClick={onLanguageFI}>Suomeksi</LanguageButton>
-        <LanguageButton onClick={onLanguageEN}>In English</LanguageButton>
+        <LanguageButton onClick={onLanguageChange}>
+          {t('dropdown.change_language')}
+        </LanguageButton>
         <TextSection>
           <Link to="/">
-            <BodyText>Moving around</BodyText>
+            <BodyText>{t('dropdown.add_location')}</BodyText>
           </Link>
           <Link to="/">
-            <BodyText>Islands</BodyText>
+            <BodyText>{t('dropdown.give_feedback')}</BodyText>
           </Link>
         </TextSection>
         <Line />
         <TextSection>
           <Link to="/">
-            <BodyText>Add location or service</BodyText>
-          </Link>
-          <Link to="/">
-            <BodyText>Give feedback</BodyText>
-          </Link>
-        </TextSection>
-        <Line />
-        <TextSection>
-          <Link to="/">
-            <BodyText>About ahti</BodyText>
+            <BodyText>{t('dropdown.about')}</BodyText>
           </Link>
         </TextSection>
       </Body>
