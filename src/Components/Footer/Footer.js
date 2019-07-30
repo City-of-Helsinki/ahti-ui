@@ -42,7 +42,7 @@ const LearnMoreLink = styled(UnstyledLink)`
 const Footer = () => {
   const { t, i18n } = useTranslation();
   return (
-    <React.Fragment>
+    <footer>
       <HelsinkiWave color="yellow" />
       <Container>
         <SecondaryTitle>{t('footer.header')}</SecondaryTitle>
@@ -60,7 +60,7 @@ const Footer = () => {
         </BodyText>
         <BodyText>{t('footer.attribution')}</BodyText>
       </Container>
-    </React.Fragment>
+    </footer>
   );
 };
 
