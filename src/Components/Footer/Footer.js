@@ -18,7 +18,10 @@ const Container = styled.div`
   }
 `;
 
-const LinkContainer = styled.div`
+const LinkContainer = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
