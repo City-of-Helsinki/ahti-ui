@@ -21,5 +21,15 @@
       "point_list_header": "Tähän joku suomennos",
       "point_list_subheader": "Suosittuja kohteita paikassa"
     }
+  },
+  "footer": {
+    "header": "Merellisiä linkkejä",
+    "link1": "Veneily",
+    "link2": "Helsingin saaristo",
+    "link3": "<lisää kamaa>",
+    "link4": "Saunat",
+    "body": "Tämä palvelu on kehityksessä, käytät testiversiota.",
+    "learn_more": "Lue lisää Ahti-palvelusta.",
+    "attribution": "© Helsingin kaupunki 2019 |"
   }
 }

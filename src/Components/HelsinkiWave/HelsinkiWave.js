@@ -1,4 +1,5 @@
 import wave from '../../assets/helsinki_wave.svg';
+import yellowWave from '../../assets/helsinki_wave_yellow.svg';
 
 import styled from 'styled-components';
 
@@ -8,7 +9,8 @@ const HelsinkiWave = styled.div`
   margin-top: -30px;
   z-index: 1400;
 
-  background-image: url(${wave});
+  background-image: ${props =>
+    props.color === 'yellow' ? `url(${yellowWave})` : `url(${wave})`};
   background-repeat: repeat-x;
   background-size: 50px 100%;
 `;
