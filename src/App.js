@@ -94,19 +94,23 @@ class App extends React.Component {
                   onLanguageEN={() => i18n.changeLanguage('en')}
                 />
               )}
-              <Link to="/">
-                <TitleContainer>
-                  <AhtiLogo />
-                </TitleContainer>
-              </Link>
-              <MenuButton
-                onClick={() => {
-                  document.body.style.overflowY = 'hidden';
-                  this.setState(() => ({ ...this.state, menuOpen: true }));
-                }}
-              >
-                <MenuLogo />
-              </MenuButton>
+              {!this.state.menuOpen && (
+                <React.Fragment>
+                  <Link to="/">
+                    <TitleContainer>
+                      <AhtiLogo />
+                    </TitleContainer>
+                  </Link>
+                  <MenuButton
+                    onClick={() => {
+                      document.body.style.overflowY = 'hidden';
+                      this.setState(() => ({ ...this.state, menuOpen: true }));
+                    }}
+                  >
+                    <MenuLogo />
+                  </MenuButton>
+                </React.Fragment>
+              )}
 
               {/* NOTE: Make sure to wrap any other Route components withTracker.
                * An alternative might be to set up a top-level route and only wrap that.
