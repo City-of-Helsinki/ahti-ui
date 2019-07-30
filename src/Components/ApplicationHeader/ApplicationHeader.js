@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ReactComponent as AhtiLogo } from '../../assets/icons/ahti_logo.svg';
-import DropdownMenu from '../Dropdown/Dropdown';
+import DropdownMenu from '../DropdownMenu/DropdownMenu';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import { useTranslation } from 'react-i18next';
 
@@ -19,7 +19,7 @@ const TitleContainer = styled.div`
 `;
 
 // TODO: Rename to Navigation
-const DropdownContainer = () => {
+const ApplicationHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const { t, i18n } = useTranslation();
@@ -47,4 +47,4 @@ const DropdownContainer = () => {
   );
 };
 
-export default DropdownContainer;
+export default ApplicationHeader;

@@ -37,7 +37,7 @@ const Body = styled.div`
   }
 `;
 
-const TextSection = styled.section`
+const TextSection = styled.div`
   padding: 1.5rem 2rem;
 `;
 
@@ -59,7 +59,7 @@ const BackDrop = styled.div`
 const LanguageButton = styled(BaseButton)`
   padding: 1rem;
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: ${props => (props.isActive ? 600 : 400)};
 `;
 
 const MenuButton = styled(BaseButton)`
@@ -69,10 +69,13 @@ const MenuButton = styled(BaseButton)`
   right: 2rem;
 
   background-color: ${props => props.theme.colors.white};
-  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
   border-radius: 50%;
   width: 5rem;
   height: 5rem;
+
+  /* Hide the box shadow when on top of the menu */
+  box-shadow: ${props =>
+    !props.isOpen && '2px 4px 8px 2px rgba(0, 0, 0, 0.15)'};
 
   &:focus {
     outline: 4px solid transparent;
@@ -80,18 +83,13 @@ const MenuButton = styled(BaseButton)`
   }
 `;
 
-const Dropdown = ({ isOpen, onOpen, onClose }) => {
+const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
   const { t, i18n } = useTranslation();
-
-  const onLanguageChange = () => {
-    i18n.language === 'fi'
-      ? i18n.changeLanguage('en')
-      : i18n.changeLanguage('fi');
-  };
 
   return (
     <Container>
       <MenuButton
+        isOpen={isOpen}
         onClick={isOpen ? onClose : onOpen}
         aria-expanded={isOpen}
         aria-label={t('dropdown.label')}
@@ -100,9 +98,20 @@ const Dropdown = ({ isOpen, onOpen, onClose }) => {
       </MenuButton>
       <BackDrop isOpen={isOpen}>
         <Body>
-          <LanguageButton onClick={onLanguageChange}>
-            {t('dropdown.change_language')}
-          </LanguageButton>
+          <TextSection>
+            <LanguageButton
+              onClick={() => i18n.changeLanguage('fi')}
+              isActive={i18n.language === 'fi'}
+            >
+              fi
+            </LanguageButton>
+            <LanguageButton
+              onClick={() => i18n.changeLanguage('en')}
+              isActive={i18n.language === 'en'}
+            >
+              en
+            </LanguageButton>
+          </TextSection>
           <TextSection>
             <Link to="/">
               <BodyText>{t('dropdown.add_location')}</BodyText>
@@ -123,4 +132,4 @@ const Dropdown = ({ isOpen, onOpen, onClose }) => {
   );
 };
 
-export default Dropdown;
+export default DropdownMenu;

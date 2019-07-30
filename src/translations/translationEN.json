@@ -8,7 +8,6 @@
   },
   "dropdown": {
     "label": "Menu",
-    "change_language": "Vaihda kieli Suomeksi",
     "add_location": "Add location or service",
     "give_feedback": "Give feedback",
     "about": "About Ahti"
