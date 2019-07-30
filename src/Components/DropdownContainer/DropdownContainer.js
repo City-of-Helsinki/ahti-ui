@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { ReactComponent as AhtiLogo } from '../../assets/icons/ahti_logo.svg';
 import { ReactComponent as MenuLogo } from '../../assets/icons/menu.svg';
-import Dropdown from '../../Components/Dropdown/Dropdown';
-import UnstyledLink from '../../Components/UnstyledLink/UnstyledLink';
-import BaseButton from '../../Components/BaseButton/BaseButton';
+import Dropdown from '../Dropdown/Dropdown';
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
+import BaseButton from '../BaseButton/BaseButton';
 import { useTranslation } from 'react-i18next';
 
 import styled from 'styled-components';

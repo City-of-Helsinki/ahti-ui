@@ -66,7 +66,6 @@ const LanguageButton = styled(BaseButton)`
   padding: 1rem;
   font-size: 1.4rem;
   font-weight: 600;
-  }
 `;
 
 const Dropdown = ({ onExit, onLanguageFI, onLanguageEN }) => {
