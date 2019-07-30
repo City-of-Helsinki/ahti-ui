@@ -25,6 +25,7 @@ const theme = {
     black: '#001A33',
     pink: '#FADCE8',
     lightGray: '#E9EFF3',
+    lightYellow: '#FCEA82',
   },
   borders: {
     buttonBorder: '2px solid #001A33',
