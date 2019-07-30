@@ -9,11 +9,10 @@ import styled, { keyframes } from 'styled-components';
 
 const slideIn = keyframes`
   from {
-    // matches theme.colors.white
-  background-color: rgb(255, 255, 255, 0);
+  opacity: 0.5;
   }
   to {
-  background-color: rgb(255, 255, 255, 1);
+  opacity: 1;
   }
 `;
 
