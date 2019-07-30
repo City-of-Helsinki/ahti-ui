@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { GlobalGeoContext } from '../../App';
 import LinkBox from '../LinkBox/LinkBox';
 import MapOverlay from '../MapOverlay/MapOverlay';
+import Footer from '../Footer/Footer';
 import Section from '../Section/Section';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import RoundBoxWithText from '../RoundBox/RoundBox';
@@ -178,6 +179,7 @@ export default () => {
           <LinkBox variant="white">View service providers</LinkBox>
         </Link>
       </Section>
+      <Footer />
     </React.Fragment>
   );
 };

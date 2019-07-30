@@ -20,5 +20,15 @@
       "point_list_header": "Things to do",
       "point_list_subheader": "Locations available for travellers in"
     }
+  },
+  "footer": {
+    "header": "Maritime links",
+    "link1": "Boating",
+    "link2": "In islands",
+    "link3": "Saunas",
+    "link4": "Maybe something",
+    "body": "This service is under development and you’re using a test version.",
+    "learn_more": "Learn more about Ahti.",
+    "attribution": "© Helsingin kaupunki | www.hel.fi | 2019"
   }
 }
