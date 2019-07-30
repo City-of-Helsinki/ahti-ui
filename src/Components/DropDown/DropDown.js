@@ -7,9 +7,9 @@ import { ReactComponent as Exit } from '../../assets/icons/exit.svg';
 
 import styled, { keyframes } from 'styled-components';
 
-const slideIn = keyframes`
+const fadeIn = keyframes`
   from {
-  opacity: 0.5;
+  opacity: 0;
   }
   to {
   opacity: 1;
@@ -17,6 +17,7 @@ const slideIn = keyframes`
 `;
 
 const Container = styled.div`
+  animation: ${fadeIn} 0.4s;
   z-index: 5000;
   position: absolute;
 
@@ -30,7 +31,6 @@ const Body = styled.div`
   height: 80vh;
   width: 100%;
   padding-top: 1rem;
-  animation: ${slideIn} 0.4s;
   overflow: hidden;
 
   ${BodyText} {
@@ -69,7 +69,7 @@ const LanguageButton = styled(BaseButton)`
   }
 `;
 
-const DropDown = ({ onExit, onLanguageFI, onLanguageEN }) => {
+const Dropdown = ({ onExit, onLanguageFI, onLanguageEN }) => {
   return (
     <Container>
       <ExitButton onClick={onExit}>
@@ -107,4 +107,4 @@ const DropDown = ({ onExit, onLanguageFI, onLanguageEN }) => {
   );
 };
 
-export default DropDown;
+export default Dropdown;
