@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import mapImage from '../../assets/map_placeholder.png';
 
 const MapOverlay = styled.div`
   box-sizing: border-box;
@@ -6,9 +7,9 @@ const MapOverlay = styled.div`
   height: 33rem;
   max-height: 33rem;
   padding: 2rem 1.75rem;
-  background: ${props => props.theme.gradients.blockGradient};
+  background-image: url(${mapImage});
+  background-size: cover;
 
-  // flex most likely wont work on most mobile devices, refactor this later
   display: flex;
   justify-content: flex-end;
   flex-direction: column;

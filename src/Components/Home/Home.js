@@ -93,18 +93,6 @@ export default () => {
               />
             );
           })}
-
-          {/** they are here for demo purposes, all types should be automatically generated */}
-          <RoundBoxWithText
-            icon={<Boat />}
-            title={<TertiaryTitle> Boat rentals </TertiaryTitle>}
-            pathToList={'/map?type=boat' || '/map'}
-          />
-          <RoundBoxWithText
-            icon={<Park />}
-            title={<TertiaryTitle> Parks </TertiaryTitle>}
-            pathToList={'/map?type=park' || '/map'}
-          />
         </Slider>
       </Section>
       {selectedIsland.properties && (
