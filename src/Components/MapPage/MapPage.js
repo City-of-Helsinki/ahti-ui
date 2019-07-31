@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import MapboxMap from '../MapboxMap/MapboxMap';
 import Carousel from '../Carousel/Carousel';
 import MapCard from '../MapCard/MapCard';
-import TagCard from '../TagCard/TagCard';
 import MapWrapper from '../MapWrapper/MapWrapper';
 import { FlyToInterpolator, LinearInterpolator } from 'react-map-gl';
 import CarouselWrapper from '../CarouselWrapper/CarouselWrapper';
@@ -71,13 +70,10 @@ const MapPage = ({ location, history }) => {
     let filteredPoints = [...pointData];
 
     // filter points according to search query
-    if (browserQuery.type || browserQuery.tag) {
+    if (browserQuery.type) {
       filteredPoints = filteredPoints.filter(
         point =>
-          (point.properties.type &&
-            point.properties.type === browserQuery.type) ||
-          (point.properties.tag &&
-            point.properties.tag.includes(browserQuery.tag))
+          point.properties.type && point.properties.type === browserQuery.type
       );
     }
 
@@ -92,11 +88,9 @@ const MapPage = ({ location, history }) => {
 
     setDisplayedPoints(filteredPoints);
 
-    // fly to point on location.search update, prioritize name over tag
-    const destination = browserQuery.name || browserQuery.tag;
-    if (destination) {
+    if (browserQuery.name) {
       const index = displayedPoints.findIndex(
-        point => point.properties.fi.name === destination
+        point => point.properties.fi.name === browserQuery.name
       );
       if (displayedPoints[index]) {
         flyToPoint(displayedPoints[index].geometry, 700, true);
@@ -154,22 +148,19 @@ const MapPage = ({ location, history }) => {
         />
       </MapWrapper>
 
-      {displayedPoints.length > 0 &&
-        !browserQuery.name &&
-        !browserQuery.line &&
-        !browserQuery.tag && (
-          <CarouselWrapper>
-            <Carousel
-              currentSlide={currentSlide}
-              setCurrentSlide={setCurrentSlide}
-              viewport={viewport}
-              flyToPoint={flyToPoint}
-              displayedPoints={displayedPoints}
-              location={location}
-              history={history}
-            />
-          </CarouselWrapper>
-        )}
+      {displayedPoints.length > 0 && !browserQuery.name && !browserQuery.line && (
+        <CarouselWrapper>
+          <Carousel
+            currentSlide={currentSlide}
+            setCurrentSlide={setCurrentSlide}
+            viewport={viewport}
+            flyToPoint={flyToPoint}
+            displayedPoints={displayedPoints}
+            location={location}
+            history={history}
+          />
+        </CarouselWrapper>
+      )}
       {browserQuery.line && (
         <MapCard
           onBack={history.goBack}
@@ -190,24 +181,6 @@ const MapPage = ({ location, history }) => {
               point =>
                 point.properties.fi.name.toLowerCase() ===
                 browserQuery.name.toLowerCase()
-            )[0]
-          }
-        />
-      )}
-      {!browserQuery.line && !browserQuery.name && browserQuery.tag && (
-        <TagCard
-          onBack={history.goBack}
-          location={location}
-          pointData={displayedPoints.filter(
-            point =>
-              point.properties.fi.name.toLowerCase() !==
-              browserQuery.tag.toLowerCase()
-          )}
-          tagData={
-            displayedPoints.filter(
-              point =>
-                point.properties.fi.name.toLowerCase() ===
-                browserQuery.tag.toLowerCase()
             )[0]
           }
         />

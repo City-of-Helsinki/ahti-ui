@@ -122,7 +122,7 @@ export default () => {
                 `An island where you can spend the
             whole day with the family`}
             </p>
-            <Link to={`/map?tag=${selectedIsland.properties.en.name}`}>
+            <Link to={`/map?name=${selectedIsland.properties.fi.name}`}>
               <LinkBox variant="white">{t('home.section2_button')}</LinkBox>
             </Link>
           </Section>
