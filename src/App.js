@@ -3,7 +3,7 @@ import MapPage from './Components/MapPage/MapPage';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import { withTranslation } from 'react-i18next';
-import DropdownContainer from './Components/DropdownContainer/DropdownContainer';
+import ApplicationHeader from './Components/ApplicationHeader/ApplicationHeader';
 import mapData from './mapData.json';
 import lineData from './lineData.json';
 import { ThemeProvider } from 'styled-components';
@@ -48,7 +48,9 @@ class App extends React.Component {
         <GlobalGeoContext.Provider value={mapData.features}>
           <GlobalLineContext.Provider value={lineData.data}>
             <Router>
-              <DropdownContainer />
+              <header>
+                <ApplicationHeader />
+              </header>
 
               {/* NOTE: Make sure to wrap any other Route components withTracker.
                * An alternative might be to set up a top-level route and only wrap that.

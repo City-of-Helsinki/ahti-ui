@@ -7,7 +7,7 @@
     "section3_header": "Tapoja nauttia Helsingin merestä"
   },
   "dropdown": {
-    "change_language": "Change language to English",
+    "label": "Valikko",
     "add_location": "Lisää kohde tai palvelu",
     "give_feedback": "Anna palautetta",
     "about": "Tietoa Ahti-pavelusta"

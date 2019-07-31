@@ -11,7 +11,7 @@ const Container = styled.div`
   min-height: 21rem;
   width: 100%;
   background-color: ${props => props.theme.colors.lightYellow};
-  padding: 1.5rem;
+  padding: 2.5rem 1.5rem;
 
   ${BodyText} {
     margin-top: 1rem;
