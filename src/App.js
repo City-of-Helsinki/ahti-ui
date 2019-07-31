@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import MapPage from './Components/MapPage/MapPage';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Components/Home/Home';
@@ -53,8 +53,10 @@ class App extends React.Component {
               {/* NOTE: Make sure to wrap any other Route components withTracker.
                * An alternative might be to set up a top-level route and only wrap that.
                */}
-              <Route exact path="/" component={withTracker(Home)} />
-              <Route path="/map" component={withTracker(MapPage)} />
+              <Suspense>
+                <Route exact path="/" component={withTracker(Home)} />
+                <Route path="/map" component={withTracker(MapPage)} />
+              </Suspense>
             </Router>
           </GlobalLineContext.Provider>
         </GlobalGeoContext.Provider>
