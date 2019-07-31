@@ -192,3 +192,9 @@ If you are wondering whether certain events are being sent, you could do either 
 
 - Set the `REACT_APP_DEBUG_ANALYTICS` environment variable. This will make `react-ga` log everything. This can help in development.
 - Alternatively, you can install the [Google Analytics Debugger](https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?hl=en) extension, which also logs things to the console. Might be better if you debug issues directly in production.
+
+### Tag system
+
+Initially the app had a tag system, where certain types (islands in this case) could be displayed as a "parent" of points with a unique view.
+
+The feature was removed with https://github.com/futurice/helsinki-ahti-experiment/pull/51, but it could be brought back in the future.
