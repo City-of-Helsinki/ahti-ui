@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Slider from 'react-slick';
 import queryString from 'query-string';
 import SliderCard from '../SliderCard/SliderCard';
@@ -6,53 +6,54 @@ import { getPointQuery } from '../../utils';
 
 // TODO: add actions on swipe http://hammerjs.github.io/getting-started/
 
-export default class Carousel extends React.Component {
-  sliderSettings = {
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    centerMode: true,
-    //this doesn't understand rem for some reason
-    centerPadding: '18px',
-    initialSlide:
-      this.props.currentSlide &&
-      this.props.displayedPoints[this.props.currentSlide]
-        ? this.props.currentSlide
-        : 0,
-    beforeChange: (current, next) => {
-      if (current !== next && this.props.displayedPoints[next]) {
-        this.props.flyToPoint(this.props.displayedPoints[next].geometry, 500);
-      }
-    },
-    afterChange: current => this.props.setCurrentSlide(current),
-  };
+const Carousel = ({
+  currentSlide,
+  location,
+  displayedPoints,
+  setCurrentSlide,
+  flyToPoint,
+}) => {
+  const [sliderRef, setSlideRef] = useState(null);
 
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.displayedPoints !== this.props.displayedPoints) {
-      return true;
-    } else {
-      return false;
+  useEffect(() => {
+    if (sliderRef) {
+      // dontAnimate = true
+      sliderRef.slickGoTo(currentSlide, true);
     }
-  }
+  }, [currentSlide, sliderRef]);
+  return (
+    <Slider
+      ref={setSlideRef}
+      dots={false}
+      infinite={false}
+      speed={500}
+      slidesToShow={1}
+      slidesToScroll={1}
+      centerMode={true}
+      //this doesn't understand rem for some reason
+      centerPadding={'18px'}
+      beforeChange={(current, next) => {
+        if (
+          current !== next &&
+          displayedPoints[next] &&
+          next !== currentSlide
+        ) {
+          flyToPoint(displayedPoints[next].geometry, 500);
+        }
+      }}
+      afterChange={current => setCurrentSlide(current)}
+    >
+      {displayedPoints.map((point, id) => {
+        return (
+          <SliderCard
+            point={point}
+            key={id}
+            query={getPointQuery(point, queryString.parse(location.search))}
+          />
+        );
+      })}
+    </Slider>
+  );
+};
 
-  render() {
-    return (
-      <Slider {...this.sliderSettings}>
-        {this.props.displayedPoints.map((point, id) => {
-          return (
-            <SliderCard
-              point={point}
-              key={id}
-              query={getPointQuery(
-                point,
-                queryString.parse(this.props.location.search)
-              )}
-            />
-          );
-        })}
-      </Slider>
-    );
-  }
-}
+export default Carousel;
