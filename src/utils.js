@@ -10,7 +10,7 @@ export const getPointQuery = (point, parsedSearch) =>
         name: point.properties.fi.name,
       });
 
-export const getLineQuery = (clickedPlace, parsedSearch) => {
+export const getLineQuery = (clickedPlace, parsedSearch) =>
   parsedSearch.type
     ? queryString.stringify({
         type: parsedSearch.type,
@@ -19,4 +19,3 @@ export const getLineQuery = (clickedPlace, parsedSearch) => {
     : queryString.stringify({
         line: clickedPlace.properties.name,
       });
-};
