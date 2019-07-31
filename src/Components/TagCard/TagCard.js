@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
 import { LazyImage } from 'react-lazy-images';
 import queryString from 'query-string';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +8,7 @@ import TypeTitle from '../TypeTitle/TypeTitle';
 import BodyText from '../BodyText/BodyText';
 import BackButton from '../BackButton/BackButton';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 import { getPointQuery } from '../../utils';
@@ -135,7 +135,7 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
                   const imageURL = `/images/${point.properties.imageId}.jpeg`;
 
                   return (
-                    <Link
+                    <UnstyledLink
                       to={{
                         pathname: '/map',
                         search: getPointQuery(
@@ -152,7 +152,9 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
                             <SecondaryTitle>
                               {point.properties.fi.name}
                             </SecondaryTitle>
-                            <TypeTitle>{point.properties.type}</TypeTitle>
+                            <TypeTitle>
+                              {t(`types.${point.properties.type}`)}
+                            </TypeTitle>
                           </TagListItem>
                         )}
                         actual={() => (
@@ -160,11 +162,13 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
                             <SecondaryTitle>
                               {point.properties.fi.name}
                             </SecondaryTitle>
-                            <TypeTitle>{point.properties.type}</TypeTitle>
+                            <TypeTitle>
+                              {t(`types.${point.properties.type}`)}
+                            </TypeTitle>
                           </TagListItem>
                         )}
                       />
-                    </Link>
+                    </UnstyledLink>
                   );
                 })}
             </TagListContainer>

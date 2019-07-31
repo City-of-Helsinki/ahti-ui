@@ -88,7 +88,7 @@ export default () => {
               <RoundBoxWithText
                 key={id}
                 icon={<Beach />}
-                title={<TertiaryTitle> {type} </TertiaryTitle>}
+                title={<TertiaryTitle> {t(`types.${type}`)} </TertiaryTitle>}
                 pathToList={`/map?type=${type}` || '/map'}
               />
             );
@@ -158,7 +158,9 @@ export default () => {
                     }
                     key={type + Math.random()}
                   >
-                    <SecondaryTitle>Popular place {type}</SecondaryTitle>
+                    <SecondaryTitle>
+                      Popular place {t(`types.${type}`)}
+                    </SecondaryTitle>
                   </VerticalBlock>
                 </UnstyledLink>
               );
