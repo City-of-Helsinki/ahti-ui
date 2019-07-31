@@ -1,5 +1,4 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
 import { LazyImage } from 'react-lazy-images';
 import queryString from 'query-string';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +8,7 @@ import TypeTitle from '../TypeTitle/TypeTitle';
 import BodyText from '../BodyText/BodyText';
 import BackButton from '../BackButton/BackButton';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 import { getPointQuery } from '../../utils';
@@ -81,12 +81,12 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
             src={imageURL}
             placeholder={({ ref }) => (
               <CardImageContainer ref={ref}>
-                {tagData.properties.fi.name && (
-                  <BodyText>{tagData.properties.fi.name}</BodyText>
+                {tagData.properties[i18n.language].name && (
+                  <BodyText>{tagData.properties[i18n.language].name}</BodyText>
                 )}
-                {tagData.properties.fi.header && (
+                {tagData.properties[i18n.language].header && (
                   <SecondaryTitle>
-                    {tagData.properties.fi.header}
+                    {tagData.properties[i18n.language].header}
                   </SecondaryTitle>
                 )}
                 <LocationContainer>
@@ -99,12 +99,12 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
             )}
             actual={() => (
               <CardImageContainer imageURL={imageURL}>
-                {tagData.properties.fi.name && (
-                  <BodyText>{tagData.properties.fi.name}</BodyText>
+                {tagData.properties[i18n.language].name && (
+                  <BodyText>{tagData.properties[i18n.language].name}</BodyText>
                 )}
-                {tagData.properties.fi.header && (
+                {tagData.properties[i18n.language].header && (
                   <SecondaryTitle>
-                    {tagData.properties.fi.header}
+                    {tagData.properties[i18n.language].header}
                   </SecondaryTitle>
                 )}
                 <LocationContainer>
@@ -118,8 +118,10 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
           />
           <HelsinkiWave />
           <CardTextContainer>
-            {tagData.properties.fi.description && (
-              <BodyText>{tagData.properties.fi.description}</BodyText>
+            {tagData.properties[i18n.language].description && (
+              <BodyText>
+                {tagData.properties[i18n.language].description}
+              </BodyText>
             )}
 
             <TagListContainer>
@@ -128,14 +130,14 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
               </SecondaryTitle>
               <BodyText>
                 {t('map.tag_card.point_list_subheader')}{' '}
-                {tagData.properties.fi.name}
+                {tagData.properties[i18n.language].name}
               </BodyText>
               {pointData.length > 0 &&
                 pointData.map((point, id) => {
                   const imageURL = `/images/${point.properties.imageId}.jpeg`;
 
                   return (
-                    <Link
+                    <UnstyledLink
                       to={{
                         pathname: '/map',
                         search: getPointQuery(
@@ -150,21 +152,25 @@ const TagCard = ({ pointData, tagData, location, onBack }) => {
                         placeholder={({ ref }) => (
                           <TagListItem ref={ref}>
                             <SecondaryTitle>
-                              {point.properties.fi.name}
+                              {point.properties[i18n.language].name}
                             </SecondaryTitle>
-                            <TypeTitle>{point.properties.type}</TypeTitle>
+                            <TypeTitle>
+                              {t(`types.${point.properties.type}`)}
+                            </TypeTitle>
                           </TagListItem>
                         )}
                         actual={() => (
                           <TagListItem imageURL={imageURL}>
                             <SecondaryTitle>
-                              {point.properties.fi.name}
+                              {point.properties[i18n.language].name}
                             </SecondaryTitle>
-                            <TypeTitle>{point.properties.type}</TypeTitle>
+                            <TypeTitle>
+                              {t(`types.${point.properties.type}`)}
+                            </TypeTitle>
                           </TagListItem>
                         )}
                       />
-                    </Link>
+                    </UnstyledLink>
                   );
                 })}
             </TagListContainer>

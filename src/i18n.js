@@ -4,6 +4,12 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import translationEN from './translations/translationEN.json';
 import translationFI from './translations/translationFI.json';
 
+/**
+ * This module configures internationalisation in the application.
+ * It also exports common functions to work with that data, for cases
+ * where we've been tripped up in the past.
+ */
+
 const resources = {
   en: {
     translation: translationEN,
@@ -24,6 +30,11 @@ export const initialize = () => {
     // for all options read: https://www.i18next.com/overview/configuration-options
     .init({
       resources,
+      // Only pass through 'en' and 'fi', otherwise fallback
+      // NOTE: This is important, because otherwise we can end up with
+      // en-GB, which would break custom translations in data
+      whitelist: ['en', 'fi'],
+      // If a language does not match, pick 'en'
       fallbackLng: 'en',
       debug: false,
 

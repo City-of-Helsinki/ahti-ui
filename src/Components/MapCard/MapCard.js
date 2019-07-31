@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { LazyImage } from 'react-lazy-images';
+import { useTranslation } from 'react-i18next';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BackButton from '../BackButton/BackButton';
 import BodyText from '../BodyText/BodyText';
@@ -61,6 +62,8 @@ const FloatingBlock = styled.div`
 `;
 
 const MapCard = ({ pointData, onBack }) => {
+  const { t, i18n } = useTranslation();
+
   const website =
     (pointData && pointData.properties.website) || '<placeholder site>';
   const info =
@@ -77,24 +80,28 @@ const MapCard = ({ pointData, onBack }) => {
             src={imageURL}
             placeholder={({ ref }) => (
               <CardImageContainer ref={ref}>
-                {pointData.properties.fi.name && (
-                  <BodyText>{pointData.properties.fi.name}</BodyText>
+                {pointData.properties[i18n.language].name && (
+                  <BodyText>
+                    {pointData.properties[i18n.language].name}
+                  </BodyText>
                 )}
-                {pointData.properties.fi.header && (
+                {pointData.properties[i18n.language].header && (
                   <SecondaryTitle>
-                    {pointData.properties.fi.header}
+                    {pointData.properties[i18n.language].header}
                   </SecondaryTitle>
                 )}
               </CardImageContainer>
             )}
             actual={() => (
               <CardImageContainer imageURL={imageURL}>
-                {pointData.properties.fi.name && (
-                  <BodyText>{pointData.properties.fi.name}</BodyText>
+                {pointData.properties[i18n.language].name && (
+                  <BodyText>
+                    {pointData.properties[i18n.language].name}
+                  </BodyText>
                 )}
-                {pointData.properties.fi.header && (
+                {pointData.properties[i18n.language].header && (
                   <SecondaryTitle>
-                    {pointData.properties.fi.header}
+                    {pointData.properties[i18n.language].header}
                   </SecondaryTitle>
                 )}
               </CardImageContainer>
@@ -102,18 +109,24 @@ const MapCard = ({ pointData, onBack }) => {
           />
           <HelsinkiWave />
 
-          {pointData.properties.fi.free_text_1 && (
+          {pointData.properties[i18n.language].free_text_1 && (
             <FreeTextContainer>
               <FloatingBlock>
-                <BodyText>{pointData.properties.fi.free_text_1}</BodyText>
+                <BodyText>
+                  {pointData.properties[i18n.language].free_text_1}
+                </BodyText>
                 <Line />
-                <BodyText>{pointData.properties.fi.free_text_2}</BodyText>
+                <BodyText>
+                  {pointData.properties[i18n.language].free_text_2}
+                </BodyText>
               </FloatingBlock>
             </FreeTextContainer>
           )}
           <CardTextContainer>
-            {pointData.properties.fi.description && (
-              <BodyText>{pointData.properties.fi.description}</BodyText>
+            {pointData.properties[i18n.language].description && (
+              <BodyText>
+                {pointData.properties[i18n.language].description}
+              </BodyText>
             )}
             <ContactInfoContainer>
               <IconContainer>

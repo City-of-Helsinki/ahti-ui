@@ -13,8 +13,7 @@ TODO
 ✔ get screen width and hight for map @done(19-07-22 17:33)
 ✔ add style config @done(19-07-22 17:34)
 ✔ Add i18nv for FI and EN @done(19-07-30 10:22)
-    ☐ add translations for routes and other dynamic content
-    ☐ add support for EN with name_en for the map
+    ✔ add translations for routes and other dynamic content @done(19-07-31 11:17)
     ✔ use fallback browser language @done(19-07-22 17:35)
     ✔ use new style for Finnish @done(19-07-30 10:22)
 ✔ Add borders in desktop @done(19-07-23 11:47)

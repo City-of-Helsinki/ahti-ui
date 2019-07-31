@@ -30,5 +30,18 @@
     "body": "Tämä palvelu on kehityksessä, käytät testiversiota.",
     "learn_more": "Lue lisää Ahti-palvelusta.",
     "attribution": "© Helsingin kaupunki 2019 |"
+  },
+  "types": {
+    "route": "reitit",
+    "island": "saaret",
+    "restaurant": "ravintolat",
+    "entertainment": "viihde",
+    "Artist Workspaces": "taitelijoiden työtilat",
+    "guest harbor": "vierasvenesatamat",
+    "Meripalveluasema": "meripalveluasemat",
+    "cafe": "kahvilat",
+    "church": "kirkot",
+    "beach": "rannat",
+    "actor": "toimijat"
   }
 }

@@ -88,7 +88,7 @@ export default () => {
               <RoundBoxWithText
                 key={id}
                 icon={<Beach />}
-                title={<TertiaryTitle> {type} </TertiaryTitle>}
+                title={<TertiaryTitle> {t(`types.${type}`)} </TertiaryTitle>}
                 pathToList={`/map?type=${type}` || '/map'}
               />
             );
@@ -114,9 +114,11 @@ export default () => {
             widthShadow="true"
             imageURL="https://images.unsplash.com/photo-1562593028-2e975fe28a0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
           >
-            <SecondaryTitle>{selectedIsland.properties.fi.name}</SecondaryTitle>
+            <SecondaryTitle>
+              {selectedIsland.properties[i18n.language].name}
+            </SecondaryTitle>
             <p>
-              {selectedIsland.properties.fi.header ||
+              {selectedIsland.properties[i18n.language].header ||
                 `An island where you can spend the
             whole day with the family`}
             </p>
@@ -158,7 +160,9 @@ export default () => {
                     }
                     key={type + Math.random()}
                   >
-                    <SecondaryTitle>Popular place {type}</SecondaryTitle>
+                    <SecondaryTitle>
+                      Popular place {t(`types.${type}`)}
+                    </SecondaryTitle>
                   </VerticalBlock>
                 </UnstyledLink>
               );

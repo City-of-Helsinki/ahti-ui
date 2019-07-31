@@ -30,5 +30,18 @@
     "body": "This service is under development and you’re using a test version.",
     "learn_more": "Learn more about Ahti.",
     "attribution": "© Helsingin kaupunki 2019 |"
+  },
+  "types": {
+    "route": "routes",
+    "island": "islands",
+    "restaurant": "restaurants",
+    "entertainment": "entertainment",
+    "Artist Workspaces": "artist Workspaces",
+    "guest harbor": "guest harbors",
+    "Meripalveluasema": "maritime service stations",
+    "cafe": "cafes",
+    "church": "churches",
+    "beach": "beaches",
+    "actor": "actors"
   }
 }
