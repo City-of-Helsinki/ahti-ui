@@ -3,8 +3,11 @@
     "main_header": "Find your way around the sea",
     "see_all_button": "See all places",
     "section1_header": "Popular places around",
-    "section2_button": "See all",
-    "section3_header": "Things to try during the summer"
+    "section3_button": "See all",
+    "section4_header": "Things to try during the summer",
+    "section5_header": "Visiting Helsinki with your own boat?",
+    "section5_subheader": "Discover visitor harbours, short term boat parking and service stations",
+    "section5_button": "View service providers"
   },
   "dropdown": {
     "label": "Menu",

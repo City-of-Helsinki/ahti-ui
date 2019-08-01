@@ -3,8 +3,11 @@
     "main_header": "Löydä tiesi merelle",
     "see_all_button": "Näytä kaikki kohteet",
     "section1_header": "Suosittuja kohteita",
-    "section2_button": "Näytä kaikki",
-    "section3_header": "Tapoja nauttia Helsingin merestä"
+    "section3_button": "Näytä kaikki",
+    "section4_header": "Tapoja nauttia Helsingin merestä",
+    "section5_header": "Vierailetko Helsingissä omalla veneelläsi?",
+    "section5_subheader": "Löydä vierasvenesatamia, lyhytaikaisia pysäköintipaikkoja ja venehuoltoasemia",
+    "section5_button": "Katso palveluntarjoajat"
   },
   "dropdown": {
     "label": "Valikko",

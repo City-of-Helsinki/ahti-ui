@@ -192,14 +192,14 @@ export default () => {
               variant="white"
               to={`/map?tag=${promotionIsland.properties.fi.name}`}
             >
-              {t('home.section2_button')}
+              {t('home.section3_button')}
             </LinkBox>
           </Section>
           <HelsinkiWave />
         </React.Fragment>
       )}
       <Section>
-        <SecondaryTitle>{t('home.section3_header')}</SecondaryTitle>
+        <SecondaryTitle>{t('home.section4_header')}</SecondaryTitle>
         <Slider {...pointPromotionSliderSettings}>
           {promotionPoints.map((point, id) => {
             return (
@@ -221,19 +221,17 @@ export default () => {
         </Slider>
       </Section>
 
-      {/* <Section
+      <Section
         withImage="true"
         widthShadow="true"
         imageURL="https://images.unsplash.com/photo-1507911618740-de629a41dd34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
       >
-        <SecondaryTitle>Going with a boat?</SecondaryTitle>
-        <p>
-          Discover visitor harbours, water routes and critical signs in one map
-        </p>
+        <SecondaryTitle>{t('home.section5_header')}</SecondaryTitle>
+        <BodyText>{t('home.section5_subheader')}</BodyText>
         <LinkBox to="/map" variant="white">
-          View service providers
+          {t('home.section5_button')}
         </LinkBox>
-      </Section> */}
+      </Section>
       <Footer />
     </React.Fragment>
   );
