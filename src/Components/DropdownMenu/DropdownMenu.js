@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import BodyText from '../BodyText/BodyText';
 import BaseButton from '../BaseButton/BaseButton';
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import { ReactComponent as Menu } from '../../assets/icons/menu.svg';
 import { ReactComponent as Exit } from '../../assets/icons/exit.svg';
+import { POINT_TYPES } from '../../App';
 
 import styled, { keyframes } from 'styled-components';
 
@@ -19,17 +20,19 @@ const fadeIn = keyframes`
 
 const Body = styled.div`
   background-color: ${props => props.theme.colors.white};
-  height: 80vh;
+  min-height: 80vh;
+  max-height: 90vh;
   width: 100%;
   padding-top: 1rem;
-  overflow: hidden;
+  overflow-x: hidden;
   ${BodyText} {
+    margin: 0.5rem 0;
     color: ${props => props.theme.colors.black};
   }
 `;
 
 const TextSection = styled.div`
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
 `;
 
 const Line = styled.hr`
@@ -45,6 +48,11 @@ const BackDrop = styled.div`
   width: 100%;
   z-index: 4999;
   background-color: rgb(0, 0, 0, 0.3);
+`;
+
+const LanguageButtonContainer = styled.div`
+  padding-top: 1rem;
+  padding-left: 1.5rem;
 `;
 
 const LanguageButton = styled(BaseButton)`
@@ -71,6 +79,10 @@ const MenuButton = styled(BaseButton)`
   }
 `;
 
+const UnstyledOutboundLink = styled.a`
+  text-decoration: none;
+`;
+
 const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
   const { t, i18n } = useTranslation();
 
@@ -86,7 +98,7 @@ const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
       </MenuButton>
       <BackDrop isOpen={isOpen}>
         <Body>
-          <TextSection>
+          <LanguageButtonContainer>
             <LanguageButton
               onClick={() => i18n.changeLanguage('fi')}
               isActive={i18n.language === 'fi'}
@@ -99,20 +111,58 @@ const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
             >
               en
             </LanguageButton>
-          </TextSection>
+          </LanguageButtonContainer>
           <TextSection>
-            <Link to="/">
-              <BodyText>{t('dropdown.add_location')}</BodyText>
-            </Link>
-            <Link to="/">
+            <UnstyledLink to="/">
+              <BodyText>{t('dropdown.about')}</BodyText>
+            </UnstyledLink>
+            <UnstyledOutboundLink
+              target="_blank"
+              rel="noopener noreferrer"
+              href={
+                i18n.language === 'fi'
+                  ? 'https://docs.google.com/forms/d/e/1FAIpQLSegIqAsxVscFnk2iPneXahSpV1cnGjXZ2d_98fSSh0ZOsA1JA/viewform?usp=sf_link'
+                  : 'https://docs.google.com/forms/d/e/1FAIpQLSefN-qtj9EOpV6iLcaKj2LrQYV-fhjEAeqB4g1rQPIdSIYLdA/viewform?usp=sf_link'
+              }
+            >
               <BodyText>{t('dropdown.give_feedback')}</BodyText>
-            </Link>
+            </UnstyledOutboundLink>
           </TextSection>
           <Line />
           <TextSection>
-            <Link to="/">
-              <BodyText>{t('dropdown.about')}</BodyText>
-            </Link>
+            <UnstyledOutboundLink
+              target="_blank"
+              rel="noopener noreferrer"
+              href={
+                i18n.language === 'fi'
+                  ? 'https://docs.google.com/forms/d/e/1FAIpQLSe6xJj1vpjNfinde6Ly3jv_BG7Reev0KGAKH8O7QPsIVn3IUg/viewform?usp=sf_link'
+                  : 'https://docs.google.com/forms/d/e/1FAIpQLSeUKV9KPXBjDZHNRnVi3vB1N-fayYxFy3tirFdKplAIFYqxRw/viewform?usp=sf_link'
+              }
+            >
+              <BodyText>{t('dropdown.add_location')}</BodyText>
+            </UnstyledOutboundLink>
+          </TextSection>
+          <Line />
+          <TextSection>
+            {POINT_TYPES &&
+              POINT_TYPES.map((type, id) => (
+                <UnstyledLink
+                  to={`/map?type=${type}`}
+                  key={id}
+                  onClick={isOpen ? onClose : onOpen}
+                >
+                  <BodyText>{t(`types.${type}`)}</BodyText>
+                </UnstyledLink>
+              ))}
+          </TextSection>
+          <Line />
+          <TextSection>
+            <UnstyledLink to="/">
+              <BodyText>{t('dropdown.boat_page')}</BodyText>
+            </UnstyledLink>
+            <UnstyledLink to="/">
+              <BodyText>{t('dropdown.rescue_directions')}</BodyText>
+            </UnstyledLink>
           </TextSection>
         </Body>
       </BackDrop>
