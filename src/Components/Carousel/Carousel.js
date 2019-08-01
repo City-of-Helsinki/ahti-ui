@@ -15,6 +15,7 @@ const Carousel = ({
 }) => {
   const [sliderRef, setSlideRef] = useState(null);
 
+  // Sync the top-state with Slider's internal state. They would otherwise get out of sync in cases where we set the currentSlide directly and change the size of the displayed points.
   useEffect(() => {
     if (sliderRef) {
       // dontAnimate = true
