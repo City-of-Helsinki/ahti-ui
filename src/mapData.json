@@ -5,6 +5,482 @@
       "type": "Feature",
       "properties": {
         "fi": {
+          "name": "KikkaPakka",
+          "header": "Merelliseen kaupunkiluontoon Mustikkamaan välinevuokraamon kautta.",
+          "description": "KikkaPakka yhteistyössä Boatman Groupin ja Welhonpesän kanssa vuokraa kajakkeja, kanootteja, kalastuskajakkeja, sup-lautoja, kalastusveneitä ja -välineitä sekä fatbikeja ja maastopyöriä Mustikkamaalla Boatman Groupin telakalla. Osoite Mustikkamaantie 2, 00570 Helsinki. Liikenneyhteydet: Bussi 16 Rautatientori-Korkeasaari, Kulosaaran metroasemalta 1,2 km,  Isoisän sillalta noin 0,8 km.",
+          "free_text_1": "SUP-laudat alkaen 18€/h",
+          "free_text_2": "Retkikajakit alkaen 23€/h"
+        },
+        "en": {
+          "name": "KikkaPakka",
+          "header": "<missing>",
+          "description": "<missing>",
+          "free_text_1": "SUP boards from 18€/h",
+          "free_text_2": "touring kayak from 23€/h"
+        },
+        "website": "http://kikkapakka.fi/mustikkamaan-valinevuokraamo/",
+        "phone_number": "040 570 1742",
+        "address": "Osoite Mustikkamaantie 2, 00570 Helsinki",
+        "type": "sup",
+        "tag": ["Suppilautailu", "Mustikkamaa"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.99786615371704, 60.18187201805353]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "TwentyKnots Helsinki",
+          "header": "TwentyKnots Helsinki on elämyspiste, josta löydät Suomen monipuolisimman SUP ja purjelautailu tarjonnan.",
+          "description": "TwentyKnots on erikoistunut suppailun alkeis- ja tekniikkakursseihin, retkiin sekä laadukkaiden SUP-lautojen vuokraukseen. Vuokraamomme sijaitsee Helsingissä hyvien kulkuyhteyksien päässä.",
+          "free_text_1": "Tunti alkean 20€",
+          "free_text_2": "Päivä alkaen 50€"
+        },
+        "en": {
+          "name": "TwentyKnots Helsinki",
+          "header": "TwentyKnots Helsinki has the most diverse Stand Up Paddle boarding (SUP) and windsurfing offerings in Finland. ",
+          "description": "We have a diverse selection of high quality Fanatic SUP-boards for rent. So close to nature, arriving to our venue you would not believe that you are only 15min from Helsinki city centre! We'll guide you with paddling technique and recommend you the best paddling route in the nearby archipelago. ",
+          "free_text_1": "One hour from 20€",
+          "free_text_2": "One day from 50€"
+        },
+        "website": "https://www.twentyknots.fi",
+        "phone_number": "044 768 8464",
+        "address": "Kalastajatorpantie 1, 00330 Helsinki",
+        "type": "sup",
+        "tag": ["Suppilautailu", "purjelautailu"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.872982501983643, 60.192257420894315]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Helsingin Melontakeskus",
+          "header": "Tervetuloa Helsingin Melontakeskukseen",
+          "description": "<missing>",
+          "free_text_1": "SUP-laudat alkaen 15€/h",
+          "free_text_2": "Neljä tuntia 25€"
+        },
+        "en": {
+          "name": "Helsingin Melontakeskus",
+          "header": "Welcome to Helsinki Melontakeskus",
+          "description": "<missing>",
+          "free_text_1": "SUP boards from 15€/h",
+          "free_text_2": "four hours 25€"
+        },
+        "website": "http://www.helsinginmelontakeskus.fi",
+        "phone_number": "09 4362500",
+        "address": "Rajasaarenpenger 8, 00250 Helsinki",
+        "type": "sup",
+        "tag": ["Suppilautailu"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.908559322357178, 60.18118914406802]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Sup & Kayak Cafe Regatta",
+          "header": "Olemme avoinna joka päivä",
+          "description": "on monipuolinen välinevuokraamo Café Regatan merellisessä miljöössä Töölössä. Tarjoamme asiakkaillemme mahdollisuuden vuokrata välineet helposti joka päivä aamusta iltaan. Sijaintimme on hyvien kulkuyhteyksien varrella ja mieleiset melontareitit löytyy jokaiselle. Valikoimasta löytyy Sup-laudat, kajakit, kanootit ja soutuvene. Opastamme ammattitaitoisesti jokaisen välineen käyttöön. Tarjoamme myös Sup-alkeiskursseja sekä ohjattuja melontaretkiä. Järjestämme yritystapahtumat, polttarit, synttärit ja virkistyspäivät. Olemme toimineet välinevuokraamona vuodesta 2013 asti. Tervetuloa kauniiseen ja merelliseen Café Regattaan!",
+          "free_text_1": "SUP-laudat alkaen 15€/h",
+          "free_text_2": "Kaksi tuntia 25"
+        },
+        "en": {
+          "name": "Sup & Kayak Cafe Regatta",
+          "header": "We are open everyday",
+          "description": "A versatile and professional rental service of marine equipment in beautiful seaside surroundings in Töölö, within an easy reach from the city centre by public transportation. We offer an easy and quick way to rent SUP boards, kayaks, canoes, and even a rowing boat by the hour from dawn till dusk every day. We also offer professional guidance and instruction on how to to use a SUP board, canoe, kayak or boat from beginners’ courses to private instruction and lessons. We also organise special recreational days for companies and enterprises, bachelor and birthday parties, etc. We have a ten-year experience in business.",
+          "free_text_1": "SUP boards from 15€/h",
+          "free_text_2": "Two hours 25€"
+        },
+        "website": "https://www.supregatta.com",
+        "phone_number": "+358 453174690",
+        "address": "Merikannontie 10, 00260 Helsinki",
+        "type": "sup",
+        "tag": ["Töölö", "Suppilautailu", "kayak"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.912582635879517, 60.17914043690736]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Tucan SUP",
+          "header": "Jätä huolet rannalle ja tule nauttimaan suppailusta.",
+          "description": "Suppailu on alunperin Hawaiilta lähtöisin olevasta surffauksesta eriytynyt vesiurheilulaji. Suppailu eli paddle boarding tapahtuu seisten pitkän kelluvan laudan päällä, molemminpuolin meloen. Suppailu on helppo laji joka soveltuu kaiken ikäisille. Aiempaa kokemusta ei tarvitse! Meillä saat tarvittavat ohjeet ja välineet turvalliseen sup kokemukseen.",
+          "free_text_1": "Puoli tuntia 10 €",
+          "free_text_2": "Kaksi tuntia 25 €"
+        },
+        "en": {
+          "name": "Tucan SUP",
+          "header": "Leave your worries on the beach and enjoy the SUP boarding.",
+          "description": "Leave your worries on the beach and enjoy the paddle boarding.",
+          "free_text_1": "Half hour 10 €",
+          "free_text_2": "Two hours 25 €"
+        },
+        "website": "http://www.tucansup.fi/",
+        "phone_number": "+358 45 3174690",
+        "address": "Hiekkarannantie 11, 00100 Helsinki",
+        "type": "sup",
+        "tag": ["Hietaranta", "Suppilautailu", "Töölö"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.90571618080139, 60.17361789437577]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Erimover SUP",
+          "header": "SUP Indoor & Outdoor",
+          "description": "SUP-lautailu on maailman nopeimmin kasvava vesiurheilulaji! SUP-lautailun rauhoittava vaikutus yhdistettynä fyysiseen treeniin tekee lajista erityisen soveltuvan kaikenikäisille ja -kuntoisille suppailijoille – nuorille, urheilijoille, sohvaperunoille ja vanhuksille, sekä kaikille siltä väliltä! SUP-lautailu on todellinen hybridi eri urheilulajien välillä: se aktivoi ylä-, keski- ja alavartalon lihasryhmiä yhdistäen kaiken tämän todella tehokkaaseen keskivartalon treeniin! SUP-lautailu on samaan aikaan nivelille ystävällinen, mutta todella tehokas core-treeni ja se onkin yksi suurimmista syistä sille, miksi SUP on saavuttanut niin suuren suosion ympäri maailmaa! Et tarvitse aiempaa kokemusta – tähän lajiin pääset nopeasti sisään!",
+          "free_text_1": "Puoli tuntia 15 €",
+          "free_text_2": "48 tuntia 150 €"
+        },
+        "en": {
+          "name": "Erimover SUP",
+          "header": "SUP Indoor & Outdoor",
+          "description": "<missing>",
+          "free_text_1": "Half hour 10 €",
+          "free_text_2": "48 hour 150 €"
+        },
+        "website": "http://summersup.fi/",
+        "phone_number": "045 167 5255",
+        "address": "Kasinonranta, 00200 Helsinki",
+        "type": "sup",
+        "tag": ["Lauttasaari", "Suppilautailu"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.87201690673828, 60.155063891783]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Hakuna Matata Sup",
+          "header": "Helsingin huolettomin SUP-vuokraamo",
+          "description": "Keitaamme sijaitsee kivenheiton päässä Rautatieasemasta, mutta on tunnelmaltaan kuin toisesta stratosfääristä. Linnut laulaa, liput liehuu ja aurinko paistaa (silloin kun paistaa). Suojaisa Töölönlahti tarjoaa täydelliset puitteet suppailuun sekä ensikertalaisille, että kokeneemmille merenkävijöille. Töölönlahti on avomerta suojaisampi tuulen, aaltojen ja venetrafiikin suhteen. Junaraiteiden ali menevän tunnelin läpi pääsee kuitenkin pidemmällekkin seikkailulle, ensikiksi Tokoinrantaan ja Hakaniemeen, josta voi jatkaa vaikka kauppatorille tai meloa Korkeasaaren ympäri. Tunnissa ehtii hyvin käydä Hakaniemen pitkällä sillalla asti.",
+          "free_text_1": "1 tunti 20 €",
+          "free_text_2": "2 tuntia 30 €"
+        },
+        "en": {
+          "name": "Hakuna Matata Sup",
+          "header": "Carefree SUP rental in Helsinki",
+          "description": "SUP (Stand Up Paddle boarding), is a type of sport where you stand on board and paddle. The board is a bit bigger than a surfboard and it floats. Supping originates from Hawaii and it has become highly popular in Europe during the last few years. It is not a surprise because supping is a very unique sport activity.",
+          "free_text_1": "1 hour 20 €",
+          "free_text_2": "2 hour 30 €"
+        },
+        "website": "http://www.hakunamatata-sup.fi",
+        "phone_number": "+358 40 140 7705",
+        "address": "Karamzininranta 4, Helsinki",
+        "type": "sup",
+        "tag": ["Suppilautailu", "Töölö"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.935059547424316, 60.177315699486485]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "SUP Finlnad - Töölönlahti",
+          "header": "SUP Finland vuodesta 2010",
+          "description": "<missing>",
+          "free_text_1": "1,5 tuntia 15 €",
+          "free_text_2": "Viikko 100 €"
+        },
+        "en": {
+          "name": "SUP Finlnad - Töölönlahti",
+          "header": "SUP Finland since 2010",
+          "description": "<missing>",
+          "free_text_1": "1,5 hour 15 €",
+          "free_text_2": "Week 100 €"
+        },
+        "website": "http://www.supfinland.com",
+        "phone_number": "045 137 73 08",
+        "address": "Linnunlauluntie 4, 00530 Helsinki",
+        "type": "sup",
+        "tag": ["Suppilautailu", "Töölö"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.936325550079346, 60.18414460576272]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "SUP Finlnad - Herttoniemi",
+          "header": "SUP Finland vuodesta 2010",
+          "description": "<missing>",
+          "free_text_1": "1,5 tuntia 15 €",
+          "free_text_2": "Viikko 100 €"
+        },
+        "en": {
+          "name": "SUP Finlnad - Herttoniemi",
+          "header": "SUP Finland since 2010",
+          "description": "<missing>",
+          "free_text_1": "1,5 hour 15 €",
+          "free_text_2": "Week 100 €"
+        },
+        "website": "http://www.supfinland.com",
+        "phone_number": "045 137 73 08",
+        "address": "Simppukarinkatu 2, 00810 Helsinki",
+        "type": "sup",
+        "tag": ["Suppilautailu"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.028207302093506, 60.18608098244504]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Natura Viva - Vuosaari",
+          "header": "Vuokraa SUP-lauta Vuosaareen upeissa merimaisemissa",
+          "description": "SUP eli Stand Up Paddling on vesilaji, jota on esimerkiksi Havaijin saarilla harrastettu jo vuosisatojen ajan. SUP-lauta muistuttaa surffilautaa mutta on pidempi ja leveämpi, ja sen päällä seistään tai laskeudutaan polvilleen. Melassa on yksi lapa. Oikea suppailutekniikka on helposti opittavissa ja meloja käyttää käsiensä lisäksi koko keskivartaloaan. Suppailu onkin leppoisaa mutta hyvää tekevää treeniä. SUP-lauta on tukeva ja vakaa, ja laudan päällä on helppo pysyä, vaikka olisi ensimmäistä kertaa tätä trendikästä kesälajia kokeilemassa. Suppajan sääreen on kiinnitetty lisäksi karkuremmi, joka pitää laudan suppaajan lähettyvillä, vaikka tasapaino järkkyisikin ja tuloksena olisi pulahdus raikkaaseen veteen. Kesäkuumalla melkein toivoisi kaatuvansa ja kastuvansa!",
+          "free_text_1": "Alkaen 20 € tunti",
+          "free_text_2": "Kajakki 25€ / h"
+        },
+        "en": {
+          "name": "Natura Viva - Vuosaari",
+          "header": "Rent a SUP board at Vuosaari in stunning seascapes",
+          "description": "<missing>",
+          "free_text_1": "One hour from 20 €",
+          "free_text_2": "Kayak 25€ / h"
+        },
+        "website": "https://www.naturaviva.fi/fi/vuokravalineet/suplauta",
+        "phone_number": "+358 10 292 4030",
+        "address": "Harbonkatu 13, 00980 Helsinki",
+        "type": "sup",
+        "tag": ["Suppilautailu", "Vuosaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.129584074020386, 60.19862465623214]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "SUP Station - Aurinkolahti",
+          "header": "Aurinkolahteen on loistavat kulkuyhteydet Helsingin keskustasta.",
+          "description": "Helsingin Vuosaaresta löytyy loistavat puitteet SUP -lautailuun. SUP Station Aurinkolahti sijaitsee Aurinkolahden rannalla, josta on mukava ja helppo lähteä melomaan. Alueen itäreunaan rakennettu upea Uutelankanava vesiputouksineen ja siltoineen luo ihanteelliset olosuhteet aloittelijoille ja kanavalta aukeava lahti tyydyttää kokeneemmankin lautailijan menohalut.",
+          "free_text_1": "30 min 10 €",
+          "free_text_2": "Päivä 50 €"
+        },
+        "en": {
+          "name": "SUP Station - Aurinkolahti",
+          "header": "Aurinkolahti has excellent transport links from central Helsinki.",
+          "description": "<missing>",
+          "free_text_1": "30 min 10 €",
+          "free_text_2": "One day 50 €"
+        },
+        "website": "http://www.supstation.fi/helsinki-aurinkolahti/",
+        "phone_number": "0504336049",
+        "address": "Aurinkoranta 12, 00990 Helsinki",
+        "type": "sup",
+        "tag": ["Suppilautailu", "Vuosaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.15216827392578, 60.20105070646165]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Venehuoltoasema - Kulosaari",
+          "header": "Helsingin Meriveneilijät Ry:n ylläpitämä veneasema",
+          "description": "Satamamme sijaitsee aivan Kulosaaren sillan vieressä. Polttoainemyynti omalla laiturilla. Myös valaistus, vesi ja sähkö.",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "en": {
+          "name": "Boat gas station - Kulosaari",
+          "header": "maintained by Helsingin Meriveneilijät Ry",
+          "description": "<missing>",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "website": "helsinginmeriveneilijat.fi",
+        "phone_number": "040 7582040",
+        "address": "Soutajankuja 2, 00570 Helsinki",
+        "type": "station",
+        "tag": ["venehuoltoasema", "Kulosaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.991793632507324, 60.18635302621808]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Seapoint - Liuskaluoto",
+          "header": "Venehuoltoasema Liuskasaaressa Kaivopuiston edustalla",
+          "description": "<missing>",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "en": {
+          "name": "Seapoint - Liuskaluoto",
+          "header": "Boat gas station in Liuskasaari off Kaivopuisto Park",
+          "description": "<missing>",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "website": "http://www.liuskaluoto.fi/seapoint/",
+        "phone_number": "050 300 9553",
+        "address": "Liuskaluoto, 00140 Helsinki",
+        "type": "station",
+        "tag": ["venehuoltoasema", "Liuskasaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.946829080581665, 60.152970838261]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Venehuoltoasema - Puotila",
+          "header": "Venehuoltoasema Puotilan satamassa",
+          "description": "<missing>",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "en": {
+          "name": "Venehuoltoasema - Puotila",
+          "header": "Boat gas station in Puotila harbor",
+          "description": "<missing>",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "website": "<missing>",
+        "phone_number": "<missing>",
+        "address": "Meripellontie 11d, 00910 Helsinki",
+        "type": "station",
+        "tag": ["venehuoltoasema", "Puotila"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.106828212738037, 60.207512189239296]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Shell Helsinki Marine Karhusaari",
+          "header": "Shell Veneasema Helsinki Karhusaari",
+          "description": "<missing>",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "en": {
+          "name": "Shell Helsinki Marine Karhusaari",
+          "header": "Shell Veneasema Helsinki Karhusaari",
+          "description": "<missing>",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "website": "https://www.st1.fi/asemahaku/shell-veneasema-helsinki-karhusaari",
+        "phone_number": "09 8771095",
+        "address": "Karhusaarentie 34, 00890 Helsinki",
+        "type": "station",
+        "tag": ["venehuoltoasema", "Karhusaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.238031148910522, 60.250183566264816]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "St1 Helsinki Marine Lauttasaari",
+          "header": "St1 Helsinki Marine Lauttasaari",
+          "description": "<missing>",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "en": {
+          "name": "St1 Helsinki Marine Lauttasaari",
+          "header": "St1 Helsinki Marine Lauttasaari",
+          "description": "<missing>",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "website": "https://www.st1.fi/asemahaku/shell-helsinki-lauttasaari",
+        "phone_number": "040 4100304",
+        "address": "Vattuniemen puistotie 1, 00210 Helsinki",
+        "type": "station",
+        "tag": ["venehuoltoasema", "Lauttasaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.892122745513912, 60.14980430758713]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "<Seapoint - Pohjoisranta",
+          "header": "Seapoint Pohjoisranta, veneasema 24h",
+          "description": "<missing>",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "en": {
+          "name": "Seapoint - Pohjoisranta",
+          "header": "Seapoint Pohjoisranta, Boat gas station 24h",
+          "description": "<missing>",
+          "free_text_1": "<missing>",
+          "free_text_2": "<missing>"
+        },
+        "website": "seapoint.fi",
+        "phone_number": "040 5088344",
+        "address": "Tervasaarenkannas 1, 00170 Helsinki",
+        "type": "station",
+        "tag": ["venehuoltoasema", "Pohjoisranta"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.962552189826965, 60.17399409703383]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
           "name": "Skipperi - Nokkalan Venesatama",
           "header": "Nauti veneilystä ilman veneen omistamiseen liittyviä huolia.",
           "description": "Soutuveneen voi ottaa käyttöön aina kolmeksi tunniksi kerrallaan. Soutuveneitä ei voi ennakkovarata, joten vapaana oleva vene on aina käytettävissä. Käyttöönotto tapahtuu kirjautumalla Skipperin kaupunkivenesivulle ja valitsemalla soutuveneet. Täältä näet veneiden saatavuuden ja voit ottaa veneen käyttöön. Soutuveneiden avaimet ja varusteet luovuttaa ja vastaanottaa satamissa toimivat kahvilat. Muista näyttää kahvilan henkilökunnalle soutuvenesivulla olevaa varausnäkymää hakiessasi avaimia ja palautusnäkymää palauttaessasi venettä. Soutuveneiden varustukseen kuuluvat sopivat pelastusliivit aikuisille ja lapsille, äyskäri ja kuivaussieni. Varauksia voi olla voimassa yksi kerrallaan.",
