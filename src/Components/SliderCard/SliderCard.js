@@ -29,6 +29,7 @@ const Container = styled.div`
 
   ${SecondaryTitle} {
     margin-top: 0.7rem;
+    margin-bottom: 1rem;
     max-width: 100%;
     font-size: 1.7rem;
   }
@@ -44,7 +45,8 @@ const Container = styled.div`
 const SliderCard = ({ point, query }) => {
   const { t, i18n } = useTranslation();
   const imageURL =
-    point.properties.imageId && `/images/${point.properties.imageId}.jpeg`;
+    (point && point.properties.image) ||
+    (point.properties.imageId && `/images/${point.properties.imageId}.jpeg`);
   return (
     <UnstyledLink
       to={{

@@ -22,7 +22,8 @@
         "phone_number": "040 570 1742",
         "address": "Osoite Mustikkamaantie 2, 00570 Helsinki",
         "type": "sup",
-        "tag": ["Suppilautailu", "Mustikkamaa"]
+        "tag": ["Suppilautailu", "Mustikkamaa"],
+        "imageId": "9"
       },
       "geometry": {
         "type": "Point",
@@ -50,7 +51,8 @@
         "phone_number": "044 768 8464",
         "address": "Kalastajatorpantie 1, 00330 Helsinki",
         "type": "sup",
-        "tag": ["Suppilautailu", "purjelautailu"]
+        "tag": ["Suppilautailu", "purjelautailu"],
+        "imageId": "9"
       },
       "geometry": {
         "type": "Point",
@@ -78,7 +80,8 @@
         "phone_number": "09 4362500",
         "address": "Rajasaarenpenger 8, 00250 Helsinki",
         "type": "sup",
-        "tag": ["Suppilautailu"]
+        "tag": ["Suppilautailu"],
+        "imageId": "9"
       },
       "geometry": {
         "type": "Point",
@@ -106,7 +109,8 @@
         "phone_number": "+358 453174690",
         "address": "Merikannontie 10, 00260 Helsinki",
         "type": "sup",
-        "tag": ["Töölö", "Suppilautailu", "kayak"]
+        "tag": ["Töölö", "Suppilautailu", "kayak"],
+        "imageId": "9"
       },
       "geometry": {
         "type": "Point",
@@ -134,7 +138,8 @@
         "phone_number": "+358 45 3174690",
         "address": "Hiekkarannantie 11, 00100 Helsinki",
         "type": "sup",
-        "tag": ["Hietaranta", "Suppilautailu", "Töölö"]
+        "tag": ["Hietaranta", "Suppilautailu", "Töölö"],
+        "imageId": "9"
       },
       "geometry": {
         "type": "Point",
@@ -162,7 +167,8 @@
         "phone_number": "045 167 5255",
         "address": "Kasinonranta, 00200 Helsinki",
         "type": "sup",
-        "tag": ["Lauttasaari", "Suppilautailu"]
+        "tag": ["Lauttasaari", "Suppilautailu"],
+        "imageId": "9"
       },
       "geometry": {
         "type": "Point",
@@ -190,7 +196,8 @@
         "phone_number": "+358 40 140 7705",
         "address": "Karamzininranta 4, Helsinki",
         "type": "sup",
-        "tag": ["Suppilautailu", "Töölö"]
+        "tag": ["Suppilautailu", "Töölö"],
+        "imageId": "9"
       },
       "geometry": {
         "type": "Point",
@@ -218,7 +225,8 @@
         "phone_number": "045 137 73 08",
         "address": "Linnunlauluntie 4, 00530 Helsinki",
         "type": "sup",
-        "tag": ["Suppilautailu", "Töölö"]
+        "tag": ["Suppilautailu", "Töölö"],
+        "imageId": "9"
       },
       "geometry": {
         "type": "Point",
@@ -246,7 +254,8 @@
         "phone_number": "045 137 73 08",
         "address": "Simppukarinkatu 2, 00810 Helsinki",
         "type": "sup",
-        "tag": ["Suppilautailu"]
+        "tag": ["Suppilautailu"],
+        "imageId": "9"
       },
       "geometry": {
         "type": "Point",
@@ -274,7 +283,8 @@
         "phone_number": "+358 10 292 4030",
         "address": "Harbonkatu 13, 00980 Helsinki",
         "type": "sup",
-        "tag": ["Suppilautailu", "Vuosaari"]
+        "tag": ["Suppilautailu", "Vuosaari"],
+        "imageId": "9"
       },
       "geometry": {
         "type": "Point",
@@ -302,7 +312,8 @@
         "phone_number": "0504336049",
         "address": "Aurinkoranta 12, 00990 Helsinki",
         "type": "sup",
-        "tag": ["Suppilautailu", "Vuosaari"]
+        "tag": ["Suppilautailu", "Vuosaari"],
+        "imageId": "9"
       },
       "geometry": {
         "type": "Point",
@@ -330,7 +341,8 @@
         "phone_number": "040 7582040",
         "address": "Soutajankuja 2, 00570 Helsinki",
         "type": "station",
-        "tag": ["venehuoltoasema", "Kulosaari"]
+        "tag": ["venehuoltoasema", "Kulosaari"],
+        "imageId": "10"
       },
       "geometry": {
         "type": "Point",
@@ -358,7 +370,8 @@
         "phone_number": "050 300 9553",
         "address": "Liuskaluoto, 00140 Helsinki",
         "type": "station",
-        "tag": ["venehuoltoasema", "Liuskasaari"]
+        "tag": ["venehuoltoasema", "Liuskasaari"],
+        "imageId": "10"
       },
       "geometry": {
         "type": "Point",
@@ -386,7 +399,8 @@
         "phone_number": "<missing>",
         "address": "Meripellontie 11d, 00910 Helsinki",
         "type": "station",
-        "tag": ["venehuoltoasema", "Puotila"]
+        "tag": ["venehuoltoasema", "Puotila"],
+        "imageId": "10"
       },
       "geometry": {
         "type": "Point",
@@ -414,7 +428,8 @@
         "phone_number": "09 8771095",
         "address": "Karhusaarentie 34, 00890 Helsinki",
         "type": "station",
-        "tag": ["venehuoltoasema", "Karhusaari"]
+        "tag": ["venehuoltoasema", "Karhusaari"],
+        "imageId": "10"
       },
       "geometry": {
         "type": "Point",
@@ -442,7 +457,8 @@
         "phone_number": "040 4100304",
         "address": "Vattuniemen puistotie 1, 00210 Helsinki",
         "type": "station",
-        "tag": ["venehuoltoasema", "Lauttasaari"]
+        "tag": ["venehuoltoasema", "Lauttasaari"],
+        "imageId": "10"
       },
       "geometry": {
         "type": "Point",
@@ -470,7 +486,8 @@
         "phone_number": "040 5088344",
         "address": "Tervasaarenkannas 1, 00170 Helsinki",
         "type": "station",
-        "tag": ["venehuoltoasema", "Pohjoisranta"]
+        "tag": ["venehuoltoasema", "Pohjoisranta"],
+        "imageId": "10"
       },
       "geometry": {
         "type": "Point",
@@ -727,6 +744,7 @@
         "address": "Westendintie 34a, 02160 Espoo",
         "website": "http://varsasaari.fi/",
         "type": "island",
+        "imageId": "11",
         "tag": ["Varsasaari"]
       },
       "geometry": {
@@ -747,6 +765,7 @@
         },
         "address": "Lauttasaaren edusta, Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Käärmeluodot"]
       },
       "geometry": {
@@ -765,6 +784,7 @@
         "en": {},
         "address": "Henrik Borgströmin polku 3, 00590 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Pyysaari"]
       },
       "geometry": {
@@ -785,6 +805,7 @@
         },
         "address": "Villinki, 00850 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Villinki"],
         "image": "https://farm2.staticflickr.com/1754/28709026108_f13b274227_k.jpg"
       },
@@ -806,6 +827,7 @@
         },
         "address": "Kuusiluoto 3, 00560 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Kuusiluoto"]
       },
       "geometry": {
@@ -826,6 +848,7 @@
         },
         "address": "Lammassaari 1, 00560 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Lammassaari"],
         "image": "https://farm2.staticflickr.com/1742/28707567228_705d6414e2.jpg"
       },
@@ -848,6 +871,7 @@
         "address": "Elisaari, 10270 Barönsalmi",
         "website": "http://www.elisaari.fi/",
         "type": "island",
+        "imageId": "11",
         "tag": ["Elisaari"],
         "image": "https://farm2.staticflickr.com/1745/42378830352_86564bccba.jpg"
       },
@@ -869,6 +893,7 @@
         },
         "address": "Vartiosaari, Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Vartiosaari"],
         "image": "https://farm2.staticflickr.com/1742/40621026320_e6d6a8ccca_k.jpg"
       },
@@ -890,6 +915,7 @@
         },
         "address": "Kaivokari, Porvoo",
         "type": "island",
+        "imageId": "11",
         "tag": ["Kaivokari"]
       },
       "geometry": {
@@ -910,6 +936,7 @@
         },
         "address": "Kalliosaari, 00980 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Kalliosaari"]
       },
       "geometry": {
@@ -930,6 +957,7 @@
         },
         "address": "Pikku Leikosaari, 00980 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Pikku Leikosaari"]
       },
       "geometry": {
@@ -950,6 +978,7 @@
         },
         "address": "Eestiluoto, 00890 Sipoo",
         "type": "island",
+        "imageId": "11",
         "tag": ["Eestiluoto"]
       },
       "geometry": {
@@ -970,6 +999,7 @@
         },
         "address": "Hylkysaari, 00570 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Hylkysaari"],
         "image": "https://farm1.staticflickr.com/886/41703139824_b2e7a6a2e8_k.jpg"
       },
@@ -990,6 +1020,7 @@
         },
         "address": "Seurasaari, 00250 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Seurasaari"],
         "image": "https://farm1.staticflickr.com/961/41287562975_2a972f6ef2_k.jpg"
       },
@@ -1011,6 +1042,7 @@
         },
         "address": "Tervasaari, 00170 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Tervasaari ja Tervasaarenkannas"],
         "image": "https://farm1.staticflickr.com/956/28312224608_17fb9e2535_k.jpg"
       },
@@ -1033,6 +1065,7 @@
         "address": "Isosaari , 00860 Helsinki",
         "website": "http://visitisosaari.fi/",
         "type": "island",
+        "imageId": "11",
         "tag": ["Isosaari"],
         "image": "https://farm1.staticflickr.com/963/41268368855_a1bf0b233d_k.jpg"
       },
@@ -1055,6 +1088,7 @@
         "address": "bengtsår, Hanko",
         "website": "https://www.bengtsar.fi/",
         "type": "island",
+        "imageId": "11",
         "tag": ["Bengtsår"],
         "image": "https://farm1.staticflickr.com/974/28296389078_0ee4042ab9_b.jpg"
       },
@@ -1077,6 +1111,7 @@
         "address": "Suomenlinna, 00190 Helsinki",
         "website": "https://www.suomenlinna.fi/",
         "type": "island",
+        "imageId": "11",
         "tag": ["Suomenlinna"],
         "image": "https://farm1.staticflickr.com/943/28161424378_d1e4f8d93c_k.jpg"
       },
@@ -1099,6 +1134,7 @@
         "address": "Lonna, 00190 Helsinki",
         "website": "http://www.lonna.fi/",
         "type": "island",
+        "imageId": "11",
         "tag": ["Lonna"],
         "image": "https://farm1.staticflickr.com/950/28120869898_6ac1d8eaff_k.jpg"
       },
@@ -1121,6 +1157,7 @@
         "address": "Särkkä, 00140 Helsinki",
         "website": "https://www.suomenlinna.fi/linnoitus/alue/sarkka/",
         "type": "island",
+        "imageId": "11",
         "tag": ["Särkk"]
       },
       "geometry": {
@@ -1141,6 +1178,7 @@
         },
         "address": "Luoto, 00140 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Klippan"],
         "image": "https://farm1.staticflickr.com/964/28118723528_b2f18e4518_k.jpg"
       },
@@ -1163,6 +1201,7 @@
         "address": "Sirpalesaari , 00150 Helsinki",
         "website": "http://www.suomalainenpursiseura.fi/",
         "type": "island",
+        "imageId": "11",
         "tag": ["Sirpalesaari P"]
       },
       "geometry": {
@@ -1184,6 +1223,7 @@
         "address": "Vasikkasaari , 00860 Helsinki",
         "website": "http://www.vasikaksaari.org",
         "type": "island",
+        "imageId": "11",
         "tag": ["Vasikkasaari"]
       },
       "geometry": {
@@ -1202,6 +1242,7 @@
         "address": "Korkeakupu , 00150 Helsinki",
         "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/muiden-hallinnoimat",
         "type": "island",
+        "imageId": "11",
         "tag": ["Korkeakupu"]
       },
       "geometry": {
@@ -1223,6 +1264,7 @@
         "address": "Valkosaari , 00140 Helsinki",
         "website": "http://www.njk.fi/",
         "type": "island",
+        "imageId": "11",
         "tag": ["Valkosaari P"],
         "image": "https://farm1.staticflickr.com/909/28118715418_7aa2097882_k.jpg"
       },
@@ -1245,6 +1287,7 @@
         "address": "Uunisaari, 00150 Helsinki",
         "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/uunisaari",
         "type": "island",
+        "imageId": "11",
         "tag": ["Uunisaari"],
         "image": "https://farm1.staticflickr.com/975/28118715768_07276ddfde_k.jpg"
       },
@@ -1264,6 +1307,7 @@
         "address": "Pihlaisto , 00150 Helsinki",
         "website": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/muiden-hallinnoimat",
         "type": "island",
+        "imageId": "11",
         "tag": ["Pihlaisto"]
       },
       "geometry": {
@@ -1282,6 +1326,7 @@
         "address": "Porsas , 00100 Helsinki",
         "website": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/muiden-hallinnoimat",
         "type": "island",
+        "imageId": "11",
         "tag": ["Porsas"]
       },
       "geometry": {
@@ -1303,6 +1348,7 @@
         "address": "Liuskasaari , 00130 Helsinki",
         "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/muita-saaria",
         "type": "island",
+        "imageId": "11",
         "tag": ["Liuskasaari"],
         "image": "https://farm1.staticflickr.com/955/41252634384_f128d5865d_k.jpg"
       },
@@ -1327,6 +1373,7 @@
         "address": "Vallisaari, Helsinki",
         "website": "https://vallisaari.fi/",
         "type": "island",
+        "imageId": "11",
         "tag": ["Vallisaari ja Kuninkaansaari"],
         "image": "https://farm1.staticflickr.com/968/28120869578_291c210457_k.jpg"
       },
@@ -1349,6 +1396,7 @@
         "address": "Kaunissaari, 04130 Sipoo",
         "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/kaunissaari",
         "type": "island",
+        "imageId": "11",
         "tag": ["Kaunissaari P"],
         "image": "https://farm1.staticflickr.com/830/26846708407_27ce72540c_k.jpg"
       },
@@ -1367,6 +1415,7 @@
         "address": "Tvijälp, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
+        "imageId": "11",
         "tag": ["Tvijälp"]
       },
       "geometry": {
@@ -1384,6 +1433,7 @@
         "address": "Torra Lövö, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
+        "imageId": "11",
         "tag": ["Torra Löv"]
       },
       "geometry": {
@@ -1401,6 +1451,7 @@
         "address": "Stora Herrö, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
+        "imageId": "11",
         "tag": ["Stora Herr"]
       },
       "geometry": {
@@ -1418,6 +1469,7 @@
         "address": "Rövaren, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
+        "imageId": "11",
         "tag": ["Rövaren"]
       },
       "geometry": {
@@ -1435,6 +1487,7 @@
         "address": "Rövagrundet, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
+        "imageId": "11",
         "tag": ["Rövargrundet"]
       },
       "geometry": {
@@ -1452,6 +1505,7 @@
         "address": "Knapperskär, 02380 Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
+        "imageId": "11",
         "tag": ["Knapperskär"]
       },
       "geometry": {
@@ -1469,6 +1523,7 @@
         "address": "Korkeasaari, 02160 Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
+        "imageId": "11",
         "tag": ["Korkeasaari"]
       },
       "geometry": {
@@ -1486,6 +1541,7 @@
         "address": "Kaparen, 02420 Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
+        "imageId": "11",
         "tag": ["Kaparen"]
       },
       "geometry": {
@@ -1503,6 +1559,7 @@
         "address": "Gåsgrundet, 02380 Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
+        "imageId": "11",
         "tag": ["Gåsgrundet"]
       },
       "geometry": {
@@ -1520,6 +1577,7 @@
         "address": "Iso-Vasikkasaari, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
+        "imageId": "11",
         "tag": ["Iso"]
       },
       "geometry": {
@@ -1540,6 +1598,7 @@
         },
         "address": "Mustasaari, 00340 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Mustasaari"],
         "image": "https://farm1.staticflickr.com/965/41754751822_7a28f2f268_z.jpg"
       },
@@ -1562,6 +1621,7 @@
         "address": "Pihlajasaaret, 00150 Helsinki",
         "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/pihlajasaari",
         "type": "island",
+        "imageId": "11",
         "tag": ["Pihlajasaaret"],
         "image": "https://farm1.staticflickr.com/872/27927349948_c5c53a324c.jpg"
       },
@@ -1581,6 +1641,7 @@
         },
         "address": "Kotiluoto, 00980 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Kotiluoto"]
       },
       "geometry": {
@@ -1599,6 +1660,7 @@
         },
         "address": "Viinakupu, 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Viinakupu"]
       },
       "geometry": {
@@ -1617,6 +1679,7 @@
         },
         "address": "Hattusaari, 00980 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Hattusaari"]
       },
       "geometry": {
@@ -1635,6 +1698,7 @@
         },
         "address": "Pitkäkari, 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Långskär"]
       },
       "geometry": {
@@ -1653,6 +1717,7 @@
         },
         "address": "Satamasaari, 00980 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Villaluodot Läntinen saari"]
       },
       "geometry": {
@@ -1671,6 +1736,7 @@
         },
         "address": "Louekari, 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Louekari"]
       },
       "geometry": {
@@ -1689,6 +1755,7 @@
         },
         "address": "Tiirakari, 00150 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Tiirakari"]
       },
       "geometry": {
@@ -1707,6 +1774,7 @@
         },
         "address": "Hiekkarannantie, 00100 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Ourit"]
       },
       "geometry": {
@@ -1725,6 +1793,7 @@
         },
         "address": "Laakapaasi, 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Laakapaasi"]
       },
       "geometry": {
@@ -1743,6 +1812,7 @@
         },
         "address": "Abrahaminluoto, 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Abrahaminluoto"]
       },
       "geometry": {
@@ -1760,6 +1830,7 @@
           "name": "Neitsytsaaret"
         },
         "type": "island",
+        "imageId": "11",
         "tag": ["Neitsytsaaret"]
       },
       "geometry": {
@@ -1778,6 +1849,7 @@
         },
         "address": "Särkkä, 00140 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Långören"]
       },
       "geometry": {
@@ -1796,6 +1868,7 @@
         },
         "address": "Taulukari, 00140 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Taulukari"]
       },
       "geometry": {
@@ -1813,6 +1886,7 @@
           "name": "Pihlajaluoto"
         },
         "type": "island",
+        "imageId": "11",
         "tag": ["Pihlajaluoto"]
       },
       "geometry": {
@@ -1831,6 +1905,7 @@
         },
         "address": "Söderholminkupu, 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Söderholminkupu"]
       },
       "geometry": {
@@ -1849,6 +1924,7 @@
         },
         "address": "Ulkokari, 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Ytterskär"]
       },
       "geometry": {
@@ -1867,6 +1943,7 @@
         },
         "address": "Räntty, 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Räntty"]
       },
       "geometry": {
@@ -1884,6 +1961,7 @@
           "name": "Hietaniemenkarit"
         },
         "type": "island",
+        "imageId": "11",
         "tag": ["Hietaniemenkarit"]
       },
       "geometry": {
@@ -1902,6 +1980,7 @@
         },
         "address": "Syväkari, 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Syväkari"]
       },
       "geometry": {
@@ -1920,6 +1999,7 @@
         },
         "address": "Koirasaari  (Ulkosaaret), 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Koirasaari ja"]
       },
       "geometry": {
@@ -1938,6 +2018,7 @@
         },
         "address": "Mäntykari, 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Mäntykari"]
       },
       "geometry": {
@@ -1956,6 +2037,7 @@
         },
         "address": "Niemenapaja, 00990 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Niemenapaja"]
       },
       "geometry": {
@@ -1976,6 +2058,7 @@
         "address": "Malkasaari , 00980 Helsinki",
         "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/malkasaari",
         "type": "island",
+        "imageId": "11",
         "tag": ["Malkasaari"]
       },
       "geometry": {
@@ -1994,6 +2077,7 @@
         },
         "address": "Koirakari, 00099 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Koirakari"]
       },
       "geometry": {
@@ -2012,6 +2096,7 @@
         },
         "address": "Satamasaari, 00980 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Villaluodot Itäinen saari"]
       },
       "geometry": {
@@ -2030,6 +2115,7 @@
         },
         "address": "Mustikkamaa, 00570 Helsinki",
         "type": "island",
+        "imageId": "11",
         "tag": ["Honkaluoto"]
       },
       "geometry": {
@@ -2051,6 +2137,7 @@
         "address": "Harakka, 00140 Helsinki",
         "website": "http://www.harakansaari.fi/",
         "type": "island",
+        "imageId": "11",
         "tag": ["Harakan saari"],
         "image": "https://farm1.staticflickr.com/954/40142363070_74cc09545c_k.jpg"
       },
