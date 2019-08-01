@@ -5,6 +5,122 @@
       "type": "Feature",
       "properties": {
         "fi": {
+          "name": "Finfly - Vetovarjo",
+          "header": "Koe unohtumattomia elämyksiä vetovarjolla",
+          "description": "Vetovarjo on pyöreä nousuvarjo, jota voidaan vetää muun muassa veneen perässä. Varjo nostaa käyttäjän liitämään 60-140 metrin korkeuteen taivaalle ja antaa hänen nauttia vauhdista ja ihastella maisemia ilmasta käsin. Finfly haluaa antaa asiakkailleen ainutlaatuisia merielämyksiä vetovarjoilun parissa. Ensimmäisenä Suomessa tarjoamme mahdollisuuden päästä lentämään vetovarjolla meren päälle Helsingin edustan upeisiin merimaisemiin. Vetovarjoilu sopii kaikenikäisille ja on hieno tapa irtautua arjesta. Se on mainio aktiviteetti niin yrityksen virkistyspäivään, lapsiperheen viikonloppuun kuin kaveriporukan ajanviettoonkin.",
+          "free_text_1": "Helppoa ja turvallista",
+          "free_text_2": "info@finfly.fi"
+        },
+        "en": {
+          "name": "Finfly - Parasailing",
+          "header": "Unforgettable Parasailing experience",
+          "description": "<missing>",
+          "free_text_1": "Easy and safe",
+          "free_text_2": "info@finfly.fi"
+        },
+        "website": "https://www.finfly.fi",
+        "phone_number": "040 662 6330",
+        "address": "Mustikkamaantie 2, 00570 Helsinki",
+        "type": "experience",
+        "tag": ["Parasailing", "vetovarjoilu"],
+        "imageId": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.998547434806824, 60.18190936231506]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Helsingin Vesijetti",
+          "header": "SEA DOO GTI 130 on kesän kuumin vesijetti",
+          "description": "Sea Doo GTI 130:nen on kesän kuumin vesijetti malli. Nauti älykkäästä jarrutuksesta ja peruutuksesta (iBR) ja monista muista kätevistä ominaisuuksista, kuten Touring-istuimesta, nousutikkaista ja säädettävästä trimmijärjestelmästä (VTS). Vesijetit luovutetaan aina tankki täynnä, asiakas voi tankata vesijetin ajon jälkeen tai suorittaa tankkaus maksun suoraan meille. Asiakkaan kanssa käydään läpi perusasiat liittyen vesijetin käyttöön sekä yleiseen turvallisuuteen merellä.",
+          "free_text_1": "120€ / 2h",
+          "free_text_2": "300€ / 8h"
+        },
+        "en": {
+          "name": "Helsingin Vesijetti",
+          "header": "SEA DOO GTI 130 is the hottest jet-ski of the summer",
+          "description": "<missing>",
+          "free_text_1": "120€ / 2h",
+          "free_text_2": "300€ / 8h"
+        },
+        "website": "https://www.helsinginvesijetti.fi/",
+        "phone_number": "+358503310451",
+        "address": "Aurinkoranta 8, 00990 Helsinki",
+        "type": "experience",
+        "tag": ["vesijetti", "Aurinkolahti"],
+        "imageId": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.998547434806824, 60.18190936231506]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Vmax Rentals",
+          "header": "Ohjatut vesijetti safarit Etelä-Suomen saaristossa",
+          "description": "Opastettu vesijetti matka Itä-helsingin ja Sipoon saaristossa. Lähdöt ja paluut Sarvaston satamasta, Messin satamakahvilasta. Safarin kesto on 1-3 tuntia ja 4-20 osallistujaa. Safarilla on aina mukana kokenut opas. Safari-tilaajan on oltava yli 18-vuotias, kaikkien osallistujien on oltava vähintään 15-vuotiaita. Safari alkaa aina 10–15 minuutin turvallisuus opastuksella, jotka sisältyvät varausaikaan. Safarissa osallistujien vähimmäismäärä on 4. Yamaha jetskis voi ajaa 2 henkilöä samanaikaisesti, joten osallistujia voi olla enemmän per jetski. Lisämatkustajia 30 € / hlö.",
+          "free_text_1": "130 € / tunti",
+          "free_text_2": "Lisämatkustaja 30 €"
+        },
+        "en": {
+          "name": "Vmax Rentals",
+          "header": "Guided jetski safaris at southern finland archipelago",
+          "description": "Guided jetskiing in the archipelago of eastern Helsinki and Sipoo. Departure and return from Sarvasto harbor, port café Messi. The duration of the safari is 1-3 hours and 4-20 participants. Safari always has an experienced guide to navigating and guiding your jetski. he Safari subscriber must be age over 18, all participants must be at least 15 years old. Safari always starts with a 10-15 minute safety briefing that is included in the booking time. For Safari, the minimum number of participants is 4. Yamaha jetskis can run 2 people at the same time, so there may be more participants than jetskis. Additional passengers 30€/person",
+          "free_text_1": "130 € / hour",
+          "free_text_2": "Extra passenger 30 €"
+        },
+        "website": "https://www.vmaxrentals.fi/jetskis/",
+        "phone_number": "+358 40 5855 33 ",
+        "address": "Isonsarvastontie 4, 00840 Helsinki",
+        "type": "experience",
+        "tag": ["vesijetti", "Laajasalo"],
+        "imageId": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.059363842010498, 60.168435998144794]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Vjv Helsinki",
+          "header": "Vesijettivuokraus Helsinki",
+          "description": "Vuokrattavana - SeaDoo Spark 90 3up IBR",
+          "free_text_1": "1 tunti 60 €",
+          "free_text_2": "Päivä 240 €"
+        },
+        "en": {
+          "name": "Vjv Helsinki",
+          "header": "Jet-ski renting Helsinki",
+          "description": "For rent - SeaDoo Spark 90 3up IBR",
+          "free_text_1": "1 hour 60 €",
+          "free_text_2": "Day 240 €"
+        },
+        "website": "https://www.vesijettivuokraushelsinki.fi/",
+        "phone_number": "+358 45 134 6533",
+        "address": "Meripuistotie 1",
+        "type": "experience",
+        "tag": ["vesijetti", "Lauttasaari"],
+        "imageId": "12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.888013601303097, 60.159166851085345]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
           "name": "KikkaPakka",
           "header": "Merelliseen kaupunkiluontoon Mustikkamaan välinevuokraamon kautta.",
           "description": "KikkaPakka yhteistyössä Boatman Groupin ja Welhonpesän kanssa vuokraa kajakkeja, kanootteja, kalastuskajakkeja, sup-lautoja, kalastusveneitä ja -välineitä sekä fatbikeja ja maastopyöriä Mustikkamaalla Boatman Groupin telakalla. Osoite Mustikkamaantie 2, 00570 Helsinki. Liikenneyhteydet: Bussi 16 Rautatientori-Korkeasaari, Kulosaaran metroasemalta 1,2 km,  Isoisän sillalta noin 0,8 km.",
