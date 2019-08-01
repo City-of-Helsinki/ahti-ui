@@ -15,7 +15,7 @@ import PromotionBlock from '../PromotionBlock/PromotionBlock';
 import PromotionSlideSection from '../PromotionSlideSection/PromotionSlideSection';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 import BodyText from '../BodyText/BodyText';
-
+import { POINT_TYPES } from '../../App';
 import styled from 'styled-components';
 
 const BackgroundShade = styled.div`
@@ -31,23 +31,6 @@ const SliderContainer = styled.div`
   width: 100%;
   padding: 0 2rem;
 `;
-
-const POINT_TYPES = [
-  'island',
-  'route',
-  'cityboat',
-  'rent',
-  'sup',
-  'experience',
-  'kayak',
-  'charter',
-  'sightseeing',
-  'learn',
-  'taxi',
-  'visitor',
-  'parking',
-  'station',
-];
 
 // these are just placeholder for now
 const PROMOTION_POINT_NAMES = [

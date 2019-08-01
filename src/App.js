@@ -10,6 +10,22 @@ import { ThemeProvider } from 'styled-components';
 import withTracker from './withTracker';
 export const GlobalGeoContext = React.createContext();
 export const GlobalLineContext = React.createContext();
+export const POINT_TYPES = [
+  'island',
+  'route',
+  'cityboat',
+  'rent',
+  'sup',
+  'experience',
+  'kayak',
+  'charter',
+  'sightseeing',
+  'learn',
+  'taxi',
+  'visitor',
+  'parking',
+  'station',
+];
 
 const theme = {
   secondaryColor: 'white',
