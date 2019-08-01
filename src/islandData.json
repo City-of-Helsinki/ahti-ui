@@ -3,14 +3,14 @@
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Lähteelän ulkoilualue N 59° 58",
+        "name": "Lähteelän ulkoilualue N",
         "header": "Lähteelän ulkoilualue sijaitsee Porkkalassa. Ympärivuotinen retkeilykohde. Venesatamassa 50 paikkaa, joista 20 poijullista.",
         "description": "Lähteelään kuuluu mannerta ja saariryhmä. Maasto on vaihtelevaa kaislikkoisine kalliorantoineen, mäkineen ja peltoineen. Hyvät peruspalvelut. Ja sopii myös retkeilyyn, kalastukseen ja telttailuun sekä lintujentarkkailuun.\nOnkiminen, uistelu ja pilkkiminen on sallittu ulkoilualueen vesillä. Uisteluun tarvitaan kaupunki-tai läänikohtainen viehelupa. Mantereelta voi vuokrata soutuveneen ja lähteä esim. Stora Svartön saarelle, jonne on matkaa noin kilometri.\nMantereella ja Utterböten saarella sijaitsevista lintutorneista voi tarkkailla alueen lukuisia lajeja varsinkin kevät- ja syysmuuton aikana. \nKeittokatos, kioski, kahvila, käymälä, sauna, pukeutumishuoneet, informaatiopiste, luontotorni\nLähteelästä löytyy huoltolaituri, lähellä porakaivo, veneluiska ja vuokrattavia pienvenepaikkoja. Stora Svartön saaressa on 50 venerengasta. Telttailu on mahdollista joko mantereella tai Stora Svartön, Utterböten, Östra Styrskärin ja Södergrundin saarissa, joissa on myös käymälät.\nSoutuveneen voi vuokrata ja lähteä vaikka kilometrin päähän Stora Svartön saarelle. Lähteelän ulkoilualue, Porkkala. Alueen isäntä: 040 8278310\n\n"
       },
       "en": {},
       "address": "Källvikintie 6, 02480 Kirkkonummi",
       "type": "island",
-      "tag": ["Lähteelän ulkoilualue N 59° 58"]
+      "tag": ["Lähteelän ulkoilualue N"]
     },
     "geometry": {
       "type": "Point",
@@ -21,7 +21,7 @@
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Varsasaari 60° 9′ 5″ N",
+        "name": "Varsasaari",
         "header": "Varsasaari on Helsingin kaupungin ulkoilualue Espoon itäisessä saaristossa.",
         "description": "Saarella olevat kesämajat ovat yksityisiä, muuten saari on julkista aluetta. \nVarsasaaressa voi retkeillä, telttailla, uida ja saunoa ja pelata lentopalloa. \nSaaressa on vesipiste, kesäsuihku, pukukopit, keittokatos sekä kuivakäymälä.\nSinne pääsee omalla veneellä tai kanootilla. Omalla veneellä voi kiinnittyä saaren päälaituriin keulakiinnityksellä. \nYöpymismaksu on 5€/vrk/venekunta. Teltassa voi majoittua 5€/vrk/telttakunta. Sauna on avoinna kaikille retkeilijöille.\n\n"
       },
@@ -29,49 +29,49 @@
       "address": "Westendintie 34a, 02160 Espoo",
       "website": "http://varsasaari.fi/",
       "type": "island",
-      "tag": ["Varsasaari 60° 9′ 5″ N"]
+      "tag": ["Varsasaari"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.154453, 24.797626]
+      "coordinates": [24.797626, 60.154453]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Käärmeluodot-N 60° 08",
+        "name": "Käärmeluodot",
         "header": "Helsingin kaupungille kuuluvat kolme käärmeluotoa Lauttasaaren länsipuolella ovat mainioita retkikohteita veneilijöille ja melojille.",
         "description": "Käärmeluodot sijaitsevat Lounais-Helsingissä, Lauttasaaren länsipuolella. Niihin ei julkista liikenneyhteyttä.\n\nKäärmeluotoja on kolme: pohjoinen, läntinen ja itäinen. Saaren pinta-ala on yhteensä 4,5 ha.\nPohjoisella käärmeluodolla on mainio uimaranta. Lyhytaikainen telttailu on sallittu Pohjoisella ja Läntisellä käärmeluodolla. \n\nLuodot ovat korkeita, komeita ja paikoin jyrkkiäkin kalliosaaria, joissa kasvillisuus on karua. Luodoilla on käymälöitä ja käyttökatoksia. \n"
       },
       "en": {
-        "name": "Käärmeluodot N 60° 08"
+        "name": "Käärmeluodot N"
       },
       "address": "Lauttasaaren edusta, Helsinki",
       "type": "island",
-      "tag": ["Käärmeluodot-N 60° 08"]
+      "tag": ["Käärmeluodot"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.14786, 24.849087]
+      "coordinates": [24.849087, 60.14786]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Pyysaari 60°10",
+        "name": "Pyysaari",
         "header": "Pyysaari sijaitsee Laajasalossa lähellä Kulosaarta. Saari on vuokrattu Helsingin Työväen Pursiseuran käyttöön. Pyysaareen pääsee maitse ja vesitse.",
         "description": "Pyysaari sijaitsee Laajasalossa lähellä Kulosaarta. Saari on vuokrattu Helsingin Työväen Pursiseuran käyttöön. Pyysaareen pääsee maitse ja vesitse. Maitse pääsee Laajasalosta ulkoiluteitä Tullisaaren puistosta. Vesitse saareen on yhteys vain omalla veneellä. \nVierasvenepaikkoja saaressa on viisi. Syvyys on 3-6 m. Siellä on keula- ja poijukiinnitys käytössä.\nTyöväen pursiseuran kerhoravintola Ravintola Pyysaari https://htps.fi/a/ravintola-pyysaari sai anniskeluoikeudet jo vuonna 1952 Helsingin olympialaisiin. Se on ollut toiminnassa siitä lähtien joka kesä yli 50 vuoden ajan. \nSaaresta voi vuokrata kokoustila 12 hengen kokouksille. Tilassa on langaton netti, videotykki, valkokangas ja tarvittaessa fläppitaulu.\nHelsingin Työväen Pursiseura\n09 698 0287, 698 912\nwww.htps.fi\n"
       },
       "en": {},
       "address": "Henrik Borgströmin polku 3, 00590 Helsinki",
       "type": "island",
-      "tag": ["Pyysaari 60°10"]
+      "tag": ["Pyysaari"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.17947, 25.02321]
+      "coordinates": [25.02321, 60.17947]
     }
   },
   {
@@ -92,7 +92,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.15779, 25.113924]
+      "coordinates": [25.113924, 60.15779]
     }
   },
   {
@@ -112,7 +112,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.20577, 24.995714]
+      "coordinates": [24.995714, 60.20577]
     }
   },
   {
@@ -133,7 +133,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.207726, 24.998032]
+      "coordinates": [24.998032, 60.207726]
     }
   },
   {
@@ -155,7 +155,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [59.981426, 23.933254]
+      "coordinates": [23.933254, 59.981426]
     }
   },
   {
@@ -176,7 +176,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.18404, 25.076748]
+      "coordinates": [25.076748, 60.18404]
     }
   },
   {
@@ -196,7 +196,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.20019, 25.492796]
+      "coordinates": [25.492796, 60.20019]
     }
   },
   {
@@ -216,7 +216,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.18471, 25.163399]
+      "coordinates": [25.163399, 60.18471]
     }
   },
   {
@@ -236,7 +236,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.169388, 25.144588]
+      "coordinates": [25.144588, 60.169388]
     }
   },
   {
@@ -256,7 +256,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.123837, 25.22324]
+      "coordinates": [25.22324, 60.123837]
     }
   },
   {
@@ -277,7 +277,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.17069, 24.984728]
+      "coordinates": [24.984728, 60.17069]
     }
   },
   {
@@ -297,7 +297,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.183857, 24.886662]
+      "coordinates": [24.886662, 60.183857]
     }
   },
   {
@@ -318,7 +318,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.173645, 24.968899]
+      "coordinates": [24.968899, 60.173645]
     }
   },
   {
@@ -340,7 +340,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.101543, 25.052797]
+      "coordinates": [25.052797, 60.101543]
     }
   },
   {
@@ -362,7 +362,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [59.908447, 23.113066]
+      "coordinates": [23.113066, 59.908447]
     }
   },
   {
@@ -384,7 +384,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.14672, 24.988483]
+      "coordinates": [24.988483, 60.14672]
     }
   },
   {
@@ -406,28 +406,28 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.15436, 24.990034]
+      "coordinates": [24.990034, 60.15436]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Särkkä",
+        "name": "Särkk",
         "header": "Särkän saari ja linnake sijaitsevat Länsi-Mustasaaren luoteispuolella, Harakan saaren naapurissa.",
         "description": "Särkän saari ja linnake sijaitsevat Länsi-Mustasaaren luoteispuolella, Harakan saaren naapurissa. Särkkä on pursiseura Merenkävijät ry:n käytössä satamana ja telakkana. Särkässä toimii kesäisin ravintola Särkänlinna \n\nSärkän linnoitustyöt aloitettiin vuonna 1749 ja ensimmäinen rakennusvaihe valmistui jo 1750-luvulla. Särkkä rakennettiin suojaamaan toista Helsinkiin tuovaa väylää, Särkän salmea.\nSärkkä oli koko sotilaallisen historiansa ajan aseistettu ja se osallistui taisteluihin sotavuosina 1808 ja 1855, sekä Viaporin kapinan aikana 1906. Vuoden 1952 Helsingin olympialaisten aikana Särkkä toimi purjehduskilpailujen tukikohtana.\n\nSaarelle pääsee yhteysveneellä ja omalla veneellä. Saari on pursiseura Merenkävijöiden kotisatama. Vieraspaikkoja on viisi.\nMerenkävijöillä ei ole varsinaisia vieraspaikkoja, mutta yhteysvenelaiturin ja mastonosturin välissä oleviin kahteen poijuun voi kiinnittyä esim. ravintolakäynnin ajaksi, kysy Merenkävijöiden toimistosta.\n\nSaarella saa koulutusta purjehdustaitoihin, Saari on pursiseuran jäsenille kotisatama. \nSaarella toimivan ravintola Särkänlinnan Piper-salia voi vuokrata yksityistilaisuuksiin.\n"
       },
       "en": {
-        "name": "Särkkä"
+        "name": "Särkk"
       },
       "address": "Särkkä, 00140 Helsinki",
       "website": "https://www.suomenlinna.fi/linnoitus/alue/sarkka/",
       "type": "island",
-      "tag": ["Särkkä"]
+      "tag": ["Särkk"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.15109, 24.966434]
+      "coordinates": [24.966434, 60.15109]
     }
   },
   {
@@ -448,28 +448,28 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.159332, 24.965565]
+      "coordinates": [24.965565, 60.159332]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Sirpalesaari P 60° 9",
+        "name": "Sirpalesaari P",
         "header": "Sirpalesaari sijaitsee Merisataman edustalla, Uunisaaren ja Liuskasaaren naapurissa.",
         "description": "Toukokuusta syyskuuhun saareen veneyhteys Sirpalesaareen pääsee Merisatamanrannasta (Pihlajasaaren lähtölaiturin viereinen laituri). Kun Suomalainen Pursiseura tarvitsi uuden alueen toiminnalleen, vuokrattiin sille Sirpalesaari, jossa uusi seuramaja avatt"
       },
       "en": {
-        "name": "Sirpalesaari N 60° 9"
+        "name": "Sirpalesaari N"
       },
       "address": "Sirpalesaari , 00150 Helsinki",
       "website": "http://www.suomalainenpursiseura.fi/",
       "type": "island",
-      "tag": ["Sirpalesaari P 60° 9"]
+      "tag": ["Sirpalesaari P"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.152096, 24.942465]
+      "coordinates": [24.942465, 60.152096]
     }
   },
   {
@@ -490,7 +490,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.153152, 25.013008]
+      "coordinates": [25.013008, 60.153152]
     }
   },
   {
@@ -508,29 +508,29 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.130352, 24.835718]
+      "coordinates": [24.835718, 60.130352]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Valkosaari P 60° 9",
+        "name": "Valkosaari P",
         "header": "Valkosaari sijaitsee Eteläsatamassa, Olympiaterminaalin vieressä. Helsingin ensimmäisen pursiseuran Nyländska Jaktklubbenin kotisatama vuodesta 1861.",
         "description": "Valkosaari on vuokrattu Nyländska Jaktklubbenille. Valkosaari sijaitsee Helsingin Eteläsatamassa, aivan kaupungin keskustassa. Saari on kaunis maamerkki lähestyttäessä Helsinkiä mereltä ja suuri valkoinen puurakenteinen paviljonki vihreine kattoineen on y"
       },
       "en": {
-        "name": "Valkosaari N 60° 9"
+        "name": "Valkosaari N"
       },
       "address": "Valkosaari , 00140 Helsinki",
       "website": "http://www.njk.fi/",
       "type": "island",
-      "tag": ["Valkosaari P 60° 9"],
+      "tag": ["Valkosaari P"],
       "image": "https://farm1.staticflickr.com/909/28118715418_7aa2097882_k.jpg"
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.16132, 24.96573]
+      "coordinates": [24.96573, 60.16132]
     }
   },
   {
@@ -552,7 +552,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.153046, 24.952873]
+      "coordinates": [24.952873, 60.153046]
     }
   },
   {
@@ -570,7 +570,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.127583, 24.864113]
+      "coordinates": [24.864113, 60.127583]
     }
   },
   {
@@ -588,7 +588,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.17227, 24.884468]
+      "coordinates": [24.884468, 60.17227]
     }
   },
   {
@@ -610,7 +610,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.152008, 24.947208]
+      "coordinates": [24.947208, 60.152008]
     }
   },
   {
@@ -634,29 +634,29 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.138794, 25.007662]
+      "coordinates": [25.007662, 60.138794]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Kaunissaari P 60° 10",
+        "name": "Kaunissaari P",
         "header": "Kaunissaari sijaitsee Sipoon saaristossa, lähes ulkomerellä.",
         "description": "Kaunissaari sijaitsee Sipoon saaristossa, lähes ulkomerellä. Saari on 2 kilometriä pitkä ja 800 metriä leveä. Siellä on monipuolinen eläin- ja kasvikunta sekä hyvät kalastusvedet. Ulkoilupuistossa on luontopolku. Saaressa on kallioisia ja kivikkoisia rantoja sekä upeita hietikoita. Alueen pinta-ala on 100 ha ja vesialue on noin 790 ha.\nSaari soveltuu retkeilyyn, telttailuun, kalastukseen, sekä veneilyyn. \nSaareen pääsee sekä omalla veneellä, ja julkisilla/yhteysveneellä. \nVesiliikenneyhteys on Vuosaaren Kalkkihiekantorin vesiliikennelaiturista, josta merimatka kestää noin 50 minuuttia.\nSaaren itärannan suojaisessa valkamassa sijaitsee venesatama (623 60°10,1' N 25°21,2' E), jonka syvyys on 1,9 m, 80 venepaikkaa. Hinta 13 e / vene, kausimaksu 150 e (ei oikeuta vakituiseen satamapaikkaan).\nSaaressa on Wc, tilaussaunoja, keittokatoksia, kolme vuokramökkiä, vuokrattavia soutuveneitä. Saaressa toimii ravintola ja kesäisin käy myymälävene. \nKatso tarkemmat lisätiedot kotisivuilta. Kts. linkki sivun ylälaidasta."
       },
       "en": {
-        "name": "Kaunissaari N 60° 10"
+        "name": "Kaunissaari N"
       },
       "address": "Kaunissaari, 04130 Sipoo",
       "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/kaunissaari",
       "type": "island",
-      "tag": ["Kaunissaari P 60° 10"],
+      "tag": ["Kaunissaari P"],
       "image": "https://farm1.staticflickr.com/830/26846708407_27ce72540c_k.jpg"
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.171497, 25.338879]
+      "coordinates": [25.338879, 60.171497]
     }
   },
   {
@@ -673,41 +673,41 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.156513, 24.804733]
+      "coordinates": [24.804733, 60.156513]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Torra Lövö"
+        "name": "Torra Löv"
       },
       "en": {},
       "address": "Torra Lövö, Espoo",
       "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
       "type": "island",
-      "tag": ["Torra Lövö"]
+      "tag": ["Torra Löv"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.106537, 24.788216]
+      "coordinates": [24.788216, 60.106537]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Stora Herrö"
+        "name": "Stora Herr"
       },
       "en": {},
       "address": "Stora Herrö, Espoo",
       "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
       "type": "island",
-      "tag": ["Stora Herrö"]
+      "tag": ["Stora Herr"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.086063, 24.663658]
+      "coordinates": [24.663658, 60.086063]
     }
   },
   {
@@ -724,7 +724,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.08389, 24.682531]
+      "coordinates": [24.682531, 60.08389]
     }
   },
   {
@@ -741,7 +741,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.089653, 24.685938]
+      "coordinates": [24.685938, 60.089653]
     }
   },
   {
@@ -758,7 +758,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.086155, 24.742954]
+      "coordinates": [24.742954, 60.086155]
     }
   },
   {
@@ -775,7 +775,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.154377, 24.826157]
+      "coordinates": [24.826157, 60.154377]
     }
   },
   {
@@ -792,7 +792,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.080906, 24.67526]
+      "coordinates": [24.67526, 60.080906]
     }
   },
   {
@@ -809,24 +809,24 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.094315, 24.751534]
+      "coordinates": [24.751534, 60.094315]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Iso-Vasikkasaari"
+        "name": "Iso"
       },
       "en": {},
       "address": "Iso-Vasikkasaari, Espoo",
       "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
       "type": "island",
-      "tag": ["Iso-Vasikkasaari"]
+      "tag": ["Iso"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.13997, 24.760916]
+      "coordinates": [24.760916, 60.13997]
     }
   },
   {
@@ -847,7 +847,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.172527, 24.868568]
+      "coordinates": [24.868568, 60.172527]
     }
   },
   {
@@ -869,79 +869,79 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.138817, 24.918116]
+      "coordinates": [24.918116, 60.138817]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Kotiluoto (saari)"
+        "name": "Kotiluoto"
       },
       "en": {
-        "name": "Kotiluoto (island)"
+        "name": "Kotiluoto"
       },
       "address": "Kotiluoto, 00980 Helsinki",
       "type": "island",
-      "tag": ["Kotiluoto (saari)"]
+      "tag": ["Kotiluoto"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.17509, 25.104532]
+      "coordinates": [25.104532, 60.17509]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Viinakupu (saari)"
+        "name": "Viinakupu"
       },
       "en": {
-        "name": "Viinakupu (island)"
+        "name": "Viinakupu"
       },
       "address": "Viinakupu, 00099 Helsinki",
       "type": "island",
-      "tag": ["Viinakupu (saari)"]
+      "tag": ["Viinakupu"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.12068, 24.945847]
+      "coordinates": [24.945847, 60.12068]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Hattusaari (saari)"
+        "name": "Hattusaari"
       },
       "en": {
-        "name": "Hattusaari (island)"
+        "name": "Hattusaari"
       },
       "address": "Hattusaari, 00980 Helsinki",
       "type": "island",
-      "tag": ["Hattusaari (saari)"]
+      "tag": ["Hattusaari"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.163895, 25.173878]
+      "coordinates": [25.173878, 60.163895]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Långskär (ulkosaari)"
+        "name": "Långskär"
       },
       "en": {
-        "name": "Långskär (outer island)"
+        "name": "Långskär"
       },
       "address": "Pitkäkari, 00099 Helsinki",
       "type": "island",
-      "tag": ["Långskär (ulkosaari)"]
+      "tag": ["Långskär"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.09567, 24.922853]
+      "coordinates": [24.922853, 60.09567]
     }
   },
   {
@@ -959,292 +959,292 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.176777, 25.098087]
+      "coordinates": [25.098087, 60.176777]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Louekari (saari)"
+        "name": "Louekari"
       },
       "en": {
-        "name": "Louekari (island)"
+        "name": "Louekari"
       },
       "address": "Louekari, 00099 Helsinki",
       "type": "island",
-      "tag": ["Louekari (saari)"]
+      "tag": ["Louekari"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.09792, 24.876232]
+      "coordinates": [24.876232, 60.09792]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Tiirakari (saari)"
+        "name": "Tiirakari"
       },
       "en": {
-        "name": "Tiirakari (island)"
+        "name": "Tiirakari"
       },
       "address": "Tiirakari, 00150 Helsinki",
       "type": "island",
-      "tag": ["Tiirakari (saari)"]
+      "tag": ["Tiirakari"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.12781, 24.92722]
+      "coordinates": [24.92722, 60.12781]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Ourit (Talviuimarit)"
+        "name": "Ourit"
       },
       "en": {
-        "name": "Ourit (winter swimming club)"
+        "name": "Ourit"
       },
       "address": "Hiekkarannantie, 00100 Helsinki",
       "type": "island",
-      "tag": ["Ourit (Talviuimarit)"]
+      "tag": ["Ourit"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.171528, 24.899948]
+      "coordinates": [24.899948, 60.171528]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Laakapaasi (saari)"
+        "name": "Laakapaasi"
       },
       "en": {
-        "name": "Laakapaasi (island)"
+        "name": "Laakapaasi"
       },
       "address": "Laakapaasi, 00099 Helsinki",
       "type": "island",
-      "tag": ["Laakapaasi (saari)"]
+      "tag": ["Laakapaasi"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.094273, 24.930172]
+      "coordinates": [24.930172, 60.094273]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Abrahaminluoto (saari)"
+        "name": "Abrahaminluoto"
       },
       "en": {
-        "name": "Abrahaminluoto (island)"
+        "name": "Abrahaminluoto"
       },
       "address": "Abrahaminluoto, 00099 Helsinki",
       "type": "island",
-      "tag": ["Abrahaminluoto (saari)"]
+      "tag": ["Abrahaminluoto"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.122604, 24.958004]
+      "coordinates": [24.958004, 60.122604]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Neitsytsaaret (saari)"
+        "name": "Neitsytsaaret"
       },
       "en": {
-        "name": "Neitsytsaaret (island)"
+        "name": "Neitsytsaaret"
       },
       "type": "island",
-      "tag": ["Neitsytsaaret (saari)"]
+      "tag": ["Neitsytsaaret"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.189297, 25.161842]
+      "coordinates": [25.161842, 60.189297]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Långören (ulkosaari)"
+        "name": "Långören"
       },
       "en": {
-        "name": "Långören (outer island)"
+        "name": "Långören"
       },
       "address": "Särkkä, 00140 Helsinki",
       "type": "island",
-      "tag": ["Långören (ulkosaari)"]
+      "tag": ["Långören"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.125435, 24.96042]
+      "coordinates": [24.96042, 60.125435]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Taulukari (ulkosaari)"
+        "name": "Taulukari"
       },
       "en": {
-        "name": "Taulukari (outer island)"
+        "name": "Taulukari"
       },
       "address": "Taulukari, 00140 Helsinki",
       "type": "island",
-      "tag": ["Taulukari (ulkosaari)"]
+      "tag": ["Taulukari"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.127968, 24.956772]
+      "coordinates": [24.956772, 60.127968]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Pihlajaluoto (saari)"
+        "name": "Pihlajaluoto"
       },
       "en": {
-        "name": "Pihlajaluoto (island)"
+        "name": "Pihlajaluoto"
       },
       "type": "island",
-      "tag": ["Pihlajaluoto (saari)"]
+      "tag": ["Pihlajaluoto"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.16892, 25.173527]
+      "coordinates": [25.173527, 60.16892]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Söderholminkupu (saari)"
+        "name": "Söderholminkupu"
       },
       "en": {
-        "name": "Söderholminkupu (island)"
+        "name": "Söderholminkupu"
       },
       "address": "Söderholminkupu, 00099 Helsinki",
       "type": "island",
-      "tag": ["Söderholminkupu (saari)"]
+      "tag": ["Söderholminkupu"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.12208, 24.9256]
+      "coordinates": [24.9256, 60.12208]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Ytterskär (ulkosaari)"
+        "name": "Ytterskär"
       },
       "en": {
-        "name": "Ytterskär (outer island)"
+        "name": "Ytterskär"
       },
       "address": "Ulkokari, 00099 Helsinki",
       "type": "island",
-      "tag": ["Ytterskär (ulkosaari)"]
+      "tag": ["Ytterskär"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.091053, 24.934294]
+      "coordinates": [24.934294, 60.091053]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Räntty (saari)"
+        "name": "Räntty"
       },
       "en": {
-        "name": "Räntty (island)"
+        "name": "Räntty"
       },
       "address": "Räntty, 00099 Helsinki",
       "type": "island",
-      "tag": ["Räntty (saari)"]
+      "tag": ["Räntty"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.12035, 24.961527]
+      "coordinates": [24.961527, 60.12035]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Hietaniemenkarit (saari) (telakka)"
+        "name": "Hietaniemenkarit"
       },
       "en": {
-        "name": "Hietaniemenkarit (island) (dock)"
+        "name": "Hietaniemenkarit"
       },
       "type": "island",
-      "tag": ["Hietaniemenkarit (saari) (telakka)"]
+      "tag": ["Hietaniemenkarit"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.17022, 24.898878]
+      "coordinates": [24.898878, 60.17022]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Syväkari (saari)"
+        "name": "Syväkari"
       },
       "en": {
-        "name": "Syväkari (island)"
+        "name": "Syväkari"
       },
       "address": "Syväkari, 00099 Helsinki",
       "type": "island",
-      "tag": ["Syväkari (saari)"]
+      "tag": ["Syväkari"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.119232, 24.932312]
+      "coordinates": [24.932312, 60.119232]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Koirasaari ja -luodot (ulkosaari)"
+        "name": "Koirasaari ja"
       },
       "en": {
-        "name": "Koirasaari ja -luodot (outer island)"
+        "name": "Koirasaari ja"
       },
       "address": "Koirasaari  (Ulkosaaret), 00099 Helsinki",
       "type": "island",
-      "tag": ["Koirasaari ja -luodot (ulkosaari)"]
+      "tag": ["Koirasaari ja"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.08504, 24.847015]
+      "coordinates": [24.847015, 60.08504]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Mäntykari (saari)"
+        "name": "Mäntykari"
       },
       "en": {
-        "name": "Mäntykari (island)"
+        "name": "Mäntykari"
       },
       "address": "Mäntykari, 00099 Helsinki",
       "type": "island",
-      "tag": ["Mäntykari (saari)"]
+      "tag": ["Mäntykari"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.117237, 24.923042]
+      "coordinates": [24.923042, 60.117237]
     }
   },
   {
@@ -1262,45 +1262,45 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.19541, 25.167652]
+      "coordinates": [25.167652, 60.19541]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Malkasaari (saari)",
+        "name": "Malkasaari",
         "header": "Kts.tarkemmat lisätiedot kotisivu-linkistä puhelinnumeron jälkeen sivun ylälaidasta"
       },
       "en": {
-        "name": "Malkasaari (island)"
+        "name": "Malkasaari"
       },
       "address": "Malkasaari , 00980 Helsinki",
       "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/malkasaari",
       "type": "island",
-      "tag": ["Malkasaari (saari)"]
+      "tag": ["Malkasaari"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.185894, 25.118914]
+      "coordinates": [25.118914, 60.185894]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Koirakari (saari)"
+        "name": "Koirakari"
       },
       "en": {
-        "name": "Koirakari (island)"
+        "name": "Koirakari"
       },
       "address": "Koirakari, 00099 Helsinki",
       "type": "island",
-      "tag": ["Koirakari (saari)"]
+      "tag": ["Koirakari"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.12392, 24.91002]
+      "coordinates": [24.91002, 60.12392]
     }
   },
   {
@@ -1318,25 +1318,25 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.175785, 25.109179]
+      "coordinates": [25.109179, 60.175785]
     }
   },
   {
     "type": "Feature",
     "properties": {
       "fi": {
-        "name": "Honkaluoto (saari)"
+        "name": "Honkaluoto"
       },
       "en": {
-        "name": "Honkaluoto (island)"
+        "name": "Honkaluoto"
       },
       "address": "Mustikkamaa, 00570 Helsinki",
       "type": "island",
-      "tag": ["Honkaluoto (saari)"]
+      "tag": ["Honkaluoto"]
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.18138, 25.002718]
+      "coordinates": [25.002718, 60.18138]
     }
   },
   {
@@ -1358,7 +1358,7 @@
     },
     "geometry": {
       "type": "Point",
-      "coordinates": [60.151093, 24.957806]
+      "coordinates": [24.957806, 60.151093]
     }
   }
 ]
