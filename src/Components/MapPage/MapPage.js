@@ -1,7 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { withRouter } from 'react-router-dom';
 import { GlobalGeoContext } from '../../App';
+import { GlobalLineContext } from '../../App';
 import queryString from 'query-string';
+import { useTranslation } from 'react-i18next';
 import MapboxMap from '../MapboxMap/MapboxMap';
 import Carousel from '../Carousel/Carousel';
 import MapCard from '../MapCard/MapCard';
@@ -12,17 +14,26 @@ import CarouselWrapper from '../CarouselWrapper/CarouselWrapper';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
 
 import styled from 'styled-components';
-import { ReactComponent as ShowAll } from '../../assets/icons/show_all.svg';
 
 const ShowAllButton = styled(UnstyledLink)`
   z-index: 1;
   position: absolute;
-  top: 2.7rem;
-  right: 2rem;
+  top: 7.5rem;
+  right: 1rem;
+
+  background-color: ${props => props.theme.colors.white};
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 25% / 50%;
+  color: ${props => props.theme.colors.black};
+  padding: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
 `;
 
 const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
+  const lineData = useContext(GlobalLineContext);
+  const { t, i18n } = useTranslation();
 
   const [displayedPoints, setDisplayedPoints] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -35,10 +46,7 @@ const MapPage = ({ location, history }) => {
         474
       ) || 400,
     // Equivalent of 92vh. The styles assume these measures
-    height:
-      window.innerHeight * 0.92 ||
-      document.documentElement.clientHeight * 0.92 ||
-      400,
+    height: window.innerHeight || document.documentElement.clientHeight || 400,
     latitude: 60.15,
     longitude: 24.944,
     zoom: 10,
@@ -56,10 +64,11 @@ const MapPage = ({ location, history }) => {
   // TODO: get rid of react memeo as soon as we optimize the map page component
   // get screen dimensions to make map 100% width
 
+  const browserQuery = queryString.parse(location.search);
+
   useEffect(() => {
     // shallow copy so global context is not mutated
     let filteredPoints = [...pointData];
-    const browserQuery = queryString.parse(location.search);
 
     // filter points according to search query
     if (browserQuery.type || browserQuery.tag) {
@@ -133,9 +142,7 @@ const MapPage = ({ location, history }) => {
   return (
     <React.Fragment>
       <MapWrapper>
-        <ShowAllButton to="/map">
-          <ShowAll />
-        </ShowAllButton>
+        <ShowAllButton to="/map">{t('map.show_all_button')}</ShowAllButton>
         <MapboxMap
           location={location}
           history={history}
@@ -148,8 +155,9 @@ const MapPage = ({ location, history }) => {
       </MapWrapper>
 
       {displayedPoints.length > 0 &&
-        !queryString.parse(location.search).name &&
-        !queryString.parse(location.search).tag && (
+        !browserQuery.name &&
+        !browserQuery.line &&
+        !browserQuery.tag && (
           <CarouselWrapper>
             <Carousel
               currentSlide={currentSlide}
@@ -162,35 +170,48 @@ const MapPage = ({ location, history }) => {
             />
           </CarouselWrapper>
         )}
-      {queryString.parse(location.search).name && (
+      {browserQuery.line && (
+        <MapCard
+          onBack={history.goBack}
+          pointData={
+            lineData.filter(
+              line =>
+                line.properties.fi.name.toLowerCase() ===
+                browserQuery.line.toLowerCase()
+            )[0]
+          }
+        />
+      )}
+      {!browserQuery.line && browserQuery.name && (
         <MapCard
           onBack={history.goBack}
           pointData={
             displayedPoints.filter(
               point =>
-                point.properties.fi.name ===
-                queryString.parse(location.search).name
+                point.properties.fi.name.toLowerCase() ===
+                browserQuery.name.toLowerCase()
             )[0]
           }
         />
       )}
-      {!queryString.parse(location.search).name &&
-        queryString.parse(location.search).tag && (
-          <TagCard
-            onBack={history.goBack}
-            location={location}
-            pointData={displayedPoints.filter(
+      {!browserQuery.line && !browserQuery.name && browserQuery.tag && (
+        <TagCard
+          onBack={history.goBack}
+          location={location}
+          pointData={displayedPoints.filter(
+            point =>
+              point.properties.fi.name.toLowerCase() !==
+              browserQuery.tag.toLowerCase()
+          )}
+          tagData={
+            displayedPoints.filter(
               point =>
-                point.properties.fi.name !==
-                queryString.parse(location.search).tag
-            )}
-            tagData={displayedPoints.filter(
-              point =>
-                point.properties.fi.name ===
-                queryString.parse(location.search).tag
-            )}
-          />
-        )}
+                point.properties.fi.name.toLowerCase() ===
+                browserQuery.tag.toLowerCase()
+            )[0]
+          }
+        />
+      )}
     </React.Fragment>
   );
 };

@@ -17,6 +17,7 @@
     "query-string": "^6.8.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-ga": "^2.6.0",
     "react-i18next": "^10.11.4",
     "react-lazy-images": "^1.1.0",
     "react-map-gl": "^5.0.3",
@@ -31,7 +32,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && echo '/* /index.html  200' | cat >build/_redirects",
+    "build": "react-scripts build",
     "analyze": "source-map-explorer 'build/static/js/*.js' --html bundle-analysis.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

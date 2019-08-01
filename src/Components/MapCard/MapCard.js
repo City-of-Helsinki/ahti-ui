@@ -1,13 +1,15 @@
 import React, { memo } from 'react';
 import { LazyImage } from 'react-lazy-images';
+import { useTranslation } from 'react-i18next';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BackButton from '../BackButton/BackButton';
 import BodyText from '../BodyText/BodyText';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
-import { ReactComponent as HomeIcon } from '../../assets/icons/home.svg';
-import { ReactComponent as PhoneIcon } from '../../assets/icons/phone.svg';
+import { ReactComponent as Home } from '../../assets/icons/home.svg';
+import { ReactComponent as Info } from '../../assets/icons/info.svg';
+import { ReactComponent as Location } from '../../assets/icons/location.svg';
 
 import styled from 'styled-components';
 
@@ -21,17 +23,19 @@ const Container = styled.div`
   background-color: ${props => props.theme.colors.white};
 `;
 
-const Home = styled(HomeIcon)`
-  margin-right: 1rem;
+const ContactInfoContainer = styled.div`
+  margin-top: 3rem;
 `;
 
-const Phone = styled(PhoneIcon)`
-  margin-right: 1rem;
-`;
-
-const PhoneContainer = styled.div`
+const IconContainer = styled.div`
   display: flex;
   align-items: center;
+  word-break: break-all;
+
+  svg {
+    margin-right: 1rem;
+    min-width: 2rem;
+  }
 `;
 
 const Line = styled.hr`
@@ -39,62 +43,109 @@ const Line = styled.hr`
   border-color: ${props => props.theme.colors.black};
 `;
 
+const FreeTextContainer = styled.div`
+  min-height: 7rem;
+  overflow:auto; 
+  width: 100%;
+  margin-top: -3.5rem;
+  position: relative;
+  z-index 1401;
+`;
+
+const FloatingBlock = styled.div`
+  background: ${props => props.theme.colors.lightGray};
+  width: 21rem;
+  margin-right: 1rem;
+  height: 100%;
+  float: right;
+  padding: 1rem;
+`;
+
 const MapCard = ({ pointData, onBack }) => {
+  const { t, i18n } = useTranslation();
+
   const website =
     (pointData && pointData.properties.website) || '<placeholder site>';
-  const phone =
+  const info =
     (pointData && pointData.properties.phone_number) || '<placeholder #>';
+  const address =
+    (pointData && pointData.properties.address) || '<placeholder address>';
+  const imageURL = pointData && `/images/${pointData.properties.imageId}.jpeg`;
   return (
     (pointData && (
       <React.Fragment>
         <BackButton onBack={onBack} />
         <Container>
           <LazyImage
-            src={`/images/${pointData.properties.imageId}.jpeg`}
+            src={imageURL}
             placeholder={({ ref }) => (
               <CardImageContainer ref={ref}>
-                {pointData.properties.fi.name && (
-                  <SecondaryTitle>
-                    {pointData.properties.fi.name}
-                  </SecondaryTitle>
+                {pointData.properties[i18n.language].name && (
+                  <BodyText>
+                    {pointData.properties[i18n.language].name}
+                  </BodyText>
                 )}
-                {pointData.properties.fi.header && (
-                  <div>
-                    <BodyText>{pointData.properties.fi.header}</BodyText>
-                  </div>
+                {pointData.properties[i18n.language].header && (
+                  <SecondaryTitle>
+                    {pointData.properties[i18n.language].header}
+                  </SecondaryTitle>
                 )}
               </CardImageContainer>
             )}
             actual={() => (
-              <CardImageContainer
-                imageURL={`/images/${pointData.properties.imageId}.jpeg`}
-              >
-                {pointData.properties.fi.name && (
-                  <SecondaryTitle>
-                    {pointData.properties.fi.name}
-                  </SecondaryTitle>
+              <CardImageContainer imageURL={imageURL}>
+                {pointData.properties[i18n.language].name && (
+                  <BodyText>
+                    {pointData.properties[i18n.language].name}
+                  </BodyText>
                 )}
-                {pointData.properties.fi.header && (
-                  <div>
-                    <BodyText>{pointData.properties.fi.header}</BodyText>
-                  </div>
+                {pointData.properties[i18n.language].header && (
+                  <SecondaryTitle>
+                    {pointData.properties[i18n.language].header}
+                  </SecondaryTitle>
                 )}
               </CardImageContainer>
             )}
           />
-
           <HelsinkiWave />
-          <CardTextContainer>
-            <a href={website}>
-              <Home height="24" viewBox="0 0 48 48" />
-              <BodyText>{website}</BodyText>
-            </a>
 
-            <Line />
-            <PhoneContainer>
-              <Phone height="24" viewBox="0 0 48 48" />
-              <BodyText>{phone}</BodyText>
-            </PhoneContainer>
+          {pointData.properties[i18n.language].free_text_1 && (
+            <FreeTextContainer>
+              <FloatingBlock>
+                <BodyText>
+                  {pointData.properties[i18n.language].free_text_1}
+                </BodyText>
+                <Line />
+                <BodyText>
+                  {pointData.properties[i18n.language].free_text_2}
+                </BodyText>
+              </FloatingBlock>
+            </FreeTextContainer>
+          )}
+          <CardTextContainer>
+            {pointData.properties[i18n.language].description && (
+              <BodyText>
+                {pointData.properties[i18n.language].description}
+              </BodyText>
+            )}
+            <ContactInfoContainer>
+              <IconContainer>
+                <Location height="24" viewBox="0 0 48 48" />
+                <BodyText>{address}</BodyText>
+              </IconContainer>
+              <Line />
+              <a target="_blank" rel="noopener noreferrer" href={website}>
+                <IconContainer>
+                  <Home height="24" viewBox="0 0 48 48" />
+                  <BodyText>{website}</BodyText>
+                </IconContainer>
+              </a>
+              <Line />
+              <IconContainer>
+                <Info height="24" viewBox="0 0 48 48" />
+                <BodyText>{info}</BodyText>
+              </IconContainer>
+            </ContactInfoContainer>
           </CardTextContainer>
         </Container>
       </React.Fragment>

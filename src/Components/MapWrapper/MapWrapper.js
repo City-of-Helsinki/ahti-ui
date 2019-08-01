@@ -4,8 +4,7 @@ const MapWrapper = styled.div`
   box-sizing: border-box;
   position: absolute;
   width: 100%;
-  min-height: 92vh;
-  top: 8vh;
+  min-height: 100vh;
 
   // todo: fix this later;
 

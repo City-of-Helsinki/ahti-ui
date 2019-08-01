@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { GlobalGeoContext } from '../../App';
 import LinkBox from '../LinkBox/LinkBox';
 import MapOverlay from '../MapOverlay/MapOverlay';
+import Footer from '../Footer/Footer';
 import Section from '../Section/Section';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import RoundBoxWithText from '../RoundBox/RoundBox';
@@ -51,6 +53,7 @@ const sliderSettings2 = {
 };
 
 export default () => {
+  const { t, i18n } = useTranslation();
   const contextGeoData = useContext(GlobalGeoContext);
   const unmutatedGeoData = [...contextGeoData];
   const unmutatedGeoDataTypesList = [
@@ -71,21 +74,21 @@ export default () => {
   return (
     <React.Fragment>
       <MapOverlay>
-        <SecondaryTitle>Find your way around the sea</SecondaryTitle>
+        <SecondaryTitle> {t('home.main_header')}</SecondaryTitle>
         <Link to="/map">
-          <LinkBox>See all places</LinkBox>
+          <LinkBox>{t('home.see_all_button')}</LinkBox>
         </Link>
       </MapOverlay>
       <HelsinkiWave />
       <Section>
-        <SecondaryTitle>Popular places around</SecondaryTitle>
+        <SecondaryTitle>{t('home.section1_header')}</SecondaryTitle>
         <Slider {...sliderSettings1}>
           {unmutatedGeoDataTypesList.map((type, id) => {
             return (
               <RoundBoxWithText
                 key={id}
                 icon={<Beach />}
-                title={<TertiaryTitle> {type} </TertiaryTitle>}
+                title={<TertiaryTitle> {t(`types.${type}`)} </TertiaryTitle>}
                 pathToList={`/map?type=${type}` || '/map'}
               />
             );
@@ -111,21 +114,23 @@ export default () => {
             widthShadow="true"
             imageURL="https://images.unsplash.com/photo-1562593028-2e975fe28a0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
           >
-            <SecondaryTitle>{selectedIsland.properties.fi.name}</SecondaryTitle>
+            <SecondaryTitle>
+              {selectedIsland.properties[i18n.language].name}
+            </SecondaryTitle>
             <p>
-              {selectedIsland.properties.fi.header ||
+              {selectedIsland.properties[i18n.language].header ||
                 `An island where you can spend the
             whole day with the family`}
             </p>
             <Link to={`/map?tag=${selectedIsland.properties.en.name}`}>
-              <LinkBox variant="white">See all</LinkBox>
+              <LinkBox variant="white">{t('home.section2_button')}</LinkBox>
             </Link>
           </Section>
           <HelsinkiWave />
         </React.Fragment>
       )}
       <Section>
-        <SecondaryTitle>Things to try during the summer</SecondaryTitle>
+        <SecondaryTitle>{t('home.section3_header')}</SecondaryTitle>
         <Slider {...sliderSettings2}>
           {unmutatedGeoDataTypesList
             .filter(type =>
@@ -155,7 +160,9 @@ export default () => {
                     }
                     key={type + Math.random()}
                   >
-                    <SecondaryTitle>Popular place {type}</SecondaryTitle>
+                    <SecondaryTitle>
+                      Popular place {t(`types.${type}`)}
+                    </SecondaryTitle>
                   </VerticalBlock>
                 </UnstyledLink>
               );
@@ -176,6 +183,7 @@ export default () => {
           <LinkBox variant="white">View service providers</LinkBox>
         </Link>
       </Section>
+      <Footer />
     </React.Fragment>
   );
 };

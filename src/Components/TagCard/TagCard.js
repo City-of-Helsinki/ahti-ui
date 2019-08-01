@@ -1,31 +1,27 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
 import { LazyImage } from 'react-lazy-images';
 import queryString from 'query-string';
+import { useTranslation } from 'react-i18next';
 import { ReactComponent as LocationIcon } from '../../assets/icons/location_white.svg';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import TypeTitle from '../TypeTitle/TypeTitle';
 import BodyText from '../BodyText/BodyText';
 import BackButton from '../BackButton/BackButton';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
-import CardTextContainerBase from '../CardTextContainer/CardTextContainer';
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
+import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
+import { getPointQuery } from '../../utils';
 
 import styled from 'styled-components';
 
 const Container = styled.div`
   z-index: 10;
   box-sizing: border-box;
-  margin-top: 40vh;
-  position: relative;
+  top: 40vh;
+  position: absolute;
   width: 100%;
   background-color: ${props => props.theme.colors.white};
-`;
-
-const CardTextContainer = styled(CardTextContainerBase)`
-  p {
-    margin-top: -1rem;
-  }
 `;
 
 const LocationContainer = styled.div`
@@ -43,7 +39,13 @@ const Location = styled(LocationIcon)`
   margin-right: 0.5rem;
 `;
 
-const TagListContainer = styled.ul``;
+const TagListContainer = styled.div`
+  margin-top: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+`;
 
 const TagListItem = styled.div`
   box-sizing: border-box;
@@ -67,105 +69,117 @@ const TagListItem = styled.div`
   }
 `;
 
-const TagCard = ({ pointData, tagData, location, onBack }) =>
-  tagData.length > 0 && (
-    <div>
-      <BackButton onBack={onBack} />
-      <Container>
-        <LazyImage
-          src={`/images/${tagData[0].properties.imageId}.jpeg`}
-          placeholder={({ ref }) => (
-            <CardImageContainer ref={ref}>
-              {tagData[0].properties.fi.name && (
-                <SecondaryTitle>{tagData[0].properties.fi.name}</SecondaryTitle>
-              )}
-              {tagData[0].properties.fi.description && (
-                <BodyText>
-                  {tagData[0].properties.fi.description.slice(0, 100)}
-                </BodyText>
-              )}
-              <LocationContainer>
-                <Location viewBox="0 0 48 48" height="24" />
-                <BodyText>{pointData.length} locations</BodyText>
-              </LocationContainer>
-            </CardImageContainer>
-          )}
-          actual={() => (
-            <CardImageContainer
-              imageURL={`/images/${tagData[0].properties.imageId}.jpeg`}
-            >
-              {tagData[0].properties.fi.name && (
-                <SecondaryTitle>{tagData[0].properties.fi.name}</SecondaryTitle>
-              )}
-              {tagData[0].properties.fi.description && (
-                <BodyText>
-                  {tagData[0].properties.fi.description.slice(0, 100)}
-                </BodyText>
-              )}
-              <LocationContainer>
-                <Location viewBox="0 0 48 48" height="24" />
-                <BodyText>{pointData.length} locations</BodyText>
-              </LocationContainer>
-            </CardImageContainer>
-          )}
-        />
-        <HelsinkiWave />
-        <CardTextContainer>
-          <SecondaryTitle>Things to do</SecondaryTitle>
-          <BodyText>
-            Locations available for travellers in{' '}
-            {tagData[0].properties.fi.name}
-          </BodyText>
-          <TagListContainer>
-            {pointData.length > 0 &&
-              pointData.map((point, id) => {
-                const query =
-                  point.properties.type === 'island'
-                    ? queryString.stringify({
-                        tag: point.properties.fi.name,
-                      })
-                    : queryString.stringify({
-                        ...queryString.parse(location.search),
-                        name: point.properties.fi.name,
-                      });
+const TagCard = ({ pointData, tagData, location, onBack }) => {
+  const { t, i18n } = useTranslation();
+  const imageURL = tagData && `/images/${tagData.properties.imageId}.jpeg`;
+  return (
+    tagData && (
+      <div>
+        <BackButton onBack={onBack} />
+        <Container>
+          <LazyImage
+            src={imageURL}
+            placeholder={({ ref }) => (
+              <CardImageContainer ref={ref}>
+                {tagData.properties[i18n.language].name && (
+                  <BodyText>{tagData.properties[i18n.language].name}</BodyText>
+                )}
+                {tagData.properties[i18n.language].header && (
+                  <SecondaryTitle>
+                    {tagData.properties[i18n.language].header}
+                  </SecondaryTitle>
+                )}
+                <LocationContainer>
+                  <Location viewBox="0 0 48 48" height="24" />
+                  <BodyText>
+                    {pointData.length} {t('map.tag_card.locations')}
+                  </BodyText>
+                </LocationContainer>
+              </CardImageContainer>
+            )}
+            actual={() => (
+              <CardImageContainer imageURL={imageURL}>
+                {tagData.properties[i18n.language].name && (
+                  <BodyText>{tagData.properties[i18n.language].name}</BodyText>
+                )}
+                {tagData.properties[i18n.language].header && (
+                  <SecondaryTitle>
+                    {tagData.properties[i18n.language].header}
+                  </SecondaryTitle>
+                )}
+                <LocationContainer>
+                  <Location viewBox="0 0 48 48" height="24" />
+                  <BodyText>
+                    {pointData.length} {t('map.tag_card.locations')}
+                  </BodyText>
+                </LocationContainer>
+              </CardImageContainer>
+            )}
+          />
+          <HelsinkiWave />
+          <CardTextContainer>
+            {tagData.properties[i18n.language].description && (
+              <BodyText>
+                {tagData.properties[i18n.language].description}
+              </BodyText>
+            )}
 
-                return (
-                  <Link
-                    to={{
-                      pathname: '/map',
-                      search: query,
-                    }}
-                    key={id}
-                  >
-                    <LazyImage
-                      src={`/images/${point.properties.imageId}.jpeg`}
-                      placeholder={({ ref }) => (
-                        <TagListItem ref={ref}>
-                          <SecondaryTitle>
-                            {point.properties.fi.name}
-                          </SecondaryTitle>
-                          <TypeTitle>{point.properties.type}</TypeTitle>
-                        </TagListItem>
-                      )}
-                      actual={() => (
-                        <TagListItem
-                          imageURL={`/images/${point.properties.imageId}.jpeg`}
-                        >
-                          <SecondaryTitle>
-                            {point.properties.fi.name}
-                          </SecondaryTitle>
-                          <TypeTitle>{point.properties.type}</TypeTitle>
-                        </TagListItem>
-                      )}
-                    />
-                  </Link>
-                );
-              })}
-          </TagListContainer>
-        </CardTextContainer>
-      </Container>
-    </div>
+            <TagListContainer>
+              <SecondaryTitle>
+                {t('map.tag_card.point_list_header')}
+              </SecondaryTitle>
+              <BodyText>
+                {t('map.tag_card.point_list_subheader')}{' '}
+                {tagData.properties[i18n.language].name}
+              </BodyText>
+              {pointData.length > 0 &&
+                pointData.map((point, id) => {
+                  const imageURL = `/images/${point.properties.imageId}.jpeg`;
+
+                  return (
+                    <UnstyledLink
+                      to={{
+                        pathname: '/map',
+                        search: getPointQuery(
+                          point,
+                          queryString.parse(location.search)
+                        ),
+                      }}
+                      key={id}
+                    >
+                      <LazyImage
+                        src={imageURL}
+                        placeholder={({ ref }) => (
+                          <TagListItem ref={ref}>
+                            <SecondaryTitle>
+                              {point.properties[i18n.language].name}
+                            </SecondaryTitle>
+                            <TypeTitle>
+                              {t(`types.${point.properties.type}`)}
+                            </TypeTitle>
+                          </TagListItem>
+                        )}
+                        actual={() => (
+                          <TagListItem imageURL={imageURL}>
+                            <SecondaryTitle>
+                              {point.properties[i18n.language].name}
+                            </SecondaryTitle>
+                            <TypeTitle>
+                              {t(`types.${point.properties.type}`)}
+                            </TypeTitle>
+                          </TagListItem>
+                        )}
+                      />
+                    </UnstyledLink>
+                  );
+                })}
+            </TagListContainer>
+          </CardTextContainer>
+        </Container>
+      </div>
+    )
   );
+};
 // TODO: get rid of react memeo as soon as we optimize the map page component
 
 export default memo(TagCard);

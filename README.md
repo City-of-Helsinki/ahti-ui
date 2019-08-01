@@ -154,3 +154,41 @@ Image assets:
 
 https://www.npmjs.com/package/react-lazy-images
 ```
+
+## Google Analytics
+
+We use Google Analytics to track user interactions and navigations.
+Because this is an SPA, we cannot rely simply on server logs and page refresh; we have to account for the in-client navigation as well!
+
+### The setup
+
+We have a Google Analytics team, "Ahti Helsinki".
+
+Under that, we have two properties:
+
+- "Ahti Helsinki Live": Meant to track the production URL. Currently not active, pending DNS changes.
+- "Ahti Helsinki MVP": Meant to track development and (maybe in the future) UAT versions. Temporarily the "live" one, pending the DNS changes above.
+
+### The script
+
+We use the standard Google Analytics [analytics.js script tag](https://developers.google.com/analytics/devguides/collection/analyticsjs/#alternative_async_tracking_snippet) to load the initial version of the library.
+
+We do this in `<head>`, because it is the most direct, and does not have to wait for the whole JS bundle to download, to register the first pageView.
+
+The tracking id is inlined in the html as `REACT_APP_ANALYTICS_ID`. This is done through Create React App, and its default functionality.
+
+### In React
+
+After setting up the initial script and pageView, we must hook into the Route transitions on the client.
+
+We do this with a higher-order-component, that wraps any page component.
+This sends a `pageView` event with the location path and search, whenever the location updates. The basis for this is [react-ga](https://www.npmjs.com/package/react-ga).
+
+In the future, if we want to track other user interactions (e.g. "User clicked add place button"), we can use [ReactGA.event](https://github.com/react-ga/react-ga#reactgaeventargs).
+
+### Debugging analytics
+
+If you are wondering whether certain events are being sent, you could do either of two things:
+
+- Set the `REACT_APP_DEBUG_ANALYTICS` environment variable. This will make `react-ga` log everything. This can help in development.
+- Alternatively, you can install the [Google Analytics Debugger](https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?hl=en) extension, which also logs things to the console. Might be better if you debug issues directly in production.

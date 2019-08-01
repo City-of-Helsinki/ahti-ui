@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import MapPage from './Components/MapPage/MapPage';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import { withTranslation } from 'react-i18next';
-import Menu from './Components/Menu/Menu';
-import BaseButton from './Components/BaseButton/BaseButton';
-
-import styled, { ThemeProvider } from 'styled-components';
-
+import ApplicationHeader from './Components/ApplicationHeader/ApplicationHeader';
+import mapData from './mapData.json';
+import lineData from './lineData.json';
+import { ThemeProvider } from 'styled-components';
+import withTracker from './withTracker';
 export const GlobalGeoContext = React.createContext();
+export const GlobalLineContext = React.createContext();
 
 const theme = {
   secondaryColor: 'white',
@@ -23,6 +24,8 @@ const theme = {
     white: '#FFFFFF',
     black: '#001A33',
     pink: '#FADCE8',
+    lightGray: '#E9EFF3',
+    lightYellow: '#FCEA82',
   },
   borders: {
     buttonBorder: '2px solid #001A33',
@@ -38,62 +41,26 @@ const theme = {
   },
 };
 
-const LanguageButton = styled(BaseButton)`
-  /* Make the buttons stack next to each other.
-   * Might change if we make their parent a flexbox, in the future.
-  */
-  display: inline-block;
-
-  padding: 0.5rem;
-  font-size: 1.3rem;
-  font-weight: 600;
-
-  /* Space the buttons on the horizontal */
-  &:last-of-type {
-    margin-left: 0.5rem;
-  }
-`;
-
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pointData: [],
-    };
-  }
-
-  componentDidMount() {
-    import('./mapData.json').then(data => {
-      this.setState({
-        pointData: data.default.features,
-      });
-    });
-  }
-
   render() {
-    const { i18n } = this.props;
-
     return (
       <ThemeProvider theme={theme}>
-        <GlobalGeoContext.Provider value={this.state.pointData}>
-          <Router>
-            <Menu>
-              <h1 className="mainTitle">
-                <Link to="/">Ahti</Link>
-              </h1>
-              <div>
-                <LanguageButton onClick={() => i18n.changeLanguage('en')}>
-                  en
-                </LanguageButton>
-                <LanguageButton onClick={() => i18n.changeLanguage('fi')}>
-                  fi
-                </LanguageButton>
-              </div>
-            </Menu>
+        <GlobalGeoContext.Provider value={mapData.features}>
+          <GlobalLineContext.Provider value={lineData.data}>
+            <Router>
+              <header>
+                <ApplicationHeader />
+              </header>
 
-            <Route exact path="/" component={() => <Home />} />
-            <Route path="/map" component={() => <MapPage />} />
-          </Router>
+              {/* NOTE: Make sure to wrap any other Route components withTracker.
+               * An alternative might be to set up a top-level route and only wrap that.
+               */}
+              <Suspense>
+                <Route exact path="/" component={withTracker(Home)} />
+                <Route path="/map" component={withTracker(MapPage)} />
+              </Suspense>
+            </Router>
+          </GlobalLineContext.Provider>
         </GlobalGeoContext.Provider>
       </ThemeProvider>
     );

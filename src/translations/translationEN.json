@@ -1,3 +1,48 @@
 {
-  "Greetings": "Hello"
+  "home": {
+    "main_header": "Find your way around the sea",
+    "see_all_button": "See all places",
+    "section1_header": "Popular places around",
+    "section2_button": "See all",
+    "section3_header": "Things to try during the summer"
+  },
+  "dropdown": {
+    "label": "Menu",
+    "change_language": "Vaihda kieli Suomeksi",
+    "add_location": "Add location or service",
+    "give_feedback": "Give feedback",
+    "about": "About Ahti"
+  },
+  "map": {
+    "show_all_button": "Show all",
+    "back_button": "Back",
+    "tag_card": {
+      "locations": "locations",
+      "point_list_header": "Things to do",
+      "point_list_subheader": "Locations available for travellers in"
+    }
+  },
+  "footer": {
+    "header": "Maritime links",
+    "link1": "Boating",
+    "link2": "In islands",
+    "link3": "Saunas",
+    "link4": "Maybe something",
+    "body": "This service is under development and you’re using a test version.",
+    "learn_more": "Learn more about Ahti.",
+    "attribution": "© Helsingin kaupunki 2019 |"
+  },
+  "types": {
+    "route": "routes",
+    "island": "islands",
+    "restaurant": "restaurants",
+    "entertainment": "entertainment",
+    "Artist Workspaces": "artist Workspaces",
+    "guest harbor": "guest harbors",
+    "Meripalveluasema": "maritime service stations",
+    "cafe": "cafes",
+    "church": "churches",
+    "beach": "beaches",
+    "actor": "actors"
+  }
 }
