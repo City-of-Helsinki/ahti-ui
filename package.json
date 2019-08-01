@@ -27,6 +27,7 @@
     "sanitize.css": "^11.0.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.2",
+    "slick-carousel": "^1.8.1",
     "supercluster": "^6.0.1"
   },
   "scripts": {
@@ -70,7 +71,6 @@
     "mathjs": "^6.0.3",
     "node-sass": "^4.12.0",
     "pretty-quick": "^1.11.1",
-    "slick-carousel": "^1.8.1",
     "source-map-explorer": "^2.0.1",
     "styled-components": "^4.3.2"
   },
