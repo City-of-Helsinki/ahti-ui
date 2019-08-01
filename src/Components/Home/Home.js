@@ -12,6 +12,7 @@ import TertiaryTitle from '../TertiaryTitle/TertiaryTitle';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import VerticalBlock from '../VerticalBlock/VerticalBlock';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
+import BodyText from '../BodyText/BodyText';
 
 const POINT_TYPES = [
   'island',
@@ -76,7 +77,7 @@ export default () => {
   const { t, i18n } = useTranslation();
   const contextGeoData = useContext(GlobalGeoContext);
 
-  const selectedIslands = contextGeoData.filter(
+  const islands = contextGeoData.filter(
     point => point.properties.type === 'island'
   );
 
@@ -85,10 +86,7 @@ export default () => {
     // this shuffles the points
     .sort(() => 0.5 - Math.random());
 
-  let selectedIsland =
-    selectedIslands.length > 0
-      ? selectedIslands[Math.floor(Math.random() * selectedIslands.length)]
-      : {};
+  const promotionIsland = islands[Math.floor(Math.random() * islands.length)];
 
   return (
     <React.Fragment>
@@ -110,24 +108,22 @@ export default () => {
           ))}
         </Slider>
       </Section>
-      {selectedIsland.properties && (
+      {promotionIsland && (
         <React.Fragment>
           <Section
             withImage="true"
             widthShadow="true"
-            imageURL="https://images.unsplash.com/photo-1562593028-2e975fe28a0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80"
+            imageURL={`/images/${promotionIsland.properties.imageId}.jpeg`}
           >
             <SecondaryTitle>
-              {selectedIsland.properties[i18n.language].name}
+              {promotionIsland.properties[i18n.language].name}
             </SecondaryTitle>
-            <p>
-              {selectedIsland.properties[i18n.language].header ||
-                `An island where you can spend the
-            whole day with the family`}
-            </p>
+            <BodyText>
+              {promotionIsland.properties[i18n.language].header}
+            </BodyText>
             <LinkBox
               variant="white"
-              to={`/map?tag=${selectedIsland.properties.fi.name}`}
+              to={`/map?tag=${promotionIsland.properties.fi.name}`}
             >
               {t('home.section2_button')}
             </LinkBox>

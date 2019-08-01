@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import LinkBox from '../LinkBox/LinkBox';
+import BodyText from '../BodyText/BodyText';
 
 const Section = styled.section`
   box-sizing: border-box;
@@ -15,7 +17,7 @@ const Section = styled.section`
 
   box-shadow: ${props =>
     props.withImage && props.widthShadow
-      ? `inset 0px 28rem 28rem -28rem rgba(0,0,0,0.5)`
+      ? 'inset 4rem 7rem 21rem 0.5rem rgba(0,0,0,0.5)'
       : null};
 
   color: ${props =>
@@ -24,16 +26,12 @@ const Section = styled.section`
     margin-right: -2rem;
   }
 
-  p {
-    font-size: 1.3rem;
-    line-height: 1.2;
-    max-width: 80%;
+  ${BodyText} {
     margin-top: -1rem;
   }
 
-  a {
-    display: inline-block;
-    margin-top: 1rem;
+  ${LinkBox} {
+    margin-top: 1.5rem;
   }
 `;
 
