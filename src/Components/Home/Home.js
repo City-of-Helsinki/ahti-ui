@@ -30,7 +30,13 @@ const POINT_TYPES = [
   'station',
 ];
 
-const PROMOTION_POINT_TYPES = ['island', 'cafe', 'beach', 'boat', 'pool'];
+// these are just placeholder for now
+const PROMOTION_POINT_NAMES = [
+  'Skipperi - Otsolahden Satama',
+  'Skipperi - Keilaniemi',
+  'JT-Line Kauppatori',
+  'Cafe Silo',
+];
 
 // TODO: show different amount of components based on width
 const filterSliderSettings = {
@@ -62,7 +68,7 @@ const promotionSliderSettings = {
   infinite: false,
   speed: 500,
   slidesToShow: 1.5,
-  slidesToScroll: 2,
+  slidesToScroll: 1,
   adaptiveHeight: true,
 };
 
@@ -74,12 +80,15 @@ export default () => {
     point => point.properties.type === 'island'
   );
 
+  const promotionPoints = [...contextGeoData]
+    .filter(point => PROMOTION_POINT_NAMES.includes(point.properties.fi.name))
+    // this shuffles the points
+    .sort(() => 0.5 - Math.random());
+
   let selectedIsland =
     selectedIslands.length > 0
       ? selectedIslands[Math.floor(Math.random() * selectedIslands.length)]
       : {};
-
-  let demoImage = '';
 
   return (
     <React.Fragment>
@@ -129,31 +138,18 @@ export default () => {
       <Section>
         <SecondaryTitle>{t('home.section3_header')}</SecondaryTitle>
         <Slider {...promotionSliderSettings}>
-          {PROMOTION_POINT_TYPES.map((type, id) => {
-            if (type === 'island') {
-              demoImage =
-                'https://images.unsplash.com/photo-1509280951623-4a17506e3eb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
-            } else if (type === 'cafe') {
-              demoImage =
-                'https://images.unsplash.com/photo-1496048977749-6c44d362880c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
-            } else if (type === 'pool') {
-              demoImage =
-                'https://images.unsplash.com/photo-1542668595-fa9394e5b686?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
-            } else if (type === 'beach') {
-              demoImage =
-                'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
-            }
+          {promotionPoints.map((point, id) => {
             return (
-              <UnstyledLink to={`/map?type=${type}` || '/map'} key={id}>
+              <UnstyledLink
+                to={`/map?name=${point.properties.fi.name}` || '/map'}
+                key={id}
+              >
                 <VerticalBlock
                   withImage="true"
-                  imageURL={
-                    demoImage ||
-                    'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'
-                  }
+                  imageURL={`/images/${point.properties.imageId}.jpeg`}
                 >
                   <SecondaryTitle>
-                    Popular place {t(`types.${type}`)}
+                    {point.properties[i18n.language].name}
                   </SecondaryTitle>
                 </VerticalBlock>
               </UnstyledLink>
