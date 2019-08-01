@@ -3,7 +3,13 @@ const request = require('request-promise-native');
 
 const getIslandIds = responseData => responseData.results.map(item => item.id);
 
-const parseIslandName = name => (name ? name.split(',')[0] : undefined);
+const parseIslandName = name => {
+  if (name) {
+    const parsed = name.match(/^(\b\s*[a-öA-Ö]+\b)*/);
+    return parsed ? parsed[0] : undefined;
+  }
+  return undefined;
+};
 
 const getIslandAddress = islandData => {
   const { street_address_fi, address_zip, address_city_fi } = islandData;
@@ -44,7 +50,7 @@ const parseIslandData = responseData =>
     },
     geometry: {
       type: 'Point',
-      coordinates: [item.latitude, item.longitude],
+      coordinates: [item.longitude, item.latitude],
     },
   }));
 
