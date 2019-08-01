@@ -719,24 +719,6 @@
       "type": "Feature",
       "properties": {
         "fi": {
-          "name": "Lähteelän ulkoilualue N",
-          "header": "Lähteelän ulkoilualue sijaitsee Porkkalassa. Ympärivuotinen retkeilykohde. Venesatamassa 50 paikkaa, joista 20 poijullista.",
-          "description": "Lähteelään kuuluu mannerta ja saariryhmä. Maasto on vaihtelevaa kaislikkoisine kalliorantoineen, mäkineen ja peltoineen. Hyvät peruspalvelut. Ja sopii myös retkeilyyn, kalastukseen ja telttailuun sekä lintujentarkkailuun.\nOnkiminen, uistelu ja pilkkiminen on sallittu ulkoilualueen vesillä. Uisteluun tarvitaan kaupunki-tai läänikohtainen viehelupa. Mantereelta voi vuokrata soutuveneen ja lähteä esim. Stora Svartön saarelle, jonne on matkaa noin kilometri.\nMantereella ja Utterböten saarella sijaitsevista lintutorneista voi tarkkailla alueen lukuisia lajeja varsinkin kevät- ja syysmuuton aikana. \nKeittokatos, kioski, kahvila, käymälä, sauna, pukeutumishuoneet, informaatiopiste, luontotorni\nLähteelästä löytyy huoltolaituri, lähellä porakaivo, veneluiska ja vuokrattavia pienvenepaikkoja. Stora Svartön saaressa on 50 venerengasta. Telttailu on mahdollista joko mantereella tai Stora Svartön, Utterböten, Östra Styrskärin ja Södergrundin saarissa, joissa on myös käymälät.\nSoutuveneen voi vuokrata ja lähteä vaikka kilometrin päähän Stora Svartön saarelle. Lähteelän ulkoilualue, Porkkala. Alueen isäntä: 040 8278310\n\n"
-        },
-        "en": {},
-        "address": "Källvikintie 6, 02480 Kirkkonummi",
-        "type": "island",
-        "tag": ["Lähteelän ulkoilualue N"]
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [null, null]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "fi": {
           "name": "Varsasaari",
           "header": "Varsasaari on Helsingin kaupungin ulkoilualue Espoon itäisessä saaristossa.",
           "description": "Saarella olevat kesämajat ovat yksityisiä, muuten saari on julkista aluetta. \nVarsasaaressa voi retkeillä, telttailla, uida ja saunoa ja pelata lentopalloa. \nSaaressa on vesipiste, kesäsuihku, pukukopit, keittokatos sekä kuivakäymälä.\nSinne pääsee omalla veneellä tai kanootilla. Omalla veneellä voi kiinnittyä saaren päälaituriin keulakiinnityksellä. \nYöpymismaksu on 5€/vrk/venekunta. Teltassa voi majoittua 5€/vrk/telttakunta. Sauna on avoinna kaikille retkeilijöille.\n\n"
