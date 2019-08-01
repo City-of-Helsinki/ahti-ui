@@ -42,8 +42,8 @@ const MapboxMap = ({
           'match',
           ['get', 'name'],
           parsedSearch.line || 'none',
-          8,
           3,
+          1.5,
         ]);
     }
   };
