@@ -5,7 +5,7 @@ const getIslandIds = responseData => responseData.results.map(item => item.id);
 
 const parseIslandName = name => {
   if (name) {
-    const parsed = name.match(/^(\b\s*[a-öA-Ö]+\b)*/);
+    const parsed = name.match(/^(\s*[a-öA-Ö\-])+/);
     return parsed ? parsed[0] : undefined;
   }
   return undefined;
@@ -31,9 +31,9 @@ const getIslandAddress = islandData => {
 };
 
 const getLocalisedIslandProps = (islandData, locale) => ({
-  name: parseIslandName(islandData[`name_${locale}`]),
-  header: islandData[`short_desc_${locale}`],
-  description: islandData[`desc_${locale}`],
+  name: parseIslandName(islandData[`name_${locale}`]) || null,
+  header: islandData[`short_desc_${locale}`] || null,
+  description: islandData[`desc_${locale}`] || null,
 });
 
 const parseIslandData = responseData =>
@@ -42,11 +42,12 @@ const parseIslandData = responseData =>
     properties: {
       fi: getLocalisedIslandProps(item, 'fi'),
       en: getLocalisedIslandProps(item, 'en'),
-      address: getIslandAddress(item),
-      website: item.www_fi,
+      address: getIslandAddress(item) || null,
+      website: item.www_fi || null,
       type: 'island',
       tag: [parseIslandName(item.name_fi)],
-      image: item.picture_url,
+      image: item.picture_url || null,
+      id: item.id,
     },
     geometry: {
       type: 'Point',
