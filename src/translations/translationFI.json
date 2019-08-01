@@ -33,16 +33,19 @@
     "attribution": "© Helsingin kaupunki 2019 |"
   },
   "types": {
-    "route": "reitit",
-    "island": "saaret",
-    "restaurant": "ravintolat",
-    "entertainment": "viihde",
-    "Artist Workspaces": "taitelijoiden työtilat",
-    "guest harbor": "vierasvenesatamat",
-    "Meripalveluasema": "meripalveluasemat",
-    "cafe": "kahvilat",
-    "church": "kirkot",
-    "beach": "rannat",
-    "actor": "toimijat"
+    "island": "Saaret",
+    "route": "Yhteydet saariin",
+    "cityboat": "Kaupunkiveneet",
+    "rent": "Vuokraveneet",
+    "sup": "Suppilautailu",
+    "experience": "Elämykset",
+    "kayak": "Melonta",
+    "charter": "Ryhmille",
+    "sightseeing": "Kiertoajelut",
+    "learn": "Opetus",
+    "taxi": "Venekyydit",
+    "visitor": "Vierassatamat",
+    "parking": "Lyhytpysäköinti",
+    "station": "Venehuoltoasemat"
   }
 }

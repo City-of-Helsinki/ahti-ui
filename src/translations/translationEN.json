@@ -33,16 +33,19 @@
     "attribution": "© Helsingin kaupunki 2019 |"
   },
   "types": {
-    "route": "routes",
-    "island": "islands",
-    "restaurant": "restaurants",
-    "entertainment": "entertainment",
-    "Artist Workspaces": "artist Workspaces",
-    "guest harbor": "guest harbors",
-    "Meripalveluasema": "maritime service stations",
-    "cafe": "cafes",
-    "church": "churches",
-    "beach": "beaches",
-    "actor": "actors"
+    "island": "Islands",
+    "route": "Routes to islands",
+    "cityboat": "City boats",
+    "rent": "Boat rentals",
+    "sup": "SUP boarding",
+    "experience": "Experiences",
+    "kayak": "Kayaking",
+    "charter": "Charter",
+    "sightseeing": "Sightseeing",
+    "learn": "Boating education",
+    "taxi": "Boat rides",
+    "visitor": "Visitor harbors",
+    "parking": "Boat parking",
+    "station": "Boat stations"
   }
 }
