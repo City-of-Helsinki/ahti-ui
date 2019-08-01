@@ -13,8 +13,6 @@ import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import VerticalBlock from '../VerticalBlock/VerticalBlock';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 
-import { ReactComponent as Beach } from '../../assets/icons/beach.svg';
-
 const POINT_TYPES = [
   'island',
   'route',
@@ -93,16 +91,14 @@ export default () => {
       <Section>
         <SecondaryTitle>{t('home.section1_header')}</SecondaryTitle>
         <Slider {...filterSliderSettings}>
-          {POINT_TYPES.map((type, id) => {
-            return (
-              <RoundBoxWithText
-                key={id}
-                icon={<Beach />}
-                title={<TertiaryTitle> {t(`types.${type}`)} </TertiaryTitle>}
-                pathToList={`/map?type=${type}` || '/map'}
-              />
-            );
-          })}
+          {POINT_TYPES.map((type, id) => (
+            <RoundBoxWithText
+              key={id}
+              iconURL={`/icons/type/${type}.svg`}
+              title={<TertiaryTitle> {t(`types.${type}`)} </TertiaryTitle>}
+              pathToList={`/map?type=${type}` || '/map'}
+            />
+          ))}
         </Slider>
       </Section>
       {selectedIsland.properties && (

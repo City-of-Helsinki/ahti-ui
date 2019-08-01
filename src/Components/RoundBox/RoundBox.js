@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
 
 const RoundBox = styled.div`
   margin: auto;
@@ -10,19 +10,21 @@ const RoundBox = styled.div`
   height: 8rem;
   width: 8rem;
 
-  svg {
+  img {
     width: 4rem;
     height: 4rem;
     transform: translate(50%, 50%);
   }
 `;
 
-const RoundBoxWithText = ({ icon, title, pathToList }) => {
+const RoundBoxWithText = ({ iconURL, title, pathToList }) => {
   return (
-    <Link to={pathToList}>
-      <RoundBox>{icon}</RoundBox>
+    <UnstyledLink to={pathToList}>
+      <RoundBox>
+        <img src={iconURL} alt="logo" />
+      </RoundBox>
       {title}
-    </Link>
+    </UnstyledLink>
   );
 };
 
