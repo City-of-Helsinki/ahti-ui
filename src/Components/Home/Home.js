@@ -75,9 +75,7 @@ export default () => {
     <React.Fragment>
       <MapOverlay>
         <SecondaryTitle> {t('home.main_header')}</SecondaryTitle>
-        <Link to="/map">
-          <LinkBox>{t('home.see_all_button')}</LinkBox>
-        </Link>
+        <LinkBox to="/map">{t('home.see_all_button')}</LinkBox>
       </MapOverlay>
       <HelsinkiWave />
       <Section>

@@ -12,6 +12,7 @@ const MapOverlay = styled.div`
 
   display: flex;
   justify-content: flex-end;
+  align-items: flex-start;
   flex-direction: column;
 `;
 
