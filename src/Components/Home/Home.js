@@ -11,8 +11,26 @@ import RoundBoxWithText from '../RoundBox/RoundBox';
 import TertiaryTitle from '../TertiaryTitle/TertiaryTitle';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import VerticalBlock from '../VerticalBlock/VerticalBlock';
+import PromotionBlock from '../PromotionBlock/PromotionBlock';
+import PromotionSlideSection from '../PromotionSlideSection/PromotionSlideSection';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 import BodyText from '../BodyText/BodyText';
+
+import styled from 'styled-components';
+
+const BackgroundShade = styled.div`
+  position: relative;
+  background-color: ${props => props.theme.colors.lightGray};
+  min-height: 16.5rem;
+  width: 100%;
+`;
+const SliderContainer = styled.div`
+  position: relative;
+  bottom: 3.5rem;
+  min-height: 16.5rem;
+  width: 100%;
+  padding: 0 2rem;
+`;
 
 const POINT_TYPES = [
   'island',
@@ -39,7 +57,20 @@ const PROMOTION_POINT_NAMES = [
   'Cafe Silo',
 ];
 
-// TODO: show different amount of components based on width
+const PROMOTION_TYPES = ['island', 'cityboat'];
+
+// these are just placeholders, correct content will be added to translation file
+const PROMOTION_TYPES_CONTENT = {
+  island: {
+    name: 'Something?',
+    header: 'See cool islands near Helsinki',
+  },
+  cityboat: {
+    name: 'Something?',
+    header: 'Take a ride in shared boat',
+  },
+};
+
 const filterSliderSettings = {
   dots: false,
   infinite: false,
@@ -63,8 +94,18 @@ const filterSliderSettings = {
   ],
 };
 
-// TODO: show different amount of components based on width
-const promotionSliderSettings = {
+const typePromotionSliderSettings = {
+  dots: false,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 1,
+  centerMode: true,
+  centerPadding: '18px',
+  slidesToScroll: 1,
+  adaptiveHeight: true,
+};
+
+const pointPromotionSliderSettings = {
   dots: false,
   infinite: false,
   speed: 500,
@@ -108,6 +149,32 @@ export default () => {
           ))}
         </Slider>
       </Section>
+      {PROMOTION_TYPES && (
+        <PromotionSlideSection>
+          <BackgroundShade>
+            <SliderContainer>
+              <Slider {...typePromotionSliderSettings}>
+                {PROMOTION_TYPES.map((type, id) => (
+                  <PromotionBlock
+                    key={id}
+                    withImage="true"
+                    imageURL={`/images/1.jpeg`}
+                  >
+                    <BodyText>{PROMOTION_TYPES_CONTENT[type].name}</BodyText>
+                    <SecondaryTitle>
+                      {PROMOTION_TYPES_CONTENT[type].header}
+                    </SecondaryTitle>
+                    <LinkBox to={`/map?type=${type}`} variant="white">
+                      See locations
+                    </LinkBox>
+                  </PromotionBlock>
+                ))}
+              </Slider>
+            </SliderContainer>
+          </BackgroundShade>
+          <HelsinkiWave />
+        </PromotionSlideSection>
+      )}
       {promotionIsland && (
         <React.Fragment>
           <Section
@@ -133,7 +200,7 @@ export default () => {
       )}
       <Section>
         <SecondaryTitle>{t('home.section3_header')}</SecondaryTitle>
-        <Slider {...promotionSliderSettings}>
+        <Slider {...pointPromotionSliderSettings}>
           {promotionPoints.map((point, id) => {
             return (
               <UnstyledLink

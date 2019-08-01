@@ -5,7 +5,7 @@ import BodyText from '../BodyText/BodyText';
 const Section = styled.section`
   box-sizing: border-box;
   width: 100%;
-  min-height: 28rem;
+  min-height: 25rem;
 
   padding: 4rem 2rem;
 
