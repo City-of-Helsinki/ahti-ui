@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import Slider from 'react-slick';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { GlobalGeoContext } from '../../App';
 import LinkBox from '../LinkBox/LinkBox';
@@ -15,11 +14,28 @@ import VerticalBlock from '../VerticalBlock/VerticalBlock';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 
 import { ReactComponent as Beach } from '../../assets/icons/beach.svg';
-import { ReactComponent as Boat } from '../../assets/icons/boat.svg';
-import { ReactComponent as Park } from '../../assets/icons/park.svg';
+
+const POINT_TYPES = [
+  'island',
+  'route',
+  'cityboat',
+  'rent',
+  'sup',
+  'experience',
+  'kayak',
+  'charter',
+  'sightseeing',
+  'learn',
+  'taxi',
+  'visitor',
+  'parking',
+  'station',
+];
+
+const PROMOTION_POINT_TYPES = ['island', 'cafe', 'beach', 'boat', 'pool'];
 
 // TODO: show different amount of components based on width
-const sliderSettings1 = {
+const filterSliderSettings = {
   dots: false,
   infinite: false,
   speed: 500,
@@ -43,7 +59,7 @@ const sliderSettings1 = {
 };
 
 // TODO: show different amount of components based on width
-const sliderSettings2 = {
+const promotionSliderSettings = {
   dots: false,
   infinite: false,
   speed: 500,
@@ -55,12 +71,8 @@ const sliderSettings2 = {
 export default () => {
   const { t, i18n } = useTranslation();
   const contextGeoData = useContext(GlobalGeoContext);
-  const unmutatedGeoData = [...contextGeoData];
-  const unmutatedGeoDataTypesList = [
-    ...new Set(contextGeoData.map(point => point.properties.type)),
-  ];
 
-  const selectedIslands = unmutatedGeoData.filter(
+  const selectedIslands = contextGeoData.filter(
     point => point.properties.type === 'island'
   );
 
@@ -80,8 +92,8 @@ export default () => {
       <HelsinkiWave />
       <Section>
         <SecondaryTitle>{t('home.section1_header')}</SecondaryTitle>
-        <Slider {...sliderSettings1}>
-          {unmutatedGeoDataTypesList.map((type, id) => {
+        <Slider {...filterSliderSettings}>
+          {POINT_TYPES.map((type, id) => {
             return (
               <RoundBoxWithText
                 key={id}
@@ -108,55 +120,53 @@ export default () => {
                 `An island where you can spend the
             whole day with the family`}
             </p>
-            <Link to={`/map?name=${selectedIsland.properties.fi.name}`}>
-              <LinkBox variant="white">{t('home.section2_button')}</LinkBox>
-            </Link>
+            <LinkBox
+              variant="white"
+              to={`/map?tag=${selectedIsland.properties.fi.name}`}
+            >
+              {t('home.section2_button')}
+            </LinkBox>
           </Section>
           <HelsinkiWave />
         </React.Fragment>
       )}
       <Section>
         <SecondaryTitle>{t('home.section3_header')}</SecondaryTitle>
-        <Slider {...sliderSettings2}>
-          {unmutatedGeoDataTypesList
-            .filter(type =>
-              ['island', 'cafe', 'beach', 'boat', 'pool'].includes(type)
-            )
-            .map((type, id) => {
-              if (type === 'island') {
-                demoImage =
-                  'https://images.unsplash.com/photo-1509280951623-4a17506e3eb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
-              } else if (type === 'cafe') {
-                demoImage =
-                  'https://images.unsplash.com/photo-1496048977749-6c44d362880c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
-              } else if (type === 'pool') {
-                demoImage =
-                  'https://images.unsplash.com/photo-1542668595-fa9394e5b686?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
-              } else if (type === 'beach') {
-                demoImage =
-                  'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
-              }
-              return (
-                <UnstyledLink to={`/map?type=${type}` || '/map'} key={id}>
-                  <VerticalBlock
-                    withImage="true"
-                    imageURL={
-                      demoImage ||
-                      'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'
-                    }
-                    key={type + Math.random()}
-                  >
-                    <SecondaryTitle>
-                      Popular place {t(`types.${type}`)}
-                    </SecondaryTitle>
-                  </VerticalBlock>
-                </UnstyledLink>
-              );
-            })}
+        <Slider {...promotionSliderSettings}>
+          {PROMOTION_POINT_TYPES.map((type, id) => {
+            if (type === 'island') {
+              demoImage =
+                'https://images.unsplash.com/photo-1509280951623-4a17506e3eb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
+            } else if (type === 'cafe') {
+              demoImage =
+                'https://images.unsplash.com/photo-1496048977749-6c44d362880c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
+            } else if (type === 'pool') {
+              demoImage =
+                'https://images.unsplash.com/photo-1542668595-fa9394e5b686?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
+            } else if (type === 'beach') {
+              demoImage =
+                'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80';
+            }
+            return (
+              <UnstyledLink to={`/map?type=${type}` || '/map'} key={id}>
+                <VerticalBlock
+                  withImage="true"
+                  imageURL={
+                    demoImage ||
+                    'https://images.unsplash.com/photo-1510006851064-e6056cd0e3a8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80'
+                  }
+                >
+                  <SecondaryTitle>
+                    Popular place {t(`types.${type}`)}
+                  </SecondaryTitle>
+                </VerticalBlock>
+              </UnstyledLink>
+            );
+          })}
         </Slider>
       </Section>
 
-      <Section
+      {/* <Section
         withImage="true"
         widthShadow="true"
         imageURL="https://images.unsplash.com/photo-1507911618740-de629a41dd34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
@@ -165,10 +175,10 @@ export default () => {
         <p>
           Discover visitor harbours, water routes and critical signs in one map
         </p>
-        <Link to="/map">
-          <LinkBox variant="white">View service providers</LinkBox>
-        </Link>
-      </Section>
+        <LinkBox to="/map" variant="white">
+          View service providers
+        </LinkBox>
+      </Section> */}
       <Footer />
     </React.Fragment>
   );
