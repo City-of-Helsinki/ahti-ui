@@ -55,6 +55,12 @@ We can add locations manually to mapData.json file
 The script to check file is at ./src/scripts/mapDataManager.js
 also runs on commit as a hook.
 
+### Tag system
+
+Initially the app had a tag system, where certain types (islands in this case) could be displayed as a "parent" of points with a unique view.
+
+The feature was removed with https://github.com/futurice/helsinki-ahti-experiment/pull/51, but it could be brought back in the future.
+
 ### TODO
 
 Add these locations:

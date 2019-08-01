@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import MapGL, { Marker } from 'react-map-gl';
 import PointPin from '../MapPins/PointPin';
-import TagPin from '../MapPins/TagPin';
 import ClusterPin from '../MapPins/ClusterPin';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
@@ -68,9 +67,7 @@ const MapboxMap = ({
     return (
       displayedPoints &&
       displayedPoints.map((point, index) => {
-        const isActive =
-          parsedSearch.name === point.properties.fi.name ||
-          parsedSearch.tag === point.properties.fi.name;
+        const isActive = parsedSearch.name === point.properties.fi.name;
 
         const isCurrent = index === currentSlide;
 
@@ -81,23 +78,13 @@ const MapboxMap = ({
             longitude={point.geometry.coordinates[0]}
             latitude={point.geometry.coordinates[1]}
           >
-            {point.properties.type === 'island' ? (
-              <TagPin
-                isActive={isActive}
-                isCurrent={isCurrent}
-                onClick={() => {
-                  history.push(`/map?${query}`);
-                }}
-              />
-            ) : (
-              <PointPin
-                isActive={isActive}
-                isCurrent={isCurrent}
-                onClick={() => {
-                  history.push(`/map?${query}`);
-                }}
-              />
-            )}
+            <PointPin
+              isActive={isActive}
+              isCurrent={isCurrent}
+              onClick={() => {
+                history.push(`/map?${query}`);
+              }}
+            />
           </Marker>
         );
       })

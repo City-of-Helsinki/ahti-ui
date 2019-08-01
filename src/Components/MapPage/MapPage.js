@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import { GlobalGeoContext } from '../../App';
 import { GlobalLineContext } from '../../App';
@@ -7,13 +7,15 @@ import { useTranslation } from 'react-i18next';
 import MapboxMap from '../MapboxMap/MapboxMap';
 import Carousel from '../Carousel/Carousel';
 import MapCard from '../MapCard/MapCard';
-import TagCard from '../TagCard/TagCard';
 import MapWrapper from '../MapWrapper/MapWrapper';
 import { FlyToInterpolator, LinearInterpolator } from 'react-map-gl';
 import CarouselWrapper from '../CarouselWrapper/CarouselWrapper';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
 
 import styled from 'styled-components';
+
+// MapPage rerenders often because viewport state, use memo to prevent unnecessary carousel renders
+const MemoCarousel = React.memo(Carousel);
 
 const ShowAllButton = styled(UnstyledLink)`
   z-index: 1;
@@ -37,7 +39,7 @@ const MapPage = ({ location, history }) => {
 
   const [displayedPoints, setDisplayedPoints] = useState([]);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [useLocation, setUseLocation] = useState(false);
+  const [previousPoint, setPreviousPoint] = useState(null);
   const [viewport, setViewport] = useState({
     // arbitrary max-width of 474px for wide screens
     width:
@@ -66,78 +68,71 @@ const MapPage = ({ location, history }) => {
 
   const browserQuery = queryString.parse(location.search);
 
+  const flyToPoint = useCallback(
+    (geometry, transitionDuration, cardView, zoomDifference) => {
+      const longitude = geometry.coordinates[0];
+
+      // make the map roughly centered even when a card is displayed
+      const latitude = cardView
+        ? geometry.coordinates[1] - 0.005
+        : geometry.coordinates[1] - 0.0015;
+
+      // always use zoom=14 in cardView, otherwise use zoomDifference if specified
+      setViewport(oldViewport => ({
+        ...oldViewport,
+        longitude,
+        latitude,
+        zoom: cardView
+          ? 14
+          : zoomDifference
+          ? oldViewport.zoom + zoomDifference
+          : 15,
+        transitionInterpolator: cardView
+          ? new FlyToInterpolator()
+          : // use LinearInterpolator outside cardView to prevent Clusters from glitching
+            new LinearInterpolator(),
+        transitionDuration,
+      }));
+    },
+    []
+  );
+
   useEffect(() => {
     // shallow copy so global context is not mutated
     let filteredPoints = [...pointData];
 
     // filter points according to search query
-    if (browserQuery.type || browserQuery.tag) {
+    if (browserQuery.type) {
       filteredPoints = filteredPoints.filter(
         point =>
-          (point.properties.type &&
-            point.properties.type === browserQuery.type) ||
-          (point.properties.tag &&
-            point.properties.tag.includes(browserQuery.tag))
+          point.properties.type && point.properties.type === browserQuery.type
       );
     }
-
-    // sort filtered points
-    if (!useLocation) {
-      filteredPoints.sort(
-        (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
-      );
-    } else {
-      // Add location based sorting later
-    }
+    filteredPoints.sort(
+      (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
+    );
 
     setDisplayedPoints(filteredPoints);
 
-    // fly to point on location.search update, prioritize name over tag
-    const destination = browserQuery.name || browserQuery.tag;
-    if (destination) {
+    const index = filteredPoints.findIndex(
+      point => point.properties.fi.name === previousPoint
+    );
+    setCurrentSlide(index);
+  }, [browserQuery.type, pointData, previousPoint]);
+
+  useEffect(() => {
+    if (browserQuery.name) {
+      setPreviousPoint(browserQuery.name);
       const index = displayedPoints.findIndex(
-        point => point.properties.fi.name === destination
+        point => point.properties.fi.name === browserQuery.name
       );
       if (displayedPoints[index]) {
         flyToPoint(displayedPoints[index].geometry, 700, true);
         setCurrentSlide(index);
       }
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.search, pointData, useLocation]);
-
-  const flyToPoint = (
-    geometry,
-    transitionDuration,
-    cardView,
-    zoomDifference
-  ) => {
-    const longitude = geometry.coordinates[0];
-
-    // make the map roughly centered even when a card is displayed
-    const latitude = cardView
-      ? geometry.coordinates[1] - 0.005
-      : geometry.coordinates[1] - 0.0015;
-
-    // always use zoom=14 in cardView, otherwise use zoomDifference if specified
-    const zoom = cardView
-      ? 14
-      : zoomDifference
-      ? viewport.zoom + zoomDifference
-      : 15;
-    setViewport({
-      ...viewport,
-      longitude,
-      latitude,
-      zoom,
-      transitionInterpolator: cardView
-        ? new FlyToInterpolator()
-        : // use LinearInterpolator outside cardView to prevent Clusters from glitching
-          new LinearInterpolator(),
-      transitionDuration,
-    });
-  };
+  }, [browserQuery.name]);
 
   return (
     <React.Fragment>
@@ -154,22 +149,17 @@ const MapPage = ({ location, history }) => {
         />
       </MapWrapper>
 
-      {displayedPoints.length > 0 &&
-        !browserQuery.name &&
-        !browserQuery.line &&
-        !browserQuery.tag && (
-          <CarouselWrapper>
-            <Carousel
-              currentSlide={currentSlide}
-              setCurrentSlide={setCurrentSlide}
-              viewport={viewport}
-              flyToPoint={flyToPoint}
-              displayedPoints={displayedPoints}
-              location={location}
-              history={history}
-            />
-          </CarouselWrapper>
-        )}
+      {displayedPoints.length > 0 && !browserQuery.name && !browserQuery.line && (
+        <CarouselWrapper>
+          <MemoCarousel
+            currentSlide={currentSlide}
+            setCurrentSlide={setCurrentSlide}
+            flyToPoint={flyToPoint}
+            displayedPoints={displayedPoints}
+            location={location}
+          />
+        </CarouselWrapper>
+      )}
       {browserQuery.line && (
         <MapCard
           onBack={history.goBack}
@@ -190,24 +180,6 @@ const MapPage = ({ location, history }) => {
               point =>
                 point.properties.fi.name.toLowerCase() ===
                 browserQuery.name.toLowerCase()
-            )[0]
-          }
-        />
-      )}
-      {!browserQuery.line && !browserQuery.name && browserQuery.tag && (
-        <TagCard
-          onBack={history.goBack}
-          location={location}
-          pointData={displayedPoints.filter(
-            point =>
-              point.properties.fi.name.toLowerCase() !==
-              browserQuery.tag.toLowerCase()
-          )}
-          tagData={
-            displayedPoints.filter(
-              point =>
-                point.properties.fi.name.toLowerCase() ===
-                browserQuery.tag.toLowerCase()
             )[0]
           }
         />
