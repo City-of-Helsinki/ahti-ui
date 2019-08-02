@@ -137,7 +137,9 @@ const MapPage = ({ location, history }) => {
   return (
     <React.Fragment>
       <MapWrapper>
-        <ShowAllButton to="/map">{t('map.show_all_button')}</ShowAllButton>
+        {browserQuery && !(Object.entries(browserQuery).length === 0) && (
+          <ShowAllButton to="/map">{t('map.show_all_button')}</ShowAllButton>
+        )}
         <MapboxMap
           location={location}
           history={history}
