@@ -67,9 +67,9 @@ const MapboxMap = ({
     return (
       displayedPoints &&
       displayedPoints.map((point, index) => {
-        const isActive = parsedSearch.name === point.properties.fi.name;
-
-        const isCurrent = index === currentSlide;
+        const isActive =
+          parsedSearch.name === point.properties.fi.name ||
+          index === currentSlide;
 
         const query = getPointQuery(point, parsedSearch);
         return (
@@ -80,7 +80,7 @@ const MapboxMap = ({
           >
             <PointPin
               isActive={isActive}
-              isCurrent={isCurrent}
+              type={point.properties.type}
               onClick={() => {
                 history.push(`/map?${query}`);
               }}
