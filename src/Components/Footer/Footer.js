@@ -38,7 +38,7 @@ const StyledLink = styled(UnstyledOutboundLink)`
   color: ${props => props.theme.colors.black};
 `;
 
-const LearnMoreLink = styled(UnstyledLink)`
+const LearnMoreLink = styled(UnstyledOutboundLink)`
   text-decoration: underline;
   color: ${props => props.theme.colors.black};
 `;
@@ -93,7 +93,13 @@ const Footer = () => {
         </BodyText>
         <BodyText>
           {t('footer.attribution')}{' '}
-          <LearnMoreLink to={'www.hel.fi'}>www.hel.fi</LearnMoreLink>
+          <LearnMoreLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.hel.fi/helsinki/fi"
+          >
+            www.hel.fi
+          </LearnMoreLink>
         </BodyText>
       </Container>
     </footer>
