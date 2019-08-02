@@ -21,6 +21,7 @@
         "website": "https://visitisosaari.fi/vierasvenesatama/",
         "phone_number": "+358 600 390 111",
         "address": "Isosaari,  00860 Helsinki",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {
@@ -48,6 +49,7 @@
         "website": "http://www.helsinkimarina.fi/homepage/prices.php",
         "phone_number": "+358 40 3342050",
         "address": "Kanavaranta 4, 00160 Helsinki",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {
@@ -75,6 +77,7 @@
         "website": "http://www.valimo.org/vierassatama/",
         "phone_number": "+358 41 510 1060",
         "address": "Suomenlinnan Varvilahti, 00190 Helsini",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {
@@ -102,6 +105,7 @@
         "website": "http://www.njk.fi/vierassatama/",
         "phone_number": "+358 9 636 047",
         "address": "Valkosaari, 00140 Helsinki",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {
@@ -129,6 +133,7 @@
         "website": "http://helsinkisailing.com/satama/",
         "phone_number": "+358 9 633 637",
         "address": "Liuskasaari, 00140 Helsinki",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {
@@ -156,6 +161,7 @@
         "website": "http://marina.hmvk.fi/vierasvenepaikat-berth-reservations/",
         "phone_number": "+358 40 508 8344",
         "address": "Tervasaarenkannas 1, 00170 Helsinki",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {

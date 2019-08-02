@@ -35,22 +35,46 @@ const SliderContainer = styled.div`
 // these are just placeholder for now
 const PROMOTION_POINT_NAMES = [
   'Skipperi - Otsolahden Satama',
-  'Skipperi - Keilaniemi',
-  'JT-Line Kauppatori',
-  'Cafe Silo',
+  'Finfly - Vetovarjo',
+  'TwentyKnots Helsinki',
 ];
 
-const PROMOTION_TYPES = ['island', 'cityboat'];
+const PROMOTION_TYPES = ['cityboat', 'sup', 'visitor'];
 
 // these are just placeholders, correct content will be added to translation file
 const PROMOTION_TYPES_CONTENT = {
-  island: {
-    name: 'Something?',
-    header: 'See cool islands near Helsinki',
-  },
   cityboat: {
-    name: 'Something?',
-    header: 'Take a ride in shared boat',
+    fi: {
+      name: 'Skipperi',
+      header: 'Seikkaile saaristossa Skipperin kaupunkiveneellä',
+    },
+    en: {
+      name: 'Skipperi',
+      header: 'Take a ride with a Skipperi city boat',
+    },
+    imageId: '8',
+  },
+  sup: {
+    fi: {
+      name: 'Kikkapakka',
+      header: 'Kokeile suppailua Kikkapakan suppilaudoilla',
+    },
+    en: {
+      name: 'Kikkapakka',
+      header: 'Try out sup boarding with Kikkapakka',
+    },
+    imageId: '9',
+  },
+  visitor: {
+    fi: {
+      name: 'Vierasvenepaikat',
+      header: 'Löydä vierasvenepaikkoja Helsingistä',
+    },
+    en: {
+      name: 'Visitor harbors',
+      header: 'Discover visitor harbors in Helsinki',
+    },
+    imageId: '10',
   },
 };
 
@@ -141,14 +165,16 @@ export default () => {
                   <PromotionBlock
                     key={id}
                     withImage="true"
-                    imageURL={`/images/1.jpeg`}
+                    imageURL={`/images/${PROMOTION_TYPES_CONTENT[type].imageId}.jpeg`}
                   >
-                    <BodyText>{PROMOTION_TYPES_CONTENT[type].name}</BodyText>
+                    <BodyText>
+                      {PROMOTION_TYPES_CONTENT[type][i18n.language].name}
+                    </BodyText>
                     <SecondaryTitle>
-                      {PROMOTION_TYPES_CONTENT[type].header}
+                      {PROMOTION_TYPES_CONTENT[type][i18n.language].header}
                     </SecondaryTitle>
                     <LinkBox to={`/map?type=${type}`} variant="white">
-                      See locations
+                      {t('home.section2_button')}
                     </LinkBox>
                   </PromotionBlock>
                 ))}
@@ -173,9 +199,9 @@ export default () => {
             </BodyText>
             <LinkBox
               variant="white"
-              to={`/map?tag=${promotionIsland.properties.fi.name}`}
+              to={`/map?name=${promotionIsland.properties.fi.name}`}
             >
-              {t('home.section3_button')}
+              {t('home.section2_button')}
             </LinkBox>
           </Section>
           <HelsinkiWave />

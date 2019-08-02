@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 
 const PromotionBlock = styled.div`
   background-image: url(${props => props.imageURL});
@@ -11,6 +12,10 @@ const PromotionBlock = styled.div`
   min-height: 16.5rem;
   width: 100%;
   padding: 1.5rem;
+
+  ${SecondaryTitle} {
+    max-width: 100%;
+  }
 
   color: ${props => props.theme.colors.white};
 `;
