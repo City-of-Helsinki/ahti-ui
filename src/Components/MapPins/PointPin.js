@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 export default class CityPin extends PureComponent {
   render() {
     const { onClick, isActive, type } = this.props;
-    const size = isActive ? 60 : 36;
+    const size = type === 'island' ? (isActive ? 36 : 18) : isActive ? 60 : 36;
     return (
       <img
         src={`/icons/point/${type}_point.svg`}
