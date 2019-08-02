@@ -9,7 +9,7 @@ const Button = styled(BaseButton)`
   /** Positioning */
   position: absolute;
   z-index: 1399;
-  top: 35vh;
+  top: -3.5rem;
 
   /** Styling */
   padding: 1rem;
