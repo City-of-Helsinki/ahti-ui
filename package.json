@@ -36,7 +36,8 @@
     "analyze": "source-map-explorer 'build/static/js/*.js' --html bundle-analysis.html",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "palvelukartta-fetch-islands": "node src/scripts/fetchPalvelukarttaIslandData.js"
+    "palvelukartta-fetch-islands": "node src/scripts/fetchPalvelukarttaIslandData.js",
+    "palvelukartta-append-island-data": "node sr/scripts/mergePalvelukarttaIslandDataAdditions.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -68,6 +69,7 @@
   "devDependencies": {
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
+    "deepmerge": "^4.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "mathjs": "^6.0.3",
     "node-sass": "^4.12.0",
