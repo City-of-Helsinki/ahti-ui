@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BodyText from '../BodyText/BodyText';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
+import UnstyledOutboundLink from '../UnstyledOutboundLink/UnstyledOutboundLink';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 
 import styled from 'styled-components';
@@ -27,7 +28,7 @@ const LinkContainer = styled.ul`
   justify-content: flex-start;
 `;
 
-const StyledLink = styled(UnstyledLink)`
+const StyledLink = styled(UnstyledOutboundLink)`
   margin-right: 1rem;
   margin-bottom: 2rem;
   font-size: 1.4rem;
@@ -37,7 +38,7 @@ const StyledLink = styled(UnstyledLink)`
   color: ${props => props.theme.colors.black};
 `;
 
-const LearnMoreLink = styled(UnstyledLink)`
+const LearnMoreLink = styled(UnstyledOutboundLink)`
   text-decoration: underline;
   color: ${props => props.theme.colors.black};
 `;
@@ -50,12 +51,41 @@ const Footer = () => {
       <Container>
         <SecondaryTitle>{t('footer.header')}</SecondaryTitle>
         <LinkContainer>
-          <StyledLink to={'#'}>{t('footer.link1')}</StyledLink>
-          <StyledLink to={'#'}>{t('footer.link2')}</StyledLink>
-          <StyledLink to={'#'}>{t('footer.link3')}</StyledLink>
-          <StyledLink to={'#'}>{t('footer.link1')}</StyledLink>
-          <StyledLink to={'#'}>{t('footer.link4')}</StyledLink>
-          <StyledLink to={'#'}>{t('footer.link3')}</StyledLink>
+          <StyledLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href={t('footer.link1.target')}
+          >
+            {t('footer.link1.content')}
+          </StyledLink>
+          <StyledLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href={t('footer.link2.target')}
+          >
+            {t('footer.link2.content')}
+          </StyledLink>
+          <StyledLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href={t('footer.link3.target')}
+          >
+            {t('footer.link3.content')}
+          </StyledLink>
+          <StyledLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href={t('footer.link4.target')}
+          >
+            {t('footer.link4.content')}
+          </StyledLink>
+          <StyledLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href={t('footer.link5.target')}
+          >
+            {t('footer.link5.content')}
+          </StyledLink>
         </LinkContainer>
         <BodyText>
           {t('footer.body')}{' '}
@@ -63,7 +93,13 @@ const Footer = () => {
         </BodyText>
         <BodyText>
           {t('footer.attribution')}{' '}
-          <LearnMoreLink to={'www.hel.fi'}>www.hel.fi</LearnMoreLink>
+          <LearnMoreLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.hel.fi/helsinki/fi"
+          >
+            www.hel.fi
+          </LearnMoreLink>
         </BodyText>
       </Container>
     </footer>

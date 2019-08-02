@@ -29,10 +29,26 @@
   },
   "footer": {
     "header": "Merellisiä linkkejä",
-    "link1": "Veneily",
-    "link2": "Helsingin saaristo",
-    "link3": "<lisää kamaa>",
-    "link4": "Saunat",
+    "link1": {
+      "content": "Saunat",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/lisatietoa-ulkoilusta/saunat/saunat"
+    },
+    "link2": {
+      "content": "Veneily",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
+    "link3": {
+      "content": "Kalastus",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/kalastus/"
+    },
+    "link4": {
+      "content": "Saaristossa",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/"
+    },
+    "link5": {
+      "content": "Venepaikat",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
     "body": "Tämä palvelu on kehityksessä, käytät testiversiota.",
     "learn_more": "Lue lisää Ahti-palvelusta.",
     "attribution": "© Helsingin kaupunki 2019 |"

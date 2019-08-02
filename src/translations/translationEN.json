@@ -29,10 +29,26 @@
   },
   "footer": {
     "header": "Maritime links",
-    "link1": "Boating",
-    "link2": "In islands",
-    "link3": "Saunas",
-    "link4": "Maybe something",
+    "link1": {
+      "content": "Saunas",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/lisatietoa-ulkoilusta/saunat/saunat"
+    },
+    "link2": {
+      "content": "Boating",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
+    "link3": {
+      "content": "Fishing",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/kalastus/"
+    },
+    "link4": {
+      "content": "In islands",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/"
+    },
+    "link5": {
+      "content": "Boat spots",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
     "body": "This service is under development and you’re using a test version.",
     "learn_more": "Learn more about Ahti.",
     "attribution": "© Helsingin kaupunki 2019 |"
