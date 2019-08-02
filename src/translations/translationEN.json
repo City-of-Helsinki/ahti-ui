@@ -14,7 +14,9 @@
     "change_language": "Vaihda kieli Suomeksi",
     "add_location": "Add location or service",
     "give_feedback": "Give feedback",
-    "about": "About Ahti"
+    "about": "About Ahti",
+    "boat_page": "City's boat page",
+    "rescue_directions": "Sea rescue directions"
   },
   "map": {
     "show_all_button": "Show all",
