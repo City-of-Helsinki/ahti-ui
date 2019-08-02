@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import BodyText from '../BodyText/BodyText';
 import BaseButton from '../BaseButton/BaseButton';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
+import UnstyledOutboundLink from '../UnstyledOutboundLink/UnstyledOutboundLink';
 import { ReactComponent as Menu } from '../../assets/icons/menu.svg';
 import { ReactComponent as Exit } from '../../assets/icons/exit.svg';
 import { POINT_TYPES } from '../../App';
@@ -77,10 +78,6 @@ const MenuButton = styled(BaseButton)`
     outline: 4px solid transparent;
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.4);
   }
-`;
-
-const UnstyledOutboundLink = styled.a`
-  text-decoration: none;
 `;
 
 const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
