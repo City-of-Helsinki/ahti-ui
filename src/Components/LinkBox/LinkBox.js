@@ -1,13 +1,15 @@
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
+
 import styled from 'styled-components';
 
-const LinkBox = styled.div`
+const LinkBox = styled(UnstyledLink)`
   box-sizing: border-box;
 
   /** Give the box content-width */
   display: inline-block;
 
-  min-width: 13rem;
-  max-width: 26rem;
+  min-width: 12rem;
+  max-width: 20rem;
 
   border: ${props => props.theme.borders.buttonBorder};
   border-color: ${props =>

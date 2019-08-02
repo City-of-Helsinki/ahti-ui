@@ -1,10 +1,13 @@
 {
   "home": {
-    "main_header": "Löydä tiesi merelle",
+    "main_header": "Löydä mahtava merellinen Helsinki Ahdin avulla!",
     "see_all_button": "Näytä kaikki kohteet",
-    "section1_header": "Suosittuja kohteita",
-    "section2_button": "Näytä kaikki",
-    "section3_header": "Tapoja nauttia Helsingin merestä"
+    "section1_header": "Kohteita, elämyksiä, palveluita",
+    "section3_button": "Näytä kaikki",
+    "section4_header": "Tapoja nauttia Helsingin merestä",
+    "section5_header": "Vierailetko Helsingissä omalla veneelläsi?",
+    "section5_subheader": "Löydä vierasvenesatamia, lyhytaikaisia pysäköintipaikkoja ja venehuoltoasemia",
+    "section5_button": "Katso palveluntarjoajat"
   },
   "dropdown": {
     "label": "Valikko",
@@ -33,16 +36,19 @@
     "attribution": "© Helsingin kaupunki 2019 |"
   },
   "types": {
-    "route": "reitit",
-    "island": "saaret",
-    "restaurant": "ravintolat",
-    "entertainment": "viihde",
-    "Artist Workspaces": "taitelijoiden työtilat",
-    "guest harbor": "vierasvenesatamat",
-    "Meripalveluasema": "meripalveluasemat",
-    "cafe": "kahvilat",
-    "church": "kirkot",
-    "beach": "rannat",
-    "actor": "toimijat"
+    "island": "Saaret",
+    "route": "Yhteydet saariin",
+    "cityboat": "Kaupunkiveneet",
+    "rent": "Vuokraveneet",
+    "sup": "Suppilautailu",
+    "experience": "Elämykset",
+    "kayak": "Melonta",
+    "charter": "Ryhmille",
+    "sightseeing": "Kiertoajelut",
+    "learn": "Opetus",
+    "taxi": "Venekyydit",
+    "visitor": "Vierassatamat",
+    "parking": "Lyhytpysäköinti",
+    "station": "Venehuoltoasemat"
   }
 }

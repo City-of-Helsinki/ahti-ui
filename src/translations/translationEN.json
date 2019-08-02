@@ -3,8 +3,11 @@
     "main_header": "Find your way around the sea",
     "see_all_button": "See all places",
     "section1_header": "Popular places around",
-    "section2_button": "See all",
-    "section3_header": "Things to try during the summer"
+    "section3_button": "See all",
+    "section4_header": "Things to try during the summer",
+    "section5_header": "Visiting Helsinki with your own boat?",
+    "section5_subheader": "Discover visitor harbours, short term boat parking and service stations",
+    "section5_button": "View service providers"
   },
   "dropdown": {
     "label": "Menu",
@@ -33,16 +36,19 @@
     "attribution": "© Helsingin kaupunki 2019 |"
   },
   "types": {
-    "route": "routes",
-    "island": "islands",
-    "restaurant": "restaurants",
-    "entertainment": "entertainment",
-    "Artist Workspaces": "artist Workspaces",
-    "guest harbor": "guest harbors",
-    "Meripalveluasema": "maritime service stations",
-    "cafe": "cafes",
-    "church": "churches",
-    "beach": "beaches",
-    "actor": "actors"
+    "island": "Islands",
+    "route": "Routes to islands",
+    "cityboat": "City boats",
+    "rent": "Boat rentals",
+    "sup": "SUP boarding",
+    "experience": "Experiences",
+    "kayak": "Kayaking",
+    "charter": "Charter",
+    "sightseeing": "Sightseeing",
+    "learn": "Boating education",
+    "taxi": "Boat rides",
+    "visitor": "Visitor harbors",
+    "parking": "Boat parking",
+    "station": "Boat stations"
   }
 }
