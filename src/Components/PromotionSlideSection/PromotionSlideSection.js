@@ -7,6 +7,7 @@ import styled from 'styled-components';
 const PromotionSlideSection = styled(Section)`
   padding: 0;
   min-height: 21.5rem;
+  margin-top: 4rem;
 
   ${SecondaryTitle} {
     font-size: 1.7rem;
