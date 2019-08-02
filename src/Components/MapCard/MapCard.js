@@ -3,6 +3,7 @@ import { LazyImage } from 'react-lazy-images';
 import { useTranslation } from 'react-i18next';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BackButton from '../BackButton/BackButton';
+import CloseCardButton from '../CloseCardButton/CloseCardButton';
 import BodyText from '../BodyText/BodyText';
 import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
@@ -61,9 +62,8 @@ const FloatingBlock = styled.div`
   padding: 1rem;
 `;
 
-const MapCard = ({ pointData, onBack }) => {
+const MapCard = ({ pointData, onBack, closeCardLink }) => {
   const { t, i18n } = useTranslation();
-
   const website =
     (pointData && pointData.properties.website) || '<placeholder site>';
   const info =
@@ -74,8 +74,9 @@ const MapCard = ({ pointData, onBack }) => {
   return (
     (pointData && (
       <React.Fragment>
-        <BackButton onBack={onBack} />
         <Container>
+          <BackButton onBack={onBack} />
+          <CloseCardButton closeCardLink={closeCardLink} />
           <LazyImage
             src={imageURL}
             placeholder={({ ref }) => (

@@ -162,6 +162,9 @@ const MapPage = ({ location, history }) => {
       )}
       {browserQuery.line && (
         <MapCard
+          closeCardLink={
+            browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
+          }
           onBack={history.goBack}
           pointData={
             lineData.filter(
@@ -174,6 +177,9 @@ const MapPage = ({ location, history }) => {
       )}
       {!browserQuery.line && browserQuery.name && (
         <MapCard
+          closeCardLink={
+            browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
+          }
           onBack={history.goBack}
           pointData={
             displayedPoints.filter(
