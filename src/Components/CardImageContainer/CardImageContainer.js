@@ -21,7 +21,7 @@ const CardImageContainer = styled.div`
   color: ${props => props.theme.colors.white};
 
   ${SecondaryTitle} {
-    width: 100%;
+    max-width: 100%;
   }
 
   ${BodyText} {

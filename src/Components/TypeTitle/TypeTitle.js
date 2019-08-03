@@ -7,7 +7,6 @@ const TypeTitle = styled.h2`
   line-height: 1.2;
   width: 20rem;
   opacity: 0.7;
-  margin-top: -1rem;
 `;
 
 export default TypeTitle;

@@ -70,7 +70,11 @@ const MapCard = ({ pointData, onBack, closeCardLink }) => {
     (pointData && pointData.properties.phone_number) || '<placeholder #>';
   const address =
     (pointData && pointData.properties.address) || '<placeholder address>';
-  const imageURL = pointData && `/images/${pointData.properties.imageId}.jpeg`;
+  const imageURL =
+    pointData &&
+    (pointData.properties.image ||
+      (pointData.properties.imageId &&
+        `/images/${pointData.properties.imageId}.jpeg`));
   return (
     (pointData && (
       <React.Fragment>
