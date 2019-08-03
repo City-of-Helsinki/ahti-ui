@@ -237,7 +237,7 @@ export default () => {
       >
         <SecondaryTitle>{t('home.section5_header')}</SecondaryTitle>
         <BodyText>{t('home.section5_subheader')}</BodyText>
-        <LinkBox to="/map" variant="white">
+        <LinkBox to="/map?type=visitor" variant="white">
           {t('home.section5_button')}
         </LinkBox>
       </Section>
