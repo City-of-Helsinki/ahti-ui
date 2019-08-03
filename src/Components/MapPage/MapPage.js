@@ -86,7 +86,7 @@ const MapPage = ({ location, history }) => {
           ? 14
           : zoomDifference
           ? oldViewport.zoom + zoomDifference
-          : 15,
+          : 12,
         transitionInterpolator: cardView
           ? new FlyToInterpolator()
           : // use LinearInterpolator outside cardView to prevent Clusters from glitching
