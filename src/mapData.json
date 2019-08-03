@@ -792,7 +792,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Nokkalanniemi, 02230 Espoo",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Nokkala"],
         "imageId": "8"
       },
@@ -821,7 +821,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Mellstenintie 6, 02170 Espoo",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "soutuvene", "Skipperi"],
         "imageId": "8"
       },
@@ -850,7 +850,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Sateenkaari 9, 02100 Espoo",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Otsolahti"],
         "imageId": "8"
       },
@@ -879,7 +879,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Keilalahdentie 8, 02150 Espoo",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Keilaniemi"],
         "imageId": "8"
       },
@@ -908,7 +908,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Keilasatama 5, 02150 Espoo",
-        "type": "actor",
+        "type": "cityboat",
         "tag": [
           "Kaupunkivene",
           "moottorivene",
@@ -943,7 +943,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Vattuniemen puistotie 1, 00210 Helsinki",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "moottorivene", "Skipperi", "Lauttasaari"],
         "imageId": "8"
       },
@@ -972,7 +972,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Hernesaarenranta 13, 00150 Helsinki",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "moottorivene", "Skipperi", "Hernesaari"],
         "imageId": "8"
       },
@@ -1001,7 +1001,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Pursilahdenranta 2, 00980 Helsinki",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Aurinkolahti"],
         "imageId": "8"
       },
