@@ -1145,29 +1145,6 @@
       "type": "Feature",
       "properties": {
         "fi": {
-          "name": "Elisaari",
-          "header": "Helsingin kaupungin virkistysalue, Elisaari sijaitsee Barösundissa Inkoon saaristossa, saaren länsipäässä. Helsingistä noin 65 km meritse, maantietä n",
-          "description": "Helsingin kaupungin virkistysalue, Elisaari sijaitsee Barösundissa Inkoon saaristossa, saaren länsipäässä. Helsingistä noin 65 km meritse, maantietä noin 73 km Barölandetin lossirantaan, josta vesimatkaa 1,5 km Elisaareen.\nSaareen pääsee myös omalla veneellä. Venepaikkoja on n. 100, pääasiassa poijukiinnityksellä.\nElisaari on kuuluisa luonnonvaraisesta tammimetsiköstään. Saaressa kasvaa myös monia harvinaisia kasveja. Eläimistöltäänkin saari on monipuolinen: lampaista valkohäntäpeuroihin ja hirviin. \nSaaressa on viiteoittettuja luontopolkuja, joita kulkemalla tutustuu parhaiten saaren luontoon. Osa Elisaaresta on rauhoitettu luonnonsuojelualueeksi vuonna 1994. Ulkoilualue on perustettu vuonna 1971. Alueen pinta-ala on 323 ha (vesialue 91 ha).\nSaaressa on vuonna 1902 rakennettu kartano. Se toimii kesäravintolana ja kokouspaikkana. \nSaarella voi uida, onkia, soudella, saunoa, retkeillä, leireillä, majoituttua, kokoustaa.\nSaaressa on Wc, jätehuolto, imutyhjennys, kioski, kahvila, ravintola, sauna, suihku, uimaranta, luontopolku, leikkipaikka, tulentekopaikka, sähkö, pitopalvelu, kokoustilat, majoitustilat, leirintäalue.\nKts.tarkemmat lisätiedot kotisivu-linkistä puhelinnumeron jälkeen sivun ylälaidasta."
-        },
-        "en": {
-          "name": "Elisaari"
-        },
-        "address": "Elisaari, 10270 Barönsalmi",
-        "website": "http://www.elisaari.fi/",
-        "type": "island",
-        "imageId": "11",
-        "tag": ["Elisaari"],
-        "image": "https://farm2.staticflickr.com/1745/42378830352_86564bccba.jpg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [23.933254, 59.981426]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "fi": {
           "name": "Vartiosaari",
           "header": "Vartiosaari sijaitsee Helsingin itäisessä saaristossa.",
           "description": "Vartiosaari sijaitsee Helsingin itäisessä saaristossa. Se on noin 82 hehtaaria suuri saari. Vartiosaari kuuluu valtakunnallisesti merkittäviin rakennettuihin kulttuuriympäristöihin. Se on osa Helsingin höyrylaivareittien kesähuvila-asutusta. \n\nYli puolet Vartiosaaren pinta-alasta on arvokkaita luontokohteita. Saari on maastoltaan ja luonnonoloiltaan monipuolinen ja rikas. Kasvuolot vaihtelevat kuivista mäntykankaista reheviin lehtoihin. Saaren kallioisilta lakialueilta avautuu näkymiä kauas merelle. Korkein kohta on 32 metriä merenpinnan yläpuolella.\nSaaressa on noin 50 huvilaa ja loma-asuntoa ja satakunta muuta rakennusta sekä Nuorisoasiainkeskuksen kesänuorisotalo. \n\nHuvilakanta alkoi rakentua 1800-luvun lopulla. Saarella asuu nykyisin ympärivuotisesti parikymmentä henkeä. Pääosa rakennuksista on kuitenkin lähinnä kesäkäytössä. Saareen kuljetaan vesiteitse.\nPihapiirejä lukuun ottamatta Vartiosaaressa voi liikkua jokamiehenoikeudella. Rannat ovat lähes kauttaaltaan huviloiden yksityispihoja, joiden rauhaa on kunnioitettava.\n\nSaarelle on veneyhteys Hakaniemestä ja Laajasalosta Reposalmentien päästä. Liikennöitsijä on Suomen Saaristokuljetus Oy. \n\nSaareen ei voi rantautua omalla veneellä\n\nVartiosaaressa voi ulkoilla, retkeillä ja mökkeillä. Uida ja onkiakin voi lounaisrannalla. Tulenteko ja leiriytyminen on kielletty.\n\nSaarella on uimaranta, luontopolku, eläintalli, nuorten kesätoimintakeskus, wc, kahvila\n\n\n"
@@ -1356,29 +1333,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [25.052797, 60.101543]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "fi": {
-          "name": "Bengtsår",
-          "header": "Bengtsår sijaitsee Hankoniemen pohjoispuolella",
-          "description": "Bengtsår sijaitsee Hankoniemen pohjoispuolella. Helsingin kaupunki omistaa valtaosan saaresta ja sitä ympäröivästä vesialueesta. Bengtsårin leirisaari on avoinna ympäri vuoden. Toiminta on nuorten ryhmien, nuorisotalojen, nuorisojärjestöjen sekä nuorisoyhdistysten leiri- ja retkitoimintaa. Saaressa on myös vapaa-ajan asutusta.\n\nLeirisaaren käsittää seitsemän erillistä aluetta. Pääsaarella ovat Rantaniitty, Niemennokka, Sofianlehto ja Lahdenpohja. Sen lisäksi lähisaarissa Barnholmin ja Aspholm 1:en (pohjoispuoli) ja Aspholm 2:en (eteläpuoli) leirialueet.\n\nHelsingin kaupunki osti maat 1900-luvun alussa. Saaressa on toiminut kasvatuslaitos ja koulukoti Venäläiset miehittivät 1940 saaren noin vuodeksi. Toisen maailmansodan jälkeen tänne asutettiin muutamia siirtokarjalaisia perheitä. Nuorten leiritoiminta alkoi vuonna 1945. Maanviljely ja karjanhoito päättyivät 1950-1960-luvuilla.\n\nSaaressa on Helsingin kaupungin omistama 17 hehtaarin suuruinen luonnonsuojelua Bengtsårin lehto. Saaren suojelunkohteina ovat tammivaltainen lehtoalue, vanha kulttuurimaisema ja sen kasvilajisto. \n\nSaareen päsee yhteysveneellä ja omalla veneellä. Omalla veneellä tulijat voivat tiedustella kiinnittymismahdollisuutta leirisaaren osoitteesta +358 50 559 1730, bengtsarin.leirisaari@hel.fi\n\nBengtsår tarjoaa hyvän maaston kävelyyn ja monipuoliseen liikuntaan. Teiden lisäksi täällä on myös luontopolku. \n\nSaarella on seitsemän telttaleirialuetta ja kaksi isohkoa saunaa.\n"
-        },
-        "en": {
-          "name": "Bengtsår"
-        },
-        "address": "bengtsår, Hanko",
-        "website": "https://www.bengtsar.fi/",
-        "type": "island",
-        "imageId": "11",
-        "tag": ["Bengtsår"],
-        "image": "https://farm1.staticflickr.com/974/28296389078_0ee4042ab9_b.jpg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [23.113066, 59.908447]
       }
     },
     {
