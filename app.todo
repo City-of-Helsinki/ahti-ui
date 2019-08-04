@@ -1,27 +1,44 @@
 This is a TODO-list for the map project:
 
-☐ ensure eslint rules - done
-☐ add mock data into app in geojson format https://tools.ietf.org/html/rfc7946 - done
+✔ ensure eslint rules @done(19-07-22 17:32)
+✔ add mock data into app in geojson format https://tools.ietf.org/html/rfc7946 @done(19-07-22 17:32)
 
 TODO
 
-☐ Routing for basic places - done
-☐ State management with Context api by  displaying & filtering data on map  - done
-☐ How to make MapPage not re-render on zoom
+✔ Routing for basic places @done(19-07-22 17:32)
+✔ State management with Context api by  displaying & filtering data on map @done(19-07-22 17:32)
+✔ add sanitize.css to project instead of normalize.css @done(19-07-22 17:33)
+✔ import fornt and static assets @done(19-07-22 17:33)
+✔ import new information to .json/.geojson @done(19-07-22 17:33)
+✔ get screen width and hight for map @done(19-07-22 17:33)
+✔ add style config @done(19-07-22 17:34)
+✔ Add i18nv for FI and EN @done(19-07-30 10:22)
+    ✔ add translations for routes and other dynamic content @done(19-07-31 11:17)
+    ✔ use fallback browser language @done(19-07-22 17:35)
+    ✔ use new style for Finnish @done(19-07-30 10:22)
+✔ Add borders in desktop @done(19-07-23 11:47)
+✔ Add "show all" button to map @done(19-07-24 10:59)
+✔ Add City of Helsinki wave according to design @done(19-07-23 15:07)
+✔ Fix clustering @done(19-07-24 10:59)
+    ✔ Position clusters correctly @done(19-07-23 15:50)
+    ✔ Add onClick handler @done(19-07-24 10:59)
+✔ Highlight focused point on swipe @done(19-07-24 10:59)
+✔ Finish cards according to design @done(19-07-26 16:11)
+✔ Finish home view according to design @done(19-08-01 15:53)
+✔ Open links in new tab @done(19-07-26 16:31)s
+✔ Add support for "promotions" @done(19-07-29 10:59)
+    ✔ Figure out if can be implemented as regular point <-- yes @done(19-07-26 14:40)
+    ✔ Finish promotion view accordingly (prob extends map view) @done(19-07-26 14:40)
+✔ Add back button for island if coming from show all @done(19-07-24 17:33)
+✔ Add support for displaying routes @done(19-07-25 18:09)
+ 
+☐ Fix stuff with vh/vw for smaller screens (e.g. backButton)
 ☐ Carousel component is rendered twice, check why
-☐ Add i18nv for FI and EN
-    ☐ add support for EN with name_en for the map
-    ☐ use fallback browser language
-    ☐ use new style for Finnish
-☐ add sanitize.css to project instead of normalize.css - done
-☐ import fornt and static assets - done
-☐ import new information to .json/.geojson - done
-☐ add style config
-☐ refactor flexbox used in app since might not work on mobile
-☐ find ways to lock the screen to be landscape orientation only
-☐ get screen width and hight for map
+☐ Refactor MapPage and add shouldComponentUpdate
+☐ Fix flyTo for tiny screens
 
-TODO later
+TODO if there is time left
 
 ☐ Add nearby information support
+☐ IG feed
 ☐ Investigate fetching weather data from API

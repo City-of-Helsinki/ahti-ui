@@ -17,20 +17,27 @@
     "query-string": "^6.8.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-ga": "^2.6.0",
     "react-i18next": "^10.11.4",
+    "react-lazy-images": "^1.1.0",
     "react-map-gl": "^5.0.3",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "react-slick": "^0.24.0",
+    "sanitize.css": "^11.0.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.2",
+    "slick-carousel": "^1.8.1",
     "supercluster": "^6.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && echo '/* /index.html  200' | cat >build/_redirects",
+    "build": "react-scripts build",
+    "analyze": "source-map-explorer 'build/static/js/*.js' --html bundle-analysis.html",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "palvelukartta-fetch-islands": "node src/scripts/fetchPalvelukarttaIslandData.js",
+    "palvelukartta-append-island-data": "node sr/scripts/mergePalvelukarttaIslandDataAdditions.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -62,11 +69,15 @@
   "devDependencies": {
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
+    "deepmerge": "^4.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "mathjs": "^6.0.3",
     "node-sass": "^4.12.0",
     "pretty-quick": "^1.11.1",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7",
     "slick-carousel": "^1.8.1",
+    "source-map-explorer": "^2.0.1",
     "styled-components": "^4.3.2"
   },
   "config": {

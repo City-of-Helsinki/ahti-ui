@@ -1,44 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import UnstyledLink from '../UnstyledLink/UnstyledLink';
 
-// TODO: center title text properly
 const RoundBox = styled.div`
-  box-sizing: border-box;
-  position: relative;
-  display: block;
-  width: 8rem;
-  max-width: 8rem;
-  height: 8rem;
-
+  margin: auto;
+  margin-bottom: 1rem;
   background-color: ${props => props.theme.colors.pink};
   border-radius: 50%;
+  height: 8rem;
+  width: 8rem;
 
-  padding: 4rem;
-  margin: 0;
-  margin-bottom: 1rem;
-
-  svg {
-    width: 3.5rem;
-    height: 3.5rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  h3 {
-    width: 100%;
-    text-align: center;
+  img {
+    width: 4rem;
+    height: 4rem;
+    transform: translate(50%, 50%);
   }
 `;
 
-const RoundBoxWithText = ({ icon, title, pathToList }) => {
+const RoundBoxWithText = ({ iconURL, title, pathToList }) => {
   return (
-    <Link to={pathToList}>
-      <RoundBox>{icon}</RoundBox>
+    <UnstyledLink to={pathToList}>
+      <RoundBox>
+        <img src={iconURL} alt="logo" />
+      </RoundBox>
       {title}
-    </Link>
+    </UnstyledLink>
   );
 };
 

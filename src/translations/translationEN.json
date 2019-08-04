@@ -1,3 +1,72 @@
 {
-  "Greetings": "Hello"
+  "home": {
+    "main_header": "Find your way around the sea",
+    "see_all_button": "See all places",
+    "section1_header": "Popular places around",
+    "section3_button": "See all",
+    "section4_header": "Things to try during the summer",
+    "section5_header": "Visiting Helsinki with your own boat?",
+    "section5_subheader": "Discover visitor harbours, short term boat parking and service stations",
+    "section5_button": "View service providers"
+  },
+  "dropdown": {
+    "label": "Menu",
+    "change_language": "Vaihda kieli Suomeksi",
+    "add_location": "Add location or service",
+    "give_feedback": "Give feedback",
+    "about": "About Ahti",
+    "boat_page": "City's boat page",
+    "rescue_directions": "Sea rescue directions"
+  },
+  "map": {
+    "show_all_button": "Show all",
+    "back_button": "Back",
+    "tag_card": {
+      "locations": "locations",
+      "point_list_header": "Things to do",
+      "point_list_subheader": "Locations available for travellers in"
+    }
+  },
+  "footer": {
+    "header": "Maritime links",
+    "link1": {
+      "content": "Saunas",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/lisatietoa-ulkoilusta/saunat/saunat"
+    },
+    "link2": {
+      "content": "Boating",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
+    "link3": {
+      "content": "Fishing",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/kalastus/"
+    },
+    "link4": {
+      "content": "In islands",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/"
+    },
+    "link5": {
+      "content": "Boat spots",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
+    "body": "This service is under development and you’re using a test version.",
+    "learn_more": "Learn more about Ahti.",
+    "attribution": "© Helsingin kaupunki 2019 |"
+  },
+  "types": {
+    "island": "Islands",
+    "route": "Routes to islands",
+    "cityboat": "City boats",
+    "rent": "Boat rentals",
+    "sup": "SUP boarding",
+    "experience": "Experiences",
+    "kayak": "Kayaking",
+    "charter": "Charter",
+    "sightseeing": "Sightseeing",
+    "learn": "Boating education",
+    "taxi": "Boat rides",
+    "visitor": "Visitor harbors",
+    "parking": "Boat parking",
+    "station": "Boat stations"
+  }
 }

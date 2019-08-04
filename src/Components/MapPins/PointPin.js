@@ -1,16 +1,16 @@
 import React, { PureComponent } from 'react';
 
-import { ReactComponent as Location } from '../../assets/icons/location.svg';
-
 export default class CityPin extends PureComponent {
   render() {
-    const { onClick, isActive } = this.props;
-    const size = isActive ? 48 : 24;
+    const { onClick, isActive, type } = this.props;
+    const size = isActive ? 60 : 36;
     return (
-      <Location
-        viewBox="0 0 48 48"
-        height={size}
+      <img
+        src={`/icons/point/${type}_point.svg`}
+        alt="map pin"
         style={{
+          height: size,
+          width: size,
           cursor: 'pointer',
           transform: `translate(${-size / 2}px,${-size}px)`,
         }}

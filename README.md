@@ -1,6 +1,6 @@
 # Helsinki City Ahti project
 
-## last updated 17-07-2019
+## last updated 22-07-2019
 
 ![Helsinki City Ahti project](Mockup-1.png)
 
@@ -16,11 +16,12 @@ For now scope of the project includes:
 - list of places of interest by type and category
 - views and UIs that comply with Helsinki City brand guidelines
 - localization
+- Test experience views
 
 Not in scope:
 
 - accesibility
-- server site rendering
+- server side rendering
 - visual and programmatic testing
 - UX reserach and multiple use cases
 
@@ -53,6 +54,12 @@ We filter data by data types and tags. So far the types that we have are:
 We can add locations manually to mapData.json file
 The script to check file is at ./src/scripts/mapDataManager.js
 also runs on commit as a hook.
+
+### Tag system
+
+Initially the app had a tag system, where certain types (islands in this case) could be displayed as a "parent" of points with a unique view.
+
+The feature was removed with https://github.com/futurice/helsinki-ahti-experiment/pull/51, but it could be brought back in the future.
 
 ### TODO
 
@@ -112,6 +119,82 @@ Some rules:
 2. Make sure you deploy from master branch
 3. Make sure you deploy from `build` folder
 4. Make sure your `yarn build` script in package.json is like this: "build": "react-scripts build && echo '/\* /index.html 200' | cat >build/\_redirects" if you are ranning a non-SSRed version of create-react-app (the one we have now) otherwise things will crushhhhhhhhhh
+5. We also now have a netlify redirect file that is supposed to eliminate the need for that build script (has to be tested)
 
 To setup deploy from CLI, do:
 `npm install netlify-cli -g netlify deploy`
+
+TODO:
+
+1. Analytics for user interactions (Netlify Analytics) and maube crush reports (Bugsnag/Cypres)
+2. Testing on devices:
+   2.1. Browserstack
+   2.2. Make sure we show mobile size on desktop screens
+   2.3. Make sure to lock orientation to portrait
+3. DNS config (preview.ahti.helsinki.fi ?????)
+4. Make sure routes work
+5. Constraints:
+   1. Only mobile browsers
+6. Location recognition (????????????????????)
+
+IS SUPPOSED TO CHANGE!!!!!!!!!!!!!!!!!!!!
+Image assets:
+
+1. `assets/images`
+2. https://imageoptim.com/mac
+3. https://www.npmjs.com/package/image-to-gradient
+   https://www.google.com/search?ei=V3YwXYK4MZXSmwXb0oqQDA&q=image+to+gradient+npm&oq=image+to+gradient+npm&gs_l=psy-ab.3...5640.11710..12096...1.0..0.190.1645.20j2......0....1..gws-wiz.......0i71j35i39j0i67j0j0i20i263j0i22i30j33i22i29i30.8IOPIg05ZHI&ved=0ahUKEwjCv5XOy77jAhUV6aYKHVupAsIQ4dUDCAo&uact=5
+4. Naming should have IDs:
+
+   ```
+    {
+    Name: “suomenlinna”,
+    imageID: “1223’
+
+    }
+   ```
+
+```
+
+`/assets/images/1223.png`
+
+https://www.npmjs.com/package/react-lazy-images
+```
+
+## Google Analytics
+
+We use Google Analytics to track user interactions and navigations.
+Because this is an SPA, we cannot rely simply on server logs and page refresh; we have to account for the in-client navigation as well!
+
+### The setup
+
+We have a Google Analytics team, "Ahti Helsinki".
+
+Under that, we have two properties:
+
+- "Ahti Helsinki Live": Meant to track the production URL. Currently not active, pending DNS changes.
+- "Ahti Helsinki MVP": Meant to track development and (maybe in the future) UAT versions. Temporarily the "live" one, pending the DNS changes above.
+
+### The script
+
+We use the standard Google Analytics [analytics.js script tag](https://developers.google.com/analytics/devguides/collection/analyticsjs/#alternative_async_tracking_snippet) to load the initial version of the library.
+
+We do this in `<head>`, because it is the most direct, and does not have to wait for the whole JS bundle to download, to register the first pageView.
+
+The tracking id is inlined in the html as `REACT_APP_ANALYTICS_ID`. This is done through Create React App, and its default functionality.
+
+### In React
+
+After setting up the initial script and pageView, we must hook into the Route transitions on the client.
+
+We do this with a higher-order-component, that wraps any page component.
+This sends a `pageView` event with the location path and search, whenever the location updates. The basis for this is [react-ga](https://www.npmjs.com/package/react-ga).
+
+In the future, if we want to track other user interactions (e.g. "User clicked add place button"), we can use [ReactGA.event](https://github.com/react-ga/react-ga#reactgaeventargs).
+
+### Debugging analytics
+
+If you are wondering whether certain events are being sent, you could do either of two things:
+
+- Set the `REACT_APP_DEBUG_ANALYTICS` environment variable. This will make `react-ga` log everything. This can help in development.
+- Alternatively, you can install the [Google Analytics Debugger](https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?hl=en) extension, which also logs things to the console. Might be better if you debug issues directly in production.
