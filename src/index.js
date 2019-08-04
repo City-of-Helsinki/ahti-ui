@@ -5,7 +5,7 @@ import ReactGA from 'react-ga';
 import * as i18n from './i18n';
 import './globalStyles/index.scss';
 
-import i18n from './i18n'; // this needs to be here for i18n to work
+// import i18n from './i18n'; // this needs to be here for i18n to work
 // import * as serviceWorker from './serviceWorker';
 // Initialize Internationalization globals
 i18n.initialize();
@@ -26,4 +26,4 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.register();
+// serviceWorker.register();
