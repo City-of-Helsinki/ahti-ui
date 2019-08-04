@@ -110,7 +110,7 @@ const MapboxMap = ({
             extent={512}
             nodeSize={40}
             minZoom={0}
-            maxZoom={13}
+            maxZoom={10}
             currentSlide={currentSlide}
             element={e => {
               return <ClusterPin {...e} flyToPoint={flyToPoint} />;

@@ -21,6 +21,7 @@
         "website": "https://visitisosaari.fi/vierasvenesatama/",
         "phone_number": "+358 600 390 111",
         "address": "Isosaari,  00860 Helsinki",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {
@@ -48,6 +49,7 @@
         "website": "http://www.helsinkimarina.fi/homepage/prices.php",
         "phone_number": "+358 40 3342050",
         "address": "Kanavaranta 4, 00160 Helsinki",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {
@@ -75,11 +77,12 @@
         "website": "http://www.valimo.org/vierassatama/",
         "phone_number": "+358 41 510 1060",
         "address": "Suomenlinnan Varvilahti, 00190 Helsini",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [60.14624, 24.98228]
+        "coordinates": [24.98228, 60.14624]
       }
     },
     {
@@ -102,6 +105,7 @@
         "website": "http://www.njk.fi/vierassatama/",
         "phone_number": "+358 9 636 047",
         "address": "Valkosaari, 00140 Helsinki",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {
@@ -129,6 +133,7 @@
         "website": "http://helsinkisailing.com/satama/",
         "phone_number": "+358 9 633 637",
         "address": "Liuskasaari, 00140 Helsinki",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {
@@ -156,6 +161,7 @@
         "website": "http://marina.hmvk.fi/vierasvenepaikat-berth-reservations/",
         "phone_number": "+358 40 508 8344",
         "address": "Tervasaarenkannas 1, 00170 Helsinki",
+        "imageId": "10",
         "type": "visitor"
       },
       "geometry": {
@@ -792,7 +798,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Nokkalanniemi, 02230 Espoo",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Nokkala"],
         "imageId": "8"
       },
@@ -821,7 +827,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Mellstenintie 6, 02170 Espoo",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "soutuvene", "Skipperi"],
         "imageId": "8"
       },
@@ -850,7 +856,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Sateenkaari 9, 02100 Espoo",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Otsolahti"],
         "imageId": "8"
       },
@@ -879,7 +885,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Keilalahdentie 8, 02150 Espoo",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Keilaniemi"],
         "imageId": "8"
       },
@@ -908,7 +914,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Keilasatama 5, 02150 Espoo",
-        "type": "actor",
+        "type": "cityboat",
         "tag": [
           "Kaupunkivene",
           "moottorivene",
@@ -943,7 +949,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Vattuniemen puistotie 1, 00210 Helsinki",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "moottorivene", "Skipperi", "Lauttasaari"],
         "imageId": "8"
       },
@@ -972,7 +978,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Hernesaarenranta 13, 00150 Helsinki",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "moottorivene", "Skipperi", "Hernesaari"],
         "imageId": "8"
       },
@@ -1001,7 +1007,7 @@
         "website": "https://www.skipperi.fi/kaupunkiveneet",
         "phone_number": "010 309 4239",
         "address": "Pursilahdenranta 2, 00980 Helsinki",
-        "type": "actor",
+        "type": "cityboat",
         "tag": ["Kaupunkivene", "soutuvene", "Skipperi", "Aurinkolahti"],
         "imageId": "8"
       },
@@ -1133,29 +1139,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [24.998032, 60.207726]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "fi": {
-          "name": "Elisaari",
-          "header": "Helsingin kaupungin virkistysalue, Elisaari sijaitsee Barösundissa Inkoon saaristossa, saaren länsipäässä. Helsingistä noin 65 km meritse, maantietä n",
-          "description": "Helsingin kaupungin virkistysalue, Elisaari sijaitsee Barösundissa Inkoon saaristossa, saaren länsipäässä. Helsingistä noin 65 km meritse, maantietä noin 73 km Barölandetin lossirantaan, josta vesimatkaa 1,5 km Elisaareen.\nSaareen pääsee myös omalla veneellä. Venepaikkoja on n. 100, pääasiassa poijukiinnityksellä.\nElisaari on kuuluisa luonnonvaraisesta tammimetsiköstään. Saaressa kasvaa myös monia harvinaisia kasveja. Eläimistöltäänkin saari on monipuolinen: lampaista valkohäntäpeuroihin ja hirviin. \nSaaressa on viiteoittettuja luontopolkuja, joita kulkemalla tutustuu parhaiten saaren luontoon. Osa Elisaaresta on rauhoitettu luonnonsuojelualueeksi vuonna 1994. Ulkoilualue on perustettu vuonna 1971. Alueen pinta-ala on 323 ha (vesialue 91 ha).\nSaaressa on vuonna 1902 rakennettu kartano. Se toimii kesäravintolana ja kokouspaikkana. \nSaarella voi uida, onkia, soudella, saunoa, retkeillä, leireillä, majoituttua, kokoustaa.\nSaaressa on Wc, jätehuolto, imutyhjennys, kioski, kahvila, ravintola, sauna, suihku, uimaranta, luontopolku, leikkipaikka, tulentekopaikka, sähkö, pitopalvelu, kokoustilat, majoitustilat, leirintäalue.\nKts.tarkemmat lisätiedot kotisivu-linkistä puhelinnumeron jälkeen sivun ylälaidasta."
-        },
-        "en": {
-          "name": "Elisaari"
-        },
-        "address": "Elisaari, 10270 Barönsalmi",
-        "website": "http://www.elisaari.fi/",
-        "type": "island",
-        "imageId": "11",
-        "tag": ["Elisaari"],
-        "image": "https://farm2.staticflickr.com/1745/42378830352_86564bccba.jpg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [23.933254, 59.981426]
       }
     },
     {
@@ -1350,29 +1333,6 @@
       "geometry": {
         "type": "Point",
         "coordinates": [25.052797, 60.101543]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": {
-        "fi": {
-          "name": "Bengtsår",
-          "header": "Bengtsår sijaitsee Hankoniemen pohjoispuolella",
-          "description": "Bengtsår sijaitsee Hankoniemen pohjoispuolella. Helsingin kaupunki omistaa valtaosan saaresta ja sitä ympäröivästä vesialueesta. Bengtsårin leirisaari on avoinna ympäri vuoden. Toiminta on nuorten ryhmien, nuorisotalojen, nuorisojärjestöjen sekä nuorisoyhdistysten leiri- ja retkitoimintaa. Saaressa on myös vapaa-ajan asutusta.\n\nLeirisaaren käsittää seitsemän erillistä aluetta. Pääsaarella ovat Rantaniitty, Niemennokka, Sofianlehto ja Lahdenpohja. Sen lisäksi lähisaarissa Barnholmin ja Aspholm 1:en (pohjoispuoli) ja Aspholm 2:en (eteläpuoli) leirialueet.\n\nHelsingin kaupunki osti maat 1900-luvun alussa. Saaressa on toiminut kasvatuslaitos ja koulukoti Venäläiset miehittivät 1940 saaren noin vuodeksi. Toisen maailmansodan jälkeen tänne asutettiin muutamia siirtokarjalaisia perheitä. Nuorten leiritoiminta alkoi vuonna 1945. Maanviljely ja karjanhoito päättyivät 1950-1960-luvuilla.\n\nSaaressa on Helsingin kaupungin omistama 17 hehtaarin suuruinen luonnonsuojelua Bengtsårin lehto. Saaren suojelunkohteina ovat tammivaltainen lehtoalue, vanha kulttuurimaisema ja sen kasvilajisto. \n\nSaareen päsee yhteysveneellä ja omalla veneellä. Omalla veneellä tulijat voivat tiedustella kiinnittymismahdollisuutta leirisaaren osoitteesta +358 50 559 1730, bengtsarin.leirisaari@hel.fi\n\nBengtsår tarjoaa hyvän maaston kävelyyn ja monipuoliseen liikuntaan. Teiden lisäksi täällä on myös luontopolku. \n\nSaarella on seitsemän telttaleirialuetta ja kaksi isohkoa saunaa.\n"
-        },
-        "en": {
-          "name": "Bengtsår"
-        },
-        "address": "bengtsår, Hanko",
-        "website": "https://www.bengtsar.fi/",
-        "type": "island",
-        "imageId": "11",
-        "tag": ["Bengtsår"],
-        "image": "https://farm1.staticflickr.com/974/28296389078_0ee4042ab9_b.jpg"
-      },
-      "geometry": {
-        "type": "Point",
-        "coordinates": [23.113066, 59.908447]
       }
     },
     {
