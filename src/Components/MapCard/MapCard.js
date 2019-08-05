@@ -64,12 +64,9 @@ const FloatingBlock = styled.div`
 
 const MapCard = ({ pointData, onBack, closeCardLink }) => {
   const { t, i18n } = useTranslation();
-  const website =
-    (pointData && pointData.properties.website) || '<placeholder site>';
-  const info =
-    (pointData && pointData.properties.phone_number) || '<placeholder #>';
-  const address =
-    (pointData && pointData.properties.address) || '<placeholder address>';
+  const website = pointData && pointData.properties.website;
+  const info = pointData && pointData.properties.phone_number;
+  const address = pointData && pointData.properties.address;
   const imageURL =
     pointData &&
     (pointData.properties.image ||
@@ -134,22 +131,32 @@ const MapCard = ({ pointData, onBack, closeCardLink }) => {
               </BodyText>
             )}
             <ContactInfoContainer>
-              <IconContainer>
-                <Location height="24" viewBox="0 0 48 48" />
-                <BodyText>{address}</BodyText>
-              </IconContainer>
-              <Line />
-              <a target="_blank" rel="noopener noreferrer" href={website}>
+              {address && (
                 <IconContainer>
-                  <Home height="24" viewBox="0 0 48 48" />
-                  <BodyText>{website}</BodyText>
+                  <Location height="24" viewBox="0 0 48 48" />
+                  <BodyText>{address}</BodyText>
                 </IconContainer>
-              </a>
-              <Line />
-              <IconContainer>
-                <Info height="24" viewBox="0 0 48 48" />
-                <BodyText>{info}</BodyText>
-              </IconContainer>
+              )}
+              {website && (
+                <>
+                  <Line />
+                  <a target="_blank" rel="noopener noreferrer" href={website}>
+                    <IconContainer>
+                      <Home height="24" viewBox="0 0 48 48" />
+                      <BodyText>{website}</BodyText>
+                    </IconContainer>
+                  </a>
+                </>
+              )}
+              {info && (
+                <>
+                  <Line />
+                  <IconContainer>
+                    <Info height="24" viewBox="0 0 48 48" />
+                    <BodyText>{info}</BodyText>
+                  </IconContainer>
+                </>
+              )}
             </ContactInfoContainer>
           </CardTextContainer>
         </Container>
