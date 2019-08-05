@@ -1,0 +1,1372 @@
+{
+  "data": [
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Varsasaari",
+          "header": "Varsasaari on Helsingin kaupungin ulkoilualue Espoon itäisessä saaristossa.",
+          "description": "Saarella olevat kesämajat ovat yksityisiä, muuten saari on julkista aluetta. \nVarsasaaressa voi retkeillä, telttailla, uida ja saunoa ja pelata lentopalloa. \nSaaressa on vesipiste, kesäsuihku, pukukopit, keittokatos sekä kuivakäymälä.\nSinne pääsee omalla veneellä tai kanootilla. Omalla veneellä voi kiinnittyä saaren päälaituriin keulakiinnityksellä. \nYöpymismaksu on 5€/vrk/venekunta. Teltassa voi majoittua 5€/vrk/telttakunta. Sauna on avoinna kaikille retkeilijöille.\n\n"
+        },
+        "en": {},
+        "address": "Westendintie 34a, 02160 Espoo",
+        "website": "http://varsasaari.fi/",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Varsasaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.797626, 60.154453]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Käärmeluodot",
+          "header": "Helsingin kaupungille kuuluvat kolme käärmeluotoa Lauttasaaren länsipuolella ovat mainioita retkikohteita veneilijöille ja melojille.",
+          "description": "Käärmeluodot sijaitsevat Lounais-Helsingissä, Lauttasaaren länsipuolella. Niihin ei julkista liikenneyhteyttä.\n\nKäärmeluotoja on kolme: pohjoinen, läntinen ja itäinen. Saaren pinta-ala on yhteensä 4,5 ha.\nPohjoisella käärmeluodolla on mainio uimaranta. Lyhytaikainen telttailu on sallittu Pohjoisella ja Läntisellä käärmeluodolla. \n\nLuodot ovat korkeita, komeita ja paikoin jyrkkiäkin kalliosaaria, joissa kasvillisuus on karua. Luodoilla on käymälöitä ja käyttökatoksia. \n"
+        },
+        "en": {
+          "name": "Käärmeluodot N"
+        },
+        "address": "Lauttasaaren edusta, Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Käärmeluodot"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.849087, 60.14786]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Pyysaari",
+          "header": "Pyysaari sijaitsee Laajasalossa lähellä Kulosaarta. Saari on vuokrattu Helsingin Työväen Pursiseuran käyttöön. Pyysaareen pääsee maitse ja vesitse.",
+          "description": "Pyysaari sijaitsee Laajasalossa lähellä Kulosaarta. Saari on vuokrattu Helsingin Työväen Pursiseuran käyttöön. Pyysaareen pääsee maitse ja vesitse. Maitse pääsee Laajasalosta ulkoiluteitä Tullisaaren puistosta. Vesitse saareen on yhteys vain omalla veneellä. \nVierasvenepaikkoja saaressa on viisi. Syvyys on 3-6 m. Siellä on keula- ja poijukiinnitys käytössä.\nTyöväen pursiseuran kerhoravintola Ravintola Pyysaari https://htps.fi/a/ravintola-pyysaari sai anniskeluoikeudet jo vuonna 1952 Helsingin olympialaisiin. Se on ollut toiminnassa siitä lähtien joka kesä yli 50 vuoden ajan. \nSaaresta voi vuokrata kokoustila 12 hengen kokouksille. Tilassa on langaton netti, videotykki, valkokangas ja tarvittaessa fläppitaulu.\nHelsingin Työväen Pursiseura\n09 698 0287, 698 912\nwww.htps.fi\n"
+        },
+        "en": {},
+        "address": "Henrik Borgströmin polku 3, 00590 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Pyysaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.02321, 60.17947]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Villinki",
+          "header": "Villingin saariryhmä sijaitsee Itä-Helsingissä, lähellä Jollasta ja Santahaminaa.",
+          "description": "Villingin saariryhmä sijaitsee Itä-Helsingissä, lähellä Jollasta ja Santahaminaa. Se kuuluu Helsingin saariston kuvatuimpiin kohteisiin luonnon ja vanhojen huviloiden vuoksi. \n\nLänsi-Villingissä on yksityishuviloita sekä kartano. Saaren sisäosissa voi liikkua jokamiehenoikeudella. Saareen kannattaa tutustua kävelemällä saaristopolkuja ristiin rastiin. \nVillingissä voidaan nähdä merkkejä entisajan huvilaelämästä. Museovirasto onkin luokitellut saaren kulttuurihistoriallisesti arvokkaaksi ympäristöksi. \n\nVillingissä on asunut kalastajia 1700-luvulta lähtien. Huvilasaari siitä tuli 1800-luvun puolivälin jälkeen. Osa huviloita on rakennuttu sittemmin vielä 1960-luvulla. Saareen on tultu soutaen, purjehtien, aikoinaan höyryalus S/S Willingellä ja myöhemmin myös taksiveneellä.\nHelsingin ja Uudenmaan näkövammaiset RY:llä on saaressa lomakoti. Tämän lisäksi Villingissä ei ole tällä hetkellä oikeastaan mitään palveluita tai fasiliteetteja. \nSaaren länsipuolella, Villinginlahdella on myös arkkitehtien maja. \nItäisen saariston asemakaavan tavoitteena on kehittää saariston ympärivuotista käyttöä, sekä lisätä virkistyksen ja matkailun mahdollisuuksia. Asemakaavan lisäksi Villinki ja Itä-Villinki ovat valikoituneet myös Helsingin saariston kehitettäviksi tähtikohteiksi. Saaret ovat kuitenkin vielä nykyisellään lähes suljettuja.\nItä-Villingissä on rannikkotykistön vartiolinnake ja sinne on maihinnousukielto.\n\nItä-Helsingin saaristoristeilyillä ajetaan Villingin ohi. Saareen pääsyä voi tiedustella liikennöitsijöiltä, linkki alla.\nVilllingin lomakodin vieraslaituri sijaitsee saaren länsipuolella Kristallilahdessa. Mutta varsinaista vierasvenesatamaa ei saaresta löydy. Kunnollisia laitureita vierasveneille vasta mietitään.\n\nSaaren länsipuolella voi retkeillä jokamiehenoikeudella. \n\nHelsingin ja Uudenmaan näkövammaiset RY:llä on saaressa lomakoti. Tämän lisäksi Villingissä ei ole tällä hetkellä oikeastaan mitään palveluita tai fasiliteetteja.\n"
+        },
+        "en": {
+          "name": "Villinki"
+        },
+        "address": "Villinki, 00850 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Villinki"],
+        "image": "https://farm2.staticflickr.com/1754/28709026108_f13b274227_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.113924, 60.15779]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Kuusiluoto",
+          "header": "Kuusiluoto on saari Vanhankaupungin selällä.",
+          "description": "Kuusiluoto on saari Vanhankaupungin selällä. Se sijaitsee Lammassaaren vieressä. Molempiin saariin pääsee pitkospuita pitkin yli Vanhankaupunginlahden luonnonsuojelualueen ruovikon. Reitti kulkee Pornaistenniemestä Jokisuuntien eteläpään vierestä Lammassaaren kautta Kuusiluotoon.\nSaarten nimet ovat harhaanjohtavia: Kuusiluodossa on vain yksi kuusi. Lammassaaressa ei ole lampaita. Niitä on vain Kuusiluodossa. Lampaat hoitavat kesäisin Kuusiluodon perinnemaisemaa. Lampaita ei sovi ruokkia.\nKuusiluodossa näkyy merkkejä entisajan huvila-ajoilta. Vanhankaupungin kulttuuri-ekologinen klubi ry on vuokrannut Kuusiluodon vanhan puuhuvilan.\n\nSaaressa voi uida, onkia, retkeillä, tarkkailla lintuja ja muuta luontoa.\nKuusiluodon lounaiskärjen laiturilta voi onkia ja uida omalla vastuulla. Laiturilta ei kuitenkaan pidä hypätä veteen. Avotulen tekeminen on kielletty. \n\nSaaren lähimmät roskasäiliöt ovat Pornaistenniemessä polkureitin alkupäässä. Kaiken roskan minkä tuot saareen, viet myös mukanasi."
+        },
+        "en": {
+          "name": "Kuusiluoto"
+        },
+        "address": "Kuusiluoto 3, 00560 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Kuusiluoto"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.995714, 60.20577]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Lammassaari",
+          "header": "Lammassaari sijaitsee lähellä Vanhankaupunginkoskea ja Arabianrantaa, Kuusiluodon naapurissa.",
+          "description": "Lammassaari sijaitsee lähellä Vanhankaupunginkoskea ja Arabianrantaa, Kuusiluodon naapurissa. \nSinne pääsee Vanhankaupunginkosken sillan läheltä Pornaistenniemeltä pitkospuita pitkin. Esteetön pitkospolku ja elämyksellinen Luonnon syli -luontopolku muodostavat yhdessä noin 3,5 kilometrin mittaisen esteettömän retkireitin.\nLammassaari kuuluu Viikin - Vanhankaupunginlahden luonnonsuojelualueeseen. Ulkoilijoiden odotetaan kunnioittavan luonnonrauhaa rauhoitetulla alueella ja myös sen ulkopuolella. Alueella levähtää keväisin ja syksyisin tuhansia muuttolintuja. Saari on mainio kohde ulkoiluun ja retkeilyyn. \nSuojellussa saaressa liikutaan ainoastaan yleisillä poluilla. \nOsa saarta on mökkialuetta, joita Raittiusyhdistys Koitto hallinnoi. \nNimestään huolimatta saaressa ei ole lampaita, vaan niitä on naapurisaaressa Kuusiluodossa. \nMökkiläisillä mahdollista rantautua saareen omalla veneellä.\nEsteetön pitkospolku ja elämyksellinen Luonnon syli -luontopolku muodostavat yhdessä noin 3,5 kilometrin mittaisen esteettömän retkireitin.\nLevähdyspaikkoja ja lintujen tarkkailupaikkoja. \nLammassaaren vanhimmassa rakennuksessa Lepolassa voi majoittua, järjestää kokouksia ja juhlia. Pohjolan Pirtin tiloja voi myös vuokrata juhlakäyttöön Raittiusyhdistys Koitolta.\n"
+        },
+        "en": {
+          "name": "Lammassaari"
+        },
+        "address": "Lammassaari 1, 00560 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Lammassaari"],
+        "image": "https://farm2.staticflickr.com/1742/28707567228_705d6414e2.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.998032, 60.207726]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Vartiosaari",
+          "header": "Vartiosaari sijaitsee Helsingin itäisessä saaristossa.",
+          "description": "Vartiosaari sijaitsee Helsingin itäisessä saaristossa. Se on noin 82 hehtaaria suuri saari. Vartiosaari kuuluu valtakunnallisesti merkittäviin rakennettuihin kulttuuriympäristöihin. Se on osa Helsingin höyrylaivareittien kesähuvila-asutusta. \n\nYli puolet Vartiosaaren pinta-alasta on arvokkaita luontokohteita. Saari on maastoltaan ja luonnonoloiltaan monipuolinen ja rikas. Kasvuolot vaihtelevat kuivista mäntykankaista reheviin lehtoihin. Saaren kallioisilta lakialueilta avautuu näkymiä kauas merelle. Korkein kohta on 32 metriä merenpinnan yläpuolella.\nSaaressa on noin 50 huvilaa ja loma-asuntoa ja satakunta muuta rakennusta sekä Nuorisoasiainkeskuksen kesänuorisotalo. \n\nHuvilakanta alkoi rakentua 1800-luvun lopulla. Saarella asuu nykyisin ympärivuotisesti parikymmentä henkeä. Pääosa rakennuksista on kuitenkin lähinnä kesäkäytössä. Saareen kuljetaan vesiteitse.\nPihapiirejä lukuun ottamatta Vartiosaaressa voi liikkua jokamiehenoikeudella. Rannat ovat lähes kauttaaltaan huviloiden yksityispihoja, joiden rauhaa on kunnioitettava.\n\nSaarelle on veneyhteys Hakaniemestä ja Laajasalosta Reposalmentien päästä. Liikennöitsijä on Suomen Saaristokuljetus Oy. \n\nSaareen ei voi rantautua omalla veneellä\n\nVartiosaaressa voi ulkoilla, retkeillä ja mökkeillä. Uida ja onkiakin voi lounaisrannalla. Tulenteko ja leiriytyminen on kielletty.\n\nSaarella on uimaranta, luontopolku, eläintalli, nuorten kesätoimintakeskus, wc, kahvila\n\n\n"
+        },
+        "en": {
+          "name": "Vartiosaari"
+        },
+        "address": "Vartiosaari, Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Vartiosaari"],
+        "image": "https://farm2.staticflickr.com/1742/40621026320_e6d6a8ccca_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.076748, 60.18404]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Kaivokari",
+          "header": "Kaivokari on Helsingin kaupungin ulkoilualue Porvoon saaristossa",
+          "description": "Kaivokari on Helsingin kaupungin ulkoilualue Porvoon saaristossa. Se kuuluu Onaksen saariryhmään.\nSaaren luonto on monimuotoista ja kaunista. \n\nSaarelle ei ole julkista liikenneyhteyttä. Saarelle pääsee omalla veneellä, Kaivokarissa on veneenkiinnitysrenkaita, ei satamamaksuja.\n\nSaaressa voi uida ja retkeillä. Telttailu on sallittua ja maksutonta. \n\nSaarella on käymälöitä ja grillipaikka. Omat polttopuut kannattaa ottaa mukaan.\n"
+        },
+        "en": {
+          "name": "Kaivokari"
+        },
+        "address": "Kaivokari, Porvoo",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Kaivokari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.492796, 60.20019]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Kalliosaari",
+          "header": "Kalliosaari sijaitsee Helsingin itäisessä saaristossa Kallahdenniemen edustalla.",
+          "description": "Kalliosaari sijaitsee Helsingin itäisessä saaristossa Kallahdenniemen edustalla. \nPieni saari on pituudeltaan noin 350 metriä. Saaren länsiosa on korkeaa kalliota, saaren huippu on lähes 19 metriä. Huipulta on hienot näkymät muualle saaristoon. Itäranta on laakeampaa kalliota ja siellä on myös hiekkaranta. \nPääosin saari on kallioista mäntykangasta. Suurta osaa saarta peittää herkkä jäkälä, sammal ja heinikko. Paikoin on runsaasti saniaisia.\n\nSaarelle ei pääse yhteysveneellä. Omalla veneellä liikkujien kannattaa rantautua varovaisesti, sillä rantavesissä on kiviä. Syvyys on 0,1. Rantaan kiinnittäydytään ankkurilla.\n\nSaari on sopiva paikka ihailla lähisaaristoa, retkeillä ja uida. \n\nSaarella on käymälä, tulentekopaikka, uimaranta.\n"
+        },
+        "en": {
+          "name": "Kalliosaari"
+        },
+        "address": "Kalliosaari, 00980 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Kalliosaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.163399, 60.18471]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Pikku Leikosaari",
+          "header": "Pikku Leikosaari sijaitsee Helsingin itäisessä saaristossa, Kallahden eteläpuolella.",
+          "description": "Pikku Leikosaari sijaitsee Helsingin itäisessä saaristossa, Kallahden eteläpuolella. Tätä luonnonsatamaa ylläpitää Uudenmaan virkistysalueyhdistys. \nSaaren kalliot ovat laakeat. Korkein kohta on vain kuusi metriä merenpinnasta. Saari on altis tuulille.\nLähin saari on Suuri Leikosaari, Stora Lekholmen. Se kuuluu Helsingin ruotsinkieliselle seurakunnalle.\n\nSaareen pääsee yhteysveneellä ja omalla veneellä. Yhteysvene liikennöi välillä Hakaniemi-Vuosaari. \n\nSaari on mahtava paikka auringonottoon ja uinti-ja luontoretkeilyyn.\n"
+        },
+        "en": {
+          "name": "Pikku Leikosaari"
+        },
+        "address": "Pikku Leikosaari, 00980 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Pikku Leikosaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.144588, 60.169388]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Eestiluoto",
+          "header": "Eestiluoto sijaitsee Sipoon vesillä",
+          "description": "Eestiluoto sijaitsee Sipoon vesillä. Saari on ollut puolustusvoimien käytössä. Pääosa saaresta on luovutettu 70-luvulla Helsingin kaupungille virkistyskäyttöön.\nLuonto on erittäin kaunis ja monipuolinen niittyineen ja sileine kallioineen. Alueella olevat kenttäorakon ja lehtokielon kasvualueet on rauhoitettu luonnonsuojelualueeksi. Ulkomerellä Eesti-luodon lähistöllä aukeavat ammattikalastajien suosimat lohivedet. \nOsa saaresta on rauhoitettua ja osa yksityiskäytössä. \n\nSaarelle ei pääse yhteysveneellä. Ei ole. Veneenkiinnitysrenkaita on saaren pohjois- ja itärannalla noin 60. \n\nEestiluoto sopii hyvin retkeilyyn ja uimiseen. Telttaillakin voi lyhytaikaisesti telttailla saaren eteläpuolella sijaitsevalla Kutuhälletin luodolla. \nSaarilla liikuttaessa on otettava huomioon, että alueesta osa on rauhoitettua ja osa yksityiskäytössä.\n\nSaarella on käymälä. Keittokatos on Kutuhälletissä.\n"
+        },
+        "en": {
+          "name": "Eestiluoto"
+        },
+        "address": "Eestiluoto, 00890 Sipoo",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Eestiluoto"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.22324, 60.123837]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Hylkysaari",
+          "header": "Hylkysaari sijaitsee Korkeasaaren eteläpuolella Kruunuvuorenselällä.",
+          "description": "Hylkysaari sijaitsee Korkeasaaren eteläpuolella Kruunuvuorenselällä. Saari on yhdistetty kahdella maapenkereellä Korkeasaareen. \n\nHylkysaari kuuluu Helsingin 19. kaupunginosaan Mustikkamaa-Korkeasaari.\nSaaressa on ollut 1800-luvulla huvilaelämää. Luotsiasema toimi Hylkysaaressa 1960-luvulle asti. Myöhemmin siellä oli Suomen merimuseo ennen kuin se vuonna 2007 siirrettiin Kotkaan. \n"
+        },
+        "en": {
+          "name": "Hylkysaari"
+        },
+        "address": "Hylkysaari, 00570 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Hylkysaari"],
+        "image": "https://farm1.staticflickr.com/886/41703139824_b2e7a6a2e8_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.984728, 60.17069]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Seurasaari",
+          "description": "Seurasaari sijaitsee viitisen kilometrin etäisyydellä keskustasta Länsi-Helsingissä Meilahden eteläpuolella. Se on sekä suosittu luontokohde että ulkomuseo. \nSaaren pinta-ala on noin 46 ha. Luonto on metsäistä kallioisine mäkineen, kosteine notkelmineen ja lehtoineen. Saaren eläimet kuten oravat ovat tottuneet ihmisiin. Eteläranta on suojeltu saaren kävijöiltä \nSeurasaaresta tehtiin kansanpuisto jo vuonna 1890. Se oli suosittu työläisväestön retkikohde ja juhlien pitopaikka. Alussa saareen oli vain laivayhteys, silta valmistui vuonna 1892.\nSeurasaaren juhannus ja Seurasaaren joulupolku ovat saaren vuotuisia suuria tapahtumia.\n\nSaareen pääsee Vesibussilla joka lähtee Kauppatorilta. Lisäksi saareen pääsee HSL:n bussilla numero 24. Saareen ei toistaiseksi pääse omalla veneellä.\n\nSaaressa voi kävellä, ulkoilla, uida, retkeillä, juhliminen.\nSeurasaaren ystävät ry järjestää Seurasaari-aiheisia talkoita, retkiä ja muita tapahtumia.\n\nSeurasaaressa on inva-wc ja esteetön ulkoilureitti.\nSeurasaaressa on hyvät kävelytiet, uimarantoja, talviuintipaikka, katokseton puugrilli ja huvimaja juhlakentän vieressä, kioskeja, kahvio ja kesäravintola."
+        },
+        "en": {
+          "name": "Seurasaari"
+        },
+        "address": "Seurasaari, 00250 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Seurasaari"],
+        "image": "https://farm1.staticflickr.com/961/41287562975_2a972f6ef2_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.886662, 60.183857]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Tervasaari ja Tervasaarenkannas",
+          "header": "Tervasaari sijaitsee Pohjoisrannan edustalla. Sinne pääsee myös pitkin pengertietä.",
+          "description": "Tervasaari sijaitsee Pohjoisrannan edustalla. Sinne pääsee pitkin pengertietä. Se toimii Kruununhaassa asuvien virkistysalueena. Ravintolan ja muiden palveluidensa ansiosta siellä käydään myös Kruununhaan ulkopuolelta virkistäytymässä. \nSaaressa varastoitiin aikoinaan tervaa vientiä varten, mistä nimi juontuu. Terva-aitat oli sijoitettu saarelle palovaaran vuoksi. Vuonna 1939 se yhdistettiin mantereeseen Tervasaarenkannaksen välityksellä. \n\nTervasaari kaavoitettiin lähivirkistysalueeksi vasta vuonna 1988. Kannaksen molemmille puolille rakennettiin pienvenelaitureita.\nSaari muutettiin puistomaisemmaksi vuonna 1995. Siellä on lasten leikkipaikka, koira-aitaus ja koirien oma uimaranta. Tervasaaressa järjestetään tapahtumia kesäisin teatterista alkaen kesäteatteri ja siellä on hyvä järjestää pienimuotoisia tapahtumia. \nViimeinen historiallinen aitta vuodelta 1805 on nykyisin aittaravintola Savu. Saaressa on myös koira-aitaus ja uimaranta, lasten leikkipaikka, tapahtumalava katsomoineen. \nTervasaarenkannaksella on venepaikkoja parisen sataa ja vierailijoille kolmisenkymmentä.\n\nSaarelle ei ole yhteysvenettä. \nHelsingin moottoriveneyhdistyksellä on jäsenille ja vierailijoille venepaikkoja Tervasaarenkannakselle.\n\nTervasaari soveltuu hyvin palvelujensa ja sijaintinsa puolesta ulkoiluun ja kulinaristiseen sekä kulttuuriseen virkistykseen. Siellä on kuuluisa ravintola Savu, jonne kannattaa kaupungissa vierailijoidenkin käydä. Kesäisin on myös kulttuuritapahtumia\nKoirille saaressa on koira-aitaus ja oma uimaranta. \nTervasaarenkannas toimii myös Helsingin moottoriveneyhdistyksen kotisatamana ja vierasvenesatamana.\n\nTervasaaressa on muun muassa aittaravintola Savu, lasten leikkipaikka, koira-aitaus ja uintipaikka, mattolaituri ja tapahtumalava katsomoineen. \n"
+        },
+        "en": {
+          "name": "Tervasaari ja Tervasaarenkannas"
+        },
+        "address": "Tervasaari, 00170 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Tervasaari ja Tervasaarenkannas"],
+        "image": "https://farm1.staticflickr.com/956/28312224608_17fb9e2535_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.968899, 60.173645]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Isosaari",
+          "header": "Isosaari on yksi Helsingin seudun uloimmista saarista.",
+          "description": "Huomioi kielto- ja rajoituskyltit reittien varrella. Maastossa on vaarallisia sortumispisteessä olevia rakennelmia."
+        },
+        "en": {
+          "name": "Isosaari"
+        },
+        "address": "Isosaari , 00860 Helsinki",
+        "website": "http://visitisosaari.fi/",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Isosaari"],
+        "image": "https://farm1.staticflickr.com/963/41268368855_a1bf0b233d_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.052797, 60.101543]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Suomenlinna",
+          "header": "Suomenlinna on historiallinen merilinnoitus ja Helsingin kaupunginosa, jossa asuu noin 800 helsinkiläistä.",
+          "description": "Suomenlinna on historiallinen merilinnoitus ja Helsingin kaupunginosa, jossa asuu noin 800 helsinkiläistä. Merilinnoitus kuuluu Unescon maailmanperintökohteisiin. Suomenlinnassa vierailee noin miljoona kävijää vuodessa. \n\nLinnoituksessa on museoita, kirjasto, kahviloita ja ravintoloita, uimaranta, kauppa, taidekäsityöläisten työhuoneita ja kesäteatteri. Suomenlinnassa on myös merisotakoulu, telakka, vierassatama, kirkko ja vankila.\n\nMaailmanperintökohteessa on paljon historiallisesti kiinnostavaa nähtävää. Siellä järjestetään erilaisia tapahtumia ympäri vuoden. Suomenlinnaan voi tutustua itsenäisesti kävellen tai vaikka osallistua opastetulle kävelykierrokselle. Suomenlinna soveltuu myös juhlatilaisuuksiin, kokouksiin ja moniin muihin tilaisuuksiin.\n\nSuomenlinnaan pääsee lautalla Kauppatorilta ja kesäisin myös vesibussilla. Kesäkuukausina opastettuja kävelykierroksia järjestetään päivittäin suomeksi, ruotsiksi, englanniksi, venäjäksi ja määrättyinä aikoina myös kiinaksi. Talvikaudella kierroksia järjestetään viikonloppuisin englanniksi ja keväällä myös venäjäksi. Kierrokset alkavat Suomenlinna-museolta ja kestävät noin tunnin. Liput kierrokselle voit ostaa paikan päällä Suomenlinna-museosta tai etukäteen Ehrensvärd-seuran verkkokaupasta. \n\nVierassatamassa on vieraspaikkoja 40. Satama sijaitsee Susisaarella Varvilahdessa. Satamaan saavutaan Länsimustasaaren ja Susisaaren välissä kulkevaa lateraalimerkein merkittyä väylää pitkin. Kaikki kiinnittyminen on maksullista. Vierassatamassa ei ole polttoainemyyntiä. Lähin polttoainemyynti on Liuskaluodon venehuoltoasemalla Kaivopuiston edustalla. Lisätietoa: http://www.valimo.org/vierassatama/ \n\n"
+        },
+        "en": {
+          "name": "Suomenlinna"
+        },
+        "address": "Suomenlinna, 00190 Helsinki",
+        "website": "https://www.suomenlinna.fi/",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Suomenlinna"],
+        "image": "https://farm1.staticflickr.com/943/28161424378_d1e4f8d93c_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.988483, 60.14672]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Lonna",
+          "header": "Pieni Lonnan saari sijaitsee Kauppatorin ja Suomenlinnan välissä.",
+          "description": "Pieni Lonnan saari sijaitsee Kauppatorin ja Suomenlinnan välissä. Lauttayhteys Kauppatorilta kestää kymmenisen minuuttia. \nLonnan saari lunastettiin Helsingin kaupungilta armeijan käyttöön keisarillisella päätöksellä 1817. Saarelle perustettiin 1830-luvulla ruudin käsittely- ja varastopaikka. Vuonna 1880 Lonnasta tuli merimiinojen kokoamis- ja säilytyspaikka. 1920-luvulla se toimi miinojen raivausasemana ja sotien jälkeen siellä poistettiin laivoista magneettisuutta. Saari siirrettiin Puolustusvoimilta Suomenlinnan hoitokunnan hallintaan vuonna 1999. Hoitokunta aloitti saaressa mittavat maaston ja rakennusten kunnostustyöt. Ne valmistuvat vuoden 2018 aikana. Lonna avattiin yleisölle toukokuussa 2014.\nLonnassa voi tutustua saaren historiaan, virkistäytyä ja juhlia sekä saunoa. Saaressa järjestetään kesäisin konsertteja ja muita tapahtumia.\n\nSaareen pääsee yhteysveneellä reittimatkalla, tilaamalla oman kuljetuksen ja omalla veneellä. Lonnan saaren pohjoiskärjessä on betoniponttoonilaituri jossa on 6 poijupaikkaa. Laiturin rannan päässä on vettä noin 1,2 metriä, ja merenpuolella noin 4 metriä. Laituri huonokuntoinen, uusi laituri tulossa kesällä 2018.\n\nSaarella on WC, ravintola ja museorakennus. Ravintolan sisätiloissa on 60 asiakaspaikkaa, joihin voi tehdä varauksia ravintolan sivuilla (linkki Verkossa osiossa). Ravintolan yhteydessä palvelee 60-paikkainen terassi, jonne ei oteta varauksia.\nMiinamakasiinit toimivat juhlatiloina. Saaressa on myös yleinen sauna. \n"
+        },
+        "en": {
+          "name": "Lonna"
+        },
+        "address": "Lonna, 00190 Helsinki",
+        "website": "http://www.lonna.fi/",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Lonna"],
+        "image": "https://farm1.staticflickr.com/950/28120869898_6ac1d8eaff_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.990034, 60.15436]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Särkk",
+          "header": "Särkän saari ja linnake sijaitsevat Länsi-Mustasaaren luoteispuolella, Harakan saaren naapurissa.",
+          "description": "Särkän saari ja linnake sijaitsevat Länsi-Mustasaaren luoteispuolella, Harakan saaren naapurissa. Särkkä on pursiseura Merenkävijät ry:n käytössä satamana ja telakkana. Särkässä toimii kesäisin ravintola Särkänlinna \n\nSärkän linnoitustyöt aloitettiin vuonna 1749 ja ensimmäinen rakennusvaihe valmistui jo 1750-luvulla. Särkkä rakennettiin suojaamaan toista Helsinkiin tuovaa väylää, Särkän salmea.\nSärkkä oli koko sotilaallisen historiansa ajan aseistettu ja se osallistui taisteluihin sotavuosina 1808 ja 1855, sekä Viaporin kapinan aikana 1906. Vuoden 1952 Helsingin olympialaisten aikana Särkkä toimi purjehduskilpailujen tukikohtana.\n\nSaarelle pääsee yhteysveneellä ja omalla veneellä. Saari on pursiseura Merenkävijöiden kotisatama. Vieraspaikkoja on viisi.\nMerenkävijöillä ei ole varsinaisia vieraspaikkoja, mutta yhteysvenelaiturin ja mastonosturin välissä oleviin kahteen poijuun voi kiinnittyä esim. ravintolakäynnin ajaksi, kysy Merenkävijöiden toimistosta.\n\nSaarella saa koulutusta purjehdustaitoihin, Saari on pursiseuran jäsenille kotisatama. \nSaarella toimivan ravintola Särkänlinnan Piper-salia voi vuokrata yksityistilaisuuksiin.\n"
+        },
+        "en": {
+          "name": "Särkk"
+        },
+        "address": "Särkkä, 00140 Helsinki",
+        "website": "https://www.suomenlinna.fi/linnoitus/alue/sarkka/",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Särkk"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.966434, 60.15109]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Klippan",
+          "header": "Klippan sijaitsee Eteläsataman edustalla, Valkosaaren kyljessä. Klippanin jugend-huvilan on piirtänyt arkkitehti Selim A. Lindqvist.",
+          "description": "Klippan sijaitsee Eteläsataman edustalla, Valkosaaren kyljessä. Klippanin jugend-huvilan on piirtänyt arkkitehti Selim A. Lindqvist. Se on yksi Helsingin näyttävimpiä ja perinteikkäimpiä ravintoloita. Vuonna 1898 valmistuneella rakennuksella on pitkä ja värikäs historia.\nRavintolassa voi viettää juhlia, illanistujaisia, kokouksia ja muita tilaisuuksia.\nSaaressa on wc.\nSaaren ei ole pääsyä omalla veneellä. Klippanin vieresssä, Valkosaaressa sijaitsee NJK:n vierasvenesatama.\nSaariston laituri sijaitsee Olympiaterminaalin eteläpuolella (Ehrenströmintie), Rauhanpatsaan vieressä. Yhteysvene liikennöi Ravintola Saariston aukioloaikoina 20 minuutin välein (tasalta, 20 min yli ja 20 min vaille). Lyhyt merimatka kestää vain pari minuuttia."
+        },
+        "en": {
+          "name": "Klippan"
+        },
+        "address": "Luoto, 00140 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Klippan"],
+        "image": "https://farm1.staticflickr.com/964/28118723528_b2f18e4518_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.965565, 60.159332]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Sirpalesaari P",
+          "header": "Sirpalesaari sijaitsee Merisataman edustalla, Uunisaaren ja Liuskasaaren naapurissa.",
+          "description": "Toukokuusta syyskuuhun saareen veneyhteys Sirpalesaareen pääsee Merisatamanrannasta (Pihlajasaaren lähtölaiturin viereinen laituri). Kun Suomalainen Pursiseura tarvitsi uuden alueen toiminnalleen, vuokrattiin sille Sirpalesaari, jossa uusi seuramaja avatt"
+        },
+        "en": {
+          "name": "Sirpalesaari N"
+        },
+        "address": "Sirpalesaari , 00150 Helsinki",
+        "website": "http://www.suomalainenpursiseura.fi/",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Sirpalesaari P"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.942465, 60.152096]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Vasikkasaari",
+          "header": "Vasikkasaari sijaitsee Kruunuvuorenselällä. Saari pinta-alaltaan vain noin 18 hehtaaria. Suuri osa saarta on luonnontilassa.",
+          "description": "Vasikkasaari on nykyään Helsingin kaupungin omistamaa yleistä ulkoilu- ja virkistysaluetta, josta kaupunki on vuokrannut maata mökkiyhdistyksen jäsenille kesämajakäyttöön. Suuri osa saarta on varsin luonnontilaista, ja erityisesti saaren länsipuolen kor"
+        },
+        "en": {
+          "name": "Vasikkasaari"
+        },
+        "address": "Vasikkasaari , 00860 Helsinki",
+        "website": "http://www.vasikaksaari.org",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Vasikkasaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.013008, 60.153152]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Korkeakupu",
+          "description": "Sopii virkistyskäyttöön jokamiehenoikeudella."
+        },
+        "en": {},
+        "address": "Korkeakupu , 00150 Helsinki",
+        "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/muiden-hallinnoimat",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Korkeakupu"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.835718, 60.130352]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Valkosaari P",
+          "header": "Valkosaari sijaitsee Eteläsatamassa, Olympiaterminaalin vieressä. Helsingin ensimmäisen pursiseuran Nyländska Jaktklubbenin kotisatama vuodesta 1861.",
+          "description": "Valkosaari on vuokrattu Nyländska Jaktklubbenille. Valkosaari sijaitsee Helsingin Eteläsatamassa, aivan kaupungin keskustassa. Saari on kaunis maamerkki lähestyttäessä Helsinkiä mereltä ja suuri valkoinen puurakenteinen paviljonki vihreine kattoineen on y"
+        },
+        "en": {
+          "name": "Valkosaari N"
+        },
+        "address": "Valkosaari , 00140 Helsinki",
+        "website": "http://www.njk.fi/",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Valkosaari P"],
+        "image": "https://farm1.staticflickr.com/909/28118715418_7aa2097882_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.96573, 60.16132]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Uunisaari",
+          "header": "Uunisaari sijaitsee Kaivopuiston edustalla Harakan ja Liuskasaaren naapurissa Kaivopuiston edustalla.",
+          "description": "Kaivopuiston edustalla Harakan ja Liuskasaaren naapurissa Kaivopuiston edustalla. Uunisaari muodostuu kahdesta toisiinsa kapealla salmella yhdistetyistä saaresta. Uunisaaresta pääsee siltaa pitkin Liuskasaareen.\nHiekkarantansa ja kattavien palveluidensa ansiosta se on suosittu retkikohde. Saaressa toimii ravintola Uunisaari ja kaksi tilaussaunaa. \nSaarella on toiminut öljynkeittämö ja maalitehdas. 1800-luvun loppupuolella saarella toimi kuuluisa merikylpylä. Vuonna 1934 saarella avattiin Helsingfors Simsällskapin uimalaitos. \nUunisaareen ei saa tuoda koiria lintujen pesimäaikana eikä koiria saa viedä uimaranta-alueelle.\n\nSaarelle pääsee vain yhteysveneellä, omalla veneellä saarelle ei pääse.\n\nNaapurissa olevalta Liuskasaarelta on kävelysilta Uunisaareen.\n\nSaarella on mahdollisuus uintiin, avantouintiin, saunomiseen, piknik-retkeilyyn tai kahvilassa ja ravintolassa käyntiin sekä kokoustamiseen.\n\nSaarella on ravintola ja kahvila sekä kaksi tilaussaunaa.\nUunisaaressa on entisöity 1800-luvun tehdashalli kokouskäyttöön soveltuviksi tiloiksi. \nKts. tarkemmat lisätiedot kotisivu-linkistä puhelinnumeron jälkeen sivun ylälaidasta."
+        },
+        "en": {
+          "name": "Uunisaari"
+        },
+        "address": "Uunisaari, 00150 Helsinki",
+        "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/uunisaari",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Uunisaari"],
+        "image": "https://farm1.staticflickr.com/975/28118715768_07276ddfde_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.952873, 60.153046]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Pihlaisto",
+          "description": "Pienen luodon ympäristö soveltuu hyvin kalastukseen."
+        },
+        "en": {},
+        "address": "Pihlaisto , 00150 Helsinki",
+        "website": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/muiden-hallinnoimat",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Pihlaisto"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.864113, 60.127583]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Porsas",
+          "description": "Ulkoilusaari, vain päiväretkiä varten. Saarella käymälä ja jätehuolto."
+        },
+        "en": {},
+        "address": "Porsas , 00100 Helsinki",
+        "website": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/muiden-hallinnoimat",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Porsas"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.884468, 60.17227]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Liuskasaari",
+          "header": "Liuskasaari sijaitsee Merisataman edustalla Uunisaaren ja Sirpalesaaren välissä.",
+          "description": "Julkinen liikenne: Toukokuun alusta lokakuun puoliväliin liikennöi saareen veneyhteys Merisatamanrannasta (Kapteeninkadun päästä). Liuskasaaresta johtaa silta Uunisaareen. Liuskasaari kuuluu saariryhmään, joka sijaitsee Merisataman edustalla. Saarella on"
+        },
+        "en": {
+          "name": "Liuskasaari"
+        },
+        "address": "Liuskasaari , 00130 Helsinki",
+        "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/muita-saaria",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Liuskasaari"],
+        "image": "https://farm1.staticflickr.com/955/41252634384_f128d5865d_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.947208, 60.152008]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Vallisaari ja Kuninkaansaari",
+          "header": "Vallisaari ja Kuninkaansaari sijaitsevat Suomenlinnan naapurissa, 20 minuutin laivamatkan päässä Kauppatorilta.\n",
+          "description": "Vallisaari ja Kuninkaansaari sijaitsevat Suomenlinnan naapurissa, 20 minuutin laivamatkan päässä Kauppatorilta. Vesibussi kulkee Vallisaareen. Sieltä pääsee kävellen Kuninkaansaareen aallonmurtajamaista kannasta pitkin. \nEntiset sotilassaaret ovat ainutlaatuinen luonto- ja historiakohde. Vallisaaressa on noin seitsemän kilometrin reitti, joka kulkee venäläisten 1800-luvulla rakentaman merilinnoituksen lomassa. \nVallisaaren luonto on herkkää. Kävijöiden toivotaan pysyvän merkityillä reiteillä. Koirat ovat tervetulleita, mutta ne on pidettävä kytkettyinä.\nSaariin tutustutaan merkittyjä reittejä pitkin: Aleksanterin kierros (3 km) ja Kuninkaansaaren kierros (2,5 km). Saaressa järjestetään opastettuja kierroksia ja ohjelmaa. \nSaarilla voi liikkua lastenrattaiden kanssa, mutta reitit eivät ole esteettömiä: maasto on epätasaista ja ylämäet jyrkähköjä. Reittejä ei ole valaistu, eikä niillä ole talvikunnossapitoa. Pysy reiteillä ja huolehdi lapsista, sillä saarilla on paljon jyrkänteitä ja paikkoja, jotka uhkaavat sortua! \n\nKannattaa pukeutua maastokelpoisiin kenkiin ja vaatteisiin ja voit ottaa mukaasi vesipullon, saarelta löytyy vesipisteitä ja kahvila. Työt Valli- ja Kuninkaansaarissa ovat yhä kesken: vesihuoltoa ja palveluja parannetaan.\nVallisaaressa on noin viitisenkymmenpaikkainen vierasvenesatama Torpedolahdessa, jonne voi omalla veneellä rantautua ja vaikka yöpyä.\nSaaressa kioski, kahviloita ja ravintoloita sekä mahdollisuus majoittua Tentsile puuteltta -majoituksessa. Jäätelökahvila Pajasta saat irtojäätelöä, luomuvirvokkeita, kahvilatuotteita, lettuja, rentoa ruokaa ryhmille. \nHUOM! Vallisaari on suljettu arkipäivisin 19.8.-6.9.2019 \nVallisaari on avoinna päivittäin normaaliin tapaan 18. elokuuta saakka. JT-Linen vesibussit ajavat Vallisaareen päivittäin koko kesäkauden. Suomen Saaristokuljetuksen M/s Isosaari liikennöi Vallisaareen viikonloppuisin ajalla 4.5 - 16.6 sekä 17.8 - 29.9, ja juhannuksesta alkaen 11.8 saakka joka päivä."
+        },
+        "en": {
+          "name": "Vallisaari ja Kuninkaansaari",
+          "header": "PLEASE NOTE: While municipal engineering works are in progress, Vallisaari will be closed to the public on weekdays between 19.8. - 6.9.2019",
+          "description": "JT-Line operates a daily water bus service to Vallisaari throughout the summer season. Suomen Saaristokuljetus operates a service with M/s Isosaari to Vallisaari at weekends between 4 May and 16 June as well as from 17 August till 29 September, with daily departures between Midsummer and 11 August. \n\nChanges in Vallisaari opening times in August and September due to construction works\nThe construction of a water supply network will start in Vallisaari in August. Vallisaari will be open normally until 18 August, after which day the island will be closed on weekdays from 19 August till 6 September. During this period, excavation work will be carried out on the island, including the clearance of old explosives found in the soil. For safety reasons, landing on and accessing the island while this work is in progress will be prohibited. The water buses will not operate on these days, and the guest marina will not be open. The island will be open normally at weekends, and from 7 September, every day until the end of the month. \n\nWhile the construction work is in progress, exceptional routes and other site arrangements may be in use on the island. Metsähallitus will provide more information about these arrangements closer to the construction period. \n\nThe water supply and sewage works will improve the services on the island: next year, flush toilets will be provided in addition to dry toilets, and cafés and restaurants will have better operating conditions. The water supply network on the island will be connected to the HSY network via an undersea pipe.\n"
+        },
+        "address": "Vallisaari, Helsinki",
+        "website": "https://vallisaari.fi/",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Vallisaari ja Kuninkaansaari"],
+        "image": "https://farm1.staticflickr.com/968/28120869578_291c210457_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.007662, 60.138794]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Kaunissaari P",
+          "header": "Kaunissaari sijaitsee Sipoon saaristossa, lähes ulkomerellä.",
+          "description": "Kaunissaari sijaitsee Sipoon saaristossa, lähes ulkomerellä. Saari on 2 kilometriä pitkä ja 800 metriä leveä. Siellä on monipuolinen eläin- ja kasvikunta sekä hyvät kalastusvedet. Ulkoilupuistossa on luontopolku. Saaressa on kallioisia ja kivikkoisia rantoja sekä upeita hietikoita. Alueen pinta-ala on 100 ha ja vesialue on noin 790 ha.\nSaari soveltuu retkeilyyn, telttailuun, kalastukseen, sekä veneilyyn. \nSaareen pääsee sekä omalla veneellä, ja julkisilla/yhteysveneellä. \nVesiliikenneyhteys on Vuosaaren Kalkkihiekantorin vesiliikennelaiturista, josta merimatka kestää noin 50 minuuttia.\nSaaren itärannan suojaisessa valkamassa sijaitsee venesatama (623 60°10,1' N 25°21,2' E), jonka syvyys on 1,9 m, 80 venepaikkaa. Hinta 13 e / vene, kausimaksu 150 e (ei oikeuta vakituiseen satamapaikkaan).\nSaaressa on Wc, tilaussaunoja, keittokatoksia, kolme vuokramökkiä, vuokrattavia soutuveneitä. Saaressa toimii ravintola ja kesäisin käy myymälävene. \nKatso tarkemmat lisätiedot kotisivuilta. Kts. linkki sivun ylälaidasta."
+        },
+        "en": {
+          "name": "Kaunissaari N"
+        },
+        "address": "Kaunissaari, 04130 Sipoo",
+        "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/kaunissaari",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Kaunissaari P"],
+        "image": "https://farm1.staticflickr.com/830/26846708407_27ce72540c_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.338879, 60.171497]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Tvijälp"
+        },
+        "en": {},
+        "address": "Tvijälp, Espoo",
+        "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Tvijälp"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.804733, 60.156513]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Torra Löv"
+        },
+        "en": {},
+        "address": "Torra Lövö, Espoo",
+        "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Torra Löv"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.788216, 60.106537]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Stora Herr"
+        },
+        "en": {},
+        "address": "Stora Herrö, Espoo",
+        "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Stora Herr"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.663658, 60.086063]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Rövaren"
+        },
+        "en": {},
+        "address": "Rövaren, Espoo",
+        "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Rövaren"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.682531, 60.08389]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Rövargrundet"
+        },
+        "en": {},
+        "address": "Rövagrundet, Espoo",
+        "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Rövargrundet"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.685938, 60.089653]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Knapperskär"
+        },
+        "en": {},
+        "address": "Knapperskär, 02380 Espoo",
+        "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Knapperskär"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.742954, 60.086155]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Korkeasaari"
+        },
+        "en": {},
+        "address": "Korkeasaari, 02160 Espoo",
+        "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Korkeasaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.826157, 60.154377]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Kaparen"
+        },
+        "en": {},
+        "address": "Kaparen, 02420 Espoo",
+        "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Kaparen"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.67526, 60.080906]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Gåsgrundet"
+        },
+        "en": {},
+        "address": "Gåsgrundet, 02380 Espoo",
+        "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Gåsgrundet"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.751534, 60.094315]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Iso"
+        },
+        "en": {},
+        "address": "Iso-Vasikkasaari, Espoo",
+        "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Iso"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.760916, 60.13997]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Mustasaari",
+          "header": "Mustasaaressa on uimaranta, luontopolku, kappeli, kotieläimiä ja leikkipuisto. Koirien tuonti saaren on kielletty. Saari on päihteetön.",
+          "description": "Mustasaari sijaitsee Seurasaarenselällä, vartin päässä Taivallahdesta. Saari toimii seurakuntayhtymän vapaa-ajankeskuksena ja saaren hallinta on Helsingin seurakuntayhtymän. Saari on avoinna kaupunkilaisille 5.6.- 12.8. \nMustasaaressa on uimaranta, luontopolku, kappeli, kotieläimiä ja leikkipuisto. Koirien tuonti saaren on kielletty. Saari on päihteetön. \nSeurakunta vuokraa tiloja ja telttoja kokouksia tai yksityisjuhlia varten.\nSaaressa voi uida ja ulkoilla, mutta ilman koiraa. Uimaranta on matala ja turvallinen pienille lapsille. Rannalla ei ole uimavalvontaa. Lapset ovat aina huoltajiensa vastuulla. Suihku ja pukukopit ovat käytettävissä.\nSeurakuntalaisille järjestetään ohjelmaa ja päiväleirejä.\nSaarelle pääsee julkisilla/yhteysveneellä sekä omalla venellä.\nOmalla veneellä liikkujille on vierasvenelaituri ja melojille rantautumispaikka saaren aukioloaikoina. Yöpyminen ja tulenteko on kielletty.\nSaaressa on Wc, suihku ja pukukopit, kahvila, lainaamosta pelivälineitä, tietovisoja, luontopolkumateriaaleja, lounasravintola ja grilli. Kokoustiloja ja telttoja voi vuokrata.\n\n"
+        },
+        "en": {
+          "name": "Mustasaari"
+        },
+        "address": "Mustasaari, 00340 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Mustasaari"],
+        "image": "https://farm1.staticflickr.com/965/41754751822_7a28f2f268_z.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.868568, 60.172527]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Pihlajasaaret",
+          "header": "Entinen huvilasaari on nykyään monipuolinen ulkoilualue. Saaren maasto koostuu kallioista, metsiköistä, lehtomaista sekä kallio- ja hiekkarannoista.",
+          "description": "Pihlajasaari on noin 10 minuutin merimatkan päässä Merisatamasta ja Ruoholahdesta. Saaria on kaksi, läntinen ja itäinen Pihlajasaari. Kävelysilta yhdistää ne. Saareen pääsee yhteysveneellä tai omalla veneellä.\nVenesatamassa on aisapaikkoja 24 ja poijupaikkoja 21 sekä septitankin tyhjennyslaite. Satamamaksu yöpyviltä veneiltä 15 € / vrk. Päivävieraille maksuton. \n\nEntinen huvilasaari on nykyään monipuolinen ulkoilualue. Saaren maasto koostuu kallioista, metsiköistä, lehtomaista sekä kallio- ja hiekkarannoista. \nHiekkarannat soveltuvat hyvin aurinkokylpyihin ja uintiin, hiekkatiet ulkoiluun ja kuntoiluun. Parin kilometrin pituisella luontopolulla voi tutustua historiaan ja luontoon.\nTelttailu on sallittu Itäisessä Pihlajasaaressa viikonloppuisin. Maksu on 15 /vrk\nNaturisteille on varattu ranta-alue Itäisessä-Pihlajasaaressa. \n\nSaaressa on WC:t / Inva-WC, saunoja, keittokatoksia, kioski ja ravintola.\n"
+        },
+        "en": {
+          "name": "Pihlajasaaret"
+        },
+        "address": "Pihlajasaaret, 00150 Helsinki",
+        "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/pihlajasaari",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Pihlajasaaret"],
+        "image": "https://farm1.staticflickr.com/872/27927349948_c5c53a324c.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.918116, 60.138817]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Kotiluoto"
+        },
+        "en": {
+          "name": "Kotiluoto"
+        },
+        "address": "Kotiluoto, 00980 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Kotiluoto"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.104532, 60.17509]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Viinakupu"
+        },
+        "en": {
+          "name": "Viinakupu"
+        },
+        "address": "Viinakupu, 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Viinakupu"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.945847, 60.12068]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Hattusaari"
+        },
+        "en": {
+          "name": "Hattusaari"
+        },
+        "address": "Hattusaari, 00980 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Hattusaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.173878, 60.163895]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Långskär"
+        },
+        "en": {
+          "name": "Långskär"
+        },
+        "address": "Pitkäkari, 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Långskär"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.922853, 60.09567]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Villaluodot Läntinen saari"
+        },
+        "en": {
+          "name": "Villaluodot"
+        },
+        "address": "Satamasaari, 00980 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Villaluodot Läntinen saari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.098087, 60.176777]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Louekari"
+        },
+        "en": {
+          "name": "Louekari"
+        },
+        "address": "Louekari, 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Louekari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.876232, 60.09792]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Tiirakari"
+        },
+        "en": {
+          "name": "Tiirakari"
+        },
+        "address": "Tiirakari, 00150 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Tiirakari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.92722, 60.12781]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Ourit"
+        },
+        "en": {
+          "name": "Ourit"
+        },
+        "address": "Hiekkarannantie, 00100 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Ourit"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.899948, 60.171528]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Laakapaasi"
+        },
+        "en": {
+          "name": "Laakapaasi"
+        },
+        "address": "Laakapaasi, 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Laakapaasi"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.930172, 60.094273]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Abrahaminluoto"
+        },
+        "en": {
+          "name": "Abrahaminluoto"
+        },
+        "address": "Abrahaminluoto, 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Abrahaminluoto"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.958004, 60.122604]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Neitsytsaaret"
+        },
+        "en": {
+          "name": "Neitsytsaaret"
+        },
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Neitsytsaaret"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.161842, 60.189297]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Långören"
+        },
+        "en": {
+          "name": "Långören"
+        },
+        "address": "Särkkä, 00140 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Långören"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.96042, 60.125435]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Taulukari"
+        },
+        "en": {
+          "name": "Taulukari"
+        },
+        "address": "Taulukari, 00140 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Taulukari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.956772, 60.127968]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Pihlajaluoto"
+        },
+        "en": {
+          "name": "Pihlajaluoto"
+        },
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Pihlajaluoto"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.173527, 60.16892]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Söderholminkupu"
+        },
+        "en": {
+          "name": "Söderholminkupu"
+        },
+        "address": "Söderholminkupu, 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Söderholminkupu"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.9256, 60.12208]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Ytterskär"
+        },
+        "en": {
+          "name": "Ytterskär"
+        },
+        "address": "Ulkokari, 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Ytterskär"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.934294, 60.091053]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Räntty"
+        },
+        "en": {
+          "name": "Räntty"
+        },
+        "address": "Räntty, 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Räntty"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.961527, 60.12035]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Hietaniemenkarit"
+        },
+        "en": {
+          "name": "Hietaniemenkarit"
+        },
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Hietaniemenkarit"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.898878, 60.17022]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Syväkari"
+        },
+        "en": {
+          "name": "Syväkari"
+        },
+        "address": "Syväkari, 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Syväkari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.932312, 60.119232]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Koirasaari ja"
+        },
+        "en": {
+          "name": "Koirasaari ja"
+        },
+        "address": "Koirasaari  (Ulkosaaret), 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Koirasaari ja"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.847015, 60.08504]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Mäntykari"
+        },
+        "en": {
+          "name": "Mäntykari"
+        },
+        "address": "Mäntykari, 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Mäntykari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.923042, 60.117237]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Niemenapaja"
+        },
+        "en": {
+          "name": "Niemenapaja"
+        },
+        "address": "Niemenapaja, 00990 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Niemenapaja"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.167652, 60.19541]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Malkasaari",
+          "header": "Kts.tarkemmat lisätiedot kotisivu-linkistä puhelinnumeron jälkeen sivun ylälaidasta"
+        },
+        "en": {
+          "name": "Malkasaari"
+        },
+        "address": "Malkasaari , 00980 Helsinki",
+        "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/malkasaari",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Malkasaari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.118914, 60.185894]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Koirakari"
+        },
+        "en": {
+          "name": "Koirakari"
+        },
+        "address": "Koirakari, 00099 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Koirakari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.91002, 60.12392]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Villaluodot Itäinen saari"
+        },
+        "en": {
+          "name": "Villaluodot"
+        },
+        "address": "Satamasaari, 00980 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Villaluodot Itäinen saari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.109179, 60.175785]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Honkaluoto"
+        },
+        "en": {
+          "name": "Honkaluoto"
+        },
+        "address": "Mustikkamaa, 00570 Helsinki",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Honkaluoto"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.002718, 60.18138]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Harakan saari",
+          "header": "Harakan saari sijaitsee Kaivopuiston edustalla, Särkän ja Uunisaaren naapurissa.",
+          "description": "Harakan saari sijaitsee Kaivopuiston edustalla, Särkän ja Uunisaaren naapurissa. Saaren kasvillisuuden ja linnuston rikkaus on vertaansa vailla. Saarta kiertää noin kilometrin pituinen mobiililuontopolku, jonka rasteilla kerrotaan saaren upeasta luonnosta ja historiasta.\n \nSaaren eteläkärki on rauhoitettu ja suljettu kävijöiltä lintujen pesintäaikaan 1.4.-10.8.\n \nSaaressa toimi Puolustusvoimien kemian laboratorio vuosina 1929-1988. Nykyään saaressa on luontokeskus ja taiteilijaresidenssi. Kolmikerroksisessa päärakennuksessa on työskennellyt helsinkiläisiä eri alojen ammattitaiteilijoita vuodesta 1989. Rakennusta kutsutaankin nykyään taiteilijataloksi.\n\nHarakan saareen pääsee yhteysveneellä Ullanlinnan laiturilta. Saarella ei ole vierasvenepaikkoja.\n\nHarakan luontokeskuksen luontotalo, akvaariot, valokuvanäyttelyt ja Vellamon satutalo esittelevät Itämerta ja saaristoluontoa. \n \nKesäkaudella järjestetään maksuttomia luontoretkiä, lasten saariseikkailuja, yleisötapahtumia ja näyttelyitä. Joka sunnuntai kello 14-15 järjestettävällä maksuttomalla saarikierroksella tutustutaan saaren luontoon ja historiaan. \n \nLuontokeskus on avoinna yleisölle toukokuusta syyskuun loppuun päivittäin klo 10-17, lauantaisin luontokeskus on suljettu.\n \nSaaressa voi pitää kokouksia, lisätiedot http://www.harakansaari.fi/Tilavaraukset ja kokoustarjoilut: Saara Metsämäki, saarametsamaki@hotmail.com tai 040 413 4355\n \nTaiteilijatalossa on yhteensä 30 työhuonetta, joita vapautuu harvakseltaan. Työtiloja voivat hakea ensisijaisesti helsinkiläiset kuvataiteilijat ja käsityöläistaiteilijat. Työhuoneet vuokrataan kalusteineen viiden vuoden määräajaksi. Tiloissa ei saa yöpyä. \n\nHarakassa ei ole kahvilaa kuin poikkeustapauksissa, kuten Helsinki-päivänä, jolloin Harakan saarivahtimestari pitää kahvilaa luontotalossa.\nKokoustilan vuokraajat voivat tilata kahvitusta ja ruokailua etukäteen.\n"
+        },
+        "en": {
+          "name": "Harakka Island"
+        },
+        "address": "Harakka, 00140 Helsinki",
+        "website": "http://www.harakansaari.fi/",
+        "type": "island",
+        "imageId": "11",
+        "tag": ["Harakan saari"],
+        "image": "https://farm1.staticflickr.com/954/40142363070_74cc09545c_k.jpg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.957806, 60.151093]
+      }
+    }
+  ]
+}
