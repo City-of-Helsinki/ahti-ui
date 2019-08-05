@@ -80,6 +80,30 @@ const PROMOTION_TYPES_CONTENT = {
 
 const filterSliderSettings = {
   dots: false,
+  swipeEvent: () => {
+    // console.log('scroll');
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
+  },
+  afterChange: () => {
+    // console.log('scroll');
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
+  },
+  beforeChange: () => {
+    // console.log('scroll');
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
+  },
   infinite: false,
   speed: 500,
   slidesToShow: 3.5,
@@ -103,6 +127,14 @@ const filterSliderSettings = {
 
 const typePromotionSliderSettings = {
   dots: false,
+  swipeEvent: () => {
+    // console.log('scroll');
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
+  },
   infinite: false,
   speed: 500,
   slidesToShow: 1,
@@ -114,6 +146,14 @@ const typePromotionSliderSettings = {
 
 const pointPromotionSliderSettings = {
   dots: false,
+  swipeEvent: () => {
+    // console.log('scroll');
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
+  },
   infinite: false,
   speed: 500,
   slidesToShow: 1.5,
