@@ -29,7 +29,7 @@
           "description": "Käärmeluodot sijaitsevat Lounais-Helsingissä, Lauttasaaren länsipuolella. Niihin ei julkista liikenneyhteyttä.\n\nKäärmeluotoja on kolme: pohjoinen, läntinen ja itäinen. Saaren pinta-ala on yhteensä 4,5 ha.\nPohjoisella käärmeluodolla on mainio uimaranta. Lyhytaikainen telttailu on sallittu Pohjoisella ja Läntisellä käärmeluodolla. \n\nLuodot ovat korkeita, komeita ja paikoin jyrkkiäkin kalliosaaria, joissa kasvillisuus on karua. Luodoilla on käymälöitä ja käyttökatoksia. \n"
         },
         "en": {
-          "name": "Käärmeluodot N"
+          "name": "Käärmeluodot"
         },
         "address": "Lauttasaaren edusta, Helsinki",
         "type": "island",
@@ -369,18 +369,18 @@
       "type": "Feature",
       "properties": {
         "fi": {
-          "name": "Särkk",
+          "name": "Särkkä",
           "header": "Särkän saari ja linnake sijaitsevat Länsi-Mustasaaren luoteispuolella, Harakan saaren naapurissa.",
           "description": "Särkän saari ja linnake sijaitsevat Länsi-Mustasaaren luoteispuolella, Harakan saaren naapurissa. Särkkä on pursiseura Merenkävijät ry:n käytössä satamana ja telakkana. Särkässä toimii kesäisin ravintola Särkänlinna \n\nSärkän linnoitustyöt aloitettiin vuonna 1749 ja ensimmäinen rakennusvaihe valmistui jo 1750-luvulla. Särkkä rakennettiin suojaamaan toista Helsinkiin tuovaa väylää, Särkän salmea.\nSärkkä oli koko sotilaallisen historiansa ajan aseistettu ja se osallistui taisteluihin sotavuosina 1808 ja 1855, sekä Viaporin kapinan aikana 1906. Vuoden 1952 Helsingin olympialaisten aikana Särkkä toimi purjehduskilpailujen tukikohtana.\n\nSaarelle pääsee yhteysveneellä ja omalla veneellä. Saari on pursiseura Merenkävijöiden kotisatama. Vieraspaikkoja on viisi.\nMerenkävijöillä ei ole varsinaisia vieraspaikkoja, mutta yhteysvenelaiturin ja mastonosturin välissä oleviin kahteen poijuun voi kiinnittyä esim. ravintolakäynnin ajaksi, kysy Merenkävijöiden toimistosta.\n\nSaarella saa koulutusta purjehdustaitoihin, Saari on pursiseuran jäsenille kotisatama. \nSaarella toimivan ravintola Särkänlinnan Piper-salia voi vuokrata yksityistilaisuuksiin.\n"
         },
         "en": {
-          "name": "Särkk"
+          "name": "Särkkä"
         },
         "address": "Särkkä, 00140 Helsinki",
         "website": "https://www.suomenlinna.fi/linnoitus/alue/sarkka/",
         "type": "island",
         "imageId": "11",
-        "tag": ["Särkk"]
+        "tag": ["Särkkä"]
       },
       "geometry": {
         "type": "Point",
@@ -413,18 +413,18 @@
       "type": "Feature",
       "properties": {
         "fi": {
-          "name": "Sirpalesaari P",
+          "name": "Sirpalesaari",
           "header": "Sirpalesaari sijaitsee Merisataman edustalla, Uunisaaren ja Liuskasaaren naapurissa.",
           "description": "Toukokuusta syyskuuhun saareen veneyhteys Sirpalesaareen pääsee Merisatamanrannasta (Pihlajasaaren lähtölaiturin viereinen laituri). Kun Suomalainen Pursiseura tarvitsi uuden alueen toiminnalleen, vuokrattiin sille Sirpalesaari, jossa uusi seuramaja avatt"
         },
         "en": {
-          "name": "Sirpalesaari N"
+          "name": "Sirpalesaari"
         },
         "address": "Sirpalesaari , 00150 Helsinki",
         "website": "http://www.suomalainenpursiseura.fi/",
         "type": "island",
         "imageId": "11",
-        "tag": ["Sirpalesaari P"]
+        "tag": ["Sirpalesaari"]
       },
       "geometry": {
         "type": "Point",
@@ -443,7 +443,7 @@
           "name": "Vasikkasaari"
         },
         "address": "Vasikkasaari , 00860 Helsinki",
-        "website": "http://www.vasikaksaari.org",
+        "website": "http://www.vasikkasaari.org",
         "type": "island",
         "imageId": "11",
         "tag": ["Vasikkasaari"]
@@ -476,18 +476,18 @@
       "type": "Feature",
       "properties": {
         "fi": {
-          "name": "Valkosaari P",
+          "name": "Valkosaari",
           "header": "Valkosaari sijaitsee Eteläsatamassa, Olympiaterminaalin vieressä. Helsingin ensimmäisen pursiseuran Nyländska Jaktklubbenin kotisatama vuodesta 1861.",
           "description": "Valkosaari on vuokrattu Nyländska Jaktklubbenille. Valkosaari sijaitsee Helsingin Eteläsatamassa, aivan kaupungin keskustassa. Saari on kaunis maamerkki lähestyttäessä Helsinkiä mereltä ja suuri valkoinen puurakenteinen paviljonki vihreine kattoineen on y"
         },
         "en": {
-          "name": "Valkosaari N"
+          "name": "Valkosaari"
         },
         "address": "Valkosaari , 00140 Helsinki",
         "website": "http://www.njk.fi/",
         "type": "island",
         "imageId": "11",
-        "tag": ["Valkosaari P"],
+        "tag": ["Valkosaari"],
         "image": "https://farm1.staticflickr.com/909/28118715418_7aa2097882_k.jpg"
       },
       "geometry": {
@@ -608,18 +608,18 @@
       "type": "Feature",
       "properties": {
         "fi": {
-          "name": "Kaunissaari P",
+          "name": "Kaunissaari",
           "header": "Kaunissaari sijaitsee Sipoon saaristossa, lähes ulkomerellä.",
           "description": "Kaunissaari sijaitsee Sipoon saaristossa, lähes ulkomerellä. Saari on 2 kilometriä pitkä ja 800 metriä leveä. Siellä on monipuolinen eläin- ja kasvikunta sekä hyvät kalastusvedet. Ulkoilupuistossa on luontopolku. Saaressa on kallioisia ja kivikkoisia rantoja sekä upeita hietikoita. Alueen pinta-ala on 100 ha ja vesialue on noin 790 ha.\nSaari soveltuu retkeilyyn, telttailuun, kalastukseen, sekä veneilyyn. \nSaareen pääsee sekä omalla veneellä, ja julkisilla/yhteysveneellä. \nVesiliikenneyhteys on Vuosaaren Kalkkihiekantorin vesiliikennelaiturista, josta merimatka kestää noin 50 minuuttia.\nSaaren itärannan suojaisessa valkamassa sijaitsee venesatama (623 60°10,1' N 25°21,2' E), jonka syvyys on 1,9 m, 80 venepaikkaa. Hinta 13 e / vene, kausimaksu 150 e (ei oikeuta vakituiseen satamapaikkaan).\nSaaressa on Wc, tilaussaunoja, keittokatoksia, kolme vuokramökkiä, vuokrattavia soutuveneitä. Saaressa toimii ravintola ja kesäisin käy myymälävene. \nKatso tarkemmat lisätiedot kotisivuilta. Kts. linkki sivun ylälaidasta."
         },
         "en": {
-          "name": "Kaunissaari N"
+          "name": "Kaunissaari"
         },
         "address": "Kaunissaari, 04130 Sipoo",
         "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/kaunissaari",
         "type": "island",
         "imageId": "11",
-        "tag": ["Kaunissaari P"],
+        "tag": ["Kaunissaari"],
         "image": "https://farm1.staticflickr.com/830/26846708407_27ce72540c_k.jpg"
       },
       "geometry": {
