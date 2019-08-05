@@ -8,6 +8,7 @@ import mapData from './mapData.json';
 import lineData from './lineData.json';
 import { ThemeProvider } from 'styled-components';
 import withTracker from './withTracker';
+import ScrollToTop from './ScrollToTop';
 export const GlobalGeoContext = React.createContext();
 export const GlobalLineContext = React.createContext();
 export const POINT_TYPES = [
@@ -64,17 +65,19 @@ class App extends React.Component {
         <GlobalGeoContext.Provider value={mapData.features}>
           <GlobalLineContext.Provider value={lineData.data}>
             <Router>
-              <header>
-                <ApplicationHeader />
-              </header>
+              <ScrollToTop>
+                <header>
+                  <ApplicationHeader />
+                </header>
 
-              {/* NOTE: Make sure to wrap any other Route components withTracker.
-               * An alternative might be to set up a top-level route and only wrap that.
-               */}
-              <Suspense>
-                <Route exact path="/" component={withTracker(Home)} />
-                <Route path="/map" component={withTracker(MapPage)} />
-              </Suspense>
+                {/* NOTE: Make sure to wrap any other Route components withTracker.
+                 * An alternative might be to set up a top-level route and only wrap that.
+                 */}
+                <Suspense>
+                  <Route exact path="/" component={withTracker(Home)} />
+                  <Route path="/map" component={withTracker(MapPage)} />
+                </Suspense>
+              </ScrollToTop>
             </Router>
           </GlobalLineContext.Provider>
         </GlobalGeoContext.Provider>
