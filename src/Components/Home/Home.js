@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import Slider from 'react-slick';
 import { useTranslation } from 'react-i18next';
 import { GlobalGeoContext } from '../../App';
+import { GlobalIslandContext } from '../../App';
 import LinkBox from '../LinkBox/LinkBox';
 import MapOverlay from '../MapOverlay/MapOverlay';
 import Footer from '../Footer/Footer';
@@ -124,17 +125,15 @@ const pointPromotionSliderSettings = {
 export default () => {
   const { t, i18n } = useTranslation();
   const contextGeoData = useContext(GlobalGeoContext);
-
-  const islands = contextGeoData.filter(
-    point => point.properties.type === 'island'
-  );
+  const contextIslandData = useContext(GlobalIslandContext);
 
   const promotionPoints = [...contextGeoData]
     .filter(point => PROMOTION_POINT_NAMES.includes(point.properties.fi.name))
     // this shuffles the points
     .sort(() => 0.5 - Math.random());
 
-  const promotionIsland = islands[Math.floor(Math.random() * islands.length)];
+  const promotionIsland =
+    contextIslandData[Math.floor(Math.random() * contextIslandData.length)];
 
   return (
     <React.Fragment>
@@ -199,7 +198,7 @@ export default () => {
             </BodyText>
             <LinkBox
               variant="white"
-              to={`/map?name=${promotionIsland.properties.fi.name}`}
+              to={`/map?island=${promotionIsland.properties.fi.name}`}
             >
               {t('home.section2_button')}
             </LinkBox>
