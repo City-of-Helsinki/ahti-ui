@@ -81,7 +81,7 @@ const PROMOTION_TYPES_CONTENT = {
 const filterSliderSettings = {
   dots: false,
   swipeEvent: () => {
-    // console.log('scroll');
+    console.log('scroll');
     document
       .getElementsByTagName('body')[0]
       .addEventListener('touchmove', function(e) {
@@ -89,7 +89,7 @@ const filterSliderSettings = {
       });
   },
   afterChange: () => {
-    // console.log('scroll');
+    console.log('scroll');
     document
       .getElementsByTagName('body')[0]
       .addEventListener('touchmove', function(e) {
@@ -97,7 +97,7 @@ const filterSliderSettings = {
       });
   },
   beforeChange: () => {
-    // console.log('scroll');
+    console.log('scroll');
     document
       .getElementsByTagName('body')[0]
       .addEventListener('touchmove', function(e) {
@@ -128,7 +128,23 @@ const filterSliderSettings = {
 const typePromotionSliderSettings = {
   dots: false,
   swipeEvent: () => {
-    // console.log('scroll');
+    console.log('scroll');
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
+  },
+  afterChange: () => {
+    console.log('scroll');
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
+  },
+  beforeChange: () => {
+    console.log('scroll');
     document
       .getElementsByTagName('body')[0]
       .addEventListener('touchmove', function(e) {
@@ -147,7 +163,23 @@ const typePromotionSliderSettings = {
 const pointPromotionSliderSettings = {
   dots: false,
   swipeEvent: () => {
-    // console.log('scroll');
+    console.log('scroll');
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
+  },
+  afterChange: () => {
+    console.log('scroll');
+    document
+      .getElementsByTagName('body')[0]
+      .addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
+  },
+  beforeChange: () => {
+    console.log('scroll');
     document
       .getElementsByTagName('body')[0]
       .addEventListener('touchmove', function(e) {
