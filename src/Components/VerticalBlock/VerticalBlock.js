@@ -20,7 +20,7 @@ const VerticalBlock = styled.div`
     props.withImage ? props.theme.colors.white : props.theme.colors.black};
 
   padding: 4rem 2rem;
-  box-shadow: inset 0px -28rem 28rem -28rem black;
+  box-shadow: inset 0px -200px 202px -140px rgba(0, 0, 0, 0.85);
 
   // TODO: refactor later!!!!!
   // flex most likely wont work on most mobile devices, refactor this later
