@@ -10,7 +10,7 @@ const VerticalBlock = styled.div`
   background-position: center;
 
   box-sizing: border-box;
-  height: 28rem;
+  height: 31rem;
   width: 20rem;
   // hack for now
   width: 100%;
