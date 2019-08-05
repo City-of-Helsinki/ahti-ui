@@ -179,7 +179,7 @@ const pointPromotionSliderSettings = {
       });
   },
   beforeChange: () => {
-    console.log('scroll');
+    console.log('scroll here');
     document
       .getElementsByTagName('body')[0]
       .addEventListener('touchmove', function(e) {
