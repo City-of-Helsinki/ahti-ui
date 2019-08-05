@@ -69,7 +69,10 @@ body {
   // arbitrary max-width of 474px for wide screens
   max-width: 474px;
   margin: 0 auto;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 
   font-size: $text-base-size;
   font-family: $font-family;
