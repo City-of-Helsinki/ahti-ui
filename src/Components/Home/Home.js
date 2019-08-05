@@ -79,6 +79,14 @@ const PROMOTION_TYPES_CONTENT = {
   },
 };
 
+const PROMOTION_ISLANDS = [
+  'Vasikkasaari',
+  'Lonna',
+  'Kaunissaari',
+  'Käärmeluodot',
+  'Pihlajasaaret',
+];
+
 const filterSliderSettings = {
   dots: false,
   infinite: false,
@@ -131,9 +139,12 @@ export default () => {
     .filter(point => PROMOTION_POINT_NAMES.includes(point.properties.fi.name))
     // this shuffles the points
     .sort(() => 0.5 - Math.random());
+  const promotionIslands = [...contextIslandData].filter(island =>
+    PROMOTION_ISLANDS.includes(island.properties.fi.name)
+  );
 
   const promotionIsland =
-    contextIslandData[Math.floor(Math.random() * contextIslandData.length)];
+    promotionIslands[Math.floor(Math.random() * promotionIslands.length)];
 
   return (
     <React.Fragment>
@@ -188,7 +199,11 @@ export default () => {
           <Section
             withImage="true"
             widthShadow="true"
-            imageURL={`/images/${promotionIsland.properties.imageId}.jpeg`}
+            imageURL={
+              promotionIsland.properties.image ||
+              (promotionIsland.properties.imageId &&
+                `/images/${promotionIsland.properties.imageId}.jpeg`)
+            }
           >
             <SecondaryTitle>
               {promotionIsland.properties[i18n.language].name}
