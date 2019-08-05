@@ -117,10 +117,14 @@ const MapCard = ({ pointData, onBack, closeCardLink }) => {
                 <BodyText>
                   {pointData.properties[i18n.language].free_text_1}
                 </BodyText>
-                <Line />
-                <BodyText>
-                  {pointData.properties[i18n.language].free_text_2}
-                </BodyText>
+                {pointData.properties[i18n.language].free_text_2 && (
+                  <>
+                    <Line />
+                    <BodyText>
+                      {pointData.properties[i18n.language].free_text_2}
+                    </BodyText>
+                  </>
+                )}
               </FloatingBlock>
             </FreeTextContainer>
           )}
