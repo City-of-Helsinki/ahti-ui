@@ -75,7 +75,7 @@ const MapPage = ({ location, history }) => {
 
       // make the map roughly centered even when a card is displayed
       const latitude = cardView
-        ? geometry.coordinates[1] - 0.005
+        ? geometry.coordinates[1] - 0.008
         : geometry.coordinates[1] - 0.0015;
 
       // always use zoom=14 in cardView, otherwise use zoomDifference if specified
@@ -84,7 +84,7 @@ const MapPage = ({ location, history }) => {
         longitude,
         latitude,
         zoom: cardView
-          ? 14
+          ? 13
           : zoomDifference
           ? oldViewport.zoom + zoomDifference
           : 12,
