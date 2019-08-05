@@ -113,7 +113,7 @@ const filterSliderSettings = {
     {
       breakpoint: 390,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 3.5,
       },
     },
     {
