@@ -80,7 +80,7 @@ const PROMOTION_TYPES_CONTENT = {
 
 const removeTouchMoveFromWindow = e => {
   e.preventDefault();
-  e.stopPropagation();
+  // e.stopPropagation();
 };
 
 const filterSliderSettings = {
