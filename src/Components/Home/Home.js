@@ -79,6 +79,23 @@ const PROMOTION_TYPES_CONTENT = {
   },
 };
 
+const removeTouchMoveEventFromWindow = e => {
+  e.stopPropagation();
+  // e.preventDefault();
+};
+
+const addTouchMoveEvenetListernerToWindow = () => {
+  window.addEventListener('touchmove', removeTouchMoveEventFromWindow, {
+    passive: false,
+  });
+};
+
+const removeTouchMoveEvenetListernerToWindow = () => {
+  window.removeEventListener('touchmove', removeTouchMoveEventFromWindow, {
+    passive: false,
+  });
+};
+
 const PROMOTION_ISLANDS = [
   'Vasikkasaari',
   'Lonna',
@@ -89,16 +106,18 @@ const PROMOTION_ISLANDS = [
 
 const filterSliderSettings = {
   dots: false,
+  swipeEvent: addTouchMoveEvenetListernerToWindow,
+  afterChange: removeTouchMoveEvenetListernerToWindow,
   infinite: false,
   speed: 500,
   slidesToShow: 3.5,
-  slidesToScroll: 2,
+  slidesToScroll: 3,
   adaptiveHeight: true,
   responsive: [
     {
       breakpoint: 390,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 3.5,
       },
     },
     {
@@ -112,6 +131,8 @@ const filterSliderSettings = {
 
 const typePromotionSliderSettings = {
   dots: false,
+  swipeEvent: addTouchMoveEvenetListernerToWindow,
+  afterChange: removeTouchMoveEvenetListernerToWindow,
   infinite: true,
   speed: 500,
   slidesToShow: 1,
@@ -123,6 +144,8 @@ const typePromotionSliderSettings = {
 
 const pointPromotionSliderSettings = {
   dots: false,
+  swipeEvent: addTouchMoveEvenetListernerToWindow,
+  afterChange: removeTouchMoveEvenetListernerToWindow,
   infinite: true,
   centerMode: true,
   centerPadding: '60px',

@@ -50,8 +50,8 @@ $text-xxxl: calc(
   margin-right: -2rem;
   margin-left: -2rem;
   box-sizing: border-box;
+  overflow: hidden;
 }
-
 .slick-list {
   padding-left: 1rem;
 }
@@ -69,7 +69,10 @@ body {
   // arbitrary max-width of 474px for wide screens
   max-width: 474px;
   margin: 0 auto;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
 
   font-size: $text-base-size;
   font-family: $font-family;
@@ -81,11 +84,21 @@ body {
 
   #root {
     width: 100%;
+    min-height: 100%;
     overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 
   .map {
     width: 100%;
     height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 }

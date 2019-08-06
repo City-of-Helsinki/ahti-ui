@@ -9,6 +9,7 @@ import lineData from './lineData.json';
 import mapIslandData from './mapIslandData.json';
 import { ThemeProvider } from 'styled-components';
 import withTracker from './withTracker';
+import ScrollToTop from './ScrollToTop';
 export const GlobalGeoContext = React.createContext();
 export const GlobalLineContext = React.createContext();
 export const GlobalIslandContext = React.createContext();
@@ -65,17 +66,19 @@ class App extends React.Component {
           <GlobalLineContext.Provider value={lineData.data}>
             <GlobalIslandContext.Provider value={mapIslandData.data}>
               <Router>
-                <header>
-                  <ApplicationHeader />
-                </header>
+                <ScrollToTop>
+                  <header>
+                    <ApplicationHeader />
+                  </header>
 
-                {/* NOTE: Make sure to wrap any other Route components withTracker.
-                 * An alternative might be to set up a top-level route and only wrap that.
-                 */}
-                <Suspense>
-                  <Route exact path="/" component={withTracker(Home)} />
-                  <Route path="/map" component={withTracker(MapPage)} />
-                </Suspense>
+                  {/* NOTE: Make sure to wrap any other Route components withTracker.
+                   * An alternative might be to set up a top-level route and only wrap that.
+                   */}
+                  <Suspense>
+                    <Route exact path="/" component={withTracker(Home)} />
+                    <Route path="/map" component={withTracker(MapPage)} />
+                  </Suspense>
+                </ScrollToTop>
               </Router>
             </GlobalIslandContext.Provider>
           </GlobalLineContext.Provider>
