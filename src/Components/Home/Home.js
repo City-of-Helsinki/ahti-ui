@@ -78,49 +78,24 @@ const PROMOTION_TYPES_CONTENT = {
   },
 };
 
+const removeTouchMoveFromWindow = e => {
+  e.preventDefault();
+};
+
 const filterSliderSettings = {
   dots: false,
-  touchMove: () => {
-    console.log('scroll');
-    window.addEventListener(
-      'touchmove',
-      function(e) {
-        e.preventDefault();
-      },
-      {
-        passive: false,
-      }
-    );
+  swipeEvent: () => {
+    console.log('scroll, swipeEvent');
+    window.addEventListener('touchmove', removeTouchMoveFromWindow, {
+      passive: false,
+    });
   },
   afterChange: () => {
-    console.log('scroll');
-    window.removeEventListener(
-      'touchmove',
-      function(e) {
-        e.preventDefault();
-      },
-      {
-        passive: false,
-      }
-    );
+    console.log('scroll, afterChange');
+    window.removeEventListener('touchmove', removeTouchMoveFromWindow, {
+      passive: false,
+    });
   },
-  // beforeChange: () => {
-  //   console.log('scroll');
-  //   window.addEventListener(
-  //     'touchmove',
-  //     function(e) {
-  //       e.preventDefault();
-  //     },
-  //     {
-  //       passive: false,
-  //     }
-  //   );
-  //   document
-  //     .getElementsByTagName('body')[0]
-  //     .addEventListener('touchmove', function(e) {
-  //       e.preventDefault();
-  //     });
-  // },
   infinite: false,
   speed: 500,
   slidesToShow: 3.5,
@@ -144,29 +119,17 @@ const filterSliderSettings = {
 
 const typePromotionSliderSettings = {
   dots: false,
-  touchMove: () => {
-    console.log('scroll');
-    window.addEventListener(
-      'touchmove',
-      function(e) {
-        e.preventDefault();
-      },
-      {
-        passive: false,
-      }
-    );
+  swipeEvent: () => {
+    console.log('scroll, swipeEvent');
+    window.addEventListener('touchmove', removeTouchMoveFromWindow, {
+      passive: false,
+    });
   },
   afterChange: () => {
-    console.log('scroll');
-    window.removeEventListener(
-      'touchmove',
-      function(e) {
-        e.preventDefault();
-      },
-      {
-        passive: false,
-      }
-    );
+    console.log('scroll, afterChange');
+    window.removeEventListener('touchmove', removeTouchMoveFromWindow, {
+      passive: false,
+    });
   },
 
   // document
@@ -219,47 +182,18 @@ const typePromotionSliderSettings = {
 
 const pointPromotionSliderSettings = {
   dots: false,
-  touchMove: () => {
-    console.log('scroll');
-    window.addEventListener(
-      'touchmove',
-      function(e) {
-        e.preventDefault();
-      },
-      {
-        passive: false,
-      }
-    );
+  swipeEvent: () => {
+    console.log('scroll, swipeEvent');
+    window.addEventListener('touchmove', removeTouchMoveFromWindow, {
+      passive: false,
+    });
   },
   afterChange: () => {
-    console.log('scroll');
-    window.removeEventListener(
-      'touchmove',
-      function(e) {
-        e.preventDefault();
-      },
-      {
-        passive: false,
-      }
-    );
+    console.log('scroll, afterChange');
+    window.removeEventListener('touchmove', removeTouchMoveFromWindow, {
+      passive: true,
+    });
   },
-  // afterChange: () => {
-  //   console.log('scroll');
-  //   window.removeEventListener(
-  //     'touchmove',
-  //     function(e) {
-  //       e.preventDefault();
-  //     },
-  //     {
-  //       passive: true,
-  //     }
-  //   );
-  //   document
-  //     .getElementsByTagName('body')[0]
-  //     .addEventListener('touchmove', function(e) {
-  //       e.preventDefault();
-  //     });
-  // },
   // beforeChange: () => {
   //   console.log('scroll');
   //   window.addEventListener(
