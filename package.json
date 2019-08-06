@@ -4,14 +4,10 @@
   "private": true,
   "dependencies": {
     "@turf/helpers": "^6.1.4",
-    "dotenv": "^8.0.0",
-    "firebase": "^6.2.4",
     "husky": "^3.0.0",
     "i18next": "^17.0.6",
     "i18next-browser-languagedetector": "^3.0.1",
-    "immutable": "^4.0.0-rc.12",
     "lint-staged": "^9.1.0",
-    "normalize.css": "^8.0.1",
     "prettier": "1.18.2",
     "prop-types": "^15.7.2",
     "query-string": "^6.8.1",
@@ -25,8 +21,6 @@
     "react-scripts": "3.0.1",
     "react-slick": "^0.24.0",
     "sanitize.css": "^11.0.0",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.87.2",
     "slick-carousel": "^1.8.1",
     "supercluster": "^6.0.1"
   },
