@@ -26,9 +26,10 @@ const ShowAllButton = styled(UnstyledLink)`
 
   background-color: ${props => props.theme.colors.white};
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
-  border-radius: 25% / 50%;
+  border-radius: ${props => (props.language === 'fi' ? '18%' : '25%')} / 50%;
   color: ${props => props.theme.colors.black};
   padding: 1rem;
+  padding-top: 1.1rem;
   font-size: 1.4rem;
   font-weight: 600;
 `;
@@ -76,7 +77,7 @@ const MapPage = ({ location, history }) => {
 
       // make the map roughly centered even when a card is displayed
       const latitude = cardView
-        ? geometry.coordinates[1] - 0.005
+        ? geometry.coordinates[1] - 0.008
         : geometry.coordinates[1] - 0.0015;
 
       // always use zoom=14 in cardView, otherwise use zoomDifference if specified
@@ -85,7 +86,7 @@ const MapPage = ({ location, history }) => {
         longitude,
         latitude,
         zoom: cardView
-          ? 14
+          ? 13
           : zoomDifference
           ? oldViewport.zoom + zoomDifference
           : 12,
@@ -148,7 +149,9 @@ const MapPage = ({ location, history }) => {
     <React.Fragment>
       <MapWrapper>
         {browserQuery && !(Object.entries(browserQuery).length === 0) && (
-          <ShowAllButton to="/map">{t('map.show_all_button')}</ShowAllButton>
+          <ShowAllButton to="/map" language={i18n.language}>
+            {t('map.show_all_button')}
+          </ShowAllButton>
         )}
         <MapboxMap
           location={location}
