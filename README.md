@@ -61,6 +61,20 @@ Initially the app had a tag system, where certain types (islands in this case) c
 
 The feature was removed with https://github.com/futurice/helsinki-ahti-experiment/pull/51, but it could be brought back in the future.
 
+#### Image processing:
+
+    This app uses ImageMagic for resizig icomig images.
+    You ca read more about it i a SmashigMagazie blog post: https://www.smashingmagazine.com/2015/06/efficient-image-resizing-with-imagemagick/
+
+If you want to optimize a image for assests, do the following:
+Mac OS - Install Homebrew - Install ImageMagic via Homebrew: brew install imagemagick - Now you have a CLI for ImageMagic image processig - run this commad
+  
+ magick mogrify -path OUTPUT_DIRECTORY(TEST/) -filter Triangle -define filter:support=2 -thumbnail OUTPUT_SIZE -unsharp 0.25x0.08+8.3+0.045 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB IPUT_IMAGE
+
+Usually it will be something like:
+
+        magick mogrify -path OUTPUT_DIRECTORY(TEST/) -filter Triangle -define filter:support=2 -thumbnail OUTPUT_SIZE -unsharp 0.25x0.08+8.3+0.045 -dither None -posterize 136 -quality 82 -define jpeg:fancy-upsampling=off -define png:compression-filter=5 -define png:compression-level=9 -define png:compression-strategy=1 -define png:exclude-chunk=all -interlace none -colorspace sRGB IPUT_IMAGE
+
 ### TODO
 
 Add these locations:
