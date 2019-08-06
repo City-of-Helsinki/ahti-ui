@@ -19,13 +19,11 @@ export const POINT_TYPES = [
   'rent',
   'sup',
   'experience',
-  'kayak',
   'charter',
   'sightseeing',
   'learn',
   'taxi',
   'visitor',
-  'parking',
   'station',
 ];
 

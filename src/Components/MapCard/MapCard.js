@@ -64,12 +64,9 @@ const FloatingBlock = styled.div`
 
 const MapCard = ({ pointData, onBack, closeCardLink }) => {
   const { t, i18n } = useTranslation();
-  const website =
-    (pointData && pointData.properties.website) || '<placeholder site>';
-  const info =
-    (pointData && pointData.properties.phone_number) || '<placeholder #>';
-  const address =
-    (pointData && pointData.properties.address) || '<placeholder address>';
+  const website = pointData && pointData.properties.website;
+  const info = pointData && pointData.properties.phone_number;
+  const address = pointData && pointData.properties.address;
   const imageURL =
     pointData &&
     (pointData.properties.image ||
@@ -120,10 +117,14 @@ const MapCard = ({ pointData, onBack, closeCardLink }) => {
                 <BodyText>
                   {pointData.properties[i18n.language].free_text_1}
                 </BodyText>
-                <Line />
-                <BodyText>
-                  {pointData.properties[i18n.language].free_text_2}
-                </BodyText>
+                {pointData.properties[i18n.language].free_text_2 && (
+                  <React.Fragment>
+                    <Line />
+                    <BodyText>
+                      {pointData.properties[i18n.language].free_text_2}
+                    </BodyText>
+                  </React.Fragment>
+                )}
               </FloatingBlock>
             </FreeTextContainer>
           )}
@@ -134,22 +135,32 @@ const MapCard = ({ pointData, onBack, closeCardLink }) => {
               </BodyText>
             )}
             <ContactInfoContainer>
-              <IconContainer>
-                <Location height="24" viewBox="0 0 48 48" />
-                <BodyText>{address}</BodyText>
-              </IconContainer>
-              <Line />
-              <a target="_blank" rel="noopener noreferrer" href={website}>
+              {address && (
                 <IconContainer>
-                  <Home height="24" viewBox="0 0 48 48" />
-                  <BodyText>{website}</BodyText>
+                  <Location height="24" viewBox="0 0 48 48" />
+                  <BodyText>{address}</BodyText>
                 </IconContainer>
-              </a>
-              <Line />
-              <IconContainer>
-                <Info height="24" viewBox="0 0 48 48" />
-                <BodyText>{info}</BodyText>
-              </IconContainer>
+              )}
+              {website && (
+                <React.Fragment>
+                  <Line />
+                  <a target="_blank" rel="noopener noreferrer" href={website}>
+                    <IconContainer>
+                      <Home height="24" viewBox="0 0 48 48" />
+                      <BodyText>{website}</BodyText>
+                    </IconContainer>
+                  </a>
+                </React.Fragment>
+              )}
+              {info && (
+                <React.Fragment>
+                  <Line />
+                  <IconContainer>
+                    <Info height="24" viewBox="0 0 48 48" />
+                    <BodyText>{info}</BodyText>
+                  </IconContainer>
+                </React.Fragment>
+              )}
             </ContactInfoContainer>
           </CardTextContainer>
         </Container>

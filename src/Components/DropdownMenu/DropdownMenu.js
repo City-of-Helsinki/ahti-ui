@@ -84,7 +84,7 @@ const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
   const { t, i18n } = useTranslation();
 
   return (
-    <>
+    <React.Fragment>
       <MenuButton
         isOpen={isOpen}
         onClick={isOpen ? onClose : onOpen}
@@ -163,7 +163,7 @@ const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
           </TextSection>
         </Body>
       </BackDrop>
-    </>
+    </React.Fragment>
   );
 };
 
