@@ -78,25 +78,27 @@ const PROMOTION_TYPES_CONTENT = {
   },
 };
 
-const removeTouchMoveFromWindow = e => {
+const removeTouchMoveEventFromWindow = e => {
   e.stopPropagation();
   e.preventDefault();
 };
 
+const addTouchMoveEvenetListernerToWindow = () => {
+  window.addEventListener('touchmove', removeTouchMoveEventFromWindow, {
+    passive: false,
+  });
+};
+
+const removeTouchMoveEvenetListernerToWindow = () => {
+  window.removeEventListener('touchmove', removeTouchMoveEventFromWindow, {
+    passive: false,
+  });
+};
+
 const filterSliderSettings = {
   dots: false,
-  swipeEvent: () => {
-    console.log('scroll, swipeEvent');
-    window.addEventListener('touchmove', removeTouchMoveFromWindow, {
-      passive: false,
-    });
-  },
-  afterChange: () => {
-    console.log('scroll, afterChange');
-    window.removeEventListener('touchmove', removeTouchMoveFromWindow, {
-      passive: false,
-    });
-  },
+  swipeEvent: addTouchMoveEvenetListernerToWindow,
+  afterChange: removeTouchMoveEvenetListernerToWindow,
   infinite: false,
   speed: 500,
   slidesToShow: 3.5,
@@ -120,18 +122,8 @@ const filterSliderSettings = {
 
 const typePromotionSliderSettings = {
   dots: false,
-  swipeEvent: () => {
-    console.log('scroll, swipeEvent');
-    window.addEventListener('touchmove', removeTouchMoveFromWindow, {
-      passive: false,
-    });
-  },
-  afterChange: () => {
-    console.log('scroll, afterChange');
-    window.removeEventListener('touchmove', removeTouchMoveFromWindow, {
-      passive: false,
-    });
-  },
+  swipeEvent: addTouchMoveEvenetListernerToWindow,
+  afterChange: removeTouchMoveEvenetListernerToWindow,
   infinite: false,
   speed: 500,
   slidesToShow: 1,
@@ -143,18 +135,8 @@ const typePromotionSliderSettings = {
 
 const pointPromotionSliderSettings = {
   dots: false,
-  swipeEvent: () => {
-    console.log('scroll, swipeEvent');
-    window.addEventListener('touchmove', removeTouchMoveFromWindow, {
-      passive: false,
-    });
-  },
-  afterChange: () => {
-    console.log('scroll, afterChange');
-    window.removeEventListener('touchmove', removeTouchMoveFromWindow, {
-      passive: false,
-    });
-  },
+  swipeEvent: addTouchMoveEvenetListernerToWindow,
+  afterChange: removeTouchMoveEvenetListernerToWindow,
   infinite: false,
   speed: 500,
   slidesToShow: 1.5,
