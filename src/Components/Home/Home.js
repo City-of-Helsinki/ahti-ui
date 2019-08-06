@@ -112,7 +112,7 @@ const filterSliderSettings = {
 
 const typePromotionSliderSettings = {
   dots: false,
-  infinite: false,
+  infinite: true,
   speed: 500,
   slidesToShow: 1,
   centerMode: true,
@@ -123,10 +123,10 @@ const typePromotionSliderSettings = {
 
 const pointPromotionSliderSettings = {
   dots: false,
-  infinite: false,
+  infinite: true,
+  centerMode: true,
+  centerPadding: '60px',
   speed: 500,
-  slidesToShow: 1.5,
-  slidesToScroll: 1,
   adaptiveHeight: true,
 };
 
