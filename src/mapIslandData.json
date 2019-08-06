@@ -8,7 +8,7 @@
           "header": "Varsasaari on Helsingin kaupungin ulkoilualue Espoon itäisessä saaristossa.",
           "description": "Saarella olevat kesämajat ovat yksityisiä, muuten saari on julkista aluetta. \nVarsasaaressa voi retkeillä, telttailla, uida ja saunoa ja pelata lentopalloa. \nSaaressa on vesipiste, kesäsuihku, pukukopit, keittokatos sekä kuivakäymälä.\nSinne pääsee omalla veneellä tai kanootilla. Omalla veneellä voi kiinnittyä saaren päälaituriin keulakiinnityksellä. \nYöpymismaksu on 5€/vrk/venekunta. Teltassa voi majoittua 5€/vrk/telttakunta. Sauna on avoinna kaikille retkeilijöille.\n\n"
         },
-        "en": {},
+        "en": { "name": "Varsasaari" },
         "address": "Westendintie 34a, 02160 Espoo",
         "website": "http://varsasaari.fi/",
         "type": "island",
@@ -49,7 +49,7 @@
           "header": "Pyysaari sijaitsee Laajasalossa lähellä Kulosaarta. Saari on vuokrattu Helsingin Työväen Pursiseuran käyttöön. Pyysaareen pääsee maitse ja vesitse.",
           "description": "Pyysaari sijaitsee Laajasalossa lähellä Kulosaarta. Saari on vuokrattu Helsingin Työväen Pursiseuran käyttöön. Pyysaareen pääsee maitse ja vesitse. Maitse pääsee Laajasalosta ulkoiluteitä Tullisaaren puistosta. Vesitse saareen on yhteys vain omalla veneellä. \nVierasvenepaikkoja saaressa on viisi. Syvyys on 3-6 m. Siellä on keula- ja poijukiinnitys käytössä.\nTyöväen pursiseuran kerhoravintola Ravintola Pyysaari https://htps.fi/a/ravintola-pyysaari sai anniskeluoikeudet jo vuonna 1952 Helsingin olympialaisiin. Se on ollut toiminnassa siitä lähtien joka kesä yli 50 vuoden ajan. \nSaaresta voi vuokrata kokoustila 12 hengen kokouksille. Tilassa on langaton netti, videotykki, valkokangas ja tarvittaessa fläppitaulu.\nHelsingin Työväen Pursiseura\n09 698 0287, 698 912\nwww.htps.fi\n"
         },
-        "en": {},
+        "en": { "name": "Pyysaari" },
         "address": "Henrik Borgströmin polku 3, 00590 Helsinki",
         "type": "island",
         "imageId": "11",
@@ -460,7 +460,7 @@
           "name": "Korkeakupu",
           "description": "Sopii virkistyskäyttöön jokamiehenoikeudella."
         },
-        "en": {},
+        "en": { "name": "Korkeakupu" },
         "address": "Korkeakupu , 00150 Helsinki",
         "website": "http://www.hel.fi/www/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/muiden-hallinnoimat",
         "type": "island",
@@ -525,7 +525,7 @@
           "name": "Pihlaisto",
           "description": "Pienen luodon ympäristö soveltuu hyvin kalastukseen."
         },
-        "en": {},
+        "en": { "name": "Pihlaisto" },
         "address": "Pihlaisto , 00150 Helsinki",
         "website": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/muiden-hallinnoimat",
         "type": "island",
@@ -544,7 +544,7 @@
           "name": "Porsas",
           "description": "Ulkoilusaari, vain päiväretkiä varten. Saarella käymälä ja jätehuolto."
         },
-        "en": {},
+        "en": { "name": "Porsas" },
         "address": "Porsas , 00100 Helsinki",
         "website": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/muiden-hallinnoimat",
         "type": "island",
@@ -633,7 +633,7 @@
         "fi": {
           "name": "Tvijälp"
         },
-        "en": {},
+        "en": { "name": "Tvijälp" },
         "address": "Tvijälp, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
@@ -651,7 +651,7 @@
         "fi": {
           "name": "Torra Löv"
         },
-        "en": {},
+        "en": { "name": "Torra Löv" },
         "address": "Torra Lövö, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
@@ -669,7 +669,7 @@
         "fi": {
           "name": "Stora Herr"
         },
-        "en": {},
+        "en": { "name": "Stora Herr" },
         "address": "Stora Herrö, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
@@ -687,7 +687,7 @@
         "fi": {
           "name": "Rövaren"
         },
-        "en": {},
+        "en": { "name": "Rövaren" },
         "address": "Rövaren, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
@@ -705,7 +705,7 @@
         "fi": {
           "name": "Rövargrundet"
         },
-        "en": {},
+        "en": { "name": "Rövargrundet" },
         "address": "Rövagrundet, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
@@ -723,7 +723,7 @@
         "fi": {
           "name": "Knapperskär"
         },
-        "en": {},
+        "en": { "name": "Knapperskär" },
         "address": "Knapperskär, 02380 Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
@@ -741,7 +741,7 @@
         "fi": {
           "name": "Korkeasaari"
         },
-        "en": {},
+        "en": { "name": "Korkeasaari" },
         "address": "Korkeasaari, 02160 Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
@@ -759,7 +759,7 @@
         "fi": {
           "name": "Kaparen"
         },
-        "en": {},
+        "en": { "name": "Kaparen" },
         "address": "Kaparen, 02420 Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
@@ -777,7 +777,7 @@
         "fi": {
           "name": "Gåsgrundet"
         },
-        "en": {},
+        "en": { "name": "Gåsgrundet" },
         "address": "Gåsgrundet, 02380 Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
@@ -795,7 +795,7 @@
         "fi": {
           "name": "Iso"
         },
-        "en": {},
+        "en": { "name": "Iso" },
         "address": "Iso-Vasikkasaari, Espoo",
         "website": "http://espoo.fi/fi-FI/Kulttuuri_ja_liikunta/Ulkoilu/Saaret_ja_saaristoliikenne",
         "type": "island",
