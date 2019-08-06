@@ -81,7 +81,7 @@ const PROMOTION_TYPES_CONTENT = {
 
 const removeTouchMoveEventFromWindow = e => {
   e.stopPropagation();
-  e.preventDefault();
+  // e.preventDefault();
 };
 
 const addTouchMoveEvenetListernerToWindow = () => {
