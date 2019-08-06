@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import { GlobalGeoContext } from '../../App';
 import { GlobalLineContext } from '../../App';
+import { GlobalIslandContext } from '../../App';
 import queryString from 'query-string';
 import { useTranslation } from 'react-i18next';
 import MapboxMap from '../MapboxMap/MapboxMap';
@@ -25,9 +26,10 @@ const ShowAllButton = styled(UnstyledLink)`
 
   background-color: ${props => props.theme.colors.white};
   box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
-  border-radius: 25% / 50%;
+  border-radius: ${props => (props.language === 'fi' ? '18%' : '25%')} / 50%;
   color: ${props => props.theme.colors.black};
   padding: 1rem;
+  padding-top: 1.1rem;
   font-size: 1.4rem;
   font-weight: 600;
 `;
@@ -35,6 +37,7 @@ const ShowAllButton = styled(UnstyledLink)`
 const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
   const lineData = useContext(GlobalLineContext);
+  const mapIslandData = useContext(GlobalIslandContext);
   const { t, i18n } = useTranslation();
 
   const [displayedPoints, setDisplayedPoints] = useState([]);
@@ -74,7 +77,7 @@ const MapPage = ({ location, history }) => {
 
       // make the map roughly centered even when a card is displayed
       const latitude = cardView
-        ? geometry.coordinates[1] - 0.005
+        ? geometry.coordinates[1] - 0.008
         : geometry.coordinates[1] - 0.0015;
 
       // always use zoom=14 in cardView, otherwise use zoomDifference if specified
@@ -83,7 +86,7 @@ const MapPage = ({ location, history }) => {
         longitude,
         latitude,
         zoom: cardView
-          ? 14
+          ? 13
           : zoomDifference
           ? oldViewport.zoom + zoomDifference
           : 12,
@@ -118,7 +121,7 @@ const MapPage = ({ location, history }) => {
       point => point.properties.fi.name === previousPoint
     );
     setCurrentSlide(index);
-  }, [browserQuery.type, pointData, previousPoint]);
+  }, [browserQuery.type, mapIslandData, pointData, previousPoint]);
 
   useEffect(() => {
     if (browserQuery.name) {
@@ -131,14 +134,24 @@ const MapPage = ({ location, history }) => {
         setCurrentSlide(index);
       }
     }
+    if (browserQuery.island) {
+      const index = mapIslandData.findIndex(
+        point => point.properties.fi.name === browserQuery.island
+      );
+      if (mapIslandData[index]) {
+        flyToPoint(mapIslandData[index].geometry, 700, true);
+      }
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [browserQuery.name]);
+  }, [browserQuery.name, browserQuery.island]);
 
   return (
     <React.Fragment>
       <MapWrapper>
         {browserQuery && !(Object.entries(browserQuery).length === 0) && (
-          <ShowAllButton to="/map">{t('map.show_all_button')}</ShowAllButton>
+          <ShowAllButton to="/map" language={i18n.language}>
+            {t('map.show_all_button')}
+          </ShowAllButton>
         )}
         <MapboxMap
           location={location}
@@ -177,7 +190,22 @@ const MapPage = ({ location, history }) => {
           }
         />
       )}
-      {!browserQuery.line && browserQuery.name && (
+      {!browserQuery.line && browserQuery.island && (
+        <MapCard
+          closeCardLink={
+            browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
+          }
+          onBack={history.goBack}
+          pointData={
+            mapIslandData.filter(
+              island =>
+                island.properties.fi.name.toLowerCase() ===
+                browserQuery.island.toLowerCase()
+            )[0]
+          }
+        />
+      )}
+      {!browserQuery.line && !browserQuery.island && browserQuery.name && (
         <MapCard
           closeCardLink={
             browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'

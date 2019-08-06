@@ -1,9 +1,9 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import { useTranslation } from 'react-i18next';
 import BodyText from '../BodyText/BodyText';
 import BaseButton from '../BaseButton/BaseButton';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
-import UnstyledOutboundLink from '../UnstyledOutboundLink/UnstyledOutboundLink';
 import { ReactComponent as Menu } from '../../assets/icons/menu.svg';
 import { ReactComponent as Exit } from '../../assets/icons/exit.svg';
 import { POINT_TYPES } from '../../App';
@@ -80,6 +80,10 @@ const MenuButton = styled(BaseButton)`
   }
 `;
 
+const TrackedOutboundLink = styled(ReactGA.OutboundLink)`
+  text-decoration: none;
+`;
+
 const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
   const { t, i18n } = useTranslation();
 
@@ -110,34 +114,36 @@ const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
             </LanguageButton>
           </LanguageButtonContainer>
           <TextSection>
-            <UnstyledLink to="/">
+            <TrackedOutboundLink eventLabel="learn_more" to="#">
               <BodyText>{t('dropdown.about')}</BodyText>
-            </UnstyledLink>
-            <UnstyledOutboundLink
+            </TrackedOutboundLink>
+            <TrackedOutboundLink
+              eventLabel="give_feedback"
               target="_blank"
               rel="noopener noreferrer"
-              href={
+              to={
                 i18n.language === 'fi'
                   ? 'https://docs.google.com/forms/d/e/1FAIpQLSegIqAsxVscFnk2iPneXahSpV1cnGjXZ2d_98fSSh0ZOsA1JA/viewform?usp=sf_link'
                   : 'https://docs.google.com/forms/d/e/1FAIpQLSefN-qtj9EOpV6iLcaKj2LrQYV-fhjEAeqB4g1rQPIdSIYLdA/viewform?usp=sf_link'
               }
             >
               <BodyText>{t('dropdown.give_feedback')}</BodyText>
-            </UnstyledOutboundLink>
+            </TrackedOutboundLink>
           </TextSection>
           <Line />
           <TextSection>
-            <UnstyledOutboundLink
+            <TrackedOutboundLink
+              eventLabel="add_location"
               target="_blank"
               rel="noopener noreferrer"
-              href={
+              to={
                 i18n.language === 'fi'
                   ? 'https://docs.google.com/forms/d/e/1FAIpQLSe6xJj1vpjNfinde6Ly3jv_BG7Reev0KGAKH8O7QPsIVn3IUg/viewform?usp=sf_link'
                   : 'https://docs.google.com/forms/d/e/1FAIpQLSeUKV9KPXBjDZHNRnVi3vB1N-fayYxFy3tirFdKplAIFYqxRw/viewform?usp=sf_link'
               }
             >
               <BodyText>{t('dropdown.add_location')}</BodyText>
-            </UnstyledOutboundLink>
+            </TrackedOutboundLink>
           </TextSection>
           <Line />
           <TextSection>

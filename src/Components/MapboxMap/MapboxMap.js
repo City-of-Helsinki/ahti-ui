@@ -6,7 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
 import Cluster from '../Cluster/Cluster';
-import { getPointQuery, getLineQuery } from '../../utils';
+import { getPointQuery, getLineQuery, getIslandQuery } from '../../utils';
 
 // using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
 const MapboxMap = ({
@@ -56,11 +56,14 @@ const MapboxMap = ({
   const _onClick = event => {
     const { features } = event;
     const clickedPlace =
-      features && features.find(f => f.layer.id === 'routes');
+      features &&
+      features.find(f => ['routes', 'islands'].includes(f.layer.id));
 
     clickedPlace &&
       clickedPlace.properties.name &&
-      history.push(`/map?${getLineQuery(clickedPlace, parsedSearch)}`);
+      (clickedPlace.layer.id === 'routes'
+        ? history.push(`/map?${getLineQuery(clickedPlace, parsedSearch)}`)
+        : history.push(`/map?${getIslandQuery(clickedPlace, parsedSearch)}`));
   };
 
   const _renderMarker = () => {
