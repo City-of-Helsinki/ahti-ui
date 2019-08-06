@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
 import { GlobalGeoContext } from '../../App';
 import { GlobalLineContext } from '../../App';
+import { GlobalIslandContext } from '../../App';
 import queryString from 'query-string';
 import { useTranslation } from 'react-i18next';
 import MapboxMap from '../MapboxMap/MapboxMap';
@@ -35,6 +36,7 @@ const ShowAllButton = styled(UnstyledLink)`
 const MapPage = ({ location, history }) => {
   const pointData = useContext(GlobalGeoContext);
   const lineData = useContext(GlobalLineContext);
+  const mapIslandData = useContext(GlobalIslandContext);
   const { t, i18n } = useTranslation();
 
   const [displayedPoints, setDisplayedPoints] = useState([]);
@@ -118,7 +120,7 @@ const MapPage = ({ location, history }) => {
       point => point.properties.fi.name === previousPoint
     );
     setCurrentSlide(index);
-  }, [browserQuery.type, pointData, previousPoint]);
+  }, [browserQuery.type, mapIslandData, pointData, previousPoint]);
 
   useEffect(() => {
     if (browserQuery.name) {
@@ -131,8 +133,16 @@ const MapPage = ({ location, history }) => {
         setCurrentSlide(index);
       }
     }
+    if (browserQuery.island) {
+      const index = mapIslandData.findIndex(
+        point => point.properties.fi.name === browserQuery.island
+      );
+      if (mapIslandData[index]) {
+        flyToPoint(mapIslandData[index].geometry, 700, true);
+      }
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [browserQuery.name]);
+  }, [browserQuery.name, browserQuery.island]);
 
   return (
     <React.Fragment>
@@ -177,7 +187,22 @@ const MapPage = ({ location, history }) => {
           }
         />
       )}
-      {!browserQuery.line && browserQuery.name && (
+      {!browserQuery.line && browserQuery.island && (
+        <MapCard
+          closeCardLink={
+            browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
+          }
+          onBack={history.goBack}
+          pointData={
+            mapIslandData.filter(
+              island =>
+                island.properties.fi.name.toLowerCase() ===
+                browserQuery.island.toLowerCase()
+            )[0]
+          }
+        />
+      )}
+      {!browserQuery.line && !browserQuery.island && browserQuery.name && (
         <MapCard
           closeCardLink={
             browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
