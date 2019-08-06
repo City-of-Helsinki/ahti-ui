@@ -54,35 +54,50 @@ const SliderCard = ({ point, query }) => {
         search: query,
       }}
     >
-      <LazyImage
-        src={imageURL}
-        placeholder={({ ref }) => (
-          <Container ref={ref}>
-            {point.properties[i18n.language].name && (
-              <BodyText>{point.properties[i18n.language].name}</BodyText>
-            )}
-            {point.properties[i18n.language].header && (
-              <SecondaryTitle>
-                {point.properties[i18n.language].header}
-              </SecondaryTitle>
-            )}
-            <TypeTitle>{t(`types.${point.properties.type}`)}</TypeTitle>
-          </Container>
-        )}
-        actual={() => (
-          <Container imageURL={imageURL}>
-            {point.properties[i18n.language].name && (
-              <BodyText>{point.properties[i18n.language].name}</BodyText>
-            )}
-            {point.properties[i18n.language].header && (
-              <SecondaryTitle>
-                {point.properties[i18n.language].header}
-              </SecondaryTitle>
-            )}
-            <TypeTitle>{t(`types.${point.properties.type}`)}</TypeTitle>
-          </Container>
-        )}
-      />
+      {'IntersectionObserver' in window && (
+        <LazyImage
+          src={imageURL}
+          placeholder={({ ref }) => (
+            <Container ref={ref}>
+              {point.properties[i18n.language].name && (
+                <BodyText>{point.properties[i18n.language].name}</BodyText>
+              )}
+              {point.properties[i18n.language].header && (
+                <SecondaryTitle>
+                  {point.properties[i18n.language].header}
+                </SecondaryTitle>
+              )}
+              <TypeTitle>{t(`types.${point.properties.type}`)}</TypeTitle>
+            </Container>
+          )}
+          actual={() => (
+            <Container imageURL={imageURL}>
+              {point.properties[i18n.language].name && (
+                <BodyText>{point.properties[i18n.language].name}</BodyText>
+              )}
+              {point.properties[i18n.language].header && (
+                <SecondaryTitle>
+                  {point.properties[i18n.language].header}
+                </SecondaryTitle>
+              )}
+              <TypeTitle>{t(`types.${point.properties.type}`)}</TypeTitle>
+            </Container>
+          )}
+        />
+      )}
+      {!('IntersectionObserver' in window) && (
+        <Container imageURL={imageURL}>
+          {point.properties[i18n.language].name && (
+            <BodyText>{point.properties[i18n.language].name}</BodyText>
+          )}
+          {point.properties[i18n.language].header && (
+            <SecondaryTitle>
+              {point.properties[i18n.language].header}
+            </SecondaryTitle>
+          )}
+          <TypeTitle>{t(`types.${point.properties.type}`)}</TypeTitle>
+        </Container>
+      )}
     </UnstyledLink>
   );
 };
