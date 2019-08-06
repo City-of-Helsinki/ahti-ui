@@ -1,9 +1,8 @@
 import React from 'react';
+import ReactGA from 'react-ga';
 import { useTranslation } from 'react-i18next';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BodyText from '../BodyText/BodyText';
-import UnstyledLink from '../UnstyledLink/UnstyledLink';
-import UnstyledOutboundLink from '../UnstyledOutboundLink/UnstyledOutboundLink';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 
 import styled from 'styled-components';
@@ -28,7 +27,11 @@ const LinkContainer = styled.ul`
   justify-content: flex-start;
 `;
 
-const StyledLink = styled(UnstyledOutboundLink)`
+const TrackedOutboundLink = styled(ReactGA.OutboundLink)`
+  text-decoration: none;
+`;
+
+const TrackedStyledLink = styled(TrackedOutboundLink)`
   margin-right: 1rem;
   margin-bottom: 2rem;
   font-size: 1.4rem;
@@ -38,7 +41,7 @@ const StyledLink = styled(UnstyledOutboundLink)`
   color: ${props => props.theme.colors.black};
 `;
 
-const LearnMoreLink = styled(UnstyledOutboundLink)`
+const TrackedLearnMoreLink = styled(TrackedOutboundLink)`
   text-decoration: underline;
   color: ${props => props.theme.colors.black};
 `;
@@ -51,55 +54,63 @@ const Footer = () => {
       <Container>
         <SecondaryTitle>{t('footer.header')}</SecondaryTitle>
         <LinkContainer>
-          <StyledLink
+          <TrackedStyledLink
+            eventLabel="footer_link1"
             target="_blank"
             rel="noopener noreferrer"
-            href={t('footer.link1.target')}
+            to={t('footer.link1.target')}
           >
             {t('footer.link1.content')}
-          </StyledLink>
-          <StyledLink
+          </TrackedStyledLink>
+          <TrackedStyledLink
+            eventLabel="footer_link2"
             target="_blank"
             rel="noopener noreferrer"
-            href={t('footer.link2.target')}
+            to={t('footer.link2.target')}
           >
             {t('footer.link2.content')}
-          </StyledLink>
-          <StyledLink
+          </TrackedStyledLink>
+          <TrackedStyledLink
+            eventLabel="footer_link3"
             target="_blank"
             rel="noopener noreferrer"
-            href={t('footer.link3.target')}
+            to={t('footer.link3.target')}
           >
             {t('footer.link3.content')}
-          </StyledLink>
-          <StyledLink
+          </TrackedStyledLink>
+          <TrackedStyledLink
+            eventLabel="footer_link4"
             target="_blank"
             rel="noopener noreferrer"
-            href={t('footer.link4.target')}
+            to={t('footer.link4.target')}
           >
             {t('footer.link4.content')}
-          </StyledLink>
-          <StyledLink
+          </TrackedStyledLink>
+          <TrackedStyledLink
+            eventLabel="footer_link5"
             target="_blank"
             rel="noopener noreferrer"
-            href={t('footer.link5.target')}
+            to={t('footer.link5.target')}
           >
             {t('footer.link5.content')}
-          </StyledLink>
+          </TrackedStyledLink>
         </LinkContainer>
         <BodyText>
           {t('footer.body')}{' '}
-          <LearnMoreLink to={'#'}>{t('footer.learn_more')}</LearnMoreLink>
+          <TrackedLearnMoreLink eventLabel="learn_more" to={'#'}>
+            {t('footer.learn_more')}
+          </TrackedLearnMoreLink>
         </BodyText>
         <BodyText>
           {t('footer.attribution')}{' '}
-          <LearnMoreLink
+          <TrackedLearnMoreLink
+            eventLabel="footer_helfi"
             target="_blank"
             rel="noopener noreferrer"
-            href="https://www.hel.fi/helsinki/fi"
+            to="https://www.hel.fi/helsinki/fi"
           >
             www.hel.fi
-          </LearnMoreLink>
+          </TrackedLearnMoreLink>
         </BodyText>
       </Container>
     </footer>
