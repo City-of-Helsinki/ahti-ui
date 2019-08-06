@@ -80,6 +80,7 @@ const PROMOTION_TYPES_CONTENT = {
 
 const removeTouchMoveFromWindow = e => {
   e.preventDefault();
+  e.stopPropagation();
 };
 
 const filterSliderSettings = {
@@ -99,7 +100,7 @@ const filterSliderSettings = {
   infinite: false,
   speed: 500,
   slidesToShow: 3.5,
-  slidesToScroll: 2,
+  slidesToScroll: 3,
   adaptiveHeight: true,
   responsive: [
     {
@@ -131,46 +132,6 @@ const typePromotionSliderSettings = {
       passive: false,
     });
   },
-
-  // document
-  //   .getElementsByTagName('body')[0]
-  //   .addEventListener('touchmove', function(e) {
-  //     e.preventDefault();
-  //   });
-  // afterChange: () => {
-  //   console.log('scroll');
-  //   window.removeEventListener(
-  //     'touchmove',
-  //     function(e) {
-  //       e.preventDefault();
-  //     },
-  //     {
-  //       passive: false,
-  //     }
-  //   );
-  //   document
-  //     .getElementsByTagName('body')[0]
-  //     .addEventListener('touchmove', function(e) {
-  //       e.preventDefault();
-  //     });
-  // },
-  // beforeChange: () => {
-  //   console.log('scroll');
-  //   window.addEventListener(
-  //     'touchmove',
-  //     function(e) {
-  //       e.preventDefault();
-  //     },
-  //     {
-  //       passive: false,
-  //     }
-  //   );
-  //   document
-  //     .getElementsByTagName('body')[0]
-  //     .addEventListener('touchmove', function(e) {
-  //       e.preventDefault();
-  //     });
-  // },
   infinite: false,
   speed: 500,
   slidesToShow: 1,
@@ -194,23 +155,6 @@ const pointPromotionSliderSettings = {
       passive: true,
     });
   },
-  // beforeChange: () => {
-  //   console.log('scroll');
-  //   window.addEventListener(
-  //     'touchmove',
-  //     function(e) {
-  //       e.preventDefault();
-  //     },
-  //     {
-  //       passive: false,
-  //     }
-  //   );
-  //   document
-  //     .getElementsByTagName('body')[0]
-  //     .addEventListener('touchmove', function(e) {
-  //       e.preventDefault();
-  //     });
-  // },
   infinite: false,
   speed: 500,
   slidesToShow: 1.5,
