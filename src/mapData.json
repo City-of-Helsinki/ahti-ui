@@ -5,6 +5,377 @@
       "type": "Feature",
       "properties": {
         "fi": {
+          "name": "Bout",
+          "header": "Your ticket to the seas",
+          "description": "Bout on alusta venekyytien löytämiseksi ja tarjoamiseksi. Sovellus yhdistää matkustajat kapteenien kanssa yksinkertaisen käyttöliittymän kautta, hoitaen viestinnän ja maksut. Voit vain keskittyä nauttimaan matkasta"
+        },
+        "en": {
+          "name": "Bout",
+          "header": "Your ticket to the seas",
+          "description": "Bout is a platform for finding and providing boatrides. The application connects passengers with captains through a simple UI, handles the communication and payments. You can just focus on enjoying the ride"
+        },
+        "website": "https://www.bout.fi/",
+        "phone_number": "info@bout.fi",
+        "address": "info@bout.fi",
+        "type": "taxi",
+        "imageId": "8",
+        "tag": []
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.928407669067383, 60.16110203148923]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Venekyyti - Taxi Vene",
+          "header": "Ammattitaitoa aalloilla",
+          "description": "Venekyyti.fi on helsinkiläinen venekuljetuspalveluita tarjoava yritys. Palveluihimme kuuluvat taksivenepalvelut jotka mahdollistavat kuljetukset ilman ennakkovarausta. Kysy tolpalta tai soita ja varmista, meidät tunnistaa venekyyti.fi lipusta.",
+          "free_text_1": "max. 6 asiakasta",
+          "free_text_2": "210 €/h"
+        },
+        "en": {
+          "name": "Venekyyti - Taxi Boat",
+          "header": "professional skills on waves",
+          "description": "Venekyyti.fi is a boat shipping company based in Helsinki. Our services include taxi boat services which allow transportation without prior booking. Ask from the pole or call us. We are identified by the venekyyti.fi flag.",
+          "free_text_1": "max. 6 customers",
+          "free_text_2": "210 €/h"
+        },
+        "website": "https://www.venekyyti.fi/",
+        "phone_number": "+358 306363700",
+        "address": "Linnanallas, Kauppatori",
+        "type": "taxi",
+        "imageId": "8",
+        "tag": ["Kauppatori", "venetaksi"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.956147074699402, 60.16778219930969]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Helsingin Venetaksi",
+          "header": "Taksivene parhailla palveluilla",
+          "description": "Helsingin Venetaksin tasokkailla aluksilla merimatkat sujuvat turvallisesti, mukavasti ja tarvittaessa myös nopeasti. Kipparimme tekee matkaanne varten reittisuunnitelman, jossa voidaan huomioida myös teidän toiveenne. Matkoihin on mahdollista yhdistää esimerkiksi risteilyä tai muita palveluja kauniissa merellisissä kohteissa.",
+          "free_text_1": "1-35 matkustajaa"
+        },
+        "en": {
+          "name": "Helsinki Boat taxi",
+          "header": "A taxi boat with the best services",
+          "description": "With the safe and high-quality vessels of Helsingin Venetaksi, sea journeys pass by comfortably and when needed, quickly. Our skipper plans the route according to your wishes. Cruising or other services in fantastic maritime locations can also be combined with the trips.",
+          "free_text_1": "1-35 passengers"
+        },
+        "website": "https://www.helsinginvenetaksi.fi",
+        "phone_number": "050 55 66 711",
+        "address": "info@helsinginvenetaksi.fi",
+        "type": "taxi",
+        "imageId": "8",
+        "tag": ["Helsinginlahti", "Helsinki"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.8984956741333, 60.165436422131556]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Dokk",
+          "header": "Vuokraa vene",
+          "description": "Jo parissa tunnissa veneellä ehtii Helsigissä kokea paljon. Voit nauttia merellisistä kaupunkimaisemista, vierailla monissa matkailukohteissa kuten Suomenlinnassa tai Vallisaaressa tai vaikka hakeutua ulkosaariston rauhaan. Ja jos nälkä yllättää niin merenaranta- ja saariravintolat tarjoavat mitä parhaimpia veneilykohteita.",
+          "free_text_1": "Moottoriveneitä",
+          "free_text_2": "Purjeveneitä"
+        },
+        "en": {
+          "name": "Dokk",
+          "header": "Rent a boat",
+          "description": "Only with a couple of hours with a boat you can experience a lot in Helsinki. You can enjoy the seascape of the city, visit many tourist destinations like Suomenlinna or Vallisaari or even seek the peace of the outer archipelago. And if the hunger surprises you, the seaside and island restaurants offer the best boating destinations.",
+          "free_text_1": "Motorboats",
+          "free_text_2": "Sailboats"
+        },
+        "website": "https://dokk.fi/vuokraa-vene/helsinki/",
+        "phone_number": "+358 40 5030767",
+        "address": "info@dokk.fi",
+        "type": "rent",
+        "imageId": "15",
+        "tag": ["vuokraus", "helsinki"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.960733652114868, 60.16906576757811]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Skipperi - venevuokraus",
+          "header": "Veneily kuuluu kaikille",
+          "description": "Vuokraa vene suoraan omistajalta, niin pienelle kuin suurelle seikkailulle.",
+          "free_text_1": "Moottoriveneitä",
+          "free_text_2": "Purjeveneitä"
+        },
+        "en": {
+          "name": "Skipperi - Boat rental",
+          "header": "Boating belongs to everyone",
+          "description": "Rent a boat directly from the owner for both small and big adventure.",
+          "free_text_1": "Motorboats",
+          "free_text_2": "Sailboats"
+        },
+        "website": "https://www.skipperi.fi/",
+        "phone_number": "010 309 4239",
+        "address": "asiakaspalvelu@skipperi.fi",
+        "type": "rent",
+        "imageId": "15",
+        "tag": ["Helsinki", "vuokraus"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.8869514465332, 60.15598756944988]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Helsingin Purjelaivakonttori",
+          "header": "Purjehdi kanssamme",
+          "description": "Raikas merituuli, tervan tuoksu ja menneiden vuosikymmenten tunnelma johdattelee sinut ja seurueesi salaisia kippariväyliä pitkin purjehduselämykselle, joka muistetaan pitkään. Purjelaivamme Astrid ja Svanhild tarjoavat upeat puitteet niin yritys- kuin yksityistilaisuuksiin ja laivoillamme järjestät aidolla purjelaivaromantiikalla ja rehdillä menneen ajan merimiesmeiningillä höystetyt yritystilaisuudet, virkistyspäivät, synttärit tai vaikkapa häät, vain mielikuvitus on rajana!",
+          "free_text_1": "Neljä laivaa",
+          "free_text_2": "Laivakeittiö"
+        },
+        "en": {
+          "name": "Helsingin Purjelaivakonttori",
+          "header": "Come sail with us",
+          "description": "The Finnish archipelago is beautiful all year round and sailing on an authentic wooden ship is an unforgettable experience. Sailing is key on any sailing ship, and weather permitting, the skippers of Astrid and Svanhild will exploit the winds as much as possible. To avoid heavier seas, we can also sail more sheltered routes when needed.",
+          "free_text_1": "Four ships",
+          "free_text_2": "Ship Kitchen"
+        },
+        "website": "http://www.purjelaiva.fi",
+        "phone_number": "09 6860080",
+        "address": "Pohjoisranta 8, 00170 Helsinki",
+        "type": "charter",
+        "imageId": "14",
+        "tag": ["pohjoisranta", "Halkolaituri", "purjelaiva"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.961774349212646, 60.171280538771605]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Burn Out City - Rib Safari",
+          "header": "Burn Out City toteuttaa unohtumattomia aktiviteetteja",
+          "description": "Isolla RIB veneellämme suurempikin seurue voi nauttia saaristosta ja sen luonnosta, tai tyydyttää vauhdinnälkäänsä avomerellä.",
+          "free_text_1": "Nopeus 55 solmua",
+          "free_text_2": "12 henkilöä"
+        },
+        "en": {
+          "name": "Burn Out City - Rib Safari",
+          "header": "We offer unforgettable activities",
+          "description": "Welcome to an unforgettable adventure! Combine speed and scenery on a private cruise by RIB boat around Helsinki’s archipelago!",
+          "free_text_1": "Top speed 55 knots",
+          "free_text_2": "12 passengers"
+        },
+        "website": "https://burnoutcity.fi/ribsafari/",
+        "phone_number": "+358 50 5520857",
+        "address": "Kulosaari, Helsinki",
+        "type": "charter",
+        "imageId": "14",
+        "tag": ["RIB-bout", "kulosaari", "RIB-safari"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.99185800552368, 60.18643837281959]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Ribit.fi Oy",
+          "header": "WE RIB. YOU ROCK",
+          "description": "Ribit.fi Oy järjestää Suomessa valmistetuilla huippulaatuisilla RIB-tyrskyveneillä vauhdikkaita ja unohtumattomia merellisiä elämyksiä. Ribit.fi on Euroopan suurin ja myös ainoa Suomessa toimiva RIB-charter yritys, jolle on myönnetty kansainvälisen liikenteen luvat. Hallussamme on kotimaamme laajin ja monipuolisin RIB-kalusto.",
+          "free_text_1": "hinnat alkaen 490 €",
+          "free_text_2": "max 23 henkilöä"
+        },
+        "en": {
+          "name": "Ribit.fi Oy",
+          "header": "WE RIB. YOU ROCK",
+          "description": "Ribit.fi Oy organises speed safaris and adventures with high quality RIB (rigid inflatable boat)-boats. We are the only RIB-charter company in Finland with international FMA licence.",
+          "free_text_1": "Prices from 490 €",
+          "free_text_2": "max 23 person"
+        },
+        "website": "https://www.ribit.fi",
+        "phone_number": "+358 500444564",
+        "address": "Keilasatama 5, 02150 Espoo",
+        "type": "charter",
+        "imageId": "14",
+        "tag": ["RIB-boat", "RIB-safari", "Keilaniemi"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.83060359954834, 60.17231582638321]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "SUNLINES Risteilyt Helsinki",
+          "header": "Toteutamme unohtumattomia bileristeilyjä, yritysristeilyjä ja juhlia merellä",
+          "description": "SunLines harjoittaa linjaliikennettä Kauppatorilta Suomenlinnaan ympäri vuoden sekä risteily- ja tilausliikennettä M/S Emmalla toukokuusta syyskuuhun. Osaamisemme perustuu monivuotiseen kokemukseen ja ammattitaitoon onnistuneiden risteilyjen järjestämisestä.",
+          "free_text_1": "Pyydä tarjous",
+          "free_text_2": "Jo vuodesta 1956"
+        },
+        "en": {
+          "name": "SUNLINES Cruises Helsinki",
+          "header": "SunLines will create an unforgettable sea experience for you or your company",
+          "description": "Sunlines operates through the year between Kauppatori and Suomenlinna, and from May to September M/S Emma operates as charter cruiser. Our know-how is based on many years of experience and professionalism in organising cruises.",
+          "free_text_1": "Ask for an offer",
+          "free_text_2": "Since 1956"
+        },
+        "website": "https://www.sunlines.fi",
+        "phone_number": "010 504 2410",
+        "address": "Linnalaituri, 00170 Helsinki",
+        "type": "charter",
+        "imageId": "14",
+        "tag": ["charter-cruises", "Kauppatori"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.956806898117065, 60.16761407750641]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Fregatti Oy",
+          "header": "Meri ja saaristo luovat puitteet jotka täytyy kokea",
+          "description": "Uljas purjelaivastomme kutsuu kannelleen kunniavieraita. Kaikkia, jotka haluavat kokea Helsingin suoraan mereltä. Vieraanamme pääsette tuntemaan vapauden, jonka vain meri voi arjesta antaa. Aluksemme tarjoavat ratkaisun mitä erilaisimpiin tilaisuuksiin. Tutustu aluksiimme, nosta ankkurit ja anna hyvän tuulen tarttua purjeisiin!",
+          "free_text_1": "Kolme purjelaivaa",
+          "free_text_2": "Perheyritys"
+        },
+        "en": {
+          "name": "Fregatti Oy",
+          "header": "Meri ja saaristo luovat puitteet jotka täytyy kokea",
+          "description": "Our magnificent sailing fleet invites guests on its deck. For anyone who wants to experience Helsinki from the sea. As a guest, you will feel the freedom that only the sea can give you. Our vessels offer a solution for a variety of occasions. Get to know our ships, lift the anchors and let the good winds catch your sails!",
+          "free_text_1": "Three sailing ships",
+          "free_text_2": "Family business"
+        },
+        "website": "http://www.fregatti.fi",
+        "phone_number": "09 664 664",
+        "address": "Kanavaranta 11, 00160 Helsinki",
+        "type": "charter",
+        "imageId": "14",
+        "tag": ["Katajanokka", "purjelaiva"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.962267875671387, 60.16910846337395]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Helsinki Yachting",
+          "header": "International sailing school",
+          "description": "Helsinki Yachting on kansainvälinen purjehduskoulu, jonka kotipaikka on Helsinki. Suoritamme kurssejamme englanniksi. Asiakkaamme tulevat monilta mantereilta ja maista. Suurin osa opiskelijoista asuu pysyvästi Suomessa, kun taas jotkut vain vierailevat täällä. Tavoitteenamme on tarjota korkealaatuista koulutusta ja tarjota kattava teoria- ja käytännön kurssien aloittelijan tasolta päällikön tasolle.",
+          "free_text_1": "Käytännön kursseja",
+          "free_text_2": "Erikoiskurssit"
+        },
+        "en": {
+          "name": "Helsinki Yachting",
+          "header": "Kansainvälinen purjeduskoulu",
+          "description": "Helsinki Yachting is an international sailing school based in Helsinki, Finland. We run our courses in English. Our customers come from many continents and countries. Most of our students are permanently living in Finland while some are just visiting here. Our goal is to provide high-quality training and to offer a comprehensive set of theory and practical courses from a beginner level to skipper level.",
+          "free_text_1": "Practical courses",
+          "free_text_2": "Specialty courses"
+        },
+        "website": "http://www.helsinkiyachting.fi",
+        "phone_number": "+358 400 498 310",
+        "address": "Heikkiläntie 7, 00210 Helsinki",
+        "type": "learn",
+        "imageId": "13",
+        "tag": ["Koulutus"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.88425850868225, 60.15614774212725]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "HSS - Audo Sailing Center",
+          "header": "Kiinnostaako kilpapurjehdus tai purjehduskurssi?",
+          "description": "HSS Sailing Center on komitea, jota johtaa Helsingfors Segelsällskap-purjehduskerho. Purjehduskeskus järjestää aikuisten purjehduskursseja, harjoittelua, luentoja, kilpailuja ja paljon muuta. Purjehduskausi alkaa huhtikuussa ensimmäisellä ”talkoo” -kerralla, jolloin kaikki Laser 16- ja Elliott 6mr-veneet on kiinnitetty purjehdusta varten. Huhtikuun lopussa järjestetään ensimmäinen aloittelijan viikonloppukurssi ja ensimmäiset rohkeat pääsevät vesille. Toukokuussa alkaa varsinainen purjehduskausi. HSS Purjehduskeskus tarjoaa kolme erilaista veneluokkaa ja koulutusta, jotka on räätälöity kaikille kokemustasoille. Sekä aloittelijoille että kokeneille kilpailijoille on paljon oppimismahdollisuuksia. Kausi jatkuu lokakuun loppuun saakka, sisältäen erilaisia klinikoita, kisoja, juhlia, talkoita ja niin edelleen. Lokakuun lopussa on aika nostaa kaikki veneet ja aloittaa seuraavan kauden suunnittelu.",
+          "free_text_1": "Junioripurjehdusta",
+          "free_text_2": "Aikuispurjehdusta"
+        },
+        "en": {
+          "name": "HSS - Audo Sailing Center",
+          "header": "Interested in sailing in Helsinki?",
+          "description": "HSS Sailing Center is a committee under Helsingfors Segelsällskap -sailing club. Sailing Center organises adults sailing courses, training, lectures, races and much more. The sailing season starts in April with first “talkoo” when all  Laser 16 and Elliott 6mr boats are fixed up for sailing. At the end of April, the first beginner’s weekend course will be organised and the first brave ones will be training on the water. In May starts the actual sailing season. HSS Sailing Center offers three different classes of boats and training tailored for all experience levels. There are plenty of learning opportunities for both beginners and experienced racers. The season continues till the end of October including different kind of clinics, races, parties, talkoos and so on. At the end of October, it’s time to lift all boats and start planning next season.",
+          "free_text_1": "Junior sailing",
+          "free_text_2": "Adult sailing"
+        },
+        "website": "https://helsinkisailing.com/hss-audi-sailing-center/",
+        "phone_number": "+358 9 633 637",
+        "address": "Liuskasaari, 00140 Helsinki",
+        "type": "learn",
+        "imageId": "13",
+        "tag": ["Liuskasaari", "Purjehdusurheiluseura"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.947333335876465, 60.15134756215088]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Marjaniemen Purjehtijat - Juniori Kurssit",
+          "header": "Alkeiskurssit ja purjehdusleirit",
+          "description": "Marjaniemen Purjehtijoiden Junioritoiminta kouluttaa ja valmentaa vuosittain kymmeniä nuoria purjehtijoita. Kursseilta lapset oppivat turvallisen vesillä liikkumisen ja purjehtimisen perusteet. Leireillä purjehdusten lomassa leikitään ja liikutaan ulkona luonnossa sääolosuhteiden mukaan. Leireillä lapset viihtyvät yhdessä ja oppivat todella nopeasti uusia taitoja ja luovat uusia ystävyysuhteita.",
+          "free_text_1": "8-11 vuotiaille",
+          "free_text_2": "11-16 vuotiaille"
+        },
+        "en": {
+          "name": "Marjaniemen Purjehtijat - Junior Courses",
+          "header": "Beginners courses and sailing camps",
+          "description": "Every year dozens of young sailors are trained and coached by Marjaniemi Sailors Junior Activities. The courses teach children the basics of safe navigation and sailing. At the camps while not sailing you can play and exercise outdoors in the wild, depending on the weather conditions. At the camps, the children enjoy themselves together and learn new skills and make new friendships very quickly.",
+          "free_text_1": "For ages 8-11",
+          "free_text_2": "For ages 11-16"
+        },
+        "website": "https://www.marjaniemen-purjehtijat.fi/juniorien-kurssit-ja--leirit.html",
+        "phone_number": "marjaniemenpurjehtijat@gmail.com",
+        "address": "Marjaniemenranta 1 A, 00930 Helsinki",
+        "type": "learn",
+        "imageId": "13",
+        "tag": ["Marjaniemi", "Marjaniemen Purjehtijat"]
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [25.09703278541565, 60.20108536302257]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
           "name": "Isosaaren vierasvenesatama",
           "header": "Päivä- ja yöpaikkoja yksityisveneille",
           "description": "Isosaareen pääsataman ja laguunin vierasvenepaikoilla on tällä hetkellä vierasvenepaikat noin 35 yksityiskäytössä olevalle retki- ja matkaveneelle. Paikat ovat pääasiassa peräpoijupaikkoja, mutta jonkin verran on myös kylkikiinnitystilaa. Isosaareen ei voi varata venepaikkoja etukäteen, joten suosittelemme maksua vasta satamaan saapumisen yhteydessä. Muistathan maksaa satamamaksusi ennen laiturialueelta poistumista!",
@@ -182,7 +553,7 @@
         "en": {
           "name": "Finfly - Parasailing",
           "header": "Unforgettable Parasailing experience",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Easy and safe",
           "free_text_2": "info@finfly.fi"
         },
@@ -211,7 +582,7 @@
         "en": {
           "name": "Helsingin Vesijetti",
           "header": "SEA DOO GTI 130 is the hottest jet-ski of the summer",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "120€ / 2h",
           "free_text_2": "300€ / 8h"
         },
@@ -297,8 +668,8 @@
         },
         "en": {
           "name": "KikkaPakka",
-          "header": "<missing>",
-          "description": "<missing>",
+          "header": null,
+          "description": null,
           "free_text_1": "SUP boards from 18€/h",
           "free_text_2": "touring kayak from 23€/h"
         },
@@ -349,14 +720,14 @@
         "fi": {
           "name": "Helsingin Melontakeskus",
           "header": "Tervetuloa Helsingin Melontakeskukseen",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "SUP-laudat alkaen 15€/h",
           "free_text_2": "Neljä tuntia 25€"
         },
         "en": {
           "name": "Helsingin Melontakeskus",
           "header": "Welcome to Helsinki Melontakeskus",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "SUP boards from 15€/h",
           "free_text_2": "four hours 25€"
         },
@@ -443,7 +814,7 @@
         "en": {
           "name": "Erimover SUP",
           "header": "SUP Indoor & Outdoor",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Half hour 10 €",
           "free_text_2": "48 hour 150 €"
         },
@@ -494,14 +865,14 @@
         "fi": {
           "name": "SUP Finlnad - Töölönlahti",
           "header": "SUP Finland vuodesta 2010",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "1,5 tuntia 15 €",
           "free_text_2": "Viikko 100 €"
         },
         "en": {
           "name": "SUP Finlnad - Töölönlahti",
           "header": "SUP Finland since 2010",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "1,5 hour 15 €",
           "free_text_2": "Week 100 €"
         },
@@ -523,14 +894,14 @@
         "fi": {
           "name": "SUP Finlnad - Herttoniemi",
           "header": "SUP Finland vuodesta 2010",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "1,5 tuntia 15 €",
           "free_text_2": "Viikko 100 €"
         },
         "en": {
           "name": "SUP Finlnad - Herttoniemi",
           "header": "SUP Finland since 2010",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "1,5 hour 15 €",
           "free_text_2": "Week 100 €"
         },
@@ -559,7 +930,7 @@
         "en": {
           "name": "Natura Viva - Vuosaari",
           "header": "Rent a SUP board at Vuosaari in stunning seascapes",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "One hour from 20 €",
           "free_text_2": "Kayak 25€ / h"
         },
@@ -588,7 +959,7 @@
         "en": {
           "name": "SUP Station - Aurinkolahti",
           "header": "Aurinkolahti has excellent transport links from central Helsinki.",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "30 min 10 €",
           "free_text_2": "One day 50 €"
         },
@@ -611,15 +982,15 @@
           "name": "Venehuoltoasema - Kulosaari",
           "header": "Helsingin Meriveneilijät Ry:n ylläpitämä veneasema",
           "description": "Satamamme sijaitsee aivan Kulosaaren sillan vieressä. Polttoainemyynti omalla laiturilla. Myös valaistus, vesi ja sähkö.",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "free_text_1": null,
+          "free_text_2": null
         },
         "en": {
           "name": "Boat gas station - Kulosaari",
           "header": "maintained by Helsingin Meriveneilijät Ry",
-          "description": "<missing>",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "description": null,
+          "free_text_1": null,
+          "free_text_2": null
         },
         "website": "helsinginmeriveneilijat.fi",
         "phone_number": "040 7582040",
@@ -639,16 +1010,16 @@
         "fi": {
           "name": "Seapoint - Liuskaluoto",
           "header": "Venehuoltoasema Liuskasaaressa Kaivopuiston edustalla",
-          "description": "<missing>",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "description": null,
+          "free_text_1": null,
+          "free_text_2": null
         },
         "en": {
           "name": "Seapoint - Liuskaluoto",
           "header": "Boat gas station in Liuskasaari off Kaivopuisto Park",
-          "description": "<missing>",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "description": null,
+          "free_text_1": null,
+          "free_text_2": null
         },
         "website": "http://www.liuskaluoto.fi/seapoint/",
         "phone_number": "050 300 9553",
@@ -668,19 +1039,19 @@
         "fi": {
           "name": "Venehuoltoasema - Puotila",
           "header": "Venehuoltoasema Puotilan satamassa",
-          "description": "<missing>",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "description": null,
+          "free_text_1": null,
+          "free_text_2": null
         },
         "en": {
           "name": "Venehuoltoasema - Puotila",
           "header": "Boat gas station in Puotila harbor",
-          "description": "<missing>",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "description": null,
+          "free_text_1": null,
+          "free_text_2": null
         },
-        "website": "<missing>",
-        "phone_number": "<missing>",
+        "website": null,
+        "phone_number": null,
         "address": "Meripellontie 11d, 00910 Helsinki",
         "type": "station",
         "tag": ["venehuoltoasema", "Puotila"],
@@ -697,16 +1068,16 @@
         "fi": {
           "name": "Shell Helsinki Marine Karhusaari",
           "header": "Shell Veneasema Helsinki Karhusaari",
-          "description": "<missing>",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "description": null,
+          "free_text_1": null,
+          "free_text_2": null
         },
         "en": {
           "name": "Shell Helsinki Marine Karhusaari",
           "header": "Shell Veneasema Helsinki Karhusaari",
-          "description": "<missing>",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "description": null,
+          "free_text_1": null,
+          "free_text_2": null
         },
         "website": "https://www.st1.fi/asemahaku/shell-veneasema-helsinki-karhusaari",
         "phone_number": "09 8771095",
@@ -726,16 +1097,16 @@
         "fi": {
           "name": "St1 Helsinki Marine Lauttasaari",
           "header": "St1 Helsinki Marine Lauttasaari",
-          "description": "<missing>",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "description": null,
+          "free_text_1": null,
+          "free_text_2": null
         },
         "en": {
           "name": "St1 Helsinki Marine Lauttasaari",
           "header": "St1 Helsinki Marine Lauttasaari",
-          "description": "<missing>",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "description": null,
+          "free_text_1": null,
+          "free_text_2": null
         },
         "website": "https://www.st1.fi/asemahaku/shell-helsinki-lauttasaari",
         "phone_number": "040 4100304",
@@ -753,18 +1124,18 @@
       "type": "Feature",
       "properties": {
         "fi": {
-          "name": "<Seapoint - Pohjoisranta",
+          "name": "Seapoint - Pohjoisranta",
           "header": "Seapoint Pohjoisranta, veneasema 24h",
-          "description": "<missing>",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "description": null,
+          "free_text_1": null,
+          "free_text_2": null
         },
         "en": {
           "name": "Seapoint - Pohjoisranta",
           "header": "Seapoint Pohjoisranta, Boat gas station 24h",
-          "description": "<missing>",
-          "free_text_1": "<missing>",
-          "free_text_2": "<missing>"
+          "description": null,
+          "free_text_1": null,
+          "free_text_2": null
         },
         "website": "seapoint.fi",
         "phone_number": "040 5088344",
@@ -791,7 +1162,7 @@
         "en": {
           "name": "Skipperi - Nokkala Harbour",
           "header": "Enjoy boating without the hassle of owning a boat.",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Row boat",
           "free_text_2": "25€ / season"
         },
@@ -820,7 +1191,7 @@
         "en": {
           "name": "Skipperi - Haukilahti",
           "header": "Enjoy boating without the hassle of owning a boat.",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Row boat",
           "free_text_2": "25€ / season"
         },
@@ -849,7 +1220,7 @@
         "en": {
           "name": "Skipperi - Otsolahti Harbour",
           "header": "Enjoy boating without the hassle of owning a boat.",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Row boat",
           "free_text_2": "25€ / season"
         },
@@ -878,7 +1249,7 @@
         "en": {
           "name": "Skipperi - Keilaniemi",
           "header": "Enjoy boating without the hassle of owning a boat.",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Row boat",
           "free_text_2": "25€ / season"
         },
@@ -907,7 +1278,7 @@
         "en": {
           "name": "Skipperi - Keilasatama",
           "header": "Enjoy boating without the hassle of owning a boat.",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Motor boat",
           "free_text_2": "109 € / month"
         },
@@ -942,7 +1313,7 @@
         "en": {
           "name": "Skipperi - Lauttasaari",
           "header": "Enjoy boating without the hassle of owning a boat.",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Motor boat",
           "free_text_2": "109 € / month"
         },
@@ -971,7 +1342,7 @@
         "en": {
           "name": "Skipperi - Hernesaari",
           "header": "Enjoy boating without the hassle of owning a boat.",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Motor boat",
           "free_text_2": "109 € / month"
         },
@@ -1000,7 +1371,7 @@
         "en": {
           "name": "Skipperi - Aurinkolahti",
           "header": "Enjoy boating without the hassle of owning a boat.",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Motor boat",
           "free_text_2": "109 € / month"
         },
