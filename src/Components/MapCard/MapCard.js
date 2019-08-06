@@ -78,37 +78,51 @@ const MapCard = ({ pointData, onBack, closeCardLink }) => {
         <Container>
           <BackButton onBack={onBack} />
           <CloseCardButton closeCardLink={closeCardLink} />
-          <LazyImage
-            src={imageURL}
-            placeholder={({ ref }) => (
-              <CardImageContainer ref={ref}>
-                {pointData.properties[i18n.language].name && (
-                  <BodyText>
-                    {pointData.properties[i18n.language].name}
-                  </BodyText>
-                )}
-                {pointData.properties[i18n.language].header && (
-                  <SecondaryTitle>
-                    {pointData.properties[i18n.language].header}
-                  </SecondaryTitle>
-                )}
-              </CardImageContainer>
-            )}
-            actual={() => (
-              <CardImageContainer imageURL={imageURL}>
-                {pointData.properties[i18n.language].name && (
-                  <BodyText>
-                    {pointData.properties[i18n.language].name}
-                  </BodyText>
-                )}
-                {pointData.properties[i18n.language].header && (
-                  <SecondaryTitle>
-                    {pointData.properties[i18n.language].header}
-                  </SecondaryTitle>
-                )}
-              </CardImageContainer>
-            )}
-          />
+          {'IntersectionObserver' in window && (
+            <LazyImage
+              src={imageURL}
+              placeholder={({ ref }) => (
+                <CardImageContainer ref={ref}>
+                  {pointData.properties[i18n.language].name && (
+                    <BodyText>
+                      {pointData.properties[i18n.language].name}
+                    </BodyText>
+                  )}
+                  {pointData.properties[i18n.language].header && (
+                    <SecondaryTitle>
+                      {pointData.properties[i18n.language].header}
+                    </SecondaryTitle>
+                  )}
+                </CardImageContainer>
+              )}
+              actual={() => (
+                <CardImageContainer imageURL={imageURL}>
+                  {pointData.properties[i18n.language].name && (
+                    <BodyText>
+                      {pointData.properties[i18n.language].name}
+                    </BodyText>
+                  )}
+                  {pointData.properties[i18n.language].header && (
+                    <SecondaryTitle>
+                      {pointData.properties[i18n.language].header}
+                    </SecondaryTitle>
+                  )}
+                </CardImageContainer>
+              )}
+            />
+          )}
+          {!('IntersectionObserver' in window) && (
+            <CardImageContainer imageURL={imageURL}>
+              {pointData.properties[i18n.language].name && (
+                <BodyText>{pointData.properties[i18n.language].name}</BodyText>
+              )}
+              {pointData.properties[i18n.language].header && (
+                <SecondaryTitle>
+                  {pointData.properties[i18n.language].header}
+                </SecondaryTitle>
+              )}
+            </CardImageContainer>
+          )}
           <HelsinkiWave />
 
           {pointData.properties[i18n.language].free_text_1 && (
