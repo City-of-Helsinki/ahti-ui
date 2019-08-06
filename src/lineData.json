@@ -1,6 +1,81 @@
 {
   "data": [
     {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Stromma - Kanavareitti",
+          "header": "Lautalla Laajasalon ympäri",
+          "description": "Kaunis Kanavareitti sightseeing-risteilyllä näet Helsingin kauneimmat rantamaisemat ja monta nähtävyyksien helmeä: historiallisen Suomenlinnan, Korkeasaaren eläintarhan, jäänmurtajat ja Degerön kanavan. Risteilyllä kuulet saariston kiehtovasta historiasta ja nykypäivästä. Poikkeusreitti mahdollinen, mikäli kanavaan ei pääse.",
+          "free_text_1": "25 €",
+          "free_text_2": "Kauppatori - Kolera-allas"
+        },
+        "en": {
+          "name": "Stromma - Kanavareitti",
+          "header": "Go around Laajasalo by ferry.",
+          "description": "On this popular boat sightseeing cruise you will get to see the beautiful shorelines of Helsinki. We pass many famous sights, including the historic Suomenlinna Fortress, Helsinki Zoo on Korkeasaari Island, the fleet of icebreakers and Degerö Canal. Along the way you will hear fascinating stories about the archipelago. Alternative route possible, if the canal is not available.",
+          "free_text_1": "25 €",
+          "free_text_2": "Helsinki Market Square"
+        },
+        "website": "https://www.stromma.com/fi-fi/helsinki/sightseeing/laivaristeilyt/kaunis-kanavareitti/",
+        "phone_number": "(09) 2288 1600",
+        "address": "Eteläranta, 00170 Helsinki",
+        "type": "sightseeing",
+        "imageId": "16",
+        "tag": ["Kauppatori", "Kolera-allas", "sightseeing"]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Royal Line - Sightseeing",
+          "header": "Kauneimmat maisemat ja parhaat nähtävyydet",
+          "description": "Vain Royal Linen Historiallisen Helsingin reitillä näet Suomenlinnan parhaat palat mm. kauniin sisälahden sekä Kaivopuiston, Kruununhaan ja Katajanokan upeat rannat, historialliset rakennukset, kirkot, risteilysatamat, jäänmurtajat, huvilat, saunat ja Korkeasaaren eläintarhan. Kattava ja mielenkiintoinen reittiselostus. Tämän lisäksi laivalla palvelee kahvila-ravintola a-oikeuksin.",
+          "free_text_1": "24 €",
+          "free_text_2": "Reittiselostus 10 kielellä"
+        },
+        "en": {
+          "name": "Royal Line - Sightseeing",
+          "header": "The most beautiful scenery and the best attractions",
+          "description": "Discover the beautiful archipelago of Helsinki and admire the best sights and sea views of the city. The Historical Helsinki route will show you many islands including the Suomenlinna Sea Fortress as well as important city districts such as Kaivopuisto, Eira, Kruununhaka and Katajanokka.",
+          "free_text_1": "24 €",
+          "free_text_2": "Guided in 10 languages"
+        },
+        "website": "https://www.royalline.fi",
+        "phone_number": "0207 118 333",
+        "address": "Eteläesplanadi, 00130 Helsinki",
+        "type": "sightseeing",
+        "imageId": "16",
+        "tag": ["sightseeing", "kauppatori"]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Iha Lines - Iltaristeily Itäsaaristoon",
+          "header": "Laivaristeilyllä pääsee ihailemaan Helsinkiä ja saaristoa.",
+          "description": "<missing>",
+          "free_text_1": "Aikuinen 20 €",
+          "free_text_2": "Kello 18:30"
+        },
+        "en": {
+          "name": "Iha Lines - Evening and Sunset Cruise",
+          "header": "Boat cruises can admire Helsinki and the archipelago.",
+          "description": "Ristelyn voi tehdä joko maisemaristeilynä esimerkiksi yläkannella, tai illallisristeilynä, jolloin on aika herkutella merellä ja nauttia Villingin huviloista kesäillassa. Iltaristeilyillä maistuu aidossa laivakeittiössä valmistettu à la carte -illallinen, seuranaan vaikkapa 'm/s Doris' -laivaviinit. Suosittelemme pöytävarauksen tekemistä kaikille ruokaileville risteilyvieraille.",
+          "free_text_1": "Adoult 20 €",
+          "free_text_2": "Clock 18:30"
+        },
+        "website": "https://www.ihalines.fi",
+        "phone_number": "09 6874 5050",
+        "address": "Eteläranta, 00170 Helsinki",
+        "type": "sightseeing",
+        "imageId": "16",
+        "tag": ["sightseeing", "kauppatori"]
+      }
+    },
+    {
       "properties": {
         "fi": {
           "name": "Suomensaaristokuljetus - Isosaari",
