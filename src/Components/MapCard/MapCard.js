@@ -118,12 +118,12 @@ const MapCard = ({ pointData, onBack, closeCardLink }) => {
                   {pointData.properties[i18n.language].free_text_1}
                 </BodyText>
                 {pointData.properties[i18n.language].free_text_2 && (
-                  <>
+                  <React.Fragment>
                     <Line />
                     <BodyText>
                       {pointData.properties[i18n.language].free_text_2}
                     </BodyText>
-                  </>
+                  </React.Fragment>
                 )}
               </FloatingBlock>
             </FreeTextContainer>
@@ -142,7 +142,7 @@ const MapCard = ({ pointData, onBack, closeCardLink }) => {
                 </IconContainer>
               )}
               {website && (
-                <>
+                <React.Fragment>
                   <Line />
                   <a target="_blank" rel="noopener noreferrer" href={website}>
                     <IconContainer>
@@ -150,16 +150,16 @@ const MapCard = ({ pointData, onBack, closeCardLink }) => {
                       <BodyText>{website}</BodyText>
                     </IconContainer>
                   </a>
-                </>
+                </React.Fragment>
               )}
               {info && (
-                <>
+                <React.Fragment>
                   <Line />
                   <IconContainer>
                     <Info height="24" viewBox="0 0 48 48" />
                     <BodyText>{info}</BodyText>
                   </IconContainer>
-                </>
+                </React.Fragment>
               )}
             </ContactInfoContainer>
           </CardTextContainer>
