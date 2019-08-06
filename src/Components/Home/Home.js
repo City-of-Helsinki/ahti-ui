@@ -80,7 +80,7 @@ const PROMOTION_TYPES_CONTENT = {
 
 const filterSliderSettings = {
   dots: false,
-  swipeEvent: () => {
+  touchMove: () => {
     console.log('scroll');
     window.addEventListener(
       'touchmove',
@@ -91,12 +91,6 @@ const filterSliderSettings = {
         passive: false,
       }
     );
-
-    document
-      .getElementsByTagName('body')[0]
-      .addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
   },
   afterChange: () => {
     console.log('scroll');
@@ -109,29 +103,24 @@ const filterSliderSettings = {
         passive: false,
       }
     );
-    document
-      .getElementsByTagName('body')[0]
-      .addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
   },
-  beforeChange: () => {
-    console.log('scroll');
-    window.addEventListener(
-      'touchmove',
-      function(e) {
-        e.preventDefault();
-      },
-      {
-        passive: false,
-      }
-    );
-    document
-      .getElementsByTagName('body')[0]
-      .addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
-  },
+  // beforeChange: () => {
+  //   console.log('scroll');
+  //   window.addEventListener(
+  //     'touchmove',
+  //     function(e) {
+  //       e.preventDefault();
+  //     },
+  //     {
+  //       passive: false,
+  //     }
+  //   );
+  //   document
+  //     .getElementsByTagName('body')[0]
+  //     .addEventListener('touchmove', function(e) {
+  //       e.preventDefault();
+  //     });
+  // },
   infinite: false,
   speed: 500,
   slidesToShow: 3.5,
@@ -155,7 +144,7 @@ const filterSliderSettings = {
 
 const typePromotionSliderSettings = {
   dots: false,
-  swipeEvent: () => {
+  touchMove: () => {
     console.log('scroll');
     window.addEventListener(
       'touchmove',
@@ -166,12 +155,6 @@ const typePromotionSliderSettings = {
         passive: false,
       }
     );
-
-    document
-      .getElementsByTagName('body')[0]
-      .addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
   },
   afterChange: () => {
     console.log('scroll');
@@ -184,29 +167,47 @@ const typePromotionSliderSettings = {
         passive: false,
       }
     );
-    document
-      .getElementsByTagName('body')[0]
-      .addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
   },
-  beforeChange: () => {
-    console.log('scroll');
-    window.addEventListener(
-      'touchmove',
-      function(e) {
-        e.preventDefault();
-      },
-      {
-        passive: false,
-      }
-    );
-    document
-      .getElementsByTagName('body')[0]
-      .addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
-  },
+
+  // document
+  //   .getElementsByTagName('body')[0]
+  //   .addEventListener('touchmove', function(e) {
+  //     e.preventDefault();
+  //   });
+  // afterChange: () => {
+  //   console.log('scroll');
+  //   window.removeEventListener(
+  //     'touchmove',
+  //     function(e) {
+  //       e.preventDefault();
+  //     },
+  //     {
+  //       passive: false,
+  //     }
+  //   );
+  //   document
+  //     .getElementsByTagName('body')[0]
+  //     .addEventListener('touchmove', function(e) {
+  //       e.preventDefault();
+  //     });
+  // },
+  // beforeChange: () => {
+  //   console.log('scroll');
+  //   window.addEventListener(
+  //     'touchmove',
+  //     function(e) {
+  //       e.preventDefault();
+  //     },
+  //     {
+  //       passive: false,
+  //     }
+  //   );
+  //   document
+  //     .getElementsByTagName('body')[0]
+  //     .addEventListener('touchmove', function(e) {
+  //       e.preventDefault();
+  //     });
+  // },
   infinite: false,
   speed: 500,
   slidesToShow: 1,
@@ -218,7 +219,7 @@ const typePromotionSliderSettings = {
 
 const pointPromotionSliderSettings = {
   dots: false,
-  swipeEvent: () => {
+  touchMove: () => {
     console.log('scroll');
     window.addEventListener(
       'touchmove',
@@ -229,12 +230,6 @@ const pointPromotionSliderSettings = {
         passive: false,
       }
     );
-
-    document
-      .getElementsByTagName('body')[0]
-      .addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
   },
   afterChange: () => {
     console.log('scroll');
@@ -247,29 +242,41 @@ const pointPromotionSliderSettings = {
         passive: false,
       }
     );
-    document
-      .getElementsByTagName('body')[0]
-      .addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
   },
-  beforeChange: () => {
-    console.log('scroll');
-    window.addEventListener(
-      'touchmove',
-      function(e) {
-        e.preventDefault();
-      },
-      {
-        passive: false,
-      }
-    );
-    document
-      .getElementsByTagName('body')[0]
-      .addEventListener('touchmove', function(e) {
-        e.preventDefault();
-      });
-  },
+  // afterChange: () => {
+  //   console.log('scroll');
+  //   window.removeEventListener(
+  //     'touchmove',
+  //     function(e) {
+  //       e.preventDefault();
+  //     },
+  //     {
+  //       passive: true,
+  //     }
+  //   );
+  //   document
+  //     .getElementsByTagName('body')[0]
+  //     .addEventListener('touchmove', function(e) {
+  //       e.preventDefault();
+  //     });
+  // },
+  // beforeChange: () => {
+  //   console.log('scroll');
+  //   window.addEventListener(
+  //     'touchmove',
+  //     function(e) {
+  //       e.preventDefault();
+  //     },
+  //     {
+  //       passive: false,
+  //     }
+  //   );
+  //   document
+  //     .getElementsByTagName('body')[0]
+  //     .addEventListener('touchmove', function(e) {
+  //       e.preventDefault();
+  //     });
+  // },
   infinite: false,
   speed: 500,
   slidesToShow: 1.5,
