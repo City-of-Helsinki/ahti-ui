@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import ReactGA from 'react-ga';
 import { LazyImage } from 'react-lazy-images';
 import { useTranslation } from 'react-i18next';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
@@ -158,12 +159,17 @@ const MapCard = ({ pointData, onBack, closeCardLink }) => {
               {website && (
                 <React.Fragment>
                   <Line />
-                  <a target="_blank" rel="noopener noreferrer" href={website}>
+                  <ReactGA.OutboundLink
+                    eventLabel={website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    to={website}
+                  >
                     <IconContainer>
                       <Home height="24" viewBox="0 0 48 48" />
                       <BodyText>{website}</BodyText>
                     </IconContainer>
-                  </a>
+                  </ReactGA.OutboundLink>
                 </React.Fragment>
               )}
               {info && (
