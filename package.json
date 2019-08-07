@@ -12,6 +12,7 @@
     "prop-types": "^15.7.2",
     "query-string": "^6.8.1",
     "react": "^16.8.6",
+    "react-cookie-consent": "^2.3.2",
     "react-dom": "^16.8.6",
     "react-ga": "^2.6.0",
     "react-i18next": "^10.11.4",
