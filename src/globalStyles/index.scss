@@ -101,4 +101,18 @@ body {
     right: 0;
     bottom: 0;
   }
+
+  .cookieConsent {
+    max-width: 474px;
+    // use important to override default styles
+    z-index: 9001 !important;
+    left: auto !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+
+    div {
+      flex: 1 1 0 !important;
+      margin-right: 0 !important;
+    }
+  }
 }

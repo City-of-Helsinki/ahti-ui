@@ -69,5 +69,9 @@
     "visitor": "Visitor harbors",
     "parking": "Boat parking",
     "station": "Boat stations"
+  },
+  "cookie_consent": {
+    "text": "This service is in development and it uses cookies to collect anonymised user data which might be utilized later.",
+    "button": "Accept"
   }
 }

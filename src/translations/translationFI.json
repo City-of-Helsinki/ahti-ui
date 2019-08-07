@@ -69,5 +69,9 @@
     "visitor": "Vierassatamat",
     "parking": "Lyhytpysäköinti",
     "station": "Venehuoltoasemat"
+  },
+  "cookie_consent": {
+    "text": "Tämä palvelu on kehitysvaiheessa ja se käyttää evästeitä anonymisoidun käyttäjädatan keräämiseen jatkokehitystä varten.",
+    "button": "Hyväksy"
   }
 }

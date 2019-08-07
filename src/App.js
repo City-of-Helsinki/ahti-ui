@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import CookieConsent from 'react-cookie-consent';
 import MapPage from './Components/MapPage/MapPage';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './Components/Home/Home';
@@ -10,6 +11,7 @@ import mapIslandData from './mapIslandData.json';
 import { ThemeProvider } from 'styled-components';
 import withTracker from './withTracker';
 import ScrollToTop from './ScrollToTop';
+import { bold } from 'ansi-colors';
 export const GlobalGeoContext = React.createContext();
 export const GlobalLineContext = React.createContext();
 export const GlobalIslandContext = React.createContext();
@@ -66,6 +68,24 @@ class App extends React.Component {
           <GlobalLineContext.Provider value={lineData.data}>
             <GlobalIslandContext.Provider value={mapIslandData.data}>
               <Router>
+                <CookieConsent
+                  buttonText={this.props.t('cookie_consent.button')}
+                  style={{
+                    background: theme.colors.lightGray,
+                    color: theme.colors.black,
+                    font: theme.fonts.fontFamilyBold,
+                    fontSize: '1.2rem',
+                  }}
+                  buttonStyle={{
+                    background: theme.colors.transparent,
+                    fontSize: '1.1rem',
+                    fontWeight: 'bold',
+                    border: theme.borders,
+                    borderColor: theme.colors.black,
+                  }}
+                >
+                  {this.props.t('cookie_consent.text')}
+                </CookieConsent>
                 <ScrollToTop>
                   <header>
                     <ApplicationHeader />

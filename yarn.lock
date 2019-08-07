@@ -6359,6 +6359,11 @@ js-base64@^2.1.8:
   resolved "https://registry.yarnpkg.com/js-base64/-/js-base64-2.5.1.tgz#1efa39ef2c5f7980bb1784ade4a8af2de3291121"
   integrity sha512-M7kLczedRMYX4L8Mdh4MzyAMM9O5osx+4FcOQuTvr3A9F2D9S5JXheN0ewNbrvK2UatkTRhL5ejGmGSjNMiZuw==
 
+js-cookie@^2.2.0:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.1.tgz#69e106dc5d5806894562902aa5baec3744e9b2b8"
+  integrity sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==
+
 js-levenshtein@^1.1.3:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/js-levenshtein/-/js-levenshtein-1.1.6.tgz#c6cee58eb3550372df8deb85fad5ce66ce01d59d"
@@ -9192,6 +9197,13 @@ react-app-polyfill@^1.0.1:
     raf "3.4.1"
     regenerator-runtime "0.13.2"
     whatwg-fetch "3.0.0"
+
+react-cookie-consent@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/react-cookie-consent/-/react-cookie-consent-2.3.2.tgz#e665bd52c51064a4ab991b6e36f73a51e4e7b7dc"
+  integrity sha512-Fi2QGsTg/kfg2wYBDzGkv7Tkeijv9RTZM7uW6yqfW7Fz3r9nEGYDuUxT8crpv/wrCTjU+AqrPFmAOQh96lQhUA==
+  dependencies:
+    js-cookie "^2.2.0"
 
 react-dev-utils@^9.0.1:
   version "9.0.1"
