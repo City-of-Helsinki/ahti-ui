@@ -51,7 +51,11 @@ const MapPage = ({ location, history }) => {
         474
       ) || 400,
     // Equivalent of 92vh. The styles assume these measures
-    height: window.innerHeight || document.documentElement.clientHeight || 400,
+    height:
+      '100vh' ||
+      window.innerHeight ||
+      document.documentElement.clientHeight ||
+      400,
     latitude: 60.15,
     longitude: 24.944,
     zoom: 10,

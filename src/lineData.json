@@ -56,14 +56,14 @@
         "fi": {
           "name": "Iha Lines - Iltaristeily Itäsaaristoon",
           "header": "Laivaristeilyllä pääsee ihailemaan Helsinkiä ja saaristoa.",
-          "description": "<missing>",
+          "description": "Ristelyn voi tehdä joko maisemaristeilynä esimerkiksi yläkannella, tai illallisristeilynä, jolloin on aika herkutella merellä ja nauttia Villingin huviloista kesäillassa. Iltaristeilyillä maistuu aidossa laivakeittiössä valmistettu à la carte -illallinen, seuranaan vaikkapa 'm/s Doris' -laivaviinit. Suosittelemme pöytävarauksen tekemistä kaikille ruokaileville risteilyvieraille.",
           "free_text_1": "Aikuinen 20 €",
           "free_text_2": "Kello 18:30"
         },
         "en": {
           "name": "Iha Lines - Evening and Sunset Cruise",
           "header": "Boat cruises can admire Helsinki and the archipelago.",
-          "description": "Ristelyn voi tehdä joko maisemaristeilynä esimerkiksi yläkannella, tai illallisristeilynä, jolloin on aika herkutella merellä ja nauttia Villingin huviloista kesäillassa. Iltaristeilyillä maistuu aidossa laivakeittiössä valmistettu à la carte -illallinen, seuranaan vaikkapa 'm/s Doris' -laivaviinit. Suosittelemme pöytävarauksen tekemistä kaikille ruokaileville risteilyvieraille.",
+          "description": null,
           "free_text_1": "Adoult 20 €",
           "free_text_2": "Clock 18:30"
         },
@@ -160,7 +160,7 @@
           "free_text_2": "Alle 18-vuotiaat ilmaiseksi"
         },
         "en": {
-          "name": "<missing>",
+          "name": "Suomen Saaristokuljetus Kauppatori - Korkeasaari",
           "header": "<To Korkeasaari and back by a ferry>",
           "description": "Suomen Saaristokuljetus Oy operates two routes to the Korkeasaari Zoo. You can hop on from either the Market Square or Hakaniemi, and return to either.",
           "free_text_1": "Round-trip 7 €",
@@ -185,7 +185,7 @@
         "en": {
           "name": "Suomen Saaristokuljetus - Eastern archipelago route",
           "header": "From Hakaniemi to Vuosaari and back",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Price starts from 5€",
           "free_text_2": "Bicycle 3€"
         },
@@ -241,7 +241,7 @@
         "en": {
           "name": "JT-Line Kauppatori - Suomenlinna",
           "header": "Kauppatori - Lonna - Vallisaari - Kauppatori",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Round-trip 7€ / 3,50€",
           "free_text_2": "Island Hopping 10€ / 5€"
         },
@@ -270,7 +270,7 @@
         "en": {
           "name": "HSL Ferry 19",
           "header": "Kauppatori - Suomenlinna with AB ticket",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "A zone",
           "free_text_2": "With HSL ticket to the sea"
         },
@@ -293,7 +293,7 @@
         "en": {
           "name": "HSL Ferry 19E",
           "header": "Katajanokka - Suomenlinna with AB ticket",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "A zone",
           "free_text_2": "<With HSL ticket to the sea>"
         },
@@ -316,7 +316,7 @@
         "en": {
           "name": "M/S Lotta Kauppatori - Jollas",
           "header": "Kauppatori - Kruunuvuorenranta - Vasikkasaari - Stansvik - Jollas - Kauppatori",
-          "description": "<missing>",
+          "description": null,
           "free_text_1": "Round-trip 10€ / 5€",
           "free_text_2": "Bicycle 1,5€"
         },
