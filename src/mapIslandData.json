@@ -307,14 +307,13 @@
         "en": {
           "name": "Isosaari",
           "header": "Old sea fortress, one of the outermost islands in the Helsinki region.",
-          "description": "This large island (= iso saari) has 76 hectares of nature, history, beaches, saunas and restaurants plus Finland’s most challenging par-3 golf course. Bring a picnic basket! \nDuring the off season the Isosaari ferry operates on the weekends, and from midsummer’s until the start of the school year every day. Return ticket18 € includes free use of the sauna (value 10 €).\nThe trip from Market Square to Isosaari takes about 30-50 minutes.There are lounges, sundeck and a cafeteria-bar on the ferry.The M/S Isosaari also doubles as a hotel boat at the main pier of Isosaari during the summer."
+          "description": "This large island (= iso saari) has 76 hectares of nature, history, beaches, saunas and restaurants plus Finland’s most challenging par-3 golf course. Bring a picnic basket! \nDuring the off season the Isosaari ferry operates on the weekends, and from midsummer’s until the start of the school year every day. Return ticket18 € includes free use of the sauna (value 10 €).\nThe trip from Market Square to Isosaari takes about 30-50 minutes. There are lounges, sundeck and a cafeteria-bar on the ferry.The M/S Isosaari also doubles as a hotel boat at the main pier of Isosaari during the summer."
         },
         "address": "Isosaari, 00860 Helsinki",
         "website": "https://visitisosaari.fi/en/frontpage/",
         "type": "island",
-        "imageId": "11",
-        "tag": ["Isosaari"],
-        "image": "https://farm1.staticflickr.com/963/41268368855_a1bf0b233d_k.jpg"
+        "imageId": "17",
+        "tag": ["Isosaari"]
       },
       "geometry": {
         "type": "Point",
@@ -360,12 +359,12 @@
         "website": "http://www.lonna.fi/en/",
 
         "type": "island",
-        "imageId": "11",
+        "imageId": "19",
         "tag": []
       },
       "geometry": {
         "type": "Point",
-        "coordinates": [24.797626, 60.154453]
+        "coordinates": [24.990034, 60.15436]
       }
     },
     {
@@ -600,7 +599,7 @@
         "address": "Vallisaari, Helsinki",
         "website": "https://vallisaari.fi/",
         "type": "island",
-        "imageId": "11",
+        "imageId": "18",
         "tag": ["Vallisaari ja Kuninkaansaari"],
         "image": "https://farm1.staticflickr.com/968/28120869578_291c210457_k.jpg"
       },
