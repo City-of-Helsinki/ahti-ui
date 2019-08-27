@@ -19,6 +19,7 @@ export const POINT_TYPES = [
   'island',
   'route',
   'cityboat',
+  'sauna',
   'rent',
   'sup',
   'experience',

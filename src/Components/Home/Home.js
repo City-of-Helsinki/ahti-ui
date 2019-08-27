@@ -96,13 +96,7 @@ const removeTouchMoveEvenetListernerToWindow = () => {
   });
 };
 
-const PROMOTION_ISLANDS = [
-  'Vasikkasaari',
-  'Lonna',
-  'Kaunissaari',
-  'Käärmeluodot',
-  'Pihlajasaaret',
-];
+const PROMOTION_ISLANDS = ['Vasikkasaari', 'Lonna', 'Isosaari'];
 
 const filterSliderSettings = {
   dots: false,

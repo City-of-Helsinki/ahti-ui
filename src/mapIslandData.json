@@ -280,7 +280,7 @@
         "fi": {
           "name": "Tervasaari ja Tervasaarenkannas",
           "header": "Tervasaari sijaitsee Pohjoisrannan edustalla. Sinne pääsee myös pitkin pengertietä.",
-          "description": "Tervasaari sijaitsee Pohjoisrannan edustalla. Sinne pääsee pitkin pengertietä. Se toimii Kruununhaassa asuvien virkistysalueena. Ravintolan ja muiden palveluidensa ansiosta siellä käydään myös Kruununhaan ulkopuolelta virkistäytymässä. \nSaaressa varastoitiin aikoinaan tervaa vientiä varten, mistä nimi juontuu. Terva-aitat oli sijoitettu saarelle palovaaran vuoksi. Vuonna 1939 se yhdistettiin mantereeseen Tervasaarenkannaksen välityksellä. \n\nTervasaari kaavoitettiin lähivirkistysalueeksi vasta vuonna 1988. Kannaksen molemmille puolille rakennettiin pienvenelaitureita.\nSaari muutettiin puistomaisemmaksi vuonna 1995. Siellä on lasten leikkipaikka, koira-aitaus ja koirien oma uimaranta. Tervasaaressa järjestetään tapahtumia kesäisin teatterista alkaen kesäteatteri ja siellä on hyvä järjestää pienimuotoisia tapahtumia. \nViimeinen historiallinen aitta vuodelta 1805 on nykyisin aittaravintola Savu. Saaressa on myös koira-aitaus ja uimaranta, lasten leikkipaikka, tapahtumalava katsomoineen. \nTervasaarenkannaksella on venepaikkoja parisen sataa ja vierailijoille kolmisenkymmentä.\n\nSaarelle ei ole yhteysvenettä. \nHelsingin moottoriveneyhdistyksellä on jäsenille ja vierailijoille venepaikkoja Tervasaarenkannakselle.\n\nTervasaari soveltuu hyvin palvelujensa ja sijaintinsa puolesta ulkoiluun ja kulinaristiseen sekä kulttuuriseen virkistykseen. Siellä on kuuluisa ravintola Savu, jonne kannattaa kaupungissa vierailijoidenkin käydä. Kesäisin on myös kulttuuritapahtumia\nKoirille saaressa on koira-aitaus ja oma uimaranta. \nTervasaarenkannas toimii myös Helsingin moottoriveneyhdistyksen kotisatamana ja vierasvenesatamana.\n\nTervasaaressa on muun muassa aittaravintola Savu, lasten leikkipaikka, koira-aitaus ja uintipaikka, mattolaituri ja tapahtumalava katsomoineen. \n"
+          "description": "Tervasaari sijaitsee Pohjoisrannan edustalla. Sinne pääsee pitkin pengertietä. Se toimii Kruununhaassa asuvien virkistysalueena. Ravintolan ja muiden palveluidensa ansiosta siellä käydään myös Kruununhaan ulkopuolelta virkistäytymässä. \nSaaressa varastoitiin aikoinaan tervaa vientiä varten, mistä nimi juontuu. Terva-aitat oli sijoitettu saarelle palovaaran vuoksi. Vuonna 1939 se yhdistettiin mantereeseen Tervasaarenkannaksen välityksellä. \n\nTervasaari kaavoitettiin lähivirkistysalueeksi vasta vuonna 1988. Kannaksen molemmille puolille rakennettiin pienvenelaitureita.\nSaari muutettiin puistomaisemmaksi vuonna 1995. Siellä on lasten leikkipaikka, koira-aitaus ja koirien oma uimaranta. Tervasaaressa järjestetään tapahtumia kesäisin teatterista alkaen kesäteatteri ja siellä on hyvä järjestää pienimuotoisia tapahtumia. \nViimeinen historiallinen aitta vuodelta 1805 on nykyisin aittaravintola Savu. Saaressa on myös koira-aitaus ja uimaranta, lasten leikkipaikka, tapahtumalava katsomoineen. \nTervasaarenkannaksella on venepaikkoja parisen sataa ja vierailijoille kolmisenkymmentä.\n\nSaarelle ei ole yhteysvenettä. \nHelsingin moottoriveneyhdistyksellä on jäsenille ja vierailijoille venepaikkoja Tervasaarenkannakselle.\n\nTervasaari soveltuu hyvin palvelujensa ja sijaintinsa puolesta ulkoiluun ja kulinaristiseen sekä kulttuuriseen virkistykseen. Siellä on kuuluisa ravintola Savu, jonne kannattaa kaupungissa vierailijoidenkin käydä. Kesäisin on myös kulttuuritapahtumia\nKoirille saaressa on koira-aitaus ja oma uimaranta. \nTervasaarenkannas toimii myös Helsingin moottoriveneyhdistyksen kotisatamana ja vierasvenesatamana.\n\nTervasaaressa on muun muassa aittaravintola Savu, lasten leikkipaikka, koira-aitaus ja uintipaikka, mattolaituri ja tapahtumalava katsomoineen."
         },
         "en": {
           "name": "Tervasaari ja Tervasaarenkannas"
@@ -305,14 +305,15 @@
           "description": "Huomioi kielto- ja rajoituskyltit reittien varrella. Maastossa on vaarallisia sortumispisteessä olevia rakennelmia."
         },
         "en": {
-          "name": "Isosaari"
+          "name": "Isosaari",
+          "header": "Old sea fortress, one of the outermost islands in the Helsinki region.",
+          "description": "This large island (= iso saari) has 76 hectares of nature, history, beaches, saunas and restaurants plus Finland’s most challenging par-3 golf course. Bring a picnic basket! \nDuring the off season the Isosaari ferry operates on the weekends, and from midsummer’s until the start of the school year every day. Return ticket18 € includes free use of the sauna (value 10 €).\nThe trip from Market Square to Isosaari takes about 30-50 minutes. There are lounges, sundeck and a cafeteria-bar on the ferry.The M/S Isosaari also doubles as a hotel boat at the main pier of Isosaari during the summer."
         },
-        "address": "Isosaari , 00860 Helsinki",
-        "website": "http://visitisosaari.fi/",
+        "address": "Isosaari, 00860 Helsinki",
+        "website": "https://visitisosaari.fi/en/frontpage/",
         "type": "island",
-        "imageId": "11",
-        "tag": ["Isosaari"],
-        "image": "https://farm1.staticflickr.com/963/41268368855_a1bf0b233d_k.jpg"
+        "imageId": "17",
+        "tag": ["Isosaari"]
       },
       "geometry": {
         "type": "Point",
@@ -351,14 +352,15 @@
           "description": "Pieni Lonnan saari sijaitsee Kauppatorin ja Suomenlinnan välissä. Lauttayhteys Kauppatorilta kestää kymmenisen minuuttia. \nLonnan saari lunastettiin Helsingin kaupungilta armeijan käyttöön keisarillisella päätöksellä 1817. Saarelle perustettiin 1830-luvulla ruudin käsittely- ja varastopaikka. Vuonna 1880 Lonnasta tuli merimiinojen kokoamis- ja säilytyspaikka. 1920-luvulla se toimi miinojen raivausasemana ja sotien jälkeen siellä poistettiin laivoista magneettisuutta. Saari siirrettiin Puolustusvoimilta Suomenlinnan hoitokunnan hallintaan vuonna 1999. Hoitokunta aloitti saaressa mittavat maaston ja rakennusten kunnostustyöt. Ne valmistuvat vuoden 2018 aikana. Lonna avattiin yleisölle toukokuussa 2014.\nLonnassa voi tutustua saaren historiaan, virkistäytyä ja juhlia sekä saunoa. Saaressa järjestetään kesäisin konsertteja ja muita tapahtumia.\n\nSaareen pääsee yhteysveneellä reittimatkalla, tilaamalla oman kuljetuksen ja omalla veneellä. Lonnan saaren pohjoiskärjessä on betoniponttoonilaituri jossa on 6 poijupaikkaa. Laiturin rannan päässä on vettä noin 1,2 metriä, ja merenpuolella noin 4 metriä. Laituri huonokuntoinen, uusi laituri tulossa kesällä 2018.\n\nSaarella on WC, ravintola ja museorakennus. Ravintolan sisätiloissa on 60 asiakaspaikkaa, joihin voi tehdä varauksia ravintolan sivuilla (linkki Verkossa osiossa). Ravintolan yhteydessä palvelee 60-paikkainen terassi, jonne ei oteta varauksia.\nMiinamakasiinit toimivat juhlatiloina. Saaressa on myös yleinen sauna. \n"
         },
         "en": {
-          "name": "Lonna"
+          "name": "Lonna",
+          "header": "Small island with military past, 10 minutes from Market Square.",
+          "description": "Lonna is an old military demagnetisation island that remained closed from public until 2014.The restaurant and museum are open during the summer, from May until the end of September. There is a coffee shop & bar, restaurant and a public sauna. Occasional concerts and yoga-lessons.\nThe island is only 150 meters long and the terrain is generally easy to get around. All the buildings are accessible. JT-Line’s water bus crew will also be happy to help you board the ship and land.\nAt the moment the guest dock is not in use. The concrete pontoon dock at the north end of Lonna has six buoys. The water depth is approximately 1.2 metres at the shore end of the dock and about four metres at the other end."
         },
-        "address": "Lonna, 00190 Helsinki",
-        "website": "http://www.lonna.fi/",
+        "website": "http://www.lonna.fi/en/",
+
         "type": "island",
-        "imageId": "11",
-        "tag": ["Lonna"],
-        "image": "https://farm1.staticflickr.com/950/28120869898_6ac1d8eaff_k.jpg"
+        "imageId": "19",
+        "tag": []
       },
       "geometry": {
         "type": "Point",
@@ -440,7 +442,9 @@
           "description": "Vasikkasaari on nykyään Helsingin kaupungin omistamaa yleistä ulkoilu- ja virkistysaluetta, josta kaupunki on vuokrannut maata mökkiyhdistyksen jäsenille kesämajakäyttöön. Suuri osa saarta on varsin luonnontilaista, ja erityisesti saaren länsipuolen kor"
         },
         "en": {
-          "name": "Vasikkasaari"
+          "name": "Vasikkasaari",
+          "header": "Small recreational island.",
+          "description": "50 small private summer cottages (so please kindly stay on the paths), remains of large oil tanks and old stone walls, now used for theatre and playground purposes. Pets on a leash are welcome, no camping in tents.\nT-shaped guest pier on the eastern side also for visitors boats. There are public toilets and a barbeque spot, but no restaurants. Public transport in the summer, In August only on weekends."
         },
         "address": "Vasikkasaari , 00860 Helsinki",
         "website": "http://www.vasikkasaari.org",
@@ -590,12 +594,12 @@
         "en": {
           "name": "Vallisaari ja Kuninkaansaari",
           "header": "PLEASE NOTE: While municipal engineering works are in progress, Vallisaari will be closed to the public on weekdays between 19.8. - 6.9.2019",
-          "description": "JT-Line operates a daily water bus service to Vallisaari throughout the summer season. Suomen Saaristokuljetus operates a service with M/s Isosaari to Vallisaari at weekends between 4 May and 16 June as well as from 17 August till 29 September, with daily departures between Midsummer and 11 August. \n\nChanges in Vallisaari opening times in August and September due to construction works\nThe construction of a water supply network will start in Vallisaari in August. Vallisaari will be open normally until 18 August, after which day the island will be closed on weekdays from 19 August till 6 September. During this period, excavation work will be carried out on the island, including the clearance of old explosives found in the soil. For safety reasons, landing on and accessing the island while this work is in progress will be prohibited. The water buses will not operate on these days, and the guest marina will not be open. The island will be open normally at weekends, and from 7 September, every day until the end of the month. \n\nWhile the construction work is in progress, exceptional routes and other site arrangements may be in use on the island. Metsähallitus will provide more information about these arrangements closer to the construction period. \n\nThe water supply and sewage works will improve the services on the island: next year, flush toilets will be provided in addition to dry toilets, and cafés and restaurants will have better operating conditions. The water supply network on the island will be connected to the HSY network via an undersea pipe.\n"
+          "description": "Vallisaari was a closed natural habitat for decades and it opened to public in 2016. In 2020 it will host the first Helsinki Biennale, combining the unique nature of Helsinki archipelago with international contemporary art. Special care will be taken in maintaining the ecological balance and sustainability on the island. There is a guest harbour on the eastern side and chances to land with a kayak or a canoe on the Torpedonlahti, Northern main pier or Eastern sandy bay of the island.\nSome parts of the fortress are not safe, so it is recommended to keep an eye on the children and stay on the paths, also for the sake of the nature. \nWater points, toilets, picnic tables and during summer season also the excursion harbour, café, and tour guide services are available. It is allowed to berth at excursion harbor year round.\nJT-Line operates a daily water bus service to Vallisaari throughout the summer season. Suomen Saaristokuljetus operates a service with M/s Isosaari to Vallisaari at weekends between 4 May and 16 June as well as from 17 August till 29 September, with daily departures between Midsummer and 11 August. \n\nChanges in Vallisaari opening times in August and September due to construction works\nThe construction of a water supply network will start in Vallisaari in August. Vallisaari will be open normally until 18 August, after which day the island will be closed on weekdays from 19 August till 6 September. During this period, excavation work will be carried out on the island, including the clearance of old explosives found in the soil. For safety reasons, landing on and accessing the island while this work is in progress will be prohibited. The water buses will not operate on these days, and the guest marina will not be open. The island will be open normally at weekends, and from 7 September, every day until the end of the month. \n\nWhile the construction work is in progress, exceptional routes and other site arrangements may be in use on the island. Metsähallitus will provide more information about these arrangements closer to the construction period. \n\nThe water supply and sewage works will improve the services on the island: next year, flush toilets will be provided in addition to dry toilets, and cafés and restaurants will have better operating conditions. The water supply network on the island will be connected to the HSY network via an undersea pipe."
         },
         "address": "Vallisaari, Helsinki",
         "website": "https://vallisaari.fi/",
         "type": "island",
-        "imageId": "11",
+        "imageId": "18",
         "tag": ["Vallisaari ja Kuninkaansaari"],
         "image": "https://farm1.staticflickr.com/968/28120869578_291c210457_k.jpg"
       },
