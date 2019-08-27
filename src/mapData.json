@@ -1386,6 +1386,80 @@
         "type": "Point",
         "coordinates": [25.147318840026855, 60.200213606100725]
       }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Allas Sea Pool",
+          "header": "Merikylpylä ja hyvinvointikeidas keskellä kaupunkia.",
+          "description": "Allas Sea Pool on helsinkiläinen merikylpylä ja hyvinvointikeidas. Vit uida, saunoa, treenata sekä syödä ja juoda hyvin. Allas on rentoutumista, nauttimista sekä hyvinvointia keholle ja mielelle – keskellä Helsinkiä, Kauppatorin kupeessa, vuoden jokaisena päivänä."
+        },
+        "en": {
+          "name": "Allas Sea Pool",
+          "header": "Seaside saunas, pools and restaurants next to Market Square.",
+          "description": "Take in the historical Helsinki cityscape while immersed in water or lounge on the elevated terrace. Outdoor sea water swimming pool +18°C, warm swimming pool +27°C and childrens pool. Two restaurants with terraces.\nThree different saunas: women’s sauna, men’s sauna and a sauna for private events. The sauna for private events is also used as a traditional mixed-gender sauna when there are no reservations. Concerts and various sauna and wellness events, such as sauna yoga."
+        },
+        "website": "https://www.allasseapool.fi/en/",
+        "phone_number": "+358405656582",
+        "address": "Katajanokanlaituri 2a, 00160 Helsinki",
+        "type": "sauna",
+        "imageId": "20",
+        "tag": []
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.958016, 60.167169]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Löyly",
+          "header": "Moderni ja ekotietoinen julkinen sauna ja ravintola.",
+          "description": "Löylyn sijaisnti ja arkkitehtuuri tarjoaa merellisiä elämyksiä kaupunkilaisille ja matkailijoille . Löyly on myös kestävän liiketoiminnan ja ekologisen rakentamisen edelläkävijä. Ympäristövastuullisuus on huomioitu ekosähkössä, FSC-sertifioiduissa rakennusmateriaaleissa ja ruokalistassa."
+        },
+        "en": {
+          "name": "Löyly",
+          "header": "Modern eco-conscious public sauna and restaurant.",
+          "description": "Cool architecture, wide seaview. Three wood heated saunas: a continuously heated sauna, a once heated sauna and a traditional smoke sauna available during a single visit. Spa area and a fire place room, chance to swim in the sea and in the winter there is an “avanto”, the hole in the ice for winter swimming.\nThe building is accessible with wheelchair."
+        },
+        "website": "http://www.loylyhelsinki.fi/en/front-page/",
+        "phone_number": "+35896128 6550",
+        "address": "Hernesaarenranta 4, 00150 Helsinki",
+        "type": "sauna",
+        "imageId": "21",
+        "tag": []
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.930358, 60.152094]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "fi": {
+          "name": "Sompasauna",
+          "header": "Palkittu yhteisöllinen alakulttuurisauna.",
+          "description": "Helsingin yleisin sauna. Ei pääsymaksua, ei suihkua eikä pukukoppeja. Käsin kasattu sauna rakennettiin kierrätysmateriaaleista ja se tuhottiin moneen kertaan, kunnes Helsingin kaupungin myöntämän kulttuuripalkinnon voimin paikalle pystytettiin tukevampi hirsisauna. Jos sauna on kylmä niin voit lämmittää sen itse. Toiminta perustuu luottamukseen, joten saunalla käyttäydytään hyvin. Sompasauna joutuu tulevaisuudessa väistymään nykyisestä paikasta rakennustöiden tieltä, mutta toimintaa on tarkoitus jatkaa."
+        },
+        "en": {
+          "name": "Sompasauna",
+          "header": "Underground legend of Helsinki saunas.",
+          "description": "Primitive sauna experience provided by volunteers and yourself. No fee, no staff, no showers, no lockers.\nA lightweight sauna-shack was built in 2011, destroyed, burnt, pushed into sea and built over and over again. Helsinki Culture Award of 5000 euros in 2015 led to building the current wooden sauna.\nEverything is based on trust on peoples ability to behave in a good sauna manner, the only rule being “Don´t be stupid”. The summer of 2020 may be the last in current location."
+        },
+        "website": "http://www.sompasauna.fi",
+        "address": "Sompasaarenlaituri, 00540 Helsinki",
+        "type": "sauna",
+        "imageId": "22",
+        "tag": []
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [24.97525, 60.175841]
+      }
     }
   ]
 }
