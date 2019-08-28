@@ -338,14 +338,14 @@
         "fi": {
           "name": "Klippan - yhteysvene",
           "header": "Kahdessa minuutissa Saaristoon Klippanille",
-          "description": "Ravintolalaskullenne lisätään automaattisesti yhteysvenemaksu 6,50/hlö (meno-paluu)\n\nSaariston laituri sijaitsee Olympiaterminaalin eteläpuolella (Ehrenströmintie), Rauhanpatsaan vieressä.\nUlkopuolisen yrittäjän, Oy Xmare Ab:n yhteysvene liikennöi Ravintola Saariston aukioloaikoina 20 minuutin. Lyhyt merimatka kestää vain pari minuuttia.",
+          "description": "Ravintolalaskullenne lisätään automaattisesti yhteysvenemaksu 6,50/hlö (meno-paluu)\n\nSaariston laituri sijaitsee Olympiaterminaalin eteläpuolella (Ehrenströmintie), Rauhanpatsaan vieressä.\n\nUlkopuolisen yrittäjän, Oy Xmare Ab:n yhteysvene liikennöi Ravintola Saariston aukioloaikoina 20 minuutin. Lyhyt merimatka kestää vain pari minuuttia.",
           "free_text_1": "Meno-paluu 6,50€",
           "free_text_2": "20 minuutin välein"
         },
         "en": {
           "name": "Klippan - access boat",
           "header": "Two minutes to restaurant Saaristo at Klippan",
-          "description": "Restaurant Saaristo is located on Island Klippan, on the south side of Olympia-terminal.\nA boat serves from pier  located on the south side of Olympia-terminal, by the street Ehrenströmintie (next to the Peace Statue).",
+          "description": "Restaurant Saaristo is located on Island Klippan, on the south side of Olympia-terminal.\n\nA boat serves from pier  located on the south side of Olympia-terminal, by the street Ehrenströmintie (next to the Peace Statue).",
           "free_text_1": "Round-trip 6,50€",
           "free_text_2": "Every 20 minutes"
         },
