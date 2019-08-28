@@ -17,6 +17,10 @@ const PromotionSlideSection = styled(Section)`
     margin-top: 1.5rem;
   }
 
+  .slick-prev {
+    display: none !important;
+  }
+
   ${BodyText} {
     margin: 0;
     font-family: ${props => props.theme.fonts.fontFamilyBold};

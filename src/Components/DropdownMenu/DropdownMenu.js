@@ -160,12 +160,22 @@ const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
           </TextSection>
           <Line />
           <TextSection>
-            <UnstyledLink to="/">
+            <TrackedOutboundLink
+              eventLabel="boat_page"
+              target="_blank"
+              rel="noopener noreferrer"
+              to={t('dropdown.boat_page_target')}
+            >
               <BodyText>{t('dropdown.boat_page')}</BodyText>
-            </UnstyledLink>
-            <UnstyledLink to="/">
+            </TrackedOutboundLink>
+            <TrackedOutboundLink
+              eventLabel="rescue_directions"
+              target="_blank"
+              rel="noopener noreferrer"
+              to={t('dropdown.rescue_directions_target')}
+            >
               <BodyText>{t('dropdown.rescue_directions')}</BodyText>
-            </UnstyledLink>
+            </TrackedOutboundLink>
           </TextSection>
         </Body>
       </BackDrop>

@@ -17,7 +17,9 @@
     "give_feedback": "Give feedback",
     "about": "About Ahti",
     "boat_page": "City's boat page",
-    "rescue_directions": "Sea rescue directions"
+    "boat_page_target": "https://www.hel.fi/helsinki/en/culture/recreation/boating/",
+    "rescue_directions": "Sea rescue directions",
+    "rescue_directions_target": "https://www.hel.fi/helsinki/en/culture/recreation/boating/boating-information/sea-rescue-directions/"
   },
   "map": {
     "show_all_button": "Show all",

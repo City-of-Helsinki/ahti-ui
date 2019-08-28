@@ -17,7 +17,9 @@
     "give_feedback": "Anna palautetta",
     "about": "Tietoa Ahti-palvelusta",
     "boat_page": "Kaupungin veneilysivut",
-    "rescue_directions": "Meripelastusohjeet"
+    "boat_page_target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily",
+    "rescue_directions": "Meripelastusohjeet",
+    "rescue_directions_target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/lisatietoa-veneilysta/meripelastusohjeet/"
   },
   "map": {
     "show_all_button": "Näytä kaikki",
