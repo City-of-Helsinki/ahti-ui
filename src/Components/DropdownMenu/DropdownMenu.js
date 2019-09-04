@@ -114,9 +114,6 @@ const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
             </LanguageButton>
           </LanguageButtonContainer>
           <TextSection>
-            <TrackedOutboundLink eventLabel="learn_more" to="#">
-              <BodyText>{t('dropdown.about')}</BodyText>
-            </TrackedOutboundLink>
             <TrackedOutboundLink
               eventLabel="give_feedback"
               target="_blank"
