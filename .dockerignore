@@ -1,0 +1,13 @@
+node_modules
+*.log
+Dockerfile*
+docker-compose*
+.dockerignore
+.git
+.gitignore
+.travis.yml
+README.md
+LICENSE
+.vscode
+.idea
+build
