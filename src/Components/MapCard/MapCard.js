@@ -64,7 +64,7 @@ const FloatingBlock = styled.div`
 `;
 
 const MapCard = ({ pointData, onBack, closeCardLink }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const website = pointData && pointData.properties.website;
   const info = pointData && pointData.properties.phone_number;
   const address = pointData && pointData.properties.address;

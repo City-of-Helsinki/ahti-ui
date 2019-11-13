@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import queryString from 'query-string';
 import SliderCard from '../SliderCard/SliderCard';

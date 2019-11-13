@@ -47,7 +47,7 @@ const TrackedLearnMoreLink = styled(TrackedOutboundLink)`
 `;
 
 const Footer = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <footer>
       <HelsinkiWave color="yellow" />

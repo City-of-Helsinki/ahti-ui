@@ -18,7 +18,7 @@ const MapboxMap = ({
   flyToPoint,
   currentSlide,
 }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const map = useRef(null);
   const parsedSearch = useMemo(() => queryString.parse(location.search), [
     location.search,
@@ -100,7 +100,7 @@ const MapboxMap = ({
         {...viewport}
         ref={map}
         mapStyle={mapStyle}
-        mapboxApiAccessToken={process.env.REACT_APP_ACCESSTOKEN}
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN}
         onViewportChange={viewport => setViewport(viewport)}
         onNativeClick={_onClick}
         clickRadius={10}

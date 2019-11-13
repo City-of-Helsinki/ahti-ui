@@ -11,7 +11,6 @@ import mapIslandData from './mapIslandData.json';
 import { ThemeProvider } from 'styled-components';
 import withTracker from './withTracker';
 import ScrollToTop from './ScrollToTop';
-import { bold } from 'ansi-colors';
 export const GlobalGeoContext = React.createContext();
 export const GlobalLineContext = React.createContext();
 export const GlobalIslandContext = React.createContext();
