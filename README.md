@@ -11,7 +11,9 @@
 ### Configuring environment variables
 
 This application reads environment variables from the dotfile `.env`. All configurable variables, their purpose and possible values can be found in the example file `.env.example`. To get started copy the example file and edit any variables specified as required:
-`$ cp .env.example .env`
+   ```
+   $ cp .env.example .env
+   ```
 
 ### Docker
 
