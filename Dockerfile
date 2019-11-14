@@ -42,3 +42,23 @@ COPY --chown=appuser:appuser . .
 
 # Start gql server and frontend
 CMD ["yarn", "start"]
+
+# ===================================
+FROM appbase as staticbuilder
+# ===================================
+
+ARG REACT_APP_MAPBOX_API_ACCESS_TOKEN
+
+COPY . /app
+RUN yarn build
+
+# =============================
+FROM nginx:1.17 as production
+# =============================
+
+# Nginx runs with user "nginx" by default
+COPY --from=staticbuilder --chown=nginx:nginx /app/build /usr/share/nginx/html
+
+COPY .prod/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
