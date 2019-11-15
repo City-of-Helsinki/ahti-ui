@@ -130,9 +130,9 @@ const MapboxMap = ({
 // Utils
 function getMapStyleUrl(language) {
   if (language && language !== 'fi') {
-    return 'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv';
+    return 'mapbox://styles/mapbox/outdoors-v11';
   } else {
-    return 'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv';
+    return 'mapbox://styles/mapbox/outdoors-v11';
   }
 }
 
