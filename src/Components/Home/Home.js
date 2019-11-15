@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import Slider from 'react-slick';
 import { useTranslation } from 'react-i18next';
-import { GlobalGeoContext } from '../../App';
-import { GlobalIslandContext } from '../../App';
+import { GlobalGeoContext } from '../../domain/app/App';
+import { GlobalIslandContext } from '../../domain/app/App';
 import LinkBox from '../LinkBox/LinkBox';
 import MapOverlay from '../MapOverlay/MapOverlay';
 import Footer from '../Footer/Footer';
@@ -16,7 +16,7 @@ import PromotionBlock from '../PromotionBlock/PromotionBlock';
 import PromotionSlideSection from '../PromotionSlideSection/PromotionSlideSection';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 import BodyText from '../BodyText/BodyText';
-import { POINT_TYPES } from '../../App';
+import { POINT_TYPES } from '../../domain/app/App';
 import styled from 'styled-components';
 
 const BackgroundShade = styled.div`

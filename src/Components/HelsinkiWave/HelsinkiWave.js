@@ -1,5 +1,5 @@
-import wave from '../../assets/helsinki_wave.svg';
-import yellowWave from '../../assets/helsinki_wave_yellow.svg';
+import wave from '../../assets/images/helsinki_wave.svg';
+import yellowWave from '../../assets/images/helsinki_wave_yellow.svg';
 
 import styled from 'styled-components';
 

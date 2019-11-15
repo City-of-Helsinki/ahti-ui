@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { withRouter } from 'react-router-dom';
-import { GlobalGeoContext } from '../../App';
-import { GlobalLineContext } from '../../App';
-import { GlobalIslandContext } from '../../App';
+import { GlobalGeoContext } from '../../domain/app/App';
+import { GlobalLineContext } from '../../domain/app/App';
+import { GlobalIslandContext } from '../../domain/app/App';
 import queryString from 'query-string';
 import { useTranslation } from 'react-i18next';
 import MapboxMap from '../MapboxMap/MapboxMap';
