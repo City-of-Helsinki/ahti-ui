@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import queryString from 'query-string';
 import SliderCard from '../SliderCard/SliderCard';
-import { getPointQuery } from '../../utils';
+import { getPointQuery } from '../../common/utils/utils';
 
 // TODO: add actions on swipe http://hammerjs.github.io/getting-started/
 

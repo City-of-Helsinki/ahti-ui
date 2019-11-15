@@ -6,7 +6,11 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
 import Cluster from '../Cluster/Cluster';
-import { getPointQuery, getLineQuery, getIslandQuery } from '../../utils';
+import {
+  getPointQuery,
+  getLineQuery,
+  getIslandQuery,
+} from '../../common/utils/utils';
 
 // using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
 const MapboxMap = ({

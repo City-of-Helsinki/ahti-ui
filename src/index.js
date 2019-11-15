@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './domain/app/App';
 import ReactGA from 'react-ga';
-import * as i18n from './i18n';
-import './globalStyles/index.scss';
+import * as i18n from './i18n/i18n';
+import './assets/styles/index.scss';
 
 // import i18n from './i18n'; // this needs to be here for i18n to work
 // import * as serviceWorker from './serviceWorker';

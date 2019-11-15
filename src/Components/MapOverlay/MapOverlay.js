@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
-import mapImage from '../../assets/map_landingpage.png';
+import mapImage from '../../assets/images/map_landingpage.png';
 
 const MapOverlay = styled.div`
   box-sizing: border-box;
