@@ -2,7 +2,11 @@ import UnstyledLink from '../UnstyledLink/UnstyledLink';
 
 import styled from 'styled-components';
 
-const LinkBox = styled(UnstyledLink)`
+interface LinkBoxProps {
+  readonly variant?: 'white' | 'black';
+}
+
+const LinkBox = styled(UnstyledLink)<LinkBoxProps>`
   box-sizing: border-box;
 
   /** Give the box content-width */

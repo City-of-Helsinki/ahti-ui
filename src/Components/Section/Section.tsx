@@ -2,7 +2,13 @@ import styled from 'styled-components';
 import LinkBox from '../LinkBox/LinkBox';
 import BodyText from '../BodyText/BodyText';
 
-const Section = styled.section`
+interface SectionProps {
+  readonly withImage?: boolean;
+  readonly imageURL?: string;
+  readonly widthShadow?: boolean;
+}
+
+const Section = styled.section<SectionProps>`
   box-sizing: border-box;
   width: 100%;
   min-height: 25rem;
