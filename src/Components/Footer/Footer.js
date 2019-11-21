@@ -3,7 +3,7 @@ import ReactGA from 'react-ga';
 import { useTranslation } from 'react-i18next';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BodyText from '../BodyText/BodyText';
-import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
+import { Koros } from 'hds-react';
 
 import styled from 'styled-components';
 
@@ -50,7 +50,6 @@ const Footer = () => {
   const { t } = useTranslation();
   return (
     <footer>
-      <HelsinkiWave color="yellow" />
       <Container>
         <SecondaryTitle>{t('footer.header')}</SecondaryTitle>
         <LinkContainer>

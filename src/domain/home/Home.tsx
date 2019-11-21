@@ -1,23 +1,24 @@
 import React, { useContext } from 'react';
 import Slider from 'react-slick';
 import { useTranslation } from 'react-i18next';
-import { GlobalGeoContext } from '../../domain/app/App';
-import { GlobalIslandContext } from '../../domain/app/App';
-import LinkBox from '../LinkBox/LinkBox';
-import MapOverlay from '../MapOverlay/MapOverlay';
-import Footer from '../Footer/Footer';
-import Section from '../Section/Section';
-import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
-import RoundBoxWithText from '../RoundBox/RoundBox';
-import TertiaryTitle from '../TertiaryTitle/TertiaryTitle';
-import UnstyledLink from '../UnstyledLink/UnstyledLink';
-import VerticalBlock from '../VerticalBlock/VerticalBlock';
-import PromotionBlock from '../PromotionBlock/PromotionBlock';
-import PromotionSlideSection from '../PromotionSlideSection/PromotionSlideSection';
-import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
-import BodyText from '../BodyText/BodyText';
-import { POINT_TYPES } from '../../domain/app/App';
+import { GlobalGeoContext } from '../app/App';
+import { GlobalIslandContext } from '../app/App';
+import LinkBox from '../../Components/LinkBox/LinkBox';
+import MapOverlay from '../../Components/MapOverlay/MapOverlay';
+import Footer from '../../Components/Footer/Footer';
+//import { Section, Koros } from 'hds-react';
+import SecondaryTitle from '../../Components/SecondaryTitle/SecondaryTitle';
+import Section from '../../Components/Section/Section';
+import RoundBoxWithText from '../../Components/RoundBox/RoundBox';
+import TertiaryTitle from '../../Components/TertiaryTitle/TertiaryTitle';
+import UnstyledLink from '../../Components/UnstyledLink/UnstyledLink';
+import VerticalBlock from '../../Components/VerticalBlock/VerticalBlock';
+import PromotionBlock from '../../Components/PromotionBlock/PromotionBlock';
+import PromotionSlideSection from '../../Components/PromotionSlideSection/PromotionSlideSection';
+import BodyText from '../../Components/BodyText/BodyText';
+import { POINT_TYPES } from '../app/App';
 import styled from 'styled-components';
+import HelsinkiWave from '../../Components/HelsinkiWave/HelsinkiWave';
 
 const BackgroundShade = styled.div`
   position: relative;
@@ -42,8 +43,11 @@ const PROMOTION_POINT_NAMES = [
 
 const PROMOTION_TYPES = ['cityboat', 'sup', 'visitor'];
 
+type Dict = {
+  [key: string]: any;
+};
 // these are just placeholders, correct content will be added to translation file
-const PROMOTION_TYPES_CONTENT = {
+const PROMOTION_TYPES_CONTENT: Dict = {
   cityboat: {
     fi: {
       name: 'Skipperi',
@@ -79,7 +83,7 @@ const PROMOTION_TYPES_CONTENT = {
   },
 };
 
-const removeTouchMoveEventFromWindow = e => {
+const removeTouchMoveEventFromWindow = (e: { stopPropagation: () => void }) => {
   e.stopPropagation();
   // e.preventDefault();
 };
@@ -91,9 +95,7 @@ const addTouchMoveEvenetListernerToWindow = () => {
 };
 
 const removeTouchMoveEvenetListernerToWindow = () => {
-  window.removeEventListener('touchmove', removeTouchMoveEventFromWindow, {
-    passive: false,
-  });
+  window.removeEventListener('touchmove', removeTouchMoveEventFromWindow, {});
 };
 
 const PROMOTION_ISLANDS = ['Vasikkasaari', 'Lonna', 'Isosaari'];
@@ -191,7 +193,6 @@ export default () => {
                 {PROMOTION_TYPES.map((type, id) => (
                   <PromotionBlock
                     key={id}
-                    withImage="true"
                     imageURL={`/images/${PROMOTION_TYPES_CONTENT[type].imageId}.jpeg`}
                   >
                     <BodyText>
@@ -214,8 +215,8 @@ export default () => {
       {promotionIsland && (
         <React.Fragment>
           <Section
-            withImage="true"
-            widthShadow="true"
+            withImage={true}
+            widthShadow={true}
             imageURL={
               promotionIsland.properties.image ||
               (promotionIsland.properties.imageId &&
@@ -248,7 +249,7 @@ export default () => {
                 key={id}
               >
                 <VerticalBlock
-                  withImage="true"
+                  withImage={true}
                   imageURL={`/images/${point.properties.imageId}.jpeg`}
                 >
                   <SecondaryTitle>
@@ -262,8 +263,8 @@ export default () => {
       </Section>
 
       <Section
-        withImage="true"
-        widthShadow="true"
+        withImage={true}
+        widthShadow={true}
         imageURL="https://images.unsplash.com/photo-1507911618740-de629a41dd34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
       >
         <SecondaryTitle>{t('home.section5_header')}</SecondaryTitle>

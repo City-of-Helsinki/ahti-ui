@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 
-const PromotionBlock = styled.div`
+interface PromotionBlockProps {
+  readonly imageURL: string;
+}
+
+const PromotionBlock = styled.div<PromotionBlockProps>`
   background-image: url(${props => props.imageURL});
   background-repeat: no-repeat;
   background-size: cover;

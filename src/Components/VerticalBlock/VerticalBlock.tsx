@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-const VerticalBlock = styled.div`
+interface VerticalBlockProps {
+  readonly withImage?: boolean;
+  readonly imageURL?: string;
+}
+
+const VerticalBlock = styled.div<VerticalBlockProps>`
   position: relative;
   background-color: ${props => props.theme.colors.white};
 
