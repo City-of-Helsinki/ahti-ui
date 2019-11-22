@@ -4,7 +4,7 @@ import MapPage from '../../Components/MapPage/MapPage';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from '../home/Home';
 import { useTranslation } from 'react-i18next';
-import ApplicationHeader from '../../Components/ApplicationHeader/ApplicationHeader';
+import ApplicationHeader from '../header/ApplicationHeader';
 import mapData from '../../data/mapData.json';
 import lineData from '../../data/lineData.json';
 import mapIslandData from '../../data/mapIslandData.json';
