@@ -105,7 +105,7 @@ const Footer = () => {
             eventLabel="footer_helfi"
             target="_blank"
             rel="noopener noreferrer"
-            to="https://www.hel.fi/helsinki/fi"
+            to={t('footer.attribution_link')}
           >
             www.hel.fi
           </TrackedLearnMoreLink>
