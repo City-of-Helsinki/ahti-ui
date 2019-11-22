@@ -5,6 +5,7 @@ import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BodyText from '../BodyText/BodyText';
 
 import styled from 'styled-components';
+import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 
 const Container = styled.div`
   min-height: 21rem;
@@ -49,6 +50,7 @@ const Footer = () => {
   const { t } = useTranslation();
   return (
     <footer>
+      <HelsinkiWave color="yellow" />
       <Container>
         <SecondaryTitle>{t('footer.header')}</SecondaryTitle>
         <LinkContainer>
