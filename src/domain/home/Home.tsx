@@ -5,7 +5,7 @@ import { GlobalGeoContext } from '../app/App';
 import { GlobalIslandContext } from '../app/App';
 import LinkBox from '../../Components/LinkBox/LinkBox';
 import MapOverlay from '../../Components/MapOverlay/MapOverlay';
-import Footer from '../../Components/Footer/Footer';
+import Footer from '../footer/Footer';
 //import { Section, Koros } from 'hds-react';
 import SecondaryTitle from '../../Components/SecondaryTitle/SecondaryTitle';
 import Section from '../../Components/Section/Section';

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactGA from 'react-ga';
 import { useTranslation } from 'react-i18next';
-import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
-import BodyText from '../BodyText/BodyText';
+import SecondaryTitle from '../../Components/SecondaryTitle/SecondaryTitle';
+import BodyText from '../../Components/BodyText/BodyText';
 
 import styled from 'styled-components';
-import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
+import HelsinkiWave from '../../Components/HelsinkiWave/HelsinkiWave';
 
 const Container = styled.div`
   min-height: 21rem;
