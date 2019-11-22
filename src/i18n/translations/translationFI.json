@@ -14,7 +14,9 @@
     "label": "Valikko",
     "change_language": "Change language to English",
     "add_location": "Lisää kohde tai palvelu",
+    "add_location_target": "https://docs.google.com/forms/d/e/1FAIpQLSe6xJj1vpjNfinde6Ly3jv_BG7Reev0KGAKH8O7QPsIVn3IUg/viewform?usp=sf_link",
     "give_feedback": "Anna palautetta",
+    "give_feedback_target": "https://docs.google.com/forms/d/e/1FAIpQLSegIqAsxVscFnk2iPneXahSpV1cnGjXZ2d_98fSSh0ZOsA1JA/viewform?usp=sf_link",
     "about": "Tietoa Ahti-palvelusta",
     "boat_page": "Kaupungin veneilysivut",
     "boat_page_target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily",
@@ -54,7 +56,8 @@
     },
     "body": "Tämä palvelu on kehityksessä, käytät testiversiota.",
     "learn_more": "Lue lisää Ahti-palvelusta.",
-    "attribution": "© Helsingin kaupunki 2019 |"
+    "attribution": "© Helsingin kaupunki 2019 |",
+    "attribution_link": "https://www.hel.fi/helsinki/fi"
   },
   "types": {
     "island": "Saaret",

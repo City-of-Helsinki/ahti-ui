@@ -72,7 +72,6 @@ const LanguageButton = styled(BaseButton)<LanguageButtonProps>`
 
 interface MenuButtonProp {
   readonly isOpen: boolean;
-  readonly onClick: Function;
 }
 
 const MenuButton = styled(BaseButton)<MenuButtonProp>`
@@ -97,14 +96,18 @@ const TrackedOutboundLink = styled(ReactGA.OutboundLink)`
   text-decoration: none;
 `;
 
+interface ClickFn {
+  (event: React.MouseEvent<HTMLButtonElement>): void;
+}
+
 const DropdownMenu = ({
   isOpen,
   onOpen,
   onClose,
 }: {
   isOpen: boolean;
-  onOpen: Function;
-  onClose: Function;
+  onOpen: ClickFn;
+  onClose: ClickFn;
 }) => {
   const { t, i18n } = useTranslation();
 
@@ -112,7 +115,7 @@ const DropdownMenu = ({
     <React.Fragment>
       <MenuButton
         isOpen={isOpen}
-        onClick={() => (isOpen ? onClose : onOpen)}
+        onClick={isOpen ? onClose : onOpen}
         aria-expanded={isOpen}
         aria-label={t('dropdown.label')}
       >
@@ -139,11 +142,7 @@ const DropdownMenu = ({
               eventLabel="give_feedback"
               target="_blank"
               rel="noopener noreferrer"
-              to={
-                i18n.language === 'fi'
-                  ? 'https://docs.google.com/forms/d/e/1FAIpQLSegIqAsxVscFnk2iPneXahSpV1cnGjXZ2d_98fSSh0ZOsA1JA/viewform?usp=sf_link'
-                  : 'https://docs.google.com/forms/d/e/1FAIpQLSefN-qtj9EOpV6iLcaKj2LrQYV-fhjEAeqB4g1rQPIdSIYLdA/viewform?usp=sf_link'
-              }
+              to={t('dropdown.give_feedback_target')}
             >
               <BodyText>{t('dropdown.give_feedback')}</BodyText>
             </TrackedOutboundLink>
@@ -154,11 +153,7 @@ const DropdownMenu = ({
               eventLabel="add_location"
               target="_blank"
               rel="noopener noreferrer"
-              to={
-                i18n.language === 'fi'
-                  ? 'https://docs.google.com/forms/d/e/1FAIpQLSe6xJj1vpjNfinde6Ly3jv_BG7Reev0KGAKH8O7QPsIVn3IUg/viewform?usp=sf_link'
-                  : 'https://docs.google.com/forms/d/e/1FAIpQLSeUKV9KPXBjDZHNRnVi3vB1N-fayYxFy3tirFdKplAIFYqxRw/viewform?usp=sf_link'
-              }
+              to={t('dropdown.add_location_target')}
             >
               <BodyText>{t('dropdown.add_location')}</BodyText>
             </TrackedOutboundLink>

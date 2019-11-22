@@ -14,7 +14,9 @@
     "label": "Menu",
     "change_language": "Vaihda kieli Suomeksi",
     "add_location": "Add location or service",
+    "add_location_target": "https://docs.google.com/forms/d/e/1FAIpQLSeUKV9KPXBjDZHNRnVi3vB1N-fayYxFy3tirFdKplAIFYqxRw/viewform?usp=sf_link",
     "give_feedback": "Give feedback",
+    "give_feedback_target": "https://docs.google.com/forms/d/e/1FAIpQLSefN-qtj9EOpV6iLcaKj2LrQYV-fhjEAeqB4g1rQPIdSIYLdA/viewform?usp=sf_link",
     "about": "About Ahti",
     "boat_page": "City's boat page",
     "boat_page_target": "https://www.hel.fi/helsinki/en/culture/recreation/boating/",
@@ -54,7 +56,8 @@
     },
     "body": "This service is under development and you’re using a test version.",
     "learn_more": "Learn more about Ahti.",
-    "attribution": "© Helsingin kaupunki 2019 |"
+    "attribution": "© City of Helsinki 2019 |",
+    "attribution_link": "https://www.hel.fi/helsinki/en"
   },
   "types": {
     "island": "Islands",
