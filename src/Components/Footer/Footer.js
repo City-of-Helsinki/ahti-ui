@@ -3,7 +3,6 @@ import ReactGA from 'react-ga';
 import { useTranslation } from 'react-i18next';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BodyText from '../BodyText/BodyText';
-import { Koros } from 'hds-react';
 
 import styled from 'styled-components';
 

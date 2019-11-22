@@ -10,6 +10,10 @@ import { POINT_TYPES } from '../../domain/app/App';
 
 import styled, { keyframes } from 'styled-components';
 
+interface LanguageButtonProps {
+  readonly isActive: boolean;
+}
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -40,7 +44,11 @@ const Line = styled.hr`
   margin: 0;
 `;
 
-const BackDrop = styled.div`
+interface BackDropProp {
+  readonly isOpen: boolean;
+}
+
+const BackDrop = styled.div<BackDropProp>`
   display: ${props => !props.isOpen && 'none'};
   /* Play the animation when the display changes from none to initial */
   animation: ${fadeIn} 0.4s ease-in-out;
@@ -56,13 +64,18 @@ const LanguageButtonContainer = styled.div`
   padding-left: 1.5rem;
 `;
 
-const LanguageButton = styled(BaseButton)`
+const LanguageButton = styled(BaseButton)<LanguageButtonProps>`
   padding: 1rem;
   font-size: 1.4rem;
   font-weight: ${props => (props.isActive ? 600 : 400)};
 `;
 
-const MenuButton = styled(BaseButton)`
+interface MenuButtonProp {
+  readonly isOpen: boolean;
+  readonly onClick: Function;
+}
+
+const MenuButton = styled(BaseButton)<MenuButtonProp>`
   z-index: 5001;
   position: absolute;
   top: 1rem;
@@ -84,14 +97,22 @@ const TrackedOutboundLink = styled(ReactGA.OutboundLink)`
   text-decoration: none;
 `;
 
-const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
+const DropdownMenu = ({
+  isOpen,
+  onOpen,
+  onClose,
+}: {
+  isOpen: boolean;
+  onOpen: Function;
+  onClose: Function;
+}) => {
   const { t, i18n } = useTranslation();
 
   return (
     <React.Fragment>
       <MenuButton
         isOpen={isOpen}
-        onClick={isOpen ? onClose : onOpen}
+        onClick={() => (isOpen ? onClose : onOpen)}
         aria-expanded={isOpen}
         aria-label={t('dropdown.label')}
       >
@@ -149,7 +170,7 @@ const DropdownMenu = ({ isOpen, onOpen, onClose }) => {
                 <UnstyledLink
                   to={`/map?type=${type}`}
                   key={id}
-                  onClick={isOpen ? onClose : onOpen}
+                  onClick={() => (isOpen ? onClose : onOpen)}
                 >
                   <BodyText>{t(`types.${type}`)}</BodyText>
                 </UnstyledLink>
