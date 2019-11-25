@@ -18,22 +18,6 @@ export const GlobalIslandContext = React.createContext<any[]>(
   mapIslandData.data
 );
 
-export const POINT_TYPES = [
-  'island',
-  'route',
-  'cityboat',
-  'sauna',
-  'rent',
-  'sup',
-  'experience',
-  'charter',
-  'sightseeing',
-  'learn',
-  'taxi',
-  'visitor',
-  'station',
-];
-
 const theme = {
   secondaryColor: 'white',
   primaryColor: 'red',
