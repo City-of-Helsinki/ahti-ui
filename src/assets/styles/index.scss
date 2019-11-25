@@ -16,29 +16,8 @@ $text-base-size: 1em;
 $text-scale-ratio: 1.2;
 
 /* see https://css-tricks.com/snippets/css/system-font-stack/ */
-
 $font-family: $font-family-primary, $font-fallback-primary,
   $font-fallback-secondary, $font-primary;
-
-/* type scale */
-$text-xs: calc($text-base-size / ($text-scale-ratio * $text-scale-ratio));
-$text-sm: calc($text-base-size / var(--text-scale-ratio));
-$text-md: calc($text-base-size * var(--text-scale-ratio));
-$text-lg: calc(
-  $text-base-size * var(--text-scale-ratio) * var(--text-scale-ratio)
-);
-$text-xl: calc(
-  $text-base-size * var(--text-scale-ratio) * var(--text-scale-ratio) *
-    var(--text-scale-ratio)
-);
-$text-xxl: calc(
-  $text-base-size * var(--text-scale-ratio) * var(--text-scale-ratio) *
-    var(--text-scale-ratio) * var(--text-scale-ratio)
-);
-$text-xxxl: calc(
-  $text-base-size * var(--text-scale-ratio) * var(--text-scale-ratio) *
-    var(--text-scale-ratio) * var(--text-scale-ratio) * var(--text-scale-ratio)
-);
 
 :root {
   font-size: $font-size-primary;
