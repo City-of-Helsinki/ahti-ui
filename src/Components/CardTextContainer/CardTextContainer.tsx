@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-const CardTextContainer = styled.div`
+interface CardTextContainer {
+  readonly imageURL?: string;
+}
+
+const CardTextContainer = styled.div<CardTextContainer>`
   box-sizing: border - box;
   padding: 2rem 2rem;
   position: relative;

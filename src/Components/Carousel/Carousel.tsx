@@ -12,8 +12,14 @@ const Carousel = ({
   displayedPoints,
   setCurrentSlide,
   flyToPoint,
+}: {
+  currentSlide: any;
+  location: any;
+  displayedPoints: any;
+  setCurrentSlide: any;
+  flyToPoint: any;
 }) => {
-  const [sliderRef, setSlideRef] = useState(null);
+  const [sliderRef, setSlideRef] = useState<any>(null);
 
   // Sync the top-state with Slider's internal state. They would otherwise get out of sync in cases where we set the currentSlide directly and change the size of the displayed points.
   useEffect(() => {
@@ -44,7 +50,7 @@ const Carousel = ({
       }}
       afterChange={current => setCurrentSlide(current)}
     >
-      {displayedPoints.map((point, id) => {
+      {displayedPoints.map((point: any, id: string | number | undefined) => {
         return (
           <SliderCard
             point={point}
