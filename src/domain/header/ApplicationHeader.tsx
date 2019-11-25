@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ReactComponent as AhtiLogo } from '../../assets/icons/ahti_logo.svg';
 import DropdownMenu from '../../Components/DropdownMenu/DropdownMenu';
 import UnstyledLink from '../../Components/UnstyledLink/UnstyledLink';
-import { useTranslation } from 'react-i18next';
 
 import styled from 'styled-components';
 
@@ -21,7 +20,6 @@ const TitleContainer = styled.div`
 const ApplicationHeader = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const { i18n } = useTranslation();
   return (
     <nav>
       <UnstyledLink to="/">
