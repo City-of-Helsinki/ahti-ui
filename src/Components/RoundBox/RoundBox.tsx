@@ -23,7 +23,7 @@ const RoundBoxWithText = ({
   pathToList,
 }: {
   iconURL: string;
-  title: string;
+  title: any;
   pathToList: string;
 }) => {
   return (
