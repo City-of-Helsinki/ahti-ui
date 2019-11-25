@@ -37,10 +37,14 @@
     "typescript": "^3.7.2"
   },
   "scripts": {
+    "lint": "eslint --ext js,jsx,ts,tsx src/",
+    "lint:fix": "eslint --fix --ext js,jsx,ts,tsx src/",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "analyze": "source-map-explorer 'build/static/js/*.js' --html bundle-analysis.html",
     "test": "react-scripts test",
+    "test:ci": "CI=true && yarn test:coverage",
+    "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "palvelukartta-fetch-islands": "node src/data/scripts/fetchPalvelukarttaIslandData.js",
     "palvelukartta-append-island-data": "node src/data/scripts/mergePalvelukarttaIslandDataAdditions.js"
