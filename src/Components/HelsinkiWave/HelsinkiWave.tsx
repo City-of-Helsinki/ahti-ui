@@ -3,7 +3,11 @@ import yellowWave from '../../assets/images/helsinki_wave_yellow.svg';
 
 import styled from 'styled-components';
 
-const HelsinkiWave = styled.div`
+interface HelsinkiWaveProps {
+  readonly color?: 'yellow';
+}
+
+const HelsinkiWave = styled.div<HelsinkiWaveProps>`
   position: relative;
   height: 30px;
   margin-top: -30px;

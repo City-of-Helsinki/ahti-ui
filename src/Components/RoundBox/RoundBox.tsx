@@ -17,7 +17,15 @@ const RoundBox = styled.div`
   }
 `;
 
-const RoundBoxWithText = ({ iconURL, title, pathToList }) => {
+const RoundBoxWithText = ({
+  iconURL,
+  title,
+  pathToList,
+}: {
+  iconURL: string;
+  title: string;
+  pathToList: string;
+}) => {
   return (
     <UnstyledLink to={pathToList}>
       <RoundBox>
