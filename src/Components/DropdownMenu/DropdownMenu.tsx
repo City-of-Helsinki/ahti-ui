@@ -6,7 +6,7 @@ import BaseButton from '../BaseButton/BaseButton';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import { ReactComponent as Menu } from '../../assets/icons/menu.svg';
 import { ReactComponent as Exit } from '../../assets/icons/exit.svg';
-import { POINT_TYPES } from '../../domain/app/App';
+import POINT_TYPES from '../../data/pointTypes.json';
 
 import styled, { keyframes } from 'styled-components';
 

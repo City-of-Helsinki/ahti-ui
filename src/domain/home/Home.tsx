@@ -16,7 +16,7 @@ import VerticalBlock from '../../Components/VerticalBlock/VerticalBlock';
 import PromotionBlock from '../../Components/PromotionBlock/PromotionBlock';
 import PromotionSlideSection from '../../Components/PromotionSlideSection/PromotionSlideSection';
 import BodyText from '../../Components/BodyText/BodyText';
-import { POINT_TYPES } from '../app/App';
+import POINT_TYPES from '../data/pointTypes.json';
 import styled from 'styled-components';
 import HelsinkiWave from '../../Components/HelsinkiWave/HelsinkiWave';
 
