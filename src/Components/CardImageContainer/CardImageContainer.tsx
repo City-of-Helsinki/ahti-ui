@@ -2,7 +2,11 @@ import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BodyText from '../BodyText/BodyText';
 import styled from 'styled-components';
 
-const CardImageContainer = styled.div`
+interface CardImageContainerProps {
+  readonly imageURL?: string;
+}
+
+const CardImageContainer = styled.div<CardImageContainerProps>`
   box-sizing: border-box;
   position: relative;
   width: 100%;

@@ -7,7 +7,11 @@ import BodyText from '../BodyText/BodyText';
 import TypeTitle from '../TypeTitle/TypeTitle';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
 
-const Container = styled.div`
+interface ContainerProps {
+  readonly imageURL?: string;
+}
+
+const Container = styled.div<ContainerProps>`
   box-sizing: border-box;
   width: 100%;
   height: 8rem;
@@ -42,7 +46,13 @@ const Container = styled.div`
   }
 `;
 
-const SliderCard = ({ point, query }) => {
+const SliderCard = ({
+  point,
+  query,
+}: {
+  readonly point: any;
+  readonly query: string;
+}) => {
   const { t, i18n } = useTranslation();
   const imageURL =
     (point && point.properties.image) ||

@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import { GlobalGeoContext } from '../../domain/app/App';
 import { GlobalLineContext } from '../../domain/app/App';
 import { GlobalIslandContext } from '../../domain/app/App';
-import queryString from 'query-string';
+import queryString, { ParsedQuery } from 'query-string';
 import { useTranslation } from 'react-i18next';
 import MapboxMap from '../MapboxMap/MapboxMap';
 import Carousel from '../Carousel/Carousel';
@@ -18,7 +18,11 @@ import styled from 'styled-components';
 // MapPage rerenders often because viewport state, use memo to prevent unnecessary carousel renders
 const MemoCarousel = React.memo(Carousel);
 
-const ShowAllButton = styled(UnstyledLink)`
+interface ShowAllButtonProps {
+  readonly language: string;
+}
+
+const ShowAllButton = styled(UnstyledLink)<ShowAllButtonProps>`
   z-index: 1;
   position: absolute;
   top: 7.5rem;
@@ -34,15 +38,17 @@ const ShowAllButton = styled(UnstyledLink)`
   font-weight: 600;
 `;
 
-const MapPage = ({ location, history }) => {
+const MapPage = ({ location, history }: { location: any; history: any }) => {
   const pointData = useContext(GlobalGeoContext);
   const lineData = useContext(GlobalLineContext);
   const mapIslandData = useContext(GlobalIslandContext);
   const { t, i18n } = useTranslation();
 
-  const [displayedPoints, setDisplayedPoints] = useState([]);
+  const [displayedPoints, setDisplayedPoints] = useState<any[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [previousPoint, setPreviousPoint] = useState(null);
+  const [previousPoint, setPreviousPoint] = useState<string | string[] | null>(
+    null
+  );
   const [viewport, setViewport] = useState({
     // arbitrary max-width of 474px for wide screens
     width:
@@ -73,9 +79,9 @@ const MapPage = ({ location, history }) => {
   // TODO: get rid of react memeo as soon as we optimize the map page component
   // get screen dimensions to make map 100% width
 
-  const browserQuery = queryString.parse(location.search);
+  const browserQuery: ParsedQuery = queryString.parse(location.search);
 
-  const flyToPoint = useCallback(
+  const flyToPoint = useCallback<{ (...args: any[]): any }>(
     (geometry, transitionDuration, cardView, zoomDifference) => {
       const longitude = geometry.coordinates[0];
 
@@ -187,9 +193,7 @@ const MapPage = ({ location, history }) => {
           onBack={history.goBack}
           pointData={
             lineData.filter(
-              line =>
-                line.properties.fi.name.toLowerCase() ===
-                browserQuery.line.toLowerCase()
+              line => line.properties.fi.name === browserQuery.line
             )[0]
           }
         />
@@ -202,9 +206,7 @@ const MapPage = ({ location, history }) => {
           onBack={history.goBack}
           pointData={
             mapIslandData.filter(
-              island =>
-                island.properties.fi.name.toLowerCase() ===
-                browserQuery.island.toLowerCase()
+              island => island.properties.fi.name === browserQuery.island
             )[0]
           }
         />
@@ -217,9 +219,7 @@ const MapPage = ({ location, history }) => {
           onBack={history.goBack}
           pointData={
             displayedPoints.filter(
-              point =>
-                point.properties.fi.name.toLowerCase() ===
-                browserQuery.name.toLowerCase()
+              point => point.properties.fi.name === browserQuery.name
             )[0]
           }
         />

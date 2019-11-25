@@ -17,7 +17,7 @@ const Link = styled(UnstyledLink)`
   transform: translateY(-50%);
 `;
 
-export default ({ closeCardLink }) => {
+export default ({ closeCardLink }: { closeCardLink: string }) => {
   return (
     <Link to={closeCardLink}>
       <Exit />

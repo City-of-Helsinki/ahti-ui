@@ -5,7 +5,11 @@ import { ReactComponent as ArrowLeft } from '../../assets/icons/arrow_left.svg';
 
 import styled from 'styled-components';
 
-const Button = styled(BaseButton)`
+interface ButtonProps {
+  readonly whiteBtn?: boolean;
+}
+
+const Button = styled(BaseButton)<ButtonProps>`
   /** Positioning */
   position: absolute;
   z-index: 1399;
@@ -23,12 +27,18 @@ const Button = styled(BaseButton)`
   line-height: 1.3rem;
 `;
 
-export default ({ onBack }) => {
+interface BackButtonProps extends ButtonProps {
+  onBack(event: React.MouseEvent<HTMLButtonElement>): void;
+}
+
+const BackButton: React.FC<BackButtonProps> = ({ onBack, whiteBtn }) => {
   const { t } = useTranslation();
   return (
-    <Button onClick={onBack}>
+    <Button whiteBtn={whiteBtn} onClick={onBack}>
       <ArrowLeft />
       {t('map.back_button')}
     </Button>
   );
 };
+
+export default BackButton;

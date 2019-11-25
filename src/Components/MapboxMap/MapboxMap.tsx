@@ -21,9 +21,17 @@ const MapboxMap = ({
   location,
   flyToPoint,
   currentSlide,
+}: {
+  viewport: any;
+  setViewport: any;
+  displayedPoints: any;
+  history: any;
+  location: any;
+  flyToPoint: any;
+  currentSlide: any;
 }) => {
   const { i18n } = useTranslation();
-  const map = useRef(null);
+  const map = useRef<any>(null);
   const parsedSearch = useMemo(() => queryString.parse(location.search), [
     location.search,
   ]);
@@ -38,7 +46,7 @@ const MapboxMap = ({
   // and then tap on a route. When that happens, the line style might
   // not change. We suspect this is because of the map style or tiles
   // loading, but have not figured out what.
-  const paintLineStyles = parsedSearch => {
+  const paintLineStyles = (parsedSearch: queryString.ParsedQuery<string>) => {
     if (map.current && map.current.getMap().isStyleLoaded()) {
       map.current
         .getMap()
@@ -57,11 +65,13 @@ const MapboxMap = ({
     paintLineStyles(parsedSearch);
   }, [parsedSearch]);
 
-  const _onClick = event => {
+  const _onClick = (event: { features: any }) => {
     const { features } = event;
     const clickedPlace =
       features &&
-      features.find(f => ['routes', 'islands'].includes(f.layer.id));
+      features.find((f: { layer: { id: string } }) =>
+        ['routes', 'islands'].includes(f.layer.id)
+      );
 
     clickedPlace &&
       clickedPlace.properties.name &&
@@ -73,28 +83,39 @@ const MapboxMap = ({
   const _renderMarker = () => {
     return (
       displayedPoints &&
-      displayedPoints.map((point, index) => {
-        const isActive =
-          parsedSearch.name === point.properties.fi.name ||
-          index === currentSlide;
+      displayedPoints.map(
+        (
+          point: {
+            properties: {
+              fi: { name: string | string[] | null | undefined };
+              type: string;
+            };
+            geometry: { coordinates: number[] };
+          },
+          index: any
+        ) => {
+          const isActive =
+            parsedSearch.name === point.properties.fi.name ||
+            index === currentSlide;
 
-        const query = getPointQuery(point, parsedSearch);
-        return (
-          <Marker
-            key={`marker-${index}`}
-            longitude={point.geometry.coordinates[0]}
-            latitude={point.geometry.coordinates[1]}
-          >
-            <PointPin
-              isActive={isActive}
-              type={point.properties.type}
-              onClick={() => {
-                history.push(`/map?${query}`);
-              }}
-            />
-          </Marker>
-        );
-      })
+          const query = getPointQuery(point, parsedSearch);
+          return (
+            <Marker
+              key={`marker-${index}`}
+              longitude={point.geometry.coordinates[0]}
+              latitude={point.geometry.coordinates[1]}
+            >
+              <PointPin
+                isActive={isActive}
+                type={point.properties.type}
+                onClick={() => {
+                  history.push(`/map?${query}`);
+                }}
+              />
+            </Marker>
+          );
+        }
+      )
     );
   };
 
@@ -119,7 +140,7 @@ const MapboxMap = ({
             minZoom={0}
             maxZoom={10}
             currentSlide={currentSlide}
-            element={e => {
+            element={(e: any) => {
               return <ClusterPin {...e} flyToPoint={flyToPoint} />;
             }}
           >
@@ -132,8 +153,8 @@ const MapboxMap = ({
 };
 
 // Utils
-function getMapStyleUrl(language) {
-  if (language && language !== 'fi') {
+function getMapStyleUrl(language: string) {
+  if (language !== 'fi') {
     return 'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv';
   } else {
     return 'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv';
