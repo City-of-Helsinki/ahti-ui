@@ -10,26 +10,25 @@ import exitIcon from '../../assets/icons/cross.svg';
 
 const features = mapData.features;
 
-interface MapData {
+export interface SearchData {
   readonly name: string;
   readonly location: string;
   readonly type: string;
 }
 
-interface SearchItem extends MapData {
+interface SearchItemProps extends SearchData {
   readonly matchedPart: string;
+  onSelect(item: string): void;
 }
 
-const SearchItem: React.FC<SearchItem> = props => {
+export const SearchItem: React.FC<SearchItemProps> = props => {
   const re = new RegExp(`(${escapeRegExp(props.matchedPart)})`, 'gi');
   const parts = props.name.split(re);
-
-  let history = useHistory();
 
   return (
     <div
       className={styles.searchItem}
-      onClick={() => history.push(`/map?name=${props.name}`)}
+      onClick={() => props.onSelect(props.name)}
     >
       <img
         src={`/icons/type/${props.type}.svg`}
@@ -56,29 +55,26 @@ const SearchItem: React.FC<SearchItem> = props => {
   );
 };
 
-const Search: React.FC = () => {
-  const [currentSearch, setCurrentSearch] = useState<string>('');
-  const { i18n } = useTranslation();
-  const history = useHistory();
+interface SearchProps {
+  readonly data: SearchData[];
+  onClose(): void;
+  onSelect(item: string): void;
+}
 
+const Search: React.FC<SearchProps> = ({ data, onClose, onSelect }) => {
+  const [currentSearch, setCurrentSearch] = useState<string>('');
   const inputRef = useRef<any>(null);
+
   useEffect(() => {
     if (inputRef) {
       inputRef.current.focus();
     }
   });
 
-  const data: MapData[] = features.map((feature: any) => {
-    const name = feature.properties[i18n.language].name;
-    const location = feature.properties.address;
-    const type = feature.properties.type;
-    return { name, location, type };
-  });
-
   return (
     <div className={styles.container}>
       <div className={styles.search}>
-        <img src={exitIcon} alt="close" onClick={() => history.goBack()} />
+        <img src={exitIcon} alt="close" onClick={() => onClose()} />
         <div className={styles.searchInputWithIcon}>
           <input
             ref={inputRef}
@@ -97,13 +93,37 @@ const Search: React.FC = () => {
       )}
       {currentSearch !== '' &&
         data
-          .filter((place: MapData) =>
-            place.name.toLowerCase().includes(currentSearch.toLowerCase())
+          .filter((item: SearchData) =>
+            item.name.toLowerCase().includes(currentSearch.toLowerCase())
           )
-          .map((place: MapData) => (
-            <SearchItem {...place} matchedPart={currentSearch} />
+          .map((item: SearchData, id: number) => (
+            <SearchItem
+              key={id}
+              {...item}
+              matchedPart={currentSearch}
+              onSelect={onSelect}
+            />
           ))}
     </div>
+  );
+};
+
+export const SearchWithHistoryHook: React.FC = () => {
+  const history = useHistory();
+  const { i18n } = useTranslation();
+
+  const data: SearchData[] = features.map((feature: any) => {
+    const name = feature.properties[i18n.language].name;
+    const location = feature.properties.address;
+    const type = feature.properties.type;
+    return { name, location, type };
+  });
+  return (
+    <Search
+      data={data}
+      onClose={() => history.goBack()}
+      onSelect={name => history.push(`/map?name=${name}`)}
+    />
   );
 };
 

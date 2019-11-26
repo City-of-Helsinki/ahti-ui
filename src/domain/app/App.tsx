@@ -12,7 +12,7 @@ import { ThemeProvider } from 'styled-components';
 import withTracker from '../../common/utils/withTracker';
 import ScrollToTop from '../../common/utils/ScrollToTop';
 import theme from '../../common/constants/theme';
-import Search from '../search/Search';
+import { SearchWithHistoryHook } from '../search/Search';
 
 export const GlobalGeoContext = React.createContext<any[]>(mapData.features);
 export const GlobalLineContext = React.createContext<any[]>(lineData.data);
@@ -57,7 +57,10 @@ const App: React.FC = () => {
                 <Suspense fallback={<div />}>
                   <Route exact path="/" component={withTracker(Home)} />
                   <Route path="/map" component={withTracker(MapPage)} />
-                  <Route path="/search" component={Search} />
+                  <Route
+                    path="/search"
+                    component={withTracker(SearchWithHistoryHook)}
+                  />
                 </Suspense>
               </ScrollToTop>
             </Router>
