@@ -44,7 +44,7 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
   const mapIslandData = useContext(GlobalIslandContext);
   const { t, i18n } = useTranslation();
 
-  const [displayedPoints, setDisplayedPoints] = useState<any[]>([]);
+  const [displayedPoints, setDisplayedPoints] = useState<any[]>([...pointData]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [previousPoint, setPreviousPoint] = useState<string | string[] | null>(
     null
