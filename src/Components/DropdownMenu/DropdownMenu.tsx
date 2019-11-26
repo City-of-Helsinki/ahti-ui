@@ -70,11 +70,7 @@ const LanguageButton = styled(BaseButton)<LanguageButtonProps>`
   font-weight: ${props => (props.isActive ? 600 : 400)};
 `;
 
-interface MenuButtonProp {
-  readonly isOpen: boolean;
-}
-
-const MenuButton = styled(BaseButton)<MenuButtonProp>`
+const RoundButton = styled(BaseButton)`
   z-index: 5001;
   position: absolute;
   top: 1rem;
@@ -83,13 +79,20 @@ const MenuButton = styled(BaseButton)<MenuButtonProp>`
   border-radius: 50%;
   width: 5rem;
   height: 5rem;
-  /* Hide the box shadow when on top of the menu */
-  box-shadow: ${props =>
-    !props.isOpen && '2px 4px 8px 2px rgba(0, 0, 0, 0.15)'};
   &:focus {
     outline: 4px solid transparent;
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.4);
   }
+`;
+
+interface MenuButtonProps {
+  readonly isOpen: boolean;
+}
+
+const MenuButton = styled(RoundButton)<MenuButtonProps>`
+  /* Hide the box shadow when on top of the menu */
+  box-shadow: ${props =>
+    !props.isOpen && '2px 4px 8px 2px rgba(0, 0, 0, 0.15)'};
 `;
 
 const TrackedOutboundLink = styled(ReactGA.OutboundLink)`
