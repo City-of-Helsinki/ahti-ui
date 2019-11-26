@@ -12,7 +12,7 @@ import { ThemeProvider } from 'styled-components';
 import withTracker from '../../common/utils/withTracker';
 import ScrollToTop from '../../common/utils/ScrollToTop';
 import theme from '../../common/constants/theme';
-import Search from '../../Components/Search/Search';
+import Search from '../search/Search';
 
 export const GlobalGeoContext = React.createContext<any[]>(mapData.features);
 export const GlobalLineContext = React.createContext<any[]>(lineData.data);
