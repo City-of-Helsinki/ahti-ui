@@ -49,7 +49,9 @@
     "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "palvelukartta-fetch-islands": "node src/data/scripts/fetchPalvelukarttaIslandData.js",
-    "palvelukartta-append-island-data": "node src/data/scripts/mergePalvelukarttaIslandDataAdditions.js"
+    "palvelukartta-append-island-data": "node src/data/scripts/mergePalvelukarttaIslandDataAdditions.js",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -79,10 +81,18 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^5.2.6",
+    "@storybook/addon-actions": "^5.2.6",
+    "@storybook/addon-links": "^5.2.6",
+    "@storybook/addon-storysource": "^5.2.6",
+    "@storybook/addon-viewport": "^5.2.6",
+    "@storybook/addons": "^5.2.6",
+    "@storybook/react": "^5.2.6",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
+    "babel-loader": "^8.0.6",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "deepmerge": "^4.0.0",
