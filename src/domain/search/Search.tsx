@@ -32,7 +32,7 @@ export const SearchItem: React.FC<SearchItemProps> = props => {
     >
       <img
         src={`/icons/type/${props.type}.svg`}
-        alt="info image"
+        alt="info icon"
         className={styles.infoImage}
       />
       <div className={styles.infoContainer}>
