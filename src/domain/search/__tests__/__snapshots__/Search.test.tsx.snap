@@ -2,4 +2,4 @@
 
 exports[`Search matches snapshot 1`] = `"<div class=\\"container\\"><div class=\\"search\\"><img src=\\"cross.svg\\" alt=\\"close\\"/><div class=\\"searchInputWithIcon\\"><input type=\\"text\\" class=\\"searchInput\\"/><img src=\\"search.svg\\" alt=\\"search\\"/></div></div><p>Viimeisimmät</p><p>Suosittelemme</p></div>"`;
 
-exports[`SearchItem matches snapshot 1`] = `"<div class=\\"searchItem\\"><img src=\\"/icons/type/boat.svg\\" alt=\\"info image\\" style=\\"height:30px;width:30px;cursor:pointer\\"/><div class=\\"infoContainer\\"><div class=\\"name\\"><span></span><mark>Vene</mark><span>paikka</span></div><div class=\\"address\\">Helsinki</div></div></div>"`;
+exports[`SearchItem matches snapshot 1`] = `"<div class=\\"searchItem\\"><img src=\\"/icons/type/boat.svg\\" alt=\\"info icon\\" class=\\"infoImage\\"/><div class=\\"infoContainer\\"><div class=\\"name\\"><span></span><mark>Vene</mark><span>paikka</span></div><div class=\\"address\\">Helsinki</div></div></div>"`;

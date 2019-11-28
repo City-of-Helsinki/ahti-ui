@@ -2,12 +2,12 @@ import React, { useCallback, useEffect, useState } from 'react';
 import styles from './Filter.module.scss';
 import { ReactComponent as Checkmark } from '../../assets/icons/checkmark.svg';
 
-interface FilterOptions<T> {
+export interface FilterOptions<T> {
   type: string;
   items: T[];
 }
 
-interface FilterProps<T> {
+export interface FilterProps<T> {
   readonly options: FilterOptions<T>[];
   onShow(selectedFilters: T[]): void;
   countMatches(selectedFilters: T[]): number;
@@ -51,7 +51,11 @@ function Filter<T>({ options, onShow, countMatches }: FilterProps<T>) {
                 <button
                   key={id}
                   onClick={() => onToggle(item)}
-                  className={selected.has(item) ? styles.activeButton : ''}
+                  className={
+                    selected.has(item)
+                      ? styles.activeButton + ' filterOption'
+                      : 'filterOption'
+                  }
                 >
                   {selected.has(item) && <Checkmark />}
                   {item}

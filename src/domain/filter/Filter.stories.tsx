@@ -4,10 +4,7 @@ import { storiesOf } from '@storybook/react';
 
 storiesOf('Filter', module).add('Islands', () => {
   const filterOptions = [
-    {
-      type: 'Kulkuyhteydet saariin',
-      items: ['Vesibussi', 'Lautta', 'Silta', 'Uimalla'],
-    },
+    { type: 'Kulkuyhteydet saariin', items: ['Vesibussi', 'Lautta', 'Silta'] },
     { type: 'Palvelut saarissa', items: ['Ravintola', 'Kahvila', 'Sauna'] },
     { type: 'Retkeily', items: ['Telttailu sallittu', 'Kaivo'] },
   ];

@@ -92,7 +92,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "8.0.5",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "deepmerge": "^4.0.0",
