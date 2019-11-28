@@ -1,0 +1,89 @@
+%button-shared {
+  margin: 1rem;
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  background: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+%blue-button {
+  @extend %button-shared;
+  background: #2c70c3;
+  color: white;
+}
+
+%red-button {
+  @extend %button-shared;
+  background: #c30200;
+  color: white;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  z-index: 6000;
+  position: absolute;
+  background-color: white;
+
+  /* Hide the scrollbar, but keep scrolling enabled */
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  ::-webkit-scrollbar {
+    /* WebKit */
+    width: 0;
+    height: 0;
+  }
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.optionContainer {
+  overflow-y: scroll;
+
+  button {
+    @extend %button-shared;
+  }
+
+  .activeButton {
+    @extend %blue-button;
+  }
+}
+
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: gray;
+}
+
+%footer-button-shared {
+  @extend %button-shared;
+  font-size: 120%;
+}
+
+.clearButton {
+  @extend %footer-button-shared;
+}
+
+.showButton {
+  @extend %footer-button-shared;
+  @extend %blue-button;
+}
+
+.showButtonDisabled {
+  @extend %footer-button-shared;
+  @extend %red-button;
+}
