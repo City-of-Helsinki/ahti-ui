@@ -71,10 +71,7 @@
 }
 
 body {
-  --hds-primary-font: 'HelsinkiGrotesk';
-  --hds-theme-primary-font-bold: 'HelsinkiGrotesk';
-
-  font-family: var(--hds-primary-font);
+  font-family: 'HelsinkiGrotesk';
   font-size: var(--hds-text-base-size);
   color: var(--hds-theme-color-body);
   line-height: var(--hds-text-base-line-height);

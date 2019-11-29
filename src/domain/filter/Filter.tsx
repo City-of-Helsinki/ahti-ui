@@ -53,8 +53,10 @@ function Filter<T>({
     <div className={styles.container}>
       <div className={styles.headerContainer}>
         <img src={exitIcon} alt="close" onClick={() => onClose()} />
-        <div>{t('filter.title')}</div>
-        <div>{type}</div>
+        <div className={styles.textContainer}>
+          <h1 className={styles.filterTitle}>{t('filter.title')}</h1>
+          <h2 className={styles.filterType}>{type}</h2>
+        </div>
       </div>
       <div className={styles.optionContainer}>
         {options.map((option, id) => (

@@ -1,13 +1,18 @@
 %button-shared {
   margin: 1rem;
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
+  /*
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
   overflow: visible;
   text-transform: none;
   -webkit-appearance: button;
   background: none;
   cursor: pointer;
+   */
+  border-style: solid;
+  border-width: 2px;
+  border-color: #111111;
   padding: 0.5rem;
   padding-right: 1rem;
   padding-left: 1rem;
@@ -21,7 +26,7 @@
 
 %red-button {
   @extend %button-shared;
-  background: #c30200;
+  background: var(--hds-ui-color-error);
   color: white;
 }
 
@@ -49,8 +54,25 @@
 
 .headerContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+
+  img {
+    cursor: pointer;
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.filterTitle {
+}
+
+.filterType {
 }
 
 .optionContainer {
@@ -78,6 +100,7 @@
 %footer-button-shared {
   @extend %button-shared;
   font-size: 120%;
+  border: none;
 }
 
 .clearButton {
