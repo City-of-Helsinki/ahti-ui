@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import styles from './Filter.module.scss';
 import { ReactComponent as Checkmark } from '../../assets/icons/checkmark.svg';
 import { useTranslation } from 'react-i18next';
+import exitIcon from '../../assets/icons/cross.svg';
 
 export interface FilterOptions<T> {
   type: string;
@@ -12,10 +13,17 @@ export interface FilterProps<T> {
   readonly type: string;
   readonly options: FilterOptions<T>[];
   onShow(selectedFilters: T[]): void;
+  onClose(): void;
   countMatches(selectedFilters: T[]): number;
 }
 
-function Filter<T>({ type, options, onShow, countMatches }: FilterProps<T>) {
+function Filter<T>({
+  type,
+  options,
+  onShow,
+  onClose,
+  countMatches,
+}: FilterProps<T>) {
   const { t } = useTranslation();
   const [selected, setSelected] = useState<Set<T>>(new Set());
   const onToggle = (toggleItem: T) => {
@@ -44,6 +52,7 @@ function Filter<T>({ type, options, onShow, countMatches }: FilterProps<T>) {
   return (
     <div className={styles.container}>
       <div className={styles.headerContainer}>
+        <img src={exitIcon} alt="close" onClick={() => onClose()} />
         <div>{t('filter.title')}</div>
         <div>{type}</div>
       </div>
@@ -63,7 +72,7 @@ function Filter<T>({ type, options, onShow, countMatches }: FilterProps<T>) {
                   }
                 >
                   {selected.has(item) && <Checkmark />}
-                  {item}
+                  <span>{item}</span>
                 </button>
               ))}
             </div>
