@@ -51,35 +51,37 @@ function Filter<T>({
   };
   return (
     <div className={styles.container}>
-      <div className={styles.headerContainer}>
-        <img src={exitIcon} alt="close" onClick={() => onClose()} />
-        <div className={styles.textContainer}>
-          <h1 className={styles.filterTitle}>{t('filter.title')}</h1>
-          <h2 className={styles.filterType}>{type}</h2>
-        </div>
-      </div>
-      <div className={styles.optionContainer}>
-        {options.map((option, id) => (
-          <div key={id}>
-            <div>{option.type}</div>
-            <div>
-              {option.items.map((item, id) => (
-                <button
-                  key={id}
-                  onClick={() => onToggle(item)}
-                  className={
-                    selected.has(item)
-                      ? styles.activeButton + ' filterOption'
-                      : 'filterOption'
-                  }
-                >
-                  {selected.has(item) && <Checkmark />}
-                  <span>{item}</span>
-                </button>
-              ))}
-            </div>
+      <div>
+        <div className={styles.headerContainer}>
+          <img src={exitIcon} alt="close" onClick={() => onClose()} />
+          <div className={styles.textContainer}>
+            <div className={styles.filterTitle}>{t('filter.title')}</div>
+            <div className={styles.filterType}>{type}</div>
           </div>
-        ))}
+        </div>
+        <div className={styles.optionContainer}>
+          {options.map((option, id) => (
+            <div className={styles.filterOptionContainer} key={id}>
+              <div>{option.type}</div>
+              <div>
+                {option.items.map((item, id) => (
+                  <button
+                    key={id}
+                    onClick={() => onToggle(item)}
+                    className={
+                      selected.has(item)
+                        ? styles.activeButton + ' filterOption'
+                        : 'filterOption'
+                    }
+                  >
+                    {selected.has(item) && <Checkmark />}
+                    {item}
+                  </button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <div className={styles.footerContainer}>
         <button

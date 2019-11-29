@@ -1,33 +1,24 @@
+@import '~hds-core/lib/helsinki.css';
+
 %button-shared {
-  margin: 1rem;
-  /*
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  overflow: visible;
-  text-transform: none;
-  -webkit-appearance: button;
-  background: none;
-  cursor: pointer;
-   */
+  margin: 0.5rem;
   border-style: solid;
   border-width: 2px;
-  border-color: #111111;
-  padding: 0.5rem;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  border-color: var(--hds-ui-color-black);
+  padding: 0.5rem 1rem;
+  font-size: var(--hds-text-md);
 }
 
 %blue-button {
   @extend %button-shared;
-  background: #2c70c3;
-  color: white;
+  background: #2c70c3; /* no comparable color in hds at present */
+  color: var(--hds-ui-color-white);
 }
 
 %red-button {
   @extend %button-shared;
   background: var(--hds-ui-color-error);
-  color: white;
+  color: var(--hds-ui-color-white);
 }
 
 .container {
@@ -35,7 +26,8 @@
   height: 100%;
   z-index: 6000;
   position: absolute;
-  background-color: white;
+  background-color: var(--hds-ui-color-white);
+  padding: 1rem;
 
   /* Hide the scrollbar, but keep scrolling enabled */
   overflow-y: scroll;
@@ -56,6 +48,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding-bottom: 1rem;
 
   img {
     cursor: pointer;
@@ -64,18 +57,22 @@
   .textContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     width: 100%;
   }
 }
 
 .filterTitle {
+  font-size: var(--hds-text-lg);
 }
 
 .filterType {
+  font-size: var(--hds-text-sm);
 }
 
 .optionContainer {
+  margin-top: 1rem;
+  justify-content: flex-start;
   overflow-y: scroll;
 
   button {
@@ -84,22 +81,34 @@
 
   .activeButton {
     @extend %blue-button;
+    svg {
+      margin-right: 0.25rem;
+      fill: white;
+      width: var(--hds-text-md);
+      height: var(--hds-text-md);
+    }
   }
+}
+
+.filterOptionContainer {
+  border-top-style: solid;
+  border-top-width: 1.5px;
+  border-top-color: var(--hds-ui-color-black-10);
+  padding: 1rem;
 }
 
 .footerContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
 
   border-top-width: 1px;
   border-top-style: solid;
-  border-top-color: gray;
+  border-top-color: var(--hds-ui-color-black-10);
 }
 
 %footer-button-shared {
   @extend %button-shared;
-  font-size: 120%;
   border: none;
 }
 
