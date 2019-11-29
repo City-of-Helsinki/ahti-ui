@@ -18,14 +18,17 @@ describe('Filter', () => {
 
   let wrapper: ShallowWrapper;
   let mockOnShow: jest.Mock;
+  let mockOnClose: jest.Mock;
 
   beforeEach(() => {
     mockOnShow = jest.fn();
+    mockOnClose = jest.fn();
     wrapper = shallow(
       <Filter
         type={'Saaret'}
         options={filterOptions}
         onShow={mockOnShow}
+        onClose={mockOnClose}
         countMatches={selectedFilters =>
           mockData.filter(
             data => new Set([...data, ...selectedFilters]).size === data.length
@@ -68,5 +71,11 @@ describe('Filter', () => {
     expect(
       wrapper.find('button.showButtonDisabled').prop('disabled')
     ).toBeTruthy();
+  });
+
+  it('calls onClose when clicking cross icon', () => {
+    expect(mockOnClose.mock.calls.length).toBe(0);
+    wrapper.find('img[alt="close"]').simulate('click');
+    expect(mockOnClose.mock.calls.length).toBe(1);
   });
 });

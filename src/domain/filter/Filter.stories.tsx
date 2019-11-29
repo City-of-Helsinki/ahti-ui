@@ -23,6 +23,7 @@ storiesOf('Filter', module).add('Islands', () => {
       type={t('types.island')}
       options={filterOptions}
       onShow={selectedFilters => () => {}}
+      onClose={() => {}}
       countMatches={selectedFilters =>
         mockData.filter(
           data => new Set([...data, ...selectedFilters]).size === data.length
