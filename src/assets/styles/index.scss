@@ -8,7 +8,6 @@
 $font-primary: sans-serif;
 $font-fallback-primary: Helvetica;
 $font-fallback-secondary: Arial;
-$font-family-primary: 'Helsinki Grotesk Regular';
 $font-size-primary: 12px;
 
 /* set base values */
@@ -16,7 +15,7 @@ $text-base-size: 1em;
 $text-scale-ratio: 1.2;
 
 /* see https://css-tricks.com/snippets/css/system-font-stack/ */
-$font-family: $font-family-primary, $font-fallback-primary,
+$font-family: var(--hds-primary-font), $font-fallback-primary,
   $font-fallback-secondary, $font-primary;
 
 :root {

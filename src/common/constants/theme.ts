@@ -3,8 +3,8 @@ export default {
   primaryColor: 'red',
   borderColor: '#ccc',
   fonts: {
-    fontFamilyRegular: 'Helsinki Grotesk Regular',
-    fontFamilyBold: 'Helsinki Grotesk Bold',
+    fontFamilyRegular: 'HelsinkiGrotesk',
+    fontFamilyBold: 'HelsinkiGrotesk',
   },
   colors: {
     transparent: 'transparent',
