@@ -1,5 +1,8 @@
 import { configure, addDecorator } from '@storybook/react';
 import { withA11y } from '@storybook/addon-a11y';
+import { initialize } from '../src/i18n/i18n';
+
+initialize();
 
 addDecorator(withA11y);
 

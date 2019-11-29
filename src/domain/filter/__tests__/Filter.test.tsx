@@ -23,6 +23,7 @@ describe('Filter', () => {
     mockOnShow = jest.fn();
     wrapper = shallow(
       <Filter
+        type={'Saaret'}
         options={filterOptions}
         onShow={mockOnShow}
         countMatches={selectedFilters =>

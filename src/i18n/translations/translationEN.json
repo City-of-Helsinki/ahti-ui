@@ -79,5 +79,11 @@
   "cookie_consent": {
     "text": "This service is in development and it uses cookies to collect anonymised user data which might be utilized later.",
     "button": "Accept"
+  },
+  "filter": {
+    "title": "Filters",
+    "show": "Show",
+    "clear": "Clear",
+    "no_matches": "No matches"
   }
 }
