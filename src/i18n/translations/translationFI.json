@@ -79,5 +79,11 @@
   "cookie_consent": {
     "text": "Tämä palvelu on kehitysvaiheessa ja se käyttää evästeitä anonymisoidun käyttäjädatan keräämiseen jatkokehitystä varten.",
     "button": "Hyväksy"
+  },
+  "filter": {
+    "title": "Suodattimet",
+    "show": "Näytä",
+    "clear": "Tyhjennä",
+    "no_matches": "Ei osumia"
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Filter from './Filter';
 import { storiesOf } from '@storybook/react';
+import { useTranslation } from 'react-i18next';
 
 storiesOf('Filter', module).add('Islands', () => {
   const filterOptions = [
@@ -16,8 +17,10 @@ storiesOf('Filter', module).add('Islands', () => {
     ['Kahvila', 'Vesibussi'],
   ];
 
+  const { t } = useTranslation();
   return (
     <Filter
+      type={t('types.island')}
       options={filterOptions}
       onShow={selectedFilters => () => {}}
       countMatches={selectedFilters =>
