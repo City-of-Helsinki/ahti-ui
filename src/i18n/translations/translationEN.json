@@ -80,6 +80,10 @@
     "text": "This service is in development and it uses cookies to collect anonymised user data which might be utilized later.",
     "button": "Accept"
   },
+  "search": {
+    "latest": "Latest",
+    "recommended": "We recommend"
+  },
   "filter": {
     "title": "Filters",
     "show": "Show",

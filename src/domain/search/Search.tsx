@@ -58,6 +58,7 @@ interface SearchProps {
 }
 
 const Search: React.FC<SearchProps> = ({ data, onClose, onSelect }) => {
+  const { t } = useTranslation();
   const [currentSearch, setCurrentSearch] = useState<string>('');
   const inputRef = useRef<any>(null);
 
@@ -83,8 +84,8 @@ const Search: React.FC<SearchProps> = ({ data, onClose, onSelect }) => {
       </div>
       {currentSearch === '' && (
         <>
-          <p>{'Viimeisimmät'}</p>
-          <p>{'Suosittelemme'}</p>
+          <p>{t('search.latest')}</p>
+          <p>{t('search.recommended')}</p>
         </>
       )}
       {currentSearch !== '' &&

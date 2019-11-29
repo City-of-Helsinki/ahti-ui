@@ -80,6 +80,10 @@
     "text": "Tämä palvelu on kehitysvaiheessa ja se käyttää evästeitä anonymisoidun käyttäjädatan keräämiseen jatkokehitystä varten.",
     "button": "Hyväksy"
   },
+  "search": {
+    "latest": "Viimeisimmät",
+    "recommended": "Suosittelemme"
+  },
   "filter": {
     "title": "Suodattimet",
     "show": "Näytä",
