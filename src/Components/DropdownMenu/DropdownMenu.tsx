@@ -96,18 +96,14 @@ const TrackedOutboundLink = styled(ReactGA.OutboundLink)`
   text-decoration: none;
 `;
 
-interface ClickFn {
-  (event: React.MouseEvent<HTMLButtonElement>): void;
-}
-
 const DropdownMenu = ({
   isOpen,
   onOpen,
   onClose,
 }: {
   isOpen: boolean;
-  onOpen: ClickFn;
-  onClose: ClickFn;
+  onOpen(): void;
+  onClose(): void;
 }) => {
   const { t, i18n } = useTranslation();
 
@@ -115,7 +111,7 @@ const DropdownMenu = ({
     <React.Fragment>
       <MenuButton
         isOpen={isOpen}
-        onClick={isOpen ? onClose : onOpen}
+        onClick={() => (isOpen ? onClose() : onOpen())}
         aria-expanded={isOpen}
         aria-label={t('dropdown.label')}
       >
@@ -165,7 +161,7 @@ const DropdownMenu = ({
                 <UnstyledLink
                   to={`/map?type=${type}`}
                   key={id}
-                  onClick={() => (isOpen ? onClose : onOpen)}
+                  onClick={() => (isOpen ? onClose() : onOpen())}
                 >
                   <BodyText>{t(`types.${type}`)}</BodyText>
                 </UnstyledLink>
