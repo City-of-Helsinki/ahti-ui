@@ -12,6 +12,8 @@ import {
   getIslandQuery,
 } from '../../common/utils/utils';
 
+import mapStyle from '../../assets/mapStyle.json';
+
 // using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
 const MapboxMap = ({
   viewport,
@@ -35,10 +37,10 @@ const MapboxMap = ({
   const parsedSearch = useMemo(() => queryString.parse(location.search), [
     location.search,
   ]);
-  const [mapStyle, setMapStyle] = useState(getMapStyleUrl('fi'));
+  const [mapStyle, setMapStyle] = useState(getMapStyle('fi'));
 
   useEffect(() => {
-    setMapStyle(getMapStyleUrl(i18n.language));
+    setMapStyle(getMapStyle(i18n.language));
   }, [i18n.language]);
 
   // Update line width for active line, or reset it to 3, if not.
@@ -153,11 +155,11 @@ const MapboxMap = ({
 };
 
 // Utils
-function getMapStyleUrl(language: string) {
+function getMapStyle(language: string) {
   if (language !== 'fi') {
-    return 'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv';
+    return mapStyle;
   } else {
-    return 'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv';
+    return mapStyle;
   }
 }
 
