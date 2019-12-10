@@ -5,9 +5,20 @@ services:
     build:
       context: .
       target: ${DOCKER_TARGET:-development}
-      dockerfile: Dockerfile
+      dockerfile: docker/ahti-ui
     volumes:
       - .:/app
       - /app/node_modules
     ports:
       - 3000:3000
+    depends_on:
+      - faker
+  faker:
+    container_name: ahti-graphql-faker-api
+    build:
+      context: .
+      dockerfile: docker/ahti-graphql-faker-api
+    volumes:
+      - .:/app
+    ports:
+      - 9002:9002
