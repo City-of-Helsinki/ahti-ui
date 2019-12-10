@@ -30,7 +30,10 @@
       "locations": "kohdetta",
       "point_list_header": "Tähän joku suomennos",
       "point_list_subheader": "Suosittuja kohteita paikassa"
-    }
+    },
+    "zoom_in": "Zoomaa sisään",
+    "zoom_out": "Zoomaa ulos",
+    "geolocate": "Näytä sijaintisi"
   },
   "footer": {
     "header": "Merellisiä linkkejä",
