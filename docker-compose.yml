@@ -14,11 +14,10 @@ services:
     depends_on:
       - faker
   faker:
+    image: apisguru/graphql-faker
+    command: ['/graphql-faker/schema.sdl']
     container_name: ahti-graphql-faker-api
-    build:
-      context: .
-      dockerfile: docker/ahti-graphql-faker-api
     volumes:
-      - .:/app
+      - ./graphql-faker:/graphql-faker
     ports:
       - 9002:9002
