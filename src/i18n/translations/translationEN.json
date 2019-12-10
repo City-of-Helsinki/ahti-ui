@@ -30,7 +30,10 @@
       "locations": "locations",
       "point_list_header": "Things to do",
       "point_list_subheader": "Locations available for travellers in"
-    }
+    },
+    "zoom_in": "Zoom In",
+    "zoom_out": "Zoom Out",
+    "geolocate": "Show Your Location"
   },
   "footer": {
     "header": "Maritime links",

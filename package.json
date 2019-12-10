@@ -17,7 +17,6 @@
     "husky": "^3.0.0",
     "i18next": "^17.0.6",
     "i18next-browser-languagedetector": "^3.0.1",
-    "lint-staged": "^9.1.0",
     "prettier": "^1.19.1",
     "prop-types": "^15.7.2",
     "query-string": "^6.8.1",
@@ -54,15 +53,9 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && pretty-quick --staged && node src/data/scripts/mapDataManager.js",
+      "pre-commit": "yarn lint:fix && git add -u",
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook"
     }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --single-quote --write",
-      "git add"
-    ]
   },
   "browserslist": {
     "production": [
