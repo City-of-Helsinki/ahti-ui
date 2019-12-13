@@ -14,6 +14,7 @@ import {
 
 import AhtiNavigationControl from './controls/AhtiNavigationControl';
 import AhtiGeolocateControl from './controls/AhtiGeolocateControl';
+import styles from './MapboxMap.module.scss';
 
 // using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
 const MapboxMap = ({
@@ -147,9 +148,9 @@ const MapboxMap = ({
         clickRadius={10}
         onLoad={() => paintLineStyles(parsedSearch)}
       >
-        <div style={{ float: 'left', margin: '3.5rem', marginTop: '8rem' }}>
+        <div className={styles.geolocateControls}>
           {getGeolocateControl()}
-          <div style={{ margin: '1rem' }} />
+          <div className={styles.geolocateControlsDivider} />
           {getNavigationControl()}
         </div>
         {map.current && (
