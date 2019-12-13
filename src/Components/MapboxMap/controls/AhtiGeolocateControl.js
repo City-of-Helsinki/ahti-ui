@@ -24,11 +24,7 @@ export default class AhtiGeolocateControl extends GeolocateControl {
         ref={this._geolocateButtonRef}
         type="button"
         title={
-          label === 'Geolocate'
-            ? this.props.label
-              ? this.props.label
-              : label
-            : label
+          label === 'Geolocate' && this.props.label ? this.props.label : label
         }
         onClick={callback}
       />
