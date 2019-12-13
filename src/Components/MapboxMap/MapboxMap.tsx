@@ -137,40 +137,38 @@ const MapboxMap = ({
   };
 
   return (
-    <React.Fragment>
-      <MapGL
-        {...viewport}
-        ref={map}
-        mapStyle={mapStyle}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN}
-        onViewportChange={viewport => setViewport(viewport)}
-        onNativeClick={_onClick}
-        clickRadius={10}
-        onLoad={() => paintLineStyles(parsedSearch)}
-      >
-        <div className={styles.geolocateControls}>
-          {getGeolocateControl()}
-          <div className={styles.geolocateControlsDivider} />
-          {getNavigationControl()}
-        </div>
-        {map.current && (
-          <Cluster
-            map={map.current.getMap()}
-            radius={30}
-            extent={512}
-            nodeSize={40}
-            minZoom={0}
-            maxZoom={10}
-            currentSlide={currentSlide}
-            element={(e: any) => {
-              return <ClusterPin {...e} flyToPoint={flyToPoint} />;
-            }}
-          >
-            {_renderMarker()}
-          </Cluster>
-        )}
-      </MapGL>
-    </React.Fragment>
+    <MapGL
+      {...viewport}
+      ref={map}
+      mapStyle={mapStyle}
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN}
+      onViewportChange={viewport => setViewport(viewport)}
+      onNativeClick={_onClick}
+      clickRadius={10}
+      onLoad={() => paintLineStyles(parsedSearch)}
+    >
+      <div className={styles.geolocateControls}>
+        {getGeolocateControl()}
+        <div className={styles.geolocateControlsDivider} />
+        {getNavigationControl()}
+      </div>
+      {map.current && (
+        <Cluster
+          map={map.current.getMap()}
+          radius={30}
+          extent={512}
+          nodeSize={40}
+          minZoom={0}
+          maxZoom={10}
+          currentSlide={currentSlide}
+          element={(e: any) => {
+            return <ClusterPin {...e} flyToPoint={flyToPoint} />;
+          }}
+        >
+          {_renderMarker()}
+        </Cluster>
+      )}
+    </MapGL>
   );
 };
 
