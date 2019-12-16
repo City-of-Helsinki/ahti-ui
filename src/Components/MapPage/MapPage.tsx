@@ -130,12 +130,6 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
               },
               ...feature.node.properties,
             },
-            geometry: {
-              coordinates: [
-                feature.node.geometry.coordinates[1],
-                feature.node.geometry.coordinates[0],
-              ],
-            },
           };
         }
         return {};
