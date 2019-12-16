@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 interface CityPinProps {
   onClick(event: React.MouseEvent<HTMLImageElement>): void;

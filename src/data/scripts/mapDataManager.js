@@ -123,24 +123,6 @@ const checkForRequiredFields = (
   }
 };
 
-const checkForDuplicateNames = () => {
-  const entries = mapData.features;
-  const uniqueNames = [
-    ...new Set(entries.map(feature => feature.properties.fi.name)),
-  ];
-  console.log(`total entries: ${entries.length}`);
-  console.log(`total unique names: ${uniqueNames.length}`);
-
-  if (entries.length === uniqueNames.length) {
-    console.log('no duplicate names found');
-  } else {
-    console.log(`${entries.length - uniqueNames.length} duplicate names found`);
-  }
-};
-
-// replace preCommitHook() with this one to populate empty fields. Just remember to change it back before commiting!
-const populateEmptyFields = () => checkForRequiredFields(false, true);
-
 const preCommitHook = () => checkForRequiredFields(false);
 
 // keep this here to run on each precommit
