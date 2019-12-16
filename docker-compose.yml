@@ -15,7 +15,14 @@ services:
       - faker
   faker:
     image: apisguru/graphql-faker
-    command: ['/graphql-faker/schema.sdl']
+    env_file:
+      - .env
+    command:
+      [
+        '/graphql-faker/schema.sdl',
+        '--extend',
+        '${AHTI_API_URI_TO_EXTEND_WITH_FAKER}',
+      ]
     container_name: ahti-graphql-faker-api
     volumes:
       - ./graphql-faker:/graphql-faker
