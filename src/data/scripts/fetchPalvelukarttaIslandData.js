@@ -5,7 +5,7 @@ const getIslandIds = responseData => responseData.results.map(item => item.id);
 
 const parseIslandName = name => {
   if (name) {
-    const parsed = name.match(/^(\s*[a-öA-Ö\-])+/);
+    const parsed = name.match(/^(\s*[a-öA-Ö-])+/);
     return parsed ? parsed[0] : undefined;
   }
   return undefined;
