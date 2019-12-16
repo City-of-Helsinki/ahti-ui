@@ -77,7 +77,8 @@
     "taxi": "Venekyydit",
     "visitor": "Vierassatamat",
     "parking": "Lyhytpysäköinti",
-    "station": "Venehuoltoasemat"
+    "station": "Venehuoltoasemat",
+    "myhelsinki": "MyHelsinki Paikat"
   },
   "cookie_consent": {
     "text": "Tämä palvelu on kehitysvaiheessa ja se käyttää evästeitä anonymisoidun käyttäjädatan keräämiseen jatkokehitystä varten.",
