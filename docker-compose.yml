@@ -5,9 +5,26 @@ services:
     build:
       context: .
       target: ${DOCKER_TARGET:-development}
-      dockerfile: Dockerfile
+      dockerfile: docker/ahti-ui
     volumes:
       - .:/app
       - /app/node_modules
     ports:
       - 3000:3000
+    depends_on:
+      - faker
+  faker:
+    image: apisguru/graphql-faker
+    env_file:
+      - .env
+    command:
+      [
+        '/graphql-faker/schema.sdl',
+        '--extend',
+        '${AHTI_API_URI_TO_EXTEND_WITH_FAKER}',
+      ]
+    container_name: ahti-graphql-faker-api
+    volumes:
+      - ./graphql-faker:/graphql-faker
+    ports:
+      - 9002:9002
