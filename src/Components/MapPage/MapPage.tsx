@@ -1,9 +1,6 @@
-import React, { useEffect, useState, useContext, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { withRouter } from 'react-router-dom';
-import { GlobalGeoContext } from '../../domain/app/App';
-import { GlobalLineContext } from '../../domain/app/App';
-import { GlobalIslandContext } from '../../domain/app/App';
 import queryString, { ParsedQuery } from 'query-string';
 import { useTranslation } from 'react-i18next';
 import MapboxMap from '../MapboxMap/MapboxMap';
@@ -17,7 +14,11 @@ import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import FEATURES_QUERY from './queries/featuresQuery';
 
 import styled from 'styled-components';
-import { FEATURES } from '../../domain/api/generatedTypes/FEATURES';
+import {
+  FEATURES,
+  FEATURES_features_edges_node,
+  FEATURES_features_edges_node_properties,
+} from '../../domain/api/generatedTypes/FEATURES';
 
 // MapPage rerenders often because viewport state, use memo to prevent unnecessary carousel renders
 const MemoCarousel = React.memo(Carousel);
@@ -44,10 +45,6 @@ const ShowAllButton = styled(UnstyledLink)<ShowAllButtonProps>`
 
 const MapPage = ({ location, history }: { location: any; history: any }) => {
   const { data } = useQuery<FEATURES>(FEATURES_QUERY);
-
-  const pointData = useContext(GlobalGeoContext);
-  const lineData = useContext(GlobalLineContext);
-  const mapIslandData = useContext(GlobalIslandContext);
   const { t, i18n } = useTranslation();
 
   const [displayedPoints, setDisplayedPoints] = useState<any[]>([]);
@@ -116,23 +113,15 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
     []
   );
 
-  const mapFeatures = (data: FEATURES | null): {}[] => {
+  const mapFeatures = (
+    data: FEATURES | null
+  ): (FEATURES_features_edges_node | null)[] => {
     if (data && data.features && data.features.edges) {
       return data.features.edges.map(feature => {
-        if (feature && feature.node && feature.node.properties) {
-          return {
-            ...feature.node,
-            properties: {
-              fi: {
-                name: feature.node.properties.name,
-                header: feature.node.properties.header,
-                description: feature.node.properties.description,
-              },
-              ...feature.node.properties,
-            },
-          };
+        if (feature && feature.node) {
+          return feature.node;
         }
-        return {};
+        return null;
       });
     }
     return [];
@@ -142,27 +131,33 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
     const mappedData = data ? mapFeatures(data) : [];
 
     // shallow copy so global context is not mutated
-    let filteredPoints = [...pointData, ...mappedData];
+    let filteredPoints = [...mappedData];
 
     // filter points according to search query
     if (browserQuery.type) {
       filteredPoints = filteredPoints.filter(
         point =>
-          point.properties.type && point.properties.type === browserQuery.type
+          point &&
+          point.properties &&
+          point.properties.type &&
+          point.properties.type === browserQuery.type
       );
     }
     filteredPoints.sort(
-      (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
+      // @ts-ignore
+      (a, b) => a && b && a.geometry.coordinates[0] - b.geometry.coordinates[0]
     );
 
     setDisplayedPoints(filteredPoints);
 
     const index = filteredPoints.findIndex(
-      point => point.properties.fi.name === previousPoint
+      point =>
+        point && point.properties && point.properties.name === previousPoint
     );
     setCurrentSlide(index);
-  }, [browserQuery.type, mapIslandData, pointData, previousPoint, data]);
+  }, [browserQuery.type, previousPoint, data]);
 
+  /*
   useEffect(() => {
     if (browserQuery.name) {
       setPreviousPoint(browserQuery.name);
@@ -183,7 +178,8 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [browserQuery.name, browserQuery.island]);
+  }, [browserQuery.name, browserQuery.island, data]);
+  */
 
   return (
     <React.Fragment>
@@ -204,7 +200,7 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
         />
       </MapWrapper>
 
-      {displayedPoints.length > 0 && !browserQuery.name && !browserQuery.line && (
+      {displayedPoints.length > 0 && !browserQuery.name && (
         <CarouselWrapper>
           <MemoCarousel
             currentSlide={currentSlide}
@@ -215,33 +211,7 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
           />
         </CarouselWrapper>
       )}
-      {browserQuery.line && (
-        <MapCard
-          closeCardLink={
-            browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
-          }
-          onBack={history.goBack}
-          pointData={
-            lineData.filter(
-              line => line.properties.fi.name === browserQuery.line
-            )[0]
-          }
-        />
-      )}
-      {!browserQuery.line && browserQuery.island && (
-        <MapCard
-          closeCardLink={
-            browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
-          }
-          onBack={history.goBack}
-          pointData={
-            mapIslandData.filter(
-              island => island.properties.fi.name === browserQuery.island
-            )[0]
-          }
-        />
-      )}
-      {!browserQuery.line && !browserQuery.island && browserQuery.name && (
+      {browserQuery.name && (
         <MapCard
           closeCardLink={
             browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
@@ -249,7 +219,7 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
           onBack={history.goBack}
           pointData={
             displayedPoints.filter(
-              point => point.properties.fi.name === browserQuery.name
+              point => point.properties.name === browserQuery.name
             )[0]
           }
         />

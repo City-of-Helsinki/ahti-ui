@@ -69,26 +69,22 @@ const SliderCard = ({
           src={imageURL}
           placeholder={({ ref }) => (
             <Container ref={ref}>
-              {point.properties[i18n.language].name && (
-                <BodyText>{point.properties[i18n.language].name}</BodyText>
+              {point.properties.name && (
+                <BodyText>{point.properties.name}</BodyText>
               )}
-              {point.properties[i18n.language].header && (
-                <SecondaryTitle>
-                  {point.properties[i18n.language].header}
-                </SecondaryTitle>
+              {point.properties.header && (
+                <SecondaryTitle>{point.properties.header}</SecondaryTitle>
               )}
               <TypeTitle>{t(`types.${point.properties.type}`)}</TypeTitle>
             </Container>
           )}
           actual={() => (
             <Container imageURL={imageURL}>
-              {point.properties[i18n.language].name && (
-                <BodyText>{point.properties[i18n.language].name}</BodyText>
+              {point.properties.name && (
+                <BodyText>{point.properties.name}</BodyText>
               )}
-              {point.properties[i18n.language].header && (
-                <SecondaryTitle>
-                  {point.properties[i18n.language].header}
-                </SecondaryTitle>
+              {point.properties.header && (
+                <SecondaryTitle>{point.properties.header}</SecondaryTitle>
               )}
               <TypeTitle>{t(`types.${point.properties.type}`)}</TypeTitle>
             </Container>
@@ -97,13 +93,11 @@ const SliderCard = ({
       )}
       {!('IntersectionObserver' in window) && (
         <Container imageURL={imageURL}>
-          {point.properties[i18n.language].name && (
-            <BodyText>{point.properties[i18n.language].name}</BodyText>
+          {point.properties.name && (
+            <BodyText>{point.properties.name}</BodyText>
           )}
-          {point.properties[i18n.language].header && (
-            <SecondaryTitle>
-              {point.properties[i18n.language].header}
-            </SecondaryTitle>
+          {point.properties.header && (
+            <SecondaryTitle>{point.properties.header}</SecondaryTitle>
           )}
           <TypeTitle>{t(`types.${point.properties.type}`)}</TypeTitle>
         </Container>

@@ -4,10 +4,10 @@ export const getPointQuery = (point, parsedSearch) =>
   parsedSearch.type
     ? queryString.stringify({
         type: parsedSearch.type,
-        name: point.properties.fi.name,
+        name: point.properties.name,
       })
     : queryString.stringify({
-        name: point.properties.fi.name,
+        name: point.properties.name,
       });
 
 export const getIslandQuery = (clickedPlace, parsedSearch) =>

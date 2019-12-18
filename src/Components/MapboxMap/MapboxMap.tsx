@@ -87,39 +87,27 @@ const MapboxMap = ({
   const _renderMarker = () => {
     return (
       displayedPoints &&
-      displayedPoints.map(
-        (
-          point: {
-            properties: {
-              fi: { name: string | string[] | null | undefined };
-              type: string;
-            };
-            geometry: { coordinates: number[] };
-          },
-          index: any
-        ) => {
-          const isActive =
-            parsedSearch.name === point.properties.fi.name ||
-            index === currentSlide;
+      displayedPoints.map((point: any, index: any) => {
+        const isActive =
+          parsedSearch.name === point.properties.name || index === currentSlide;
 
-          const query = getPointQuery(point, parsedSearch);
-          return (
-            <Marker
-              key={`marker-${index}`}
-              longitude={point.geometry.coordinates[0]}
-              latitude={point.geometry.coordinates[1]}
-            >
-              <PointPin
-                isActive={isActive}
-                type={point.properties.type}
-                onClick={() => {
-                  history.push(`/map?${query}`);
-                }}
-              />
-            </Marker>
-          );
-        }
-      )
+        const query = getPointQuery(point, parsedSearch);
+        return (
+          <Marker
+            key={`marker-${index}`}
+            longitude={point.geometry.coordinates[0]}
+            latitude={point.geometry.coordinates[1]}
+          >
+            <PointPin
+              isActive={isActive}
+              type={point.properties.type}
+              onClick={() => {
+                history.push(`/map?${query}`);
+              }}
+            />
+          </Marker>
+        );
+      })
     );
   };
 
@@ -175,9 +163,9 @@ const MapboxMap = ({
 // Utils
 function getMapStyleUrl(language: string) {
   if (language !== 'fi') {
-    return 'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv';
+    return 'mapbox://styles/ahie/ck4bh3x1h274o1cqgfa90hslu';
   } else {
-    return 'mapbox://styles/strawshield/cjy8e6acb03ff1cobkxdh1cjv';
+    return 'mapbox://styles/ahie/ck4bh3x1h274o1cqgfa90hslu';
   }
 }
 
