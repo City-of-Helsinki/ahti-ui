@@ -12,6 +12,10 @@ import {
   getIslandQuery,
 } from '../../common/utils/utils';
 
+import AhtiNavigationControl from './controls/AhtiNavigationControl';
+import AhtiGeolocateControl from './controls/AhtiGeolocateControl';
+import styles from './MapboxMap.module.scss';
+
 // using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
 const MapboxMap = ({
   viewport,
@@ -30,7 +34,7 @@ const MapboxMap = ({
   flyToPoint: any;
   currentSlide: any;
 }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const map = useRef<any>(null);
   const parsedSearch = useMemo(() => queryString.parse(location.search), [
     location.search,
@@ -119,36 +123,52 @@ const MapboxMap = ({
     );
   };
 
+  const getNavigationControl = () => {
+    // @ts-ignore
+    // eslint-disable-next-line
+    return <AhtiNavigationControl zoomInLabel={t('map.zoom_in')} zoomOutLabel={t('map.zoom_out')} />
+  };
+
+  const getGeolocateControl = () => {
+    const noop = () => {};
+    // @ts-ignore
+    // eslint-disable-next-line
+    return <AhtiGeolocateControl positionOptions={{ enableHighAccuracy: true }} trackUserLocation={true} onViewportChange={noop} label={t('map.geolocate')} />
+  };
+
   return (
-    <React.Fragment>
-      <MapGL
-        {...viewport}
-        ref={map}
-        mapStyle={mapStyle}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN}
-        onViewportChange={viewport => setViewport(viewport)}
-        onNativeClick={_onClick}
-        clickRadius={10}
-        onLoad={() => paintLineStyles(parsedSearch)}
-      >
-        {map.current && (
-          <Cluster
-            map={map.current.getMap()}
-            radius={30}
-            extent={512}
-            nodeSize={40}
-            minZoom={0}
-            maxZoom={10}
-            currentSlide={currentSlide}
-            element={(e: any) => {
-              return <ClusterPin {...e} flyToPoint={flyToPoint} />;
-            }}
-          >
-            {_renderMarker()}
-          </Cluster>
-        )}
-      </MapGL>
-    </React.Fragment>
+    <MapGL
+      {...viewport}
+      ref={map}
+      mapStyle={mapStyle}
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN}
+      onViewportChange={viewport => setViewport(viewport)}
+      onNativeClick={_onClick}
+      clickRadius={10}
+      onLoad={() => paintLineStyles(parsedSearch)}
+    >
+      <div className={styles.geolocateControls}>
+        {getGeolocateControl()}
+        <div className={styles.geolocateControlsDivider} />
+        {getNavigationControl()}
+      </div>
+      {map.current && (
+        <Cluster
+          map={map.current.getMap()}
+          radius={30}
+          extent={512}
+          nodeSize={40}
+          minZoom={0}
+          maxZoom={10}
+          currentSlide={currentSlide}
+          element={(e: any) => {
+            return <ClusterPin {...e} flyToPoint={flyToPoint} />;
+          }}
+        >
+          {_renderMarker()}
+        </Cluster>
+      )}
+    </MapGL>
   );
 };
 

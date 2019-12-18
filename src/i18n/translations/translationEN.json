@@ -30,7 +30,10 @@
       "locations": "locations",
       "point_list_header": "Things to do",
       "point_list_subheader": "Locations available for travellers in"
-    }
+    },
+    "zoom_in": "Zoom In",
+    "zoom_out": "Zoom Out",
+    "geolocate": "Show Your Location"
   },
   "footer": {
     "header": "Maritime links",
@@ -74,7 +77,8 @@
     "taxi": "Boat rides",
     "visitor": "Visitor harbors",
     "parking": "Boat parking",
-    "station": "Boat stations"
+    "station": "Boat stations",
+    "myhelsinki": "MyHelsinki Places"
   },
   "cookie_consent": {
     "text": "This service is in development and it uses cookies to collect anonymised user data which might be utilized later.",

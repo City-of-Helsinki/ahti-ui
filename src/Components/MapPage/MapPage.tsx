@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
+import { useQuery } from '@apollo/react-hooks';
 import { withRouter } from 'react-router-dom';
 import { GlobalGeoContext } from '../../domain/app/App';
 import { GlobalLineContext } from '../../domain/app/App';
@@ -13,7 +14,10 @@ import { FlyToInterpolator, LinearInterpolator } from 'react-map-gl';
 import CarouselWrapper from '../CarouselWrapper/CarouselWrapper';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
 
+import FEATURES_QUERY from './queries/featuresQuery';
+
 import styled from 'styled-components';
+import { FEATURES } from '../../domain/api/generatedTypes/FEATURES';
 
 // MapPage rerenders often because viewport state, use memo to prevent unnecessary carousel renders
 const MemoCarousel = React.memo(Carousel);
@@ -39,6 +43,8 @@ const ShowAllButton = styled(UnstyledLink)<ShowAllButtonProps>`
 `;
 
 const MapPage = ({ location, history }: { location: any; history: any }) => {
+  const { data } = useQuery<FEATURES>(FEATURES_QUERY);
+
   const pointData = useContext(GlobalGeoContext);
   const lineData = useContext(GlobalLineContext);
   const mapIslandData = useContext(GlobalIslandContext);
@@ -110,9 +116,33 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
     []
   );
 
+  const mapFeatures = (data: FEATURES | null): {}[] => {
+    if (data && data.features && data.features.edges) {
+      return data.features.edges.map(feature => {
+        if (feature && feature.node && feature.node.properties) {
+          return {
+            ...feature.node,
+            properties: {
+              fi: {
+                name: feature.node.properties.name,
+                header: feature.node.properties.header,
+                description: feature.node.properties.description,
+              },
+              ...feature.node.properties,
+            },
+          };
+        }
+        return {};
+      });
+    }
+    return [];
+  };
+
   useEffect(() => {
+    const mappedData = data ? mapFeatures(data) : [];
+
     // shallow copy so global context is not mutated
-    let filteredPoints = [...pointData];
+    let filteredPoints = [...pointData, ...mappedData];
 
     // filter points according to search query
     if (browserQuery.type) {
@@ -131,7 +161,7 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
       point => point.properties.fi.name === previousPoint
     );
     setCurrentSlide(index);
-  }, [browserQuery.type, mapIslandData, pointData, previousPoint]);
+  }, [browserQuery.type, mapIslandData, pointData, previousPoint, data]);
 
   useEffect(() => {
     if (browserQuery.name) {
