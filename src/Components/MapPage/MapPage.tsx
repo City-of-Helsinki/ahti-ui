@@ -17,7 +17,6 @@ import styled from 'styled-components';
 import {
   FEATURES,
   FEATURES_features_edges_node,
-  FEATURES_features_edges_node_properties,
 } from '../../domain/api/generatedTypes/FEATURES';
 
 // MapPage rerenders often because viewport state, use memo to prevent unnecessary carousel renders
@@ -47,7 +46,9 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
   const { data } = useQuery<FEATURES>(FEATURES_QUERY);
   const { t, i18n } = useTranslation();
 
-  const [displayedPoints, setDisplayedPoints] = useState<any[]>([]);
+  const [displayedPoints, setDisplayedPoints] = useState<
+    FEATURES_features_edges_node[]
+  >([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [previousPoint, setPreviousPoint] = useState<string | string[] | null>(
     null
@@ -115,14 +116,17 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
 
   const mapFeatures = (
     data: FEATURES | null
-  ): (FEATURES_features_edges_node | null)[] => {
+  ): FEATURES_features_edges_node[] => {
     if (data && data.features && data.features.edges) {
-      return data.features.edges.map(feature => {
-        if (feature && feature.node) {
-          return feature.node;
-        }
-        return null;
-      });
+      return data.features.edges.reduce<FEATURES_features_edges_node[]>(
+        (acc, edge) => {
+          if (edge && edge.node) {
+            return [...acc, edge.node];
+          }
+          return acc;
+        },
+        []
+      );
     }
     return [];
   };
@@ -143,10 +147,6 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
           point.properties.type === browserQuery.type
       );
     }
-    filteredPoints.sort(
-      // @ts-ignore
-      (a, b) => a && b && a.geometry.coordinates[0] - b.geometry.coordinates[0]
-    );
 
     setDisplayedPoints(filteredPoints);
 
@@ -157,29 +157,21 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
     setCurrentSlide(index);
   }, [browserQuery.type, previousPoint, data]);
 
-  /*
   useEffect(() => {
     if (browserQuery.name) {
       setPreviousPoint(browserQuery.name);
-      const index = displayedPoints.findIndex(
-        point => point.properties.fi.name === browserQuery.name
-      );
+      const index = displayedPoints.findIndex(point => {
+        if (point && point.properties) {
+          return point.properties.name === browserQuery.name;
+        }
+      });
       if (displayedPoints[index]) {
         flyToPoint(displayedPoints[index].geometry, 700, true);
         setCurrentSlide(index);
       }
     }
-    if (browserQuery.island) {
-      const index = mapIslandData.findIndex(
-        point => point.properties.fi.name === browserQuery.island
-      );
-      if (mapIslandData[index]) {
-        flyToPoint(mapIslandData[index].geometry, 700, true);
-      }
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [browserQuery.name, browserQuery.island, data]);
-  */
 
   return (
     <React.Fragment>
@@ -218,9 +210,12 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
           }
           onBack={history.goBack}
           pointData={
-            displayedPoints.filter(
-              point => point.properties.name === browserQuery.name
-            )[0]
+            displayedPoints.filter(point => {
+              if (point && point.properties) {
+                return point.properties.name === browserQuery.name;
+              }
+              return false;
+            })[0]
           }
         />
       )}

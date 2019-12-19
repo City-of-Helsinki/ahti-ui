@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import CookieConsent from 'react-cookie-consent';
 import MapPage from '../../Components/MapPage/MapPage';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from '../home/Home';
+import { HomeWrapper } from '../home/Home';
 import { useTranslation } from 'react-i18next';
 import ApplicationHeader from '../header/ApplicationHeader';
 import { ThemeProvider } from 'styled-components';
@@ -45,7 +45,7 @@ const App: React.FC = () => {
              * An alternative might be to set up a top-level route and only wrap that.
              */}
             <Suspense fallback={<div />}>
-              <Route exact path="/" component={withTracker(Home)} />
+              <Route exact path="/" component={withTracker(HomeWrapper)} />
               <Route path="/map" component={withTracker(MapPage)} />
             </Suspense>
           </ScrollToTop>

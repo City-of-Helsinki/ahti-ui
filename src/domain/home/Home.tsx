@@ -14,10 +14,10 @@ import BodyText from '../../Components/BodyText/BodyText';
 import HelsinkiWave from '../../Components/HelsinkiWave/HelsinkiWave';
 import { useQuery } from '@apollo/react-hooks';
 import {
-  FEATURES,
-  FEATURES_features_edges_node_properties,
-} from '../api/generatedTypes/FEATURES';
-import FEATURES_QUERY from '../../Components/MapPage/queries/featuresQuery';
+  PROMOTIONS,
+  PROMOTIONS_features_edges_node_properties,
+} from '../api/generatedTypes/PROMOTIONS';
+import PROMOTIONS_QUERY from './queries/promotionsQuery';
 
 const POINT_TYPES = ['myhelsinki'];
 
@@ -71,29 +71,14 @@ const pointPromotionSliderSettings = {
   adaptiveHeight: true,
 };
 
-export default () => {
-  const { t, i18n } = useTranslation();
-  const { data } = useQuery<FEATURES>(FEATURES_QUERY);
-  const [promotion, setPromotion] = useState<
-    FEATURES_features_edges_node_properties
-  >();
-  const [promotions, setPromotions] = useState<
-    FEATURES_features_edges_node_properties[]
-  >();
-
-  useEffect(() => {
-    if (data && data.features && data.features.edges) {
-      const promotionProperties = data.features.edges
-        .filter(edge => edge)
-        // @ts-ignore
-        .map(edge => edge.node.properties);
-      // @ts-ignore
-      setPromotions(promotionProperties);
-      // @ts-ignore
-      setPromotion(promotionProperties[0]);
-    }
-  }, [data]);
-
+const Home = ({
+  promotion,
+  promotions,
+}: {
+  promotion?: PROMOTIONS_features_edges_node_properties;
+  promotions?: PROMOTIONS_features_edges_node_properties[];
+}) => {
+  const { t } = useTranslation();
   return (
     <React.Fragment>
       <MapOverlay>
@@ -164,3 +149,33 @@ export default () => {
     </React.Fragment>
   );
 };
+
+const HomeWrapper = () => {
+  const { t, i18n } = useTranslation();
+  const { data } = useQuery<PROMOTIONS>(PROMOTIONS_QUERY);
+  const [promotion, setPromotion] = useState<
+    PROMOTIONS_features_edges_node_properties
+  >();
+  const [promotions, setPromotions] = useState<
+    PROMOTIONS_features_edges_node_properties[]
+  >();
+
+  useEffect(() => {
+    if (data && data.features && data.features.edges) {
+      const promotionProperties = data.features.edges.reduce<
+        PROMOTIONS_features_edges_node_properties[]
+      >((acc, edge) => {
+        if (edge && edge.node && edge.node.properties) {
+          return [...acc, edge.node.properties];
+        }
+        return acc;
+      }, []);
+      setPromotions(promotionProperties);
+      setPromotion(promotionProperties[0]);
+    }
+  }, [data]);
+
+  return <Home promotion={promotion} promotions={promotions} />;
+};
+
+export { Home, HomeWrapper };
