@@ -30,7 +30,6 @@
       "tileSize": 256
     }
   },
-  "sprite": "http://localhost:3000/sprites/ahti-sprite",
   "glyphs": "https://tiles.hel.ninja/fonts/{fontstack}/{range}.pbf",
   "layers": [
     {

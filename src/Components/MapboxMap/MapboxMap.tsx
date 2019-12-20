@@ -117,11 +117,22 @@ const MapboxMap = ({
 
 // Utils
 function getMapStyle(language: string) {
+  let style;
   if (language !== 'fi') {
-    return mapStyle;
+    style = mapStyle;
   } else {
-    return mapStyle;
+    style = mapStyle;
   }
+  style = {
+    ...style,
+    sprite:
+      window.location.protocol +
+      '//' +
+      window.location.hostname +
+      (window.location.port ? ':' + window.location.port : '') +
+      '/sprites/ahti-sprite',
+  };
+  return style;
 }
 
 export default MapboxMap;
