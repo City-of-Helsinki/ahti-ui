@@ -164,6 +164,7 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
         if (point && point.properties) {
           return point.properties.name === browserQuery.name;
         }
+        return false;
       });
       if (displayedPoints[index]) {
         flyToPoint(displayedPoints[index].geometry, 700, true);

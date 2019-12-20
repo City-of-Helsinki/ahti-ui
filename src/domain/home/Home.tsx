@@ -151,7 +151,6 @@ const Home = ({
 };
 
 const HomeWrapper = () => {
-  const { t, i18n } = useTranslation();
   const { data } = useQuery<PROMOTIONS>(PROMOTIONS_QUERY);
   const [promotion, setPromotion] = useState<
     PROMOTIONS_features_edges_node_properties

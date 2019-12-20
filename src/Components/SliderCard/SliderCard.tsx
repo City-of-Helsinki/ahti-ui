@@ -53,7 +53,7 @@ const SliderCard = ({
   readonly point: any;
   readonly query: string;
 }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const imageURL =
     (point && point.properties.image) ||
     (point.properties.imageId && `/images/${point.properties.imageId}.jpeg`);

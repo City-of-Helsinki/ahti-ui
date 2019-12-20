@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import ReactGA from 'react-ga';
 import { LazyImage } from 'react-lazy-images';
-import { useTranslation } from 'react-i18next';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BackButton from '../BackButton/BackButton';
 import CloseCardButton from '../CloseCardButton/CloseCardButton';
@@ -72,7 +71,6 @@ const MapCard = ({
   onBack: any;
   closeCardLink: any;
 }) => {
-  const { i18n } = useTranslation();
   const website = pointData && pointData.properties.website;
   const info = pointData && pointData.properties.phone_number;
   const address = pointData && pointData.properties.address;
