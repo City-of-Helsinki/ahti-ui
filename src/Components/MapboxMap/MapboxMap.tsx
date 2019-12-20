@@ -86,7 +86,6 @@ const MapboxMap = ({
       {...viewport}
       ref={map}
       mapStyle={mapStyle}
-      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN}
       onViewportChange={viewport => setViewport(viewport)}
       clickRadius={10}
     >
