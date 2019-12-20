@@ -6,15 +6,11 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useTranslation } from 'react-i18next';
 import queryString from 'query-string';
 import Cluster from '../Cluster/Cluster';
-import {
-  getPointQuery,
-  getLineQuery,
-  getIslandQuery,
-} from '../../common/utils/utils';
-
+import { getPointQuery } from '../../common/utils/utils';
 import AhtiNavigationControl from './controls/AhtiNavigationControl';
 import AhtiGeolocateControl from './controls/AhtiGeolocateControl';
 import styles from './MapboxMap.module.scss';
+import mapStyle from '../../assets/mapStyle.json';
 
 // using ReactMapGL might not be the most optimal for us, there is a plan to put it on a new componnets in the futyre
 const MapboxMap = ({
@@ -39,50 +35,11 @@ const MapboxMap = ({
   const parsedSearch = useMemo(() => queryString.parse(location.search), [
     location.search,
   ]);
-  const [mapStyle, setMapStyle] = useState(getMapStyleUrl('fi'));
+  const [mapStyle, setMapStyle] = useState(getMapStyle('fi'));
 
   useEffect(() => {
-    setMapStyle(getMapStyleUrl(i18n.language));
+    setMapStyle(getMapStyle(i18n.language));
   }, [i18n.language]);
-
-  // Update line width for active line, or reset it to 3, if not.
-  // NOTE: There seems to be a timing bug, when you zoom in quickly
-  // and then tap on a route. When that happens, the line style might
-  // not change. We suspect this is because of the map style or tiles
-  // loading, but have not figured out what.
-  const paintLineStyles = (parsedSearch: queryString.ParsedQuery<string>) => {
-    if (map.current && map.current.getMap().isStyleLoaded()) {
-      map.current
-        .getMap()
-        .setPaintProperty('routes', 'line-width', [
-          'match',
-          ['get', 'name'],
-          parsedSearch.line || 'none',
-          3,
-          1.5,
-        ]);
-    }
-  };
-
-  // Update line styles whenever the search changes
-  useEffect(() => {
-    paintLineStyles(parsedSearch);
-  }, [parsedSearch]);
-
-  const _onClick = (event: { features: any }) => {
-    const { features } = event;
-    const clickedPlace =
-      features &&
-      features.find((f: { layer: { id: string } }) =>
-        ['routes', 'islands'].includes(f.layer.id)
-      );
-
-    clickedPlace &&
-      clickedPlace.properties.name &&
-      (clickedPlace.layer.id === 'routes'
-        ? history.push(`/map?${getLineQuery(clickedPlace, parsedSearch)}`)
-        : history.push(`/map?${getIslandQuery(clickedPlace, parsedSearch)}`));
-  };
 
   const _renderMarker = () => {
     return (
@@ -131,9 +88,7 @@ const MapboxMap = ({
       mapStyle={mapStyle}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_ACCESS_TOKEN}
       onViewportChange={viewport => setViewport(viewport)}
-      onNativeClick={_onClick}
       clickRadius={10}
-      onLoad={() => paintLineStyles(parsedSearch)}
     >
       <div className={styles.geolocateControls}>
         {getGeolocateControl()}
@@ -161,11 +116,11 @@ const MapboxMap = ({
 };
 
 // Utils
-function getMapStyleUrl(language: string) {
+function getMapStyle(language: string) {
   if (language !== 'fi') {
-    return 'mapbox://styles/ahie/ck4bh3x1h274o1cqgfa90hslu';
+    return mapStyle;
   } else {
-    return 'mapbox://styles/ahie/ck4bh3x1h274o1cqgfa90hslu';
+    return mapStyle;
   }
 }
 
