@@ -1,0 +1,41 @@
+.container {
+  position: absolute;
+  top: 7.5rem;
+  bottom: 1rem;
+  left: 1rem;
+  width: 30rem;
+  overflow: scroll;
+}
+
+.poiContainer {
+  padding: 1rem;
+  height: 20rem;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  cursor: pointer;
+}
+
+.poiName {
+  color: white;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+
+.poiHeader {
+  color: white;
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 2rem;
+  line-height: 1.15;
+  max-width: 20rem;
+}
+
+.poiType {
+  color: white;
+  font-size: 1.3rem;
+  display: block;
+  line-height: 1.2;
+  width: 20rem;
+  opacity: 0.7;
+}

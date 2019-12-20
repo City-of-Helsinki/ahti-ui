@@ -1,9 +1,19 @@
+@import '../../assets/styles/theme-constants';
+
 .geolocateControls {
+    position: absolute;
     float: left;
-    margin: 3.5rem;
-    margin-top: 8rem;
+    left: 3.5rem;
+    top: 8rem;
 
     .geolocateControlsDivider {
         margin: 1rem;
+    }
+
+    @media (min-width: $desktop-min-width) {
+        float: right;
+        top: 2rem;
+        left: unset;
+        right: 2rem;
     }
 }

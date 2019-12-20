@@ -75,3 +75,18 @@
   transform: rotate(180deg);
   content: url('../icons/chevron_right.svg');
 }
+
+// Class to reset margins and paddings
+.resetSlider {
+  .slick-slider {
+    margin: 0;
+  }
+
+  .slick-list {
+    padding: 0;
+  }
+
+  .slick-slide {
+    padding: 0;
+  }
+}

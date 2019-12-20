@@ -10,14 +10,25 @@ export interface FEATURES_features_edges_node_geometry {
   coordinates: any | null;
 }
 
+export interface FEATURES_features_edges_node_properties_images {
+  url: string;
+  copyrightOwner: string;
+}
+
+export interface FEATURES_features_edges_node_properties_source {
+  system: string;
+}
+
 export interface FEATURES_features_edges_node_properties {
   type: string;
   name: string | null;
   header: string;
   description: string;
-  website: string;
+  url: string | null;
   address: string;
   imageId: number;
+  images: FEATURES_features_edges_node_properties_images[];
+  source: FEATURES_features_edges_node_properties_source;
 }
 
 export interface FEATURES_features_edges_node {

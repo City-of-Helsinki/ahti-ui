@@ -2,49 +2,19 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { withRouter } from 'react-router-dom';
 import queryString, { ParsedQuery } from 'query-string';
-import { useTranslation } from 'react-i18next';
 import MapboxMap from '../MapboxMap/MapboxMap';
-import Carousel from '../Carousel/Carousel';
 import MapCard from '../MapCard/MapCard';
 import MapWrapper from '../MapWrapper/MapWrapper';
 import { FlyToInterpolator, LinearInterpolator } from 'react-map-gl';
-import CarouselWrapper from '../CarouselWrapper/CarouselWrapper';
-import UnstyledLink from '../UnstyledLink/UnstyledLink';
-
 import FEATURES_QUERY from './queries/featuresQuery';
-
-import styled from 'styled-components';
 import {
   FEATURES,
   FEATURES_features_edges_node,
 } from '../../domain/api/generatedTypes/FEATURES';
-
-// MapPage rerenders often because viewport state, use memo to prevent unnecessary carousel renders
-const MemoCarousel = React.memo(Carousel);
-
-interface ShowAllButtonProps {
-  readonly language: string;
-}
-
-const ShowAllButton = styled(UnstyledLink)<ShowAllButtonProps>`
-  z-index: 1;
-  position: absolute;
-  top: 7.5rem;
-  right: 1rem;
-
-  background-color: ${props => props.theme.colors.white};
-  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
-  border-radius: ${props => (props.language === 'fi' ? '18%' : '25%')} / 50%;
-  color: ${props => props.theme.colors.black};
-  padding: 1rem;
-  padding-top: 1.1rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-`;
+import ResponsivePOIList from './POIList/ResponsivePOIList';
 
 const MapPage = ({ location, history }: { location: any; history: any }) => {
   const { data } = useQuery<FEATURES>(FEATURES_QUERY);
-  const { t, i18n } = useTranslation();
 
   const [displayedPoints, setDisplayedPoints] = useState<
     FEATURES_features_edges_node[]
@@ -54,18 +24,8 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
     null
   );
   const [viewport, setViewport] = useState({
-    // arbitrary max-width of 474px for wide screens
-    width:
-      Math.min(
-        window.innerWidth || document.documentElement.clientWidth,
-        474
-      ) || 400,
-    // Equivalent of 92vh. The styles assume these measures
-    height:
-      '100vh' ||
-      window.innerHeight ||
-      document.documentElement.clientHeight ||
-      400,
+    width: '100%',
+    height: '100vh',
     latitude: 60.15,
     longitude: 24.944,
     zoom: 10,
@@ -164,6 +124,7 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
         if (point && point.properties) {
           return point.properties.name === browserQuery.name;
         }
+        return false;
       });
       if (displayedPoints[index]) {
         flyToPoint(displayedPoints[index].geometry, 700, true);
@@ -176,11 +137,6 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
   return (
     <React.Fragment>
       <MapWrapper>
-        {browserQuery && !(Object.entries(browserQuery).length === 0) && (
-          <ShowAllButton to="/map" language={i18n.language}>
-            {t('map.show_all_button')}
-          </ShowAllButton>
-        )}
         <MapboxMap
           location={location}
           history={history}
@@ -193,15 +149,14 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
       </MapWrapper>
 
       {displayedPoints.length > 0 && !browserQuery.name && (
-        <CarouselWrapper>
-          <MemoCarousel
-            currentSlide={currentSlide}
-            setCurrentSlide={setCurrentSlide}
-            flyToPoint={flyToPoint}
-            displayedPoints={displayedPoints}
-            location={location}
-          />
-        </CarouselWrapper>
+        <ResponsivePOIList
+          currentSlide={currentSlide}
+          setCurrentSlide={setCurrentSlide}
+          flyToPoint={flyToPoint}
+          displayedPoints={displayedPoints}
+          location={location}
+          breakpoint={1200}
+        />
       )}
       {browserQuery.name && (
         <MapCard

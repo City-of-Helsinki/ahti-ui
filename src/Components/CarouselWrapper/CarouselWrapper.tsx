@@ -28,6 +28,7 @@ const CarouselWrapper = styled.div`
     box-sizing: border-box;
     padding: 0rem 0.5rem;
     color: inherit;
+    width: 350px;
 
     a {
       color: inherit;

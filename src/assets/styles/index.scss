@@ -4,7 +4,7 @@
 @import 'slick';
 
 /*variables*/
-
+$desktop-min-width: 1200px;
 $font-primary: sans-serif;
 $font-fallback-primary: Helvetica;
 $font-fallback-secondary: Arial;
@@ -45,8 +45,6 @@ $font-family: $font-family-primary, $font-fallback-primary,
 body {
   overflow-x: hidden;
   height: 100vh;
-  // arbitrary max-width of 474px for wide screens
-  max-width: 474px;
   margin: 0 auto;
   position: absolute;
   top: 0;
@@ -82,7 +80,6 @@ body {
   }
 
   .cookieConsent {
-    max-width: 474px;
     // use important to override default styles
     z-index: 9001 !important;
     left: auto !important;
