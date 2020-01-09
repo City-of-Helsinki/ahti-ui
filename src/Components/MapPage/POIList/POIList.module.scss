@@ -8,10 +8,11 @@
 }
 
 .poiContainer {
+  box-shadow: inset 4rem 7rem 21rem 0.5rem rgba(0,0,0,0.75);
   padding: 1rem;
   height: 20rem;
   margin-bottom: 0.5rem;
-  background-color: white;
+  background-color: transparent;
   cursor: pointer;
 }
 

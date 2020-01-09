@@ -34,7 +34,7 @@ const ResponsivePOIList = ({
           location={location}
         />
       </CarouselWrapper>
-    )) || <POIList data={displayedPoints} />
+    )) || <POIList data={displayedPoints} setCurrentSlide={setCurrentSlide} />
   );
 };
 

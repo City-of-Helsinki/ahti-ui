@@ -3,7 +3,13 @@ import styles from './POIList.module.scss';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 
-const POIList = ({ data }: { data: any }) => {
+const POIList = ({
+  data,
+  setCurrentSlide,
+}: {
+  data: any;
+  setCurrentSlide: any;
+}) => {
   const { t } = useTranslation();
   const history = useHistory();
 
@@ -19,6 +25,7 @@ const POIList = ({ data }: { data: any }) => {
               backgroundSize: 'cover',
             }}
             onClick={() => history.push(`map?name=${poi.properties.name}`)}
+            onMouseEnter={() => setCurrentSlide(id)}
           >
             <p className={styles.poiName}>{poi.properties.name}</p>
             <h2 className={styles.poiHeader}>{poi.properties.header}</h2>
