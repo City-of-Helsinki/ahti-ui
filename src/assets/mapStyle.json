@@ -21,13 +21,6 @@
     "openmaptiles": {
       "type": "vector",
       "url": "https://tiles.hel.ninja/data/helsinki.json"
-    },
-    "vayla": {
-      "type": "raster",
-      "tiles": [
-        "https://julkinen.vayla.fi/inspirepalvelu/rajoitettu/ows?service=WMS&bbox={bbox-epsg-3857}&request=GetMap&srs=EPSG:3857&format=image/png&width=256&height=256&layers=syvyyskayra_v&transparent=true&styles=syvyyskayra_v"
-      ],
-      "tileSize": 256
     }
   },
   "glyphs": "https://tiles.hel.ninja/fonts/{fontstack}/{range}.pbf",
@@ -81,14 +74,6 @@
       "source-layer": "water",
       "layout": {},
       "paint": { "fill-pattern": "Hel_wave_05" }
-    },
-    {
-      "id": "vayla-syvyyskayra",
-      "type": "raster",
-      "source": "vayla",
-      "paint": {
-        "raster-opacity": 0.3
-      }
     },
     {
       "id": "aeroway-area",
