@@ -10,7 +10,7 @@
         margin: 1rem;
     }
 
-    @media (min-width: $desktop-min-width) {
+    @media (min-width: $desktop-min-width) and (min-height: $desktop-min-height) {
         float: right;
         top: 2rem;
         left: unset;
