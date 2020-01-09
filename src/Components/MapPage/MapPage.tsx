@@ -1,9 +1,6 @@
-import React, { useEffect, useState, useContext, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { withRouter } from 'react-router-dom';
-import { GlobalGeoContext } from '../../domain/app/App';
-import { GlobalLineContext } from '../../domain/app/App';
-import { GlobalIslandContext } from '../../domain/app/App';
 import queryString, { ParsedQuery } from 'query-string';
 import { useTranslation } from 'react-i18next';
 import MapboxMap from '../MapboxMap/MapboxMap';
@@ -17,7 +14,10 @@ import UnstyledLink from '../UnstyledLink/UnstyledLink';
 import FEATURES_QUERY from './queries/featuresQuery';
 
 import styled from 'styled-components';
-import { FEATURES } from '../../domain/api/generatedTypes/FEATURES';
+import {
+  FEATURES,
+  FEATURES_features_edges_node,
+} from '../../domain/api/generatedTypes/FEATURES';
 
 // MapPage rerenders often because viewport state, use memo to prevent unnecessary carousel renders
 const MemoCarousel = React.memo(Carousel);
@@ -44,13 +44,11 @@ const ShowAllButton = styled(UnstyledLink)<ShowAllButtonProps>`
 
 const MapPage = ({ location, history }: { location: any; history: any }) => {
   const { data } = useQuery<FEATURES>(FEATURES_QUERY);
-
-  const pointData = useContext(GlobalGeoContext);
-  const lineData = useContext(GlobalLineContext);
-  const mapIslandData = useContext(GlobalIslandContext);
   const { t, i18n } = useTranslation();
 
-  const [displayedPoints, setDisplayedPoints] = useState<any[]>([]);
+  const [displayedPoints, setDisplayedPoints] = useState<
+    FEATURES_features_edges_node[]
+  >([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [previousPoint, setPreviousPoint] = useState<string | string[] | null>(
     null
@@ -116,24 +114,19 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
     []
   );
 
-  const mapFeatures = (data: FEATURES | null): {}[] => {
+  const mapFeatures = (
+    data: FEATURES | null
+  ): FEATURES_features_edges_node[] => {
     if (data && data.features && data.features.edges) {
-      return data.features.edges.map(feature => {
-        if (feature && feature.node && feature.node.properties) {
-          return {
-            ...feature.node,
-            properties: {
-              fi: {
-                name: feature.node.properties.name,
-                header: feature.node.properties.header,
-                description: feature.node.properties.description,
-              },
-              ...feature.node.properties,
-            },
-          };
-        }
-        return {};
-      });
+      return data.features.edges.reduce<FEATURES_features_edges_node[]>(
+        (acc, edge) => {
+          if (edge && edge.node) {
+            return [...acc, edge.node];
+          }
+          return acc;
+        },
+        []
+      );
     }
     return [];
   };
@@ -142,48 +135,44 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
     const mappedData = data ? mapFeatures(data) : [];
 
     // shallow copy so global context is not mutated
-    let filteredPoints = [...pointData, ...mappedData];
+    let filteredPoints = [...mappedData];
 
     // filter points according to search query
     if (browserQuery.type) {
       filteredPoints = filteredPoints.filter(
         point =>
-          point.properties.type && point.properties.type === browserQuery.type
+          point &&
+          point.properties &&
+          point.properties.type &&
+          point.properties.type === browserQuery.type
       );
     }
-    filteredPoints.sort(
-      (a, b) => a.geometry.coordinates[0] - b.geometry.coordinates[0]
-    );
 
     setDisplayedPoints(filteredPoints);
 
     const index = filteredPoints.findIndex(
-      point => point.properties.fi.name === previousPoint
+      point =>
+        point && point.properties && point.properties.name === previousPoint
     );
     setCurrentSlide(index);
-  }, [browserQuery.type, mapIslandData, pointData, previousPoint, data]);
+  }, [browserQuery.type, previousPoint, data]);
 
   useEffect(() => {
     if (browserQuery.name) {
       setPreviousPoint(browserQuery.name);
-      const index = displayedPoints.findIndex(
-        point => point.properties.fi.name === browserQuery.name
-      );
+      const index = displayedPoints.findIndex(point => {
+        if (point && point.properties) {
+          return point.properties.name === browserQuery.name;
+        }
+        return false;
+      });
       if (displayedPoints[index]) {
         flyToPoint(displayedPoints[index].geometry, 700, true);
         setCurrentSlide(index);
       }
     }
-    if (browserQuery.island) {
-      const index = mapIslandData.findIndex(
-        point => point.properties.fi.name === browserQuery.island
-      );
-      if (mapIslandData[index]) {
-        flyToPoint(mapIslandData[index].geometry, 700, true);
-      }
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [browserQuery.name, browserQuery.island]);
+  }, [browserQuery.name, browserQuery.island, data]);
 
   return (
     <React.Fragment>
@@ -204,7 +193,7 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
         />
       </MapWrapper>
 
-      {displayedPoints.length > 0 && !browserQuery.name && !browserQuery.line && (
+      {displayedPoints.length > 0 && !browserQuery.name && (
         <CarouselWrapper>
           <MemoCarousel
             currentSlide={currentSlide}
@@ -215,42 +204,19 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
           />
         </CarouselWrapper>
       )}
-      {browserQuery.line && (
+      {browserQuery.name && (
         <MapCard
           closeCardLink={
             browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
           }
           onBack={history.goBack}
           pointData={
-            lineData.filter(
-              line => line.properties.fi.name === browserQuery.line
-            )[0]
-          }
-        />
-      )}
-      {!browserQuery.line && browserQuery.island && (
-        <MapCard
-          closeCardLink={
-            browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
-          }
-          onBack={history.goBack}
-          pointData={
-            mapIslandData.filter(
-              island => island.properties.fi.name === browserQuery.island
-            )[0]
-          }
-        />
-      )}
-      {!browserQuery.line && !browserQuery.island && browserQuery.name && (
-        <MapCard
-          closeCardLink={
-            browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
-          }
-          onBack={history.goBack}
-          pointData={
-            displayedPoints.filter(
-              point => point.properties.fi.name === browserQuery.name
-            )[0]
+            displayedPoints.filter(point => {
+              if (point && point.properties) {
+                return point.properties.name === browserQuery.name;
+              }
+              return false;
+            })[0]
           }
         />
       )}

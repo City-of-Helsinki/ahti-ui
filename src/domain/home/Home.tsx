@@ -1,91 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { useTranslation } from 'react-i18next';
-import { GlobalGeoContext } from '../app/App';
-import { GlobalIslandContext } from '../app/App';
 import LinkBox from '../../Components/LinkBox/LinkBox';
 import MapOverlay from '../../Components/MapOverlay/MapOverlay';
 import Footer from '../footer/Footer';
-//import { Section, Koros } from 'hds-react';
 import SecondaryTitle from '../../Components/SecondaryTitle/SecondaryTitle';
 import Section from '../../Components/Section/Section';
 import RoundBoxWithText from '../../Components/RoundBox/RoundBox';
 import TertiaryTitle from '../../Components/TertiaryTitle/TertiaryTitle';
 import UnstyledLink from '../../Components/UnstyledLink/UnstyledLink';
 import VerticalBlock from '../../Components/VerticalBlock/VerticalBlock';
-import PromotionBlock from '../../Components/PromotionBlock/PromotionBlock';
-import PromotionSlideSection from '../../Components/PromotionSlideSection/PromotionSlideSection';
 import BodyText from '../../Components/BodyText/BodyText';
-import POINT_TYPES from '../../data/pointTypes.json';
-import styled from 'styled-components';
 import HelsinkiWave from '../../Components/HelsinkiWave/HelsinkiWave';
+import { useQuery } from '@apollo/react-hooks';
+import {
+  PROMOTIONS,
+  PROMOTIONS_features_edges_node_properties,
+} from '../api/generatedTypes/PROMOTIONS';
+import PROMOTIONS_QUERY from './queries/promotionsQuery';
 
-const BackgroundShade = styled.div`
-  position: relative;
-  background-color: ${props => props.theme.colors.lightGray};
-  min-height: 16.5rem;
-  width: 100%;
-`;
-const SliderContainer = styled.div`
-  position: relative;
-  bottom: 3.5rem;
-  min-height: 16.5rem;
-  width: 100%;
-  padding: 0 2rem;
-`;
-
-// these are just placeholder for now
-const PROMOTION_POINT_NAMES = [
-  'Skipperi - Otsolahden Satama',
-  'Finfly - Vetovarjo',
-  'TwentyKnots Helsinki',
-];
-
-const PROMOTION_TYPES = ['cityboat', 'sup', 'visitor'];
-
-type Dict = {
-  [key: string]: any;
-};
-// these are just placeholders, correct content will be added to translation file
-const PROMOTION_TYPES_CONTENT: Dict = {
-  cityboat: {
-    fi: {
-      name: 'Skipperi',
-      header: 'Seikkaile saaristossa Skipperin kaupunkiveneellä',
-    },
-    en: {
-      name: 'Skipperi',
-      header: 'Take a ride with a Skipperi city boat',
-    },
-    imageId: '8',
-  },
-  sup: {
-    fi: {
-      name: 'Kikkapakka',
-      header: 'Kokeile suppailua Kikkapakan suppilaudoilla',
-    },
-    en: {
-      name: 'Kikkapakka',
-      header: 'Try out sup boarding with Kikkapakka',
-    },
-    imageId: '9',
-  },
-  visitor: {
-    fi: {
-      name: 'Vierasvenepaikat',
-      header: 'Löydä vierasvenepaikkoja Helsingistä',
-    },
-    en: {
-      name: 'Visitor harbors',
-      header: 'Discover visitor harbors in Helsinki',
-    },
-    imageId: '10',
-  },
-};
+const POINT_TYPES = ['myhelsinki'];
 
 const removeTouchMoveEventFromWindow = (e: { stopPropagation: () => void }) => {
   e.stopPropagation();
-  // e.preventDefault();
 };
 
 const addTouchMoveEvenetListernerToWindow = () => {
@@ -97,8 +34,6 @@ const addTouchMoveEvenetListernerToWindow = () => {
 const removeTouchMoveEvenetListernerToWindow = () => {
   window.removeEventListener('touchmove', removeTouchMoveEventFromWindow, {});
 };
-
-const PROMOTION_ISLANDS = ['Vasikkasaari', 'Lonna', 'Isosaari'];
 
 const filterSliderSettings = {
   dots: false,
@@ -125,19 +60,6 @@ const filterSliderSettings = {
   ],
 };
 
-const typePromotionSliderSettings = {
-  dots: false,
-  swipeEvent: addTouchMoveEvenetListernerToWindow,
-  afterChange: removeTouchMoveEvenetListernerToWindow,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  centerMode: true,
-  centerPadding: '18px',
-  slidesToScroll: 1,
-  adaptiveHeight: true,
-};
-
 const pointPromotionSliderSettings = {
   dots: false,
   swipeEvent: addTouchMoveEvenetListernerToWindow,
@@ -149,22 +71,14 @@ const pointPromotionSliderSettings = {
   adaptiveHeight: true,
 };
 
-export default () => {
-  const { t, i18n } = useTranslation();
-  const contextGeoData = useContext(GlobalGeoContext);
-  const contextIslandData = useContext(GlobalIslandContext);
-
-  const promotionPoints = [...contextGeoData]
-    .filter(point => PROMOTION_POINT_NAMES.includes(point.properties.fi.name))
-    // this shuffles the points
-    .sort(() => 0.5 - Math.random());
-  const promotionIslands = [...contextIslandData].filter(island =>
-    PROMOTION_ISLANDS.includes(island.properties.fi.name)
-  );
-
-  const promotionIsland =
-    promotionIslands[Math.floor(Math.random() * promotionIslands.length)];
-
+const Home = ({
+  promotion,
+  promotions,
+}: {
+  promotion?: PROMOTIONS_features_edges_node_properties;
+  promotions?: PROMOTIONS_features_edges_node_properties[];
+}) => {
+  const { t } = useTranslation();
   return (
     <React.Fragment>
       <MapOverlay>
@@ -185,54 +99,16 @@ export default () => {
           ))}
         </Slider>
       </Section>
-      {PROMOTION_TYPES && (
-        <PromotionSlideSection>
-          <BackgroundShade>
-            <SliderContainer>
-              <Slider {...typePromotionSliderSettings}>
-                {PROMOTION_TYPES.map((type, id) => (
-                  <PromotionBlock
-                    key={id}
-                    imageURL={`/images/${PROMOTION_TYPES_CONTENT[type].imageId}.jpeg`}
-                  >
-                    <BodyText>
-                      {PROMOTION_TYPES_CONTENT[type][i18n.language].name}
-                    </BodyText>
-                    <SecondaryTitle>
-                      {PROMOTION_TYPES_CONTENT[type][i18n.language].header}
-                    </SecondaryTitle>
-                    <LinkBox to={`/map?type=${type}`} variant="white">
-                      {t('home.section2_button')}
-                    </LinkBox>
-                  </PromotionBlock>
-                ))}
-              </Slider>
-            </SliderContainer>
-          </BackgroundShade>
-          <HelsinkiWave />
-        </PromotionSlideSection>
-      )}
-      {promotionIsland && (
+      {promotion && (
         <React.Fragment>
           <Section
             withImage={true}
             widthShadow={true}
-            imageURL={
-              promotionIsland.properties.image ||
-              (promotionIsland.properties.imageId &&
-                `/images/${promotionIsland.properties.imageId}.jpeg`)
-            }
+            imageURL={`/images/${promotion.imageId}.jpeg`}
           >
-            <SecondaryTitle>
-              {promotionIsland.properties[i18n.language].name}
-            </SecondaryTitle>
-            <BodyText>
-              {promotionIsland.properties[i18n.language].header}
-            </BodyText>
-            <LinkBox
-              variant="white"
-              to={`/map?island=${promotionIsland.properties.fi.name}`}
-            >
+            <SecondaryTitle>{promotion.name}</SecondaryTitle>
+            <BodyText>{promotion.header}</BodyText>
+            <LinkBox variant="white" to={`/map?island=${promotion.name}`}>
               {t('home.section2_button')}
             </LinkBox>
           </Section>
@@ -242,23 +118,19 @@ export default () => {
       <Section>
         <SecondaryTitle>{t('home.section4_header')}</SecondaryTitle>
         <Slider {...pointPromotionSliderSettings}>
-          {promotionPoints.map((point, id) => {
-            return (
-              <UnstyledLink
-                to={`/map?name=${point.properties.fi.name}` || '/map'}
-                key={id}
-              >
-                <VerticalBlock
-                  withImage={true}
-                  imageURL={`/images/${point.properties.imageId}.jpeg`}
-                >
-                  <SecondaryTitle>
-                    {point.properties[i18n.language].name}
-                  </SecondaryTitle>
-                </VerticalBlock>
-              </UnstyledLink>
-            );
-          })}
+          {promotions &&
+            promotions.map((point: any, id: any) => {
+              return (
+                <UnstyledLink to={`/map?name=${point.name}` || '/map'} key={id}>
+                  <VerticalBlock
+                    withImage={true}
+                    imageURL={`/images/${point.imageId}.jpeg`}
+                  >
+                    <SecondaryTitle>{point.name}</SecondaryTitle>
+                  </VerticalBlock>
+                </UnstyledLink>
+              );
+            })}
         </Slider>
       </Section>
 
@@ -277,3 +149,32 @@ export default () => {
     </React.Fragment>
   );
 };
+
+const HomeWrapper = () => {
+  const { data } = useQuery<PROMOTIONS>(PROMOTIONS_QUERY);
+  const [promotion, setPromotion] = useState<
+    PROMOTIONS_features_edges_node_properties
+  >();
+  const [promotions, setPromotions] = useState<
+    PROMOTIONS_features_edges_node_properties[]
+  >();
+
+  useEffect(() => {
+    if (data && data.features && data.features.edges) {
+      const promotionProperties = data.features.edges.reduce<
+        PROMOTIONS_features_edges_node_properties[]
+      >((acc, edge) => {
+        if (edge && edge.node && edge.node.properties) {
+          return [...acc, edge.node.properties];
+        }
+        return acc;
+      }, []);
+      setPromotions(promotionProperties);
+      setPromotion(promotionProperties[0]);
+    }
+  }, [data]);
+
+  return <Home promotion={promotion} promotions={promotions} />;
+};
+
+export { Home, HomeWrapper };

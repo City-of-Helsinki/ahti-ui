@@ -1,7 +1,6 @@
 import React, { memo } from 'react';
 import ReactGA from 'react-ga';
 import { LazyImage } from 'react-lazy-images';
-import { useTranslation } from 'react-i18next';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BackButton from '../BackButton/BackButton';
 import CloseCardButton from '../CloseCardButton/CloseCardButton';
@@ -72,7 +71,6 @@ const MapCard = ({
   onBack: any;
   closeCardLink: any;
 }) => {
-  const { i18n } = useTranslation();
   const website = pointData && pointData.properties.website;
   const info = pointData && pointData.properties.phone_number;
   const address = pointData && pointData.properties.address;
@@ -92,28 +90,24 @@ const MapCard = ({
               src={imageURL}
               placeholder={({ ref }) => (
                 <CardImageContainer ref={ref}>
-                  {pointData.properties[i18n.language].name && (
-                    <BodyText>
-                      {pointData.properties[i18n.language].name}
-                    </BodyText>
+                  {pointData.properties.name && (
+                    <BodyText>{pointData.properties.name}</BodyText>
                   )}
-                  {pointData.properties[i18n.language].header && (
+                  {pointData.properties.header && (
                     <SecondaryTitle>
-                      {pointData.properties[i18n.language].header}
+                      {pointData.properties.header}
                     </SecondaryTitle>
                   )}
                 </CardImageContainer>
               )}
               actual={() => (
                 <CardImageContainer imageURL={imageURL}>
-                  {pointData.properties[i18n.language].name && (
-                    <BodyText>
-                      {pointData.properties[i18n.language].name}
-                    </BodyText>
+                  {pointData.properties.name && (
+                    <BodyText>{pointData.properties.name}</BodyText>
                   )}
-                  {pointData.properties[i18n.language].header && (
+                  {pointData.properties.header && (
                     <SecondaryTitle>
-                      {pointData.properties[i18n.language].header}
+                      {pointData.properties.header}
                     </SecondaryTitle>
                   )}
                 </CardImageContainer>
@@ -122,40 +116,32 @@ const MapCard = ({
           )}
           {!('IntersectionObserver' in window) && (
             <CardImageContainer imageURL={imageURL}>
-              {pointData.properties[i18n.language].name && (
-                <BodyText>{pointData.properties[i18n.language].name}</BodyText>
+              {pointData.properties.name && (
+                <BodyText>{pointData.properties.name}</BodyText>
               )}
-              {pointData.properties[i18n.language].header && (
-                <SecondaryTitle>
-                  {pointData.properties[i18n.language].header}
-                </SecondaryTitle>
+              {pointData.properties.header && (
+                <SecondaryTitle>{pointData.properties.header}</SecondaryTitle>
               )}
             </CardImageContainer>
           )}
           <HelsinkiWave />
 
-          {pointData.properties[i18n.language].free_text_1 && (
+          {pointData.properties.free_text_1 && (
             <FreeTextContainer>
               <FloatingBlock>
-                <BodyText>
-                  {pointData.properties[i18n.language].free_text_1}
-                </BodyText>
-                {pointData.properties[i18n.language].free_text_2 && (
+                <BodyText>{pointData.properties.free_text_1}</BodyText>
+                {pointData.properties.free_text_2 && (
                   <React.Fragment>
                     <Line />
-                    <BodyText>
-                      {pointData.properties[i18n.language].free_text_2}
-                    </BodyText>
+                    <BodyText>{pointData.properties.free_text_2}</BodyText>
                   </React.Fragment>
                 )}
               </FloatingBlock>
             </FreeTextContainer>
           )}
           <CardTextContainer>
-            {pointData.properties[i18n.language].description && (
-              <BodyText>
-                {pointData.properties[i18n.language].description}
-              </BodyText>
+            {pointData.properties.description && (
+              <BodyText>{pointData.properties.description}</BodyText>
             )}
             <ContactInfoContainer>
               {address && (
