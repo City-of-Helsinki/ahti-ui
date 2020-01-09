@@ -34,11 +34,9 @@ const Carousel = ({
       dots={false}
       infinite={false}
       speed={500}
-      slidesToShow={1}
-      slidesToScroll={1}
-      centerMode={true}
       //this doesn't understand rem for some reason
       centerPadding={'18px'}
+      variableWidth={true}
       beforeChange={(current, next) => {
         if (
           current !== next &&

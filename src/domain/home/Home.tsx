@@ -36,28 +36,13 @@ const removeTouchMoveEvenetListernerToWindow = () => {
 };
 
 const filterSliderSettings = {
+  centerMode: true,
   dots: false,
   swipeEvent: addTouchMoveEvenetListernerToWindow,
   afterChange: removeTouchMoveEvenetListernerToWindow,
   infinite: false,
   speed: 500,
-  slidesToShow: 3.5,
-  slidesToScroll: 3,
-  adaptiveHeight: true,
-  responsive: [
-    {
-      breakpoint: 390,
-      settings: {
-        slidesToShow: 3.5,
-      },
-    },
-    {
-      breakpoint: 330,
-      settings: {
-        slidesToShow: 2.5,
-      },
-    },
-  ],
+  adaptiveWidth: true,
 };
 
 const pointPromotionSliderSettings = {
@@ -69,6 +54,7 @@ const pointPromotionSliderSettings = {
   centerPadding: '60px',
   speed: 500,
   adaptiveHeight: true,
+  adaptiveWidth: true,
 };
 
 const Home = ({
@@ -80,7 +66,7 @@ const Home = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <React.Fragment>
+    <div>
       <MapOverlay>
         <SecondaryTitle> {t('home.main_header')}</SecondaryTitle>
         <LinkBox to="/map">{t('home.see_all_button')}</LinkBox>
@@ -90,12 +76,13 @@ const Home = ({
         <SecondaryTitle>{t('home.section1_header')}</SecondaryTitle>
         <Slider {...filterSliderSettings}>
           {POINT_TYPES.map((type, id) => (
-            <RoundBoxWithText
-              key={id}
-              iconURL={`/icons/type/${type}.svg`}
-              title={<TertiaryTitle> {t(`types.${type}`)} </TertiaryTitle>}
-              pathToList={`/map?type=${type}` || '/map'}
-            />
+            <div key={id}>
+              <RoundBoxWithText
+                iconURL={`/icons/type/${type}.svg`}
+                title={<TertiaryTitle> {t(`types.${type}`)} </TertiaryTitle>}
+                pathToList={`/map?type=${type}` || '/map'}
+              />
+            </div>
           ))}
         </Slider>
       </Section>
@@ -121,14 +108,19 @@ const Home = ({
           {promotions &&
             promotions.map((point: any, id: any) => {
               return (
-                <UnstyledLink to={`/map?name=${point.name}` || '/map'} key={id}>
-                  <VerticalBlock
-                    withImage={true}
-                    imageURL={`/images/${point.imageId}.jpeg`}
+                <div>
+                  <UnstyledLink
+                    to={`/map?name=${point.name}` || '/map'}
+                    key={id}
                   >
-                    <SecondaryTitle>{point.name}</SecondaryTitle>
-                  </VerticalBlock>
-                </UnstyledLink>
+                    <VerticalBlock
+                      withImage={true}
+                      imageURL={`/images/${point.imageId}.jpeg`}
+                    >
+                      <SecondaryTitle>{point.name}</SecondaryTitle>
+                    </VerticalBlock>
+                  </UnstyledLink>
+                </div>
               );
             })}
         </Slider>
@@ -146,7 +138,7 @@ const Home = ({
         </LinkBox>
       </Section>
       <Footer />
-    </React.Fragment>
+    </div>
   );
 };
 

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const Link = styled(UnstyledLink)`
   position: absolute;
-  z-index: 1399;
+  z-index: 14000;
   right: 1rem;
 
   padding: 1rem;

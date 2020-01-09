@@ -15,9 +15,16 @@ const FEATURES_QUERY = gql`
             name
             header
             description
-            website
+            url
             address
             imageId
+            images {
+              url
+              copyrightOwner
+            }
+            source {
+              system
+            }
           }
         }
       }

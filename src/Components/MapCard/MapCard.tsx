@@ -1,26 +1,30 @@
 import React, { memo } from 'react';
 import ReactGA from 'react-ga';
-import { LazyImage } from 'react-lazy-images';
-import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
-import BackButton from '../BackButton/BackButton';
 import CloseCardButton from '../CloseCardButton/CloseCardButton';
 import BodyText from '../BodyText/BodyText';
-import CardImageContainer from '../CardImageContainer/CardImageContainer';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
 import { ReactComponent as Home } from '../../assets/icons/home.svg';
 import { ReactComponent as Info } from '../../assets/icons/info.svg';
 import { ReactComponent as Location } from '../../assets/icons/location.svg';
+import CardImageContainer from './CardImageContainer';
 
 import styled from 'styled-components';
+import { useWindowSize } from '../../common/utils/hooks';
 
-const Container = styled.div`
+interface ContainerProps {
+  readonly mobile: boolean;
+}
+
+const Container = styled.div<ContainerProps>`
   z-index: 1399;
   box-sizing: border-box;
-  height: 60vh;
-  top: 40vh;
+  height: ${props => (props.mobile ? '60vh' : 'unset')};
+  bottom: ${props => (props.mobile ? 'unset' : '1rem')};
+  left: ${props => (props.mobile ? 'unset' : '1rem')};
+  top: ${props => (props.mobile ? '40vh' : '9.5rem')};
   position: absolute;
-  width: 100%;
+  width: ${props => (props.mobile ? '100%' : '30rem')};
   background-color: ${props => props.theme.colors.white};
 `;
 
@@ -62,6 +66,11 @@ const FloatingBlock = styled.div`
   padding: 1rem;
 `;
 
+const DescriptionContainer = styled.div`
+  max-height: 300px;
+  overflow: scroll;
+`;
+
 const MapCard = ({
   pointData,
   onBack,
@@ -71,59 +80,17 @@ const MapCard = ({
   onBack: any;
   closeCardLink: any;
 }) => {
-  const website = pointData && pointData.properties.website;
+  const size = useWindowSize();
+
+  const website = pointData && pointData.properties.url;
   const info = pointData && pointData.properties.phone_number;
   const address = pointData && pointData.properties.address;
-  const imageURL =
-    pointData &&
-    (pointData.properties.image ||
-      (pointData.properties.imageId &&
-        `/images/${pointData.properties.imageId}.jpeg`));
   return (
     (pointData && (
       <React.Fragment>
-        <Container>
-          <BackButton onBack={onBack} />
+        <Container mobile={size.width < 1200}>
           <CloseCardButton closeCardLink={closeCardLink} />
-          {'IntersectionObserver' in window && (
-            <LazyImage
-              src={imageURL}
-              placeholder={({ ref }) => (
-                <CardImageContainer ref={ref}>
-                  {pointData.properties.name && (
-                    <BodyText>{pointData.properties.name}</BodyText>
-                  )}
-                  {pointData.properties.header && (
-                    <SecondaryTitle>
-                      {pointData.properties.header}
-                    </SecondaryTitle>
-                  )}
-                </CardImageContainer>
-              )}
-              actual={() => (
-                <CardImageContainer imageURL={imageURL}>
-                  {pointData.properties.name && (
-                    <BodyText>{pointData.properties.name}</BodyText>
-                  )}
-                  {pointData.properties.header && (
-                    <SecondaryTitle>
-                      {pointData.properties.header}
-                    </SecondaryTitle>
-                  )}
-                </CardImageContainer>
-              )}
-            />
-          )}
-          {!('IntersectionObserver' in window) && (
-            <CardImageContainer imageURL={imageURL}>
-              {pointData.properties.name && (
-                <BodyText>{pointData.properties.name}</BodyText>
-              )}
-              {pointData.properties.header && (
-                <SecondaryTitle>{pointData.properties.header}</SecondaryTitle>
-              )}
-            </CardImageContainer>
-          )}
+          <CardImageContainer data={pointData.properties} />
           <HelsinkiWave />
 
           {pointData.properties.free_text_1 && (
@@ -141,7 +108,9 @@ const MapCard = ({
           )}
           <CardTextContainer>
             {pointData.properties.description && (
-              <BodyText>{pointData.properties.description}</BodyText>
+              <DescriptionContainer>
+                <BodyText>{pointData.properties.description}</BodyText>
+              </DescriptionContainer>
             )}
             <ContactInfoContainer>
               {address && (
