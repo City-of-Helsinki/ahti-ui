@@ -1,7 +1,6 @@
 @import '../../assets/styles/layout';
 
 .geolocateControls {
-    position: absolute;
 
     .geolocateControlsDivider {
         margin: 1rem;
@@ -9,15 +8,13 @@
 
     @include respond-above(lg) {
         float: right;
-        left: unset;
-        right: 2rem;
-        top: 2rem;
+        margin-right: 2rem;
+        margin-top: 2rem;
     }
 
     @include respond-below(lg) {
         float: left;
-        right: unset;
-        left: 3.5rem;
-        top: 8rem;
+        margin-left: 3.5rem;
+        margin-top: 8rem;
     }
 }
