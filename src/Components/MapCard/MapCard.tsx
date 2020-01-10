@@ -31,6 +31,7 @@ const CardContainer = styled.div<ContainerProps>`
   position: absolute;
   width: ${props => (props.mobile ? '100%' : '30rem')};
   background-color: ${props => props.theme.colors.white};
+  overflow: scroll;
 `;
 
 const ContactInfoContainer = styled.div`

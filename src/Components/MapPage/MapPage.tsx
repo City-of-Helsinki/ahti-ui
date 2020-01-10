@@ -23,9 +23,8 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
   const [previousPoint, setPreviousPoint] = useState<string | string[] | null>(
     null
   );
+
   const [viewport, setViewport] = useState({
-    width: '100%',
-    height: '100vh',
     latitude: 60.15,
     longitude: 24.944,
     zoom: 10,
@@ -155,7 +154,6 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
           flyToPoint={flyToPoint}
           displayedPoints={displayedPoints}
           location={location}
-          breakpoint={1200}
         />
       )}
       {browserQuery.name && (
