@@ -111,7 +111,7 @@ For now scope of the project includes:
 - accesibility
 - server side rendering
 - visual and programmatic testing
-- UX reserach and multiple use cases
+- UX research and multiple use cases
 
 ## License
 
