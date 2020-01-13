@@ -1,6 +1,30 @@
-# City of Helsinki Ahti project
+# City of Helsinki Ahti project 
+## available at https://ahti.app/
 
-# This repository contains the first Proof of Concept implementation by Futurice
+## This repository contains the first Proof of Concept implementation by Futurice
+## Documentation last updated 13-01-2020
+
+## General information
+
+https://drive.google.com/open?id=1Rghr1WjKDJs0Vmbkmp1yLyF6IxmX5lGn
+
+## Design sources
+Are in Figma https://www.figma.com/file/ZKAH36THbAPVs9gNdmH8N6Dh/Ahti?node-id=0%3A1
+
+## Map
+The map we use is Mapbox:
+- minimal style: `mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf` designed by Olli Kilpi
+
+## Learn More
+The app has been bootstrapped from Create React App.  [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+## The setup
+We have a Google Analytics team, "Ahti Helsinki".
+
+Under that, we have two properties:
+
+- "Ahti Helsinki Live": Meant to track the production URL. Currently not active, pending DNS changes.
+- "Ahti Helsinki MVP": Meant to track development and (maybe in the future) UAT versions. Temporarily the "live" one, pending the DNS changes above.
 
 ## Requirements
 
@@ -73,6 +97,21 @@ yarn start
 ### Linting
 
 <!-- TODO: document this -->
+
+
+### Scope of the project
+
+For now scope of the project includes:
+
+- map with markers of places
+- list of places of interest by type and category
+- views and UIs that comply with Helsinki City brand guidelines
+- localization
+- Test experience views
+- accesibility
+- server side rendering
+- visual and programmatic testing
+- UX reserach and multiple use cases
 
 ## License
 
