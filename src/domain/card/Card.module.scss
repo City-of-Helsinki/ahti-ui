@@ -1,0 +1,105 @@
+@import '../../assets/styles/theme-constants';
+@import '../../assets/styles/layout';
+
+.cardContentContainer {
+  overflow: scroll;
+}
+
+.cardContainer {
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
+  z-index: 1399;
+  box-sizing: border-box;
+  position: absolute;
+  background-color: $colors-white;
+  overflow: scroll;
+
+  @include respond-above(lg) {
+    height: unset;
+    width: 30rem;
+    bottom: 1rem;
+    top: 9.5rem;
+    left: 1rem;
+  }
+
+  @include respond-below(lg) {
+    height: 60vh;
+    width: 100%;
+    bottom: unset;
+    top: 40vh;
+    left: unset;
+  }
+}
+
+.infoContainer {
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  word-break: break-all;
+
+  svg {
+    margin-right: 1rem;
+    min-width: 2rem;
+  }
+}
+
+.line {
+  margin: 1rem 0;
+  border-color: $helsinki-black;
+}
+
+.freeTextContainer {
+  min-height: 7rem;
+  overflow: auto;
+  width: 100%;
+  margin-top: -3.5rem;
+  position: relative;
+  z-index: 1401;
+}
+
+.floatingBlock {
+  background: $colors-lightGray;
+  width: 21rem;
+  margin-right: 1rem;
+  height: 100%;
+  float: right;
+  padding: 1rem;
+}
+
+.sourceInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+.nameHeading {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28.8px;
+}
+
+.addressHeading {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.tagsContainer {
+  color: $helsinki-blue;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  span {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 26px;
+    margin-right: 5px;
+  }
+}
+
+.tabContainer {
+  display: flex;
+  justify-content: space-between;
+}

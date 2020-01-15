@@ -13,10 +13,19 @@ const FEATURES_QUERY = gql`
           properties {
             type
             name
+            tags {
+              name
+            }
             header
             description
             url
-            address
+            contactInfo {
+              phoneNumber
+              address {
+                postalCode
+                municipality
+              }
+            }
             imageId
             images {
               url
@@ -25,6 +34,7 @@ const FEATURES_QUERY = gql`
             source {
               system
             }
+            modifiedAt
           }
         }
       }

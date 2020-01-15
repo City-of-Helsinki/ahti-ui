@@ -77,15 +77,7 @@ const DescriptionContainer = styled.div`
   overflow: scroll;
 `;
 
-const MapCard = ({
-  pointData,
-  onBack,
-  closeCardLink,
-}: {
-  pointData: any;
-  onBack: any;
-  closeCardLink: any;
-}) => {
+const MapCard = ({ pointData, onBack }: { pointData: any; onBack: any }) => {
   const size = useWindowSize();
 
   const website = pointData && pointData.properties.url;

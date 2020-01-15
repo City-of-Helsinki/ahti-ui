@@ -83,5 +83,14 @@
   "cookie_consent": {
     "text": "Tämä palvelu on kehitysvaiheessa ja se käyttää evästeitä anonymisoidun käyttäjädatan keräämiseen jatkokehitystä varten.",
     "button": "Hyväksy"
+  },
+  "card": {
+    "modified_at": "Päivitetty",
+    "source": "Tiedot",
+    "services": "Palvelut",
+    "routes": "Kulkuyhteydet",
+    "description": "Esittely",
+    "show_more": "Näytä enemmän",
+    "show_less": "Näytä vähemmän"
   }
 }
