@@ -2,21 +2,17 @@
 @import '../../assets/styles/layout';
 
 .cardContentContainer {
-  overflow: scroll;
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
 }
 
 .cardContainer {
-  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
-  z-index: 1399;
   box-sizing: border-box;
   position: absolute;
   background-color: $colors-white;
-  overflow: scroll;
 
   @include respond-above(lg) {
     height: unset;
     width: 30rem;
-    bottom: 1rem;
     top: 9.5rem;
     left: 1rem;
   }
@@ -24,7 +20,6 @@
   @include respond-below(lg) {
     height: 60vh;
     width: 100%;
-    bottom: unset;
     top: 40vh;
     left: unset;
   }
