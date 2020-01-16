@@ -6,10 +6,13 @@
 // GraphQL query operation: PROMOTIONS
 // ====================================================
 
+export interface PROMOTIONS_features_edges_node_properties_images {
+  url: string;
+}
+
 export interface PROMOTIONS_features_edges_node_properties {
   name: string | null;
-  header: string;
-  imageId: number;
+  images: PROMOTIONS_features_edges_node_properties_images[];
 }
 
 export interface PROMOTIONS_features_edges_node {

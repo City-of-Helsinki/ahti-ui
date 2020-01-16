@@ -37,11 +37,9 @@ export interface FEATURES_features_edges_node_properties {
   type: string;
   name: string | null;
   tags: FEATURES_features_edges_node_properties_tags[];
-  header: string;
   description: string | null;
   url: string | null;
   contactInfo: FEATURES_features_edges_node_properties_contactInfo | null;
-  imageId: number;
   images: FEATURES_features_edges_node_properties_images[];
   source: FEATURES_features_edges_node_properties_source;
   modifiedAt: any;

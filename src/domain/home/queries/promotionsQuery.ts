@@ -7,8 +7,9 @@ const PROMOTIONS_QUERY = gql`
         node {
           properties {
             name
-            header
-            imageId
+            images {
+              url
+            }
           }
         }
       }

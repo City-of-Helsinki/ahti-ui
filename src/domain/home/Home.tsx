@@ -88,13 +88,8 @@ const Home = ({
       </Section>
       {promotion && (
         <React.Fragment>
-          <Section
-            withImage={true}
-            widthShadow={true}
-            imageURL={`/images/${promotion.imageId}.jpeg`}
-          >
+          <Section widthShadow={true} images={promotion.images}>
             <SecondaryTitle>{promotion.name}</SecondaryTitle>
-            <BodyText>{promotion.header}</BodyText>
             <LinkBox variant="white" to={`/map?island=${promotion.name}`}>
               {t('home.section2_button')}
             </LinkBox>
@@ -113,10 +108,7 @@ const Home = ({
                     to={`/map?name=${point.name}` || '/map'}
                     key={id}
                   >
-                    <VerticalBlock
-                      withImage={true}
-                      imageURL={`/images/${point.imageId}.jpeg`}
-                    >
+                    <VerticalBlock images={point.images}>
                       <SecondaryTitle>{point.name}</SecondaryTitle>
                     </VerticalBlock>
                   </UnstyledLink>
@@ -127,9 +119,13 @@ const Home = ({
       </Section>
 
       <Section
-        withImage={true}
         widthShadow={true}
-        imageURL="https://images.unsplash.com/photo-1507911618740-de629a41dd34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+        images={[
+          {
+            url:
+              'https://images.unsplash.com/photo-1507911618740-de629a41dd34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80',
+          },
+        ]}
       >
         <SecondaryTitle>{t('home.section5_header')}</SecondaryTitle>
         <BodyText>{t('home.section5_subheader')}</BodyText>
