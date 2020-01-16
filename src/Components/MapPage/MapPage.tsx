@@ -137,7 +137,7 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [browserQuery.name, browserQuery.island, data]);
+  }, [browserQuery.name, browserQuery.island, data, displayedPoints]);
 
   return (
     <React.Fragment>
