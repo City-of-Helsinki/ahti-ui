@@ -1,0 +1,78 @@
+@import '../../assets/styles/layout';
+@import '../../assets/styles/theme-constants';
+
+.container {
+  position: absolute;
+  z-index: 100000;
+  width: 100%;
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
+
+  background: $colors-white;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.mapPageMenu {
+  @include respond-above(lg) {
+    top: 1rem;
+    left: 1rem;
+    width: 30rem;
+  }
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.menuContentContainer {
+  margin-top: 1rem;
+  min-height: 100vh;
+  height: 100%;
+}
+
+.navLink {
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 36px;
+  color: $helsinki-black;
+}
+
+.navLinkDisabled {
+  pointer-events: none;
+  cursor: default;
+  color: gray;
+}
+
+.navDropdownContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.languageButton {
+  border: none;
+  background: none;
+
+  font-size: 16px;
+  color: $helsinki-black;
+  text-align: left;
+  line-height: 26px;
+
+  margin-left: 1rem;
+}
+
+.languageButton:focus {
+  outline: none;
+}
+
+.languageButtonEnabled {
+  font-weight: bold;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
