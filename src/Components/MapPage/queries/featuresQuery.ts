@@ -11,12 +11,11 @@ const FEATURES_QUERY = gql`
             coordinates
           }
           properties {
-            type
+            type @client
             name
             tags {
               name
             }
-            header
             description
             url
             contactInfo {
@@ -26,7 +25,6 @@ const FEATURES_QUERY = gql`
                 municipality
               }
             }
-            imageId
             images {
               url
               copyrightOwner

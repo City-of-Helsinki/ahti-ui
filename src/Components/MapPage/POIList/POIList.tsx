@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './POIList.module.scss';
 import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
+import { getFirstImageUrl } from '../../../common/utils/images';
 
 const POIList = ({
   data,
@@ -21,7 +22,9 @@ const POIList = ({
             key={id}
             className={styles.poiContainer}
             style={{
-              backgroundImage: `url(/images/${poi.properties.imageId}.jpeg)`,
+              backgroundImage: `url(${getFirstImageUrl(
+                poi.properties.images
+              )})`,
               backgroundSize: 'cover',
             }}
             onClick={() => history.push(`map?name=${poi.properties.name}`)}

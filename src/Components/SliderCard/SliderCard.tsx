@@ -4,8 +4,9 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import SecondaryTitle from '../SecondaryTitle/SecondaryTitle';
 import BodyText from '../BodyText/BodyText';
-import TypeTitle from '../TypeTitle/TypeTitle';
 import UnstyledLink from '../UnstyledLink/UnstyledLink';
+import TypeTitle from '../TypeTitle/TypeTitle';
+import { getFirstImageUrl } from '../../common/utils/images';
 
 interface ContainerProps {
   readonly imageURL?: string;
@@ -54,9 +55,7 @@ const SliderCard = ({
   readonly query: string;
 }) => {
   const { t } = useTranslation();
-  const imageURL =
-    (point && point.properties.image) ||
-    (point.properties.imageId && `/images/${point.properties.imageId}.jpeg`);
+  const imageURL = getFirstImageUrl(point.properties.images);
   return (
     <UnstyledLink
       to={{
@@ -72,9 +71,6 @@ const SliderCard = ({
               {point.properties.name && (
                 <BodyText>{point.properties.name}</BodyText>
               )}
-              {point.properties.header && (
-                <SecondaryTitle>{point.properties.header}</SecondaryTitle>
-              )}
               <TypeTitle>{t(`types.${point.properties.type}`)}</TypeTitle>
             </Container>
           )}
@@ -82,9 +78,6 @@ const SliderCard = ({
             <Container imageURL={imageURL}>
               {point.properties.name && (
                 <BodyText>{point.properties.name}</BodyText>
-              )}
-              {point.properties.header && (
-                <SecondaryTitle>{point.properties.header}</SecondaryTitle>
               )}
               <TypeTitle>{t(`types.${point.properties.type}`)}</TypeTitle>
             </Container>
@@ -95,9 +88,6 @@ const SliderCard = ({
         <Container imageURL={imageURL}>
           {point.properties.name && (
             <BodyText>{point.properties.name}</BodyText>
-          )}
-          {point.properties.header && (
-            <SecondaryTitle>{point.properties.header}</SecondaryTitle>
           )}
           <TypeTitle>{t(`types.${point.properties.type}`)}</TypeTitle>
         </Container>
