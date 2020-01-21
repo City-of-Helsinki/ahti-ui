@@ -83,5 +83,14 @@
   "cookie_consent": {
     "text": "This service is in development and it uses cookies to collect anonymised user data which might be utilized later.",
     "button": "Accept"
+  },
+  "card": {
+    "modified_at": "Updated",
+    "source": "Source",
+    "services": "Services",
+    "routes": "Routes",
+    "description": "Description",
+    "show_more": "Show more",
+    "show_less": "Show less"
   }
 }

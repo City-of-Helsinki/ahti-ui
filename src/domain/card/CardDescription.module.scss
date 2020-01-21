@@ -1,0 +1,35 @@
+@import '../../assets/styles/theme-constants';
+
+.container {
+}
+
+.descriptionContainer {
+  overflow: hidden;
+}
+
+.descriptionContainerOpen {
+  max-height: unset !important;
+  overflow: unset;
+}
+
+.showMoreButton {
+  color: $helsinki-blue;
+  border: none;
+  background: none;
+
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 26px;
+
+  &::after {
+    font-size: 120%;
+    content: " ▼";
+  }
+}
+
+.showMore {
+  &::after {
+    font-size: 120%;
+    content: " ▲";
+  }
+}

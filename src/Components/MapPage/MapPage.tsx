@@ -3,7 +3,6 @@ import { useQuery } from '@apollo/react-hooks';
 import { withRouter } from 'react-router-dom';
 import queryString, { ParsedQuery } from 'query-string';
 import MapboxMap from '../MapboxMap/MapboxMap';
-import MapCard from '../MapCard/MapCard';
 import MapWrapper from '../MapWrapper/MapWrapper';
 import { FlyToInterpolator, LinearInterpolator } from 'react-map-gl';
 import FEATURES_QUERY from './queries/featuresQuery';
@@ -12,6 +11,7 @@ import {
   FEATURES_features_edges_node,
 } from '../../domain/api/generatedTypes/FEATURES';
 import ResponsivePOIList from './POIList/ResponsivePOIList';
+import Card from '../../domain/card/Card';
 
 const MapPage = ({ location, history }: { location: any; history: any }) => {
   const { data } = useQuery<FEATURES>(FEATURES_QUERY);
@@ -19,6 +19,11 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
   const [displayedPoints, setDisplayedPoints] = useState<
     FEATURES_features_edges_node[]
   >([]);
+  const [
+    displayedPoint,
+    setDisplayedPoint,
+  ] = useState<FEATURES_features_edges_node | null>(null);
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const [previousPoint, setPreviousPoint] = useState<string | string[] | null>(
     null
@@ -128,10 +133,11 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
       if (displayedPoints[index]) {
         flyToPoint(displayedPoints[index].geometry, 700, true);
         setCurrentSlide(index);
+        setDisplayedPoint(displayedPoints[index]);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [browserQuery.name, browserQuery.island, data]);
+  }, [browserQuery.name, browserQuery.island, data, displayedPoints]);
 
   return (
     <React.Fragment>
@@ -156,21 +162,8 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
           location={location}
         />
       )}
-      {browserQuery.name && (
-        <MapCard
-          closeCardLink={
-            browserQuery.type ? `/map?type=${browserQuery.type}` : '/map'
-          }
-          onBack={history.goBack}
-          pointData={
-            displayedPoints.filter(point => {
-              if (point && point.properties) {
-                return point.properties.name === browserQuery.name;
-              }
-              return false;
-            })[0]
-          }
-        />
+      {displayedPoint && (
+        <Card onBack={history.goBack} pointData={displayedPoint} />
       )}
     </React.Fragment>
   );

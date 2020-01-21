@@ -10,6 +10,20 @@ export interface FEATURES_features_edges_node_geometry {
   coordinates: any | null;
 }
 
+export interface FEATURES_features_edges_node_properties_tags {
+  name: string;
+}
+
+export interface FEATURES_features_edges_node_properties_contactInfo_address {
+  postalCode: string | null;
+  municipality: string | null;
+}
+
+export interface FEATURES_features_edges_node_properties_contactInfo {
+  phoneNumber: string;
+  address: FEATURES_features_edges_node_properties_contactInfo_address | null;
+}
+
 export interface FEATURES_features_edges_node_properties_images {
   url: string;
   copyrightOwner: string;
@@ -22,13 +36,15 @@ export interface FEATURES_features_edges_node_properties_source {
 export interface FEATURES_features_edges_node_properties {
   type: string;
   name: string | null;
+  tags: FEATURES_features_edges_node_properties_tags[];
   header: string;
-  description: string;
+  description: string | null;
   url: string | null;
-  address: string;
+  contactInfo: FEATURES_features_edges_node_properties_contactInfo | null;
   imageId: number;
   images: FEATURES_features_edges_node_properties_images[];
   source: FEATURES_features_edges_node_properties_source;
+  modifiedAt: any;
 }
 
 export interface FEATURES_features_edges_node {

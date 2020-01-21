@@ -106,9 +106,9 @@ const Home = ({
         <SecondaryTitle>{t('home.section4_header')}</SecondaryTitle>
         <Slider {...pointPromotionSliderSettings}>
           {promotions &&
-            promotions.map((point: any, id: any) => {
+            promotions.map((point: any, id: number) => {
               return (
-                <div>
+                <div key={id}>
                   <UnstyledLink
                     to={`/map?name=${point.name}` || '/map'}
                     key={id}

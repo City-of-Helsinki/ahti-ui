@@ -1,8 +1,6 @@
 extend type FeatureProperties {
   type: String! @examples(values: ["myhelsinki"])
   header: String! @fake(type: lorem, options: {loremSize: words})
-  description: String! @fake(type: lorem, options: {loremSize: paragraphs})
-  address: String! @fake(type: streetAddress)
   website: String! @fake(type: url)
   imageId: Int! @fake(type: number, options: {minNumber: 7, maxNumber: 22})
 }
