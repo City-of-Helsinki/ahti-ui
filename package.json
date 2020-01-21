@@ -11,9 +11,19 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint . ",
+      "git add"
+    ],
+    "src/**/*.scss": [
+      "stylelint --syntax scss",
+      "git add"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "lint-staged && pretty-quick --staged"
     }
   },
   "dependencies": {
