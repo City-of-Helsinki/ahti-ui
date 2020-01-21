@@ -1,19 +1,20 @@
-@import '../../assets/styles/theme-constants';
+@import '../../assets/styles/layout';
 
 .geolocateControls {
-    position: absolute;
-    float: left;
-    left: 3.5rem;
-    top: 8rem;
 
     .geolocateControlsDivider {
         margin: 1rem;
     }
 
-    @media (min-width: $desktop-min-width) {
+    @include respond-above(lg) {
         float: right;
-        top: 2rem;
-        left: unset;
-        right: 2rem;
+        margin-right: 2rem;
+        margin-top: 2rem;
+    }
+
+    @include respond-below(lg) {
+        float: left;
+        margin-left: 3.5rem;
+        margin-top: 8rem;
     }
 }

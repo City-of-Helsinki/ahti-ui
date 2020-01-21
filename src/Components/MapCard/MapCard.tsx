@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import ReactGA from 'react-ga';
-import CloseCardButton from '../CloseCardButton/CloseCardButton';
+import BackButton from '../BackButton/BackButton';
 import BodyText from '../BodyText/BodyText';
 import CardTextContainer from '../CardTextContainer/CardTextContainer';
 import HelsinkiWave from '../HelsinkiWave/HelsinkiWave';
@@ -16,7 +16,12 @@ interface ContainerProps {
   readonly mobile: boolean;
 }
 
-const Container = styled.div<ContainerProps>`
+const CardContentContainer = styled.div`
+  overflow: scroll;
+`;
+
+const CardContainer = styled.div<ContainerProps>`
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
   z-index: 1399;
   box-sizing: border-box;
   height: ${props => (props.mobile ? '60vh' : 'unset')};
@@ -26,6 +31,7 @@ const Container = styled.div<ContainerProps>`
   position: absolute;
   width: ${props => (props.mobile ? '100%' : '30rem')};
   background-color: ${props => props.theme.colors.white};
+  overflow: scroll;
 `;
 
 const ContactInfoContainer = styled.div`
@@ -88,65 +94,67 @@ const MapCard = ({
   return (
     (pointData && (
       <React.Fragment>
-        <Container mobile={size.width < 1200}>
-          <CloseCardButton closeCardLink={closeCardLink} />
-          <CardImageContainer data={pointData.properties} />
-          <HelsinkiWave />
+        <CardContainer mobile={size.width < 1200 || size.height < 600}>
+          <BackButton onBack={onBack} />
+          <CardContentContainer>
+            <CardImageContainer data={pointData.properties} />
+            <HelsinkiWave />
 
-          {pointData.properties.free_text_1 && (
-            <FreeTextContainer>
-              <FloatingBlock>
-                <BodyText>{pointData.properties.free_text_1}</BodyText>
-                {pointData.properties.free_text_2 && (
+            {pointData.properties.free_text_1 && (
+              <FreeTextContainer>
+                <FloatingBlock>
+                  <BodyText>{pointData.properties.free_text_1}</BodyText>
+                  {pointData.properties.free_text_2 && (
+                    <React.Fragment>
+                      <Line />
+                      <BodyText>{pointData.properties.free_text_2}</BodyText>
+                    </React.Fragment>
+                  )}
+                </FloatingBlock>
+              </FreeTextContainer>
+            )}
+            <CardTextContainer>
+              {pointData.properties.description && (
+                <DescriptionContainer>
+                  <BodyText>{pointData.properties.description}</BodyText>
+                </DescriptionContainer>
+              )}
+              <ContactInfoContainer>
+                {address && (
+                  <IconContainer>
+                    <Location height="24" viewBox="0 0 48 48" />
+                    <BodyText>{address}</BodyText>
+                  </IconContainer>
+                )}
+                {website && (
                   <React.Fragment>
                     <Line />
-                    <BodyText>{pointData.properties.free_text_2}</BodyText>
+                    <ReactGA.OutboundLink
+                      eventLabel={website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      to={website}
+                    >
+                      <IconContainer>
+                        <Home height="24" viewBox="0 0 48 48" />
+                        <BodyText>{website}</BodyText>
+                      </IconContainer>
+                    </ReactGA.OutboundLink>
                   </React.Fragment>
                 )}
-              </FloatingBlock>
-            </FreeTextContainer>
-          )}
-          <CardTextContainer>
-            {pointData.properties.description && (
-              <DescriptionContainer>
-                <BodyText>{pointData.properties.description}</BodyText>
-              </DescriptionContainer>
-            )}
-            <ContactInfoContainer>
-              {address && (
-                <IconContainer>
-                  <Location height="24" viewBox="0 0 48 48" />
-                  <BodyText>{address}</BodyText>
-                </IconContainer>
-              )}
-              {website && (
-                <React.Fragment>
-                  <Line />
-                  <ReactGA.OutboundLink
-                    eventLabel={website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    to={website}
-                  >
+                {info && (
+                  <React.Fragment>
+                    <Line />
                     <IconContainer>
-                      <Home height="24" viewBox="0 0 48 48" />
-                      <BodyText>{website}</BodyText>
+                      <Info height="24" viewBox="0 0 48 48" />
+                      <BodyText>{info}</BodyText>
                     </IconContainer>
-                  </ReactGA.OutboundLink>
-                </React.Fragment>
-              )}
-              {info && (
-                <React.Fragment>
-                  <Line />
-                  <IconContainer>
-                    <Info height="24" viewBox="0 0 48 48" />
-                    <BodyText>{info}</BodyText>
-                  </IconContainer>
-                </React.Fragment>
-              )}
-            </ContactInfoContainer>
-          </CardTextContainer>
-        </Container>
+                  </React.Fragment>
+                )}
+              </ContactInfoContainer>
+            </CardTextContainer>
+          </CardContentContainer>
+        </CardContainer>
       </React.Fragment>
     )) ||
     ''

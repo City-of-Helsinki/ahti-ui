@@ -4,6 +4,8 @@ import POIList from './POIList';
 import Carousel from '../../Carousel/Carousel';
 import { useWindowSize } from '../../../common/utils/hooks';
 
+import { lg } from '../../../common/constants/breakpoints';
+
 const MemoCarousel = React.memo(Carousel);
 
 const ResponsivePOIList = ({
@@ -12,19 +14,17 @@ const ResponsivePOIList = ({
   displayedPoints,
   setCurrentSlide,
   flyToPoint,
-  breakpoint,
 }: {
   currentSlide: any;
   location: any;
   displayedPoints: any;
   setCurrentSlide: any;
   flyToPoint: any;
-  breakpoint: number;
 }) => {
   const size = useWindowSize();
 
   return (
-    (size.width < breakpoint && (
+    (size.width < lg && (
       <CarouselWrapper>
         <MemoCarousel
           currentSlide={currentSlide}
@@ -34,7 +34,7 @@ const ResponsivePOIList = ({
           location={location}
         />
       </CarouselWrapper>
-    )) || <POIList data={displayedPoints} />
+    )) || <POIList data={displayedPoints} setCurrentSlide={setCurrentSlide} />
   );
 };
 

@@ -84,11 +84,12 @@ const MapboxMap = ({
   return (
     <MapGL
       {...viewport}
+      width={'100%'}
+      height={'100%'}
       ref={map}
       mapStyle={mapStyle}
       onViewportChange={viewport => setViewport(viewport)}
       clickRadius={10}
-      onResize={() => setViewport(viewport)}
     >
       <div className={styles.geolocateControls}>
         {getGeolocateControl()}
