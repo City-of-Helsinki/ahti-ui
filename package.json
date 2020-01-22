@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -92,6 +94,10 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.3.8",
+    "@storybook/addon-links": "^5.3.8",
+    "@storybook/addons": "^5.3.8",
+    "@storybook/react": "^5.3.8",
     "@typescript-eslint/eslint-plugin": "^2.15.0",
     "@typescript-eslint/parser": "^2.15.0",
     "autoprefixer": "^9.7.4",
@@ -103,6 +109,8 @@
     "lint-staged": "^10.0.1",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
     "stylelint": "^13.0.0",
     "stylelint-config-standard-scss": "^1.1.0",
     "stylelint-scss": "^3.13.0"
