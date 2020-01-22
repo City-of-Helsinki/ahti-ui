@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
