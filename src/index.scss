@@ -1,7 +1,48 @@
-/* this file is in progress */
+/* stylelint-disable */
 
 @import './sanitize.scss';
 @import './html5doctor.scss';
+
+:root {
+  font-size: 16px;
+}
+
+:empty {
+  display: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: realtive;
+  box-sizing: border-box;
+  font-size: 1em;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.5em;
+  text-align: left;
+  text-transform: none;
+  white-space: normal;
+  word-spacing: normal;
+  hyphenate-lines: 3;
+  text-indent: 0;
+  color: black;
+  letter-spacing: 0.05em;
+}
+
+p,
+span,
+blockquote,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  max-width: 33em;
+}
 
 body {
   background-color: pink;
