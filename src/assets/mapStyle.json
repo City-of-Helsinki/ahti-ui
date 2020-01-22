@@ -20,7 +20,7 @@
   "sources": {
     "openmaptiles": {
       "type": "vector",
-      "url": "https://tiles.hel.ninja/data/helsinki.json"
+      "url": "tiles/helsinki.json"
     }
   },
   "glyphs": "https://tiles.hel.ninja/fonts/{fontstack}/{range}.pbf",
