@@ -43,7 +43,7 @@ const Card = ({ pointData, onBack }: { pointData: any; onBack: any }) => {
     <div className={styles.cardContainer}>
       <BackButton onBack={onBack} />
       <div className={styles.cardContentContainer}>
-        <CardImageContainer images={images} />
+        {images.length > 0 && <CardImageContainer images={images} />}
         <CardTextContainer>
           <h1 className={styles.nameHeading}>{name}</h1>
           <h2
