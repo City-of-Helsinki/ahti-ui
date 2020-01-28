@@ -2,7 +2,7 @@
 
 ## available at https://ahti.app/
 
-## Documentation last updated 13-01-2020
+## Documentation last updated 23-01-2020
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -26,4 +26,10 @@ Is enforced by .eslint and .prettier configuration files for TypeScript files as
 
 https://eslint.org/docs/rules/
 
-We are using stylelint with scss
+We are using stylelint with scss.
+
+## Design && UI components
+
+This application has a policy of folloving https://github.com/City-of-Helsinki/helsinki-design-system/tree/master/packages/core
+
+modules, independant from react components.
