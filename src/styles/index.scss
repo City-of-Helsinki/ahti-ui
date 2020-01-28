@@ -2,10 +2,8 @@
 
 @import './sanitize.scss';
 @import './html5doctor.scss';
-
-:root {
-  font-size: 16px;
-}
+@import './fonts.scss';
+@import './hds-brand-colors.css';
 
 :empty {
   display: none;
@@ -17,11 +15,11 @@
   border: 0;
   position: realtive;
   box-sizing: border-box;
-  font-size: 1em;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 1.5em;
-  text-align: left;
+  font-size: $text-base-size;
+  font-weight: $text-base-weight;
+  font-style: $text-base-style;
+  line-height: $text-line-height;
+  text-align: $text-base-align;
   text-transform: none;
   white-space: normal;
   word-spacing: normal;
@@ -29,6 +27,8 @@
   text-indent: 0;
   color: black;
   letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 p,
@@ -44,6 +44,26 @@ h6 {
   max-width: 33em;
 }
 
+/* own css*/
 body {
-  background-color: pink;
+  overflow-x: hidden;
+  height: 100vh;
+  margin: 0 auto;
+  // arbitrary max-width of 474px for wide screens
+  max-width: 474px;
+  position: relative;
+
+  font-size: $text-base-size;
+  font-family: $font-family;
+
+  #root {
+    background: pink;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
 }
