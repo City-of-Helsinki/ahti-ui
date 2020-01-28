@@ -1,0 +1,90 @@
+[
+  {
+    "__typename": "Ferry",
+    "toIsland": "myhelsinki:place:1208",
+    "properties": {
+      "__typename": "GenericFeatureProperties",
+      "source": {
+        "__typename": "FeatureSource",
+        "system": "ahti",
+        "type": "ferry",
+        "id": "1"
+      },
+      "ahtiId": "ahti:ferry:1",
+      "name": "Vesibussi Merisatama-Pihlajasaaret",
+      "tags": [
+        {"name": "vesibussi", "__typename": "Tag"},
+        {"name": "pihlajasaari", "__typename": "Tag"}
+      ],
+      "description": "JT-Line liikennöi Pihlajasaareen 1.5.2020 - 31.9.2020 Merisatamasta ja Ruoholahdesta.",
+      "url": "https://jt-line.fi/",
+      "contactInfo": {
+        "__typename": "ContactInfo",
+        "phoneNumber": "+358 9 310 71518",
+        "address": {
+          "__typename": "Address",
+          "streetAddress": "Merisatamanranta 10",
+          "postalCode": "00150",
+          "municipality": "Helsinki"
+        }
+      },
+      "images": [],
+      "modifiedAt": "2020-01-23T07:41:52.950927+00:00"
+    },
+    "duration": 6,
+    "pricing": {
+      "__typename": "FerryPricing",
+      "adult": 10,
+      "child": 5
+    },
+    "portAddress": {
+      "__typename": "Address",
+      "streetAddress": "Merisatamanranta 10",
+      "postalCode": "00150",
+      "municipality": "Helsinki"
+    },
+    "bookingUrl": "https://jtline.shop.crd.fi/",
+    "geometry": {
+      "__typename": "GeometryObjectType",
+      "type": "LineString",
+      "coordinates": [
+        [
+          24.942655563354,
+          60.153638280514
+        ],
+        [
+          24.93673324585,
+          60.15269851793
+        ],
+        [
+          24.935617446899,
+          60.150648033591
+        ],
+        [
+          24.934930801392,
+          60.146333055135
+        ],
+        [
+          24.930982589722,
+          60.143427602166
+        ],
+        [
+          24.924287796021,
+          60.14240208689
+        ],
+        [
+          24.918880462646,
+          60.142017510418
+        ],
+        [
+          24.917593002319,
+          60.141590197953
+        ],
+        [
+          24.917421340942,
+          60.140308227247
+        ]
+      ]
+    }
+  }
+]

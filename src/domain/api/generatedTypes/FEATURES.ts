@@ -33,9 +33,28 @@ export interface FEATURES_features_edges_node_properties_source {
   system: string;
 }
 
+export interface FEATURES_features_edges_node_properties_ferries_properties {
+  ahtiId: string;
+  name: string;
+}
+
+export interface FEATURES_features_edges_node_properties_ferries {
+  properties: FEATURES_features_edges_node_properties_ferries_properties;
+}
+
+export interface FEATURES_features_edges_node_properties_harbors_properties {
+  ahtiId: string;
+  name: string;
+}
+
+export interface FEATURES_features_edges_node_properties_harbors {
+  properties: FEATURES_features_edges_node_properties_harbors_properties;
+}
+
 export interface FEATURES_features_edges_node_properties {
+  ahtiId: string;
   type: string;
-  name: string | null;
+  name: string;
   tags: FEATURES_features_edges_node_properties_tags[];
   description: string | null;
   url: string | null;
@@ -43,6 +62,8 @@ export interface FEATURES_features_edges_node_properties {
   images: FEATURES_features_edges_node_properties_images[];
   source: FEATURES_features_edges_node_properties_source;
   modifiedAt: any;
+  ferries: FEATURES_features_edges_node_properties_ferries[];
+  harbors: FEATURES_features_edges_node_properties_harbors[];
 }
 
 export interface FEATURES_features_edges_node {

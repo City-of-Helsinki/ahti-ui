@@ -84,15 +84,6 @@
     "text": "Tämä palvelu on kehitysvaiheessa ja se käyttää evästeitä anonymisoidun käyttäjädatan keräämiseen jatkokehitystä varten.",
     "button": "Hyväksy"
   },
-  "card": {
-    "modified_at": "Päivitetty",
-    "source": "Tiedot",
-    "services": "Palvelut",
-    "routes": "Kulkuyhteydet",
-    "description": "Esittely",
-    "show_more": "Näytä enemmän",
-    "show_less": "Näytä vähemmän"
-  },
   "menu": {
     "title": {
       "islands": "Saaret",
@@ -130,6 +121,44 @@
         "rowboats": "Kaupunkisoutuveneet",
         "motorboats": "Moottoriveneet",
         "other": "Muut vuokraveneet"
+      }
+    }
+  },
+  "card": {
+    "modified_at": "Päivitetty",
+    "source": "Tiedot",
+    "show_more": "Näytä enemmän",
+    "show_less": "Näytä vähemmän",
+    "island_content": {
+      "services_tab": "Palvelut",
+      "routes_tab": "Kulkuyhteydet",
+      "description_tab": "Esittely",
+      "routes": {
+        "ferries": "Vesibussit ja lautat",
+        "harbors": "Vierasvenesatamat"
+      }
+    },
+    "ferry_content": {
+      "duration": "Matkan kesto",
+      "pricing": "Liput",
+      "adultPricing": "Aikuinen",
+      "childPricing": "lapsi",
+      "startingPort": "Lähtölaituri",
+      "booking": "Aikataulut ja liput"
+    },
+    "harbor_content": {
+      "mooring": "Rantautumistiedot",
+      "mooringInformation": "Venepaikat",
+      "mooringType": "Kiinnistystavat",
+      "depth": "Syvyys",
+      "pricing": "Hinnat ja varaukset",
+      "dayPricing": "Päivävierailu",
+      "overnightPricing": "Yöpyminen",
+      "booking": "Varaa venepaikka",
+      "mooringTypes": {
+        "buoy": "Poijukiinnitys",
+        "pole": "Paalukiinnitys",
+        "pier": "Laituri"
       }
     }
   }

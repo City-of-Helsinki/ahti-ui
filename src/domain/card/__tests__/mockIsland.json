@@ -1,0 +1,68 @@
+{
+  "id": "RmVhdHVyZToxNw==",
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      24.91493034362793,
+      60.13813018798828
+    ],
+    "__typename": "GeometryObjectType"
+  },
+  "properties": {
+    "ahtiId": "myhelsinki:place:1208",
+    "type": "myhelsinki",
+    "name": "Pihlajasaari",
+    "tags": [
+      {
+        "name": "saaristo",
+        "__typename": "Tag"
+      }
+    ],
+    "description": "Pihlajasaari on entinen huvilasaari, joka nykyisin on helsinkiläisten monipuolinen ulkoilualue.  Saarella on vielä joitakin vanhoja huviloita ja sen luonto koostuu kallioista, metsiköistä, lehtomaista sekä kallio- ja hiekkarannoista. Monipuolinen luonto, hyvä sijainti ja toimivat palvelut ovat tehneet Pihlajasaaresta helsinkiläisten suosituimman kesäsaaren. Auringonpalvojia houkuttavat erityisesti Pihlajasaaren hiekkarannat, naturisteille on myös varattu ranta-alue. Saarella myös luontopolku, keittokatoksia, kaksi vuokrasaunaa, kokoustila, venesatama, ravintola Pihlajasaari sekä mahdollista telttailla pe klo 12-ma klo 12.\r\n\r\nKesällä veneyhteys JT Linella sekä Merisatamasta että Ruoholahdesta",
+    "url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/pihlajasaari",
+    "contactInfo": {
+      "phoneNumber": "",
+      "address": {
+        "postalCode": "00150",
+        "municipality": "Helsinki",
+        "__typename": "Address"
+      },
+      "__typename": "ContactInfo"
+    },
+    "images": [
+      {
+        "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2017-05/Juhannus_Pihlajasaaressa_dewberry__3476.jpg?h=30c08e7f&itok=B9g8B9Em",
+        "copyrightOwner": "Dewberry, Visit Helsinki",
+        "__typename": "Image"
+      }
+    ],
+    "source": {
+      "system": "myhelsinki",
+      "__typename": "FeatureSource"
+    },
+    "modifiedAt": "2020-01-23T07:41:53.526552+00:00",
+    "ferries": [
+      {
+        "properties": {
+          "ahtiId": "ahti:ferry:1",
+          "name": "Vesibussi Merisatama-Pihlajasaaret",
+          "__typename": "GenericFeatureProperties"
+        },
+        "__typename": "Ferry"
+      }
+    ],
+    "harbors": [
+      {
+        "properties": {
+          "ahtiId": "ahti:harbor:1",
+          "name": "HSS vierasvenesatama",
+          "__typename": "GenericFeatureProperties"
+        },
+        "__typename": "Harbor"
+      }
+    ],
+    "__typename": "FeatureProperties"
+  },
+  "__typename": "Feature"
+}

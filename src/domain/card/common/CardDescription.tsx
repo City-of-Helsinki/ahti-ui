@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import BodyText from '../../Components/BodyText/BodyText';
+import BodyText from '../../../Components/BodyText/BodyText';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 import styles from './CardDescription.module.scss';

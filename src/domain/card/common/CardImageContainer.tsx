@@ -8,9 +8,8 @@ const CardImageContainer = ({ images }: { images: any }) => {
       <Slider>
         {images.map((image: any, id: number) => {
           return (
-            <div>
+            <div key={id}>
               <div
-                key={id}
                 className={styles.slideContainer}
                 style={{
                   backgroundImage: `url(${image.url})`,
