@@ -135,6 +135,8 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
         setCurrentSlide(index);
         setDisplayedPoint(displayedPoints[index]);
       }
+    } else {
+      setDisplayedPoint(null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [browserQuery.name, browserQuery.island, data, displayedPoints]);
