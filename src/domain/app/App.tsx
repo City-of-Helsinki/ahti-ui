@@ -4,7 +4,7 @@ import MapPage from '../../Components/MapPage/MapPage';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { HomeWrapper } from '../home/Home';
 import { useTranslation } from 'react-i18next';
-import ApplicationHeader from '../header/ApplicationHeader';
+import Menu from '../menu/Menu';
 import { ThemeProvider } from 'styled-components';
 import withTracker from '../../common/utils/withTracker';
 import ScrollToTop from '../../common/utils/ScrollToTop';
@@ -38,7 +38,7 @@ const App: React.FC = () => {
           </CookieConsent>
           <ScrollToTop>
             <header>
-              <ApplicationHeader />
+              <Menu />
             </header>
 
             {/* NOTE: Make sure to wrap any other Route components withTracker.

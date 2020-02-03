@@ -92,5 +92,45 @@
     "description": "Esittely",
     "show_more": "Näytä enemmän",
     "show_less": "Näytä vähemmän"
+  },
+  "menu": {
+    "title": {
+      "islands": "Saaret",
+      "travel_to_islands": "Vesibussit, lautat ja venekyydit",
+      "saunas_and_swimming": "Saunat, uinti ja avannot",
+      "restaurants": "Merelliset kahvilat ja ravintolat",
+      "boater_services": "Venelijän palvelut",
+      "rental_boats": "Vuokraveneet ja -välineet"
+    },
+    "link": {
+      "islands": {
+        "all_islands": "Kaikki saaret"
+      },
+      "travel_to_islands": {
+        "water_bus_and_ferries": "Vesibussi- ja lauttareitit",
+        "boat_rides_and_taxis": "Venekyydit ja taksit",
+        "sightseeing_and_cruises": "Kiertoajelut ja risteilyt"
+      },
+      "saunas_and_swimming": {
+        "saunas": "Saunat",
+        "swimming": "Uinti",
+        "ice_swimming": "Avannot"
+      },
+      "restaurants": {
+        "restaurants": "Ravintolat",
+        "cafes": "Kahvilat",
+        "beer_and_wine_bars": "Olut- ja viinibaarit"
+      },
+      "boater_services": {
+        "mooring": "Vierasvenesatamat",
+        "maintenance": "Venehuoltoasemat",
+        "septic_tank_draining": "Septityhjennyspisteet"
+      },
+      "rental_boats": {
+        "rowboats": "Kaupunkisoutuveneet",
+        "motorboats": "Moottoriveneet",
+        "other": "Muut vuokraveneet"
+      }
+    }
   }
 }
