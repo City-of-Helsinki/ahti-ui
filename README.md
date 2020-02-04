@@ -2,7 +2,7 @@
 
 ## available at https://ahti.app/
 
-## Documentation last updated 23-01-2020
+## Documentation last updated 04-02-2020
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -22,14 +22,26 @@ In the project directory, you can run:
 
 ## Code quality assurance
 
-Is enforced by .eslint and .prettier configuration files for TypeScript files as per the recommended configuration marked by checkboxes:
+Is enforced by `.eslint` and `.prettier` configuration files for TypeScript files as per the recommended configuration marked by checkboxes:
 
 https://eslint.org/docs/rules/
 
-We are using stylelint with scss.
+We are using `.stylelintrc.json` with scss.
+
+You are supposed to have VScode extensions such as ESlInt and Prettier and Stylelint installed, the same rules are now enforced by git hooks.
 
 ## Design && UI components
 
-This application has a policy of folloving https://github.com/City-of-Helsinki/helsinki-design-system/tree/master/packages/core
+UI components are created inside of the
 
-modules, independant from react components.
+`src/common/ui-components`
+
+and follow the Atomic Design Principles
+https://bradfrost.com/blog/post/atomic-web-design/
+
+This application should follow the core of Helsinki Design System
+https://github.com/City-of-Helsinki/helsinki-design-system/tree/master/packages/core
+
+, independant from react components.
+
+_NB:_ Currently we are not using the HDS yet due to HDS not being ready, we will add it #sooon.
