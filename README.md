@@ -45,3 +45,8 @@ https://github.com/City-of-Helsinki/helsinki-design-system/tree/master/packages/
 , independant from react components.
 
 _NB:_ Currently we are not using the HDS yet due to HDS not being ready, we will add it #sooon.
+
+## SSR
+
+Hemo page is SSred
+Map is hydrated
