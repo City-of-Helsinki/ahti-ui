@@ -85,6 +85,10 @@
     "button": "Accept"
   },
   "menu": {
+    "open": "open menu",
+    "close": "close menu",
+    "open_submenu": "open submenu",
+    "close_submenu": "close submenu",
     "title": {
       "islands": "Islands",
       "travel_to_islands": "Water busses, ferries and boat rides",
