@@ -1,0 +1,19 @@
+schema:
+  - https://ahti-api.test.kuva.hel.ninja/graphql
+  - ./src/domain/api/client/typeDefs.ts
+documents: ./src/domain/api/**/*.(graphql|ts|tsx)
+generates:
+  ./src/domain/api/generated/types.d.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      scalars:
+        DateTime: Date
+      withHOC: false
+      withHooks: true
+hooks:
+  afterAllFileWrite:
+    - eslint --fix
+    - prettier --write
