@@ -1,0 +1,165 @@
+{
+  "home": {
+    "main_header": "Löydä mahtava merellinen Helsinki Ahdin avulla!",
+    "see_all_button": "Näytä kaikki kohteet",
+    "section1_header": "Kohteita, elämyksiä, palveluita",
+    "section2_button": "Näytä kohde",
+    "section3_button": "Näytä kaikki",
+    "section4_header": "Tapoja nauttia Helsingin saaristosta",
+    "section5_header": "Vierailetko Helsingissä omalla veneelläsi?",
+    "section5_subheader": "Löydä vierasvenesatamia, lyhytaikaisia pysäköintipaikkoja ja venehuoltoasemia",
+    "section5_button": "Katso palveluntarjoajat"
+  },
+  "dropdown": {
+    "label": "Valikko",
+    "change_language": "Change language to English",
+    "add_location": "Lisää kohde tai palvelu",
+    "add_location_target": "https://docs.google.com/forms/d/e/1FAIpQLSe6xJj1vpjNfinde6Ly3jv_BG7Reev0KGAKH8O7QPsIVn3IUg/viewform?usp=sf_link",
+    "give_feedback": "Anna palautetta",
+    "give_feedback_target": "https://docs.google.com/forms/d/e/1FAIpQLSegIqAsxVscFnk2iPneXahSpV1cnGjXZ2d_98fSSh0ZOsA1JA/viewform?usp=sf_link",
+    "about": "Tietoa Ahti-palvelusta",
+    "boat_page": "Kaupungin veneilysivut",
+    "boat_page_target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily",
+    "rescue_directions": "Meripelastusohjeet",
+    "rescue_directions_target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/lisatietoa-veneilysta/meripelastusohjeet/"
+  },
+  "map": {
+    "show_all_button": "Näytä kaikki",
+    "back_button": "Takaisin",
+    "tag_card": {
+      "locations": "kohdetta",
+      "point_list_header": "Tähän joku suomennos",
+      "point_list_subheader": "Suosittuja kohteita paikassa"
+    },
+    "zoom_in": "Zoomaa sisään",
+    "zoom_out": "Zoomaa ulos",
+    "geolocate": "Näytä sijaintisi"
+  },
+  "footer": {
+    "header": "Merellisiä linkkejä",
+    "link1": {
+      "content": "Saunat",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/lisatietoa-ulkoilusta/saunat/saunat"
+    },
+    "link2": {
+      "content": "Veneily",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
+    "link3": {
+      "content": "Kalastus",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/kalastus/"
+    },
+    "link4": {
+      "content": "Saaristossa",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/"
+    },
+    "link5": {
+      "content": "Venepaikat",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
+    "body": "Tämä palvelu on kehityksessä, käytät testiversiota.",
+    "learn_more": "Lue lisää Ahti-palvelusta.",
+    "attribution": "© Helsingin kaupunki 2019 |",
+    "attribution_link": "https://www.hel.fi/helsinki/fi"
+  },
+  "types": {
+    "island": "Saaret",
+    "route": "Yhteydet saariin",
+    "cityboat": "Kaupunkiveneet",
+    "sauna": "Saunat",
+    "rent": "Vuokraveneet",
+    "sup": "Suppilautailu",
+    "experience": "Elämykset",
+    "kayak": "Melonta",
+    "charter": "Ryhmille",
+    "sightseeing": "Kiertoajelut",
+    "learn": "Opetus",
+    "taxi": "Venekyydit",
+    "visitor": "Vierassatamat",
+    "parking": "Lyhytpysäköinti",
+    "station": "Venehuoltoasemat",
+    "myhelsinki": "MyHelsinki Paikat"
+  },
+  "cookie_consent": {
+    "text": "Tämä palvelu on kehitysvaiheessa ja se käyttää evästeitä anonymisoidun käyttäjädatan keräämiseen jatkokehitystä varten.",
+    "button": "Hyväksy"
+  },
+  "menu": {
+    "title": {
+      "islands": "Saaret",
+      "travel_to_islands": "Vesibussit, lautat ja venekyydit",
+      "saunas_and_swimming": "Saunat, uinti ja avannot",
+      "restaurants": "Merelliset kahvilat ja ravintolat",
+      "boater_services": "Venelijän palvelut",
+      "rental_boats": "Vuokraveneet ja -välineet"
+    },
+    "link": {
+      "islands": {
+        "all_islands": "Kaikki saaret"
+      },
+      "travel_to_islands": {
+        "water_bus_and_ferries": "Vesibussi- ja lauttareitit",
+        "boat_rides_and_taxis": "Venekyydit ja taksit",
+        "sightseeing_and_cruises": "Kiertoajelut ja risteilyt"
+      },
+      "saunas_and_swimming": {
+        "saunas": "Saunat",
+        "swimming": "Uinti",
+        "ice_swimming": "Avannot"
+      },
+      "restaurants": {
+        "restaurants": "Ravintolat",
+        "cafes": "Kahvilat",
+        "beer_and_wine_bars": "Olut- ja viinibaarit"
+      },
+      "boater_services": {
+        "mooring": "Vierasvenesatamat",
+        "maintenance": "Venehuoltoasemat",
+        "septic_tank_draining": "Septityhjennyspisteet"
+      },
+      "rental_boats": {
+        "rowboats": "Kaupunkisoutuveneet",
+        "motorboats": "Moottoriveneet",
+        "other": "Muut vuokraveneet"
+      }
+    }
+  },
+  "card": {
+    "modified_at": "Päivitetty",
+    "source": "Tiedot",
+    "show_more": "Näytä enemmän",
+    "show_less": "Näytä vähemmän",
+    "island_content": {
+      "services_tab": "Palvelut",
+      "routes_tab": "Kulkuyhteydet",
+      "description_tab": "Esittely",
+      "routes": {
+        "ferries": "Vesibussit ja lautat",
+        "harbors": "Vierasvenesatamat"
+      }
+    },
+    "ferry_content": {
+      "duration": "Matkan kesto",
+      "pricing": "Liput",
+      "adultPricing": "Aikuinen",
+      "childPricing": "lapsi",
+      "startingPort": "Lähtölaituri",
+      "booking": "Aikataulut ja liput"
+    },
+    "harbor_content": {
+      "mooring": "Rantautumistiedot",
+      "mooringInformation": "Venepaikat",
+      "mooringType": "Kiinnistystavat",
+      "depth": "Syvyys",
+      "pricing": "Hinnat ja varaukset",
+      "dayPricing": "Päivävierailu",
+      "overnightPricing": "Yöpyminen",
+      "booking": "Varaa venepaikka",
+      "mooringTypes": {
+        "buoy": "Poijukiinnitys",
+        "pole": "Paalukiinnitys",
+        "pier": "Laituri"
+      }
+    }
+  }
+}
