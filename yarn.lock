@@ -8495,6 +8495,15 @@ hds-core@^0.4.1:
   resolved "https://registry.yarnpkg.com/hds-core/-/hds-core-0.4.1.tgz#8076a47040509e103e43e7a12fda50002340f41e"
   integrity sha512-5YpJn663U36PT3XdbL3PJkwVoxZu9oNrjBl4ne6ulXEO+7q922huDc67/FyjBu8+IdKt1HgXWY9pdhF+U495Og==
 
+hds-react@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/hds-react/-/hds-react-0.5.4.tgz#0a852272bc097d38d2ab6ee1c89694a15f071c12"
+  integrity sha512-7ga/4HhAvo5ahmkGwx/VwmRYt/BS1qQDw77yDVq+bDyYYrLuD296iNL9Ipxo9p4fuKE7r9OJjpBfCDpbBPRd1w==
+  dependencies:
+    hds-core "^0.4.1"
+    lodash.uniqueid "^4.0.1"
+    react-spring "^8.0.27"
+
 he@1.2.x, he@^1.1.0, he@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
@@ -10644,6 +10653,11 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
+
+lodash.uniqueid@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.uniqueid/-/lodash.uniqueid-4.0.1.tgz#3268f26a7c88e4f4b1758d679271814e31fa5b26"
+  integrity sha1-MmjyanyI5PSxdY1nknGBTjH6WyY=
 
 lodash.xorby@^4.7.0:
   version "4.7.0"
@@ -13363,7 +13377,7 @@ prop-types-exact@^1.2.0:
     object.assign "^4.1.0"
     reflect.ownkeys "^0.2.0"
 
-prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -13860,6 +13874,14 @@ react-sizeme@^2.5.2, react-sizeme@^2.6.7:
     invariant "^2.2.4"
     shallowequal "^1.1.0"
     throttle-debounce "^2.1.0"
+
+react-spring@^8.0.27:
+  version "8.0.27"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.27.tgz#97d4dee677f41e0b2adcb696f3839680a3aa356a"
+  integrity sha512-nDpWBe3ZVezukNRandTeLSPcwwTMjNVu1IDq9qA/AMiUqHuRN4BeSWvKr3eIxxg1vtiYiOLy4FqdfCP5IoP77g==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    prop-types "^15.5.8"
 
 react-syntax-highlighter@^11.0.2:
   version "11.0.2"
@@ -16597,6 +16619,11 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
+void-elements@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
+  integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
+
 vscode-jsonrpc@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/vscode-jsonrpc/-/vscode-jsonrpc-4.0.0.tgz#a7bf74ef3254d0a0c272fab15c82128e378b3be9"
@@ -16640,11 +16667,6 @@ vue-template-compiler@^2.6.11:
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
-
-void-elements@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
-  integrity sha1-wGavtYK7HLQSjWDqkjkulNXp2+w=
 
 w3c-hr-time@^1.0.1:
   version "1.0.1"
