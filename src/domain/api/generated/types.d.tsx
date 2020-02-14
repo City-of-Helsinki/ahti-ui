@@ -359,13 +359,14 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                   properties: Maybe<
                     { __typename?: 'FeatureProperties' } & Pick<
                       FeatureProperties,
-                      | 'ahtiId'
-                      | 'type'
-                      | 'name'
-                      | 'description'
-                      | 'url'
-                      | 'modifiedAt'
+                      'ahtiId' | 'name' | 'description' | 'url' | 'modifiedAt'
                     > & {
+                        category: Maybe<
+                          { __typename?: 'FeatureCategory' } & Pick<
+                            FeatureCategory,
+                            'id'
+                          >
+                        >;
                         tags: Array<{ __typename?: 'Tag' } & Pick<Tag, 'name'>>;
                         contactInfo: Maybe<
                           { __typename?: 'ContactInfo' } & Pick<
@@ -413,6 +414,48 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                       }
                   >;
                 }
+            >;
+          }
+        >
+      >;
+    }
+  >;
+};
+
+export type FeaturesSearchQueryVariables = {};
+
+export type FeaturesSearchQuery = { __typename?: 'Query' } & {
+  features: Maybe<
+    { __typename?: 'FeatureConnection' } & {
+      edges: Array<
+        Maybe<
+          { __typename?: 'FeatureEdge' } & {
+            node: Maybe<
+              { __typename?: 'Feature' } & {
+                properties: Maybe<
+                  { __typename?: 'FeatureProperties' } & Pick<
+                    FeatureProperties,
+                    'ahtiId' | 'name'
+                  > & {
+                      category: Maybe<
+                        { __typename?: 'FeatureCategory' } & Pick<
+                          FeatureCategory,
+                          'id'
+                        >
+                      >;
+                      contactInfo: Maybe<
+                        { __typename?: 'ContactInfo' } & {
+                          address: Maybe<
+                            { __typename?: 'Address' } & Pick<
+                              Address,
+                              'municipality'
+                            >
+                          >;
+                        }
+                      >;
+                    }
+                >;
+              }
             >;
           }
         >
@@ -558,7 +601,7 @@ export const CommonFeaturesFragmentDoc = gql`
   }
 `;
 export const FeaturesDocument = gql`
-  query FEATURES {
+  query features {
     features {
       edges {
         node {
@@ -570,7 +613,9 @@ export const FeaturesDocument = gql`
           }
           properties {
             ahtiId
-            type @client
+            category {
+              id
+            }
             name
             tags {
               name
@@ -670,8 +715,97 @@ export type FeaturesQueryResult = ApolloReactCommon.QueryResult<
   FeaturesQuery,
   FeaturesQueryVariables
 >;
+export const FeaturesSearchDocument = gql`
+  query featuresSearch {
+    features {
+      edges {
+        node {
+          properties {
+            ahtiId
+            category {
+              id
+            }
+            name
+            contactInfo {
+              address {
+                municipality
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+export type FeaturesSearchComponentProps = Omit<
+  ApolloReactComponents.QueryComponentOptions<
+    FeaturesSearchQuery,
+    FeaturesSearchQueryVariables
+  >,
+  'query'
+>;
+
+export const FeaturesSearchComponent = (
+  props: FeaturesSearchComponentProps
+) => (
+  <ApolloReactComponents.Query<
+    FeaturesSearchQuery,
+    FeaturesSearchQueryVariables
+  >
+    query={FeaturesSearchDocument}
+    {...props}
+  />
+);
+
+/**
+ * __useFeaturesSearchQuery__
+ *
+ * To run a query within a React component, call `useFeaturesSearchQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFeaturesSearchQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFeaturesSearchQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useFeaturesSearchQuery(
+  baseOptions?: ApolloReactHooks.QueryHookOptions<
+    FeaturesSearchQuery,
+    FeaturesSearchQueryVariables
+  >
+) {
+  return ApolloReactHooks.useQuery<
+    FeaturesSearchQuery,
+    FeaturesSearchQueryVariables
+  >(FeaturesSearchDocument, baseOptions);
+}
+export function useFeaturesSearchLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+    FeaturesSearchQuery,
+    FeaturesSearchQueryVariables
+  >
+) {
+  return ApolloReactHooks.useLazyQuery<
+    FeaturesSearchQuery,
+    FeaturesSearchQueryVariables
+  >(FeaturesSearchDocument, baseOptions);
+}
+export type FeaturesSearchQueryHookResult = ReturnType<
+  typeof useFeaturesSearchQuery
+>;
+export type FeaturesSearchLazyQueryHookResult = ReturnType<
+  typeof useFeaturesSearchLazyQuery
+>;
+export type FeaturesSearchQueryResult = ApolloReactCommon.QueryResult<
+  FeaturesSearchQuery,
+  FeaturesSearchQueryVariables
+>;
 export const FerryDocument = gql`
-  query FERRY($ahtiId: String!) {
+  query ferry($ahtiId: String!) {
     ferry(ahtiId: $ahtiId) @client {
       ...CommonFeatures
       duration
@@ -746,7 +880,7 @@ export type FerryQueryResult = ApolloReactCommon.QueryResult<
   FerryQueryVariables
 >;
 export const HarborDocument = gql`
-  query HARBOR($ahtiId: String!) {
+  query harbor($ahtiId: String!) {
     harbor(ahtiId: $ahtiId) @client {
       ...CommonFeatures
       pricing {
@@ -827,7 +961,7 @@ export type HarborQueryResult = ApolloReactCommon.QueryResult<
   HarborQueryVariables
 >;
 export const IslandDocument = gql`
-  query ISLAND($ahtiId: String!) {
+  query island($ahtiId: String!) {
     island(ahtiId: $ahtiId) @client {
       geometry {
         type

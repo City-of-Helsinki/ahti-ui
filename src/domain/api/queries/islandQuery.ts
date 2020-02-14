@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 const ISLAND_QUERY = gql`
-  query ISLAND($ahtiId: String!) {
+  query island($ahtiId: String!) {
     island(ahtiId: $ahtiId) @client {
       geometry {
         type

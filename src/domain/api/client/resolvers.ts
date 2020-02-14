@@ -20,7 +20,6 @@ const resolvers = {
     }
   },
   FeatureProperties: {
-    type: (): string => 'myhelsinki',
     harbors: (island: { ahtiId: string }) => {
       return harborData
         .filter(harbor => harbor.onIsland === island.ahtiId)
