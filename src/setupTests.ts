@@ -9,3 +9,14 @@ import { initialize } from './common/translation/i18n/i18n';
 
 initialize();
 configure({ adapter: new Adapter() });
+
+// Polyfill for react-slick
+window.matchMedia =
+  window.matchMedia ||
+  function() {
+    return {
+      matches: false,
+      addListener: function() {},
+      removeListener: function() {}
+    };
+  };

@@ -42,9 +42,9 @@ const Filter: FilterI = ({
   onClose,
   countMatches
 }) => {
-  const [selected, setSelected] = useState<Set<T>>(new Set());
+  const [selected, setSelected] = useState<Set<any>>(new Set());
 
-  const onToggle = (toggleItem: T) => {
+  const onToggle = (toggleItem: any) => {
     const newSelection = new Set(selected);
     if (selected.has(toggleItem)) {
       newSelection.delete(toggleItem);

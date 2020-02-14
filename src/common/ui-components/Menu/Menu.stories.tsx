@@ -5,7 +5,6 @@ import LanguageSelect from '../LanguageSelect/LanguageSelect';
 import { SUPPORTED_LANGUAGES } from '../../translation/TranslationConstants';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { translateMenuItems } from './MenuUtils';
 
 const defaultMenuItems = [
   {
