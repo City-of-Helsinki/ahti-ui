@@ -1,0 +1,37 @@
+@import '../../../styles/icons';
+
+.container {
+  padding: 1rem;
+  background: var(--hds-ui-color-white);
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--hds-ui-color-black-40);
+}
+
+.menuContentContainer {
+  min-height: 100vh;
+  height: 100%;
+}
+
+.navLink {
+  text-decoration: none;
+  line-height: 26px;
+  color: var(--hds-ui-color-black);
+}
+
+.navLinkDisabled {
+  pointer-events: none;
+  cursor: default;
+  color: var(--hds-ui-color-black-40);
+}
+
+.navDropdownContent {
+  display: flex;
+  flex-direction: column;
+}

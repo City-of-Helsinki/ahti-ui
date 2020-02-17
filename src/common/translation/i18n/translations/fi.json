@@ -85,6 +85,10 @@
     "button": "Hyväksy"
   },
   "menu": {
+    "open": "avaa valikko",
+    "close": "sulje valikko",
+    "open_submenu": "avaa alivalikko",
+    "close_submenu": "sulje alivalikko",
     "title": {
       "islands": "Saaret",
       "travel_to_islands": "Vesibussit, lautat ja venekyydit",
