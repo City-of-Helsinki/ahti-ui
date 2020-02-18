@@ -4,6 +4,9 @@ import App from './domain/app/App';
 import ReactGA from 'react-ga';
 import * as i18n from './i18n/i18n';
 import './assets/styles/index.scss';
+import { createOvermind } from 'overmind';
+import { Provider } from 'overmind-react';
+import { config } from './domain/overmind';
 
 // import i18n from './i18n'; // this needs to be here for i18n to work
 // import * as serviceWorker from './serviceWorker';
@@ -20,8 +23,15 @@ ReactGA.initialize(process.env.REACT_APP_ANALYTICS_ID, {
   standardImplementation: true,
 });
 
+const overmind = createOvermind(config);
+
 // Finally, render the app
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider value={overmind}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

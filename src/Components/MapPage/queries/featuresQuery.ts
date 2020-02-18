@@ -8,9 +8,11 @@ const FEATURES_QUERY = gql`
           id
           type
           geometry {
+            type
             coordinates
           }
           properties {
+            ahtiId
             type @client
             name
             tags {
@@ -33,6 +35,18 @@ const FEATURES_QUERY = gql`
               system
             }
             modifiedAt
+            ferries @client {
+              properties {
+                ahtiId
+                name
+              }
+            }
+            harbors @client {
+              properties {
+                ahtiId
+                name
+              }
+            }
           }
         }
       }

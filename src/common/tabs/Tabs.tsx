@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Tabs.module.scss';
 
@@ -24,7 +24,17 @@ interface TabsProps {
 }
 
 const Tabs: React.FC<TabsProps> = ({ children }) => {
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(-1);
+
+  useEffect(() => {
+    if (
+      selected === -1 ||
+      selected >= children.length ||
+      children[selected].props.disabled
+    ) {
+      setSelected(children.findIndex(child => !child.props.disabled));
+    }
+  }, [children, selected]);
 
   const renderLink = (child: React.ReactElement<TabProps>, id: number) => {
     return (

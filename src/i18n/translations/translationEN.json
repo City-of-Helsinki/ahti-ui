@@ -84,15 +84,6 @@
     "text": "This service is in development and it uses cookies to collect anonymised user data which might be utilized later.",
     "button": "Accept"
   },
-  "card": {
-    "modified_at": "Updated",
-    "source": "Source",
-    "services": "Services",
-    "routes": "Routes",
-    "description": "Description",
-    "show_more": "Show more",
-    "show_less": "Show less"
-  },
   "menu": {
     "title": {
       "islands": "Islands",
@@ -130,6 +121,44 @@
         "rowboats": "Rowing boats",
         "motorboats": "Motorboats",
         "other": "Other rental services"
+      }
+    }
+  },
+  "card": {
+    "modified_at": "Updated",
+    "source": "Source",
+    "show_more": "Show more",
+    "show_less": "Show less",
+    "island_content": {
+      "services_tab": "Services",
+      "routes_tab": "Routes",
+      "description_tab": "Description",
+      "routes": {
+        "ferries": "Waterbusses and ferries",
+        "harbors": "Guest harbors"
+      }
+    },
+    "ferry_content": {
+      "duration": "Duration",
+      "pricing": "Tickets",
+      "adultPricing": "Adult",
+      "childPricing": "child",
+      "startingPort": "Port address",
+      "booking": "Timetables and tickets"
+    },
+    "harbor_content": {
+      "mooring": "Mooring",
+      "mooringInformation": "Berths",
+      "mooringType": "Mooring types",
+      "depth": "Depth",
+      "pricing": "Prices and booking",
+      "dayPricing": "Day",
+      "overnightPricing": "Overnight",
+      "booking": "Make a booking",
+      "mooringTypes": {
+        "buoy": "Buoy",
+        "pole": "Pole",
+        "pier": "Pier"
       }
     }
   }

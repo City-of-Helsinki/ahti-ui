@@ -12,17 +12,15 @@ import {
 } from '../../domain/api/generatedTypes/FEATURES';
 import ResponsivePOIList from './POIList/ResponsivePOIList';
 import Card from '../../domain/card/Card';
+import { useOvermind } from '../../domain/overmind';
 
 const MapPage = ({ location, history }: { location: any; history: any }) => {
+  const { state, actions } = useOvermind();
   const { data } = useQuery<FEATURES>(FEATURES_QUERY);
 
   const [displayedPoints, setDisplayedPoints] = useState<
     FEATURES_features_edges_node[]
   >([]);
-  const [
-    displayedPoint,
-    setDisplayedPoint,
-  ] = useState<FEATURES_features_edges_node | null>(null);
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [previousPoint, setPreviousPoint] = useState<string | string[] | null>(
@@ -133,10 +131,11 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
       if (displayedPoints[index]) {
         flyToPoint(displayedPoints[index].geometry, 700, true);
         setCurrentSlide(index);
-        setDisplayedPoint(displayedPoints[index]);
+        // @ts-ignore
+        actions.displayIslandCard(displayedPoints[index].properties.ahtiId);
       }
     } else {
-      setDisplayedPoint(null);
+      actions.clearCard();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [browserQuery.name, browserQuery.island, data, displayedPoints]);
@@ -164,8 +163,8 @@ const MapPage = ({ location, history }: { location: any; history: any }) => {
           location={location}
         />
       )}
-      {displayedPoint && (
-        <Card onBack={history.goBack} pointData={displayedPoint} />
+      {state.cardData && (
+        <Card onBack={history.goBack} feature={state.cardData} />
       )}
     </React.Fragment>
   );

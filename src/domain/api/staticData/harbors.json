@@ -1,0 +1,59 @@
+[
+  {
+    "__typename": "Harbor",
+    "properties": {
+      "__typename": "GenericFeatureProperties",
+      "source": {
+        "__typename": "FeatureSource",
+        "system": "ahti",
+        "type": "harbor",
+        "id": "1"
+      },
+      "ahtiId": "ahti:harbor:1",
+      "name": "HSS vierasvenesatama",
+      "tags": [
+        {"name": "vierasvenesatama", "__typename": "Tag"}
+      ],
+      "description": "HSS tarjoaa täyden palvelun vierasvenesataman koko kesäkauden ajan kotisatamassaan Liuskaluodolla.",
+      "images": [],
+      "contactInfo": {
+        "__typename": "ContactInfo",
+        "phoneNumber": "+358 9 310 71518",
+        "address": {
+          "__typename": "Address",
+          "streetAddress": "Liuskasaari",
+          "postalCode": "00140",
+          "municipality": "Helsinki"
+        }
+      },
+      "url": "http://helsinkisailing.com/satama/#hss-vierasvenesatama",
+      "modifiedAt": "2020-01-23T07:41:52.950927+00:00"
+    },
+    "geometry": {
+      "__typename": "GeometryObjectType",
+      "type": "Point",
+      "coordinates": [
+        24.948158264160156,
+        60.15113830566406
+      ]
+    },
+    "onIsland": "myhelsinki:place:3462",
+    "mooringInformation": "Paikat E1-E19 ovat merkitty Guest-lapulla",
+    "mooringTypes": [
+      "buoy"
+    ],
+    "depth": {
+      "__typename": "HarborDepth",
+      "minDepth": 3,
+      "maxDepth": 4
+    },
+    "pricing": {
+      "__typename": "HarborPricing",
+      "hour": null,
+      "day": 15,
+      "overnight": 35,
+      "week": 175
+    },
+    "bookingUrl": "https://bookkaa.satamapaikka.com/fi/harbours/show_free_boat_places/5139"
+  }
+]

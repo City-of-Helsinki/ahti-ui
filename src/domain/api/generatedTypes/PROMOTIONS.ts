@@ -11,7 +11,7 @@ export interface PROMOTIONS_features_edges_node_properties_images {
 }
 
 export interface PROMOTIONS_features_edges_node_properties {
-  name: string | null;
+  name: string;
   images: PROMOTIONS_features_edges_node_properties_images[];
 }
 
