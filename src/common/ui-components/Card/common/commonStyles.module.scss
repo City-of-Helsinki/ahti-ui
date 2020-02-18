@@ -1,0 +1,75 @@
+@import '../../../../styles/icons';
+
+.container {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.bodyText {
+  font-size: 14px;
+  line-height: 26px;
+  white-space: pre-line;
+}
+
+.subheading {
+  color: rgb(29, 29, 29);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.gridItem {
+  display: grid;
+  grid-template-columns: 30% auto;
+  grid-column-gap: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.bookingUrlContainer {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  color: var(--hds-ui-color-white);
+}
+
+.bookingUrl {
+  grid-column: 2;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  background-color: var(--hds-brand-color-coat-of-arms-blue);
+  color: var(--hds-ui-color-white);
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.infoLink {
+  word-break: break-all;
+  color: inherit;
+}
+
+.line {
+  margin: 1rem 0;
+  border-color: var(--hds-ui-color-black);
+}
+
+.sourceInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  word-break: break-all;
+}
+
+.infoIcon {
+  @extend .icon;
+
+  margin-right: 1rem;
+}
