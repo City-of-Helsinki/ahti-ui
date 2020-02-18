@@ -165,5 +165,12 @@
         "pier": "Laituri"
       }
     }
+  },
+  "search": {
+    "search": "Hae",
+    "close": "Sulje haku"
+  },
+  "filter": {
+    "close": "Sulje suodattimet"
   }
 }

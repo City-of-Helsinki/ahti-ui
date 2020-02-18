@@ -165,5 +165,12 @@
         "pier": "Pier"
       }
     }
+  },
+  "search": {
+    "search": "Search",
+    "close": "Close search"
+  },
+  "filter": {
+    "close": "Close filters"
   }
 }
