@@ -1,0 +1,64 @@
+/* stylelint-disable */
+
+@import './sanitize.scss';
+@import './html5doctor.scss';
+@import './fonts.scss';
+@import './hds-brand-colors.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: realtive;
+  box-sizing: border-box;
+  font-size: $text-base-size;
+  font-weight: $text-base-weight;
+  font-style: $text-base-style;
+  line-height: $text-line-height;
+  text-align: $text-base-align;
+  text-transform: none;
+  white-space: normal;
+  word-spacing: normal;
+  hyphenate-lines: 3;
+  text-indent: 0;
+  letter-spacing: 0.05em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p,
+span,
+blockquote,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  max-width: 33em;
+}
+
+/* own css*/
+body {
+  overflow-x: hidden;
+  height: 100vh;
+  margin: 0 auto;
+  // arbitrary max-width of 474px for wide screens
+  max-width: 474px;
+  position: relative;
+
+  font-size: $text-base-size;
+  font-family: $font-family;
+
+  #root {
+    background: pink;
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+}

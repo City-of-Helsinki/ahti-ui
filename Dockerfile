@@ -5,7 +5,8 @@ FROM helsinkitest/node:12-slim as appbase
 ENV NPM_CONFIG_LOGLEVEL warn
 
 # set our node environment, either development or production
-ARG NODE_ENV=development
+# defaults to production, compose overrides this to development on build and run
+ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
 
 # Global npm deps in a non-root user directory
@@ -25,9 +26,15 @@ COPY package*.json *yarn* ./
 # Install npm depepndencies
 ENV PATH /app/node_modules/.bin:$PATH
 
-# Install the actual app dependencies
+USER root
+
+RUN apt-install.sh build-essential
+
 USER appuser
-RUN yarn install --silent && yarn cache clean --force
+RUN yarn && yarn cache clean --force
+
+USER root
+RUN apt-cleanup.sh build-essential
 
 # =============================
 FROM appbase as development
@@ -40,14 +47,15 @@ ENV NODE_ENV $NODE_ENV
 # copy in our source code last, as it changes the most
 COPY --chown=appuser:appuser . .
 
-# Start gql server and frontend
-CMD ["yarn", "start"]
+# Bake package.json start command into the image
+CMD ["react-scripts", "start"]
 
 # ===================================
 FROM appbase as staticbuilder
 # ===================================
 
-ARG REACT_APP_MAPBOX_API_ACCESS_TOKEN
+ARG REACT_APP_API_URI
+ARG REACT_APP_OIDC_AUTHORITY
 
 COPY . /app
 RUN yarn build

@@ -1,13 +1,9 @@
-node_modules
-*.log
-Dockerfile*
-docker-compose*
+node_modules 
+npm-debug.log 
+Dockerfile 
 .dockerignore
+docker-compose*
 .git
 .gitignore
-.travis.yml
-README.md
-LICENSE
 .vscode
-.idea
 build

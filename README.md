@@ -1,120 +1,52 @@
-# City of Helsinki Ahti project 
+# City of Helsinki Ahti project
+
 ## available at https://ahti.app/
 
-## This repository contains the first Proof of Concept implementation by Futurice
-## Documentation last updated 13-01-2020
+## Documentation last updated 04-02-2020
 
-## General information
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-https://drive.google.com/open?id=1Rghr1WjKDJs0Vmbkmp1yLyF6IxmX5lGn
+For available scripts, refer to the create-react-app documentation.
 
-## Design sources
-Are in Figma https://www.figma.com/file/ZKAH36THbAPVs9gNdmH8N6Dh/Ahti?node-id=0%3A1
+## Available Scripts
 
-## Map
-The map we use is Mapbox:
-- minimal style: `mapbox://styles/strawshield/cjxx7z1sf04rm1dl7bjryf4xf` designed by Olli Kilpi
+In the project directory, you can run:
 
-## Learn More
-The app has been bootstrapped from Create React App.  [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`yarn start`
+`yarn test`
+`yarn build`
+`yarn eject`
 
-## The setup
-We have a Google Analytics team, "Ahti Helsinki".
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-Under that, we have two properties:
+## Code quality assurance
 
-- "Ahti Helsinki Live": Meant to track the production URL. Currently not active, pending DNS changes.
-- "Ahti Helsinki MVP": Meant to track development and (maybe in the future) UAT versions. Temporarily the "live" one, pending the DNS changes above.
+Is enforced by `.eslint` and `.prettier` configuration files for TypeScript files as per the recommended configuration marked by checkboxes:
 
-## Requirements
+https://eslint.org/docs/rules/
 
-<!-- TODO: document these -->
+We are using `.stylelintrc.json` with scss.
 
-## Usage
+You are supposed to have VScode extensions such as ESlInt and Prettier and Stylelint installed, the same rules are now enforced by git hooks.
 
-### Configuring environment variables
+## Design && UI components
 
-This application reads environment variables from the dotfile `.env`. All configurable variables, their purpose and possible values can be found in the example file `.env.example`. To get started copy the example file and edit any variables specified as required:
-   ```
-   $ cp .env.example .env
-   ```
+UI components are created inside of the
 
-### Docker
+`src/common/ui-components`
 
-1. Check that Docker and Docker CLI are installed and that port `3000` is free and not occupied by a running server.
+and follow the Atomic Design Principles
+https://bradfrost.com/blog/post/atomic-web-design/
 
-2. Make sure you have env variables in `.env` as discussed in the previous section.
+This application should follow the core of Helsinki Design System
+https://github.com/City-of-Helsinki/helsinki-design-system/tree/master/packages/core
 
-3. Start building docker image and start container:
-   ```
-   $ docker-compose up
-   ```
-4. Open `localhost:3000` on browser when Webpack bundling is ready.
+, independant from react components.
 
-#### Useful Docker commands
+_NB:_ Currently we are not using the HDS yet due to HDS not being ready, we will add it #sooon.
 
-- To rebuild the docker images:
-  ```
-  $ docker-compose up --force-recreate --build
-  ```
-- To enter inside docker container environment:
-  ```
-  $ docker-compose exec app sh
-  ```
-- Remove docker container if needed:
-  ```
-  $ docker rm -f ahti-ui
-  ```
-- Remove docker image:
-  ```
-  $ docker rmi ahti-ui_app
-  ```
-- Running command inside Docker environment (test for example):
-  (Make sure docker container is running)
-  `$ docker-compose run app YOUR_COMMAND_HERE`
-- Encountering issues with `node-sass`? Try to go inside docker container environment and run `npm rebuild node-sass`.
+## SSR
 
-### Running the application locally
-
-1. Install dependencies:
-
-```
-yarn install
-```
-
-2. Ensure environment variables are set.
-
-3. Start the development server:
-
-```
-yarn start
-```
-
-### Running tests
-
-<!-- TODO: document this -->
-
-### Linting
-
-<!-- TODO: document this -->
-
-
-### Scope of the project
-
-For now scope of the project includes:
-
-- map with markers of places
-- list of places of interest by type and category
-- views and UIs that comply with Helsinki City brand guidelines
-- localization
-- Test experience views
-- accesibility
-- server side rendering
-- visual and programmatic testing
-- UX research and multiple use cases
-
-## License
-
-[The MIT License](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2015 City of Helsinki <[http://www.hel.fi/](http://www.hel.fi/)>
+Hemo page is SSred
+Map is hydrated

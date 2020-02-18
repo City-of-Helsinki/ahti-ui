@@ -1,104 +1,194 @@
 {
-  "name": "helsinki-ahti-experiment",
+  "name": "ahti-ui-new",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@apollo/react-hooks": "^3.1.3",
-    "@turf/helpers": "^6.1.4",
-    "@types/classnames": "^2.2.9",
-    "@types/jest": "^24.0.23",
-    "@types/node": "^12.12.11",
-    "@types/react": "^16.9.11",
-    "@types/react-dom": "^16.9.4",
-    "@types/react-map-gl": "^5.0.3",
-    "@types/react-router-dom": "^5.1.2",
-    "@types/react-slick": "^0.23.4",
-    "@types/styled-components": "^4.4.0",
-    "apollo-boost": "^0.4.7",
-    "classnames": "^2.2.6",
-    "hds-react": "^0.5.4",
-    "husky": "^3.0.0",
-    "i18next": "^17.0.6",
-    "i18next-browser-languagedetector": "^3.0.1",
-    "overmind": "^21.0.0",
-    "overmind-react": "^22.0.0",
-    "prettier": "^1.19.1",
-    "prop-types": "^15.7.2",
-    "query-string": "^6.8.1",
-    "react": "^16.8.6",
-    "react-cookie-consent": "^2.3.2",
-    "react-dom": "^16.8.6",
-    "react-ga": "^2.6.0",
-    "react-i18next": "^10.11.4",
-    "react-lazy-images": "^1.1.0",
-    "react-map-gl": "^5.0.3",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.0.1",
-    "react-slick": "^0.24.0",
-    "sanitize.css": "^11.0.0",
-    "slick-carousel": "^1.8.1",
-    "supercluster": "^6.0.1",
-    "typescript": "^3.7.2"
-  },
   "scripts": {
-    "lint": "eslint --ext js,jsx,ts,tsx src/",
-    "lint:fix": "eslint --fix --ext js,jsx,ts,tsx src/",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "analyze": "source-map-explorer 'build/static/js/*.js' --html bundle-analysis.html",
-    "test": "react-scripts test",
-    "test:ci": "CI=true && yarn test:coverage",
-    "test:coverage": "react-scripts test --coverage",
-    "eject": "react-scripts eject",
-    "graphql-types": "apollo client:codegen --target=typescript --no-addTypename --outputFlat src/domain/api/generatedTypes",
-    "palvelukartta-fetch-islands": "node src/data/scripts/fetchPalvelukarttaIslandData.js",
-    "palvelukartta-append-island-data": "node src/data/scripts/mergePalvelukarttaIslandDataAdditions.js"
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "test:ci": "node scripts/test.js",
+    "test": "node scripts/test.js",
+    "storybook": "start-storybook -p 6006",
+    "lint": "yarn lint-staged",
+    "build-storybook": "build-storybook",
+    "generate": "graphql-codegen"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint . ",
+      "git add"
+    ],
+    "src/**/*.scss": [
+      "stylelint --syntax scss",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint",
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook"
+      "pre-commit": "lint-staged && pretty-quick --staged"
     }
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "@apollo/react-common": "^3.1.3",
+    "@apollo/react-components": "^3.1.3",
+    "@apollo/react-hooks": "^3.1.3",
+    "@babel/core": "7.7.4",
+    "@graphql-codegen/typescript-react-apollo": "^1.12.2",
+    "@svgr/webpack": "4.3.3",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/classnames": "^2.2.9",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-router-dom": "^5.1.3",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "apollo-boost": "^0.4.7",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "8.0.6",
+    "babel-plugin-named-asset-import": "^0.3.5",
+    "babel-preset-react-app": "^9.1.0",
+    "camelcase": "^5.3.1",
+    "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "classnames": "^2.2.6",
+    "css-loader": "3.2.0",
+    "cssnano": "^4.1.10",
+    "dotenv": "8.2.0",
+    "dotenv-expand": "5.1.0",
+    "eslint": "^6.6.0",
+    "eslint-config-react-app": "^5.1.0",
+    "eslint-loader": "3.0.2",
+    "eslint-plugin-flowtype": "3.13.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.16.0",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "file-loader": "4.3.0",
+    "fs-extra": "^8.1.0",
+    "graphql": "^14.6.0",
+    "hds-react": "^0.5.4",
+    "html-webpack-plugin": "4.0.0-beta.5",
+    "i18next": "^19.1.0",
+    "i18next-browser-languagedetector": "^4.0.1",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "24.9.0",
+    "jest-environment-jsdom-fourteen": "0.1.0",
+    "jest-resolve": "24.9.0",
+    "jest-watch-typeahead": "0.4.2",
+    "mini-css-extract-plugin": "0.8.0",
+    "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "5.0.3",
+    "pnp-webpack-plugin": "1.5.0",
+    "postcss-flexbugs-fixes": "4.1.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-normalize": "8.0.1",
+    "postcss-preset-env": "6.7.0",
+    "postcss-safe-parser": "4.0.1",
+    "react": "^16.12.0",
+    "react-app-polyfill": "^1.0.5",
+    "react-dev-utils": "^10.0.0",
+    "react-dom": "^16.12.0",
+    "react-i18next": "^11.3.1",
+    "react-router-dom": "^5.1.2",
+    "react-slick": "^0.25.2",
+    "resolve": "1.12.2",
+    "resolve-url-loader": "3.1.1",
+    "sass-loader": "8.0.0",
+    "semver": "6.3.0",
+    "style-loader": "1.0.0",
+    "terser-webpack-plugin": "2.2.1",
+    "ts-pnp": "1.1.5",
+    "typescript": "~3.7.2",
+    "url-loader": "2.3.0",
+    "webpack": "4.41.2",
+    "webpack-dev-server": "3.9.0",
+    "webpack-manifest-plugin": "2.2.0",
+    "workbox-webpack-plugin": "4.3.1"
   },
   "devDependencies": {
     "@apollo/react-testing": "^3.1.3",
-    "@types/enzyme": "^3.10.3",
-    "@types/enzyme-adapter-react-16": "^1.0.5",
-    "apollo": "^2.21.2",
-    "commitizen": "^3.1.1",
-    "cz-conventional-changelog": "^2.1.0",
-    "deepmerge": "^4.0.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
-    "eslint-config-prettier": "^6.7.0",
+    "@graphql-codegen/cli": "^1.12.2",
+    "@graphql-codegen/typescript": "^1.12.2",
+    "@graphql-codegen/typescript-operations": "^1.12.2",
+    "@storybook/addon-a11y": "^5.3.10",
+    "@storybook/addon-actions": "^5.3.8",
+    "@storybook/addon-links": "^5.3.8",
+    "@storybook/addons": "^5.3.8",
+    "@storybook/react": "^5.3.8",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@typescript-eslint/eslint-plugin": "^2.15.0",
+    "@typescript-eslint/parser": "^2.15.0",
+    "autoprefixer": "^9.7.4",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
-    "mathjs": "^6.0.3",
-    "node-sass": "^4.12.0",
-    "pretty-quick": "^1.11.1",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.7",
-    "slick-carousel": "^1.8.1",
-    "source-map-explorer": "^2.0.1",
-    "styled-components": "^4.3.2"
+    "eslint-plugin-react": "^7.17.0",
+    "hds-core": "^0.4.1",
+    "husky": "^4.0.10",
+    "lint-staged": "^10.0.1",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
+    "stylelint": "^13.0.0",
+    "stylelint-config-standard-scss": "^1.1.0",
+    "stylelint-scss": "^3.13.0",
+    "wait-for-expect": "^3.0.2"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ],
+    "setupFiles": [
+      "react-app-polyfill/jsdom"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/setupTests.ts"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jest-environment-jsdom-fourteen",
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "modulePaths": [],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ]
   }
 }

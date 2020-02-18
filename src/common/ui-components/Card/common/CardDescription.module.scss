@@ -1,0 +1,30 @@
+.descriptionContainer {
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.descriptionContainerOpen {
+  max-height: unset;
+  overflow: unset;
+}
+
+.showMoreButton {
+  color: var(--hds-brand-color-coat-of-arms-blue);
+  border: none;
+  background: none;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 700;
+
+  &::after {
+    font-size: 120%;
+    content: ' ▼';
+  }
+}
+
+.showLess {
+  &::after {
+    font-size: 120%;
+    content: ' ▲';
+  }
+}
