@@ -1,0 +1,20 @@
+.heading {
+  color: var(--hds-ui-color-black);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+  margin: 2rem 0 1rem 0;
+}
+
+.item {
+  border: 0;
+  padding: 0;
+  margin-top: 1rem;
+  background: none;
+  color: var(--hds-brand-color-coat-of-arms-blue);
+  font-size: 16px;
+  font-weight: 500;
+  height: 26px;
+  line-height: 26px;
+  text-decoration: underline;
+}

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import gql from 'graphql-tag';
 import * as React from 'react';
 import * as ApolloReactCommon from '@apollo/react-common';

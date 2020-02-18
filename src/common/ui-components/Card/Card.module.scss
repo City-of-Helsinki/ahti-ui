@@ -1,0 +1,50 @@
+.cardContentContainer {
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
+}
+
+.cardTextContainer {
+  box-sizing: border - box;
+  padding: 2rem 2rem;
+  position: relative;
+  width: 100%;
+  min-height: 30vh;
+  background-color: var(--hds-ui-color-white);
+  color: var(--hds-ui-color-black);
+}
+
+.cardContainer {
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  background-color: var(--hds-ui-color-white);
+}
+
+.nameHeading {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28.8px;
+}
+
+.addressHeading {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.tagsContainer {
+  color: var(--hds-brand-color-coat-of-arms-blue);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tagsContainerSpan {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 26px;
+  margin-right: 5px;
+}
+
+.tabContainer {
+  display: flex;
+  justify-content: space-between;
+}

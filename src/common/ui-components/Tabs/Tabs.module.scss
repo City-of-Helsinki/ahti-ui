@@ -1,0 +1,40 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  button {
+    font-size: 16px;
+    font-weight: 500;
+
+    border: none;
+    background: none;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    color: var(--hds-brand-color-coat-of-arms-blue);
+    border-bottom: 2px solid var(--hds-brand-color-coat-of-arms-blue);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .unselected {
+    color: var(--hds-ui-color-black);
+    border-bottom: unset;
+  }
+
+  .disabled {
+    pointer-events: none;
+    color: var(--hds-ui-color-black-70);
+    border-bottom: unset;
+  }
+}
+
+.tabContentContainer {
+  .unselected {
+    display: none;
+  }
+}
+
+.tabItem {
+}
