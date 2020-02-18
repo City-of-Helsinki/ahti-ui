@@ -8,6 +8,7 @@ import {
 import { IconLocation } from 'hds-react';
 import escapeRegExp from './utils/escapeRegExp';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 
 export interface SearchData {
   readonly id: string;
@@ -78,13 +79,14 @@ const Search: React.FC<SearchProps> = ({
   maxItems = 20,
   onSelect
 }) => {
+  const { t } = useTranslation();
   const { data } = useFeaturesSearchQuery();
   const [searchResults, setSearchResults] = useState<SearchData[]>([]);
   const [currentSearch, setCurrentSearch] = useState<string>('');
 
   useEffect(() => {
     if (data && data.features && currentSearch !== '') {
-      const properties = data.features.edges.reduce((acc, edge) => {
+      const properties = data.features.edges.reduce((acc: any, edge: any) => {
         if (edge && edge.node && edge.node.properties) {
           return [...acc, edge.node.properties];
         }
@@ -122,8 +124,12 @@ const Search: React.FC<SearchProps> = ({
             value={currentSearch}
             className={styles.searchInput}
             onChange={event => setCurrentSearch(event.target.value)}
+            aria-label={t('search.search')}
           />
-          <button aria-label="close" onClick={() => setCurrentSearch('')}>
+          <button
+            onClick={() => setCurrentSearch('')}
+            aria-label={t('search.close')}
+          >
             <IconClose className={styles.bigIcon} />
           </button>
         </div>

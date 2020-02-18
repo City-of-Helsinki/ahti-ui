@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { IconCheck, IconClose } from 'hds-react/lib';
 import classNames from 'classnames/bind';
 import styles from './Filter.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const cx = classNames.bind(styles);
 
@@ -42,6 +43,7 @@ const Filter: FilterI = ({
   onClose,
   countMatches
 }) => {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState<Set<any>>(new Set());
 
   const onToggle = (toggleItem: any) => {
@@ -71,7 +73,11 @@ const Filter: FilterI = ({
     <div className={cx(styles.container, className)}>
       <div>
         <div className={styles.headerContainer}>
-          <button onClick={() => onClose()} className={styles.closeButton}>
+          <button
+            onClick={() => onClose()}
+            className={styles.closeButton}
+            aria-label={t('filter.close')}
+          >
             <IconClose className={styles.icons} />
           </button>
           <div className={styles.textContainer}>
