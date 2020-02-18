@@ -1,7 +1,7 @@
 import { gql } from 'apollo-boost';
 
 const FEATURES_QUERY = gql`
-  query FEATURES {
+  query features {
     features {
       edges {
         node {
@@ -13,7 +13,9 @@ const FEATURES_QUERY = gql`
           }
           properties {
             ahtiId
-            type @client
+            category {
+              id
+            }
             name
             tags {
               name

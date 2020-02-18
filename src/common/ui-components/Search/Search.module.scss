@@ -1,0 +1,85 @@
+@import '../../../styles/icons';
+
+.container {
+  width: 100%;
+  position: absolute;
+  background-color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  /* Hide the scrollbar, but keep scrolling enabled */
+  overflow-y: scroll;
+
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Internet Explorer 10+ */
+  -ms-overflow-style: none;
+}
+
+.container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.searchItem {
+  display: flex;
+  flex-direction: row;
+}
+
+.infoContainer {
+  width: 100%;
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--hds-ui-color-black-10);
+  margin-left: 1rem;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.nameMark {
+  all: unset;
+  color: var(--hds-brand-color-coat-of-arms-blue);
+}
+
+.address {
+  margin-bottom: 0.5rem;
+  color: var(--hds-ui-color-black-70);
+  font-weight: 400;
+}
+
+.searchInput {
+  width: 100%;
+  border: none;
+  margin-left: 1rem;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchInputWithIcon {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-bottom: 1rem;
+  border-bottom: 1.5px;
+  border-bottom-style: solid;
+}
+
+.infoImage {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

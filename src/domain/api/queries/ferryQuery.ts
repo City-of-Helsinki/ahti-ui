@@ -2,7 +2,7 @@ import { gql } from 'apollo-boost';
 import commonFeatures from '../fragments/commonFeatures';
 
 const FERRY_QUERY = gql`
-  query FERRY($ahtiId: String!) {
+  query ferry($ahtiId: String!) {
     ferry(ahtiId: $ahtiId) @client {
       ...CommonFeatures
       duration
