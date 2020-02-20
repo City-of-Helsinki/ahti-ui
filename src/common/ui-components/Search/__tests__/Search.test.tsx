@@ -6,31 +6,41 @@ import { act } from 'react-dom/test-utils';
 import waitForExpect from 'wait-for-expect';
 import FEATURES_SEARCH_QUERY from '../../../../domain/api/queries/featuresSearchQuery';
 
+// declare module '@apollo/react-testing' {
+//   export interface MockedProvider {
+//     mocks: any;
+//   }
+// }
+// type MockedProviderOne extends MockedProvider  {
+//   mocks: any;
+// }
 describe('Search', () => {
   let searchWrapper: ReactWrapper;
   const mocks = [
     {
       request: { query: FEATURES_SEARCH_QUERY },
       result: {
-        features: {
-          edges: [
-            {
-              node: {
-                properties: {
-                  ahtiId: 'myhelsinki:place:364',
-                  category: {
-                    id: 'ahti:category:island'
-                  },
-                  name: 'Harakan luontokeskus',
-                  contactInfo: {
-                    address: {
-                      municipality: 'Helsinki'
+        data: {
+          features: {
+            edges: [
+              {
+                node: {
+                  properties: {
+                    ahtiId: 'myhelsinki:place:364',
+                    category: {
+                      id: 'ahti:category:island'
+                    },
+                    name: 'Harakan luontokeskus',
+                    contactInfo: {
+                      address: {
+                        municipality: 'Helsinki'
+                      }
                     }
                   }
                 }
               }
-            }
-          ]
+            ]
+          }
         }
       }
     }
