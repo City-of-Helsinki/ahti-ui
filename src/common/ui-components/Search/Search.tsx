@@ -128,6 +128,7 @@ const Search: React.FC<SearchProps> = ({
           />
           <button
             onClick={() => setCurrentSearch('')}
+            className={styles.closeButton}
             aria-label={t('search.close')}
           >
             <IconClose className={styles.bigIcon} />

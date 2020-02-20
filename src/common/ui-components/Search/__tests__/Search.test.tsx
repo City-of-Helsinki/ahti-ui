@@ -70,7 +70,7 @@ describe('Search', () => {
 
   it('clicking cross clears current search', () => {
     searchWrapper.find('input').simulate('change', { target: { value: 'a' } });
-    searchWrapper.find('button[aria-label="close"]').simulate('click');
+    searchWrapper.find('.closeButton').simulate('click');
     expect(searchWrapper.find('input').prop('value')).toEqual('');
   });
 });
