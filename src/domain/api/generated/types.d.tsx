@@ -1,4 +1,3 @@
-/* eslint-disable */
 import gql from 'graphql-tag';
 import * as React from 'react';
 import * as ApolloReactCommon from '@apollo/react-common';
@@ -92,10 +91,10 @@ export type FeatureProperties = {
   name: Scalars['String'];
   openingHoursPeriods: Array<OpeningHoursPeriod>;
   parents: Array<Maybe<Feature>>;
+  shortDescription: Scalars['String'];
   source: FeatureSource;
   tags: Array<Tag>;
   translations: Array<FeatureTranslations>;
-  type: Scalars['String'];
   url?: Maybe<Scalars['String']>;
 };
 
@@ -360,7 +359,12 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                   properties: Maybe<
                     { __typename?: 'FeatureProperties' } & Pick<
                       FeatureProperties,
-                      'ahtiId' | 'name' | 'description' | 'url' | 'modifiedAt'
+                      | 'ahtiId'
+                      | 'name'
+                      | 'description'
+                      | 'shortDescription'
+                      | 'url'
+                      | 'modifiedAt'
                     > & {
                         category: Maybe<
                           { __typename?: 'FeatureCategory' } & Pick<
@@ -622,6 +626,7 @@ export const FeaturesDocument = gql`
               name
             }
             description
+            shortDescription @client
             url
             contactInfo {
               phoneNumber
