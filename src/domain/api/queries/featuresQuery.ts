@@ -21,6 +21,7 @@ const FEATURES_QUERY = gql`
               name
             }
             description
+            shortDescription @client
             url
             contactInfo {
               phoneNumber
