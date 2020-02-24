@@ -31,12 +31,14 @@ describe('Card', () => {
     const testParamsList = [
       { data: harbor, contentType: HarborContent },
       { data: island, contentType: IslandContent },
-      { data: ferry, contentType: FerryContent },
+      { data: ferry, contentType: FerryContent }
     ];
 
     testParamsList.forEach(testParams => {
       onlyContains(
-        shallow(<Card feature={testParams.data} />),
+        shallow(
+          <Card feature={testParams.data} selectFeature={() => undefined} />
+        ),
         testParams.contentType
       );
     });

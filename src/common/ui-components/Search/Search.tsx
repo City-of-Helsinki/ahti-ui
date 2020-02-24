@@ -86,7 +86,7 @@ const Search: React.FC<SearchProps> = ({
 
   useEffect(() => {
     if (data && data.features && currentSearch !== '') {
-      const properties = data.features.edges.reduce((acc: any, edge: any) => {
+      const properties = data.features.edges?.reduce((acc: any, edge: any) => {
         if (edge && edge.node && edge.node.properties) {
           return [...acc, edge.node.properties];
         }
