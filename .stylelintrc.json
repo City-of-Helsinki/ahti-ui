@@ -8,7 +8,7 @@
     "color-hex-length": "long",
     "color-named": "always-where-possible",
     "selector-max-id": 0,
-    "selector-max-combinators": 0,
+    "selector-max-combinators": 1,
     "selector-combinator-space-after": "always",
     "selector-attribute-quotes": "always",
     "declaration-block-trailing-semicolon": "always",
@@ -25,7 +25,7 @@
     "at-rule-no-vendor-prefix": true,
     "selector-no-vendor-prefix": true,
     "selector-max-universal": 0,
-    "selector-max-type": 0,
+    "selector-max-type": 1,
     "media-feature-parentheses-space-inside": "always",
     "media-feature-name-no-vendor-prefix": true
   }

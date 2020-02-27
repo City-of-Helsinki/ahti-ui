@@ -1,0 +1,36 @@
+@import '../../../styles/icons';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: var(--hds-ui-color-white);
+}
+
+.infoContainer {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.infoTextContainer {
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-size: 18px;
+  line-height: 23px;
+  font-weight: 700;
+}
+
+.shortDescription {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.image {
+  width: 100px;
+  height: 84px;
+}

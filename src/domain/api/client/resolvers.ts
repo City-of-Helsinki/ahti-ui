@@ -1,3 +1,4 @@
+import faker from 'faker';
 import FEATURES_QUERY from '../queries/featuresQuery';
 import ferryData from './staticData/ferries.json';
 import harborData from './staticData/harbors.json';
@@ -20,6 +21,9 @@ const resolvers = {
     }
   },
   FeatureProperties: {
+    shortDescription: () => {
+      return faker.lorem.lines(1);
+    },
     harbors: (island: { ahtiId: string }) => {
       return harborData
         .filter(harbor => harbor.onIsland === island.ahtiId)

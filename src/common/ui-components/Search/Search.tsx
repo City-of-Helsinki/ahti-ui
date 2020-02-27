@@ -5,7 +5,7 @@ import {
   FeatureProperties,
   useFeaturesSearchQuery
 } from '../../../domain/api/generated/types.d';
-import { IconLocation } from 'hds-react';
+import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import escapeRegExp from './utils/escapeRegExp';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
@@ -16,20 +16,6 @@ export interface SearchData {
   readonly location?: string;
   readonly category?: string;
 }
-
-interface CategoryIconProps {
-  readonly category?: string;
-}
-
-const CategoryIcon: React.FC<CategoryIconProps> = ({ category }) => {
-  // BE only has ahti:category:island for the time being
-  // other categories are null.
-  if (category === 'ahti:category:island') {
-    return <IconLocation className={styles.bigIcon} />;
-  } else {
-    return <IconLocation className={styles.bigIcon} />;
-  }
-};
 
 interface SearchItemProps extends SearchData {
   readonly currentSearch: string;
@@ -49,7 +35,7 @@ export const SearchItem: React.FC<SearchItemProps> = ({
 
   return (
     <div className={styles.searchItem} onClick={() => onSelect(id)}>
-      <CategoryIcon category={category} />
+      <CategoryIcon className={styles.bigIcon} category={category} />
       <div className={styles.infoContainer}>
         <div className={styles.name}>
           {parts.map((part: string, id: number) =>
@@ -86,7 +72,7 @@ const Search: React.FC<SearchProps> = ({
 
   useEffect(() => {
     if (data && data.features && currentSearch !== '') {
-      const properties = data.features.edges.reduce((acc: any, edge: any) => {
+      const properties = data.features.edges?.reduce((acc: any, edge: any) => {
         if (edge && edge.node && edge.node.properties) {
           return [...acc, edge.node.properties];
         }

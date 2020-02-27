@@ -12,7 +12,11 @@ export interface CardProps {
   selectFeature(ahtiId: string): void;
 }
 
-const Card: React.FC<CardProps> = ({ className, feature, selectFeature }) => {
+const Card: React.FC<CardProps> = ({
+  className,
+  feature,
+  selectFeature
+}: CardProps) => {
   const type = feature.__typename;
   const { name, images, tags } = feature.properties;
   const { postalCode, municipality } = feature.properties.contactInfo.address;

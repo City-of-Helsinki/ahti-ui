@@ -76,7 +76,7 @@ const typeDefs = gql`
   }
 
   extend type FeatureProperties {
-    type: String!
+    shortDescription: String!
     harbors: [Harbor!]!
     ferries: [Ferry!]!
   }
