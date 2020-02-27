@@ -1,9 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import classNames from 'classnames';
+
 import CommonCardInfo from '../common/CommonCardInfo';
 import { formatPrice, formatDuration } from '../../../utils/text';
-import { useTranslation } from 'react-i18next';
 import commonStyles from '../common/commonStyles.module.scss';
-import classNames from 'classnames';
 
 export interface FerryContentProps {
   readonly ferry: any;

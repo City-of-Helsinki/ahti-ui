@@ -1,30 +1,30 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Menu, { MenuItem } from '../Menu';
-import { IconLocation, IconFood } from 'hds-react';
 import { MemoryRouter } from 'react-router';
+
+import Menu, { MenuCategory } from '../Menu';
 import NavDropdown from '../NavDropdown/NavDropdown';
 
 describe('Menu', () => {
-  const menuItems: MenuItem[] = [
+  const menuItems: MenuCategory[] = [
     {
       title: 'islands',
-      icon: <IconLocation />,
-      links: [{ name: 'all_islands', url: '/map?type=myhelsinki' }]
+      category: 'ahti:category:island',
+      menuItems: [{ id: '', name: 'all_islands', url: '/map?type=myhelsinki' }]
     },
     {
       title: 'restaurants',
-      icon: <IconFood />,
-      links: [
-        { name: 'restaurants', url: '/', disabled: true },
-        { name: 'cafes', url: '/', disabled: true },
-        { name: 'beer_and_wine_bars', url: '/', disabled: true }
+      category: 'ahti:category:island',
+      menuItems: [
+        { id: '', name: 'restaurants', url: '/', disabled: true },
+        { id: '', name: 'cafes', url: '/', disabled: true },
+        { id: '', name: 'beer_and_wine_bars', url: '/', disabled: true }
       ]
     }
   ];
   const wrapper = mount(
     <MemoryRouter>
-      <Menu menuItems={menuItems} />
+      <Menu menuCategories={menuItems} />
     </MemoryRouter>
   );
 

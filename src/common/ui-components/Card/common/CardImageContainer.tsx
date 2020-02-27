@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import classNames from 'classnames/bind';
+
 import styles from './CardImageContainer.module.scss';
 import { Image } from '../../../../domain/api/generated/types.d';
 
@@ -15,7 +16,7 @@ interface PaginationProps {
 const Pagination: React.FC<PaginationProps> = ({ dots, index, setIndex }) => {
   const children = [];
 
-  for (let i = 0; i < dots; ++i) {
+  for (let i = 0; i < dots; i += 1) {
     children.push(
       <button key={i} onClick={() => setIndex(i)}>
         <div className={cx(styles.dot, { dotEnabled: i === index })} />
@@ -35,11 +36,11 @@ export interface CardImageContainerProps {
 }
 
 const CardImageContainer: React.FC<CardImageContainerProps> = ({ images }) => {
+  const [index, setIndex] = useState(0);
+
   if (images.length === 0) {
     return null;
   }
-
-  const [index, setIndex] = useState(0);
 
   return (
     <div
@@ -64,7 +65,9 @@ const CardImageContainer: React.FC<CardImageContainerProps> = ({ images }) => {
           );
         })}
       </SwipeableViews>
-      <Pagination dots={images.length} index={index} setIndex={setIndex} />
+      {images.length > 1 && (
+        <Pagination dots={images.length} index={index} setIndex={setIndex} />
+      )}
     </div>
   );
 };

@@ -1,16 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import faker from 'faker';
-import FEATURES_QUERY from '../queries/featuresQuery';
+
 import ferryData from './staticData/ferries.json';
 import harborData from './staticData/harbors.json';
 
 const resolvers = {
   Query: {
-    island: (_: any, args: { ahtiId: string }, { cache }: { cache: any }) => {
-      return cache
-        .readQuery({ query: FEATURES_QUERY })
-        .features.edges.map((edge: any) => edge.node)
-        .find((island: any) => island.properties.ahtiId === args.ahtiId);
-    },
     ferry: (_: any, args: { ahtiId: string }) => {
       return ferryData.find(ferry => ferry.properties.ahtiId === args.ahtiId);
     },

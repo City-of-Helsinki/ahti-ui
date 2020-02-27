@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
+
 import styles from './CardDescription.module.scss';
 import commonStyles from './commonStyles.module.scss';
 

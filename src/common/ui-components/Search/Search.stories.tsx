@@ -15,6 +15,7 @@ export default {
 
 export const DefaultSearch = () => (
   <Search
+    featuresToSearch={[]}
     onSelect={item => {
       alert(`clicked: ${item}`);
     }}

@@ -8,7 +8,6 @@
 .cardTextContainer {
   box-sizing: border-box;
   padding: $padding * 2;
-  position: relative;
   @include fullWidth;
   min-height: 30vh;
   background-color: var(--hds-ui-color-white);
@@ -18,7 +17,6 @@
 .cardContainer {
   @include fullWidth;
   box-sizing: border-box;
-  position: absolute;
   background-color: var(--hds-ui-color-white);
 }
 

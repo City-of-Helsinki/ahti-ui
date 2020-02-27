@@ -3,11 +3,7 @@
 @import '../../../styles/partials/mixins';
 
 .container {
-  @include fullWidth;
-  position: absolute;
-  background-color: white;
-  padding-left: $padding;
-  padding-right: $padding;
+  background-color: var(--hds-ui-color-white);
 
   /* Hide the scrollbar, but keep scrolling enabled */
   overflow-y: $vertical-overflow-scrollable;
@@ -24,12 +20,17 @@
   height: 0;
 }
 
+.containerFocused {
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
+}
+
 .searchItem {
   @include flex;
 }
 
 .infoContainer {
   @include fullWidth;
+  @include flex(column);
   border-bottom: 1px;
   border-bottom-style: solid;
   border-bottom-color: var(--hds-ui-color-black-10);
@@ -48,7 +49,6 @@
 }
 
 .address {
-  margin-bottom: 0.5rem;
   color: var(--hds-ui-color-black-70);
   font-weight: 400;
 }
@@ -65,10 +65,6 @@
 
 .searchInputWithIcon {
   @include flex;
-  @include fullWidth;
-  padding-bottom: $padding;
-  border-bottom: 1.5px;
-  border-bottom-style: solid;
 }
 
 .infoImage {
@@ -79,6 +75,8 @@
 
 .search {
   @include flex;
+}
+
+.resultsContainer {
   margin-top: $margin;
-  margin-bottom: $margin;
 }

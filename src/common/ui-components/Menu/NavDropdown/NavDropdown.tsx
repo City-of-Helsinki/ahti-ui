@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
-import styles from './NavDropdown.module.scss';
 import { IconAngleRight } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+
+import styles from './NavDropdown.module.scss';
+import CategoryIcon from '../../CategoryIcon/CategoryIcon';
 
 const cx = classNames.bind(styles);
 
 export interface NavDropdownProps {
   readonly title: string;
-  readonly icon: React.ReactElement;
+  readonly category: string;
   readonly initiallyOpen?: boolean;
 }
 
 const NavDropdown: React.FC<NavDropdownProps> = ({
   title,
-  icon,
+  category,
   initiallyOpen = false,
   children
 }) => {
@@ -31,7 +33,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({
         aria-pressed={isOpen}
         aria-label={isOpen ? t('menu.close_submenu') : t('menu.open_submenu')}
       >
-        {React.cloneElement(icon, { className: styles.icon })}
+        <CategoryIcon category={category} className={styles.icon} />
         <div className={styles.titleContainer}>{title}</div>
         <IconAngleRight
           className={cx({

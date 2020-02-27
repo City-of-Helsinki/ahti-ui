@@ -43,22 +43,14 @@ h6 {
 body {
   overflow-x: hidden;
   height: 100vh;
-  margin: 0 auto;
   // arbitrary max-width of 474px for wide screens
-  max-width: 474px;
-  position: relative;
 
   font-size: $text-base-size;
   font-family: $font-family;
 
   #root {
-    background: pink;
-    width: 100%;
-    min-height: 100%;
-    overflow-x: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    width: 474px;
+    margin: 0 auto;
+    position: relative;
   }
 }

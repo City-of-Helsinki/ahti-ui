@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
+
 import styles from './Tabs.module.scss';
 import { NonEmptyArray } from '../../../../alltypes';
 
