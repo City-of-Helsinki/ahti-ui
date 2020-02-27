@@ -1,15 +1,17 @@
+@import '../../../styles/partials/variables';
+
 .navigation {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  margin-bottom: $margin;
 
   button {
-    font-size: 16px;
-    font-weight: 500;
+    font-size: $font-size;
+    font-weight: $font-width-medium;
 
     border: none;
     background: none;
-    padding: 0.5rem 1rem 0.5rem 1rem;
+    padding: ($padding/2) $padding ($padding/2) $padding;
     color: var(--hds-brand-color-coat-of-arms-blue);
     border-bottom: 2px solid var(--hds-brand-color-coat-of-arms-blue);
 
@@ -20,13 +22,13 @@
 
   .unselected {
     color: var(--hds-ui-color-black);
-    border-bottom: unset;
+    border-bottom: $border-bottom-unset;
   }
 
   .disabled {
     pointer-events: none;
     color: var(--hds-ui-color-black-70);
-    border-bottom: unset;
+    border-bottom: $border-bottom-unset;
   }
 }
 

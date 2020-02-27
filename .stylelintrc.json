@@ -1,6 +1,6 @@
 {
   "plugins": ["stylelint-scss"],
-  "extends": "stylelint-config-standard-scss",
+  "extends": ["stylelint-config-recommended-scss"],
   "rules": {
     "indentation": 2,
     "string-quotes": "single",
@@ -23,7 +23,6 @@
     "font-weight-notation": "numeric",
     "comment-whitespace-inside": "always",
     "at-rule-no-vendor-prefix": true,
-    "rule-empty-line-before": "always",
     "selector-no-vendor-prefix": true,
     "selector-max-universal": 0,
     "selector-max-type": 0,
