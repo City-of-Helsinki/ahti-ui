@@ -1,4 +1,5 @@
 import { gql } from 'apollo-boost';
+
 import commonFeatures from '../fragments/commonFeatures';
 
 const FERRY_QUERY = gql`

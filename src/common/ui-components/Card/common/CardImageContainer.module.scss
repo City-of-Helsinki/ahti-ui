@@ -11,20 +11,16 @@ $dotShadowEnabled: $dotShadow * 2;
 
 .copyrightOwner {
   color: var(--hds-ui-color-white);
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
   font-size: 12px;
+  float: right;
 }
 
 .dotsContainer {
-  position: absolute;
   width: 0;
   height: 0;
 }
 
 .dots {
-  position: relative;
   bottom: $slideHeight - 0.5rem;
   left: 0.5rem;
   display: flex;

@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { IconSearch, IconClose } from 'hds-react';
+import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
+
 import styles from './Search.module.scss';
-import { IconClose, IconSearch } from 'hds-react';
 import {
-  FeatureProperties,
-  useFeaturesSearchQuery
+  Feature,
+  FeatureProperties
 } from '../../../domain/api/generated/types.d';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import escapeRegExp from './utils/escapeRegExp';
-import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
+
+const cx = classNames.bind(styles);
 
 export interface SearchData {
   readonly id: string;
@@ -35,7 +38,9 @@ export const SearchItem: React.FC<SearchItemProps> = ({
 
   return (
     <div className={styles.searchItem} onClick={() => onSelect(id)}>
-      <CategoryIcon className={styles.bigIcon} category={category} />
+      <div>
+        <CategoryIcon className={styles.bigIcon} category={category} />
+      </div>
       <div className={styles.infoContainer}>
         <div className={styles.name}>
           {parts.map((part: string, id: number) =>
@@ -56,79 +61,90 @@ export const SearchItem: React.FC<SearchItemProps> = ({
 
 interface SearchProps {
   readonly className?: string;
+  readonly resultsClassName?: string;
   readonly maxItems?: number;
+  readonly featuresToSearch: Feature[];
   onSelect(id: string): void;
 }
 
 const Search: React.FC<SearchProps> = ({
   className,
-  maxItems = 20,
+  resultsClassName,
+  featuresToSearch,
+  maxItems = 10,
   onSelect
 }) => {
   const { t } = useTranslation();
-  const { data } = useFeaturesSearchQuery();
   const [searchResults, setSearchResults] = useState<SearchData[]>([]);
   const [currentSearch, setCurrentSearch] = useState<string>('');
+  const [hasFocus, setHasFocus] = useState();
 
   useEffect(() => {
-    if (data && data.features && currentSearch !== '') {
-      const properties = data.features.edges?.reduce((acc: any, edge: any) => {
-        if (edge && edge.node && edge.node.properties) {
-          return [...acc, edge.node.properties];
-        }
-        return acc;
-      }, []);
-      setSearchResults(
-        properties
-          .map((property: FeatureProperties) => {
-            return {
-              id: property.ahtiId,
-              name: property.name,
-              location: property?.contactInfo?.address?.municipality,
-              category: property.category?.id
-            };
-          })
-          .filter((searchResult: SearchData) =>
-            searchResult.name
-              .toLowerCase()
-              .includes(currentSearch.toLowerCase())
-          )
-          .slice(0, maxItems)
-      );
-    } else {
+    if (currentSearch === '') {
       setSearchResults([]);
+      return;
     }
-  }, [currentSearch, data]);
+    const properties = featuresToSearch.reduce((acc: any, curr: any) => {
+      if (curr.properties) {
+        return [...acc, curr.properties];
+      } else return acc;
+    }, []);
+    setSearchResults(
+      properties
+        .map((property: FeatureProperties) => {
+          return {
+            id: property.ahtiId,
+            name: property.name,
+            location: property?.contactInfo?.address?.municipality,
+            category: property.category?.id
+          };
+        })
+        .filter((searchResult: SearchData) =>
+          searchResult.name.toLowerCase().includes(currentSearch.toLowerCase())
+        )
+        .slice(0, maxItems)
+    );
+  }, [currentSearch, featuresToSearch, maxItems]);
 
   return (
-    <div className={classNames(styles.container, className)}>
+    <div
+      className={cx(styles.container, className, {
+        containerFocused: hasFocus
+      })}
+      tabIndex={0}
+      onFocus={() => setHasFocus(true)}
+      onBlur={() => setHasFocus(false)}
+    >
       <div className={styles.search}>
         <div className={styles.searchInputWithIcon}>
-          <IconSearch className={styles.bigIcon} />
+          <div>
+            <IconSearch className={styles.bigIcon} />
+          </div>
           <input
             type="text"
             value={currentSearch}
             className={styles.searchInput}
             onChange={event => setCurrentSearch(event.target.value)}
             aria-label={t('search.search')}
+            placeholder={t('search.search')}
           />
-          <button
-            onClick={() => setCurrentSearch('')}
-            className={styles.closeButton}
-            aria-label={t('search.close')}
-          >
-            <IconClose className={styles.bigIcon} />
-          </button>
         </div>
       </div>
-      {searchResults.map((item: SearchData, id: number) => (
-        <SearchItem
-          key={id}
-          {...item}
-          currentSearch={currentSearch}
-          onSelect={onSelect}
-        />
-      ))}
+      {hasFocus && searchResults.length > 0 && (
+        <div className={cx(styles.resultsContainer, resultsClassName)}>
+          {searchResults.map((item: SearchData, id: number) => (
+            <SearchItem
+              key={id}
+              {...item}
+              currentSearch={currentSearch}
+              onSelect={id => {
+                setCurrentSearch('');
+                onSelect(id);
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

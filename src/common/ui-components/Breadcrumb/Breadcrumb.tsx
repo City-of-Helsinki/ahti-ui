@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
+
 import Pill from './Pill';
 import styles from './Breadcrumb.module.scss';
 
 export type BreadcrumbItem = {
-  readonly category: string;
+  readonly category?: string;
   readonly name: string;
   readonly id: string;
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconLocation } from 'hds-react';
+
 import styles from './CategoryIcon.module.scss';
 
 interface CategoryIconProps {

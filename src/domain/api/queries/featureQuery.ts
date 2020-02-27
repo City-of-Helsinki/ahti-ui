@@ -1,26 +1,25 @@
 import { gql } from 'apollo-boost';
 
-const ISLAND_QUERY = gql`
-  query island($ahtiId: String!) {
-    island(ahtiId: $ahtiId) @client {
+const FEATURE_QUERY = gql`
+  query feature($ahtiId: String) {
+    feature(ahtiId: $ahtiId) {
+      id
+      type
       geometry {
         type
         coordinates
       }
       properties {
-        images {
-          url
-          copyrightOwner
+        ahtiId
+        category {
+          id
         }
+        name
         tags {
           name
         }
-        source {
-          system
-        }
-        name
         description
-        modifiedAt
+        shortDescription @client
         url
         contactInfo {
           phoneNumber
@@ -29,13 +28,21 @@ const ISLAND_QUERY = gql`
             municipality
           }
         }
-        harbors @client {
+        images {
+          url
+          copyrightOwner
+        }
+        source {
+          system
+        }
+        modifiedAt
+        ferries @client {
           properties {
             ahtiId
             name
           }
         }
-        ferries @client {
+        harbors @client {
           properties {
             ahtiId
             name
@@ -46,4 +53,4 @@ const ISLAND_QUERY = gql`
   }
 `;
 
-export default ISLAND_QUERY;
+export default FEATURE_QUERY;

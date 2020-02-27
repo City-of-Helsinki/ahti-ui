@@ -1,6 +1,6 @@
 const localizations: Record<string, string[]> = {
   en: ['N', 'S', 'E', 'W'],
-  fi: ['P', 'E', 'I', 'L'],
+  fi: ['P', 'E', 'I', 'L']
 };
 
 const toDegreesMinutesAndSeconds = (coordinate: number): string => {

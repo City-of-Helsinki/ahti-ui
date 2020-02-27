@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
+
 import Card from '../Card';
 import HarborContent from '../harbor/HarborContent';
 import IslandContent from '../island/IslandContent';
@@ -36,9 +37,7 @@ describe('Card', () => {
 
     testParamsList.forEach(testParams => {
       onlyContains(
-        shallow(
-          <Card feature={testParams.data} selectFeature={() => undefined} />
-        ),
+        shallow(<Card feature={testParams.data} />),
         testParams.contentType
       );
     });

@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+
 import CardImageContainer from './common/CardImageContainer';
 import styles from './Card.module.scss';
 import HarborContent from './harbor/HarborContent';
@@ -9,14 +10,9 @@ import IslandContent from './island/IslandContent';
 export interface CardProps {
   readonly className?: string;
   readonly feature: any;
-  selectFeature(ahtiId: string): void;
 }
 
-const Card: React.FC<CardProps> = ({
-  className,
-  feature,
-  selectFeature
-}: CardProps) => {
+const Card: React.FC<CardProps> = ({ className, feature }: CardProps) => {
   const type = feature.__typename;
   const { name, images, tags } = feature.properties;
   const { postalCode, municipality } = feature.properties.contactInfo.address;
@@ -45,9 +41,7 @@ const Card: React.FC<CardProps> = ({
           >{`${postalCode} ${municipality}`}</h2>
           <div className={styles.tagsContainer}>{renderTags()}</div>
 
-          {type === 'Feature' && (
-            <IslandContent island={feature} selectFeature={selectFeature} />
-          )}
+          {type === 'Feature' && <IslandContent island={feature} />}
           {type === 'Harbor' && <HarborContent harbor={feature} />}
           {type === 'Ferry' && <FerryContent ferry={feature} />}
         </div>

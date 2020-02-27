@@ -1,23 +1,25 @@
 import React from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
-import graphQLClient from '../api';
-import { useFeaturesQuery } from '../api/generated/types.d';
+import { createOvermind } from 'overmind';
+import { Provider } from 'overmind-react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-const FeatureList: React.FC = () => {
-  const { data } = useFeaturesQuery();
-  return (
-    <ul>
-      {data?.features?.edges?.map((feature, id) => (
-        <li key={id}>{feature?.node?.properties?.name}</li>
-      ))}
-    </ul>
-  );
-};
+import graphQLClient from '../api';
+import { config } from '../overmind';
+import Ahti from '../Ahti/Ahti';
+import Features from '../Ahti/Features';
+
+const overmind = createOvermind(config);
 
 const App: React.FC = () => {
   return (
     <ApolloProvider client={graphQLClient}>
-      <FeatureList />
+      <Provider value={overmind}>
+        <Features />
+        <Router>
+          <Ahti />
+        </Router>
+      </Provider>
     </ApolloProvider>
   );
 };

@@ -1,4 +1,7 @@
 {
+  "common": {
+    "back": "Back"
+  },
   "home": {
     "main_header": "Discover the beautiful archipelago of Helsinki!",
     "see_all_button": "See all places",
