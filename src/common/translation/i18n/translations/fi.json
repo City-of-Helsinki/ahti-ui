@@ -1,4 +1,7 @@
 {
+  "common": {
+    "back": "Takaisin"
+  },
   "home": {
     "main_header": "Löydä mahtava merellinen Helsinki Ahdin avulla!",
     "see_all_button": "Näytä kaikki kohteet",

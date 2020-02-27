@@ -1,46 +1,51 @@
-import React, { useState } from 'react';
-import styles from './Menu.module.scss';
-import NavDropdown from './NavDropdown/NavDropdown';
+import React, { ReactNode, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { IconMenu, IconClose } from 'hds-react';
-import { ReactComponent as AhtiLogo } from '../../../assets/icons/ahti_logo.svg';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 
-export type Link = {
+import { ReactComponent as AhtiLogo } from '../../../assets/icons/ahti_logo.svg';
+import NavDropdown from './NavDropdown/NavDropdown';
+import styles from './Menu.module.scss';
+
+export type MenuItem = {
+  readonly id: string;
   readonly name: string;
-  readonly url: string;
+  readonly url?: string;
   readonly outbound?: boolean;
   readonly disabled?: boolean;
 };
 
-export type MenuItem = {
+export type MenuCategory = {
   readonly title: string;
-  readonly icon: React.ReactElement;
-  readonly links: Link[];
+  readonly category: string;
+  readonly menuItems: MenuItem[];
 };
 
 export interface MenuProps {
   readonly className?: string;
   readonly translate?: boolean;
-  readonly menuItems: MenuItem[];
+  readonly menuCategories: MenuCategory[];
+  readonly openComponent?: ReactNode;
+  readonly closedComponent?: ReactNode;
+  onSelect?(menuItem: MenuItem): void;
 }
 
-const translateMenuItems = (
+const translateMenuCategories = (
   t: TFunction,
-  menuItems: MenuItem[]
-): MenuItem[] => {
-  return menuItems.map(
-    (menuItem: MenuItem): MenuItem => {
+  menuCategories: MenuCategory[]
+): MenuCategory[] => {
+  return menuCategories.map(
+    (menuCategory: MenuCategory): MenuCategory => {
       return {
-        ...menuItem,
-        title: t(`menu.title.${menuItem.title}`),
-        links: menuItem.links.map(
-          (link: Link): Link => {
+        ...menuCategory,
+        title: t(`menu.title.${menuCategory.title}`),
+        menuItems: menuCategory.menuItems.map(
+          (menuItem: MenuItem): MenuItem => {
             return {
-              ...link,
-              name: t(`menu.link.${menuItem.title}.${link.name}`)
+              ...menuItem,
+              name: t(`menu.link.${menuCategory.title}.${menuItem.name}`)
             };
           }
         )
@@ -52,35 +57,41 @@ const translateMenuItems = (
 const Menu: React.FC<MenuProps> = ({
   className,
   translate = false,
-  menuItems,
-  children
+  menuCategories,
+  openComponent,
+  closedComponent,
+  onSelect
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
 
-  const items: MenuItem[] = translate
-    ? translateMenuItems(t, menuItems)
-    : menuItems;
+  const items: MenuCategory[] = translate
+    ? translateMenuCategories(t, menuCategories)
+    : menuCategories;
 
   const renderMenuContent = () => {
     return (
       <div className={styles.menuContentContainer}>
-        {items.map((item: MenuItem, id: number) => {
+        {items.map((item: MenuCategory, id: number) => {
           return (
-            <NavDropdown key={id} title={item.title} icon={item.icon}>
+            <NavDropdown key={id} title={item.title} category={item.category}>
               <nav className={styles.navDropdownContent}>
-                {item.links.map((link: Link, id: number) => {
+                {item.menuItems.map((menuItem: MenuItem, id: number) => {
                   return (
-                    <RouterLink
+                    <button
                       key={id}
-                      to={link.url}
                       className={classNames(
                         styles.navLink,
-                        link.disabled && styles.navLinkDisabled
+                        menuItem.disabled && styles.navLinkDisabled
                       )}
+                      disabled={menuItem.disabled}
+                      onClick={() => {
+                        setIsOpen(false);
+                        onSelect && onSelect(menuItem);
+                      }}
                     >
-                      {link.name}
-                    </RouterLink>
+                      {menuItem.name}
+                    </button>
                   );
                 })}
               </nav>
@@ -94,21 +105,30 @@ const Menu: React.FC<MenuProps> = ({
   return (
     <div className={classNames(styles.container, className)}>
       <div className={styles.headerContainer}>
-        <RouterLink to={'/'}>
-          <AhtiLogo />
-        </RouterLink>
-        {isOpen && children}
-        <button
-          className={styles.toggleMenuButton}
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? t('menu.close') : t('menu.open')}
-        >
-          {isOpen ? (
-            <IconClose className={styles.icon} />
-          ) : (
-            <IconMenu className={styles.icon} />
-          )}
-        </button>
+        <div>
+          <RouterLink to={'/'}>
+            <AhtiLogo />
+          </RouterLink>
+        </div>
+        <div>
+          <div className={styles.headerComponent}>
+            {isOpen && openComponent}
+            {!isOpen && closedComponent}
+          </div>
+        </div>
+        <div>
+          <button
+            className={styles.toggleMenuButton}
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? t('menu.close') : t('menu.open')}
+          >
+            {isOpen ? (
+              <IconClose className={styles.icon} />
+            ) : (
+              <IconMenu className={styles.icon} />
+            )}
+          </button>
+        </div>
       </div>
       {isOpen && renderMenuContent()}
     </div>

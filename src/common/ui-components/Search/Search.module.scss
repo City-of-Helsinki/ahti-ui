@@ -1,11 +1,7 @@
 @import '../../../styles/icons';
 
 .container {
-  width: 100%;
-  position: absolute;
   background-color: white;
-  padding-left: 1rem;
-  padding-right: 1rem;
 
   /* Hide the scrollbar, but keep scrolling enabled */
   overflow-y: scroll;
@@ -22,16 +18,18 @@
   height: 0;
 }
 
+.containerFocused {
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
+}
+
 .searchItem {
   display: flex;
   flex-direction: row;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .infoContainer {
-  width: 100%;
-  border-bottom: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: var(--hds-ui-color-black-10);
   margin-left: 1rem;
 }
 
@@ -47,7 +45,6 @@
 }
 
 .address {
-  margin-bottom: 0.5rem;
   color: var(--hds-ui-color-black-70);
   font-weight: 400;
 }
@@ -65,10 +62,6 @@
 .searchInputWithIcon {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  padding-bottom: 1rem;
-  border-bottom: 1.5px;
-  border-bottom-style: solid;
 }
 
 .infoImage {
@@ -80,6 +73,8 @@
 .search {
   display: flex;
   flex-direction: row;
+}
+
+.resultsContainer {
   margin-top: 1rem;
-  margin-bottom: 1rem;
 }

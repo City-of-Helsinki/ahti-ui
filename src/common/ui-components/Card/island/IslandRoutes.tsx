@@ -1,20 +1,18 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
 import styles from './IslandRoutes.module.scss';
 import { Ferry, Harbor } from '../../../../domain/api/generated/types.d';
+import { useOvermind } from '../../../../domain/overmind';
 
 export interface IslandRoutesProps {
   readonly harbors: Harbor[];
   readonly ferries: Ferry[];
-  selectFeature(ahtiId: string): void;
 }
 
-const IslandRoutes: React.FC<IslandRoutesProps> = ({
-  harbors,
-  ferries,
-  selectFeature
-}) => {
+const IslandRoutes: React.FC<IslandRoutesProps> = ({ harbors, ferries }) => {
   const { t } = useTranslation();
+  const { actions } = useOvermind();
 
   return (
     <div>
@@ -27,7 +25,7 @@ const IslandRoutes: React.FC<IslandRoutesProps> = ({
             <button
               className={styles.item}
               key={id}
-              onClick={() => selectFeature(harbor.properties.ahtiId)}
+              onClick={() => actions.selectHarbor(harbor.properties.ahtiId)}
             >
               {harbor.properties.name}
             </button>
@@ -43,9 +41,7 @@ const IslandRoutes: React.FC<IslandRoutesProps> = ({
             <button
               className={styles.item}
               key={id}
-              onClick={() => {
-                selectFeature(ferry.properties.ahtiId);
-              }}
+              onClick={() => actions.selectFerry(ferry.properties.ahtiId)}
             >
               {ferry.properties.name}
             </button>

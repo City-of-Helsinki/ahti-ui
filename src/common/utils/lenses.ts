@@ -11,6 +11,7 @@ export const featuresLens: Lens<FeaturesQuery, Feature[]> = {
       return [];
     }
     const features: Feature[] = data.features.edges.reduce(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       (acc: Array<any>, curr: any) => {
         if (curr && curr.node) {
           return [...acc, curr.node];

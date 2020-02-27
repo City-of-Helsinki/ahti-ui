@@ -1,9 +1,10 @@
 import React from 'react';
-import CommonCardInfo from '../common/CommonCardInfo';
 import { useTranslation } from 'react-i18next';
+import classNames from 'classnames';
+
+import CommonCardInfo from '../common/CommonCardInfo';
 import commonStyles from '../common/commonStyles.module.scss';
 import { formatDepth, formatPrice } from '../../../utils/text';
-import classNames from 'classnames';
 
 export interface HarborContentProps {
   readonly harbor: any;

@@ -1,56 +1,18 @@
 import React from 'react';
-import Search, { SearchData, SearchItem } from '../Search';
 import { mount, ReactWrapper, shallow, ShallowWrapper } from 'enzyme';
-import { MockedProvider } from '@apollo/react-testing';
 import { act } from 'react-dom/test-utils';
 import waitForExpect from 'wait-for-expect';
-import FEATURES_SEARCH_QUERY from '../../../../domain/api/queries/featuresSearchQuery';
 
-// declare module '@apollo/react-testing' {
-//   export interface MockedProvider {
-//     mocks: any;
-//   }
-// }
-// type MockedProviderOne extends MockedProvider  {
-//   mocks: any;
-// }
+import Search, { SearchData, SearchItem } from '../Search';
+import mockFeatures from './mockFeatures.json';
+
 describe('Search', () => {
   let searchWrapper: ReactWrapper;
-  const mocks = [
-    {
-      request: { query: FEATURES_SEARCH_QUERY },
-      result: {
-        data: {
-          features: {
-            edges: [
-              {
-                node: {
-                  properties: {
-                    ahtiId: 'myhelsinki:place:364',
-                    category: {
-                      id: 'ahti:category:island'
-                    },
-                    name: 'Harakan luontokeskus',
-                    contactInfo: {
-                      address: {
-                        municipality: 'Helsinki'
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        }
-      }
-    }
-  ];
 
   beforeEach(() => {
     searchWrapper = mount(
-      <MockedProvider mocks={mocks} addTypename={false}>
-        <Search onSelect={jest.fn()} />
-      </MockedProvider>
+      // @ts-ignore
+      <Search featuresToSearch={mockFeatures} onSelect={jest.fn()} />
     );
   });
 
@@ -66,12 +28,6 @@ describe('Search', () => {
         expect(searchWrapper.find(SearchItem)).toHaveLength(1);
       });
     });
-  });
-
-  it('clicking cross clears current search', () => {
-    searchWrapper.find('input').simulate('change', { target: { value: 'a' } });
-    searchWrapper.find('.closeButton').simulate('click');
-    expect(searchWrapper.find('input').prop('value')).toEqual('');
   });
 });
 

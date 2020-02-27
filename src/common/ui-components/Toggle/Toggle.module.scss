@@ -1,0 +1,24 @@
+@import '../../../styles/icons';
+
+$toggle-margin: 5px;
+
+.container {
+  display: flex;
+  background-color: var(--hds-ui-color-black-20);
+  width: $small-icon-height * 2 + $toggle-margin * 4;
+  border-radius: 20px;
+}
+
+.toggle {
+  border-radius: 20px;
+
+  > svg {
+    width: $small-icon-width;
+    height: $small-icon-height;
+    margin: $toggle-margin;
+  }
+}
+
+.toggleOn {
+  background-color: var(--hds-ui-color-white);
+}

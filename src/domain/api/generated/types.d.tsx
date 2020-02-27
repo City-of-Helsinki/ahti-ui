@@ -1,3 +1,4 @@
+/* eslint-disable */
 import gql from 'graphql-tag';
 import * as React from 'react';
 import * as ApolloReactCommon from '@apollo/react-common';
@@ -12,8 +13,9 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  GenericScalar: any;
+  Geometry: any;
   DateTime: Date;
+  GenericScalar: any;
   Date: any;
   Time: any;
 };
@@ -31,6 +33,47 @@ export type ContactInfo = {
   email: Scalars['String'];
   address?: Maybe<Address>;
 };
+
+export type Distance = {
+  unit: DistanceUnitEnum;
+  value: Scalars['Float'];
+  geometry: Scalars['Geometry'];
+};
+
+export enum DistanceUnitEnum {
+  Chain = 'chain',
+  ChainBenoit = 'chain_benoit',
+  ChainSears = 'chain_sears',
+  BritishChainBenoit = 'british_chain_benoit',
+  BritishChainSears = 'british_chain_sears',
+  BritishChainSearsTruncated = 'british_chain_sears_truncated',
+  Cm = 'cm',
+  BritishFt = 'british_ft',
+  BritishYd = 'british_yd',
+  ClarkeFt = 'clarke_ft',
+  ClarkeLink = 'clarke_link',
+  Fathom = 'fathom',
+  Ft = 'ft',
+  Furlong = 'furlong',
+  GermanM = 'german_m',
+  GoldCoastFt = 'gold_coast_ft',
+  IndianYd = 'indian_yd',
+  Inch = 'inch',
+  Km = 'km',
+  Link = 'link',
+  LinkBenoit = 'link_benoit',
+  LinkSears = 'link_sears',
+  M = 'm',
+  Mi = 'mi',
+  Mm = 'mm',
+  Nm = 'nm',
+  NmUk = 'nm_uk',
+  Rod = 'rod',
+  SearsYd = 'sears_yd',
+  SurveyFt = 'survey_ft',
+  Um = 'um',
+  Yd = 'yd'
+}
 
 export type Feature = Node & {
   __typename?: 'Feature';
@@ -54,6 +97,11 @@ export type FeatureCategoryFeaturesArgs = {
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  distanceLte?: Maybe<Distance>;
+  updatedSince?: Maybe<Scalars['DateTime']>;
+  taggedWithAny?: Maybe<Array<Maybe<Scalars['String']>>>;
+  taggedWithAll?: Maybe<Array<Maybe<Scalars['String']>>>;
+  category?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type FeatureConnection = {
@@ -252,6 +300,11 @@ export type QueryFeaturesArgs = {
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   last?: Maybe<Scalars['Int']>;
+  distanceLte?: Maybe<Distance>;
+  updatedSince?: Maybe<Scalars['DateTime']>;
+  taggedWithAny?: Maybe<Array<Maybe<Scalars['String']>>>;
+  taggedWithAll?: Maybe<Array<Maybe<Scalars['String']>>>;
+  category?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type QueryFerryArgs = {
@@ -342,7 +395,10 @@ export type CommonFeaturesFragment =
   | CommonFeatures_Ferry_Fragment
   | CommonFeatures_Harbor_Fragment;
 
-export type FeaturesQueryVariables = {};
+export type FeaturesQueryVariables = {
+  first?: Maybe<Scalars['Int']>;
+  category?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
 
 export type FeaturesQuery = { __typename?: 'Query' } & {
   features: Maybe<
@@ -419,48 +475,6 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                       }
                   >;
                 }
-            >;
-          }
-        >
-      >;
-    }
-  >;
-};
-
-export type FeaturesSearchQueryVariables = {};
-
-export type FeaturesSearchQuery = { __typename?: 'Query' } & {
-  features: Maybe<
-    { __typename?: 'FeatureConnection' } & {
-      edges: Array<
-        Maybe<
-          { __typename?: 'FeatureEdge' } & {
-            node: Maybe<
-              { __typename?: 'Feature' } & {
-                properties: Maybe<
-                  { __typename?: 'FeatureProperties' } & Pick<
-                    FeatureProperties,
-                    'ahtiId' | 'name'
-                  > & {
-                      category: Maybe<
-                        { __typename?: 'FeatureCategory' } & Pick<
-                          FeatureCategory,
-                          'id'
-                        >
-                      >;
-                      contactInfo: Maybe<
-                        { __typename?: 'ContactInfo' } & {
-                          address: Maybe<
-                            { __typename?: 'Address' } & Pick<
-                              Address,
-                              'municipality'
-                            >
-                          >;
-                        }
-                      >;
-                    }
-                >;
-              }
             >;
           }
         >
@@ -606,8 +620,8 @@ export const CommonFeaturesFragmentDoc = gql`
   }
 `;
 export const FeaturesDocument = gql`
-  query features {
-    features {
+  query features($first: Int, $category: [String]) {
+    features(first: $first, category: $category) {
       edges {
         node {
           id
@@ -688,6 +702,8 @@ export const FeaturesComponent = (props: FeaturesComponentProps) => (
  * @example
  * const { data, loading, error } = useFeaturesQuery({
  *   variables: {
+ *      first: // value for 'first'
+ *      category: // value for 'category'
  *   },
  * });
  */
@@ -720,95 +736,6 @@ export type FeaturesLazyQueryHookResult = ReturnType<
 export type FeaturesQueryResult = ApolloReactCommon.QueryResult<
   FeaturesQuery,
   FeaturesQueryVariables
->;
-export const FeaturesSearchDocument = gql`
-  query featuresSearch {
-    features {
-      edges {
-        node {
-          properties {
-            ahtiId
-            category {
-              id
-            }
-            name
-            contactInfo {
-              address {
-                municipality
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-export type FeaturesSearchComponentProps = Omit<
-  ApolloReactComponents.QueryComponentOptions<
-    FeaturesSearchQuery,
-    FeaturesSearchQueryVariables
-  >,
-  'query'
->;
-
-export const FeaturesSearchComponent = (
-  props: FeaturesSearchComponentProps
-) => (
-  <ApolloReactComponents.Query<
-    FeaturesSearchQuery,
-    FeaturesSearchQueryVariables
-  >
-    query={FeaturesSearchDocument}
-    {...props}
-  />
-);
-
-/**
- * __useFeaturesSearchQuery__
- *
- * To run a query within a React component, call `useFeaturesSearchQuery` and pass it any options that fit your needs.
- * When your component renders, `useFeaturesSearchQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useFeaturesSearchQuery({
- *   variables: {
- *   },
- * });
- */
-export function useFeaturesSearchQuery(
-  baseOptions?: ApolloReactHooks.QueryHookOptions<
-    FeaturesSearchQuery,
-    FeaturesSearchQueryVariables
-  >
-) {
-  return ApolloReactHooks.useQuery<
-    FeaturesSearchQuery,
-    FeaturesSearchQueryVariables
-  >(FeaturesSearchDocument, baseOptions);
-}
-export function useFeaturesSearchLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    FeaturesSearchQuery,
-    FeaturesSearchQueryVariables
-  >
-) {
-  return ApolloReactHooks.useLazyQuery<
-    FeaturesSearchQuery,
-    FeaturesSearchQueryVariables
-  >(FeaturesSearchDocument, baseOptions);
-}
-export type FeaturesSearchQueryHookResult = ReturnType<
-  typeof useFeaturesSearchQuery
->;
-export type FeaturesSearchLazyQueryHookResult = ReturnType<
-  typeof useFeaturesSearchLazyQuery
->;
-export type FeaturesSearchQueryResult = ApolloReactCommon.QueryResult<
-  FeaturesSearchQuery,
-  FeaturesSearchQueryVariables
 >;
 export const FerryDocument = gql`
   query ferry($ahtiId: String!) {

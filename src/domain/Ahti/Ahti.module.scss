@@ -1,0 +1,14 @@
+.menu {
+  background-color: var(--hds-ui-color-white);
+}
+
+.search {
+  width: 250px;
+}
+
+.subHeading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+}

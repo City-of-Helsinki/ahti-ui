@@ -1,11 +1,6 @@
-.cardContentContainer {
-  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
-}
-
 .cardTextContainer {
   box-sizing: border - box;
   padding: 2rem 2rem;
-  position: relative;
   width: 100%;
   min-height: 30vh;
   background-color: var(--hds-ui-color-white);
@@ -15,7 +10,6 @@
 .cardContainer {
   width: 100%;
   box-sizing: border-box;
-  position: absolute;
   background-color: var(--hds-ui-color-white);
 }
 
