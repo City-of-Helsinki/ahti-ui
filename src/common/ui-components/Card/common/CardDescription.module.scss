@@ -1,3 +1,6 @@
+@import '../../../../styles/partials/variables';
+@import '../../../../styles/partials/mixins';
+
 .descriptionContainer {
   max-height: 200px;
   overflow: hidden;
@@ -9,12 +12,11 @@
 }
 
 .showMoreButton {
+  @include buttonReset;
   color: var(--hds-brand-color-coat-of-arms-blue);
-  border: none;
-  background: none;
   font-size: 14px;
-  line-height: 26px;
-  font-weight: 700;
+  line-height: $line-height;
+  font-weight: $font-width-thick;
 
   &::after {
     font-size: 120%;

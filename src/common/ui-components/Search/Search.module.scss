@@ -1,14 +1,16 @@
 @import '../../../styles/icons';
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
 
 .container {
-  width: 100%;
+  @include fullWidth;
   position: absolute;
   background-color: white;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: $padding;
+  padding-right: $padding;
 
   /* Hide the scrollbar, but keep scrolling enabled */
-  overflow-y: scroll;
+  overflow-y: $vertical-overflow-scrollable;
 
   /* Firefox */
   scrollbar-width: none;
@@ -23,22 +25,21 @@
 }
 
 .searchItem {
-  display: flex;
-  flex-direction: row;
+  @include flex;
 }
 
 .infoContainer {
-  width: 100%;
+  @include fullWidth;
   border-bottom: 1px;
   border-bottom-style: solid;
   border-bottom-color: var(--hds-ui-color-black-10);
-  margin-left: 1rem;
+  margin-left: $margin;
 }
 
 .name {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 26px;
+  font-size: $font-size;
+  font-weight: $font-width-thick;
+  line-height: $line-height;
 }
 
 .nameMark {
@@ -53,9 +54,9 @@
 }
 
 .searchInput {
-  width: 100%;
+  @include fullWidth;
   border: none;
-  margin-left: 1rem;
+  margin-left: $margin;
 }
 
 .searchInput:focus {
@@ -63,23 +64,21 @@
 }
 
 .searchInputWithIcon {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding-bottom: 1rem;
+  @include flex;
+  @include fullWidth;
+  padding-bottom: $padding;
   border-bottom: 1.5px;
   border-bottom-style: solid;
 }
 
 .infoImage {
-  height: 30px;
-  width: 30px;
+  height: $image-width;
+  width: $image-width;
   cursor: pointer;
 }
 
 .search {
-  display: flex;
-  flex-direction: row;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  @include flex;
+  margin-top: $margin;
+  margin-bottom: $margin;
 }

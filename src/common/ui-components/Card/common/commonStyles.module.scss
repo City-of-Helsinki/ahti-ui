@@ -1,35 +1,36 @@
 @import '../../../../styles/icons';
+@import '../../../../styles/partials/variables';
 
 .container {
   font-size: 14px;
-  font-weight: 400;
-  line-height: 26px;
+  font-weight: $font-width-normal;
+  line-height: $line-height;
 }
 
 .bodyText {
   font-size: 14px;
-  line-height: 26px;
+  line-height: $line-height;
   white-space: pre-line;
 }
 
 .subheading {
   color: rgb(29, 29, 29);
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 26px;
+  font-size: $font-size;
+  font-weight: $font-width-thick;
+  line-height: $line-height;
 }
 
 .gridItem {
   display: grid;
   grid-template-columns: 30% auto;
   grid-column-gap: 2rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: $margin;
+  margin-bottom: $margin;
 }
 
 .bookingUrlContainer {
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-top: $margin * 3;
+  margin-bottom: $margin * 2;
   color: var(--hds-ui-color-white);
 }
 
@@ -37,12 +38,12 @@
   grid-column: 2;
   display: flex;
   justify-content: center;
-  padding: 0.5rem;
+  padding: $padding/2;
   background-color: var(--hds-brand-color-coat-of-arms-blue);
   color: var(--hds-ui-color-white);
   text-decoration: none;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: $font-size;
+  line-height: $line-height;
 }
 
 .infoLink {
@@ -51,7 +52,7 @@
 }
 
 .line {
-  margin: 1rem 0;
+  margin: $margin 0;
   border-color: var(--hds-ui-color-black);
 }
 
@@ -59,7 +60,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  line-height: 26px;
+  line-height: $line-height;
 }
 
 .iconContainer {
@@ -70,6 +71,5 @@
 
 .infoIcon {
   @extend .icon;
-
-  margin-right: 1rem;
+  margin-right: $margin;
 }
