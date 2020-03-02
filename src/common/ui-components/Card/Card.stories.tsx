@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Card from './Card';
 import harbors from '../../../domain/api/client/staticData/harbors.json';
 import ferries from '../../../domain/api/client/staticData/ferries.json';
@@ -9,25 +10,19 @@ export default {
   component: Card
 };
 
-export const HarborCard = () => (
-  <Card feature={harbors[0]} selectFeature={() => {}} />
-);
+export const HarborCard = () => <Card feature={harbors[0]} />;
 
 HarborCard.story = {
   name: 'Harbor'
 };
 
-export const FerryCard = () => (
-  <Card feature={ferries[0]} selectFeature={() => {}} />
-);
+export const FerryCard = () => <Card feature={ferries[0]} />;
 
 FerryCard.story = {
   name: 'Ferry'
 };
 
-export const IslandCard = () => {
-  return <Card feature={island} selectFeature={() => {}} />;
-};
+export const IslandCard = () => <Card feature={island} />;
 
 IslandCard.story = {
   name: 'Island'

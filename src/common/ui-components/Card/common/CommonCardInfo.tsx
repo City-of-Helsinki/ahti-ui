@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from './commonStyles.module.scss';
 import { IconInfo, IconLocation } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+
+import styles from './commonStyles.module.scss';
 import localizedToDMS from '../../../utils/dms';
 
 const CommonCardInfo = ({ feature }: { feature: any }) => {

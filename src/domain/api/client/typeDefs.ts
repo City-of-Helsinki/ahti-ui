@@ -82,7 +82,6 @@ const typeDefs = gql`
   }
 
   extend type Query {
-    island(ahtiId: String!): Feature
     ferry(ahtiId: String!): Ferry
     harbor(ahtiId: String!): Harbor
   }
