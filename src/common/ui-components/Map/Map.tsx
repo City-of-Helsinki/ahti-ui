@@ -10,7 +10,7 @@ export interface Props {
 }
 
 const Map = ({ className }: Props) => {
-  const center = [24.944, 60.15];
+  const center: number[] = [24.944, 60.15];
   const style = 'mapbox://styles/mapbox/streets-v9';
 
   const MapGL = ReactMapboxGl({
@@ -22,7 +22,7 @@ const Map = ({ className }: Props) => {
     <div className={classNames(styles.container, className)}>
       <MapGL
         style={style}
-        center={center}
+        center={[24.944, 60.15]}
         containerStyle={{
           height: '100vh',
           width: '472px'
