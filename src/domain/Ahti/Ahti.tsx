@@ -12,6 +12,7 @@ import Card from '../../common/ui-components/Card/Card';
 import BackButton from '../../common/ui-components/BackButton/BackButton';
 import Search from '../../common/ui-components/Search/Search';
 import Toggle from '../../common/ui-components/Toggle/Toggle';
+import Map from '../../common/ui-components/Map/Map';
 
 const Ahti: React.FC = () => {
   const { state, actions } = useOvermind();
@@ -55,18 +56,25 @@ const Ahti: React.FC = () => {
         />
       </div>
       <div className={styles.content}>
-        {state.selectedFeature && (
-          <>
-            <BackButton onBack={() => actions.clearSelectedFeature()} />
-            <Card feature={state.selectedFeature} />
-          </>
-        )}
         {!state.selectedFeature && !state.mapViewToggle && (
           <ListView
             features={state.features}
             className={styles.menu}
             onClick={feature => actions.selectFeature(feature)}
           />
+        )}
+        {state.mapViewToggle && (
+          <Map
+            className={styles.map}
+            features={state.features}
+            onClick={actions.selectFeature}
+          />
+        )}
+        {state.selectedFeature && (
+          <>
+            <BackButton onBack={() => actions.clearSelectedFeature()} />
+            <Card feature={state.selectedFeature} />
+          </>
         )}
       </div>
     </div>
