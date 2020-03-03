@@ -224,6 +224,7 @@ export const MapComponent = () => {
       }
     }
   ];
+  // @ts-ignore
   return <Map features={mapFeatures} />;
 };
 

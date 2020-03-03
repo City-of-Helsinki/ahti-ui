@@ -76,8 +76,12 @@
   @include flex;
 }
 
-.resultsContainer {
+.resultsContainerAbsolute {
   position: absolute;
-  background-color: var(--hds-ui-color-white);
   margin-top: $margin;
+}
+
+.resultsContainerRelative {
+  position: relative;
+  background-color: var(--hds-ui-color-white);
 }
