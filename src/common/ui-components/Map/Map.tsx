@@ -7,9 +7,12 @@ import mapStyle from '../../../assets/mapStyle.json';
 import {
   initialLatitude,
   initialLongitude,
-  initialZoomLevel
+  initialZoomLevel,
+  maxZoomLevel,
+  minZoomLevel
 } from '../../constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
+import styles from './Map.module.scss';
 
 interface MapProps {
   readonly className?: string;
@@ -33,7 +36,9 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
   const [viewPort, setViewPort] = useState({
     latitude: initialLatitude,
     longitude: initialLongitude,
-    zoom: initialZoomLevel
+    zoom: initialZoomLevel,
+    minZoom: minZoomLevel,
+    maxZoom: maxZoomLevel
   });
 
   const renderPin = (feature: Feature, id: number) => {
@@ -43,7 +48,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
         longitude={feature.geometry.coordinates[0]}
         latitude={feature.geometry.coordinates[1]}
       >
-        <div onClick={() => onClick(feature)}>
+        <div onClick={() => onClick(feature)} className={styles.markerContent}>
           <CategoryIcon category={feature?.properties?.category?.name} />
         </div>
       </Marker>
