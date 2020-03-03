@@ -60,7 +60,6 @@ const Ahti: React.FC = () => {
         {!state.selectedFeature && !state.mapViewToggle && (
           <ListView
             features={state.features}
-            className={styles.menu}
             onClick={feature => actions.selectFeature(feature)}
           />
         )}
