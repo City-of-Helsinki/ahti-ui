@@ -8360,6 +8360,11 @@ gensync@^1.0.0-beta.1:
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.1.tgz#58f4361ff987e5ff6e1e7a210827aa371eaac269"
   integrity sha512-r8EC6NO1sngH/zdD9fiRDLdcgnbayXah+mLgManTaIZJqEC1MZstmnox8KpnI2/fxQwrp5OpCOYWLp4rBl4Jcg==
 
+geojson-bounding-box@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/geojson-bounding-box/-/geojson-bounding-box-0.2.0.tgz#724b2e1be12671a07bea729da758d038d7d876ca"
+  integrity sha512-VmBZ1DC8q+0dNlphppacim000KUQU9Yw+Q8A8m8zuQ3D6zNdp3RGFZPI8zdTLaPXK6dCfJWuDYwle3t/iYWUYw==
+
 geojson-vt@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/geojson-vt/-/geojson-vt-3.2.1.tgz#f8adb614d2c1d3f6ee7c4265cad4bbf3ad60c8b7"
@@ -14385,6 +14390,11 @@ react-spring@^8.0.27:
   dependencies:
     "@babel/runtime" "^7.3.1"
     prop-types "^15.5.8"
+
+react-supercluster@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-supercluster/-/react-supercluster-1.0.0.tgz#64f6dc3120acb834039793eacaad4c21dbd7462d"
+  integrity sha512-qd56sCycEduWyqTsxKgqvuxejGs0+J5Yi8hN9ZvXPUlxJYS9KHPd3EPlyJBKy3Pi2N7kcuNLTsRw6RTD3K0sVw==
 
 react-swipeable-views-core@^0.13.7:
   version "0.13.7"
