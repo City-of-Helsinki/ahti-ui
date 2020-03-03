@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { IconSearch, IconClose } from 'hds-react';
+import { IconSearch } from 'hds-react';
 import classNames from 'classnames/bind';
 import { useTranslation } from 'react-i18next';
 

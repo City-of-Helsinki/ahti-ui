@@ -1,0 +1,25 @@
+@import '../../../styles/icons';
+
+$toggle-margin: 5px;
+$border-radius: 20px;
+
+.container {
+  display: flex;
+  background-color: var(--hds-ui-color-black-20);
+  width: $small-icon-height * 2 + $toggle-margin * 4;
+  border-radius: $border-radius;
+}
+
+.toggle {
+  border-radius: $border-radius;
+
+  > svg {
+    width: $small-icon-width;
+    height: $small-icon-height;
+    margin: $toggle-margin;
+  }
+}
+
+.toggleOn {
+  background-color: var(--hds-ui-color-white);
+}

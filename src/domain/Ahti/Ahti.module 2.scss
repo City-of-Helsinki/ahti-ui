@@ -1,0 +1,20 @@
+@import '../../styles/partials/variables';
+
+.menu {
+  background-color: var(--hds-ui-color-white);
+}
+
+.search {
+  width: $search-component-width;
+}
+
+.searchResults {
+  width: $search-component-width;
+}
+
+.subHeading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: $padding;
+}
