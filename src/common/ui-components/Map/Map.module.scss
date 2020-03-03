@@ -1,3 +1,15 @@
+@import '../../../styles/partials/variables';
+
 .markerContent {
   cursor: pointer;
+}
+
+.mapControls {
+  float: right;
+  margin-right: $margin;
+  margin-top: $margin;
+
+  .mapControlsDivider {
+    margin: $margin;
+  }
 }
