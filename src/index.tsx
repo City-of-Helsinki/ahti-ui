@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import * as Sentry from '@sentry/browser';
 
 import './styles/index.scss';
 import App from './domain/App/App';
@@ -7,6 +8,13 @@ import * as serviceWorker from './serviceWorker';
 import { initialize } from './common/translation/i18n/i18n';
 
 initialize();
+
+if (process.env.NODE_ENV !== 'development') {
+  Sentry.init({
+    dsn: process.env.REACT_APP_SENTRY_DSN,
+    environment: process.env.NODE_ENV
+  });
+}
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
