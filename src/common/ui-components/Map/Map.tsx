@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
-import MapGL, { Marker } from 'react-map-gl';
+// eslint-disable-next-line import/order
+import MapGL, {
+  GeolocateControl,
+  Marker,
+  NavigationControl
+} from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+
+import { useTranslation } from 'react-i18next';
 
 import { Feature } from '../../../domain/api/generated/types.d';
 import mapStyle from '../../../assets/mapStyle.json';
@@ -33,6 +40,7 @@ const getMapStyle = (): {} => {
 };
 
 const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
+  const { t } = useTranslation();
   const [viewPort, setViewPort] = useState({
     latitude: initialLatitude,
     longitude: initialLongitude,
@@ -65,6 +73,22 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
       onViewportChange={setViewPort}
     >
       {features.map((feature: Feature, id: number) => renderPin(feature, id))}
+      <div className={styles.mapControls}>
+        <GeolocateControl
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+          onViewportChange={() => {
+            /* NOOP, disables flying to location */
+          }}
+          label={t('map.geolocate')}
+        />
+        <div className={styles.mapControlsDivider} />
+        <NavigationControl
+          zoomInLabel={t('map.zoom_in')}
+          zoomOutLabel={t('map.zoom_out')}
+          showCompass={false}
+        />
+      </div>
     </MapGL>
   );
 };
