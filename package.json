@@ -134,6 +134,7 @@
     "pretty-quick": "^2.0.1",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
+    "react-map-gl": "^5.2.3",
     "stylelint": "^13.0.0",
     "stylelint-config-css-modules": "^2.2.0",
     "stylelint-config-recommended-scss": "^4.2.0",
