@@ -1,7 +1,10 @@
 @import '../../styles/partials/variables';
 
+$menu-z-index: 1000;
+
 .menu {
   background-color: var(--hds-ui-color-white);
+  z-index: $menu-z-index;
 }
 
 .search {
@@ -10,6 +13,7 @@
 
 .searchResults {
   width: $search-component-width;
+  z-index: $menu-z-index;
 }
 
 .subHeading {
