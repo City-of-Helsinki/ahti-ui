@@ -1,0 +1,28 @@
+@mixin fullWidth {
+  width: $full-width;
+}
+
+@mixin fullHeight {
+  min-height: 100vh;
+  height: 100%;
+}
+
+@mixin disabledLink {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+/* stylelint-disable at-rule-empty-line-before */
+@mixin flex($column: false) {
+  display: flex;
+
+  @if $column {
+    flex-direction: column;
+  } @else {
+    flex-direction: row;
+  }
+}
+
+@mixin buttonReset {
+  border: none;
+  background: none;
+}
