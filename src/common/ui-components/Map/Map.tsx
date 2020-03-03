@@ -64,7 +64,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
       mapStyle={getMapStyle()}
       onViewportChange={setViewPort}
     >
-      {features?.map((feature: Feature, id: number) => renderPin(feature, id))}
+      {features.map((feature: Feature, id: number) => renderPin(feature, id))}
     </MapGL>
   );
 };
