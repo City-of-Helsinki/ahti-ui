@@ -1,0 +1,63 @@
+[
+  {
+    "id": "RmVhdHVyZTox",
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [24.957746505737305, 60.1502685546875],
+      "__typename": "GeometryObjectType"
+    },
+    "properties": {
+      "ahtiId": "myhelsinki:place:364",
+      "category": {
+        "id": "ahti:category:island",
+        "__typename": "FeatureCategory"
+      },
+      "name": "Harakan luontokeskus",
+      "tags": [
+        {
+          "name": "saaristo",
+          "__typename": "Tag"
+        }
+      ],
+      "description": "Harakan luontokeskus tarjoaa elämyksiä, toimintaa, tietoa Itämerestä, saaristoluonnosta sekä kestävästä elämäntavasta. Luontokeskus toimii historiallisissa tiloissa ihastuttavalla Harakan saarella, jonka kasvillisuuden ja linnuston rikkaus on vertaansa vailla. Harakan saarta kiertää kilometrin mittainen polku. Yhteysvene Ullanlinnanlaiturista Kaivopuistosta. \r\n\r\nLisää tietoa Harakan luonnosta löytyy osoitteesta https://citynature.eu/fi/kohde/harakka/\r\n",
+      "shortDescription": "Sunt ea est enim.",
+      "url": "http://www.harakansaari.fi/",
+      "contactInfo": {
+        "phoneNumber": "",
+        "address": {
+          "postalCode": "00140",
+          "municipality": "Helsinki",
+          "__typename": "Address"
+        },
+        "__typename": "ContactInfo"
+      },
+      "images": [
+        {
+          "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2018-05/harakka_nikosoveri_helsingin_kaup_aineistopankki.jpg?h=96b3c09d&itok=dYDHbAs6",
+          "copyrightOwner": "Niko Soveri",
+          "__typename": "Image"
+        },
+        {
+          "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2018-05/harakka_img_4248_marianne_saviaho_helsingin_kaup_aineistopankki.jpg?h=e9cb990c&itok=H8SN1CO2",
+          "copyrightOwner": "Marianne Saviaho",
+          "__typename": "Image"
+        },
+        {
+          "url": "https://edit.myhelsinki.fi/sites/default/files/styles/api_1980x1020/public/2018-05/harakka_kalliot_marianne_saviaho_helsingin_kaup_aineistopankki_ms.jpg?h=a65fa643&itok=Bw3iQFIn",
+          "copyrightOwner": "Marianne Saviaho",
+          "__typename": "Image"
+        }
+      ],
+      "source": {
+        "system": "myhelsinki",
+        "__typename": "FeatureSource"
+      },
+      "modifiedAt": "2020-02-26T13:19:17+00:00",
+      "ferries": [],
+      "harbors": [],
+      "__typename": "FeatureProperties"
+    },
+    "__typename": "Feature"
+  }
+]
