@@ -1,18 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
+// eslint-disable-next-line import/order
 import MapGL, {
   GeolocateControl,
   Marker,
   NavigationControl,
-  StaticMap,
-  FlyToInterpolator,
-  TransitionInterpolator,
-  EasingFunction,
-  TRANSITION_EVENTS,
 } from 'react-map-gl';
-import { BBox } from 'geojson';
-import useSupercluster from 'use-supercluster';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 import { useTranslation } from 'react-i18next';
-import { PointFeature } from 'supercluster';
 
 import { Feature } from '../../../domain/api/generated/types.d';
 import {
@@ -62,23 +57,12 @@ type ViewportState = {
   minPitch?: number;
 };
 
-const Map: React.FC<MapProps> = ({
-  className,
-  features,
-  selectedFeature,
-  onClick,
-}) => {
-  const points = getPoints(features);
-  const routes = getRoutes(features, selectedFeature);
-  const flyToPoint = getFlyToPoint(selectedFeature);
-
+const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
   const { t } = useTranslation();
-  const [viewPort, setViewPort] = useState<ViewportState>({
-    width: '100%',
-    height: '100%',
-    longitude: flyToPoint ? flyToPoint.longitude : initialLongitude,
-    latitude: flyToPoint ? flyToPoint.latitude : initialLatitude,
-    zoom: selectedFeature ? selectedFeatureZoomLevel : initialZoomLevel,
+  const [viewPort, setViewPort] = useState({
+    latitude: initialLatitude,
+    longitude: initialLongitude,
+    zoom: initialZoomLevel,
     minZoom: minZoomLevel,
     maxZoom: maxZoomLevel,
   });
@@ -168,51 +152,23 @@ const Map: React.FC<MapProps> = ({
         }
       }}
     >
+      {features.map((feature: Feature, id: number) => renderPin(feature, id))}
       <div className={styles.mapControls}>
         <GeolocateControl
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation={true}
+          onViewportChange={() => {
+            /* NOOP, disables flying to location */
+          }}
           label={t('map.geolocate')}
         />
-        <div className={styles.mapControlsDivider}></div>
+        <div className={styles.mapControlsDivider} />
         <NavigationControl
           zoomInLabel={t('map.zoom_in')}
           zoomOutLabel={t('map.zoom_out')}
           showCompass={false}
         />
       </div>
-      {clusters.map((cluster: any) => {
-        const [longitude, latitude] = cluster.geometry.coordinates;
-        const { cluster: isCluster } = cluster.properties;
-        // this is temporary, new designs should come soon
-        if (isCluster) {
-          const {
-            point_count: pointCount,
-          } = cluster.properties as ClusterProperties;
-          return (
-            <Marker
-              key={`cluster-${cluster.id}`}
-              latitude={latitude}
-              longitude={longitude}
-            >
-              <div
-                className={styles.clusterMarker}
-                style={{
-                  width: `${10 + (pointCount / points.length) * 20}px`,
-                  height: `${10 + (pointCount / points.length) * 20}px`,
-                }}
-              >
-                {pointCount}
-              </div>
-            </Marker>
-          );
-        } else {
-          return renderPin(
-            cluster as PointFeature<GeoJsonProperties>,
-            cluster.id
-          );
-        }
-      })}
     </MapGL>
   );
 };
