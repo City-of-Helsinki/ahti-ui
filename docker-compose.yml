@@ -1,16 +1,13 @@
 version: '3.7'
-
 services:
   app:
-    container_name: ahti-ui-new
+    container_name: ahti-ui
     build:
       context: .
       target: ${DOCKER_TARGET:-development}
-      dockerfile: docker/ahti-ui-new
+      dockerfile: Dockerfile
     volumes:
       - .:/app
       - /app/node_modules
     ports:
       - 3000:3000
-  env_file:
-    - .env

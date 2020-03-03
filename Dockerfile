@@ -26,15 +26,9 @@ COPY package*.json *yarn* ./
 # Install npm depepndencies
 ENV PATH /app/node_modules/.bin:$PATH
 
-USER root
-
-RUN apt-install.sh build-essential
-
+# Install the actual app dependencies
 USER appuser
-RUN yarn && yarn cache clean --force
-
-USER root
-RUN apt-cleanup.sh build-essential
+RUN yarn install --silent && yarn cache clean --force
 
 # =============================
 FROM appbase as development
@@ -47,15 +41,13 @@ ENV NODE_ENV $NODE_ENV
 # copy in our source code last, as it changes the most
 COPY --chown=appuser:appuser . .
 
-# Bake package.json start command into the image
-CMD ["react-scripts", "start"]
+CMD ["yarn", "start"]
 
 # ===================================
 FROM appbase as staticbuilder
 # ===================================
 
-ARG REACT_APP_API_URI
-ARG REACT_APP_OIDC_AUTHORITY
+ARG REACT_APP_AHTI_GRAPHQL_API_URI
 
 COPY . /app
 RUN yarn build
