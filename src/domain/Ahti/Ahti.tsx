@@ -15,7 +15,6 @@ import Toggle from '../../common/ui-components/Toggle/Toggle';
 
 const Ahti: React.FC = () => {
   const { state, actions } = useOvermind();
-  console.log(state.features);
 
   return (
     <div className={styles.ahti}>
@@ -34,6 +33,8 @@ const Ahti: React.FC = () => {
             featuresToSearch={state.features}
             onSelect={ahtiId => actions.selectFeatureById(ahtiId)}
             className={styles.search}
+            resultsClassName={styles.searchResults}
+
           />
         }
         openComponent={

@@ -1,32 +1,31 @@
 @import '../../../styles/icons';
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
 
 .container {
-  padding: 1rem;
+  padding: $padding;
   background: var(--hds-ui-color-white);
 }
 
 .headerContainer {
-  display: flex;
-  flex-direction: row;
+  @include flex;
   justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: $padding;
+  padding-bottom: $padding;
   border-bottom: 1px solid var(--hds-ui-color-black-40);
 }
 
 .navLink {
   text-decoration: none;
-  line-height: 26px;
+  line-height: $line-height;
   color: var(--hds-ui-color-black);
 }
 
 .navLinkDisabled {
-  pointer-events: none;
-  cursor: default;
+  @include disabledLink;
   color: var(--hds-ui-color-black-40);
 }
 
 .navDropdownContent {
-  display: flex;
-  flex-direction: column;
+  @include flex(true);
 }

@@ -1,6 +1,7 @@
 @import '../../../styles/icons';
 
 $toggle-margin: 5px;
+$border-radius: 20px;
 
 .container {
   display: flex;
@@ -11,6 +12,11 @@ $toggle-margin: 5px;
 
 .toggle {
   border-radius: 20px;
+  border-radius: $border-radius;
+}
+
+.toggle {
+  border-radius: $border-radius;
 
   > svg {
     width: $small-icon-width;

@@ -1,9 +1,11 @@
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
+
 .languageButton {
-  border: none;
-  background: none;
-  margin: 0.25rem;
+  @include buttonReset;
+  margin: $margin/4;
 }
 
 .languageButtonEnabled {
-  font-weight: 700;
+  font-weight: $font-width-thick;
 }

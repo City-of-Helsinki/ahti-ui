@@ -13,6 +13,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  GenericScalar: any;
   Geometry: any;
   DateTime: Date;
   GenericScalar: any;
@@ -288,11 +289,16 @@ export type PageInfo = {
 
 export type Query = {
   __typename?: 'Query';
+  feature?: Maybe<Feature>;
   featureCategories?: Maybe<Array<Maybe<FeatureCategory>>>;
   features?: Maybe<FeatureConnection>;
   ferry?: Maybe<Ferry>;
   harbor?: Maybe<Harbor>;
-  island?: Maybe<Feature>;
+};
+
+export type QueryFeatureArgs = {
+  id?: Maybe<Scalars['ID']>;
+  ahtiId?: Maybe<Scalars['String']>;
 };
 
 export type QueryFeaturesArgs = {
@@ -312,10 +318,6 @@ export type QueryFerryArgs = {
 };
 
 export type QueryHarborArgs = {
-  ahtiId: Scalars['String'];
-};
-
-export type QueryIslandArgs = {
   ahtiId: Scalars['String'];
 };
 
@@ -394,6 +396,71 @@ type CommonFeatures_Harbor_Fragment = { __typename?: 'Harbor' } & {
 export type CommonFeaturesFragment =
   | CommonFeatures_Ferry_Fragment
   | CommonFeatures_Harbor_Fragment;
+
+export type FeatureQueryVariables = {
+  ahtiId?: Maybe<Scalars['String']>;
+};
+
+export type FeatureQuery = { __typename?: 'Query' } & {
+  feature: Maybe<
+    { __typename?: 'Feature' } & Pick<Feature, 'id' | 'type'> & {
+        geometry: { __typename?: 'GeometryObjectType' } & Pick<
+          GeometryObjectType,
+          'type' | 'coordinates'
+        >;
+        properties: Maybe<
+          { __typename?: 'FeatureProperties' } & Pick<
+            FeatureProperties,
+            | 'ahtiId'
+            | 'name'
+            | 'description'
+            | 'shortDescription'
+            | 'url'
+            | 'modifiedAt'
+          > & {
+              category: Maybe<
+                { __typename?: 'FeatureCategory' } & Pick<FeatureCategory, 'id'>
+              >;
+              tags: Array<{ __typename?: 'Tag' } & Pick<Tag, 'name'>>;
+              contactInfo: Maybe<
+                { __typename?: 'ContactInfo' } & Pick<
+                  ContactInfo,
+                  'phoneNumber'
+                > & {
+                    address: Maybe<
+                      { __typename?: 'Address' } & Pick<
+                        Address,
+                        'postalCode' | 'municipality'
+                      >
+                    >;
+                  }
+              >;
+              images: Array<
+                { __typename?: 'Image' } & Pick<Image, 'url' | 'copyrightOwner'>
+              >;
+              source: { __typename?: 'FeatureSource' } & Pick<
+                FeatureSource,
+                'system'
+              >;
+              ferries: Array<
+                { __typename?: 'Ferry' } & {
+                  properties: {
+                    __typename?: 'GenericFeatureProperties';
+                  } & Pick<GenericFeatureProperties, 'ahtiId' | 'name'>;
+                }
+              >;
+              harbors: Array<
+                { __typename?: 'Harbor' } & {
+                  properties: {
+                    __typename?: 'GenericFeatureProperties';
+                  } & Pick<GenericFeatureProperties, 'ahtiId' | 'name'>;
+                }
+              >;
+            }
+        >;
+      }
+  >;
+};
 
 export type FeaturesQueryVariables = {
   first?: Maybe<Scalars['Int']>;
@@ -528,65 +595,6 @@ export type HarborQuery = { __typename?: 'Query' } & {
   >;
 };
 
-export type IslandQueryVariables = {
-  ahtiId: Scalars['String'];
-};
-
-export type IslandQuery = { __typename?: 'Query' } & {
-  island: Maybe<
-    { __typename?: 'Feature' } & {
-      geometry: { __typename?: 'GeometryObjectType' } & Pick<
-        GeometryObjectType,
-        'type' | 'coordinates'
-      >;
-      properties: Maybe<
-        { __typename?: 'FeatureProperties' } & Pick<
-          FeatureProperties,
-          'name' | 'description' | 'modifiedAt' | 'url'
-        > & {
-            images: Array<
-              { __typename?: 'Image' } & Pick<Image, 'url' | 'copyrightOwner'>
-            >;
-            tags: Array<{ __typename?: 'Tag' } & Pick<Tag, 'name'>>;
-            source: { __typename?: 'FeatureSource' } & Pick<
-              FeatureSource,
-              'system'
-            >;
-            contactInfo: Maybe<
-              { __typename?: 'ContactInfo' } & Pick<
-                ContactInfo,
-                'phoneNumber'
-              > & {
-                  address: Maybe<
-                    { __typename?: 'Address' } & Pick<
-                      Address,
-                      'postalCode' | 'municipality'
-                    >
-                  >;
-                }
-            >;
-            harbors: Array<
-              { __typename?: 'Harbor' } & {
-                properties: { __typename?: 'GenericFeatureProperties' } & Pick<
-                  GenericFeatureProperties,
-                  'ahtiId' | 'name'
-                >;
-              }
-            >;
-            ferries: Array<
-              { __typename?: 'Ferry' } & {
-                properties: { __typename?: 'GenericFeatureProperties' } & Pick<
-                  GenericFeatureProperties,
-                  'ahtiId' | 'name'
-                >;
-              }
-            >;
-          }
-      >;
-    }
-  >;
-};
-
 export const CommonFeaturesFragmentDoc = gql`
   fragment CommonFeatures on FeatureInterface {
     geometry {
@@ -619,6 +627,117 @@ export const CommonFeaturesFragmentDoc = gql`
     }
   }
 `;
+export const FeatureDocument = gql`
+  query feature($ahtiId: String) {
+    feature(ahtiId: $ahtiId) {
+      id
+      type
+      geometry {
+        type
+        coordinates
+      }
+      properties {
+        ahtiId
+        category {
+          id
+        }
+        name
+        tags {
+          name
+        }
+        description
+        shortDescription @client
+        url
+        contactInfo {
+          phoneNumber
+          address {
+            postalCode
+            municipality
+          }
+        }
+        images {
+          url
+          copyrightOwner
+        }
+        source {
+          system
+        }
+        modifiedAt
+        ferries @client {
+          properties {
+            ahtiId
+            name
+          }
+        }
+        harbors @client {
+          properties {
+            ahtiId
+            name
+          }
+        }
+      }
+    }
+  }
+`;
+export type FeatureComponentProps = Omit<
+  ApolloReactComponents.QueryComponentOptions<
+    FeatureQuery,
+    FeatureQueryVariables
+  >,
+  'query'
+>;
+
+export const FeatureComponent = (props: FeatureComponentProps) => (
+  <ApolloReactComponents.Query<FeatureQuery, FeatureQueryVariables>
+    query={FeatureDocument}
+    {...props}
+  />
+);
+
+/**
+ * __useFeatureQuery__
+ *
+ * To run a query within a React component, call `useFeatureQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFeatureQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFeatureQuery({
+ *   variables: {
+ *      ahtiId: // value for 'ahtiId'
+ *   },
+ * });
+ */
+export function useFeatureQuery(
+  baseOptions?: ApolloReactHooks.QueryHookOptions<
+    FeatureQuery,
+    FeatureQueryVariables
+  >
+) {
+  return ApolloReactHooks.useQuery<FeatureQuery, FeatureQueryVariables>(
+    FeatureDocument,
+    baseOptions
+  );
+}
+export function useFeatureLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+    FeatureQuery,
+    FeatureQueryVariables
+  >
+) {
+  return ApolloReactHooks.useLazyQuery<FeatureQuery, FeatureQueryVariables>(
+    FeatureDocument,
+    baseOptions
+  );
+}
+export type FeatureQueryHookResult = ReturnType<typeof useFeatureQuery>;
+export type FeatureLazyQueryHookResult = ReturnType<typeof useFeatureLazyQuery>;
+export type FeatureQueryResult = ApolloReactCommon.QueryResult<
+  FeatureQuery,
+  FeatureQueryVariables
+>;
 export const FeaturesDocument = gql`
   query features($first: Int, $category: [String]) {
     features(first: $first, category: $category) {
@@ -892,109 +1011,4 @@ export type HarborLazyQueryHookResult = ReturnType<typeof useHarborLazyQuery>;
 export type HarborQueryResult = ApolloReactCommon.QueryResult<
   HarborQuery,
   HarborQueryVariables
->;
-export const IslandDocument = gql`
-  query island($ahtiId: String!) {
-    island(ahtiId: $ahtiId) @client {
-      geometry {
-        type
-        coordinates
-      }
-      properties {
-        images {
-          url
-          copyrightOwner
-        }
-        tags {
-          name
-        }
-        source {
-          system
-        }
-        name
-        description
-        modifiedAt
-        url
-        contactInfo {
-          phoneNumber
-          address {
-            postalCode
-            municipality
-          }
-        }
-        harbors @client {
-          properties {
-            ahtiId
-            name
-          }
-        }
-        ferries @client {
-          properties {
-            ahtiId
-            name
-          }
-        }
-      }
-    }
-  }
-`;
-export type IslandComponentProps = Omit<
-  ApolloReactComponents.QueryComponentOptions<
-    IslandQuery,
-    IslandQueryVariables
-  >,
-  'query'
-> &
-  ({ variables: IslandQueryVariables; skip?: boolean } | { skip: boolean });
-
-export const IslandComponent = (props: IslandComponentProps) => (
-  <ApolloReactComponents.Query<IslandQuery, IslandQueryVariables>
-    query={IslandDocument}
-    {...props}
-  />
-);
-
-/**
- * __useIslandQuery__
- *
- * To run a query within a React component, call `useIslandQuery` and pass it any options that fit your needs.
- * When your component renders, `useIslandQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useIslandQuery({
- *   variables: {
- *      ahtiId: // value for 'ahtiId'
- *   },
- * });
- */
-export function useIslandQuery(
-  baseOptions?: ApolloReactHooks.QueryHookOptions<
-    IslandQuery,
-    IslandQueryVariables
-  >
-) {
-  return ApolloReactHooks.useQuery<IslandQuery, IslandQueryVariables>(
-    IslandDocument,
-    baseOptions
-  );
-}
-export function useIslandLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    IslandQuery,
-    IslandQueryVariables
-  >
-) {
-  return ApolloReactHooks.useLazyQuery<IslandQuery, IslandQueryVariables>(
-    IslandDocument,
-    baseOptions
-  );
-}
-export type IslandQueryHookResult = ReturnType<typeof useIslandQuery>;
-export type IslandLazyQueryHookResult = ReturnType<typeof useIslandLazyQuery>;
-export type IslandQueryResult = ApolloReactCommon.QueryResult<
-  IslandQuery,
-  IslandQueryVariables
 >;

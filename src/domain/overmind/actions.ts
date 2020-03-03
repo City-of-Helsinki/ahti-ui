@@ -6,6 +6,7 @@ import { CategoryFilter } from './state';
 import HARBOR_QUERY from '../api/queries/harborQuery';
 import FERRY_QUERY from '../api/queries/ferryQuery';
 import ISLAND_QUERY from '../api/queries/islandQuery';
+import FEATURE_QUERY from '../api/queries/featureQuery';
 import graphQLClient from '../api/';
 
 export const addCategoryFilter: Action<CategoryFilter> = (
@@ -60,6 +61,11 @@ export const selectFeatureById: AsyncAction<string> = async (
   ahtiId
 ) => {
   state.selectedFeature = (await fetchFeatureData(ISLAND_QUERY, ahtiId)).island;
+
+  state.selectedFeature = (
+    await fetchFeatureData(FEATURE_QUERY, ahtiId)
+  ).feature;
+
 };
 
 export const selectHarbor: AsyncAction<string> = async ({ state }, ahtiId) => {

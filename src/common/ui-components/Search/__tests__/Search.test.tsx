@@ -22,11 +22,10 @@ describe('Search', () => {
 
   it('returns items on search', async () => {
     expect(searchWrapper.find(SearchItem)).toHaveLength(0);
+    searchWrapper.find('input').simulate('focus');
     searchWrapper.find('input').simulate('change', { target: { value: 'a' } });
-    await act(async () => {
-      waitForExpect(() => {
-        expect(searchWrapper.find(SearchItem)).toHaveLength(1);
-      });
+    await waitForExpect(() => {
+      expect(searchWrapper.find(SearchItem)).toHaveLength(1);
     });
   });
 });

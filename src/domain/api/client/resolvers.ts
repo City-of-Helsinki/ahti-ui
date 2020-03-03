@@ -2,6 +2,7 @@
 import faker from 'faker';
 
 import FEATURES_QUERY from '../queries/featuresQuery';
+
 import ferryData from './staticData/ferries.json';
 import harborData from './staticData/harbors.json';
 
@@ -16,6 +17,7 @@ const resolvers = {
         .features.edges.map((edge: any) => edge.node)
         .find((island: any) => island.properties.ahtiId === args.ahtiId);
     },
+
     ferry: (_: any, args: { ahtiId: string }) => {
       return ferryData.find(ferry => ferry.properties.ahtiId === args.ahtiId);
     },

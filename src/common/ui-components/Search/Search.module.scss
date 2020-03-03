@@ -1,10 +1,13 @@
 @import '../../../styles/icons';
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
 
 .container {
-  background-color: white;
+  background-color: var(--hds-ui-color-white);
+
 
   /* Hide the scrollbar, but keep scrolling enabled */
-  overflow-y: scroll;
+  overflow-y: $vertical-overflow-scrollable;
 
   /* Firefox */
   scrollbar-width: none;
@@ -33,10 +36,23 @@
   margin-left: 1rem;
 }
 
+.searchItem {
+  @include flex;
+}
+
+.infoContainer {
+  @include fullWidth;
+  @include flex(column);
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--hds-ui-color-black-10);
+  margin-left: $margin;
+}
+
 .name {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 26px;
+  font-size: $font-size;
+  font-weight: $font-width-thick;
+  line-height: $line-height;
 }
 
 .nameMark {
@@ -50,9 +66,9 @@
 }
 
 .searchInput {
-  width: 100%;
+  @include fullWidth;
   border: none;
-  margin-left: 1rem;
+  margin-left: $margin;
 }
 
 .searchInput:focus {
@@ -62,11 +78,13 @@
 .searchInputWithIcon {
   display: flex;
   flex-direction: row;
+
+  @include flex;
 }
 
 .infoImage {
-  height: 30px;
-  width: 30px;
+  height: $image-width;
+  width: $image-width;
   cursor: pointer;
 }
 
@@ -77,4 +95,11 @@
 
 .resultsContainer {
   margin-top: 1rem;
+  @include flex;
+}
+
+.resultsContainer {
+  position: absolute;
+  background-color: var(--hds-ui-color-white);
+  margin-top: $margin;
 }

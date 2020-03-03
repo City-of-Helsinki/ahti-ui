@@ -1,6 +1,6 @@
 include:
   - project: 'city-of-helsinki/kuva/ci-cd-config/ci-configuration'
-    ref: v1
+    ref: v2
     file: '/.gitlab-ci-template.yml'
 
 variables:
@@ -10,7 +10,7 @@ build-review:
   extends: .build
   variables:
     DOCKER_IMAGE_NAME: '$CI_PROJECT_NAME-review'
-    DOCKER_BUILD_ARG_REACT_APP_MAPBOX_API_ACCESS_TOKEN: '$MAPBOX_API_ACCESS_TOKEN'
+    DOCKER_BUILD_ARG_REACT_APP_AHTI_GRAPHQL_API_URI: 'https://ahti-api.test.kuva.hel.ninja/graphql'
   only:
     refs:
       - external_pull_requests
@@ -19,7 +19,7 @@ build-staging:
   extends: .build
   variables:
     DOCKER_IMAGE_NAME: '$CI_PROJECT_NAME-staging'
-    DOCKER_BUILD_ARG_REACT_APP_MAPBOX_API_ACCESS_TOKEN: '$MAPBOX_API_ACCESS_TOKEN'
+    DOCKER_BUILD_ARG_REACT_APP_AHTI_GRAPHQL_API_URI: 'https://ahti-api.test.kuva.hel.ninja/graphql'
   only:
     refs:
       - develop
@@ -28,7 +28,7 @@ build-production:
   extends: .build
   variables:
     DOCKER_IMAGE_NAME: '$CI_PROJECT_NAME-production'
-    DOCKER_BUILD_ARG_REACT_APP_MAPBOX_API_ACCESS_TOKEN: '$MAPBOX_API_ACCESS_TOKEN'
+    DOCKER_BUILD_ARG_REACT_APP_AHTI_GRAPHQL_API_URI: 'https://ahti-api.test.kuva.hel.ninja/graphql'
   only:
     refs:
       - master

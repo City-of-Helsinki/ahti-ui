@@ -61,6 +61,7 @@ export const SearchItem: React.FC<SearchItemProps> = ({
 
 interface SearchProps {
   readonly className?: string;
+  readonly resultsClassName?: string;
   readonly maxItems?: number;
   readonly featuresToSearch: Feature[];
   onSelect(id: string): void;
@@ -68,6 +69,7 @@ interface SearchProps {
 
 const Search: React.FC<SearchProps> = ({
   className,
+  resultsClassName,
   featuresToSearch,
   maxItems = 10,
   onSelect
@@ -129,7 +131,8 @@ const Search: React.FC<SearchProps> = ({
         </div>
       </div>
       {hasFocus && searchResults.length > 0 && (
-        <div className={styles.resultsContainer}>
+        <div className={cx(styles.resultsContainer, resultsClassName)}>
+
           {searchResults.map((item: SearchData, id: number) => (
             <SearchItem
               key={id}

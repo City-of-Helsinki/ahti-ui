@@ -1,28 +1,35 @@
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
+
+.cardContentContainer {
+  box-shadow: 2px 4px 8px 2px rgba(0, 0, 0, 0.15);
+}
+
 .cardTextContainer {
-  box-sizing: border - box;
-  padding: 2rem 2rem;
-  width: 100%;
+  box-sizing: border-box;
+  padding: $padding * 2;
+  @include fullWidth;
   min-height: 30vh;
   background-color: var(--hds-ui-color-white);
   color: var(--hds-ui-color-black);
 }
 
 .cardContainer {
-  width: 100%;
+  @include fullWidth;
   box-sizing: border-box;
   background-color: var(--hds-ui-color-white);
 }
 
 .nameHeading {
-  font-weight: 700;
+  font-weight: $font-width-thick;
   font-size: 24px;
   line-height: 28.8px;
 }
 
 .addressHeading {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 26px;
+  font-weight: $font-width-normal;
+  font-size: $font-size;
+  line-height: $line-height;
 }
 
 .tagsContainer {
@@ -33,8 +40,8 @@
 
 .tagsContainerSpan {
   font-size: 14px;
-  font-weight: 700;
-  line-height: 26px;
+  font-weight: $font-width-thick;
+  line-height: $line-height;
   margin-right: 5px;
 }
 
