@@ -1,16 +1,11 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 // eslint-disable-next-line import/order
 import MapGL, {
   GeolocateControl,
   Marker,
   NavigationControl
 } from 'react-map-gl';
-=======
-import React, { useState, useRef } from 'react';
-import MapGL, { Marker } from 'react-map-gl';
 import useSupercluster from 'use-supercluster';
->>>>>>> Add Map clustering- first iteratuon
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 import { useTranslation } from 'react-i18next';
@@ -54,22 +49,6 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     minZoom: minZoomLevel,
     maxZoom: maxZoomLevel
   });
-  const mapRef = useRef();
-
-  const renderPin = (feature: Feature, id: number) => {
-    return (
-      <Marker
-        key={id}
-        longitude={feature.geometry.coordinates[0]}
-        latitude={feature.geometry.coordinates[1]}
-      >
-        <div onClick={() => onClick(feature)} className={styles.markerContent}>
-          <CategoryIcon category={feature?.properties?.category?.name} />
-        </div>
-      </Marker>
-    );
-  };
-
   const points = features.map(feature => {
     return {
       type: 'Feature',
@@ -88,19 +67,38 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     };
   });
 
-  const bounds = mapRef.current
-    ? mapRef.current
-        .getMap()
-        .getBounds()
-        .toArray()
-        .flat()
-    : null;
+  const mapRef = useRef();
+  let bounds;
+
+  useEffect(() => {
+    bounds = mapRef.current
+      .getMap()
+      .getBounds()
+      .toArray()
+      .flat();
+
+    console.log('useeffect ref here', mapRef.current, bounds);
+  });
+
+  const renderPin = (feature: Feature, id: number) => {
+    return (
+      <Marker
+        key={id}
+        longitude={feature.geometry.coordinates[0]}
+        latitude={feature.geometry.coordinates[1]}
+      >
+        <div onClick={() => onClick(feature)} className={styles.markerContent}>
+          <CategoryIcon category={feature?.properties?.category?.name} />
+        </div>
+      </Marker>
+    );
+  };
 
   // get clusters
   const { clusters, supercluster } = useSupercluster({
     points,
     bounds,
-    zoom: viewport.zoom,
+    zoom: viewPort.zoom,
     options: { radius: 75, maxZoom: 20 }
   });
 
@@ -114,7 +112,6 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
       onViewportChange={setViewPort}
       ref={mapRef}
     >
-<<<<<<< HEAD
       {features.map((feature: Feature, id: number) => renderPin(feature, id))}
       <div className={styles.mapControls}>
         <GeolocateControl
@@ -132,8 +129,6 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
           showCompass={false}
         />
       </div>
-=======
-      {/* {features.map((feature: Feature, id: number) => renderPin(feature, id))} */}
       {clusters.map(cluster => {
         // every cluster point has coordinates
         const [longitude, latitude] = cluster.geometry.coordinates;
@@ -145,23 +140,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
 
         // we have a cluster to render
         if (isCluster) {
-          return (
-            <Marker
-              key={`cluster-${cluster.id}`}
-              latitude={latitude}
-              longitude={longitude}
-            >
-              <div
-                className="cluster-marker"
-                style={{
-                  width: `${10 + (pointCount / points.length) * 20}px`,
-                  height: `${10 + (pointCount / points.length) * 20}px`
-                }}
-              >
-                {pointCount}
-              </div>
-            </Marker>
-          );
+          return renderPin(feature, id);
         }
 
         // we have a single point (crime) to render
@@ -177,7 +156,6 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
           </Marker>
         );
       })}
->>>>>>> Add Map clustering- first iteratuon
     </MapGL>
   );
 };
