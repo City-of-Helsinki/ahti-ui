@@ -1,5 +1,10 @@
 import React, { useState, useRef } from 'react';
-import MapGL, { Marker } from 'react-map-gl';
+// eslint-disable-next-line import/order
+import MapGL, {
+  GeolocateControl,
+  Marker,
+  NavigationControl,
+} from 'react-map-gl';
 import useSupercluster from 'use-supercluster';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -62,83 +67,53 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     minZoom: minZoomLevel,
     maxZoom: maxZoomLevel,
   });
-  const mapRef = useRef();
-
-  const mapRef = useRef<StaticMap>();
-  const renderPin = (
-    pointFeature: PointFeature<GeoJsonProperties>,
-    id: number | string
-  ) => {
-    if (pointFeature.geometry.type !== 'Point') {
-      return null;
-    }
-
-    const isSelected =
-      pointFeature?.properties?.itemId === selectedFeature?.properties?.ahtiId;
-    const onMarkerClick = () => {
-      onClick(feature);
-      window && window.scrollTo({ top: 0 });
-      setViewPort({
-        ...viewPort,
-        longitude: feature.geometry.coordinates[0],
-        latitude: feature.geometry.coordinates[1],
-        zoom:
-          viewPort.zoom > selectedFeatureZoomLevel
-            ? viewPort.zoom
-            : selectedFeatureZoomLevel,
-        transitionInterpolator: new FlyToInterpolator(),
-        transitionDuration: transitionDuration,
-      });
-    };
-    const feature = features.find((feature) => feature.id === pointFeature.id);
-    return (
-      <Marker
-        key={`pin-${id}`}
-        longitude={pointFeature.geometry.coordinates[0]}
-        latitude={pointFeature.geometry.coordinates[1]}
-      >
-        <div onClick={onMarkerClick} className={styles.markerContent}>
-          <CategoryIcon
-            category={feature?.properties?.category?.id}
-            className={isSelected ? styles.bigIcon : undefined}
-          />
-        </div>
-      </Marker>
-    );
-  };
-
-  const points = features.map(feature => {
+  const points = features.map((feature) => {
     return {
       type: 'Feature',
       properties: {
         cluster: false,
         itemId: feature.id,
-        category: feature.properties?.category
+        category: feature.properties?.category,
       },
       geometry: {
         type: 'Point',
         coordinates: [
           feature.geometry.coordinates.lng,
-          feature.geometry.coordinates.lat
-        ]
-      }
+          feature.geometry.coordinates.lat,
+        ],
+      },
     };
   });
 
-  const bounds = mapRef.current
-    ? mapRef.current
-        .getMap()
-        .getBounds()
-        .toArray()
-        .flat()
-    : null;
+  const mapRef = useRef();
+  let bounds;
+
+  useEffect(() => {
+    bounds = mapRef.current.getMap().getBounds().toArray().flat();
+
+    console.log('useeffect ref here', mapRef.current, bounds);
+  });
+
+  const renderPin = (feature: Feature, id: number) => {
+    return (
+      <Marker
+        key={id}
+        longitude={feature.geometry.coordinates[0]}
+        latitude={feature.geometry.coordinates[1]}
+      >
+        <div onClick={() => onClick(feature)} className={styles.markerContent}>
+          <CategoryIcon category={feature?.properties?.category?.name} />
+        </div>
+      </Marker>
+    );
+  };
 
   // get clusters
   const { clusters, supercluster } = useSupercluster({
     points,
     bounds,
-    zoom: viewport.zoom,
-    options: { radius: 75, maxZoom: 20 }
+    zoom: viewPort.zoom,
+    options: { radius: 75, maxZoom: 20 },
   });
 
   return (
@@ -152,35 +127,35 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
       onViewportChange={setViewPort}
       ref={mapRef}
     >
-      {/* {features.map((feature: Feature, id: number) => renderPin(feature, id))} */}
-      {clusters.map(cluster => {
+      {features.map((feature: Feature, id: number) => renderPin(feature, id))}
+      <div className={styles.mapControls}>
+        <GeolocateControl
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+          onViewportChange={() => {
+            /* NOOP, disables flying to location */
+          }}
+          label={t('map.geolocate')}
+        />
+        <div className={styles.mapControlsDivider} />
+        <NavigationControl
+          zoomInLabel={t('map.zoom_in')}
+          zoomOutLabel={t('map.zoom_out')}
+          showCompass={false}
+        />
+      </div>
+      {clusters.map((cluster) => {
         // every cluster point has coordinates
         const [longitude, latitude] = cluster.geometry.coordinates;
         // the point may be either a cluster or a crime point
         const {
           cluster: isCluster,
-          point_count: pointCount
+          point_count: pointCount,
         } = cluster.properties;
 
         // we have a cluster to render
         if (isCluster) {
-          return (
-            <Marker
-              key={`cluster-${cluster.id}`}
-              latitude={latitude}
-              longitude={longitude}
-            >
-              <div
-                className="cluster-marker"
-                style={{
-                  width: `${10 + (pointCount / points.length) * 20}px`,
-                  height: `${10 + (pointCount / points.length) * 20}px`
-                }}
-              >
-                {pointCount}
-              </div>
-            </Marker>
-          );
+          return renderPin(feature, id);
         }
 
         // we have a single point (crime) to render
