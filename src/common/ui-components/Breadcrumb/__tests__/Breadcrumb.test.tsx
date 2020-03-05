@@ -1,21 +1,19 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+
 import Breadcrumb, { BreadcrumbItem } from '../Breadcrumb';
 import Pill from '../Pill';
 
 const staticBreadcrumbItems: BreadcrumbItem[] = [
   {
-    category: 'a',
     name: 'First',
     id: '1'
   },
   {
-    category: 'a',
     name: 'Second',
     id: '2'
   },
   {
-    category: 'a',
     name: 'Third',
     id: '3'
   }
