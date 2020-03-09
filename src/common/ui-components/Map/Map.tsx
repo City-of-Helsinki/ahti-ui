@@ -130,7 +130,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
               longitude={longitude}
             >
               <div
-                className="cluster-marker"
+                className={styles.clusterMarker}
                 style={{
                   width: `${10 + (pointCount / points.length) * 20}px`,
                   height: `${10 + (pointCount / points.length) * 20}px`
