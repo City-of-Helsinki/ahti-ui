@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+// eslint-disable-next-line import/order
 import MapGL, {
   GeolocateControl,
   Marker,
@@ -20,6 +21,7 @@ import {
 } from '../../constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import mapStyle from '../../../assets/mapStyle.json';
+
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './Map.module.scss';
 import { getMapStyle, getFlyToPoint, getPoints, getRoutes } from './mapUtils';
@@ -68,6 +70,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     minZoom: minZoomLevel,
     maxZoom: maxZoomLevel,
   });
+  const mapRef = useRef();
 
   const mapRef = useRef();
 
