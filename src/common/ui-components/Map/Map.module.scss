@@ -14,12 +14,14 @@
     margin: $margin;
   }
 }
-.cluster-marker {
-  color: #fff;
-  background: #1978c8;
+
+.clusterMarker {
+  color: var(--hds-ui-color-white);
+  background: var(--hds-brand-color-coat-of-arms-blue);
   border-radius: 50%;
+  border-color: var(--hds-ui-color-white);
   padding: 10px;
-  display: flex;
+  @include flex;
   justify-content: center;
   align-items: center;
 }
