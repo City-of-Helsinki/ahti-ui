@@ -54,7 +54,6 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     minZoom: minZoomLevel,
     maxZoom: maxZoomLevel
   });
-  const mapRef = useRef();
 
   const mapRef = useRef();
 
@@ -90,6 +89,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     };
   });
 
+<<<<<<< HEAD
   // get map bounds
   const bounds: number[] = mapRef?.current
     ? mapRef.current
@@ -141,23 +141,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
 
         // this is temporary, new designs should come soon
         if (isCluster) {
-          return (
-            <Marker
-              key={`cluster-${cluster.id}`}
-              latitude={latitude}
-              longitude={longitude}
-            >
-              <div
-                className="cluster-marker"
-                style={{
-                  width: `${10 + (pointCount / points.length) * 20}px`,
-                  height: `${10 + (pointCount / points.length) * 20}px`
-                }}
-              >
-                {pointCount}
-              </div>
-            </Marker>
-          );
+          return renderPin(cluster, cluster.id);
         }
 
         return renderPin(cluster, cluster.id);
