@@ -5,7 +5,6 @@ import Pill from './Pill';
 import styles from './Breadcrumb.module.scss';
 
 export type BreadcrumbItem = {
-  readonly category?: string;
   readonly name: string;
   readonly id: string;
 };
@@ -26,7 +25,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
       {items.map((item: BreadcrumbItem, id: number) => {
         return (
           <Pill
-            category={item.category}
+            category={
+              item.id.startsWith('ahti:category:') ? item.id : undefined
+            }
             name={item.name}
             key={id}
             onClose={() => onClose(item.id)}
