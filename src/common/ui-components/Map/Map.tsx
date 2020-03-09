@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-// eslint-disable-next-line import/order
 import MapGL, {
   GeolocateControl,
   Marker,
@@ -22,8 +21,10 @@ import {
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import styles from './Map.module.scss';
 
-// from here https://www.leighhalliday.com/mapbox-clustering
-// @ts-ignore
+/*
+// Approach for clustering used from here
+// https://www.leighhalliday.com/mapbox-clustering
+*/
 
 interface MapProps {
   readonly className?: string;
@@ -53,6 +54,8 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     maxZoom: maxZoomLevel
   });
 
+  const mapRef = useRef();
+
   const renderPin = (feature: Feature, id: number) => {
     return (
       <Marker
@@ -66,50 +69,40 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
       </Marker>
     );
   };
+
   const points = features.map(feature => {
     return {
       type: 'Feature',
       properties: {
         cluster: false,
-        itemId: feature.id,
-        category: feature.properties?.category
+        itemId: feature.properties.imageId,
+        category: feature.properties.type
       },
       geometry: {
         type: 'Point',
         coordinates: [
-          feature.geometry.coordinates.lng,
-          feature.geometry.coordinates.lat
+          feature.geometry.coordinates[0],
+          feature.geometry.coordinates[1]
         ]
       }
     };
   });
 
-  const mapRef = useRef(null);
-  let bounds = [];
-  let clusters = [];
+  // get map bounds
+  const bounds = mapRef.current
+    ? mapRef.current
+        .getMap()
+        .getBounds()
+        .toArray()
+        .flat()
+    : null;
 
-  function createClusters() {
-    bounds = mapRef.current
-      .getMap()
-      .getBounds()
-      .toArray()
-      .flat();
-
-    clusters = useSupercluster({
-      points,
-      bounds,
-      zoom: viewPort.zoom,
-      options: { radius: 75, maxZoom: 20 }
-    }).clusters;
-
-    setViewPort();
-  }
-  // Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
-    createClusters();
-  }, [createClusters]);
-
-  // create clusters
+  const { clusters } = useSupercluster({
+    points,
+    bounds,
+    zoom: viewPort.zoom,
+    options: { radius: 75, maxZoom: 20 }
+  });
 
   return (
     <MapGL
@@ -138,15 +131,13 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
         />
       </div>
       {clusters.map(cluster => {
-        // every cluster point has coordinates
         const [longitude, latitude] = cluster.geometry.coordinates;
-        // the point may be either a cluster or a crime point
         const {
           cluster: isCluster,
           point_count: pointCount
         } = cluster.properties;
 
-        // we have a cluster to render
+        // this is temporary, new designs should come soon
         if (isCluster) {
           return (
             <Marker
@@ -154,14 +145,20 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
               latitude={latitude}
               longitude={longitude}
             >
-              X
+              <div
+                className="cluster-marker"
+                style={{
+                  width: `${10 + (pointCount / points.length) * 20}px`,
+                  height: `${10 + (pointCount / points.length) * 20}px`
+                }}
+              >
+                {pointCount}
+              </div>
             </Marker>
           );
-        } else {
-          return null;
         }
-        //   return features.map((feature: Feature, id: number) => renderPin(feature, id));
-        // }
+
+        return renderPin(cluster, cluster.id);
       })}
     </MapGL>
   );
