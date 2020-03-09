@@ -5,8 +5,6 @@ import MapGL, {
   NavigationControl,
 } from 'react-map-gl';
 import useSupercluster from 'use-supercluster';
-import 'mapbox-gl/dist/mapbox-gl.css';
-
 import { useTranslation } from 'react-i18next';
 
 import { Feature } from '../../../domain/api/generated/types.d';
@@ -21,6 +19,7 @@ import {
   transitionDuration,
 } from '../../constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
+import mapStyle from '../../../assets/mapStyle.json';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './Map.module.scss';
 import { getMapStyle, getFlyToPoint, getPoints, getRoutes } from './mapUtils';
@@ -105,7 +104,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
   });
 
   // get map bounds
-  const bounds = mapRef.current
+  const bounds: number[] = mapRef?.current
     ? mapRef.current.getMap().getBounds().toArray().flat()
     : null;
 
