@@ -21,7 +21,6 @@ import {
 } from '../../constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import mapStyle from '../../../assets/mapStyle.json';
-
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './Map.module.scss';
 import { getMapStyle, getFlyToPoint, getPoints, getRoutes } from './mapUtils';
