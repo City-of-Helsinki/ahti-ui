@@ -32,6 +32,13 @@ import { getMapStyle, getFlyToPoint, getPoints, getRoutes } from './mapUtils';
 // from here https://www.leighhalliday.com/mapbox-clustering
 // @ts-ignore
 
+type Cluster = {
+  __typename?: 'Cluster';
+  id: string;
+  geometry: { coordinates: number[] };
+  properties: { cluster: boolean; point_count: number };
+};
+
 interface MapProps {
   readonly className?: string;
   readonly features: Feature[];
@@ -72,7 +79,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
 
   const mapRef = useRef();
 
-  const renderPin = (feature: Feature, id: number) => {
+  const renderPin = (feature: Feature | Cluster, id: number) => {
     return (
       <Marker
         key={id}
@@ -91,8 +98,8 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
       type: 'Feature',
       properties: {
         cluster: false,
-        itemId: feature.properties.imageId,
-        category: feature.properties.type,
+        itemId: feature?.properties?.ahtiId,
+        category: feature?.properties?.category?.id,
       },
       geometry: {
         type: 'Point',
@@ -106,7 +113,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
 
   // get map bounds
   const bounds: number[] = mapRef?.current
-    ? mapRef.current.getMap().getBounds().toArray().flat()
+    ? mapRef?.current?.getMap().getBounds().toArray().flat()
     : null;
 
   const { clusters } = useSupercluster({
@@ -127,7 +134,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
       onViewportChange={setViewPort}
       ref={mapRef}
     >
-      {clusters.map((cluster) => {
+      {clusters.map((cluster: Cluster) => {
         const [longitude, latitude] = cluster.geometry.coordinates;
         const {
           cluster: isCluster,
