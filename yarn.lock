@@ -3366,6 +3366,13 @@
     "@types/history" "*"
     "@types/react" "*"
 
+"@types/react-slick@^0.23.4":
+  version "0.23.4"
+  resolved "https://registry.yarnpkg.com/@types/react-slick/-/react-slick-0.23.4.tgz#c97e2a9e7e3d1933c68593b8e82752fab1e8ce53"
+  integrity sha512-vXoIy4GUfB7/YgqubR4H7RALo+pRdMYCeLgWwV3MPwl5pggTlEkFBTF19R7u+LJc85uMqC7RfsbkqPLMQ4ab+A==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-swipeable-views@^0.13.0":
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/@types/react-swipeable-views/-/react-swipeable-views-0.13.0.tgz#9e5f2efa51380886f3f73014ac8b15546d337210"
@@ -15568,6 +15575,11 @@ slice-ansi@^2.1.0:
     ansi-styles "^3.2.0"
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
+
+slick-carousel@^1.8.1:
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/slick-carousel/-/slick-carousel-1.8.1.tgz#a4bfb29014887bb66ce528b90bd0cda262cc8f8d"
+  integrity sha512-XB9Ftrf2EEKfzoQXt3Nitrt/IPbT+f1fgqBdoxO3W/+JYvtEOW6EgxnWfr9GH6nmULv7Y2tPmEX3koxThVmebA==
 
 snapdragon-node@^2.0.1:
   version "2.1.1"

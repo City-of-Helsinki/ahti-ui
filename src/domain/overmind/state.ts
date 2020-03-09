@@ -1,22 +1,12 @@
 import { Feature } from '../api/generated/types.d';
 import { MenuCategory } from '../../common/ui-components/Menu/Menu';
-
-export type Filter = {
-  readonly id: string;
-  readonly name: string;
-};
-
-export type Category = {
-  readonly category: string;
-};
-
-export type CategoryFilter = Filter & Category;
+import { Filter } from '../../../alltypes';
 
 export type State = {
   selectedFeature: Feature | null;
   features: Feature[];
   tagFilters: Filter[];
-  categoryFilters: CategoryFilter[];
+  categoryFilters: Filter[];
   menuCategories: MenuCategory[];
   mapViewToggle: boolean;
 };

@@ -25,7 +25,6 @@ const Ahti: React.FC = () => {
         translate={true}
         onSelect={(menuItem: MenuItem) => {
           actions.addCategoryFilter({
-            category: menuItem.id,
             id: menuItem.id,
             name: menuItem.name
           });
