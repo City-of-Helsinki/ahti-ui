@@ -2,13 +2,13 @@ import { DocumentNode } from 'graphql';
 
 import { Feature } from '../api/generated/types.d';
 import { Action, AsyncAction } from './';
-import { CategoryFilter } from './state';
 import HARBOR_QUERY from '../api/queries/harborQuery';
 import FERRY_QUERY from '../api/queries/ferryQuery';
 import FEATURE_QUERY from '../api/queries/featureQuery';
 import graphQLClient from '../api/';
+import { Filter } from '../../../alltypes';
 
-export const addCategoryFilter: Action<CategoryFilter> = (
+export const addCategoryFilter: Action<Filter> = (
   { state },
   categoryFilter
 ) => {
