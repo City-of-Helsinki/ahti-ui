@@ -144,6 +144,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
 
         return renderPin(cluster, cluster.id);
       })}
+
       <div className={styles.mapControls}>
         <GeolocateControl
           positionOptions={{ enableHighAccuracy: true }}
