@@ -4,4 +4,3 @@ export const initialZoomLevel = 10;
 export const minZoomLevel = 8;
 export const maxZoomLevel = 18;
 export const clusteringRadius = 75;
-export const transitionDuration = 700;
