@@ -14,7 +14,8 @@ import {
   initialLongitude,
   initialZoomLevel,
   maxZoomLevel,
-  minZoomLevel
+  minZoomLevel,
+  clusteringRadius
 } from '../../constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import mapStyle from '../../../assets/mapStyle.json';
@@ -51,7 +52,8 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     longitude: initialLongitude,
     zoom: initialZoomLevel,
     minZoom: minZoomLevel,
-    maxZoom: maxZoomLevel
+    maxZoom: maxZoomLevel,
+    clusteringRadius: clusteringRadius
   });
 
   const mapRef = useRef();
@@ -101,7 +103,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     points,
     bounds,
     zoom: viewPort.zoom,
-    options: { radius: 75, maxZoom: viewPort.maxZoom }
+    options: { radius: viewPort.clusteringRadius, maxZoom: viewPort.maxZoom }
   });
 
   return (
