@@ -89,7 +89,6 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     };
   });
 
-<<<<<<< HEAD
   // get map bounds
   const bounds: number[] = mapRef?.current
     ? mapRef.current
@@ -116,6 +115,36 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
       onViewportChange={setViewPort}
       ref={mapRef}
     >
+      {clusters.map(cluster => {
+        const [longitude, latitude] = cluster.geometry.coordinates;
+        const {
+          cluster: isCluster,
+          point_count: pointCount
+        } = cluster.properties;
+
+        // this is temporary, new designs should come soon
+        if (isCluster) {
+          return (
+            <Marker
+              key={`cluster-${cluster.id}`}
+              latitude={latitude}
+              longitude={longitude}
+            >
+              <div
+                className="cluster-marker"
+                style={{
+                  width: `${10 + (pointCount / points.length) * 20}px`,
+                  height: `${10 + (pointCount / points.length) * 20}px`
+                }}
+              >
+                {pointCount}
+              </div>
+            </Marker>
+          );
+        }
+
+        return renderPin(cluster, cluster.id);
+      })}
       <div className={styles.mapControls}>
         <GeolocateControl
           positionOptions={{ enableHighAccuracy: true }}
@@ -132,20 +161,6 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
           showCompass={false}
         />
       </div>
-      {clusters.map(cluster => {
-        const [longitude, latitude] = cluster.geometry.coordinates;
-        const {
-          cluster: isCluster,
-          point_count: pointCount
-        } = cluster.properties;
-
-        // this is temporary, new designs should come soon
-        if (isCluster) {
-          return renderPin(cluster, cluster.id);
-        }
-
-        return renderPin(cluster, cluster.id);
-      })}
     </MapGL>
   );
 };
