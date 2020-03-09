@@ -113,7 +113,11 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     points,
     bounds,
     zoom: viewPort.zoom,
+<<<<<<< HEAD
     options: { radius: 75, maxZoom: 20 },
+=======
+    options: { radius: 75, maxZoom: viewPort.maxZoom }
+>>>>>>> Add maxzoom from constants
   });
 
   return (
