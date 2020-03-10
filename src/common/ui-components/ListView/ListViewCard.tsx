@@ -17,7 +17,7 @@ const ListViewCard: React.FC<ListViewCardProps> = ({ feature, onClick }) => {
   const imageUrl = getRandomImageUrl(feature?.properties?.images, null);
 
   return (
-    <div className={styles.container} onClick={onClick}>
+    <div className={styles.container} role={'button'} onClick={onClick}>
       <div className={styles.infoContainer}>
         <div>
           <CategoryIcon category={category} className={styles.bigIcon} />

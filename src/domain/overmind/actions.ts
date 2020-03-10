@@ -8,6 +8,12 @@ import FEATURE_QUERY from '../api/queries/featureQuery';
 import graphQLClient from '../api/';
 import { Filter } from '../../../alltypes';
 
+export const clearContentState: Action = ({ state }) => {
+  state.tagFilters = [];
+  state.categoryFilters = [];
+  state.selectedFeature = null;
+};
+
 export const addCategoryFilter: Action<Filter> = (
   { state },
   categoryFilter

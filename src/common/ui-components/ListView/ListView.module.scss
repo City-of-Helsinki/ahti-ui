@@ -2,6 +2,11 @@
   padding: 1rem;
 }
 
+.divider {
+  height: 1px;
+  background: black;
+}
+
 .line {
   border: 0.5px solid var(--hds-ui-color-black-10);
 }

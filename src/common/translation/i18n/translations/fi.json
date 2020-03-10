@@ -1,17 +1,30 @@
 {
   "common": {
-    "back": "Takaisin"
+    "back": "Takaisin",
+    "terms_of_service": "Käyttöehdot",
+    "all_rights_reserved": "Kaikki oikeudet pidätetään"
   },
-  "home": {
-    "main_header": "Löydä mahtava merellinen Helsinki Ahdin avulla!",
-    "see_all_button": "Näytä kaikki kohteet",
-    "section1_header": "Kohteita, elämyksiä, palveluita",
-    "section2_button": "Näytä kohde",
-    "section3_button": "Näytä kaikki",
-    "section4_header": "Tapoja nauttia Helsingin saaristosta",
-    "section5_header": "Vierailetko Helsingissä omalla veneelläsi?",
-    "section5_subheader": "Löydä vierasvenesatamia, lyhytaikaisia pysäköintipaikkoja ja venehuoltoasemia",
-    "section5_button": "Katso palveluntarjoajat"
+  "index": {
+    "main_header": "Löydä upea merellinen Helsinki!",
+    "see_all_button": "Tutustu kohteisiin",
+    "section1_header": "Merellisiä kohteita, elämyksiä ja paveluja",
+    "section1_paragraph": "Löydä helsingin lähiseudun merellinen ympäristö ja palvelut samasta paikasta.",
+    "section2_header": "Uutta Ahdissa",
+    "section2_paragraph": "Ahti on uudistunut ja olemme lisänneet uusia toiminnallisuuksia.",
+    "section3_header": "Merelliset kahvilat ja ravintolat",
+    "section3_button": "Selaa kaikkia ravintoloita ja kahviloita",
+    "section4_header": "Merelliset kokemukset",
+    "section5_header": "Uutta Ahdissa",
+    "section5_subheader": "Rutkasti uusia toiminnallisuuksia",
+    "section5_paragraph": "Tutustu helsingin merellliseen ympäristöön.",
+    "section5_link": "Katso kaikki uudistukset"
+  },
+  "category": {
+    "island": "Saaret",
+    "restaurant": "Ravintolat",
+    "cafe": "Kahvilat",
+    "sightseeing": "Nähtävyydet",
+    "sauna": "Saunat"
   },
   "dropdown": {
     "label": "Valikko",
