@@ -8,6 +8,7 @@ export type State = {
   tagFilters: Filter[];
   categoryFilters: Filter[];
   menuCategories: MenuCategory[];
+  availableCategories: string[];
   mapViewToggle: boolean;
 };
 
@@ -23,5 +24,12 @@ export const state: State = {
       category: 'ahti:category:island',
       menuItems: [{ name: 'all_islands', id: 'ahti:category:island' }]
     }
+  ],
+  availableCategories: [
+    'ahti:category:island',
+    'ahti:category:restaurant',
+    'ahti:category:sightseeing',
+    'ahti:category:sauna',
+    'ahti:category:cafe'
   ]
 };
