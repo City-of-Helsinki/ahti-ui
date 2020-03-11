@@ -70,10 +70,10 @@ const Ahti: React.FC = () => {
           />
         )}
         {state.selectedFeature && (
-          <>
+          <React.Fragment>
             <BackButton onBack={() => actions.clearSelectedFeature()} />
             <Card feature={state.selectedFeature} />
-          </>
+          </React.Fragment>
         )}
       </div>
     </div>

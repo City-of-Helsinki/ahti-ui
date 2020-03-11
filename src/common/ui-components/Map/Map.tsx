@@ -3,10 +3,14 @@ import React, { useState, useRef } from 'react';
 import MapGL, {
   GeolocateControl,
   Marker,
-  NavigationControl
+  NavigationControl,
+  StaticMap,
+  ViewportProps
 } from 'react-map-gl';
+import { BBox } from 'geojson';
 import useSupercluster from 'use-supercluster';
 import { useTranslation } from 'react-i18next';
+import { PointFeature } from 'supercluster';
 
 import { Feature } from '../../../domain/api/generated/types.d';
 import {
@@ -27,18 +31,20 @@ import styles from './Map.module.scss';
 // https://www.leighhalliday.com/mapbox-clustering
 */
 
-type Cluster = {
-  __typename?: 'Cluster';
-  id: string;
-  geometry: { coordinates: number[] };
-  properties: { cluster: boolean; point_count: number };
-};
-
 interface MapProps {
   readonly className?: string;
   readonly features: Feature[];
   onClick(feature: Feature): void;
 }
+
+type GeoJsonProperties = { cluster: boolean; itemId: string; category: string };
+type ClusterProperties = GeoJsonProperties & { point_count: number };
+
+// interface MapProps {
+//   readonly className?: string;
+//   readonly features: PointFeature<{ cluster: boolean; itemId: string; category: string; }>[];
+//   onClick(feature: PointFeature<{ cluster: boolean; itemId: string; category: string; }>): void;
+// }
 
 const getMapStyle = (): {} => {
   return {
@@ -63,9 +69,13 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     clusteringRadius: clusteringRadius
   });
 
-  const mapRef = useRef();
+  const mapRef = useRef<StaticMap>();
 
-  const renderPin = (feature: Feature | Cluster, id: number) => {
+  const renderPin = (
+    pointFeature: PointFeature<GeoJsonProperties>,
+    id: number | string
+  ) => {
+    const feature = features.find(feature => feature.id === pointFeature.id);
     return (
       <Marker
         key={id}
@@ -79,34 +89,42 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     );
   };
 
-  const points = features.map(feature => {
-    return {
-      type: 'Feature',
-      properties: {
-        cluster: false,
-        itemId: feature?.properties?.ahtiId,
-        category: feature?.properties?.category?.id
-      },
-      geometry: {
-        type: 'Point',
-        coordinates: [
-          feature.geometry.coordinates[0],
-          feature.geometry.coordinates[1]
-        ]
-      }
-    };
-  });
+  const points = features
+    .filter(feature => feature.geometry.type === 'Point')
+    .map(feature => {
+      return {
+        id: feature.id,
+        type: 'Feature' as 'Feature',
+        properties: {
+          cluster: false,
+          itemId: feature?.properties?.ahtiId,
+          category: feature?.properties?.category?.id
+        },
+        geometry: {
+          type: 'Point' as 'Point',
+          coordinates: [
+            feature.geometry.coordinates[0],
+            feature.geometry.coordinates[1]
+          ]
+        }
+      };
+    });
 
   // get map bounds
-  const bounds: number[] = mapRef?.current
-    ? mapRef?.current
-        ?.getMap()
-        .getBounds()
-        .toArray()
-        .flat()
-    : null;
+  const getBounds: () => BBox | null = function() {
+    const current = mapRef?.current;
+    if (!current) return null;
 
-  const { clusters } = useSupercluster({
+    return current
+      .getMap()
+      .getBounds()
+      .toArray()
+      .flat() as BBox;
+  };
+
+  const bounds = getBounds();
+
+  const { clusters } = useSupercluster<GeoJsonProperties, ClusterProperties>({
     points,
     bounds,
     zoom: viewPort.zoom,
@@ -120,18 +138,27 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
       height={'100vh'}
       {...viewPort}
       mapStyle={getMapStyle()}
-      onViewportChange={setViewPort}
+      onViewportChange={(viewState: ViewportProps) =>
+        setViewPort({
+          latitude: viewPort.latitude,
+          longitude: viewPort.longitude,
+          zoom: viewPort.zoom,
+          minZoom: viewPort.minZoom,
+          maxZoom: viewPort.maxZoom,
+          clusteringRadius: viewPort.clusteringRadius
+        })
+      }
       ref={mapRef}
     >
-      {clusters.map((cluster: Cluster) => {
+      {clusters.map(cluster => {
         const [longitude, latitude] = cluster.geometry.coordinates;
-        const {
-          cluster: isCluster,
-          point_count: pointCount
-        } = cluster.properties;
+        const { cluster: isCluster } = cluster.properties;
 
         // this is temporary, new designs should come soon
         if (isCluster) {
+          const {
+            point_count: pointCount
+          } = cluster.properties as ClusterProperties;
           return (
             <Marker
               key={`cluster-${cluster.id}`}
@@ -150,8 +177,10 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
             </Marker>
           );
         }
-
-        return renderPin(cluster, cluster.id);
+        return renderPin(
+          cluster as PointFeature<GeoJsonProperties>,
+          cluster.id
+        );
       })}
 
       <div className={styles.mapControls}>
@@ -163,7 +192,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
           }}
           label={t('map.geolocate')}
         />
-        <div className={styles.mapControlsDivider} />
+        <div className={styles.mapControlsDivider}></div>
         <NavigationControl
           zoomInLabel={t('map.zoom_in')}
           zoomOutLabel={t('map.zoom_out')}
