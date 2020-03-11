@@ -46,12 +46,6 @@ interface MapProps {
 type GeoJsonProperties = { cluster: boolean; itemId: string; category: string };
 type ClusterProperties = GeoJsonProperties & { point_count: number };
 
-// interface MapProps {
-//   readonly className?: string;
-//   readonly features: PointFeature<{ cluster: boolean; itemId: string; category: string; }>[];
-//   onClick(feature: PointFeature<{ cluster: boolean; itemId: string; category: string; }>): void;
-// }
-
 const getMapStyle = (): {} => {
   return {
     ...mapStyle,
