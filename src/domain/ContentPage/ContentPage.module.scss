@@ -1,0 +1,8 @@
+@import '../../styles/partials/variables';
+
+.subHeading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: $padding;
+}

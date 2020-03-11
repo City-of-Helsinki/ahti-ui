@@ -6,12 +6,13 @@
 @import './html5doctor.scss';
 @import './fonts.scss';
 @import './hds-brand-colors.css';
+@import './typography.scss';
+@import './partials/variables.scss';
 
 * {
   margin: 0;
   padding: 0;
   border: 0;
-  position: realtive;
   box-sizing: border-box;
   font-size: $text-base-size;
   font-weight: $text-base-weight;
@@ -51,7 +52,7 @@ body {
   font-family: $font-family;
 
   #root {
-    width: 474px;
+    width: $root-width;
     margin: 0 auto;
     position: relative;
   }

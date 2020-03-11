@@ -30,6 +30,7 @@ export interface MenuProps {
   readonly openComponent?: ReactNode;
   readonly closedComponent?: ReactNode;
   onSelect?(menuItem: MenuItem): void;
+  onLogoClick?(): void;
 }
 
 const translateMenuCategories = (
@@ -60,7 +61,8 @@ const Menu: React.FC<MenuProps> = ({
   menuCategories,
   openComponent,
   closedComponent,
-  onSelect
+  onSelect,
+  onLogoClick
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
@@ -106,7 +108,7 @@ const Menu: React.FC<MenuProps> = ({
     <div className={classNames(styles.container, className)}>
       <div className={styles.headerContainer}>
         <div>
-          <RouterLink to={'/'}>
+          <RouterLink to={'/'} onClick={() => onLogoClick && onLogoClick()}>
             <AhtiLogo />
           </RouterLink>
         </div>
