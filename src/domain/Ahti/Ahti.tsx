@@ -48,15 +48,39 @@ const Ahti: React.FC = () => {
           />
         }
       />
-      <Switch>
-        <Route path={'/content'}>
-          <ContentPage />
-        </Route>
-        <Route path={'/'}>
-          <IndexPage />
-          <Footer />
-        </Route>
-      </Switch>
+      <div className={styles.subHeading}>
+        <Breadcrumb
+          items={[...state.categoryFilters, ...state.tagFilters]}
+          onClose={(ahtiId) => actions.removeFilter(ahtiId)}
+        />
+        <Toggle
+          onIcon={<IconCheck />}
+          offIcon={<IconClose />}
+          toggleState={state.mapViewToggle}
+          onToggle={() => actions.toggleMapView()}
+        />
+      </div>
+      <div className={styles.content}>
+        {!state.selectedFeature && !state.mapViewToggle && (
+          <ListView
+            features={state.features}
+            onClick={(feature) => actions.selectFeature(feature)}
+          />
+        )}
+        {state.mapViewToggle && (
+          <Map
+            className={styles.map}
+            features={state.features}
+            onClick={actions.selectFeature}
+          />
+        )}
+        {state.selectedFeature && (
+          <React.Fragment>
+            <BackButton onBack={() => actions.clearSelectedFeature()} />
+            <Card feature={state.selectedFeature} />
+          </React.Fragment>
+        )}
+      </div>
     </div>
   );
 };
