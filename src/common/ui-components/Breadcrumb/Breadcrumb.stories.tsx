@@ -1,19 +1,17 @@
-import Breadcrumb, { BreadcrumbItem } from './Breadcrumb';
 import React, { useState } from 'react';
+
+import Breadcrumb, { BreadcrumbItem } from './Breadcrumb';
 
 const staticBreadcrumbItems: BreadcrumbItem[] = [
   {
-    category: 'a',
     name: 'First',
     id: '1'
   },
   {
-    category: 'a',
     name: 'Second',
     id: '2'
   },
   {
-    category: 'a',
     name: 'Third',
     id: '3'
   }
