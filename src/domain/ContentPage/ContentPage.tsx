@@ -52,11 +52,17 @@ const ContentPage: React.FC = () => {
           />
         )}
         {state.mapViewToggle && (
-          <Map
-            className={styles.map}
-            features={state.features}
-            onClick={actions.selectFeature}
-          />
+          <div
+            className={cx(styles.mapContainer, {
+              mapContainerShrunk: state.selectedFeature
+            })}
+          >
+            <Map
+              className={styles.map}
+              features={state.features}
+              onClick={actions.selectFeature}
+            />
+          </div>
         )}
         {state.selectedFeature && (
           <>

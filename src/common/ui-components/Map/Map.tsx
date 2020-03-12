@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import MapGL, {
   GeolocateControl,
   Marker,
-  NavigationControl
+  NavigationControl,
+  ViewportProps
 } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -42,6 +43,8 @@ const getMapStyle = (): {} => {
 const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
   const { t } = useTranslation();
   const [viewPort, setViewPort] = useState({
+    width: '100%',
+    height: '100%',
     latitude: initialLatitude,
     longitude: initialLongitude,
     zoom: initialZoomLevel,
@@ -63,14 +66,17 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
     );
   };
 
+  const onViewportChange = (viewPort: ViewportProps) => {
+    const { width, height, ...rest } = viewPort;
+    setViewPort({ width: '100%', height: '100%', ...rest });
+  };
+
   return (
     <MapGL
       className={className}
-      width={'100%'}
-      height={'100vh'}
       {...viewPort}
       mapStyle={getMapStyle()}
-      onViewportChange={setViewPort}
+      onViewportChange={onViewportChange}
     >
       {features.map((feature: Feature, id: number) => renderPin(feature, id))}
       <div className={styles.mapControls}>
