@@ -37,7 +37,9 @@ const ContentPage: React.FC = () => {
         />
         <Toggle
           onIcon={<IconCheck />}
+          onIconText={t('content.map')}
           offIcon={<IconClose />}
+          offIconText={t('content.list')}
           toggleState={state.mapViewToggle}
           onToggle={() => actions.toggleMapView()}
         />

@@ -19,6 +19,10 @@
     "section5_paragraph": "Plenty of new functionality to explore the Helsinki archipelago.",
     "section5_link": "See what's new"
   },
+  "content": {
+    "map": "Map",
+    "list": "List"
+  },
   "category": {
     "island": "Islands",
     "restaurant": "Restaurants",

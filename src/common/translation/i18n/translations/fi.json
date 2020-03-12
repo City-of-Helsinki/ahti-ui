@@ -19,6 +19,10 @@
     "section5_paragraph": "Tutustu helsingin merellliseen ympäristöön.",
     "section5_link": "Katso kaikki uudistukset"
   },
+  "content": {
+    "map": "Kartta",
+    "list": "Lista"
+  },
   "category": {
     "island": "Saaret",
     "restaurant": "Ravintolat",

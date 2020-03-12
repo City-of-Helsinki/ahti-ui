@@ -39,3 +39,17 @@
   border: 2px solid $_color;
   padding: 0.5rem;
 }
+
+@mixin margin-between($_classname, $_width) {
+  > .#{$_classname} {
+    margin: 0 $_width;
+  }
+
+  > .#{$_classname}:first-of-type {
+    margin-left: $_width;
+  }
+
+  > .#{$_classname}:last-of-type {
+    margin-right: $_width;
+  }
+}
