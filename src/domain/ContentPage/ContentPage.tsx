@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { IconCheck, IconClose } from 'hds-react';
+import { useTranslation } from 'react-i18next';
+import classNames from 'classnames/bind';
 
 import styles from './ContentPage.module.scss';
 import Breadcrumb from '../../common/ui-components/Breadcrumb/Breadcrumb';
@@ -10,10 +12,21 @@ import BackButton from '../../common/ui-components/BackButton/BackButton';
 import Card from '../../common/ui-components/Card/Card';
 import { useOvermind } from '../overmind';
 import { useScrollToTop } from '../../common/utils/hooks';
+import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
+
+const cx = classNames.bind(styles);
 
 const ContentPage: React.FC = () => {
   const { state, actions } = useOvermind();
+  const { t } = useTranslation();
   useScrollToTop();
+
+  const makeFilterFromCategoryId = (categoryId: string) => {
+    return {
+      id: categoryId,
+      name: t(`category.${categoryId.split(':')[2]}`)
+    };
+  };
 
   return (
     <>
@@ -50,6 +63,17 @@ const ContentPage: React.FC = () => {
           </>
         )}
       </div>
+      {!state.selectedFeature && (
+        <CategoryNavigation
+          className={cx(styles.categoryNavigation, {
+            categoryNavigationListView: !state.mapViewToggle
+          })}
+          categories={state.availableCategories.map(makeFilterFromCategoryId)}
+          onClick={(categoryId: string) => {
+            actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
+          }}
+        />
+      )}
     </>
   );
 };
