@@ -1,4 +1,5 @@
 declare module 'react-router-dom';
+declare module 'supercluster';
 
 export type NonEmptyArray<T> = [T, ...T[]];
 

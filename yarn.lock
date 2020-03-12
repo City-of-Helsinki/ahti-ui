@@ -8353,11 +8353,6 @@ gensync@^1.0.0-beta.1:
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.1.tgz#58f4361ff987e5ff6e1e7a210827aa371eaac269"
   integrity sha512-r8EC6NO1sngH/zdD9fiRDLdcgnbayXah+mLgManTaIZJqEC1MZstmnox8KpnI2/fxQwrp5OpCOYWLp4rBl4Jcg==
 
-geojson-bounding-box@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/geojson-bounding-box/-/geojson-bounding-box-0.2.0.tgz#724b2e1be12671a07bea729da758d038d7d876ca"
-  integrity sha512-VmBZ1DC8q+0dNlphppacim000KUQU9Yw+Q8A8m8zuQ3D6zNdp3RGFZPI8zdTLaPXK6dCfJWuDYwle3t/iYWUYw==
-
 geojson-vt@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/geojson-vt/-/geojson-vt-3.2.1.tgz#f8adb614d2c1d3f6ee7c4265cad4bbf3ad60c8b7"
