@@ -60,6 +60,7 @@ const ContentPage: React.FC = () => {
             <Map
               className={styles.map}
               features={state.features}
+              selectedFeature={state.selectedFeature}
               onClick={actions.selectFeature}
             />
           </div>

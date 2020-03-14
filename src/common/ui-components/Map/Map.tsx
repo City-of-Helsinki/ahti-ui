@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // eslint-disable-next-line import/order
 import MapGL, {
   GeolocateControl,
@@ -18,8 +18,10 @@ import {
   initialLatitude,
   initialLongitude,
   initialZoomLevel,
+  selectedFeatureZoomLevel,
   maxZoomLevel,
-  minZoomLevel
+  minZoomLevel,
+  transitionDuration
 } from '../../constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import styles from './Map.module.scss';
@@ -27,20 +29,9 @@ import styles from './Map.module.scss';
 interface MapProps {
   readonly className?: string;
   readonly features: Feature[];
+  readonly selectedFeature?: Feature | null;
   onClick(feature: Feature): void;
 }
-
-const getMapStyle = (): {} => {
-  return {
-    ...mapStyle,
-    sprite:
-      window.location.protocol +
-      '//' +
-      window.location.hostname +
-      (window.location.port ? ':' + window.location.port : '') +
-      '/sprites/ahti-sprite'
-  };
-};
 
 type ViewportState = {
   width: string;
@@ -54,40 +45,69 @@ type ViewportState = {
   transitionDuration?: number;
 };
 
-const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
+const getMapStyle = (): {} => {
+  return {
+    ...mapStyle,
+    sprite:
+      window.location.protocol +
+      '//' +
+      window.location.hostname +
+      (window.location.port ? ':' + window.location.port : '') +
+      '/sprites/ahti-sprite'
+  };
+};
+
+const Map: React.FC<MapProps> = ({
+  className,
+  features,
+  selectedFeature,
+  onClick
+}) => {
   const { t } = useTranslation();
   const [viewPort, setViewPort] = useState<ViewportState>({
     width: '100%',
     height: '100%',
-    latitude: initialLatitude,
-    longitude: initialLongitude,
-    zoom: initialZoomLevel,
+    longitude: selectedFeature
+      ? selectedFeature.geometry.coordinates[0]
+      : initialLongitude,
+    latitude: selectedFeature
+      ? selectedFeature.geometry.coordinates[1]
+      : initialLatitude,
+    zoom: selectedFeature ? selectedFeatureZoomLevel : initialZoomLevel,
     minZoom: minZoomLevel,
     maxZoom: maxZoomLevel
   });
 
   const renderPin = (feature: Feature, id: number) => {
+    const isSelected =
+      feature?.properties?.ahtiId === selectedFeature?.properties?.ahtiId;
+    const onMarkerClick = () => {
+      onClick(feature);
+      window && window.scrollTo({ top: 0 });
+      setViewPort({
+        ...viewPort,
+        longitude: feature.geometry.coordinates[0],
+        latitude: feature.geometry.coordinates[1],
+        zoom:
+          viewPort.zoom > selectedFeatureZoomLevel
+            ? viewPort.zoom
+            : selectedFeatureZoomLevel,
+        transitionInterpolator: new FlyToInterpolator(),
+        transitionDuration: transitionDuration
+      });
+    };
+
     return (
       <Marker
         key={id}
         longitude={feature.geometry.coordinates[0]}
         latitude={feature.geometry.coordinates[1]}
       >
-        <div
-          onClick={() => {
-            onClick(feature);
-            setViewPort({
-              ...viewPort,
-              longitude: feature.geometry.coordinates[0],
-              latitude: feature.geometry.coordinates[1],
-              zoom: 13,
-              transitionInterpolator: new FlyToInterpolator(),
-              transitionDuration: 700
-            });
-          }}
-          className={styles.markerContent}
-        >
-          <CategoryIcon category={feature?.properties?.category?.id} />
+        <div onClick={onMarkerClick} className={styles.markerContent}>
+          <CategoryIcon
+            category={feature?.properties?.category?.id}
+            className={isSelected ? styles.bigIcon : undefined}
+          />
         </div>
       </Marker>
     );
@@ -122,9 +142,6 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
         <GeolocateControl
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation={true}
-          onViewportChange={() => {
-            /* NOOP, disables flying to location */
-          }}
           label={t('map.geolocate')}
         />
         <div className={styles.mapControlsDivider} />
