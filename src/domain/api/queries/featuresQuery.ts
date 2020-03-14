@@ -18,6 +18,7 @@ const FEATURES_QUERY = gql`
             }
             name
             tags {
+              id
               name
             }
             description

@@ -427,7 +427,7 @@ export type FeatureQuery = { __typename?: 'Query' } & {
               category: Maybe<
                 { __typename?: 'FeatureCategory' } & Pick<FeatureCategory, 'id'>
               >;
-              tags: Array<{ __typename?: 'Tag' } & Pick<Tag, 'name'>>;
+              tags: Array<{ __typename?: 'Tag' } & Pick<Tag, 'id' | 'name'>>;
               contactInfo: Maybe<
                 { __typename?: 'ContactInfo' } & Pick<
                   ContactInfo,
@@ -502,7 +502,9 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                             'id'
                           >
                         >;
-                        tags: Array<{ __typename?: 'Tag' } & Pick<Tag, 'name'>>;
+                        tags: Array<
+                          { __typename?: 'Tag' } & Pick<Tag, 'id' | 'name'>
+                        >;
                         contactInfo: Maybe<
                           { __typename?: 'ContactInfo' } & Pick<
                             ContactInfo,
@@ -650,6 +652,7 @@ export const FeatureDocument = gql`
         }
         name
         tags {
+          id
           name
         }
         description
@@ -763,6 +766,7 @@ export const FeaturesDocument = gql`
             }
             name
             tags {
+              id
               name
             }
             description

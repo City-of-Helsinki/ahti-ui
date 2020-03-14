@@ -23,7 +23,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   translated = false,
   onClose
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className={classNames(styles.container, className)}>
@@ -34,7 +34,9 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
               item.id.startsWith('ahti:category:') ? item.id : undefined
             }
             name={
-              translated ? t(`categories_and_tags.${item.id}`) : item.name || ''
+              translated && i18n.exists(`categories_and_tags.${item.id}`)
+                ? t(`categories_and_tags.${item.id}`)
+                : item.name || ''
             }
             key={id}
             onClose={() => onClose(item.id)}

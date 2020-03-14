@@ -68,7 +68,10 @@ const ContentPage: React.FC = () => {
         {state.selectedFeature && (
           <>
             <BackButton onBack={() => actions.clearSelectedFeature()} />
-            <Card feature={state.selectedFeature} />
+            <Card
+              feature={state.selectedFeature}
+              onSelectFilter={actions.addTagFilter}
+            />
           </>
         )}
       </div>

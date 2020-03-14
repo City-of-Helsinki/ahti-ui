@@ -28,7 +28,7 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
   translated = false,
   onClick
 }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const sliderSettings = {
     speed: 500,
     slidesToShow:
@@ -57,7 +57,7 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
               <CategoryIcon category={category.id} className={styles.bigIcon} />
             </div>
             <div className={styles.categoryName}>
-              {translated
+              {translated && i18n.exists(`categories_and_tags.${category.id}`)
                 ? t(`categories_and_tags.${category.id}`)
                 : category.name}
             </div>
