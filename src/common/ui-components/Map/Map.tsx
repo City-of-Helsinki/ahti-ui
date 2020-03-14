@@ -60,7 +60,7 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
         latitude={feature.geometry.coordinates[1]}
       >
         <div onClick={() => onClick(feature)} className={styles.markerContent}>
-          <CategoryIcon category={feature?.properties?.category?.name} />
+          <CategoryIcon category={feature?.properties?.category?.id} />
         </div>
       </Marker>
     );
