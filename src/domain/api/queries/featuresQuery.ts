@@ -1,8 +1,8 @@
 import { gql } from 'apollo-boost';
 
 const FEATURES_QUERY = gql`
-  query features($first: Int, $category: [String]) {
-    features(first: $first, category: $category) {
+  query features($first: Int, $category: [String], $tag: [String]) {
+    features(first: $first, category: $category, taggedWithAny: $tag) {
       edges {
         node {
           id

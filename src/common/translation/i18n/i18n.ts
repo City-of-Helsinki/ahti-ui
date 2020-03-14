@@ -21,6 +21,7 @@ export const initialize = () => {
       },
       whitelist: Object.values(SUPPORTED_LANGUAGES),
       fallbackLng: SUPPORTED_LANGUAGES.FI,
+      nsSeparator: false,
       interpolation: {
         escapeValue: false // not needed for react as it escapes by default
       }

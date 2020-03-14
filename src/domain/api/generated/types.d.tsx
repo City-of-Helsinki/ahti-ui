@@ -75,6 +75,12 @@ export enum DistanceUnitEnum {
   Yd = 'yd'
 }
 
+export type ExternalLink = {
+  __typename?: 'ExternalLink';
+  type: Scalars['String'];
+  url: Scalars['String'];
+};
+
 export type Feature = Node & {
   __typename?: 'Feature';
   type?: Maybe<Scalars['String']>;
@@ -135,6 +141,7 @@ export type FeatureProperties = {
   ferries: Array<Ferry>;
   harbors: Array<Harbor>;
   images: Array<Image>;
+  links: Array<ExternalLink>;
   modifiedAt: Scalars['DateTime'];
   name: Scalars['String'];
   openingHoursPeriods: Array<OpeningHoursPeriod>;
@@ -464,6 +471,7 @@ export type FeatureQuery = { __typename?: 'Query' } & {
 export type FeaturesQueryVariables = {
   first?: Maybe<Scalars['Int']>;
   category?: Maybe<Array<Maybe<Scalars['String']>>>;
+  tag?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type FeaturesQuery = { __typename?: 'Query' } & {
@@ -738,8 +746,8 @@ export type FeatureQueryResult = ApolloReactCommon.QueryResult<
   FeatureQueryVariables
 >;
 export const FeaturesDocument = gql`
-  query features($first: Int, $category: [String]) {
-    features(first: $first, category: $category) {
+  query features($first: Int, $category: [String], $tag: [String]) {
+    features(first: $first, category: $category, taggedWithAny: $tag) {
       edges {
         node {
           id
@@ -822,6 +830,7 @@ export const FeaturesComponent = (props: FeaturesComponentProps) => (
  *   variables: {
  *      first: // value for 'first'
  *      category: // value for 'category'
+ *      tag: // value for 'tag'
  *   },
  * });
  */

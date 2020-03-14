@@ -23,8 +23,7 @@ const ContentPage: React.FC = () => {
 
   const makeFilterFromCategoryId = (categoryId: string) => {
     return {
-      id: categoryId,
-      name: t(`category.${categoryId.split(':')[2]}`)
+      id: categoryId
     };
   };
 
@@ -33,6 +32,7 @@ const ContentPage: React.FC = () => {
       <div className={styles.subHeading}>
         <Breadcrumb
           items={[...state.categoryFilters, ...state.tagFilters]}
+          translated={true}
           onClose={ahtiId => actions.removeFilter(ahtiId)}
         />
         <Toggle
@@ -78,6 +78,7 @@ const ContentPage: React.FC = () => {
             categoryNavigationListView: !state.mapViewToggle
           })}
           categories={state.availableCategories.map(makeFilterFromCategoryId)}
+          translated={true}
           onClick={(categoryId: string) => {
             actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
           }}

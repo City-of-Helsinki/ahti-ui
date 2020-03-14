@@ -25,6 +25,12 @@ export const addCategoryFilter: Action<Filter> = (
   }
 };
 
+export const addTagFilter: Action<Filter> = ({ state }, tagFilter) => {
+  if (!state.tagFilters.map(filter => filter.id).includes(tagFilter.id)) {
+    state.tagFilters = [...state.tagFilters, tagFilter];
+  }
+};
+
 export const removeFilter: Action<string> = ({ state }, filterId) => {
   if (filterId.startsWith('ahti:category')) {
     state.categoryFilters = state.categoryFilters.filter(

@@ -23,12 +23,14 @@
     "map": "Kartta",
     "list": "Lista"
   },
-  "category": {
-    "island": "Saaret",
-    "restaurant": "Ravintolat",
-    "cafe": "Kahvilat",
-    "sightseeing": "Nähtävyydet",
-    "sauna": "Saunat"
+  "categories_and_tags": {
+    "ahti:category:island": "Saaret",
+    "ahti:category:restaurant": "Ravintolat",
+    "ahti:category:cafe": "Kahvilat",
+    "ahti:category:sightseeing": "Nähtävyydet",
+    "ahti:category:sauna": "Saunat",
+
+    "ahti:tag:swimming": "Uinti"
   },
   "dropdown": {
     "label": "Valikko",

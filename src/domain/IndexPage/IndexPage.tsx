@@ -21,8 +21,7 @@ const IndexPage: React.FC = () => {
 
   const makeFilterFromCategoryId = (categoryId: string) => {
     return {
-      id: categoryId,
-      name: t(`category.${categoryId.split(':')[2]}`)
+      id: categoryId
     };
   };
 
@@ -48,6 +47,7 @@ const IndexPage: React.FC = () => {
         <h2>{t('index.section1_header')}</h2>
         <p>{t('index.section1_paragraph')}</p>
         <CategoryNavigation
+          translated={true}
           categories={state.availableCategories.map(makeFilterFromCategoryId)}
           onClick={(categoryId: string) => {
             actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));

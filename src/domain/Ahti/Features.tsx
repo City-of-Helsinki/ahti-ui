@@ -9,7 +9,8 @@ const Features: React.FC = () => {
   const { data } = useFeaturesQuery({
     variables: {
       first: 100,
-      category: state.categoryFilters.map(filter => filter.id)
+      category: state.categoryFilters.map(filter => filter.id),
+      tag: state.tagFilters.map(filter => filter.id)
     }
   });
 

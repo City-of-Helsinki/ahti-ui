@@ -23,12 +23,14 @@
     "map": "Map",
     "list": "List"
   },
-  "category": {
-    "island": "Islands",
-    "restaurant": "Restaurants",
-    "cafe": "Cafes",
-    "sightseeing": "Sightseeing",
-    "sauna": "Saunas"
+  "categories_and_tags": {
+    "ahti:category:island": "Islands",
+    "ahti:category:restaurant": "Restaurants",
+    "ahti:category:cafe": "Cafes",
+    "ahti:category:sightseeing": "Sightseeing",
+    "ahti:category:sauna": "Saunas",
+
+    "ahti:tag:swimming": "Swimming"
   },
   "dropdown": {
     "label": "Menu",
