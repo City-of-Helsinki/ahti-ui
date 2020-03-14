@@ -4,7 +4,9 @@ import MapGL, {
   GeolocateControl,
   Marker,
   NavigationControl,
-  ViewportProps
+  ViewportProps,
+  FlyToInterpolator,
+  TransitionInterpolator
 } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
@@ -40,9 +42,21 @@ const getMapStyle = (): {} => {
   };
 };
 
+type ViewportState = {
+  width: string;
+  height: string;
+  latitude: number;
+  longitude: number;
+  zoom: number;
+  minZoom: number;
+  maxZoom: number;
+  transitionInterpolator?: TransitionInterpolator;
+  transitionDuration?: number;
+};
+
 const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
   const { t } = useTranslation();
-  const [viewPort, setViewPort] = useState({
+  const [viewPort, setViewPort] = useState<ViewportState>({
     width: '100%',
     height: '100%',
     latitude: initialLatitude,
@@ -59,7 +73,20 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
         longitude={feature.geometry.coordinates[0]}
         latitude={feature.geometry.coordinates[1]}
       >
-        <div onClick={() => onClick(feature)} className={styles.markerContent}>
+        <div
+          onClick={() => {
+            onClick(feature);
+            setViewPort({
+              ...viewPort,
+              longitude: feature.geometry.coordinates[0],
+              latitude: feature.geometry.coordinates[1],
+              zoom: 13,
+              transitionInterpolator: new FlyToInterpolator(),
+              transitionDuration: 700
+            });
+          }}
+          className={styles.markerContent}
+        >
           <CategoryIcon category={feature?.properties?.category?.id} />
         </div>
       </Marker>
@@ -67,8 +94,20 @@ const Map: React.FC<MapProps> = ({ className, features, onClick }) => {
   };
 
   const onViewportChange = (viewPort: ViewportProps) => {
-    const { width, height, ...rest } = viewPort;
-    setViewPort({ width: '100%', height: '100%', ...rest });
+    const {
+      width,
+      height,
+      transitionInterpolator,
+      transitionDuration,
+      ...rest
+    } = viewPort;
+    setViewPort({
+      width: '100%',
+      height: '100%',
+      transitionInterpolator: undefined,
+      transitionDuration: undefined,
+      ...rest
+    });
   };
 
   return (
