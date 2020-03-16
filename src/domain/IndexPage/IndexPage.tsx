@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Koros } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { Link, useHistory } from 'react-router-dom';
@@ -16,15 +16,19 @@ import { featuresLens } from '../../common/utils/lenses';
 
 const IndexPage: React.FC = () => {
   const { state, actions } = useOvermind();
-  const { data } = useFeaturesQuery({
+  const { data, refetch } = useFeaturesQuery({
     variables: {
       first: 4,
       category: ['ahti:category:restaurant', 'ahti:category:cafe']
     }
   });
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const history = useHistory();
   useScrollToTop();
+
+  useEffect(() => {
+    refetch();
+  }, [i18n.language, refetch]);
 
   const makeFilterFromCategoryId = (categoryId: string) => {
     return {
