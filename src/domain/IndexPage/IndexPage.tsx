@@ -7,14 +7,21 @@ import classNames from 'classnames';
 import ListView from '../../common/ui-components/ListView/ListView';
 import { useOvermind } from '../overmind';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
-import { Feature } from '../api/generated/types.d';
+import { Feature, useFeaturesQuery } from '../api/generated/types.d';
 import styles from './IndexPage.module.scss';
 import ImageWithCard from '../../common/ui-components/ImageWithCard/ImageWithCard';
 import { useScrollToTop } from '../../common/utils/hooks';
 import PromotionCard from '../../common/ui-components/PromotionCard/PromotionCard';
+import { featuresLens } from '../../common/utils/lenses';
 
 const IndexPage: React.FC = () => {
   const { state, actions } = useOvermind();
+  const { data } = useFeaturesQuery({
+    variables: {
+      first: 4,
+      category: ['ahti:category:restaurant', 'ahti:category:cafe']
+    }
+  });
   const { t } = useTranslation();
   const history = useHistory();
   useScrollToTop();
@@ -58,18 +65,15 @@ const IndexPage: React.FC = () => {
 
       <section className={styles.section}>
         <h2>{t('index.section3_header')}</h2>
-        <ListView
-          onClick={(feature: Feature) => {
-            actions.selectFeature(feature);
-            history.push('/content');
-          }}
-          features={state.features
-            .filter(
-              feature =>
-                feature?.properties?.category?.id === 'ahti:category:island'
-            )
-            .slice(0, 4)}
-        />
+        {data && (
+          <ListView
+            onClick={(feature: Feature) => {
+              actions.selectFeature(feature);
+              history.push('/content');
+            }}
+            features={featuresLens.get(data)}
+          />
+        )}
         <Link
           className={styles.link}
           to={'/content'}
