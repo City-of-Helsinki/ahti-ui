@@ -1,11 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 // eslint-disable-next-line import/order
 import MapGL, {
   GeolocateControl,
   Marker,
   NavigationControl,
   StaticMap,
-  ViewportProps,
   FlyToInterpolator,
   TransitionInterpolator
 } from 'react-map-gl';
@@ -19,37 +18,32 @@ import {
   initialLatitude,
   initialLongitude,
   initialZoomLevel,
-  selectedFeatureZoomLevel,
   maxZoomLevel,
   minZoomLevel,
   clusteringRadius,
+  selectedFeatureZoomLevel,
   transitionDuration
 } from '../../constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import mapStyle from '../../../assets/mapStyle.json';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './Map.module.scss';
-
 /*
 // Approach for clustering used from here
 // https://www.leighhalliday.com/mapbox-clustering
 */
-
 interface MapProps {
   readonly className?: string;
   readonly features: Feature[];
   readonly selectedFeature?: Feature | null;
   onClick(feature: Feature): void;
 }
-
-
 type GeoJsonProperties = { cluster: boolean; itemId: string; category: string };
 type ClusterProperties = GeoJsonProperties & { point_count: number };
 
-
 type ViewportState = {
-  width: string;
-  height: string;
+  width?: string;
+  height?: string;
   latitude: number;
   longitude: number;
   zoom: number;
@@ -58,7 +52,6 @@ type ViewportState = {
   transitionInterpolator?: TransitionInterpolator;
   transitionDuration?: number;
 };
-
 
 const getMapStyle = (): {} => {
   return {
@@ -71,7 +64,6 @@ const getMapStyle = (): {} => {
       '/sprites/ahti-sprite'
   };
 };
-
 const Map: React.FC<MapProps> = ({
   className,
   features,
@@ -90,22 +82,15 @@ const Map: React.FC<MapProps> = ({
       : initialLatitude,
     zoom: selectedFeature ? selectedFeatureZoomLevel : initialZoomLevel,
     minZoom: minZoomLevel,
-    maxZoom: maxZoomLevel,
-    clusteringRadius: clusteringRadius
+    maxZoom: maxZoomLevel
   });
-
-
   const mapRef = useRef<StaticMap>();
-
-//   const renderPin = (
-//     pointFeature: PointFeature<GeoJsonProperties>,
-//     id: number | string
-//   ) => {
-//     const feature = features.find(feature => feature.id === pointFeature.id);
-
-  const renderPin = (feature: Feature, id: number) => {
+  const renderPin = (
+    pointFeature: PointFeature<GeoJsonProperties>,
+    id: number | string
+  ) => {
     const isSelected =
-      feature?.properties?.ahtiId === selectedFeature?.properties?.ahtiId;
+      pointFeature?.properties?.itemId === selectedFeature?.properties?.ahtiId;
     const onMarkerClick = () => {
       onClick(feature);
       window && window.scrollTo({ top: 0 });
@@ -121,7 +106,7 @@ const Map: React.FC<MapProps> = ({
         transitionDuration: transitionDuration
       });
     };
-
+    const feature = features.find(feature => feature.id === pointFeature.id);
     return (
       <Marker
         key={id}
@@ -137,8 +122,6 @@ const Map: React.FC<MapProps> = ({
       </Marker>
     );
   };
-
-
   const points = features
     .filter(feature => feature.geometry.type === 'Point')
     .map(feature => {
@@ -159,58 +142,53 @@ const Map: React.FC<MapProps> = ({
         }
       };
     });
-
   // get map bounds
   const getBounds: () => BBox | null = function() {
     const current = mapRef?.current;
     if (!current) return null;
-
     return current
       .getMap()
       .getBounds()
       .toArray()
       .flat() as BBox;
   };
-
   const bounds = getBounds();
-
   const { clusters } = useSupercluster<GeoJsonProperties, ClusterProperties>({
     points,
     bounds,
     zoom: viewPort.zoom,
-    options: { radius: viewPort.clusteringRadius, maxZoom: viewPort.maxZoom }
+    options: { radius: clusteringRadius, maxZoom: viewPort.maxZoom }
   });
 
-  const onViewportChange = (viewPort: ViewportProps) => {
-    const {
-      width,
-      height,
-      transitionInterpolator,
-      transitionDuration,
-      ...rest
-    } = viewPort;
-    setViewPort({
-      width: '100%',
-      height: '100%',
-      transitionInterpolator: undefined,
-      transitionDuration: undefined,
-      ...rest
-    });
-  };
+  // const onViewportChange = (viewPort: ViewportState) => {
+  //   // const {
+  //   //   width,
+  //   //   height,
+  //   //   transitionInterpolator,
+  //   //   transitionDuration,
+  //   //   latitude,
+  //   //   longitude,
+  //   //   zoom,
+  //   //   minZoom,
+  //   //   maxZoom
+  //   // } = viewPort;
+  //   setViewPort(viewPort);
+  // };
 
   return (
     <MapGL
       className={className}
+      width={'100%'}
+      height={'100vh'}
       {...viewPort}
       mapStyle={getMapStyle()}
-      onViewportChange={(viewState: ViewportProps) =>
+      onViewportChange={() =>
         setViewPort({
           latitude: viewPort.latitude,
           longitude: viewPort.longitude,
           zoom: viewPort.zoom,
           minZoom: viewPort.minZoom,
-          maxZoom: viewPort.maxZoom,
-          clusteringRadius: viewPort.clusteringRadius
+          maxZoom: viewPort.maxZoom
         })
       }
       ref={mapRef}
@@ -218,7 +196,6 @@ const Map: React.FC<MapProps> = ({
       {clusters.map(cluster => {
         const [longitude, latitude] = cluster.geometry.coordinates;
         const { cluster: isCluster } = cluster.properties;
-
         // this is temporary, new designs should come soon
         if (isCluster) {
           const {
@@ -247,11 +224,13 @@ const Map: React.FC<MapProps> = ({
           cluster.id
         );
       })}
-
       <div className={styles.mapControls}>
         <GeolocateControl
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation={true}
+          onViewportChange={() => {
+            /* NOOP, disables flying to location */
+          }}
           label={t('map.geolocate')}
         />
         <div className={styles.mapControlsDivider}></div>
@@ -264,5 +243,4 @@ const Map: React.FC<MapProps> = ({
     </MapGL>
   );
 };
-
 export default Map;
