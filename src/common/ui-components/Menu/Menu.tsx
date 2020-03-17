@@ -10,7 +10,8 @@ import NavDropdown from './NavDropdown/NavDropdown';
 import styles from './Menu.module.scss';
 
 export type MenuItem = {
-  readonly id: string;
+  readonly categoryIds: string[];
+  readonly tagIds: string[];
   readonly name: string;
   readonly url?: string;
   readonly outbound?: boolean;

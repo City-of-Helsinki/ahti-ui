@@ -13,6 +13,9 @@ require('matchmedia-polyfill');
 // const require('matchmedia-polyfill/matchMedia.addListener');
 
 initialize();
+
+import './common/translation/i18n/i18n';
+
 configure({ adapter: new Adapter() });
 
 // window.matchMedia = matchMedia;

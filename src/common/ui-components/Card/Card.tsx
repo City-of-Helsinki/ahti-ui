@@ -6,13 +6,20 @@ import styles from './Card.module.scss';
 import HarborContent from './harbor/HarborContent';
 import FerryContent from './ferry/FerryContent';
 import IslandContent from './island/IslandContent';
+import { Filter } from '../../../../alltypes';
+import { Tag } from '../../../domain/api/generated/types.d';
 
 export interface CardProps {
   readonly className?: string;
   readonly feature: any;
+  onSelectFilter?(filter: Filter): void;
 }
 
-const Card: React.FC<CardProps> = ({ className, feature }: CardProps) => {
+const Card: React.FC<CardProps> = ({
+  className,
+  feature,
+  onSelectFilter
+}: CardProps) => {
   const type = feature.__typename;
   const { name, images, tags } = feature.properties;
   const { postalCode, municipality } = feature.properties.contactInfo.address;
@@ -20,10 +27,14 @@ const Card: React.FC<CardProps> = ({ className, feature }: CardProps) => {
   const renderTags = () => {
     return (
       <>
-        {tags.map((tag: any, id: number) => (
+        {tags.map((tag: Tag, id: number) => (
           <span
             key={id}
             className={styles.tagsContainerSpan}
+            role={'button'}
+            onClick={() =>
+              onSelectFilter && onSelectFilter({ id: tag.id, name: tag.name })
+            }
           >{`#${tag.name}`}</span>
         ))}
       </>
