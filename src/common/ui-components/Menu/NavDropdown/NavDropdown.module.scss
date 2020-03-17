@@ -1,0 +1,34 @@
+@import '../../../../styles/icons';
+
+.container {
+  display: grid;
+  grid-template-columns: 56px auto $icon-width;
+  grid-row-gap: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--hds-ui-color-black-40);
+}
+
+.headerContainer {
+  display: grid;
+  grid-template-columns: 56px auto $icon-width;
+  grid-column: 1 / -1;
+  cursor: pointer;
+  color: var(--hds-ui-color-black);
+}
+
+.titleContainer {
+  font-weight: 700;
+}
+
+.childrenContainer {
+  grid-column: 2 / 2;
+}
+
+.angleIconOpen {
+  transform: rotate(-90deg);
+}
+
+.angleIconClosed {
+  transform: rotate(90deg);
+}

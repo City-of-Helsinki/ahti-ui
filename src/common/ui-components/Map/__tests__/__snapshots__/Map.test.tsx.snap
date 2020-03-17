@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Map renders without crashing 1`] = `"<div style=\\"position:relative;width:100%;height:100%;cursor:grab\\"><div style=\\"position:relative;width:100%;height:100%\\"><div style=\\"position:absolute;width:100%;height:100%;overflow:hidden;visibility:inherit\\" class=\\"\\"></div><div style=\\"overflow:visible;height:0;width:0\\"></div></div></div>"`;

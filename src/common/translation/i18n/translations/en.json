@@ -1,0 +1,198 @@
+{
+  "common": {
+    "back": "Back",
+    "terms_of_service": "Terms of Service",
+    "all_rights_reserved": "All rights reserved"
+  },
+  "index": {
+    "main_header": "Discover the beautiful archipelago of Helsinki!",
+    "see_all_button": "Discover",
+    "section1_header": "Destinations, services and experiences",
+    "section1_paragraph": "Discover the seaside and services of Helsinki and neighboring municipalities in the same place.",
+    "section2_header": "New in Ahti",
+    "section2_paragraph": "Ahti has been updated and we have added new features.",
+    "section3_header": "Seaside restaurants and cafes",
+    "section3_button": "Browse all restaurants and cafes",
+    "section4_header": "Seaside experiences",
+    "section5_header": "New in Ahti",
+    "section5_subheader": "Ahti has been updated",
+    "section5_paragraph": "Plenty of new functionality to explore the Helsinki archipelago.",
+    "section5_link": "See what's new"
+  },
+  "content": {
+    "map": "Map",
+    "list": "List"
+  },
+  "categories_and_tags": {
+    "ahti:category:island": "Islands",
+    "ahti:category:restaurant": "Restaurants",
+    "ahti:category:cafe": "Cafes",
+    "ahti:category:sightseeing": "Sightseeing",
+    "ahti:category:sauna": "Saunas",
+
+    "ahti:tag:swimming": "Swimming"
+  },
+  "dropdown": {
+    "label": "Menu",
+    "change_language": "Vaihda kieli Suomeksi",
+    "add_location": "Add location or service",
+    "add_location_target": "https://docs.google.com/forms/d/e/1FAIpQLSeUKV9KPXBjDZHNRnVi3vB1N-fayYxFy3tirFdKplAIFYqxRw/viewform?usp=sf_link",
+    "give_feedback": "Give feedback",
+    "give_feedback_target": "https://docs.google.com/forms/d/e/1FAIpQLSefN-qtj9EOpV6iLcaKj2LrQYV-fhjEAeqB4g1rQPIdSIYLdA/viewform?usp=sf_link",
+    "about": "About Ahti",
+    "boat_page": "City's boat page",
+    "boat_page_target": "https://www.hel.fi/helsinki/en/culture/recreation/boating/",
+    "rescue_directions": "Sea rescue directions",
+    "rescue_directions_target": "https://www.hel.fi/helsinki/en/culture/recreation/boating/boating-information/sea-rescue-directions/"
+  },
+  "map": {
+    "show_all_button": "Show all",
+    "back_button": "Back",
+    "tag_card": {
+      "locations": "locations",
+      "point_list_header": "Things to do",
+      "point_list_subheader": "Locations available for travellers in"
+    },
+    "zoom_in": "Zoom In",
+    "zoom_out": "Zoom Out",
+    "geolocate": "Show Your Location"
+  },
+  "footer": {
+    "header": "Maritime links",
+    "link1": {
+      "content": "Saunas",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/lisatietoa-ulkoilusta/saunat/saunat"
+    },
+    "link2": {
+      "content": "Boating",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
+    "link3": {
+      "content": "Fishing",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/kalastus/"
+    },
+    "link4": {
+      "content": "In islands",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/"
+    },
+    "link5": {
+      "content": "Boat spots",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
+    "body": "This service is under development and you’re using a test version.",
+    "learn_more": "Learn more about Ahti.",
+    "attribution": "© City of Helsinki 2019 |",
+    "attribution_link": "https://www.hel.fi/helsinki/en"
+  },
+  "types": {
+    "island": "Islands",
+    "route": "Routes to islands",
+    "cityboat": "City boats",
+    "sauna": "Saunas",
+    "rent": "Boat rentals",
+    "sup": "SUP boarding",
+    "experience": "Experiences",
+    "kayak": "Kayaking",
+    "charter": "Charter",
+    "sightseeing": "Sightseeing",
+    "learn": "Boating education",
+    "taxi": "Boat rides",
+    "visitor": "Visitor harbors",
+    "parking": "Boat parking",
+    "station": "Boat stations",
+    "myhelsinki": "MyHelsinki Places"
+  },
+  "cookie_consent": {
+    "text": "This service is in development and it uses cookies to collect anonymised user data which might be utilized later.",
+    "button": "Accept"
+  },
+  "menu": {
+    "open": "open menu",
+    "close": "close menu",
+    "open_submenu": "open submenu",
+    "close_submenu": "close submenu",
+    "title": {
+      "islands": "Islands",
+      "travel_to_islands": "Water busses, ferries and boat rides",
+      "saunas_and_swimming": "Saunas and swimming",
+      "restaurants": "Seaside cafes and restaurants",
+      "boater_services": "Boater services",
+      "rental_boats": "Rental boats and equipment"
+    },
+    "link": {
+      "islands": {
+        "all_islands": "All islands"
+      },
+      "travel_to_islands": {
+        "water_bus_and_ferries": "Water busses and ferry routes",
+        "boat_rides_and_taxis": "Boat rides and taxis",
+        "sightseeing_and_cruises": "Sightseeing and cruises"
+      },
+      "saunas_and_swimming": {
+        "saunas": "Saunas",
+        "swimming": "Swimming",
+        "ice_swimming": "Ice swimming"
+      },
+      "restaurants": {
+        "restaurants": "Restaurants",
+        "cafes": "Cafes",
+        "beer_and_wine_bars": "Wine and beer bars"
+      },
+      "boater_services": {
+        "mooring": "Guest harbors",
+        "maintenance": "Boat maintenance",
+        "septic_tank_draining": "Septic tank draining"
+      },
+      "rental_boats": {
+        "rowboats": "Rowing boats",
+        "motorboats": "Motorboats",
+        "other": "Other rental services"
+      }
+    }
+  },
+  "card": {
+    "modified_at": "Updated",
+    "source": "Source",
+    "show_more": "Show more",
+    "show_less": "Show less",
+    "island_content": {
+      "services_tab": "Services",
+      "routes_tab": "Routes",
+      "description_tab": "Description",
+      "routes": {
+        "ferries": "Waterbusses and ferries",
+        "harbors": "Guest harbors"
+      }
+    },
+    "ferry_content": {
+      "duration": "Duration",
+      "pricing": "Tickets",
+      "adultPricing": "Adult",
+      "childPricing": "child",
+      "startingPort": "Port address",
+      "booking": "Timetables and tickets"
+    },
+    "harbor_content": {
+      "mooring": "Mooring",
+      "mooringInformation": "Berths",
+      "mooringType": "Mooring types",
+      "depth": "Depth",
+      "pricing": "Prices and booking",
+      "dayPricing": "Day",
+      "overnightPricing": "Overnight",
+      "booking": "Make a booking",
+      "mooringTypes": {
+        "buoy": "Buoy",
+        "pole": "Pole",
+        "pier": "Pier"
+      }
+    }
+  },
+  "search": {
+    "search": "Search",
+    "close": "Close search"
+  },
+  "filter": {
+    "close": "Close filters"
+  }
+}

@@ -1,0 +1,87 @@
+@import '../../../styles/icons';
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
+
+.container {
+  background-color: var(--hds-ui-color-white);
+
+  /* Hide the scrollbar, but keep scrolling enabled */
+  overflow-y: $vertical-overflow-scrollable;
+
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Internet Explorer 10+ */
+  -ms-overflow-style: none;
+}
+
+.container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.containerFocused {
+}
+
+.searchItem {
+  @include flex;
+}
+
+.infoContainer {
+  @include fullWidth;
+  @include flex(column);
+  border-bottom: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--hds-ui-color-black-10);
+  margin-left: $margin;
+}
+
+.name {
+  font-size: $font-size;
+  font-weight: $font-width-thick;
+  line-height: $line-height;
+}
+
+.nameMark {
+  all: unset;
+  color: var(--hds-brand-color-coat-of-arms-blue);
+}
+
+.address {
+  color: var(--hds-ui-color-black-70);
+  font-weight: 400;
+}
+
+.searchInput {
+  @include fullWidth;
+  border: none;
+  margin-left: $margin;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchInputWithIcon {
+  @include flex;
+}
+
+.infoImage {
+  height: $image-width;
+  width: $image-width;
+  cursor: pointer;
+}
+
+.search {
+  @include flex;
+}
+
+.resultsContainerAbsolute {
+  position: absolute;
+  margin-top: $margin;
+}
+
+.resultsContainerRelative {
+  position: relative;
+  background-color: var(--hds-ui-color-white);
+}

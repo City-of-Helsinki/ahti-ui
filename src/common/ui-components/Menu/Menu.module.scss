@@ -1,0 +1,31 @@
+@import '../../../styles/icons';
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
+
+.container {
+  padding: $padding;
+  background: var(--hds-ui-color-white);
+}
+
+.headerContainer {
+  @include flex;
+  justify-content: space-between;
+  padding-top: $padding;
+  padding-bottom: $padding;
+  border-bottom: 1px solid var(--hds-ui-color-black-40);
+}
+
+.navLink {
+  text-decoration: none;
+  line-height: $line-height;
+  color: var(--hds-ui-color-black);
+}
+
+.navLinkDisabled {
+  @include disabledLink;
+  color: var(--hds-ui-color-black-40);
+}
+
+.navDropdownContent {
+  @include flex(true);
+}

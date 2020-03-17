@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  > div {
+    margin: 0 5px;
+  }
+}

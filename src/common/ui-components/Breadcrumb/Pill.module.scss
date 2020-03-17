@@ -1,0 +1,17 @@
+@import '../../../styles/icons';
+
+.pill {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--hds-brand-color-fog);
+  padding: 0 5px;
+  border-radius: 20px;
+  align-items: center;
+  margin: 1rem;
+}
+
+.text {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 10px;
+}

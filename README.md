@@ -1,81 +1,52 @@
 # City of Helsinki Ahti project
 
-# This repository contains the first Proof of Concept implementation by Futurice
+## available at https://ahti.app/
 
-## Requirements
+## Documentation last updated 04-02-2020
 
-<!-- TODO: document these -->
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Usage
+For available scripts, refer to the create-react-app documentation.
 
-### Configuring environment variables
+## Available Scripts
 
-This application reads environment variables from the dotfile `.env`. All configurable variables, their purpose and possible values can be found in the example file `.env.example`. To get started copy the example file and edit any variables specified as required:
-   ```
-   $ cp .env.example .env
-   ```
+In the project directory, you can run:
 
-### Docker
+`yarn start`
+`yarn test`
+`yarn build`
+`yarn eject`
 
-1. Check that Docker and Docker CLI are installed and that port `3000` is free and not occupied by a running server.
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-2. Make sure you have env variables in `.env` as discussed in the previous section.
+## Code quality assurance
 
-3. Start building docker image and start container:
-   ```
-   $ docker-compose up
-   ```
-4. Open `localhost:3000` on browser when Webpack bundling is ready.
+Is enforced by `.eslint` and `.prettier` configuration files for TypeScript files as per the recommended configuration marked by checkboxes:
 
-#### Useful Docker commands
+https://eslint.org/docs/rules/
 
-- To rebuild the docker images:
-  ```
-  $ docker-compose up --force-recreate --build
-  ```
-- To enter inside docker container environment:
-  ```
-  $ docker-compose exec app sh
-  ```
-- Remove docker container if needed:
-  ```
-  $ docker rm -f ahti-ui
-  ```
-- Remove docker image:
-  ```
-  $ docker rmi ahti-ui_app
-  ```
-- Running command inside Docker environment (test for example):
-  (Make sure docker container is running)
-  `$ docker-compose run app YOUR_COMMAND_HERE`
-- Encountering issues with `node-sass`? Try to go inside docker container environment and run `npm rebuild node-sass`.
+We are using `.stylelintrc.json` with scss.
 
-### Running the application locally
+You are supposed to have VScode extensions such as ESlInt and Prettier and Stylelint installed, the same rules are now enforced by git hooks.
 
-1. Install dependencies:
+## Design && UI components
 
-```
-yarn install
-```
+UI components are created inside of the
 
-2. Ensure environment variables are set.
+`src/common/ui-components`
 
-3. Start the development server:
+and follow the Atomic Design Principles
+https://bradfrost.com/blog/post/atomic-web-design/
 
-```
-yarn start
-```
+This application should follow the core of Helsinki Design System
+https://github.com/City-of-Helsinki/helsinki-design-system/tree/master/packages/core
 
-### Running tests
+, independant from react components.
 
-<!-- TODO: document this -->
+_NB:_ Currently we are not using the HDS yet due to HDS not being ready, we will add it #sooon.
 
-### Linting
+## SSR
 
-<!-- TODO: document this -->
-
-## License
-
-[The MIT License](http://opensource.org/licenses/MIT)
-
-Copyright (c) 2015 City of Helsinki <[http://www.hel.fi/](http://www.hel.fi/)>
+Hemo page is SSred
+Map is hydrated

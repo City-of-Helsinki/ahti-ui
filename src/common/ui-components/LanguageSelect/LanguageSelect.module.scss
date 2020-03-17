@@ -1,0 +1,11 @@
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
+
+.languageButton {
+  @include buttonReset;
+  margin: $margin/4;
+}
+
+.languageButtonEnabled {
+  font-weight: $font-width-thick;
+}

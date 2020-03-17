@@ -1,0 +1,42 @@
+@import '../../../styles/partials/variables';
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $margin;
+
+  button {
+    font-size: $font-size;
+    font-weight: $font-width-medium;
+
+    border: none;
+    background: none;
+    padding: ($padding/2) $padding ($padding/2) $padding;
+    color: var(--hds-brand-color-coat-of-arms-blue);
+    border-bottom: 2px solid var(--hds-brand-color-coat-of-arms-blue);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .unselected {
+    color: var(--hds-ui-color-black);
+    border-bottom: $border-bottom-unset;
+  }
+
+  .disabled {
+    pointer-events: none;
+    color: var(--hds-ui-color-black-70);
+    border-bottom: $border-bottom-unset;
+  }
+}
+
+.tabContentContainer {
+  .unselected {
+    display: none;
+  }
+}
+
+.tabItem {
+}

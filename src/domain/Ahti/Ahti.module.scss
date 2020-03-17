@@ -1,0 +1,19 @@
+@import '../../styles/partials/variables';
+
+$menu-z-index: 1000;
+
+.menu {
+  position: sticky;
+  top: 0;
+  background-color: var(--hds-ui-color-white);
+  z-index: $menu-z-index;
+}
+
+.search {
+  width: $search-component-width;
+}
+
+.searchResults {
+  width: $search-component-width;
+  z-index: $menu-z-index;
+}
