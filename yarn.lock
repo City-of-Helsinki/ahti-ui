@@ -14386,11 +14386,6 @@ react-spring@^8.0.27:
     "@babel/runtime" "^7.3.1"
     prop-types "^15.5.8"
 
-react-supercluster@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-supercluster/-/react-supercluster-1.0.0.tgz#64f6dc3120acb834039793eacaad4c21dbd7462d"
-  integrity sha512-qd56sCycEduWyqTsxKgqvuxejGs0+J5Yi8hN9ZvXPUlxJYS9KHPd3EPlyJBKy3Pi2N7kcuNLTsRw6RTD3K0sVw==
-
 react-swipeable-views-core@^0.13.7:
   version "0.13.7"
   resolved "https://registry.yarnpkg.com/react-swipeable-views-core/-/react-swipeable-views-core-0.13.7.tgz#c082b553f26e83fd20fc17f934200eb717023c8a"

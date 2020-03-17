@@ -136,7 +136,6 @@
     "@turf/helpers": "^6.1.4",
     "@types/enzyme": "^3.10.5",
     "@types/enzyme-adapter-react-16": "^1.0.6",
-    "@types/supercluster": "^5.0.2",
     "autoprefixer": "^9.7.4",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
@@ -152,13 +151,11 @@
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
     "react-map-gl": "^5.2.3",
-    "react-supercluster": "^1.0.0",
     "stylelint": "^13.0.0",
     "stylelint-config-css-modules": "^2.2.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-config-standard-scss": "^1.1.0",
     "stylelint-scss": "^3.13.0",
-    "supercluster": "^7.0.0",
     "wait-for-expect": "^3.0.2"
   },
   "jest": {
