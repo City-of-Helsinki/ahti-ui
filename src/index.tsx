@@ -5,9 +5,7 @@ import * as Sentry from '@sentry/browser';
 import './styles/index.scss';
 import App from './domain/App/App';
 import * as serviceWorker from './serviceWorker';
-import { initialize } from './common/translation/i18n/i18n';
-
-initialize();
+import './common/translation/i18n/i18n';
 
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({

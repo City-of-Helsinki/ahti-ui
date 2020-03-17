@@ -16,6 +16,7 @@ const FEATURE_QUERY = gql`
         }
         name
         tags {
+          id
           name
         }
         description
