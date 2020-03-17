@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import faker from 'faker';
-
 import ferryData from './staticData/ferries.json';
 import harborData from './staticData/harbors.json';
+import { FeatureProperties } from '../generated/types.d';
 
 const resolvers = {
   Query: {
@@ -16,8 +15,11 @@ const resolvers = {
     }
   },
   FeatureProperties: {
-    shortDescription: () => {
-      return faker.lorem.lines(1);
+    shortDescription: (featureProperties: FeatureProperties) => {
+      const description = featureProperties.description;
+      return description
+        ? description.substr(0, description.indexOf('.') + 2)
+        : '';
     },
     harbors: (island: { ahtiId: string }) => {
       return harborData

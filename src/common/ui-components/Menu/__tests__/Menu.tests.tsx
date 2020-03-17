@@ -10,15 +10,40 @@ describe('Menu', () => {
     {
       title: 'islands',
       category: 'ahti:category:island',
-      menuItems: [{ id: '', name: 'all_islands', url: '/map?type=myhelsinki' }]
+      menuItems: [
+        {
+          categoryIds: [],
+          tagIds: [],
+          name: 'all_islands',
+          url: '/map?type=myhelsinki'
+        }
+      ]
     },
     {
       title: 'restaurants',
       category: 'ahti:category:island',
       menuItems: [
-        { id: '', name: 'restaurants', url: '/', disabled: true },
-        { id: '', name: 'cafes', url: '/', disabled: true },
-        { id: '', name: 'beer_and_wine_bars', url: '/', disabled: true }
+        {
+          categoryIds: [],
+          tagIds: [],
+          name: 'restaurants',
+          url: '/',
+          disabled: true
+        },
+        {
+          categoryIds: [],
+          tagIds: [],
+          name: 'cafes',
+          url: '/',
+          disabled: true
+        },
+        {
+          categoryIds: [],
+          tagIds: [],
+          name: 'beer_and_wine_bars',
+          url: '/',
+          disabled: true
+        }
       ]
     }
   ];

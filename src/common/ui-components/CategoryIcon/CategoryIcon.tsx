@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconLocation } from 'hds-react';
+import { IconLocation, IconFood } from 'hds-react';
 
 import styles from './CategoryIcon.module.scss';
 
@@ -9,13 +9,20 @@ interface CategoryIconProps {
 }
 
 const CategoryIcon: React.FC<CategoryIconProps> = ({ className, category }) => {
-  // BE only has ahti:category:island for the time being
-  // other categories are null.
+  let Icon;
+
   if (category === 'ahti:category:island') {
-    return <IconLocation className={className ? className : styles.icon} />;
+    Icon = IconLocation;
+  } else if (
+    category === 'ahti:category:restaurant' ||
+    category === 'ahti:category:cafe'
+  ) {
+    Icon = IconFood;
   } else {
-    return <IconLocation className={className ? className : styles.icon} />;
+    Icon = IconLocation;
   }
+
+  return <Icon className={className ? className : styles.icon} />;
 };
 
 export default CategoryIcon;
