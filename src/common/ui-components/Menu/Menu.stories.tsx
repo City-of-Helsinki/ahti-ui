@@ -1,59 +1,101 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import Menu from './Menu';
+import Menu, { MenuCategory, MenuItem } from './Menu';
 import LanguageSelect from '../LanguageSelect/LanguageSelect';
 import { SUPPORTED_LANGUAGES } from '../../translation/TranslationConstants';
 
-const defaultMenuItems = [
+const defaultMenuItems: MenuCategory[] = [
   {
     title: 'islands',
     category: 'ahti:category:island',
-    menuItems: [{ id: '', name: 'all_islands', url: '/map?type=myhelsinki' }]
+    menuItems: [
+      {
+        categoryIds: ['ahti:category:island'],
+        tagIds: [],
+        name: 'all_islands'
+      }
+    ]
   },
   {
     title: 'travel_to_islands',
-    category: 'ahti:category:island',
+    category: 'ahti:category:ferry',
     menuItems: [
-      { id: '', name: 'water_bus_and_ferries', url: '/', disabled: true },
-      { id: '', name: 'boat_rides_and_taxis', url: '/', disabled: true },
-      { id: '', name: 'sightseeing_and_cruises', url: '/', disabled: true }
+      {
+        categoryIds: [],
+        tagIds: [],
+        name: 'water_bus_and_ferries',
+        disabled: true
+      },
+      {
+        categoryIds: [],
+        tagIds: [],
+        name: 'boat_rides_and_taxis',
+        disabled: true
+      },
+      {
+        categoryIds: [],
+        tagIds: [],
+        name: 'sightseeing_and_cruises',
+        disabled: true
+      }
     ]
   },
   {
     title: 'saunas_and_swimming',
-    category: 'ahti:category:island',
+    category: 'ahti:category:swimming',
     menuItems: [
-      { id: '', name: 'saunas', url: '/', disabled: true },
-      { id: '', name: 'swimming', url: '/', disabled: true },
-      { id: '', name: 'ice_swimming', url: '/', disabled: true }
+      { categoryIds: [], tagIds: ['ahti:category:sauna'], name: 'saunas' },
+      {
+        categoryIds: [],
+        tagIds: ['ahti:category:swimming'],
+        name: 'swimming'
+      },
+      {
+        categoryIds: [],
+        tagIds: ['ahti:category:swimming'],
+        name: 'ice_swimming'
+      }
     ]
   },
   {
     title: 'restaurants',
-    category: 'ahti:category:island',
+    category: 'ahti:category:restaurant',
     menuItems: [
-      { id: '', name: 'restaurants', url: '/', disabled: true },
-      { id: '', name: 'cafes', url: '/', disabled: true },
-      { id: '', name: 'beer_and_wine_bars', url: '/', disabled: true }
+      {
+        categoryIds: ['ahti:category:restaurant'],
+        tagIds: [],
+        name: 'restaurants'
+      },
+      { categoryIds: ['ahti:category:cafe'], tagIds: [], name: 'cafes' },
+      {
+        categoryIds: ['ahti:category:bar'],
+        tagIds: [],
+        name: 'beer_and_wine_bars'
+      }
     ]
   },
   {
     title: 'boater_services',
-    category: 'ahti:category:island',
+    category: 'ahti:category:service',
     menuItems: [
-      { id: '', name: 'mooring', url: '/', disabled: true },
-      { id: '', name: 'maintenance', url: '/', disabled: true },
-      { id: '', name: 'septic_tank_draining', url: '/', disabled: true }
+      { categoryIds: [], tagIds: [], name: 'mooring', disabled: true },
+      { categoryIds: [], tagIds: [], name: 'maintenance', disabled: true },
+      {
+        categoryIds: [],
+        tagIds: [],
+        name: 'septic_tank_draining',
+        disabled: true
+      }
     ]
   },
   {
     title: 'rental_boats',
-    category: 'ahti:category:island',
+    category: 'ahti:category:service',
     menuItems: [
-      { id: '', name: 'rowboats', url: '/', disabled: true },
-      { id: '', name: 'motorboats', url: '/', disabled: true },
-      { id: '', name: 'other', url: '/', disabled: true }
+      { categoryIds: [], tagIds: [], name: 'rowboats', disabled: true },
+      { categoryIds: [], tagIds: [], name: 'motorboats', disabled: true },
+      { categoryIds: [], tagIds: [], name: 'other', disabled: true }
     ]
   }
 ];

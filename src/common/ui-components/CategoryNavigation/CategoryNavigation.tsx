@@ -1,10 +1,12 @@
 import React from 'react';
 import Slider from 'react-slick';
 import classNames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import { Filter } from '../../../../alltypes';
 import styles from './CategoryNavigation.module.scss';
+
 import './CategoryNavigation.scss';
 
 const cx = classNames.bind(styles);
@@ -14,6 +16,7 @@ export interface CategoryNavigationProps {
   readonly categories: Filter[];
   readonly selectedId?: string;
   readonly maxDisplayedCategories?: number;
+  readonly translated?: boolean;
   onClick(categoryId: string): void;
 }
 
@@ -22,8 +25,10 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
   categories,
   selectedId,
   maxDisplayedCategories = 5,
+  translated = false,
   onClick
 }) => {
+  const { t, i18n } = useTranslation();
   const sliderSettings = {
     speed: 500,
     slidesToShow:
@@ -51,7 +56,11 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
             <div className={styles.categoryIconContainer}>
               <CategoryIcon category={category.id} className={styles.bigIcon} />
             </div>
-            <div className={styles.categoryName}>{category.name}</div>
+            <div className={styles.categoryName}>
+              {translated && i18n.exists(`categories_and_tags.${category.id}`)
+                ? t(`categories_and_tags.${category.id}`)
+                : category.name}
+            </div>
           </div>
         </div>
       ))}

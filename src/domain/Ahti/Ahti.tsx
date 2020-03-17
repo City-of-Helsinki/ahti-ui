@@ -22,9 +22,11 @@ const Ahti: React.FC = () => {
         menuCategories={state.menuCategories}
         translate={true}
         onSelect={(menuItem: MenuItem) => {
-          actions.addCategoryFilter({
-            id: menuItem.id,
-            name: menuItem.name
+          menuItem.categoryIds.forEach(categoryId => {
+            actions.addCategoryFilter({ id: categoryId });
+          });
+          menuItem.tagIds.forEach(tagId => {
+            actions.addTagFilter({ id: tagId });
           });
           history.push('/content');
         }}

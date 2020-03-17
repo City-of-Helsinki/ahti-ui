@@ -5,9 +5,9 @@
     "all_rights_reserved": "Kaikki oikeudet pidätetään"
   },
   "index": {
-    "main_header": "Löydä upea merellinen Helsinki!",
+    "main_header": "Löydä upea merellinen helsinki!",
     "see_all_button": "Tutustu kohteisiin",
-    "section1_header": "Merellisiä kohteita, elämyksiä ja paveluja",
+    "section1_header": "Merellisiä kohteita, elämyksiä ja palveluita",
     "section1_paragraph": "Löydä helsingin lähiseudun merellinen ympäristö ja palvelut samasta paikasta.",
     "section2_header": "Uutta Ahdissa",
     "section2_paragraph": "Ahti on uudistunut ja olemme lisänneet uusia toiminnallisuuksia.",
@@ -19,12 +19,18 @@
     "section5_paragraph": "Tutustu helsingin merellliseen ympäristöön.",
     "section5_link": "Katso kaikki uudistukset"
   },
-  "category": {
-    "island": "Saaret",
-    "restaurant": "Ravintolat",
-    "cafe": "Kahvilat",
-    "sightseeing": "Nähtävyydet",
-    "sauna": "Saunat"
+  "content": {
+    "map": "Kartta",
+    "list": "Lista"
+  },
+  "categories_and_tags": {
+    "ahti:category:island": "Saaret",
+    "ahti:category:restaurant": "Ravintolat",
+    "ahti:category:cafe": "Kahvilat",
+    "ahti:category:sightseeing": "Nähtävyydet",
+    "ahti:category:sauna": "Saunat",
+
+    "ahti:tag:swimming": "Uinti"
   },
   "dropdown": {
     "label": "Valikko",

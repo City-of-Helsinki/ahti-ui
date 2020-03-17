@@ -8,7 +8,9 @@ const cx = classNames.bind(styles);
 export interface ToggleProps {
   readonly className?: string;
   readonly onIcon: ReactNode;
+  readonly onIconText?: string;
   readonly offIcon: ReactNode;
+  readonly offIconText?: string;
   readonly toggleState: boolean;
   onToggle(): void;
 }
@@ -18,15 +20,27 @@ const Toggle: React.FC<ToggleProps> = ({
   onToggle,
   toggleState,
   onIcon,
-  offIcon
+  onIconText,
+  offIcon,
+  offIconText
 }) => {
   return (
-    <div className={cx(styles.container, className)} onClick={() => onToggle()}>
-      <div className={cx(styles.toggle, { toggleOn: toggleState })}>
-        {onIcon}
-      </div>
-      <div className={cx(styles.toggle, { toggleOn: !toggleState })}>
-        {offIcon}
+    <div>
+      <div className={cx(styles.container, className)}>
+        <div
+          className={cx(styles.toggle, { toggleOn: toggleState })}
+          onClick={() => onToggle()}
+        >
+          <div className={styles.iconContainer}>{onIcon}</div>
+          <div className={styles.text}>{onIconText}</div>
+        </div>
+        <div
+          className={cx(styles.toggle, { toggleOn: !toggleState })}
+          onClick={() => onToggle()}
+        >
+          <div className={styles.iconContainer}>{offIcon}</div>
+          <div className={styles.text}>{offIconText}</div>
+        </div>
       </div>
     </div>
   );

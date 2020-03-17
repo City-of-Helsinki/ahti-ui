@@ -1,15 +1,19 @@
 @import '../../styles/partials/variables';
 @import '../../styles/partials/mixins';
 
+$koros-margin: -5rem;
+
 .korosContainer {
   height: 0;
   position: relative;
-  margin-bottom: -5rem;
+  // Apply margin to lifted koros
+  margin-bottom: $koros-margin + $margin;
 }
 
 .koros {
   position: absolute;
-  top: -5rem;
+  // Lift the koros to cover the hero image
+  top: $koros-margin;
   color: var(--hds-ui-color-white);
 }
 
