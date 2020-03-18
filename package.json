@@ -7,7 +7,7 @@
     "build": "node scripts/build.js",
     "test:ci": "node scripts/test.js",
     "test": "node scripts/test.js",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./public -p 6006",
     "lint": "yarn lint-staged",
     "build-storybook": "build-storybook",
     "generate": "graphql-codegen"
@@ -85,6 +85,7 @@
     "jest-environment-jsdom-fourteen": "0.1.0",
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
+    "json-loader": "^0.5.7",
     "match-media": "^0.2.0",
     "mini-css-extract-plugin": "0.8.0",
     "node-sass": "^4.13.0",
