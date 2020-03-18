@@ -6,8 +6,9 @@ import '@testing-library/jest-dom/extend-expect';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import './common/translation/i18n/i18n';
-// require('matchmedia-polyfill');
-// const require('matchmedia-polyfill/matchMedia.addListener');
+// @ts-ignore
+import 'matchmedia-polyfill';
+import 'matchmedia-polyfill/matchMedia.addListener';
 
 // initialize();
 
