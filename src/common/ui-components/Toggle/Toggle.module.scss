@@ -1,25 +1,33 @@
 @import '../../../styles/icons';
-
-$toggle-margin: 5px;
-$border-radius: 20px;
+@import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
 
 .container {
   display: flex;
-  background-color: var(--hds-ui-color-black-20);
-  width: $small-icon-height * 2 + $toggle-margin * 4;
-  border-radius: $border-radius;
+  @include margin-between(toggle, $small-icon-width / 4);
 }
 
 .toggle {
-  border-radius: $border-radius;
-
-  > svg {
-    width: $small-icon-width;
-    height: $small-icon-height;
-    margin: $toggle-margin;
-  }
+  display: flex;
+  align-items: center;
+  background-color: var(--hds-ui-color-white);
+  border-radius: $small-icon-height * 2;
+  padding: $small-icon-height / 4 $small-icon-height / 2;
 }
 
 .toggleOn {
-  background-color: var(--hds-ui-color-white);
+  background-color: var(--hds-brand-color-fog);
+}
+
+.iconContainer {
+  display: inline-flex;
+  width: $small-icon-width;
+  height: $small-icon-height;
+}
+
+.text {
+  margin-left: $small-icon-width / 2;
+  font-size: $small-icon-width;
+  font-weight: $font-width-thick;
+  white-space: nowrap;
 }
