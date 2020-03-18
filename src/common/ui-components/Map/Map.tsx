@@ -7,6 +7,9 @@ import MapGL, {
   StaticMap,
   FlyToInterpolator,
   TransitionInterpolator,
+  EasingFunction,
+  TRANSITION_EVENTS,
+  ViewportProps,
 } from 'react-map-gl';
 import { BBox } from 'geojson';
 import useSupercluster from 'use-supercluster';
@@ -42,16 +45,22 @@ type GeoJsonProperties = { cluster: boolean; itemId: string; category: string };
 type ClusterProperties = GeoJsonProperties & { point_count: number };
 
 type ViewportState = {
-  width: string;
-  height: string;
+  width?: string | number;
+  height?: string | number;
   latitude: number;
   longitude: number;
   zoom: number;
   minZoom: number;
   maxZoom: number;
   transitionInterpolator?: TransitionInterpolator;
-  transitionDuration?: number;
-  clusteringRadius: number;
+  transitionDuration?: number | 'auto';
+  transitionInterruption?: TRANSITION_EVENTS;
+  transitionEasing?: EasingFunction;
+  bearing?: number;
+  pitch?: number;
+  altitude?: number;
+  maxPitch?: number;
+  minPitch?: number;
 };
 
 const getMapStyle = (): {} => {
@@ -78,7 +87,6 @@ const Map: React.FC<MapProps> = ({
     zoom: initialZoomLevel,
     minZoom: minZoomLevel,
     maxZoom: maxZoomLevel,
-    clusteringRadius: clusteringRadius,
   });
   const mapRef = useRef<StaticMap>();
   const renderPin = (
@@ -146,21 +154,21 @@ const Map: React.FC<MapProps> = ({
     points,
     bounds,
     zoom: viewPort.zoom,
-    options: { radius: viewPort.clusteringRadius, maxZoom: viewPort.maxZoom },
+    options: { radius: clusteringRadius, maxZoom: viewPort.maxZoom },
   });
 
   const onViewportChange = (viewPort: ViewportState) => {
-    // const {
-    //   width,
-    //   height,
-    //   transitionInterpolator,
-    //   transitionDuration,
-    //   latitude,
-    //   longitude,
-    //   zoom,
-    //   minZoom,
-    //   maxZoom
-    // } = viewPort;
+    const {
+      width,
+      height,
+      transitionInterpolator,
+      transitionDuration,
+      latitude,
+      longitude,
+      zoom,
+      minZoom,
+      maxZoom,
+    } = viewPort as ViewportProps;
     setViewPort(viewPort);
   };
 
