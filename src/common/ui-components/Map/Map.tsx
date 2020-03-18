@@ -79,6 +79,9 @@ const Map: React.FC<MapProps> = ({
   });
 
   const renderPin = (feature: Feature, id: number) => {
+    if (feature.geometry.type !== 'Point') {
+      return null;
+    }
     const isSelected =
       feature?.properties?.ahtiId === selectedFeature?.properties?.ahtiId;
     const onMarkerClick = () => {
