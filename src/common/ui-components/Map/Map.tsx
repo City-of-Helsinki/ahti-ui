@@ -42,8 +42,8 @@ type GeoJsonProperties = { cluster: boolean; itemId: string; category: string };
 type ClusterProperties = GeoJsonProperties & { point_count: number };
 
 type ViewportState = {
-  width?: string;
-  height?: string;
+  width: string;
+  height: string;
   latitude: number;
   longitude: number;
   zoom: number;
@@ -51,6 +51,7 @@ type ViewportState = {
   maxZoom: number;
   transitionInterpolator?: TransitionInterpolator;
   transitionDuration?: number;
+  clusteringRadius: number;
 };
 
 const getMapStyle = (): {} => {
@@ -77,6 +78,7 @@ const Map: React.FC<MapProps> = ({
     zoom: initialZoomLevel,
     minZoom: minZoomLevel,
     maxZoom: maxZoomLevel,
+    clusteringRadius: clusteringRadius,
   });
   const mapRef = useRef<StaticMap>();
   const renderPin = (
@@ -103,9 +105,9 @@ const Map: React.FC<MapProps> = ({
     const feature = features.find((feature) => feature.id === pointFeature.id);
     return (
       <Marker
-        key={id}
-        longitude={feature.geometry.coordinates[0]}
-        latitude={feature.geometry.coordinates[1]}
+        key={`id_${Math.random()}`}
+        longitude={pointFeature.geometry.coordinates[0]}
+        latitude={pointFeature.geometry.coordinates[1]}
       >
         <div onClick={() => onClick(feature)} className={styles.markerContent}>
           <CategoryIcon category={feature?.properties?.category?.name} />
@@ -144,42 +146,50 @@ const Map: React.FC<MapProps> = ({
     points,
     bounds,
     zoom: viewPort.zoom,
-    options: { radius: clusteringRadius, maxZoom: viewPort.maxZoom },
+    options: { radius: viewPort.clusteringRadius, maxZoom: viewPort.maxZoom },
   });
 
-  // const onViewportChange = (viewPort: ViewportState) => {
-  //   // const {
-  //   //   width,
-  //   //   height,
-  //   //   transitionInterpolator,
-  //   //   transitionDuration,
-  //   //   latitude,
-  //   //   longitude,
-  //   //   zoom,
-  //   //   minZoom,
-  //   //   maxZoom
-  //   // } = viewPort;
-  //   setViewPort(viewPort);
-  // };
+  const onViewportChange = (viewPort: ViewportState) => {
+    // const {
+    //   width,
+    //   height,
+    //   transitionInterpolator,
+    //   transitionDuration,
+    //   latitude,
+    //   longitude,
+    //   zoom,
+    //   minZoom,
+    //   maxZoom
+    // } = viewPort;
+    setViewPort(viewPort);
+  };
 
   return (
     <MapGL
-      className={className}
-      width={'100%'}
-      height={'100vh'}
       {...viewPort}
       mapStyle={getMapStyle()}
-      onViewportChange={() =>
-        setViewPort({
-          latitude: viewPort.latitude,
-          longitude: viewPort.longitude,
-          zoom: viewPort.zoom,
-          minZoom: viewPort.minZoom,
-          maxZoom: viewPort.maxZoom,
-        })
-      }
+      width={'100%'}
+      height={'100vh'}
+      className={className}
       ref={mapRef}
+      onViewportChange={onViewportChange}
     >
+      <div className={styles.mapControls}>
+        <GeolocateControl
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+          onViewportChange={() => {
+            /* NOOP, disables flying to location */
+          }}
+          label={t('map.geolocate')}
+        />
+        <div className={styles.mapControlsDivider}></div>
+        <NavigationControl
+          zoomInLabel={t('map.zoom_in')}
+          zoomOutLabel={t('map.zoom_out')}
+          showCompass={false}
+        />
+      </div>
       {clusters.map((cluster) => {
         const [longitude, latitude] = cluster.geometry.coordinates;
         const { cluster: isCluster } = cluster.properties;
@@ -205,28 +215,13 @@ const Map: React.FC<MapProps> = ({
               </div>
             </Marker>
           );
+        } else {
+          return renderPin(
+            cluster as PointFeature<GeoJsonProperties>,
+            cluster.id
+          );
         }
-        return renderPin(
-          cluster as PointFeature<GeoJsonProperties>,
-          cluster.id
-        );
       })}
-      <div className={styles.mapControls}>
-        <GeolocateControl
-          positionOptions={{ enableHighAccuracy: true }}
-          trackUserLocation={true}
-          onViewportChange={() => {
-            /* NOOP, disables flying to location */
-          }}
-          label={t('map.geolocate')}
-        />
-        <div className={styles.mapControlsDivider}></div>
-        <NavigationControl
-          zoomInLabel={t('map.zoom_in')}
-          zoomOutLabel={t('map.zoom_out')}
-          showCompass={false}
-        />
-      </div>
     </MapGL>
   );
 };
