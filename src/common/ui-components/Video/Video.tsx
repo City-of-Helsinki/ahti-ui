@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import ReactPlayer from 'react-player';
 
-// @ts-ignore
 import myVideo from './Ahti_vertical.mp4';
 import styles from './Video.module.scss';
 
