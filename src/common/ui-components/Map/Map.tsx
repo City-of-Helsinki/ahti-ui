@@ -8,8 +8,7 @@ import MapGL, {
   FlyToInterpolator,
   TransitionInterpolator,
   EasingFunction,
-  TRANSITION_EVENTS,
-  ViewportProps
+  TRANSITION_EVENTS
 } from 'react-map-gl';
 import { BBox } from 'geojson';
 import useSupercluster from 'use-supercluster';
@@ -100,7 +99,7 @@ const Map: React.FC<MapProps> = ({
     pointFeature: PointFeature<GeoJsonProperties>,
     id: number | string
   ) => {
-    if (feature.geometry.type !== 'Point') {
+    if (pointFeature.geometry.type !== 'Point') {
       return null;
     }
 
@@ -124,7 +123,7 @@ const Map: React.FC<MapProps> = ({
     const feature = features.find(feature => feature.id === pointFeature.id);
     return (
       <Marker
-        key={`id_${Math.random()}`}
+        key={`pin-${id}`}
         longitude={pointFeature.geometry.coordinates[0]}
         latitude={pointFeature.geometry.coordinates[1]}
       >
@@ -175,21 +174,6 @@ const Map: React.FC<MapProps> = ({
     options: { radius: clusteringRadius, maxZoom: viewPort.maxZoom }
   });
 
-  const onViewportChange = (viewPort: ViewportState) => {
-    const {
-      width,
-      height,
-      transitionInterpolator,
-      transitionDuration,
-      latitude,
-      longitude,
-      zoom,
-      minZoom,
-      maxZoom
-    } = viewPort as ViewportProps;
-    setViewPort(viewPort);
-  };
-
   return (
     <MapGL
       {...viewPort}
@@ -198,7 +182,7 @@ const Map: React.FC<MapProps> = ({
       height={'100vh'}
       className={className}
       ref={mapRef}
-      onViewportChange={onViewportChange}
+      onViewportChange={setViewPort}
     >
       <div className={styles.mapControls}>
         <GeolocateControl
@@ -216,7 +200,7 @@ const Map: React.FC<MapProps> = ({
           showCompass={false}
         />
       </div>
-      {clusters.map(cluster => {
+      {clusters.map((cluster: any) => {
         const [longitude, latitude] = cluster.geometry.coordinates;
         const { cluster: isCluster } = cluster.properties;
         // this is temporary, new designs should come soon
