@@ -1,6 +1,7 @@
 import React from 'react';
-import mockFeatures from './mockFeatures.json';
 import { shallow } from 'enzyme';
+
+import mockFeatures from './mockFeatures.json';
 import Map from '../Map';
 
 describe('Map', () => {
