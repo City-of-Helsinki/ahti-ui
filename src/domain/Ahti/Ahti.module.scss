@@ -17,10 +17,3 @@ $menu-z-index: 1000;
   width: $search-component-width;
   z-index: $menu-z-index;
 }
-
-.subHeading {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: $padding;
-}

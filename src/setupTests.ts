@@ -5,18 +5,15 @@
 import '@testing-library/jest-dom/extend-expect';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { initialize } from './common/translation/i18n/i18n';
+import './common/translation/i18n/i18n';
+// @ts-ignore
+import 'matchmedia-polyfill';
+import 'matchmedia-polyfill/matchMedia.addListener';
 
-initialize();
+// initialize();
+
+// import { initialize } from './common/translation/i18n/i18n';
+
+// Likely want to requier both polyfills..
+
 configure({ adapter: new Adapter() });
-
-// Polyfill for react-slick
-window.matchMedia =
-  window.matchMedia ||
-  function() {
-    return {
-      matches: false,
-      addListener: function() {},
-      removeListener: function() {}
-    };
-  };

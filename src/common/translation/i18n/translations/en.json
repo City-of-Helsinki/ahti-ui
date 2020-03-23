@@ -1,17 +1,36 @@
 {
   "common": {
-    "back": "Back"
+    "back": "Back",
+    "terms_of_service": "Terms of Service",
+    "all_rights_reserved": "All rights reserved"
   },
-  "home": {
+  "index": {
     "main_header": "Discover the beautiful archipelago of Helsinki!",
-    "see_all_button": "See all places",
+    "see_all_button": "Discover",
     "section1_header": "Destinations, services and experiences",
-    "section2_button": "Show location",
-    "section3_button": "See all",
-    "section4_header": "Ways to enjoy the sea",
-    "section5_header": "Visiting Helsinki with your own boat?",
-    "section5_subheader": "Discover visitor harbours, short term boat parking and service stations",
-    "section5_button": "View service providers"
+    "section1_paragraph": "Discover the seaside and services of Helsinki and neighboring municipalities in the same place.",
+    "section2_header": "New in Ahti",
+    "section2_paragraph": "Ahti has been updated and we have added new features.",
+    "section3_header": "Seaside restaurants and cafes",
+    "section3_button": "Browse all restaurants and cafes",
+    "section4_header": "Seaside experiences",
+    "section5_header": "New in Ahti",
+    "section5_subheader": "Ahti has been updated",
+    "section5_paragraph": "Plenty of new functionality to explore the Helsinki archipelago.",
+    "section5_link": "See what's new"
+  },
+  "content": {
+    "map": "Map",
+    "list": "List"
+  },
+  "categories_and_tags": {
+    "ahti:category:island": "Islands",
+    "ahti:category:restaurant": "Restaurants",
+    "ahti:category:cafe": "Cafes",
+    "ahti:category:sightseeing": "Sightseeing",
+    "ahti:category:sauna": "Saunas",
+
+    "ahti:tag:swimming": "Swimming"
   },
   "dropdown": {
     "label": "Menu",

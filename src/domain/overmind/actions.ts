@@ -8,6 +8,12 @@ import FEATURE_QUERY from '../api/queries/featureQuery';
 import graphQLClient from '../api/';
 import { Filter } from '../../../alltypes';
 
+export const clearContentState: Action = ({ state }) => {
+  state.tagFilters = [];
+  state.categoryFilters = [];
+  state.selectedFeature = null;
+};
+
 export const addCategoryFilter: Action<Filter> = (
   { state },
   categoryFilter
@@ -16,6 +22,12 @@ export const addCategoryFilter: Action<Filter> = (
     !state.categoryFilters.map(filter => filter.id).includes(categoryFilter.id)
   ) {
     state.categoryFilters = [...state.categoryFilters, categoryFilter];
+  }
+};
+
+export const addTagFilter: Action<Filter> = ({ state }, tagFilter) => {
+  if (!state.tagFilters.map(filter => filter.id).includes(tagFilter.id)) {
+    state.tagFilters = [...state.tagFilters, tagFilter];
   }
 };
 

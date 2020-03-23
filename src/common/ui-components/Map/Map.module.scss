@@ -1,4 +1,6 @@
+@import '../../../styles/icons';
 @import '../../../styles/partials/variables';
+@import '../../../styles/partials/mixins';
 
 .markerContent {
   cursor: pointer;
@@ -12,4 +14,15 @@
   .mapControlsDivider {
     margin: $margin;
   }
+}
+
+.clusterMarker {
+  color: var(--hds-ui-color-white);
+  background: var(--hds-brand-color-coat-of-arms-blue);
+  border-radius: 50%;
+  border-color: var(--hds-ui-color-white);
+  padding: 10px;
+  @include flex;
+  justify-content: center;
+  align-items: center;
 }

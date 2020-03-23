@@ -3,7 +3,7 @@
 
 .cardTextContainer {
   box-sizing: border-box;
-  padding: $padding * 2;
+  padding: $padding;
   @include fullWidth;
   min-height: 30vh;
   background-color: var(--hds-ui-color-white);
@@ -39,6 +39,7 @@
   font-weight: $font-width-thick;
   line-height: $line-height;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .tabContainer {
