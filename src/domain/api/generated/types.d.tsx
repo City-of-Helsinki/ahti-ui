@@ -469,6 +469,7 @@ export type FeatureQuery = { __typename?: 'Query' } & {
 };
 
 export type FeaturesQueryVariables = {
+  after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
   category?: Maybe<Array<Maybe<Scalars['String']>>>;
   tag?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -477,82 +478,86 @@ export type FeaturesQueryVariables = {
 export type FeaturesQuery = { __typename?: 'Query' } & {
   features: Maybe<
     { __typename?: 'FeatureConnection' } & {
+      pageInfo: { __typename?: 'PageInfo' } & Pick<
+        PageInfo,
+        'endCursor' | 'hasNextPage'
+      >;
       edges: Array<
         Maybe<
-          { __typename?: 'FeatureEdge' } & {
-            node: Maybe<
-              { __typename?: 'Feature' } & Pick<Feature, 'id' | 'type'> & {
-                  geometry: { __typename?: 'GeometryObjectType' } & Pick<
-                    GeometryObjectType,
-                    'type' | 'coordinates'
-                  >;
-                  properties: Maybe<
-                    { __typename?: 'FeatureProperties' } & Pick<
-                      FeatureProperties,
-                      | 'ahtiId'
-                      | 'name'
-                      | 'description'
-                      | 'shortDescription'
-                      | 'url'
-                      | 'modifiedAt'
-                    > & {
-                        category: Maybe<
-                          { __typename?: 'FeatureCategory' } & Pick<
-                            FeatureCategory,
-                            'id'
-                          >
-                        >;
-                        tags: Array<
-                          { __typename?: 'Tag' } & Pick<Tag, 'id' | 'name'>
-                        >;
-                        contactInfo: Maybe<
-                          { __typename?: 'ContactInfo' } & Pick<
-                            ContactInfo,
-                            'phoneNumber'
-                          > & {
-                              address: Maybe<
-                                { __typename?: 'Address' } & Pick<
-                                  Address,
-                                  'postalCode' | 'municipality'
-                                >
+          { __typename?: 'FeatureEdge' } & Pick<FeatureEdge, 'cursor'> & {
+              node: Maybe<
+                { __typename?: 'Feature' } & Pick<Feature, 'id' | 'type'> & {
+                    geometry: { __typename?: 'GeometryObjectType' } & Pick<
+                      GeometryObjectType,
+                      'type' | 'coordinates'
+                    >;
+                    properties: Maybe<
+                      { __typename?: 'FeatureProperties' } & Pick<
+                        FeatureProperties,
+                        | 'ahtiId'
+                        | 'name'
+                        | 'description'
+                        | 'shortDescription'
+                        | 'url'
+                        | 'modifiedAt'
+                      > & {
+                          category: Maybe<
+                            { __typename?: 'FeatureCategory' } & Pick<
+                              FeatureCategory,
+                              'id'
+                            >
+                          >;
+                          tags: Array<
+                            { __typename?: 'Tag' } & Pick<Tag, 'id' | 'name'>
+                          >;
+                          contactInfo: Maybe<
+                            { __typename?: 'ContactInfo' } & Pick<
+                              ContactInfo,
+                              'phoneNumber'
+                            > & {
+                                address: Maybe<
+                                  { __typename?: 'Address' } & Pick<
+                                    Address,
+                                    'postalCode' | 'municipality'
+                                  >
+                                >;
+                              }
+                          >;
+                          images: Array<
+                            { __typename?: 'Image' } & Pick<
+                              Image,
+                              'url' | 'copyrightOwner'
+                            >
+                          >;
+                          source: { __typename?: 'FeatureSource' } & Pick<
+                            FeatureSource,
+                            'system'
+                          >;
+                          ferries: Array<
+                            { __typename?: 'Ferry' } & {
+                              properties: {
+                                __typename?: 'GenericFeatureProperties';
+                              } & Pick<
+                                GenericFeatureProperties,
+                                'ahtiId' | 'name'
                               >;
                             }
-                        >;
-                        images: Array<
-                          { __typename?: 'Image' } & Pick<
-                            Image,
-                            'url' | 'copyrightOwner'
-                          >
-                        >;
-                        source: { __typename?: 'FeatureSource' } & Pick<
-                          FeatureSource,
-                          'system'
-                        >;
-                        ferries: Array<
-                          { __typename?: 'Ferry' } & {
-                            properties: {
-                              __typename?: 'GenericFeatureProperties';
-                            } & Pick<
-                              GenericFeatureProperties,
-                              'ahtiId' | 'name'
-                            >;
-                          }
-                        >;
-                        harbors: Array<
-                          { __typename?: 'Harbor' } & {
-                            properties: {
-                              __typename?: 'GenericFeatureProperties';
-                            } & Pick<
-                              GenericFeatureProperties,
-                              'ahtiId' | 'name'
-                            >;
-                          }
-                        >;
-                      }
-                  >;
-                }
-            >;
-          }
+                          >;
+                          harbors: Array<
+                            { __typename?: 'Harbor' } & {
+                              properties: {
+                                __typename?: 'GenericFeatureProperties';
+                              } & Pick<
+                                GenericFeatureProperties,
+                                'ahtiId' | 'name'
+                              >;
+                            }
+                          >;
+                        }
+                    >;
+                  }
+              >;
+            }
         >
       >;
     }
@@ -749,9 +754,24 @@ export type FeatureQueryResult = ApolloReactCommon.QueryResult<
   FeatureQueryVariables
 >;
 export const FeaturesDocument = gql`
-  query features($first: Int, $category: [String], $tag: [String]) {
-    features(first: $first, category: $category, taggedWithAny: $tag) {
+  query features(
+    $after: String
+    $first: Int
+    $category: [String]
+    $tag: [String]
+  ) {
+    features(
+      after: $after
+      first: $first
+      category: $category
+      taggedWithAny: $tag
+    ) {
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
       edges {
+        cursor
         node {
           id
           type
@@ -832,6 +852,7 @@ export const FeaturesComponent = (props: FeaturesComponentProps) => (
  * @example
  * const { data, loading, error } = useFeaturesQuery({
  *   variables: {
+ *      after: // value for 'after'
  *      first: // value for 'first'
  *      category: // value for 'category'
  *      tag: // value for 'tag'
