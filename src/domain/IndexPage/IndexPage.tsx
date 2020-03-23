@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
-import { Koros } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { Link, useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 
+import HeroBanner from '../../common/ui-components/HeroBanner/HeroBanner';
 import ListView from '../../common/ui-components/ListView/ListView';
 import { useOvermind } from '../overmind';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
 import { Feature, useFeaturesQuery } from '../api/generated/types.d';
 import styles from './IndexPage.module.scss';
-import ImageWithCard from '../../common/ui-components/ImageWithCard/ImageWithCard';
 import { useScrollToTop } from '../../common/utils/hooks';
 import PromotionCard from '../../common/ui-components/PromotionCard/PromotionCard';
 import { featuresLens } from '../../common/utils/lenses';
@@ -37,23 +36,13 @@ const IndexPage: React.FC = () => {
   };
 
   return (
-    <div>
-      <ImageWithCard
-        src={'/images/landing.png'}
-        className={classNames(styles.imageWithCard, styles.topImageWithCard)}
-      >
-        <section className={styles.imageWithCardSection}>
-          <h1>{t('index.main_header')}</h1>
-          <Link className={styles.link} to={'/content'}>
-            {t('index.see_all_button')}
-          </Link>
-        </section>
-      </ImageWithCard>
-
-      <div className={styles.korosContainer}>
-        <Koros className={styles.koros} />
-      </div>
-
+    <div className={classNames(styles.pageContainer)}>
+      <HeroBanner>
+        <h1>{t('index.main_header')}</h1>
+        <Link className={styles.link} to={'/content'}>
+          {t('index.see_all_button')}
+        </Link>
+      </HeroBanner>
       <section className={styles.section}>
         <h2>{t('index.section1_header')}</h2>
         <p>{t('index.section1_paragraph')}</p>
