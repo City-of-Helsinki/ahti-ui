@@ -4,7 +4,7 @@
   position: absolute;
   //   border: 2px solid aquamarine;
   //   background-color: orange;
-  z-index: 800;
+  z-index: 1;
 }
 
 $koros-margin: -5rem;
@@ -26,6 +26,8 @@ $koros-margin: -5rem;
 }
 
 .section {
+  position: relative;
+  z-index: 10;
   margin: $margin * 5 $margin;
 
   p {

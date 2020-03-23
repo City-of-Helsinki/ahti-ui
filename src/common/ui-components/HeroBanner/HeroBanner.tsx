@@ -8,7 +8,7 @@ import ImageWithCard from '../ImageWithCard/ImageWithCard';
 const cx = classNames.bind(styles);
 
 type HeroBannerProps = React.PropsWithChildren<{
-  src: string;
+  src?: string;
   hasVideo?: boolean;
   className?: string;
 }>;
@@ -26,10 +26,6 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
         className={classNames(styles.imageWithCard, styles.topImageWithCard)}
       >
         <section className={styles.imageWithCardSection}>
-          <h1>This is a header</h1>
-          {/* <Link className={styles.link} to={'/content'}>
-            {t('index.see_all_button')}
-          </Link> */}
           <Video />
           <div className={cx(styles.container)}>{children}</div>
         </section>
