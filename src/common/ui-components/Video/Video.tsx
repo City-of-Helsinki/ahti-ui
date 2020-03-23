@@ -12,7 +12,6 @@ export const Video: React.FC<any> = () => {
     <ReactPlayer
       className={cx(styles.container)}
       url={myVideo}
-      width="375px"
       muted
       playing
       loop

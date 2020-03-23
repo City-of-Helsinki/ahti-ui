@@ -10,15 +10,9 @@ const cx = classNames.bind(styles);
 type HeroBannerProps = React.PropsWithChildren<{
   src?: string;
   hasVideo?: boolean;
-  className?: string;
 }>;
 
-const HeroBanner: React.FC<HeroBannerProps> = ({
-  src,
-  children,
-  hasVideo,
-  className
-}) => {
+const HeroBanner: React.FC<HeroBannerProps> = ({ src, children, hasVideo }) => {
   return (
     <React.Fragment>
       <ImageWithCard

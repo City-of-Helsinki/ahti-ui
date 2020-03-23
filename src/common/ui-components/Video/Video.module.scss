@@ -5,9 +5,11 @@ $video_player_offset: -10px;
 
 $video_container_z-index: 0;
 $video_z-index: -1;
+$video_width: 375px;
 
 .container {
   position: absolute;
+  width: 100%;
   height: $video_container_height;
   top: $video_player_offset;
   left: 0px;
@@ -18,7 +20,7 @@ $video_z-index: -1;
 // but should be considered bad practice otherwise
 /* stylelint-disable */
 .container video {
-  width: 100% !important;
+  width: 375px !important;
   height: auto !important;
   z-index: $video_z-index !important;
 }
