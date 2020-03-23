@@ -3,6 +3,9 @@
 
 $koros-margin: -5rem;
 
+.pageContainer {
+  background-color: white;
+}
 .korosContainer {
   height: 0;
   position: relative;
@@ -18,7 +21,11 @@ $koros-margin: -5rem;
 }
 
 .section {
-  margin: $margin * 5 $margin;
+  background-color: white;
+  margin: $margin * 4 0;
+  padding: $padding;
+  position: relative;
+  z-index: 10;
 
   p {
     margin: $margin 0;
