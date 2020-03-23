@@ -47,17 +47,6 @@ $koros-margin: -5rem;
   }
 }
 
-.imageWithCard {
-  width: 100%;
-  height: 496px;
-  background-repeat: no-repeat;
-  background-size: 100% 496px;
-}
-
-.topImageWithCard {
-  padding: 90px 1rem;
-}
-
 .link {
   @include ahti-link(currentColor);
   font-weight: $font-width-medium;

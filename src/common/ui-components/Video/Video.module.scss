@@ -14,6 +14,9 @@ $video_z-index: -1;
   z-index: $video_container_z-index;
 }
 
+// this is an exception due to specific component implementation,
+// but should be considered bad practice otherwise
+/* stylelint-disable */
 .container video {
   width: 100% !important;
   height: auto !important;
