@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
-import CommonCardInfo from '../common/CommonCardInfo';
 import { formatPrice, formatDuration } from '../../../utils/text';
 import commonStyles from '../common/commonStyles.module.scss';
 
@@ -42,7 +41,6 @@ const FerryContent: React.FC<FerryContentProps> = ({ ferry }) => {
           'card.ferry_content.booking'
         )}`}</a>
       </div>
-      <CommonCardInfo feature={ferry} />
     </div>
   );
 };

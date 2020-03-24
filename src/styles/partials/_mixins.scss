@@ -53,3 +53,17 @@
     margin-right: $_width;
   }
 }
+
+@mixin vertical-margin-between($_classname, $_width) {
+  > .#{$_classname} {
+    margin: $_width 0;
+  }
+
+  > .#{$_classname}:first-of-type {
+    margin-top: 0;
+  }
+
+  > .#{$_classname}:last-of-type {
+    margin-bottom: 0;
+  }
+}

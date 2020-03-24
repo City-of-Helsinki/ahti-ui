@@ -33,6 +33,11 @@
 
     "ahti:tag:swimming": "Uinti"
   },
+  "external_links": {
+    "services": "Kohteeseen liittyviä palveluja",
+    "ahti:link:satamapaikkacom": "Varaa venepaikka satamapaikka.comin kautta",
+    "ahti:link:jtline": "Selaa aikatauluja JT-linen kotisivuilla"
+  },
   "dropdown": {
     "label": "Valikko",
     "change_language": "Change language to English",
