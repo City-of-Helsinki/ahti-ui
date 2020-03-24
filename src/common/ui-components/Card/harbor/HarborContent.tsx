@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
-import CommonCardInfo from '../common/CommonCardInfo';
 import commonStyles from '../common/commonStyles.module.scss';
 import { formatDepth, formatPrice } from '../../../utils/text';
 
@@ -54,7 +53,6 @@ const HarborContent: React.FC<HarborContentProps> = ({ harbor }) => {
           'card.harbor_content.booking'
         )}`}</a>
       </div>
-      <CommonCardInfo feature={harbor} />
     </div>
   );
 };
