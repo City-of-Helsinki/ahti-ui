@@ -19,7 +19,7 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
   src,
   children,
   hasVideo,
-  videoUrl
+  videoUrl,
 }) => {
   return (
     <React.Fragment>
