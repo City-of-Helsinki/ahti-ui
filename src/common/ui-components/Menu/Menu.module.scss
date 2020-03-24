@@ -2,9 +2,25 @@
 @import '../../../styles/partials/variables';
 @import '../../../styles/partials/mixins';
 
+$menu-z-index: 1000;
 .container {
   padding: $padding;
   background: transparent;
+  // height: $menu_height;
+
+  position: sticky;
+  top: 0;
+  // background-color: var(--hds-ui-color-white);
+  z-index: $menu-z-index;
+}
+
+.search {
+  width: $search-component-width;
+}
+
+.searchResults {
+  width: $search-component-width;
+  z-index: $menu-z-index;
 }
 
 .headerContainer {
@@ -13,6 +29,7 @@
   padding-top: $padding;
   padding-bottom: $padding;
   border-bottom: 1px solid var(--hds-ui-color-black-40);
+  background: transparent;
 }
 
 .navLink {

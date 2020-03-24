@@ -25,7 +25,6 @@ export type MenuCategory = {
 };
 
 export interface MenuProps {
-  readonly className?: string;
   readonly translate?: boolean;
   readonly menuCategories: MenuCategory[];
   readonly openComponent?: ReactNode;
@@ -57,7 +56,6 @@ const translateMenuCategories = (
 };
 
 const Menu: React.FC<MenuProps> = ({
-  className,
   translate = false,
   menuCategories,
   openComponent,
@@ -106,7 +104,7 @@ const Menu: React.FC<MenuProps> = ({
   };
 
   return (
-    <div className={classNames(styles.container, className)}>
+    <div className={classNames(styles.container)}>
       <div className={styles.headerContainer}>
         <div>
           <RouterLink to={'/'} onClick={() => onLogoClick && onLogoClick()}>
