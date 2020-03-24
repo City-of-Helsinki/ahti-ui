@@ -18,8 +18,8 @@ const IndexPage: React.FC = () => {
   const { data, refetch } = useFeaturesQuery({
     variables: {
       first: 4,
-      category: ['ahti:category:restaurant', 'ahti:category:cafe']
-    }
+      category: ['ahti:category:restaurant', 'ahti:category:cafe'],
+    },
   });
   const { t, i18n } = useTranslation();
   const history = useHistory();
@@ -31,7 +31,7 @@ const IndexPage: React.FC = () => {
 
   const makeFilterFromCategoryId = (categoryId: string) => {
     return {
-      id: categoryId
+      id: categoryId,
     };
   };
 

@@ -26,9 +26,9 @@ export const state: State = {
         {
           categoryIds: ['ahti:category:island'],
           tagIds: [],
-          name: 'all_islands'
-        }
-      ]
+          name: 'all_islands',
+        },
+      ],
     },
     {
       title: 'travel_to_islands',
@@ -37,21 +37,21 @@ export const state: State = {
         {
           categoryIds: ['ahti:category:ferry'],
           tagIds: [],
-          name: 'water_bus_and_ferries'
+          name: 'water_bus_and_ferries',
         },
         {
           categoryIds: [],
           tagIds: [],
           name: 'boat_rides_and_taxis',
-          disabled: true
+          disabled: true,
         },
         {
           categoryIds: [],
           tagIds: [],
           name: 'sightseeing_and_cruises',
-          disabled: true
-        }
-      ]
+          disabled: true,
+        },
+      ],
     },
     {
       title: 'saunas_and_swimming',
@@ -61,14 +61,14 @@ export const state: State = {
         {
           categoryIds: [],
           tagIds: ['ahti:tag:swimming'],
-          name: 'swimming'
+          name: 'swimming',
         },
         {
           categoryIds: [],
           tagIds: ['ahti:tag:swimming'],
-          name: 'ice_swimming'
-        }
-      ]
+          name: 'ice_swimming',
+        },
+      ],
     },
     {
       title: 'restaurants',
@@ -77,15 +77,15 @@ export const state: State = {
         {
           categoryIds: ['ahti:category:restaurant'],
           tagIds: [],
-          name: 'restaurants'
+          name: 'restaurants',
         },
         { categoryIds: ['ahti:category:cafe'], tagIds: [], name: 'cafes' },
         {
           categoryIds: ['ahti:category:bar'],
           tagIds: [],
-          name: 'beer_and_wine_bars'
-        }
-      ]
+          name: 'beer_and_wine_bars',
+        },
+      ],
     },
     {
       title: 'boater_services',
@@ -97,9 +97,9 @@ export const state: State = {
           categoryIds: [],
           tagIds: [],
           name: 'septic_tank_draining',
-          disabled: true
-        }
-      ]
+          disabled: true,
+        },
+      ],
     },
     {
       title: 'rental_boats',
@@ -107,15 +107,15 @@ export const state: State = {
       menuItems: [
         { categoryIds: [], tagIds: [], name: 'rowboats', disabled: true },
         { categoryIds: [], tagIds: [], name: 'motorboats', disabled: true },
-        { categoryIds: [], tagIds: [], name: 'other', disabled: true }
-      ]
-    }
+        { categoryIds: [], tagIds: [], name: 'other', disabled: true },
+      ],
+    },
   ],
   availableCategories: [
     'ahti:category:island',
     'ahti:category:restaurant',
     'ahti:category:sightseeing',
     'ahti:category:sauna',
-    'ahti:category:cafe'
-  ]
+    'ahti:category:cafe',
+  ],
 };

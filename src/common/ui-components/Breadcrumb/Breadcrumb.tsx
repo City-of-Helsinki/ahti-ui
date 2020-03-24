@@ -21,7 +21,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
   className,
   items,
   translated = false,
-  onClose
+  onClose,
 }) => {
   const { t, i18n } = useTranslation();
 

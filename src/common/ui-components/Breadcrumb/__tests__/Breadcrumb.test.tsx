@@ -7,16 +7,16 @@ import Pill from '../Pill';
 const staticBreadcrumbItems: BreadcrumbItem[] = [
   {
     name: 'First',
-    id: '1'
+    id: '1',
   },
   {
     name: 'Second',
-    id: '2'
+    id: '2',
   },
   {
     name: 'Third',
-    id: '3'
-  }
+    id: '3',
+  },
 ];
 
 describe('Breadcrumb', () => {

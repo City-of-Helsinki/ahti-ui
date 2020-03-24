@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import styles from './Search.module.scss';
 import {
   Feature,
-  FeatureProperties
+  FeatureProperties,
 } from '../../../domain/api/generated/types.d';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import escapeRegExp from './utils/escapeRegExp';
@@ -31,7 +31,7 @@ export const SearchItem: React.FC<SearchItemProps> = ({
   location,
   category,
   currentSearch,
-  onSelect
+  onSelect,
 }) => {
   const re = new RegExp(`(${escapeRegExp(currentSearch)})`, 'gi');
   const parts = name.split(re);
@@ -72,7 +72,7 @@ const Search: React.FC<SearchProps> = ({
   resultsClassName,
   featuresToSearch,
   maxItems = 10,
-  onSelect
+  onSelect,
 }) => {
   const { t } = useTranslation();
   const [searchResults, setSearchResults] = useState<SearchData[]>([]);
@@ -96,7 +96,7 @@ const Search: React.FC<SearchProps> = ({
             id: property.ahtiId,
             name: property.name,
             location: property?.contactInfo?.address?.municipality,
-            category: property.category?.id
+            category: property.category?.id,
           };
         })
         .filter((searchResult: SearchData) =>
@@ -109,7 +109,7 @@ const Search: React.FC<SearchProps> = ({
   return (
     <div
       className={cx(styles.container, className, {
-        containerFocused: hasFocus
+        containerFocused: hasFocus,
       })}
       tabIndex={0}
       onFocus={() => setHasFocus(true)}
@@ -124,7 +124,7 @@ const Search: React.FC<SearchProps> = ({
             type="text"
             value={currentSearch}
             className={styles.searchInput}
-            onChange={event => setCurrentSearch(event.target.value)}
+            onChange={(event) => setCurrentSearch(event.target.value)}
             aria-label={t('search.search')}
             placeholder={t('search.search')}
           />
@@ -140,7 +140,7 @@ const Search: React.FC<SearchProps> = ({
                 key={id}
                 {...item}
                 currentSearch={currentSearch}
-                onSelect={id => {
+                onSelect={(id) => {
                   setCurrentSearch('');
                   onSelect(id);
                 }}

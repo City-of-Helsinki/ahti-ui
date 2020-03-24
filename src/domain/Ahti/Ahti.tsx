@@ -22,10 +22,10 @@ const Ahti: React.FC = () => {
         menuCategories={state.menuCategories}
         translate={true}
         onSelect={(menuItem: MenuItem) => {
-          menuItem.categoryIds.forEach(categoryId => {
+          menuItem.categoryIds.forEach((categoryId) => {
             actions.addCategoryFilter({ id: categoryId });
           });
-          menuItem.tagIds.forEach(tagId => {
+          menuItem.tagIds.forEach((tagId) => {
             actions.addTagFilter({ id: tagId });
           });
           history.push('/content');
@@ -34,7 +34,7 @@ const Ahti: React.FC = () => {
         closedComponent={
           <Search
             featuresToSearch={state.features}
-            onSelect={ahtiId => {
+            onSelect={(ahtiId) => {
               actions.selectFeatureById(ahtiId);
               history.push('/content');
             }}

@@ -13,7 +13,7 @@ export interface LanguageSelectProps {
 
 const LanguageSelect: React.FC<LanguageSelectProps> = ({
   supportedLanguages,
-  className
+  className,
 }) => {
   const { i18n } = useTranslation();
 
@@ -26,7 +26,7 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({
             onClick={() => i18n.changeLanguage(language)}
             className={cx({
               languageButton: true,
-              languageButtonEnabled: language === i18n.language
+              languageButtonEnabled: language === i18n.language,
             })}
             lang={language}
           >

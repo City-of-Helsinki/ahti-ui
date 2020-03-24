@@ -72,7 +72,7 @@ export enum DistanceUnitEnum {
   SearsYd = 'sears_yd',
   SurveyFt = 'survey_ft',
   Um = 'um',
-  Yd = 'yd'
+  Yd = 'yd',
 }
 
 export type ExternalLink = {
@@ -163,7 +163,7 @@ export type FeatureSource = {
 export enum FeatureTranslationLanguageCode {
   Fi = 'FI',
   En = 'EN',
-  Sv = 'SV'
+  Sv = 'SV',
 }
 
 export type FeatureTranslations = {
@@ -262,7 +262,7 @@ export type License = {
 export enum MooringType {
   Buoy = 'BUOY',
   Pole = 'POLE',
-  Pier = 'PIER'
+  Pier = 'PIER',
 }
 
 export type Node = {
@@ -340,7 +340,7 @@ export enum Weekday {
   Thursday = 'THURSDAY',
   Friday = 'FRIDAY',
   Saturday = 'SATURDAY',
-  Sunday = 'SUNDAY'
+  Sunday = 'SUNDAY',
 }
 
 type CommonFeatures_Ferry_Fragment = { __typename?: 'Ferry' } & {

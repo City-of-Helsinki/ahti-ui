@@ -22,7 +22,7 @@ const Toggle: React.FC<ToggleProps> = ({
   onIcon,
   onIconText,
   offIcon,
-  offIconText
+  offIconText,
 }) => {
   return (
     <div>
