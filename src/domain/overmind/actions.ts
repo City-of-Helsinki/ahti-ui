@@ -19,14 +19,16 @@ export const addCategoryFilter: Action<Filter> = (
   categoryFilter
 ) => {
   if (
-    !state.categoryFilters.map(filter => filter.id).includes(categoryFilter.id)
+    !state.categoryFilters
+      .map((filter) => filter.id)
+      .includes(categoryFilter.id)
   ) {
     state.categoryFilters = [...state.categoryFilters, categoryFilter];
   }
 };
 
 export const addTagFilter: Action<Filter> = ({ state }, tagFilter) => {
-  if (!state.tagFilters.map(filter => filter.id).includes(tagFilter.id)) {
+  if (!state.tagFilters.map((filter) => filter.id).includes(tagFilter.id)) {
     state.tagFilters = [...state.tagFilters, tagFilter];
   }
 };
@@ -34,11 +36,11 @@ export const addTagFilter: Action<Filter> = ({ state }, tagFilter) => {
 export const removeFilter: Action<string> = ({ state }, filterId) => {
   if (filterId.startsWith('ahti:category')) {
     state.categoryFilters = state.categoryFilters.filter(
-      categoryFilter => categoryFilter.id !== filterId
+      (categoryFilter) => categoryFilter.id !== filterId
     );
   } else if (filterId.startsWith('ahti:tag')) {
     state.tagFilters = state.tagFilters.filter(
-      tagFilter => tagFilter.id !== filterId
+      (tagFilter) => tagFilter.id !== filterId
     );
   }
 };
@@ -54,7 +56,7 @@ export const setFeatures: Action<Feature[]> = ({ state }, features) => {
 const fetchFeatureData = async (query: DocumentNode, ahtiId: string) => {
   const { data } = await graphQLClient.query({
     query: query,
-    variables: { ahtiId: ahtiId }
+    variables: { ahtiId: ahtiId },
   });
   return data;
 };

@@ -47,10 +47,10 @@ const translateMenuCategories = (
           (menuItem: MenuItem): MenuItem => {
             return {
               ...menuItem,
-              name: t(`menu.link.${menuCategory.title}.${menuItem.name}`)
+              name: t(`menu.link.${menuCategory.title}.${menuItem.name}`),
             };
           }
-        )
+        ),
       };
     }
   );
@@ -63,7 +63,7 @@ const Menu: React.FC<MenuProps> = ({
   openComponent,
   closedComponent,
   onSelect,
-  onLogoClick
+  onLogoClick,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();

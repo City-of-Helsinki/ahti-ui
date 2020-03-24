@@ -7,14 +7,14 @@ import resolvers from './client/resolvers';
 export default new ApolloClient({
   cache: new InMemoryCache(),
   uri: process.env.REACT_APP_AHTI_GRAPHQL_API_URI,
-  request: operation => {
+  request: (operation) => {
     operation.setContext({
       headers: {
         'accept-language':
-          i18n.language || window.localStorage.i18nextLng || 'fi'
-      }
+          i18n.language || window.localStorage.i18nextLng || 'fi',
+      },
     });
   },
   typeDefs,
-  resolvers
+  resolvers,
 });

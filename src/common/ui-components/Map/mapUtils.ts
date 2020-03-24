@@ -13,13 +13,13 @@ export const getFlyToPoint = (feature: any): LngLat | undefined => {
   if (geometry.type === 'LineString') {
     return {
       longitude: geometry.coordinates[0][0],
-      latitude: geometry.coordinates[0][1]
+      latitude: geometry.coordinates[0][1],
     };
   }
   if (feature.geometry.type === 'Point') {
     return {
       longitude: geometry.coordinates[0],
-      latitude: geometry.coordinates[1]
+      latitude: geometry.coordinates[1],
     };
   }
 
@@ -28,23 +28,23 @@ export const getFlyToPoint = (feature: any): LngLat | undefined => {
 
 export const getPoints = (features: Feature[]) => {
   return features
-    .filter(feature => feature.geometry.type === 'Point')
-    .map(feature => {
+    .filter((feature) => feature.geometry.type === 'Point')
+    .map((feature) => {
       return {
         id: feature.id,
         type: 'Feature' as 'Feature',
         properties: {
           cluster: false,
           itemId: feature?.properties?.ahtiId,
-          category: feature?.properties?.category?.id
+          category: feature?.properties?.category?.id,
         },
         geometry: {
           type: 'Point' as 'Point',
           coordinates: [
             feature.geometry.coordinates[0],
-            feature.geometry.coordinates[1]
-          ]
-        }
+            feature.geometry.coordinates[1],
+          ],
+        },
       };
     });
 };
@@ -63,13 +63,13 @@ export const getRoutes = (
   return {
     type: 'FeatureCollection',
     features: features
-      .filter(feature => feature.geometry.type === 'LineString')
-      .map(feature => {
+      .filter((feature) => feature.geometry.type === 'LineString')
+      .map((feature) => {
         return {
           type: 'Feature',
           geometry: {
             type: 'LineString',
-            coordinates: feature.geometry.coordinates
+            coordinates: feature.geometry.coordinates,
           },
           properties: {
             ahtiId: feature.properties.ahtiId,
@@ -77,10 +77,10 @@ export const getRoutes = (
             selected:
               selectedFeature &&
               feature.properties.ahtiId === selectedFeature.properties.ahtiId,
-            color: getRouteColor(feature.properties.category.id)
-          }
+            color: getRouteColor(feature.properties.category.id),
+          },
         };
-      })
+      }),
   };
 };
 
@@ -97,7 +97,7 @@ export const getMapStyle = (
       '/sprites/ahti-sprite',
     sources: {
       ...mapStyle.sources,
-      'route-data': { type: 'geojson', data: routes }
+      'route-data': { type: 'geojson', data: routes },
     },
     layers: [
       ...mapStyle.layers,
@@ -107,8 +107,8 @@ export const getMapStyle = (
         source: 'route-data',
         paint: {
           'line-width': 2.5,
-          'line-color': ['get', 'color']
-        }
+          'line-color': ['get', 'color'],
+        },
       },
       {
         id: 'route-line-selected',
@@ -117,8 +117,8 @@ export const getMapStyle = (
         filter: ['==', 'selected', true],
         paint: {
           'line-width': 5.0,
-          'line-color': ['get', 'color']
-        }
+          'line-color': ['get', 'color'],
+        },
       },
       {
         id: 'route-text-label',
@@ -127,15 +127,15 @@ export const getMapStyle = (
         layout: {
           'symbol-placement': 'line',
           'text-field': '{name}',
-          'text-size': 10
+          'text-size': 10,
         },
         paint: {
           'text-color': '#444',
           'text-halo-blur': 0.5,
           'text-halo-color': '#ffffff',
-          'text-halo-width': 1
-        }
-      }
-    ]
+          'text-halo-width': 1,
+        },
+      },
+    ],
   };
 };

@@ -4,7 +4,7 @@ import {
   IAction,
   IOperator,
   IDerive,
-  IState
+  IState,
 } from 'overmind';
 import { createHook } from 'overmind-react';
 
@@ -13,7 +13,7 @@ import { state } from './state';
 
 export const config = {
   state,
-  actions
+  actions,
 };
 
 export interface Config extends IConfig<typeof config> {}

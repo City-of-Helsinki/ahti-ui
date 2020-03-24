@@ -13,9 +13,9 @@ const Features: React.FC = () => {
     variables: {
       after: cursor,
       first: 50,
-      category: state.categoryFilters.map(filter => filter.id),
-      tag: state.tagFilters.map(filter => filter.id)
-    }
+      category: state.categoryFilters.map((filter) => filter.id),
+      tag: state.tagFilters.map((filter) => filter.id),
+    },
   });
 
   useEffect(() => {

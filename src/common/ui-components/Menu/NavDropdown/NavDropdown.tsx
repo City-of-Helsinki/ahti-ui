@@ -18,7 +18,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({
   title,
   category,
   initiallyOpen = false,
-  children
+  children,
 }) => {
   const [isOpen, setIsOpen] = useState(initiallyOpen);
   const { t } = useTranslation();
@@ -39,7 +39,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({
           className={cx({
             icon: true,
             angleIconOpen: isOpen,
-            angleIconClosed: !isOpen
+            angleIconClosed: !isOpen,
           })}
         />
       </div>

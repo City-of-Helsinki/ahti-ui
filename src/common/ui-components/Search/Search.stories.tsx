@@ -9,19 +9,19 @@ export default {
   decorators: [
     (storyFn: () => React.ReactNode) => (
       <ApolloProvider client={graphQLClient}>{storyFn()}</ApolloProvider>
-    )
-  ]
+    ),
+  ],
 };
 
 export const DefaultSearch = () => (
   <Search
     featuresToSearch={[]}
-    onSelect={item => {
+    onSelect={(item) => {
       alert(`clicked: ${item}`);
     }}
   />
 );
 
 DefaultSearch.story = {
-  name: 'Default Search'
+  name: 'Default Search',
 };

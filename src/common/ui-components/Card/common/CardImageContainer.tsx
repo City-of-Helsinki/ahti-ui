@@ -54,7 +54,7 @@ const CardImageContainer: React.FC<CardImageContainerProps> = ({ images }) => {
               className={styles.slideContainer}
               style={{
                 backgroundImage: `url(${image.url})`,
-                backgroundSize: 'cover'
+                backgroundSize: 'cover',
               }}
               key={id}
             >

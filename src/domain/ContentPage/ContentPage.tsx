@@ -23,7 +23,7 @@ const ContentPage: React.FC = () => {
 
   const makeFilterFromCategoryId = (categoryId: string) => {
     return {
-      id: categoryId
+      id: categoryId,
     };
   };
 
@@ -33,7 +33,7 @@ const ContentPage: React.FC = () => {
         <Breadcrumb
           items={[...state.categoryFilters, ...state.tagFilters]}
           translated={true}
-          onClose={ahtiId => actions.removeFilter(ahtiId)}
+          onClose={(ahtiId) => actions.removeFilter(ahtiId)}
         />
         <Toggle
           onIcon={<IconCheck />}
@@ -48,13 +48,13 @@ const ContentPage: React.FC = () => {
         {!state.selectedFeature && !state.mapViewToggle && (
           <ListView
             features={state.features}
-            onClick={feature => actions.selectFeature(feature)}
+            onClick={(feature) => actions.selectFeature(feature)}
           />
         )}
         {state.mapViewToggle && (
           <div
             className={cx(styles.mapContainer, {
-              mapContainerShrunk: state.selectedFeature
+              mapContainerShrunk: state.selectedFeature,
             })}
           >
             <Map
@@ -78,7 +78,7 @@ const ContentPage: React.FC = () => {
       {!state.selectedFeature && (
         <CategoryNavigation
           className={cx(styles.categoryNavigation, {
-            categoryNavigationListView: !state.mapViewToggle
+            categoryNavigationListView: !state.mapViewToggle,
           })}
           categories={state.availableCategories.map(makeFilterFromCategoryId)}
           translated={true}
