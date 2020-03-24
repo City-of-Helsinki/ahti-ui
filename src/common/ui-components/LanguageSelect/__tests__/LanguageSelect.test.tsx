@@ -1,8 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import i18next from 'i18next';
+
 import LanguageSelect from '../LanguageSelect';
 import { SUPPORTED_LANGUAGES } from '../../../translation/TranslationConstants';
-import i18next from 'i18next';
 
 describe('LanguageSelect', () => {
   const supportedLanguages = Object.values(SUPPORTED_LANGUAGES);

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { IconCheck, IconClose } from 'hds-react/lib';
 import classNames from 'classnames/bind';
-import styles from './Filter.module.scss';
 import { useTranslation } from 'react-i18next';
+
+import styles from './Filter.module.scss';
 
 const cx = classNames.bind(styles);
 

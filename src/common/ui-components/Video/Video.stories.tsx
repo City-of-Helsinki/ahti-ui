@@ -4,7 +4,7 @@ import { Video } from './Video';
 
 export default {
   title: 'Video',
-  component: Video
+  component: Video,
 };
 
 export const VideoExample = () => {

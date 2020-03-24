@@ -30,7 +30,7 @@ const Features: React.FC = () => {
         setCursor(data?.features?.pageInfo.endCursor || '');
       }
     }
-  }, [actions, data]);
+  }, [actions, data, state.features]);
 
   useEffect(() => {
     actions.setFeatures([]);

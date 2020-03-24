@@ -1,7 +1,8 @@
 import React from 'react';
+import { ApolloProvider } from '@apollo/react-common';
+
 import ListView from './ListView';
 import { useFeaturesQuery } from '../../../domain/api/generated/types.d';
-import { ApolloProvider } from '@apollo/react-common';
 import graphQLClient from '../../../domain/api';
 import { featuresLens } from '../../utils/lenses';
 import mockFeature from './__tests__/mockFeature';

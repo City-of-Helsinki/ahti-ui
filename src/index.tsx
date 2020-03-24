@@ -17,7 +17,7 @@ if (process.env.NODE_ENV !== 'development') {
 if (process.env.NODE_ENV !== 'development') {
   Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_DSN,
-    environment: process.env.NODE_ENV
+    environment: process.env.NODE_ENV,
   });
 }
 

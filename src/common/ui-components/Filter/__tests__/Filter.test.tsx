@@ -1,6 +1,7 @@
 import React from 'react';
-import Filter, { FilterOptions } from '../Filter';
 import { shallow, ShallowWrapper } from 'enzyme';
+
+import Filter, { FilterOptions } from '../Filter';
 
 describe('Filter', () => {
   const filterOptions = [

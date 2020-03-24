@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+
 import '../ListView';
 import ListViewCard from '../ListViewCard';
 import mockFeature from './mockFeature';

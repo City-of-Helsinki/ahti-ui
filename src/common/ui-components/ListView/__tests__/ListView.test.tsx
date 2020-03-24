@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import '../ListView';
+
 import ListView from '../ListView';
 import mockFeature from './mockFeature';
 

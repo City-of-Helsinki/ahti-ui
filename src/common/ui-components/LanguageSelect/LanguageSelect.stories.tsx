@@ -1,6 +1,6 @@
 import React from 'react';
-import LanguageSelect from './LanguageSelect';
 
+import LanguageSelect from './LanguageSelect';
 import { SUPPORTED_LANGUAGES } from '../../translation/TranslationConstants';
 
 export default {
