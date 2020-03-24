@@ -6,11 +6,11 @@ import styles from './Video.module.scss';
 
 const cx = classNames.bind(styles);
 
-export const Video: React.FC<any> = ({ url }) => {
+export const Video: React.FC<any> = ({ videoUrl }) => {
   return (
     <ReactPlayer
       className={cx(styles.container)}
-      url={url}
+      url={videoUrl}
       muted
       playing
       loop
