@@ -8,6 +8,8 @@ import FerryContent from './ferry/FerryContent';
 import IslandContent from './island/IslandContent';
 import { Filter } from '../../../../alltypes';
 import { Tag } from '../../../domain/api/generated/types.d';
+import CommonCardInfo from './common/CommonCardInfo';
+import CardLinks from './common/CardLinks';
 
 export interface CardProps {
   readonly className?: string;
@@ -55,6 +57,11 @@ const Card: React.FC<CardProps> = ({
           {type === 'Feature' && <IslandContent island={feature} />}
           {type === 'Harbor' && <HarborContent harbor={feature} />}
           {type === 'Ferry' && <FerryContent ferry={feature} />}
+
+          {feature?.properties?.links?.length > 0 && (
+            <CardLinks links={feature.properties.links} />
+          )}
+          <CommonCardInfo feature={feature} />
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ const resolvers = {
   FeatureProperties: {
     shortDescription: (featureProperties: FeatureProperties) => {
       const description = featureProperties.description;
-      return description
+      return description && description.indexOf('.') !== -1
         ? description.substr(0, description.indexOf('.') + 2)
         : '';
     },

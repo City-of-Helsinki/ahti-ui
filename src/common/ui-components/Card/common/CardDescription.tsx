@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 
@@ -9,32 +9,35 @@ const cx = classNames.bind(styles);
 
 interface CardDescriptionProps {
   readonly description: string;
+  readonly shortDescriptionLength?: number;
 }
 
-const CardDescription: React.FC<CardDescriptionProps> = ({ description }) => {
+const CardDescription: React.FC<CardDescriptionProps> = ({
+  description,
+  shortDescriptionLength = 500
+}) => {
   const { t } = useTranslation();
   const [showMoreToggled, setShowMoreToggled] = useState<boolean>(false);
 
   return (
     <div className={styles.container}>
-      <div
-        className={cx(commonStyles.bodyText, {
-          descriptionContainer: true,
-          descriptionContainerOpen: showMoreToggled
-        })}
-      >
-        {description}
+      <div className={cx(commonStyles.bodyText)}>
+        {showMoreToggled || description.length <= shortDescriptionLength
+          ? description
+          : description.substr(0, 500) + '...'}
       </div>
 
-      <button
-        onClick={() => setShowMoreToggled(!showMoreToggled)}
-        className={cx({
-          showMoreButton: true,
-          showLess: showMoreToggled
-        })}
-      >
-        {showMoreToggled ? t('card.show_less') : t('card.show_more')}
-      </button>
+      {description.length > shortDescriptionLength && (
+        <button
+          onClick={() => setShowMoreToggled(!showMoreToggled)}
+          className={cx({
+            showMoreButton: true,
+            showLess: showMoreToggled
+          })}
+        >
+          {showMoreToggled ? t('card.show_less') : t('card.show_more')}
+        </button>
+      )}
     </div>
   );
 };

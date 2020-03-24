@@ -507,6 +507,12 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                               'id'
                             >
                           >;
+                          links: Array<
+                            { __typename?: 'ExternalLink' } & Pick<
+                              ExternalLink,
+                              'type' | 'url'
+                            >
+                          >;
                           tags: Array<
                             { __typename?: 'Tag' } & Pick<Tag, 'id' | 'name'>
                           >;
@@ -783,6 +789,10 @@ export const FeaturesDocument = gql`
             ahtiId
             category {
               id
+            }
+            links {
+              type
+              url
             }
             name
             tags {

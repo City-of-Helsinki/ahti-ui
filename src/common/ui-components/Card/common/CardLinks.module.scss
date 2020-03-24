@@ -1,0 +1,17 @@
+@import '../../../../styles/partials/variables';
+@import '../../../../styles/partials/mixins';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: $margin 0;
+
+  @include vertical-margin-between(cardLink, $margin / 2);
+}
+
+.heading {
+  font-size: var(--hds-text-lg);
+  font-weight: $font-width-thick;
+  margin-bottom: $margin;
+}

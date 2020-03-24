@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import { Tab, Tabs } from '../../Tabs/Tabs';
 import CardDescription from '../common/CardDescription';
-import CommonCardInfo from '../common/CommonCardInfo';
 import IslandRoutes from './IslandRoutes';
 
 export interface IslandContentProps {
@@ -16,7 +15,6 @@ const IslandContent: React.FC<IslandContentProps> = ({ island }) => {
     <Tabs>
       <Tab title={t('card.island_content.description_tab')}>
         <CardDescription description={island.properties.description} />
-        <CommonCardInfo feature={island} />
       </Tab>
       <Tab
         title={t('card.island_content.routes_tab')}
