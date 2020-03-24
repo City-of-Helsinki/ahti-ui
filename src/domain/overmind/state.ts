@@ -35,10 +35,9 @@ export const state: State = {
       category: 'ahti:category:ferry',
       menuItems: [
         {
-          categoryIds: [],
+          categoryIds: ['ahti:category:ferry'],
           tagIds: [],
-          name: 'water_bus_and_ferries',
-          disabled: true
+          name: 'water_bus_and_ferries'
         },
         {
           categoryIds: [],
