@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import styles from './ClusterIcon.module.scss';
 
@@ -14,15 +15,15 @@ const ClusterIcon: React.FC<any> = ({ pointCount }) => {
       <g
         id="Map-View-Design"
         stroke="none"
-        stroke-width="1"
+        strokeWidth="1"
         fill="none"
-        fill-rule="evenodd"
+        fillRule="evenodd"
       >
         <g
           id="cluster-pin-1"
           transform="translate(-24.000000, -17.000000)"
           fill="#E9F1F6"
-          fill-rule="nonzero"
+          fillRule="nonzero"
           stroke="#000000"
           stroke-width="2"
         >
@@ -39,7 +40,14 @@ const ClusterIcon: React.FC<any> = ({ pointCount }) => {
               d="M11.3086849,25.539 L11.3086849,25.537 C5.73868488,19.259 5.40868488,10.17 11.2586849,4.382 C14.1086849,1.574 17.9386849,2.48689958e-14 21.9386849,2.48689958e-14 C25.9286849,2.48689958e-14 29.7686849,1.574 32.6086849,4.381 C38.4586849,10.17 38.1286849,19.26 32.5686849,25.537 L32.5686849,25.537 C27.2986849,31.486 24.1286849,35.534 21.9286849,39.382 C19.7386849,35.508 16.5486849,31.486 11.3086849,25.539 Z"
               id="Path-Copy-9"
             ></path>
-            {pointCount}
+            <text x="22" y="20">
+              <tspan
+                className={classNames(styles.clusterText)}
+                textAnchor="middle"
+              >
+                {pointCount}
+              </tspan>
+            </text>
           </g>
         </g>
       </g>

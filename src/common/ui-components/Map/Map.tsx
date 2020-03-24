@@ -16,6 +16,7 @@ import useSupercluster from 'use-supercluster';
 import { useTranslation } from 'react-i18next';
 import { PointFeature } from 'supercluster';
 
+import ClusterIcon from '../ClusterIcon/ClusterIcon';
 import { Feature } from '../../../domain/api/generated/types.d';
 import {
   initialLatitude,
@@ -215,7 +216,7 @@ const Map: React.FC<MapProps> = ({
               latitude={latitude}
               longitude={longitude}
             >
-              <div
+              {/* <div
                 className={styles.clusterMarker}
                 style={{
                   width: `${10 + (pointCount / points.length) * 20}px`,
@@ -223,7 +224,8 @@ const Map: React.FC<MapProps> = ({
                 }}
               >
                 {pointCount}
-              </div>
+              </div> */}
+              {/* <ClusterIcon pointCount={pointCount} /> */}
             </Marker>
           );
         } else {
