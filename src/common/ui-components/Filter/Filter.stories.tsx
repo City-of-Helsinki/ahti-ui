@@ -3,7 +3,7 @@ import Filter from './Filter';
 
 export default {
   title: 'Filter',
-  component: Filter
+  component: Filter,
 };
 
 export const IslandFiltering = () => {
@@ -13,31 +13,31 @@ export const IslandFiltering = () => {
       items: [
         { name: 'Vesibussi', key: 'water_bus' },
         { name: 'Lautta', key: 'ferry' },
-        { name: 'Silta', key: 'bridge' }
-      ]
+        { name: 'Silta', key: 'bridge' },
+      ],
     },
     {
       type: 'Palvelut saarissa',
       items: [
         { name: 'Ravintola', key: 'restaurant' },
         { name: 'Kahvila', key: 'cafe' },
-        { name: 'Sauna', key: 'sauna' }
-      ]
+        { name: 'Sauna', key: 'sauna' },
+      ],
     },
     {
       type: 'Retkeily',
       items: [
         { name: 'Telttailu sallittu', key: 'camping' },
-        { name: 'Kaivo', key: 'well' }
-      ]
-    }
+        { name: 'Kaivo', key: 'well' },
+      ],
+    },
   ];
 
   const mockData = [
     ['restaurant'],
     ['restaurant', 'sauna'],
     ['camping'],
-    ['cafe', 'water_bus']
+    ['cafe', 'water_bus'],
   ];
 
   return (
@@ -48,13 +48,13 @@ export const IslandFiltering = () => {
       clear="Tyhjennä"
       type="Saaret"
       options={filterOptions}
-      onShow={selectedFilters =>
+      onShow={(selectedFilters) =>
         alert(`Selekoidut filtterit: ${selectedFilters}`)
       }
       onClose={() => {}}
-      countMatches={selectedFilters =>
+      countMatches={(selectedFilters) =>
         mockData.filter(
-          data => new Set([...data, ...selectedFilters]).size === data.length
+          (data) => new Set([...data, ...selectedFilters]).size === data.length
         ).length
       }
     />
@@ -62,5 +62,5 @@ export const IslandFiltering = () => {
 };
 
 IslandFiltering.story = {
-  name: 'Islands'
+  name: 'Islands',
 };

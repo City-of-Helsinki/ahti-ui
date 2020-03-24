@@ -20,7 +20,7 @@ export interface CardProps {
 const Card: React.FC<CardProps> = ({
   className,
   feature,
-  onSelectFilter
+  onSelectFilter,
 }: CardProps) => {
   const type = feature.__typename;
   const { name, images, tags } = feature.properties;

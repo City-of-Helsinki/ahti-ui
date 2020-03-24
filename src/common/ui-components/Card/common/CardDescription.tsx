@@ -14,7 +14,7 @@ interface CardDescriptionProps {
 
 const CardDescription: React.FC<CardDescriptionProps> = ({
   description,
-  shortDescriptionLength = 500
+  shortDescriptionLength = 500,
 }) => {
   const { t } = useTranslation();
   const [showMoreToggled, setShowMoreToggled] = useState<boolean>(false);
@@ -32,7 +32,7 @@ const CardDescription: React.FC<CardDescriptionProps> = ({
           onClick={() => setShowMoreToggled(!showMoreToggled)}
           className={cx({
             showMoreButton: true,
-            showLess: showMoreToggled
+            showLess: showMoreToggled,
           })}
         >
           {showMoreToggled ? t('card.show_less') : t('card.show_more')}

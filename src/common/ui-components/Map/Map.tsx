@@ -7,7 +7,7 @@ import MapGL, {
   FlyToInterpolator,
   TransitionInterpolator,
   EasingFunction,
-  TRANSITION_EVENTS
+  TRANSITION_EVENTS,
 } from 'react-map-gl';
 import { BBox } from 'geojson';
 import useSupercluster from 'use-supercluster';
@@ -23,7 +23,7 @@ import {
   minZoomLevel,
   clusteringRadius,
   selectedFeatureZoomLevel,
-  transitionDuration
+  transitionDuration,
 } from '../../constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -66,7 +66,7 @@ const Map: React.FC<MapProps> = ({
   className,
   features,
   selectedFeature,
-  onClick
+  onClick,
 }) => {
   const points = getPoints(features);
   const routes = getRoutes(features, selectedFeature);
@@ -80,7 +80,7 @@ const Map: React.FC<MapProps> = ({
     latitude: flyToPoint ? flyToPoint.latitude : initialLatitude,
     zoom: selectedFeature ? selectedFeatureZoomLevel : initialZoomLevel,
     minZoom: minZoomLevel,
-    maxZoom: maxZoomLevel
+    maxZoom: maxZoomLevel,
   });
 
   const mapRef = useRef<StaticMap>();
@@ -106,10 +106,10 @@ const Map: React.FC<MapProps> = ({
             ? viewPort.zoom
             : selectedFeatureZoomLevel,
         transitionInterpolator: new FlyToInterpolator(),
-        transitionDuration: transitionDuration
+        transitionDuration: transitionDuration,
       });
     };
-    const feature = features.find(feature => feature.id === pointFeature.id);
+    const feature = features.find((feature) => feature.id === pointFeature.id);
     return (
       <Marker
         key={`pin-${id}`}
@@ -126,21 +126,17 @@ const Map: React.FC<MapProps> = ({
     );
   };
 
-  const getBounds: () => BBox | null = function() {
+  const getBounds: () => BBox | null = function () {
     const current = mapRef?.current;
     if (!current) return null;
-    return current
-      .getMap()
-      .getBounds()
-      .toArray()
-      .flat() as BBox;
+    return current.getMap().getBounds().toArray().flat() as BBox;
   };
   const bounds = getBounds();
   const { clusters } = useSupercluster<GeoJsonProperties, ClusterProperties>({
     points,
     bounds,
     zoom: viewPort.zoom,
-    options: { radius: clusteringRadius, maxZoom: viewPort.maxZoom }
+    options: { radius: clusteringRadius, maxZoom: viewPort.maxZoom },
   });
 
   return (
@@ -153,17 +149,17 @@ const Map: React.FC<MapProps> = ({
       ref={mapRef}
       onViewportChange={setViewPort}
       clickRadius={10}
-      onNativeClick={event => {
+      onNativeClick={(event) => {
         const clickedRoute =
           event.features &&
-          event.features.find(feature => 'route-line' === feature.layer.id);
+          event.features.find((feature) => 'route-line' === feature.layer.id);
 
         if (!clickedRoute) {
           return;
         }
 
         const clickedFeature = features.find(
-          feature =>
+          (feature) =>
             feature.properties.ahtiId === clickedRoute.properties.ahtiId
         );
 
@@ -191,7 +187,7 @@ const Map: React.FC<MapProps> = ({
         // this is temporary, new designs should come soon
         if (isCluster) {
           const {
-            point_count: pointCount
+            point_count: pointCount,
           } = cluster.properties as ClusterProperties;
           return (
             <Marker
@@ -203,7 +199,7 @@ const Map: React.FC<MapProps> = ({
                 className={styles.clusterMarker}
                 style={{
                   width: `${10 + (pointCount / points.length) * 20}px`,
-                  height: `${10 + (pointCount / points.length) * 20}px`
+                  height: `${10 + (pointCount / points.length) * 20}px`,
                 }}
               >
                 {pointCount}

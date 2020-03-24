@@ -15,9 +15,9 @@ describe('Menu', () => {
           categoryIds: [],
           tagIds: [],
           name: 'all_islands',
-          url: '/map?type=myhelsinki'
-        }
-      ]
+          url: '/map?type=myhelsinki',
+        },
+      ],
     },
     {
       title: 'restaurants',
@@ -28,24 +28,24 @@ describe('Menu', () => {
           tagIds: [],
           name: 'restaurants',
           url: '/',
-          disabled: true
+          disabled: true,
         },
         {
           categoryIds: [],
           tagIds: [],
           name: 'cafes',
           url: '/',
-          disabled: true
+          disabled: true,
         },
         {
           categoryIds: [],
           tagIds: [],
           name: 'beer_and_wine_bars',
           url: '/',
-          disabled: true
-        }
-      ]
-    }
+          disabled: true,
+        },
+      ],
+    },
   ];
   const wrapper = mount(
     <MemoryRouter>
