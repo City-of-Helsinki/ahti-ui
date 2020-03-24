@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-// eslint-disable-next-line import/order
 import MapGL, {
   GeolocateControl,
   Marker,
@@ -27,9 +26,10 @@ import {
   transitionDuration
 } from '../../constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
-import mapStyle from '../../../assets/mapStyle.json';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './Map.module.scss';
+import { getMapStyle, getFlyToPoint, getPoints, getRoutes } from './mapUtils';
+
 /*
 // Approach for clustering used from here
 // https://www.leighhalliday.com/mapbox-clustering
@@ -62,33 +62,22 @@ type ViewportState = {
   minPitch?: number;
 };
 
-const getMapStyle = (): {} => {
-  return {
-    ...mapStyle,
-    sprite:
-      window.location.protocol +
-      '//' +
-      window.location.hostname +
-      (window.location.port ? ':' + window.location.port : '') +
-      '/sprites/ahti-sprite'
-  };
-};
 const Map: React.FC<MapProps> = ({
   className,
   features,
   selectedFeature,
   onClick
 }) => {
+  const points = getPoints(features);
+  const routes = getRoutes(features, selectedFeature);
+  const flyToPoint = getFlyToPoint(selectedFeature);
+
   const { t } = useTranslation();
   const [viewPort, setViewPort] = useState<ViewportState>({
     width: '100%',
     height: '100%',
-    longitude: selectedFeature
-      ? selectedFeature.geometry.coordinates[0]
-      : initialLongitude,
-    latitude: selectedFeature
-      ? selectedFeature.geometry.coordinates[1]
-      : initialLatitude,
+    longitude: flyToPoint ? flyToPoint.longitude : initialLongitude,
+    latitude: flyToPoint ? flyToPoint.latitude : initialLatitude,
     zoom: selectedFeature ? selectedFeatureZoomLevel : initialZoomLevel,
     minZoom: minZoomLevel,
     maxZoom: maxZoomLevel
@@ -136,27 +125,7 @@ const Map: React.FC<MapProps> = ({
       </Marker>
     );
   };
-  const points = features
-    .filter(feature => feature.geometry.type === 'Point')
-    .map(feature => {
-      return {
-        id: feature.id,
-        type: 'Feature' as 'Feature',
-        properties: {
-          cluster: false,
-          itemId: feature?.properties?.ahtiId,
-          category: feature?.properties?.category?.id
-        },
-        geometry: {
-          type: 'Point' as 'Point',
-          coordinates: [
-            feature.geometry.coordinates[0],
-            feature.geometry.coordinates[1]
-          ]
-        }
-      };
-    });
-  // get map bounds
+
   const getBounds: () => BBox | null = function() {
     const current = mapRef?.current;
     if (!current) return null;
@@ -177,20 +146,36 @@ const Map: React.FC<MapProps> = ({
   return (
     <MapGL
       {...viewPort}
-      mapStyle={getMapStyle()}
+      mapStyle={getMapStyle(routes)}
       width={'100%'}
-      height={'100vh'}
+      height={'100%'}
       className={className}
       ref={mapRef}
       onViewportChange={setViewPort}
+      clickRadius={10}
+      onNativeClick={event => {
+        const clickedRoute =
+          event.features &&
+          event.features.find(feature => 'route-line' === feature.layer.id);
+
+        if (!clickedRoute) {
+          return;
+        }
+
+        const clickedFeature = features.find(
+          feature =>
+            feature.properties.ahtiId === clickedRoute.properties.ahtiId
+        );
+
+        if (clickedFeature) {
+          onClick(clickedFeature);
+        }
+      }}
     >
       <div className={styles.mapControls}>
         <GeolocateControl
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation={true}
-          onViewportChange={() => {
-            /* NOOP, disables flying to location */
-          }}
           label={t('map.geolocate')}
         />
         <div className={styles.mapControlsDivider}></div>

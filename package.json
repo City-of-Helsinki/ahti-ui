@@ -146,7 +146,7 @@
     "husky": "^4.0.10",
     "lint-staged": "^10.0.1",
     "matchmedia-polyfill": "^0.3.2",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.2",
     "pretty-quick": "^2.0.1",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
