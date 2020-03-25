@@ -7,9 +7,9 @@ import { SUPPORTED_LANGUAGES } from '../../common/translation/TranslationConstan
 import { useOvermind } from '../overmind';
 import styles from './Ahti.module.scss';
 import Search from '../../common/ui-components/Search/Search';
-import Footer from '../Footer/Footer';
-import ContentPage from '../ContentPage/ContentPage';
-import IndexPage from '../IndexPage/IndexPage';
+// import Footer from '../Footer/Footer';
+// import ContentPage from '../ContentPage/ContentPage';
+// import IndexPage from '../IndexPage/IndexPage';
 
 const Ahti: React.FC = () => {
   const { state, actions } = useOvermind();
@@ -49,7 +49,7 @@ const Ahti: React.FC = () => {
         }
       />
       <div className={styles.subHeading}>
-        <Breadcrumb
+        {/* <Breadcrumb
           items={[...state.categoryFilters, ...state.tagFilters]}
           onClose={(ahtiId) => actions.removeFilter(ahtiId)}
         />
@@ -58,21 +58,21 @@ const Ahti: React.FC = () => {
           offIcon={<IconClose />}
           toggleState={state.mapViewToggle}
           onToggle={() => actions.toggleMapView()}
-        />
+        /> */}
       </div>
       <div className={styles.content}>
         {!state.selectedFeature && !state.mapViewToggle && (
-          <ListView
-            features={state.features}
-            onClick={(feature) => actions.selectFeature(feature)}
-          />
+          // <ListView
+          //   features={state.features}
+          //   onClick={(feature) => actions.selectFeature(feature)}
+          // />
         )}
         {state.mapViewToggle && (
-          <Map
-            className={styles.map}
-            features={state.features}
-            onClick={actions.selectFeature}
-          />
+          // <Map
+          //   className={styles.map}
+          //   features={state.features}
+          //   onClick={actions.selectFeature}
+          // />
         )}
         {state.selectedFeature && (
           <React.Fragment>
