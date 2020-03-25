@@ -13,6 +13,8 @@ import Card from '../../common/ui-components/Card/Card';
 import { useOvermind } from '../overmind';
 import { useScrollToTop } from '../../common/utils/hooks';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
+import Spinner from '../../common/ui-components/Spinner/Spinner';
+import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_all.json';
 
 const cx = classNames.bind(styles);
 
@@ -28,7 +30,7 @@ const ContentPage: React.FC = () => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.subHeading}>
         <Breadcrumb
           items={[...state.categoryFilters, ...state.tagFilters]}
@@ -44,37 +46,47 @@ const ContentPage: React.FC = () => {
           onToggle={() => actions.toggleMapView()}
         />
       </div>
-      <div className={styles.content}>
-        {!state.selectedFeature && !state.mapViewToggle && (
-          <ListView
-            features={state.features}
-            onClick={(feature) => actions.selectFeature(feature)}
-          />
-        )}
-        {state.mapViewToggle && (
-          <div
-            className={cx(styles.mapContainer, {
-              mapContainerShrunk: state.selectedFeature,
-            })}
-          >
-            <Map
-              className={styles.map}
+      {state.featuresLoading && (
+        <Spinner
+          animation={spinnerAnimation}
+          width={50}
+          height={50}
+          className={styles.spinner}
+        />
+      )}
+      {!state.featuresLoading && (
+        <div className={styles.content}>
+          {!state.selectedFeature && !state.mapViewToggle && (
+            <ListView
               features={state.features}
-              selectedFeature={state.selectedFeature}
-              onClick={actions.selectFeature}
+              onClick={(feature) => actions.selectFeature(feature)}
             />
-          </div>
-        )}
-        {state.selectedFeature && (
-          <>
-            <BackButton onBack={() => actions.clearSelectedFeature()} />
-            <Card
-              feature={state.selectedFeature}
-              onSelectFilter={actions.addTagFilter}
-            />
-          </>
-        )}
-      </div>
+          )}
+          {state.mapViewToggle && (
+            <div
+              className={cx(styles.mapContainer, {
+                mapContainerShrunk: state.selectedFeature,
+              })}
+            >
+              <Map
+                className={styles.map}
+                features={state.features}
+                selectedFeature={state.selectedFeature}
+                onClick={actions.selectFeature}
+              />
+            </div>
+          )}
+          {state.selectedFeature && (
+            <>
+              <BackButton onBack={() => actions.clearSelectedFeature()} />
+              <Card
+                feature={state.selectedFeature}
+                onSelectFilter={actions.addTagFilter}
+              />
+            </>
+          )}
+        </div>
+      )}
       {!state.selectedFeature && (
         <CategoryNavigation
           className={cx(styles.categoryNavigation, {
@@ -87,7 +99,7 @@ const ContentPage: React.FC = () => {
           }}
         />
       )}
-    </>
+    </div>
   );
 };
 

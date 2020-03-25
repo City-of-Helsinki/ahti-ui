@@ -53,6 +53,13 @@ export const setFeatures: Action<Feature[]> = ({ state }, features) => {
   state.features = features;
 };
 
+export const setFeaturesLoading: Action<boolean> = (
+  { state },
+  featuresLoading
+) => {
+  state.featuresLoading = featuresLoading;
+};
+
 const fetchFeatureData = async (query: DocumentNode, ahtiId: string) => {
   const { data } = await graphQLClient.query({
     query: query,

@@ -42,17 +42,16 @@ h6 {
   max-width: 33em;
 }
 
-/* own css*/
 body {
   overflow-x: hidden;
   height: 100vh;
-  // arbitrary max-width of 474px for wide screens
 
   font-size: $text-base-size;
   font-family: $font-family;
 
   #root {
     width: $root-width;
+    height: 100%;
     margin: 0 auto;
     position: relative;
   }
