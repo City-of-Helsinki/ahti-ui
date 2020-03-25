@@ -4,7 +4,7 @@ import ImageWithCard from './ImageWithCard';
 
 export default {
   title: 'ImageWithCard',
-  component: ImageWithCard
+  component: ImageWithCard,
 };
 
 export const IndexPageExample = () => {

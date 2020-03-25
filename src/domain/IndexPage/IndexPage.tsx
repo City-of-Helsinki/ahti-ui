@@ -14,9 +14,10 @@ import PromotionCard from '../../common/ui-components/PromotionCard/PromotionCar
 import { featuresLens } from '../../common/utils/lenses';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_rudder.json';
+import { availableCategories } from '../constants';
 
 const IndexPage: React.FC = () => {
-  const { state, actions } = useOvermind();
+  const { actions } = useOvermind();
   const { data, refetch, loading } = useFeaturesQuery({
     variables: {
       first: 4,
@@ -50,7 +51,7 @@ const IndexPage: React.FC = () => {
         <p>{t('index.section1_paragraph')}</p>
         <CategoryNavigation
           translated={true}
-          categories={state.availableCategories.map(makeFilterFromCategoryId)}
+          categories={availableCategories.map(makeFilterFromCategoryId)}
           onClick={(categoryId: string) => {
             actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
             history.push('/content');

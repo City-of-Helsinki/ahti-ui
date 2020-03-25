@@ -10,6 +10,7 @@ import Search from '../../common/ui-components/Search/Search';
 import Footer from '../Footer/Footer';
 import ContentPage from '../ContentPage/ContentPage';
 import IndexPage from '../IndexPage/IndexPage';
+import { menuCategories } from '../constants';
 
 const Ahti: React.FC = () => {
   const { state, actions } = useOvermind();
@@ -19,7 +20,7 @@ const Ahti: React.FC = () => {
     <div className={styles.ahti}>
       <Menu
         className={styles.menu}
-        menuCategories={state.menuCategories}
+        menuCategories={menuCategories}
         translate={true}
         onSelect={(menuItem: MenuItem) => {
           menuItem.categoryIds.forEach((categoryId) => {
