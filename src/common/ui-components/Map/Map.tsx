@@ -26,6 +26,7 @@ import {
   transitionDuration,
 } from '../../constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
+import ClusterIcon from '../ClusterIcon/ClusterIcon';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './Map.module.scss';
 import { getMapStyle, getFlyToPoint, getPoints, getRoutes } from './mapUtils';
@@ -195,15 +196,15 @@ const Map: React.FC<MapProps> = ({
               latitude={latitude}
               longitude={longitude}
             >
-              <div
+              {/* <div
                 className={styles.clusterMarker}
                 style={{
                   width: `${10 + (pointCount / points.length) * 20}px`,
                   height: `${10 + (pointCount / points.length) * 20}px`,
                 }}
-              >
-                {pointCount}
-              </div>
+              > */}
+              <ClusterIcon pointCount={pointCount} />
+              {/* </div> */}
             </Marker>
           );
         } else {
