@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-// eslint-disable-next-line import/order
 import MapGL, {
   GeolocateControl,
   Marker,
@@ -9,14 +8,12 @@ import MapGL, {
   TransitionInterpolator,
   EasingFunction,
   TRANSITION_EVENTS,
-  ViewportProps,
 } from 'react-map-gl';
 import { BBox } from 'geojson';
 import useSupercluster from 'use-supercluster';
 import { useTranslation } from 'react-i18next';
 import { PointFeature } from 'supercluster';
 
-import ClusterIcon from '../ClusterIcon/ClusterIcon';
 import { Feature } from '../../../domain/api/generated/types.d';
 import {
   initialLatitude,
@@ -29,9 +26,10 @@ import {
   transitionDuration,
 } from '../../constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
-import mapStyle from '../../../assets/mapStyle.json';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './Map.module.scss';
+import { getMapStyle, getFlyToPoint, getPoints, getRoutes } from './mapUtils';
+
 /*
 // Approach for clustering used from here
 // https://www.leighhalliday.com/mapbox-clustering
@@ -64,39 +62,36 @@ type ViewportState = {
   minPitch?: number;
 };
 
-const getMapStyle = (): {} => {
-  return {
-    ...mapStyle,
-    sprite:
-      window.location.protocol +
-      '//' +
-      window.location.hostname +
-      (window.location.port ? ':' + window.location.port : '') +
-      '/sprites/ahti-sprite',
-  };
-};
 const Map: React.FC<MapProps> = ({
   className,
   features,
   selectedFeature,
   onClick,
 }) => {
+  const points = getPoints(features);
+  const routes = getRoutes(features, selectedFeature);
+  const flyToPoint = getFlyToPoint(selectedFeature);
+
   const { t } = useTranslation();
-  const [viewPort, setViewPort] = useState({
-    latitude: initialLatitude,
-    longitude: initialLongitude,
-    zoom: initialZoomLevel,
+  const [viewPort, setViewPort] = useState<ViewportState>({
+    width: '100%',
+    height: '100%',
+    longitude: flyToPoint ? flyToPoint.longitude : initialLongitude,
+    latitude: flyToPoint ? flyToPoint.latitude : initialLatitude,
+    zoom: selectedFeature ? selectedFeatureZoomLevel : initialZoomLevel,
     minZoom: minZoomLevel,
     maxZoom: maxZoomLevel,
   });
+
   const mapRef = useRef<StaticMap>();
   const renderPin = (
     pointFeature: PointFeature<GeoJsonProperties>,
     id: number | string
   ) => {
-    // if (pointFeature.geometry.type !== 'Point') {
-    //   return null;
-    // }
+    if (pointFeature.geometry.type !== 'Point') {
+      return null;
+    }
+
     const isSelected =
       pointFeature?.properties?.itemId === selectedFeature?.properties?.ahtiId;
     const onMarkerClick = () => {
@@ -121,33 +116,16 @@ const Map: React.FC<MapProps> = ({
         longitude={pointFeature.geometry.coordinates[0]}
         latitude={pointFeature.geometry.coordinates[1]}
       >
-        <div onClick={() => onClick(feature)} className={styles.markerContent}>
-          <CategoryIcon category={feature?.properties?.category?.name} />
+        <div onClick={onMarkerClick} className={styles.markerContent}>
+          <CategoryIcon
+            category={feature?.properties?.category?.id}
+            className={isSelected ? styles.bigIcon : undefined}
+          />
         </div>
       </Marker>
     );
   };
-  const points = features
-    .filter((feature) => feature.geometry.type === 'Point')
-    .map((feature) => {
-      return {
-        id: feature.id,
-        type: 'Feature' as 'Feature',
-        properties: {
-          cluster: false,
-          itemId: feature?.properties?.ahtiId,
-          category: feature?.properties?.category?.id,
-        },
-        geometry: {
-          type: 'Point' as 'Point',
-          coordinates: [
-            feature.geometry.coordinates[0],
-            feature.geometry.coordinates[1],
-          ],
-        },
-      };
-    });
-  // get map bounds
+
   const getBounds: () => BBox | null = function () {
     const current = mapRef?.current;
     if (!current) return null;
@@ -161,38 +139,39 @@ const Map: React.FC<MapProps> = ({
     options: { radius: clusteringRadius, maxZoom: viewPort.maxZoom },
   });
 
-  // const onViewportChange = (viewPort: ViewportState) => {
-  //   const {
-  //     width,
-  //     height,
-  //     transitionInterpolator,
-  //     transitionDuration,
-  //     latitude,
-  //     longitude,
-  //     zoom,
-  //     minZoom,
-  //     maxZoom
-  //   } = viewPort as ViewportProps;
-  //   setViewPort(viewPort);
-  // };
-
   return (
     <MapGL
       {...viewPort}
-      mapStyle={getMapStyle()}
+      mapStyle={getMapStyle(routes)}
       width={'100%'}
-      height={'100vh'}
+      height={'100%'}
       className={className}
       ref={mapRef}
       onViewportChange={setViewPort}
+      clickRadius={10}
+      onNativeClick={(event) => {
+        const clickedRoute =
+          event.features &&
+          event.features.find((feature) => 'route-line' === feature.layer.id);
+
+        if (!clickedRoute) {
+          return;
+        }
+
+        const clickedFeature = features.find(
+          (feature) =>
+            feature.properties.ahtiId === clickedRoute.properties.ahtiId
+        );
+
+        if (clickedFeature) {
+          onClick(clickedFeature);
+        }
+      }}
     >
       <div className={styles.mapControls}>
         <GeolocateControl
           positionOptions={{ enableHighAccuracy: true }}
           trackUserLocation={true}
-          onViewportChange={() => {
-            /* NOOP, disables flying to location */
-          }}
           label={t('map.geolocate')}
         />
         <div className={styles.mapControlsDivider}></div>
@@ -202,7 +181,7 @@ const Map: React.FC<MapProps> = ({
           showCompass={false}
         />
       </div>
-      {clusters.map((cluster) => {
+      {clusters.map((cluster: any) => {
         const [longitude, latitude] = cluster.geometry.coordinates;
         const { cluster: isCluster } = cluster.properties;
         // this is temporary, new designs should come soon
@@ -216,7 +195,7 @@ const Map: React.FC<MapProps> = ({
               latitude={latitude}
               longitude={longitude}
             >
-              {/* <div
+              <div
                 className={styles.clusterMarker}
                 style={{
                   width: `${10 + (pointCount / points.length) * 20}px`,
@@ -224,8 +203,7 @@ const Map: React.FC<MapProps> = ({
                 }}
               >
                 {pointCount}
-              </div> */}
-              {/* <ClusterIcon pointCount={pointCount} /> */}
+              </div>
             </Marker>
           );
         } else {
