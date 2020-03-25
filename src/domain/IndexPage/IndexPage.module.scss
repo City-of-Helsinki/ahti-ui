@@ -3,22 +3,17 @@
 
 $koros-margin: -5rem;
 
-.korosContainer {
-  height: 0;
+.pageContainer {
   position: relative;
-  // Apply margin to lifted koros
-  margin-bottom: $koros-margin + $margin;
-}
-
-.koros {
-  position: absolute;
-  // Lift the koros to cover the hero image
-  top: $koros-margin;
-  color: var(--hds-ui-color-white);
+  background-color: var(--hds-ui-color-white);
 }
 
 .section {
-  margin: $margin * 5 $margin;
+  background-color: var(--hds-ui-color-white);
+  margin: $margin * 4 0;
+  padding: $padding;
+  position: relative;
+  z-index: 10;
 
   p {
     margin: $margin 0;
@@ -38,17 +33,6 @@ $koros-margin: -5rem;
   h1 {
     font-size: 40px;
   }
-}
-
-.imageWithCard {
-  width: 100%;
-  height: 496px;
-  background-repeat: no-repeat;
-  background-size: 100% 496px;
-}
-
-.topImageWithCard {
-  padding: 90px 1rem;
 }
 
 .link {
