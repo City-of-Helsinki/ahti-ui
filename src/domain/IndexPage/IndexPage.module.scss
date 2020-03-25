@@ -39,3 +39,7 @@ $koros-margin: -5rem;
   @include ahti-link(currentColor);
   font-weight: $font-width-medium;
 }
+
+.listSpinner {
+  margin: $margin * 2;
+}

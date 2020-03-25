@@ -5,6 +5,7 @@ import { Filter } from '../../../alltypes';
 export type State = {
   selectedFeature: Feature | null;
   features: Feature[];
+  featuresLoading: boolean;
   tagFilters: Filter[];
   categoryFilters: Filter[];
   menuCategories: MenuCategory[];
@@ -16,6 +17,7 @@ export const state: State = {
   mapViewToggle: false,
   selectedFeature: null,
   features: [],
+  featuresLoading: true,
   tagFilters: [],
   categoryFilters: [],
   menuCategories: [
