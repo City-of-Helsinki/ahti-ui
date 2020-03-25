@@ -28,6 +28,7 @@ export const addCategoryFilter: Action<Filter> = (
 };
 
 export const addTagFilter: Action<Filter> = ({ state }, tagFilter) => {
+  console.log(tagFilter);
   if (!state.tagFilters.map((filter) => filter.id).includes(tagFilter.id)) {
     state.tagFilters = [...state.tagFilters, tagFilter];
   }
@@ -39,6 +40,14 @@ export const removeFilter: Action<string> = ({ state }, filterId) => {
       (categoryFilter) => categoryFilter.id !== filterId
     );
   } else if (filterId.startsWith('ahti:tag')) {
+    state.tagFilters = state.tagFilters.filter(
+      (tagFilter) => tagFilter.id !== filterId
+    );
+  } else {
+    // Filter could be of some other type, need to test both.
+    state.categoryFilters = state.categoryFilters.filter(
+      (categoryFilter) => categoryFilter.id !== filterId
+    );
     state.tagFilters = state.tagFilters.filter(
       (tagFilter) => tagFilter.id !== filterId
     );
