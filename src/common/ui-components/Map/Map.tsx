@@ -8,6 +8,7 @@ import MapGL, {
   TransitionInterpolator,
   EasingFunction,
   TRANSITION_EVENTS,
+  PointerEvent,
 } from 'react-map-gl';
 import { BBox } from 'geojson';
 import useSupercluster from 'use-supercluster';
@@ -140,6 +141,24 @@ const Map: React.FC<MapProps> = ({
     options: { radius: clusteringRadius, maxZoom: viewPort.maxZoom },
   });
 
+  const onMapClick = (event: PointerEvent) => {
+    const clickedRoute =
+      event.features &&
+      event.features.find((feature) => 'route-line' === feature.layer.id);
+
+    if (!clickedRoute) {
+      return;
+    }
+
+    const clickedFeature = features.find(
+      (feature) => feature.properties.ahtiId === clickedRoute.properties.ahtiId
+    );
+
+    if (clickedFeature) {
+      onClick(clickedFeature);
+    }
+  };
+
   return (
     <MapGL
       {...viewPort}
@@ -150,24 +169,7 @@ const Map: React.FC<MapProps> = ({
       ref={mapRef}
       onViewportChange={setViewPort}
       clickRadius={10}
-      onNativeClick={(event) => {
-        const clickedRoute =
-          event.features &&
-          event.features.find((feature) => 'route-line' === feature.layer.id);
-
-        if (!clickedRoute) {
-          return;
-        }
-
-        const clickedFeature = features.find(
-          (feature) =>
-            feature.properties.ahtiId === clickedRoute.properties.ahtiId
-        );
-
-        if (clickedFeature) {
-          onClick(clickedFeature);
-        }
-      }}
+      onNativeClick={onMapClick}
     >
       {clusters.map((cluster: any) => {
         const [longitude, latitude] = cluster.geometry.coordinates;
