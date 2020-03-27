@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 
-import { ReactComponent as AhtiLogo } from '../../../assets/icons/ahti_logo.svg';
+import AhtiLogo from '../AhtiLogo/AhtiLogo';
 import NavDropdown from './NavDropdown/NavDropdown';
 import styles from './Menu.module.scss';
 
@@ -25,7 +25,6 @@ export type MenuCategory = {
 };
 
 export interface MenuProps {
-  readonly className?: string;
   readonly translate?: boolean;
   readonly menuCategories: MenuCategory[];
   readonly openComponent?: ReactNode;
@@ -57,7 +56,6 @@ const translateMenuCategories = (
 };
 
 const Menu: React.FC<MenuProps> = ({
-  className,
   translate = false,
   menuCategories,
   openComponent,
@@ -106,11 +104,17 @@ const Menu: React.FC<MenuProps> = ({
   };
 
   return (
-    <div className={classNames(styles.container, className)}>
+    <div
+      className={
+        isOpen
+          ? classNames(styles.container_open)
+          : classNames(styles.container)
+      }
+    >
       <div className={styles.headerContainer}>
         <div>
           <RouterLink to={'/'} onClick={() => onLogoClick && onLogoClick()}>
-            <AhtiLogo />
+            <AhtiLogo fillColor={isOpen ? '#001A33' : 'white'} />
           </RouterLink>
         </div>
         <div>
