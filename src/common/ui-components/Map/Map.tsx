@@ -169,19 +169,6 @@ const Map: React.FC<MapProps> = ({
         }
       }}
     >
-      <div className={styles.mapControls}>
-        <GeolocateControl
-          positionOptions={{ enableHighAccuracy: true }}
-          trackUserLocation={true}
-          label={t('map.geolocate')}
-        />
-        <div className={styles.mapControlsDivider}></div>
-        <NavigationControl
-          zoomInLabel={t('map.zoom_in')}
-          zoomOutLabel={t('map.zoom_out')}
-          showCompass={false}
-        />
-      </div>
       {clusters.map((cluster: any) => {
         const [longitude, latitude] = cluster.geometry.coordinates;
         const { cluster: isCluster } = cluster.properties;
@@ -214,6 +201,19 @@ const Map: React.FC<MapProps> = ({
           );
         }
       })}
+      <div className={styles.mapControls}>
+        <GeolocateControl
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+          label={t('map.geolocate')}
+        />
+        <div className={styles.mapControlsDivider}></div>
+        <NavigationControl
+          zoomInLabel={t('map.zoom_in')}
+          zoomOutLabel={t('map.zoom_out')}
+          showCompass={false}
+        />
+      </div>
     </MapGL>
   );
 };
