@@ -34,8 +34,8 @@ const mockData: SearchData[] = [
     id: 'myhelsinki:place:1',
     name: 'Venepaikka',
     location: 'Helsinki',
-    category: 'ahti:category:island'
-  }
+    category: 'ahti:category:island',
+  },
 ];
 
 describe('SearchItem', () => {

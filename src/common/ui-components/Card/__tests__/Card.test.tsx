@@ -15,7 +15,7 @@ const onlyContains = (
   wrapper: ShallowWrapper,
   contentTypeToFind: React.FC<any>
 ) => {
-  contentTypes.forEach(contentType => {
+  contentTypes.forEach((contentType) => {
     if (contentType === contentTypeToFind) {
       expect(wrapper.find(contentType)).toHaveLength(1);
     } else {
@@ -32,10 +32,10 @@ describe('Card', () => {
     const testParamsList = [
       { data: harbor, contentType: HarborContent },
       { data: island, contentType: IslandContent },
-      { data: ferry, contentType: FerryContent }
+      { data: ferry, contentType: FerryContent },
     ];
 
-    testParamsList.forEach(testParams => {
+    testParamsList.forEach((testParams) => {
       onlyContains(
         shallow(<Card feature={testParams.data} />),
         testParams.contentType

@@ -14,7 +14,7 @@ export interface ListViewProps {
 const ListView: React.FC<ListViewProps> = ({
   className,
   features,
-  onClick
+  onClick,
 }) => {
   return (
     <div className={classNames(styles.container, className)}>

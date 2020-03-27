@@ -29,8 +29,14 @@
     "ahti:category:cafe": "Kahvilat",
     "ahti:category:sightseeing": "Nähtävyydet",
     "ahti:category:sauna": "Saunat",
+    "ahti:category:ferry": "Lautat",
 
     "ahti:tag:swimming": "Uinti"
+  },
+  "external_links": {
+    "services": "Kohteeseen liittyviä palveluja",
+    "ahti:link:satamapaikkacom": "Varaa venepaikka satamapaikka.comin kautta",
+    "ahti:link:jtline": "Selaa aikatauluja JT-linen kotisivuilla"
   },
   "dropdown": {
     "label": "Valikko",

@@ -12,14 +12,16 @@ import styles from './IndexPage.module.scss';
 import { useScrollToTop } from '../../common/utils/hooks';
 import PromotionCard from '../../common/ui-components/PromotionCard/PromotionCard';
 import { featuresLens } from '../../common/utils/lenses';
+import Spinner from '../../common/ui-components/Spinner/Spinner';
+import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_rudder.json';
 
 const IndexPage: React.FC = () => {
   const { state, actions } = useOvermind();
-  const { data, refetch } = useFeaturesQuery({
+  const { data, refetch, loading } = useFeaturesQuery({
     variables: {
       first: 4,
-      category: ['ahti:category:restaurant', 'ahti:category:cafe']
-    }
+      category: ['ahti:category:restaurant', 'ahti:category:cafe'],
+    },
   });
   const { t, i18n } = useTranslation();
   const history = useHistory();
@@ -31,7 +33,7 @@ const IndexPage: React.FC = () => {
 
   const makeFilterFromCategoryId = (categoryId: string) => {
     return {
-      id: categoryId
+      id: categoryId,
     };
   };
 
@@ -58,7 +60,15 @@ const IndexPage: React.FC = () => {
 
       <section className={styles.section}>
         <h2>{t('index.section3_header')}</h2>
-        {data && (
+        {loading && (
+          <Spinner
+            animation={spinnerAnimation}
+            width={50}
+            height={50}
+            className={styles.listSpinner}
+          />
+        )}
+        {!loading && data && (
           <ListView
             onClick={(feature: Feature) => {
               actions.selectFeature(feature);

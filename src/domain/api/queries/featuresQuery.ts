@@ -31,6 +31,10 @@ const FEATURES_QUERY = gql`
             category {
               id
             }
+            links {
+              type
+              url
+            }
             name
             tags {
               id

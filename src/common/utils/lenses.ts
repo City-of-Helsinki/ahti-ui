@@ -6,7 +6,7 @@ export interface Lens<A, B> {
 }
 
 export const featuresLens: Lens<FeaturesQuery, Feature[]> = {
-  get: data => {
+  get: (data) => {
     if (!data.features) {
       return [];
     }
@@ -24,5 +24,5 @@ export const featuresLens: Lens<FeaturesQuery, Feature[]> = {
   },
   set: () => {
     throw Error('Setting not supported');
-  }
+  },
 };

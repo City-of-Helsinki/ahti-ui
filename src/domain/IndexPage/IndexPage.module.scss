@@ -5,7 +5,6 @@ $koros-margin: -5rem;
 
 .pageContainer {
   position: relative;
-  // top: -$menu_height;
   background-color: var(--hds-ui-color-white);
 }
 
@@ -39,4 +38,8 @@ $koros-margin: -5rem;
 .link {
   @include ahti-link(currentColor);
   font-weight: $font-width-medium;
+}
+
+.listSpinner {
+  margin: $margin * 2;
 }

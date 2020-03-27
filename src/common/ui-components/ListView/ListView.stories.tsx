@@ -12,8 +12,8 @@ export default {
   decorators: [
     (storyFn: () => React.ReactNode) => (
       <ApolloProvider client={graphQLClient}>{storyFn()}</ApolloProvider>
-    )
-  ]
+    ),
+  ],
 };
 
 export const MockedFeatures = () => {
@@ -21,7 +21,7 @@ export const MockedFeatures = () => {
 };
 
 MockedFeatures.story = {
-  name: 'Mocked data'
+  name: 'Mocked data',
 };
 
 const TwentyFeatures = () => {
@@ -38,5 +38,5 @@ export const TwentyFeaturesWrapper = () => {
 };
 
 TwentyFeaturesWrapper.story = {
-  name: '20 Features'
+  name: '20 Features',
 };

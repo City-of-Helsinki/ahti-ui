@@ -29,8 +29,14 @@
     "ahti:category:cafe": "Cafes",
     "ahti:category:sightseeing": "Sightseeing",
     "ahti:category:sauna": "Saunas",
+    "ahti:category:ferry": "Ferries",
 
     "ahti:tag:swimming": "Swimming"
+  },
+  "external_links": {
+    "services": "Services related to this destination",
+    "ahti:link:satamapaikkacom": "Book a pier at satamapaikka.com",
+    "ahti:link:jtline": "Browse timetables at the JT-line homepage"
   },
   "dropdown": {
     "label": "Menu",

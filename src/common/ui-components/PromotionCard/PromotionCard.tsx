@@ -20,7 +20,7 @@ const PromotionCard: React.FC<PromotionCardProps> = ({
   text,
   link,
   linkText,
-  className
+  className,
 }) => {
   return (
     <ImageWithCard

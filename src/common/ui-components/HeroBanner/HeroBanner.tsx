@@ -12,14 +12,14 @@ const cx = classNames.bind(styles);
 type HeroBannerProps = React.PropsWithChildren<{
   src?: string;
   hasVideo?: boolean;
-  url?: string;
+  videoUrl?: string;
 }>;
 
 const HeroBanner: React.FC<HeroBannerProps> = ({
   src,
   children,
   hasVideo,
-  url
+  videoUrl,
 }) => {
   return (
     <React.Fragment>
@@ -28,7 +28,7 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
         className={classNames(styles.imageWithCard, styles.topImageWithCard)}
       >
         <section className={styles.imageWithCardSection}>
-          {videoUrl && <Video url={videoUrl} />}
+          {videoUrl && <Video videoUrl={videoUrl} />}
           <div className={cx(styles.container)}>{children}</div>
         </section>
       </ImageWithCard>

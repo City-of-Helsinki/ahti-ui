@@ -9,14 +9,20 @@ const Features: React.FC = () => {
   const [cursor, setCursor] = useState<string>('');
   const { i18n } = useTranslation();
   const { state, actions } = useOvermind();
-  const { data, refetch } = useFeaturesQuery({
+  const { data, refetch, loading } = useFeaturesQuery({
     variables: {
       after: cursor,
       first: 50,
-      category: state.categoryFilters.map(filter => filter.id),
-      tag: state.tagFilters.map(filter => filter.id)
-    }
+      category: state.categoryFilters.map((filter) => filter.id),
+      tag: state.tagFilters.map((filter) => filter.id),
+    },
   });
+
+  useEffect(() => {
+    // Only set as loading when no features have been fetched and the query hook's state is loading,
+    // as the "streaming" of data will cause the loading state to be true.
+    actions.setFeaturesLoading(loading && state.features.length === 0);
+  }, [loading]);
 
   useEffect(() => {
     actions.setFeatures([]);

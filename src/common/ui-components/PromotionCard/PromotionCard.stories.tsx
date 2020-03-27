@@ -7,7 +7,7 @@ import styles from '../../../domain/IndexPage/IndexPage.module.scss';
 
 export default {
   title: 'PromotionCard',
-  component: PromotionCard
+  component: PromotionCard,
 };
 
 export const NewInAhti = () => {
@@ -27,5 +27,5 @@ export const NewInAhti = () => {
 };
 
 NewInAhti.story = {
-  name: 'New in ahti'
+  name: 'New in ahti',
 };

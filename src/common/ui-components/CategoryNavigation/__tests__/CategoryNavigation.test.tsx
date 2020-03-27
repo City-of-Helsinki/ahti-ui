@@ -6,7 +6,7 @@ import CategoryNavigation from '../CategoryNavigation';
 describe('CategoryNavigation', () => {
   const mockCategory = {
     id: 'ahti:category:island',
-    name: 'Islands'
+    name: 'Islands',
   };
 
   it('renders without crashing', () => {
