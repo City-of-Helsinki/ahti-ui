@@ -18,7 +18,6 @@ const Ahti: React.FC = () => {
   return (
     <div className={styles.ahti}>
       <Menu
-        className={styles.menu}
         menuCategories={state.menuCategories}
         translate={true}
         onSelect={(menuItem: MenuItem) => {
