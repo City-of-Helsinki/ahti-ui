@@ -127,26 +127,25 @@ const Search: React.FC<SearchProps> = ({
           />
         </div>
       </div>
-      {containerRef?.current?.contains(document.activeElement) &&
-        searchResults.length > 0 && (
-          <div className={styles.resultsContainerAbsolute}>
-            <div
-              className={cx(styles.resultsContainerRelative, resultsClassName)}
-            >
-              {searchResults.map((item: SearchData, id: number) => (
-                <SearchItem
-                  key={id}
-                  {...item}
-                  currentSearch={currentSearch}
-                  onSelect={(id) => {
-                    setCurrentSearch('');
-                    onSelect(id);
-                  }}
-                />
-              ))}
-            </div>
+      {searchResults.length > 0 && (
+        <div className={styles.resultsContainerAbsolute}>
+          <div
+            className={cx(styles.resultsContainerRelative, resultsClassName)}
+          >
+            {searchResults.map((item: SearchData, id: number) => (
+              <SearchItem
+                key={id}
+                {...item}
+                currentSearch={currentSearch}
+                onSelect={(id) => {
+                  setCurrentSearch('');
+                  onSelect(id);
+                }}
+              />
+            ))}
           </div>
-        )}
+        </div>
+      )}
     </div>
   );
 };
