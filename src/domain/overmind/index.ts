@@ -5,13 +5,16 @@ import {
   IOperator,
   IDerive,
   IState,
+  ResolveActions,
 } from 'overmind';
 import { createHook } from 'overmind-react';
 
 import * as actions from './actions';
 import { state } from './state';
+import { onInitialize } from './onInitialize';
 
 export const config = {
+  onInitialize,
   state,
   actions,
 };

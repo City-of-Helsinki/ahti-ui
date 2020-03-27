@@ -10,33 +10,35 @@ import Search from '../../common/ui-components/Search/Search';
 import Footer from '../Footer/Footer';
 import ContentPage from '../ContentPage/ContentPage';
 import IndexPage from '../IndexPage/IndexPage';
+import { menuCategories } from '../constants';
+import { useUrlState } from '../utils/hooks';
 
 const Ahti: React.FC = () => {
   const { state, actions } = useOvermind();
-  const history = useHistory();
+  useUrlState();
 
   return (
     <div className={styles.ahti}>
       <Menu
         className={styles.menu}
-        menuCategories={state.menuCategories}
+        menuCategories={menuCategories}
         translate={true}
         onSelect={(menuItem: MenuItem) => {
+          actions.setPathname('/content');
           menuItem.categoryIds.forEach((categoryId) => {
             actions.addCategoryFilter({ id: categoryId });
           });
           menuItem.tagIds.forEach((tagId) => {
             actions.addTagFilter({ id: tagId });
           });
-          history.push('/content');
         }}
         onLogoClick={() => actions.clearContentState()}
         closedComponent={
           <Search
             featuresToSearch={state.features}
             onSelect={(ahtiId) => {
+              actions.setPathname('/content');
               actions.selectFeatureById(ahtiId);
-              history.push('/content');
             }}
             className={styles.search}
             resultsClassName={styles.searchResults}
