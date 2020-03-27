@@ -5,7 +5,8 @@ import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 
-import { ReactComponent as AhtiLogo } from '../../../assets/icons/ahti_logo.svg';
+// import { ReactComponent as AhtiLogo } from '../../../assets/icons/ahti_logo.svg';
+import AhtiLogo from '../AhtiLogo/AhtiLogo';
 import NavDropdown from './NavDropdown/NavDropdown';
 import styles from './Menu.module.scss';
 
@@ -114,7 +115,7 @@ const Menu: React.FC<MenuProps> = ({
       <div className={styles.headerContainer}>
         <div>
           <RouterLink to={'/'} onClick={() => onLogoClick && onLogoClick()}>
-            <AhtiLogo />
+            <AhtiLogo fillColor={isOpen ? '#001A33' : 'white'} />
           </RouterLink>
         </div>
         <div>
