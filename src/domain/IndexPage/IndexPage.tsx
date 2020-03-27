@@ -52,6 +52,7 @@ const IndexPage: React.FC = () => {
           translated={true}
           categories={availableCategories.map(makeFilterFromCategoryId)}
           onClick={(categoryId: string) => {
+            actions.setPathname('/content');
             actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
           }}
         />
@@ -70,6 +71,7 @@ const IndexPage: React.FC = () => {
         {!loading && data && (
           <ListView
             onClick={(feature: Feature) => {
+              actions.setPathname('/content');
               actions.selectFeature(feature);
             }}
             features={featuresLens.get(data)}
