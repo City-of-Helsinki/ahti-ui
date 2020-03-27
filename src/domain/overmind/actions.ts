@@ -12,6 +12,7 @@ export const clearContentState: Action = ({ state }) => {
   state.tagFilters = [];
   state.categoryFilters = [];
   state.selectedFeature = null;
+  state.pathname = '/';
 };
 
 export const addCategoryFilter: Action<Filter> = (
@@ -32,6 +33,28 @@ export const addTagFilter: Action<Filter> = ({ state }, tagFilter) => {
   if (!state.tagFilters.map((filter) => filter.id).includes(tagFilter.id)) {
     state.tagFilters = [...state.tagFilters, tagFilter];
   }
+};
+
+export const setTagFiltersById: Action<string[]> = (
+  { state },
+  tagFilterIds
+) => {
+  state.tagFilters = tagFilterIds.map((filterId) => {
+    return {
+      id: filterId,
+    };
+  });
+};
+
+export const setCategoryFiltersById: Action<string[]> = (
+  { state },
+  categoryFilterIds
+) => {
+  state.categoryFilters = categoryFilterIds.map((categoryId) => {
+    return {
+      id: categoryId,
+    };
+  });
 };
 
 export const removeFilter: Action<string> = ({ state }, filterId) => {
@@ -56,6 +79,10 @@ export const removeFilter: Action<string> = ({ state }, filterId) => {
 
 export const toggleMapView: Action = ({ state }) => {
   state.mapViewToggle = !state.mapViewToggle;
+};
+
+export const setMapViewToggle: Action<boolean> = ({ state }, mapViewToggle) => {
+  state.mapViewToggle = mapViewToggle;
 };
 
 export const setFeatures: Action<Feature[]> = ({ state }, features) => {
@@ -92,6 +119,10 @@ export const selectFeatureById: AsyncAction<string> = async (
   state.selectedFeature = (
     await fetchFeatureData(FEATURE_QUERY, ahtiId)
   ).feature;
+};
+
+export const setPathname: Action<string> = ({ state }, pathname) => {
+  state.pathname = pathname;
 };
 
 export const selectHarbor: AsyncAction<string> = async ({ state }, ahtiId) => {

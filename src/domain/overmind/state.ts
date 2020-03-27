@@ -8,6 +8,7 @@ export type State = {
   tagFilters: Filter[];
   categoryFilters: Filter[];
   mapViewToggle: boolean;
+  pathname: string;
 
   // App internal
   features: Feature[];
@@ -21,4 +22,5 @@ export const state: State = {
   featuresLoading: true,
   tagFilters: [],
   categoryFilters: [],
+  pathname: '/',
 };

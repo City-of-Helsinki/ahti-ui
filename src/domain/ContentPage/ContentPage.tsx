@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { IconCheck, IconClose } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';

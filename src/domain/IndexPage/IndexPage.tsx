@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import HeroBanner from '../../common/ui-components/HeroBanner/HeroBanner';
@@ -25,7 +25,6 @@ const IndexPage: React.FC = () => {
     },
   });
   const { t, i18n } = useTranslation();
-  const history = useHistory();
   useScrollToTop();
 
   useEffect(() => {
@@ -54,7 +53,6 @@ const IndexPage: React.FC = () => {
           categories={availableCategories.map(makeFilterFromCategoryId)}
           onClick={(categoryId: string) => {
             actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
-            history.push('/content');
           }}
         />
       </section>
@@ -73,7 +71,6 @@ const IndexPage: React.FC = () => {
           <ListView
             onClick={(feature: Feature) => {
               actions.selectFeature(feature);
-              history.push('/content');
             }}
             features={featuresLens.get(data)}
           />
