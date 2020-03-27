@@ -14,6 +14,7 @@ import PromotionCard from '../../common/ui-components/PromotionCard/PromotionCar
 import { featuresLens } from '../../common/utils/lenses';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_rudder.json';
+import videoUrl from '../../assets/videos/Ahti_vertical.mp4';
 
 const IndexPage: React.FC = () => {
   const { state, actions } = useOvermind();
@@ -39,7 +40,7 @@ const IndexPage: React.FC = () => {
 
   return (
     <div className={classNames(styles.pageContainer)}>
-      <HeroBanner>
+      <HeroBanner videoUrl={videoUrl}>
         <h1>{t('index.main_header')}</h1>
         <Link className={styles.link} to={'/content'}>
           {t('index.see_all_button')}

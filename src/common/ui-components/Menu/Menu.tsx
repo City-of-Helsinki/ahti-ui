@@ -104,7 +104,13 @@ const Menu: React.FC<MenuProps> = ({
   };
 
   return (
-    <div className={classNames(styles.container)}>
+    <div
+      className={
+        isOpen
+          ? classNames(styles.container_open)
+          : classNames(styles.container)
+      }
+    >
       <div className={styles.headerContainer}>
         <div>
           <RouterLink to={'/'} onClick={() => onLogoClick && onLogoClick()}>
