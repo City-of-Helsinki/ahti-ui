@@ -14,6 +14,7 @@ import PromotionCard from '../../common/ui-components/PromotionCard/PromotionCar
 import { featuresLens } from '../../common/utils/lenses';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_rudder.json';
+import SimpleSlider from '../../common/ui-components/Slider/Slider';
 
 const IndexPage: React.FC = () => {
   const { state, actions } = useOvermind();
@@ -45,6 +46,9 @@ const IndexPage: React.FC = () => {
           {t('index.see_all_button')}
         </Link>
       </HeroBanner>
+      <section className={styles.section}>
+        <SimpleSlider />
+      </section>
       <section className={styles.section}>
         <h2>{t('index.section1_header')}</h2>
         <p>{t('index.section1_paragraph')}</p>
