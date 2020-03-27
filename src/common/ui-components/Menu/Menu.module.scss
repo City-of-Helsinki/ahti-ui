@@ -1,10 +1,36 @@
-@import '../../../styles/icons';
 @import '../../../styles/partials/variables';
 @import '../../../styles/partials/mixins';
 
+$menu-z-index: 1000;
 .container {
+  width: 100%;
   padding: $padding;
-  background: var(--hds-ui-color-white);
+  height: $menu_height;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: $menu-z-index;
+}
+
+.container_open {
+  padding: $padding;
+  height: 100vh;
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  background-color: var(--hds-ui-color-white);
+  z-index: $menu-z-index;
+}
+
+.search {
+  width: $search-component-width;
+}
+
+.searchResults {
+  width: $search-component-width;
+  z-index: $menu-z-index;
 }
 
 .headerContainer {
@@ -13,6 +39,8 @@
   padding-top: $padding;
   padding-bottom: $padding;
   border-bottom: 1px solid var(--hds-ui-color-black-40);
+  // border-bottom: 1px solid var(--hds-ui-color-black-40);
+  background: transparent;
 }
 
 .navLink {
