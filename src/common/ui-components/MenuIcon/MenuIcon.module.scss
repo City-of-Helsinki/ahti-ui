@@ -1,0 +1,100 @@
+/* Icon for mavigation animation taken from https://codepen.io/designcouch/pen/Atyop */
+
+.navIcon3,
+.navIcon3Open,
+.navIcon3Dark {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: 0px;
+  right: 0px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.navIcon3 span,
+.navIcon3Open span,
+.navIcon3Dark span {
+  display: block;
+  position: absolute;
+  z-index: 1000000000;
+  height: 5px;
+  width: 100%;
+  //   background: white;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+.navIcon3 span {
+  background: white;
+}
+.navIcon3Dark span {
+  background: black;
+}
+
+.navIcon3 span:nth-child(1),
+.navIcon3Open span:nth-child(1),
+.navIcon3Dark span:nth-child(1) {
+  top: 0px;
+}
+
+.navIcon3 span:nth-child(2),
+.navIcon3 span:nth-child(3),
+.navIcon3Open span:nth-child(2),
+.navIcon3Open span:nth-child(3),
+.navIcon3Dark span:nth-child(2),
+.navIcon3Dark span:nth-child(3) {
+  top: 10px;
+}
+
+.navIcon3 span:nth-child(4),
+.navIcon3Open span:nth-child(4),
+.navIcon3Dark span:nth-child(4) {
+  top: 20px;
+}
+
+.navIcon3Open span,
+.navIcon3Dark span {
+  background: black;
+}
+
+.navIcon3Open span:nth-child(1) {
+  top: 10px;
+  width: 0%;
+  left: 50%;
+  background: black;
+}
+
+.navIcon3Open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.navIcon3Open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.navIcon3Open span:nth-child(4) {
+  top: 10px;
+  width: 0%;
+  left: 50%;
+}

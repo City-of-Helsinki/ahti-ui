@@ -24,7 +24,7 @@ import {
   clusteringRadius,
   selectedFeatureZoomLevel,
   transitionDuration,
-} from '../../constants';
+} from '../../../domain/constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import ClusterIcon from '../ClusterIcon/ClusterIcon';
 import 'mapbox-gl/dist/mapbox-gl.css';
