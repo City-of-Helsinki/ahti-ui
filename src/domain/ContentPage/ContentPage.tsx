@@ -3,14 +3,9 @@ import { IconCheck, IconClose } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 
-// import Menu, { MenuItem } from '../../common/ui-components/Menu/Menu';
-// import LanguageSelect from '../../common/ui-components/LanguageSelect/LanguageSelect';
-// import { SUPPORTED_LANGUAGES } from '../../common/translation/TranslationConstants';
-// import Search from '../../common/ui-components/Search/Search';
-
 import WrappedMenu from '../../common/ui-components/WrappedMenu/WrappedMenu';
 import { useOvermind } from '../overmind';
-import { menuCategories, availableCategories } from '../constants';
+import { availableCategories } from '../constants';
 import styles from './ContentPage.module.scss';
 import Breadcrumb from '../../common/ui-components/Breadcrumb/Breadcrumb';
 import Toggle from '../../common/ui-components/Toggle/Toggle';
