@@ -1,15 +1,11 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import WrappedMenu from '../../common/ui-components/WrappedMenu/WrappedMenu';
 import { useOvermind } from '../overmind';
-import Menu, { MenuItem } from '../../common/ui-components/Menu/Menu';
-import LanguageSelect from '../../common/ui-components/LanguageSelect/LanguageSelect';
-import { SUPPORTED_LANGUAGES } from '../../common/translation/TranslationConstants';
-import Search from '../../common/ui-components/Search/Search';
-import { menuCategories, availableCategories } from '../constants';
+import { availableCategories } from '../constants';
 import HeroBanner from '../../common/ui-components/HeroBanner/HeroBanner';
 import ListView from '../../common/ui-components/ListView/ListView';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
