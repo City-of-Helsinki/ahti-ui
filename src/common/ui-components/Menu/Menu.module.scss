@@ -2,6 +2,10 @@
 @import '../../../styles/partials/mixins';
 
 $menu-z-index: 1000;
+
+.menuContentContainer {
+  height: 80vh;
+}
 .container {
   width: 100%;
   padding: $padding;
@@ -38,7 +42,7 @@ $menu-z-index: 1000;
   justify-content: space-between;
   padding-top: $padding;
   padding-bottom: $padding;
-  border-bottom: 1px solid var(--hds-ui-color-black-40);
+
   // border-bottom: 1px solid var(--hds-ui-color-black-40);
   background: transparent;
 }

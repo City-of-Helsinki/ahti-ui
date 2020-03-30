@@ -1,11 +1,11 @@
 import React, { ReactNode, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { IconMenu, IconClose } from 'hds-react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 
 import AhtiLogo from '../AhtiLogo/AhtiLogo';
+import MenuIcon from '../MenuIcon/MenuIcon';
 import NavDropdown from './NavDropdown/NavDropdown';
 import styles from './Menu.module.scss';
 
@@ -26,6 +26,7 @@ export type MenuCategory = {
 
 export interface MenuProps {
   readonly translate?: boolean;
+  readonly menuDark?: boolean;
   readonly menuCategories: MenuCategory[];
   readonly openComponent?: ReactNode;
   readonly closedComponent?: ReactNode;
@@ -57,6 +58,7 @@ const translateMenuCategories = (
 
 const Menu: React.FC<MenuProps> = ({
   translate = false,
+  menuDark,
   menuCategories,
   openComponent,
   closedComponent,
@@ -114,15 +116,13 @@ const Menu: React.FC<MenuProps> = ({
       <div className={styles.headerContainer}>
         <div>
           <RouterLink to={'/'} onClick={() => onLogoClick && onLogoClick()}>
-            <AhtiLogo fillColor={isOpen ? '#001A33' : 'white'} />
+            <AhtiLogo fillColor={menuDark || isOpen ? '#001A33' : 'white'} />
           </RouterLink>
         </div>
         <div>
-          <div className={styles.headerComponent}>
-            {isOpen && openComponent}
-            {!isOpen && closedComponent}
-          </div>
+          <div>{openComponent}</div>
         </div>
+        <div>{closedComponent}</div>
         <div>
           <button
             className={styles.toggleMenuButton}
@@ -130,9 +130,9 @@ const Menu: React.FC<MenuProps> = ({
             aria-label={isOpen ? t('menu.close') : t('menu.open')}
           >
             {isOpen ? (
-              <IconClose className={styles.icon} />
+              <MenuIcon isDark={menuDark} isOpen={true} />
             ) : (
-              <IconMenu className={styles.icon} />
+              <MenuIcon isDark={menuDark} />
             )}
           </button>
         </div>
