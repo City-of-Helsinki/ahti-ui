@@ -34,6 +34,7 @@ const Card: React.FC<CardProps> = ({
             key={id}
             className={styles.tagsContainerSpan}
             role={'button'}
+            tabIndex={0}
             onClick={() =>
               onSelectFilter && onSelectFilter({ id: tag.id, name: tag.name })
             }

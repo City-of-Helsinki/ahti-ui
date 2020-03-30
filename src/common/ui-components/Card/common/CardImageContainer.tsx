@@ -18,7 +18,7 @@ const Pagination: React.FC<PaginationProps> = ({ dots, index, setIndex }) => {
 
   for (let i = 0; i < dots; i += 1) {
     children.push(
-      <button key={i} onClick={() => setIndex(i)}>
+      <button key={i} onClick={() => setIndex(i)} tabIndex={0}>
         <div className={cx(styles.dot, { dotEnabled: i === index })} />
       </button>
     );

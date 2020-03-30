@@ -27,20 +27,20 @@ const Toggle: React.FC<ToggleProps> = ({
   return (
     <div>
       <div className={cx(styles.container, className)}>
-        <div
+        <button
           className={cx(styles.toggle, { toggleOn: toggleState })}
           onClick={() => onToggle()}
         >
           <div className={styles.iconContainer}>{onIcon}</div>
           <div className={styles.text}>{onIconText}</div>
-        </div>
-        <div
+        </button>
+        <button
           className={cx(styles.toggle, { toggleOn: !toggleState })}
           onClick={() => onToggle()}
         >
           <div className={styles.iconContainer}>{offIcon}</div>
           <div className={styles.text}>{offIconText}</div>
-        </div>
+        </button>
       </div>
     </div>
   );

@@ -92,6 +92,8 @@ const Menu: React.FC<MenuProps> = ({
                         setIsOpen(false);
                         onSelect && onSelect(menuItem);
                       }}
+                      aria-label={menuItem.name}
+                      tabIndex={0}
                     >
                       {menuItem.name}
                     </button>
@@ -109,7 +111,12 @@ const Menu: React.FC<MenuProps> = ({
     <div className={classNames(styles.container, className)}>
       <div className={styles.headerContainer}>
         <div>
-          <RouterLink to={'/'} onClick={() => onLogoClick && onLogoClick()}>
+          <RouterLink
+            to={'/'}
+            onClick={() => onLogoClick && onLogoClick()}
+            aria-label={t('menu.home')}
+            tabIndex={0}
+          >
             <AhtiLogo />
           </RouterLink>
         </div>
@@ -124,6 +131,7 @@ const Menu: React.FC<MenuProps> = ({
             className={styles.toggleMenuButton}
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? t('menu.close') : t('menu.open')}
+            tabIndex={0}
           >
             {isOpen ? (
               <IconClose className={styles.icon} />
