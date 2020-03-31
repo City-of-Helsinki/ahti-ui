@@ -38,6 +38,11 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
     slidesToScroll: 1,
   };
 
+  const enterPressed = (event: React.KeyboardEvent): boolean => {
+    const code = event.keyCode || event.which;
+    return code === 13;
+  };
+
   return (
     <Slider
       className={cx('categoryNavigationSlider', className)}
@@ -51,6 +56,7 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
               categoryIconSelected: category.id === selectedId,
             })}
             onClick={() => onClick(category.id)}
+            onKeyPress={(event) => enterPressed(event) && onClick(category.id)}
             tabIndex={0}
           >
             <div className={styles.categoryIconContainer}>

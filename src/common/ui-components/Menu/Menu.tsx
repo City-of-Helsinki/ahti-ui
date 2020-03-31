@@ -93,6 +93,8 @@ const Menu: React.FC<MenuProps> = ({
                         setIsOpen(false);
                         onSelect && onSelect(menuItem);
                       }}
+                      aria-label={menuItem.name}
+                      tabIndex={0}
                     >
                       {menuItem.name}
                     </button>
@@ -144,6 +146,7 @@ const Menu: React.FC<MenuProps> = ({
             className={styles.toggleMenuButton}
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? t('menu.close') : t('menu.open')}
+            tabIndex={0}
           >
             {isOpen ? (
               <MenuIcon isDark={menuDark} isOpen={true} />
