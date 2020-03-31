@@ -117,14 +117,14 @@ const Search: React.FC<SearchProps> = ({
           <div>
             <IconSearch className={styles.bigIcon} />
           </div>
-          {/* <input
+          <input
             type="text"
             value={currentSearch}
             className={styles.searchInput}
             onChange={(event) => setCurrentSearch(event.target.value)}
             aria-label={t('search.search')}
             placeholder={t('search.search')}
-          /> */}
+          />
         </div>
       </div>
       {searchResults.length > 0 && (

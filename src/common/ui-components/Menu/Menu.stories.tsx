@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Menu, { MenuCategory, MenuItem } from './Menu';
-import LanguageSelect from '../LanguageSelect/LanguageSelect';
-import { SUPPORTED_LANGUAGES } from '../../translation/TranslationConstants';
+// import LanguageSelect from '../LanguageSelect/LanguageSelect';
+// import { SUPPORTED_LANGUAGES } from '../../translation/TranslationConstants';
 
 const defaultMenuItems: MenuCategory[] = [
   {
@@ -116,17 +116,7 @@ TranslatedMenuItems.story = {
 };
 
 export const MenuWithLanguageSelect = () => {
-  return (
-    <Menu
-      menuCategories={defaultMenuItems}
-      translate={true}
-      openComponent={
-        <LanguageSelect
-          supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
-        />
-      }
-    />
-  );
+  return <Menu menuCategories={defaultMenuItems} translate={true} />;
 };
 
 MenuWithLanguageSelect.story = {
