@@ -113,6 +113,7 @@
     "button": "Accept"
   },
   "menu": {
+    "home": "go to homepage",
     "open": "open menu",
     "close": "close menu",
     "open_submenu": "open submenu",
@@ -196,9 +197,17 @@
   },
   "search": {
     "search": "Search",
+    "open": "Open result",
     "close": "Close search"
   },
   "filter": {
     "close": "Close filters"
+  },
+  "list_view": {
+    "open": "Open item",
+    "image_alt": "Image"
+  },
+  "breadcrumb": {
+    "close": "Close selected filter"
   }
 }

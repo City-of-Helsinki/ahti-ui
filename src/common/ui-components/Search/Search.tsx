@@ -33,11 +33,18 @@ export const SearchItem: React.FC<SearchItemProps> = ({
   currentSearch,
   onSelect,
 }) => {
+  const { t } = useTranslation();
   const re = new RegExp(`(${escapeRegExp(currentSearch)})`, 'gi');
   const parts = name.split(re);
 
   return (
-    <div className={styles.searchItem} onClick={() => onSelect(id)}>
+    <div
+      className={styles.searchItem}
+      onClick={() => onSelect(id)}
+      role={'button'}
+      aria-label={`${t('search.open')} ${name}`}
+      tabIndex={0}
+    >
       <div>
         <CategoryIcon className={styles.bigIcon} category={category} />
       </div>

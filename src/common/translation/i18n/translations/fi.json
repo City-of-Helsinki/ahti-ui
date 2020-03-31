@@ -113,6 +113,7 @@
     "button": "Hyväksy"
   },
   "menu": {
+    "home": "avaa etusivu",
     "open": "avaa valikko",
     "close": "sulje valikko",
     "open_submenu": "avaa alivalikko",
@@ -196,9 +197,17 @@
   },
   "search": {
     "search": "Hae",
+    "open": "Avaa kohde",
     "close": "Sulje haku"
   },
   "filter": {
     "close": "Sulje suodattimet"
+  },
+  "list_view": {
+    "open": "Avaa kohde",
+    "image_alt": "Kuva"
+  },
+  "breadcrumb": {
+    "close": "Sulje selekoitu filtteri"
   }
 }
