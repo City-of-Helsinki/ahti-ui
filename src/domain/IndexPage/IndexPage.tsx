@@ -61,6 +61,21 @@ const IndexPage: React.FC = () => {
             }}
           />
         </section>
+        <Link
+          className={styles.link}
+          to={'/content'}
+          onClick={() => {
+            actions.addCategoryFilter(
+              makeFilterFromCategoryId('ahti:category:restaurant')
+            );
+            actions.addCategoryFilter(
+              makeFilterFromCategoryId('ahti:category:cafe')
+            );
+          }}
+        >
+          {t('index.section3_button')}
+        </Link>
+      </section>
 
         <section className={styles.section}>
           <h2>{t('index.section3_header')}</h2>
