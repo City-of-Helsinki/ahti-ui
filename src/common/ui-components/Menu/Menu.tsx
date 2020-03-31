@@ -1,9 +1,13 @@
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 
+import Search from '../Search/Search';
+import LanguageSelect from '../LanguageSelect/LanguageSelect';
+import { SUPPORTED_LANGUAGES } from '../../../common/translation/TranslationConstants';
+import { useOvermind } from '../../../domain/overmind';
 import AhtiLogo from '../AhtiLogo/AhtiLogo';
 import MenuIcon from '../MenuIcon/MenuIcon';
 import NavDropdown from './NavDropdown/NavDropdown';
@@ -28,8 +32,8 @@ export interface MenuProps {
   readonly translate?: boolean;
   readonly menuDark?: boolean;
   readonly menuCategories: MenuCategory[];
-  readonly openComponent?: ReactNode;
-  readonly closedComponent?: ReactNode;
+  // readonly openComponent?: ReactNode;
+  // readonly closedComponent?: ReactNode;
   onSelect?(menuItem: MenuItem): void;
   onLogoClick?(): void;
 }
@@ -60,11 +64,12 @@ const Menu: React.FC<MenuProps> = ({
   translate = false,
   menuDark,
   menuCategories,
-  openComponent,
-  closedComponent,
+  // openComponent,
+  // closedComponent,
   onSelect,
   onLogoClick,
 }) => {
+  const { state, actions } = useOvermind();
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
 
@@ -114,16 +119,32 @@ const Menu: React.FC<MenuProps> = ({
       }
     >
       <div className={styles.headerContainer}>
-        <div>
+        <div className={styles.menuElement}>
           <RouterLink to={'/'} onClick={() => onLogoClick && onLogoClick()}>
             <AhtiLogo fillColor={menuDark || isOpen ? '#001A33' : 'white'} />
           </RouterLink>
         </div>
-        <div>
-          <div>{openComponent}</div>
+        <div className={styles.menuElement}>
+          <div>
+            <LanguageSelect
+              supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
+              darkMenu={menuDark}
+            />
+          </div>
         </div>
-        <div>{closedComponent}</div>
-        <div>
+        <div
+          className={styles.menuElementFront}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <Search
+            featuresToSearch={state.features}
+            onSelect={(ahtiId) => {
+              actions.setPathname('/content');
+              actions.selectFeatureById(ahtiId);
+            }}
+          />
+        </div>
+        <div className={styles.menuElement}>
           <button
             className={styles.toggleMenuButton}
             onClick={() => setIsOpen(!isOpen)}

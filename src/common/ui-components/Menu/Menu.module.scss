@@ -42,8 +42,6 @@ $menu-z-index: 1000;
   justify-content: space-between;
   padding-top: $padding;
   padding-bottom: $padding;
-
-  // border-bottom: 1px solid var(--hds-ui-color-black-40);
   background: transparent;
 }
 
@@ -60,4 +58,12 @@ $menu-z-index: 1000;
 
 .navDropdownContent {
   @include flex(true);
+}
+
+.menuElement {
+  z-index: 20;
+}
+
+.menuElementFront {
+  z-index: 8;
 }

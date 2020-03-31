@@ -74,12 +74,18 @@
 
 .search {
   @include flex;
+  position: relative;
+  z-index: 799;
 }
 
 .resultsContainerAbsolute {
   width: 100%;
+  min-height: 100vh;
   position: absolute;
-  margin-top: $margin;
+  padding-top: 6rem;
+  top: 0;
+  left: 0;
+  background-color: white;
 }
 
 .resultsContainerRelative {
