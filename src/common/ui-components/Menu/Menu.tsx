@@ -32,8 +32,6 @@ export interface MenuProps {
   readonly translate?: boolean;
   readonly menuDark?: boolean;
   readonly menuCategories: MenuCategory[];
-  // readonly openComponent?: ReactNode;
-  // readonly closedComponent?: ReactNode;
   onSelect?(menuItem: MenuItem): void;
   onLogoClick?(): void;
 }
@@ -64,8 +62,6 @@ const Menu: React.FC<MenuProps> = ({
   translate = false,
   menuDark,
   menuCategories,
-  // openComponent,
-  // closedComponent,
   onSelect,
   onLogoClick,
 }) => {

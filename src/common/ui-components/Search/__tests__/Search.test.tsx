@@ -19,14 +19,14 @@ describe('Search', () => {
     expect(searchWrapper.html()).toMatchSnapshot();
   });
 
-  // it('returns items on search', async () => {
-  //   expect(searchWrapper.find(SearchItem)).toHaveLength(0);
-  //   searchWrapper.find('input').simulate('focus');
-  //   searchWrapper.find('input').simulate('change', { target: { value: 'a' } });
-  //   await waitForExpect(() => {
-  //     expect(searchWrapper.find(SearchItem)).toHaveLength(1);
-  //   });
-  // });
+  it('returns items on search', async () => {
+    expect(searchWrapper.find(SearchItem)).toHaveLength(0);
+    searchWrapper.find('input').simulate('focus');
+    searchWrapper.find('input').simulate('change', { target: { value: 'a' } });
+    await waitForExpect(() => {
+      expect(searchWrapper.find(SearchItem)).toHaveLength(1);
+    });
+  });
 });
 
 const mockData: SearchData[] = [

@@ -1,5 +1,4 @@
 import React from 'react';
-// import classNames from 'classnames';
 
 export interface AhtiLogo {
   readonly fillColor: '#001A33' | 'white';

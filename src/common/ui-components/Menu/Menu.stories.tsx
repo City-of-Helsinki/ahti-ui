@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import Menu, { MenuCategory, MenuItem } from './Menu';
-// import LanguageSelect from '../LanguageSelect/LanguageSelect';
-// import { SUPPORTED_LANGUAGES } from '../../translation/TranslationConstants';
+import Menu, { MenuCategory } from './Menu';
 
 const defaultMenuItems: MenuCategory[] = [
   {
