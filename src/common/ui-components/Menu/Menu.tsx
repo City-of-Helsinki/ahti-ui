@@ -123,15 +123,16 @@ const Menu: React.FC<MenuProps> = ({
           </RouterLink>
         </div>
         <div className={styles.menuElement}>
-          <LanguageSelect
-            className={styles.menuElement}
-            supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
-            darkMenu={menuDark}
-          />
+          <div>
+            <LanguageSelect
+              supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
+              darkMenu={menuDark}
+            />
+          </div>
         </div>
         <div
           className={styles.menuElementFront}
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => setIsOpen(true)}
         >
           <Search
             featuresToSearch={state.features}
@@ -139,6 +140,7 @@ const Menu: React.FC<MenuProps> = ({
               actions.setPathname('/content');
               actions.selectFeatureById(ahtiId);
             }}
+            isMenuOpen={isOpen}
           />
         </div>
         <div className={styles.menuElement}>

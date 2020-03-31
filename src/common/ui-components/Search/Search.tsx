@@ -71,6 +71,7 @@ interface SearchProps {
   readonly resultsClassName?: string;
   readonly maxItems?: number;
   readonly featuresToSearch: Feature[];
+  readonly isMenuOpen: boolean;
   onSelect(id: string): void;
 }
 
@@ -79,6 +80,7 @@ const Search: React.FC<SearchProps> = ({
   resultsClassName,
   featuresToSearch,
   maxItems = 10,
+  isMenuOpen,
   onSelect,
 }) => {
   const { t } = useTranslation();
@@ -87,7 +89,7 @@ const Search: React.FC<SearchProps> = ({
   const containerRef = useRef(null);
 
   useEffect(() => {
-    if (currentSearch === '') {
+    if (currentSearch === '' || !isMenuOpen) {
       setSearchResults([]);
       return;
     }
