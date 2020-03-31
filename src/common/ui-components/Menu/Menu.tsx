@@ -121,12 +121,11 @@ const Menu: React.FC<MenuProps> = ({
           </RouterLink>
         </div>
         <div className={styles.menuElement}>
-          <div>
-            <LanguageSelect
-              supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
-              darkMenu={menuDark}
-            />
-          </div>
+          <LanguageSelect
+            className={styles.menuElement}
+            supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
+            darkMenu={menuDark}
+          />
         </div>
         <div
           className={styles.menuElementFront}
