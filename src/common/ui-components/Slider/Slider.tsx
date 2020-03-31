@@ -1,12 +1,8 @@
 import React from 'react';
 import Slider from 'react-slick';
-import classNames from 'classnames/bind';
 
 import { Feature } from '../../../domain/api/generated/types.d';
 import Slide from '../Slide/Slide';
-import styles from './Slider.module.scss';
-
-const cx = classNames.bind(styles);
 
 export interface SimpleSliderProps {
   readonly features: Feature[];
@@ -24,7 +20,7 @@ const SimpleSlider: React.FC<SimpleSliderProps> = ({ features }) => {
   };
 
   return (
-    <Slider {...settings} className={cx(styles.container)}>
+    <Slider {...settings}>
       {features.map((feature) => (
         <Slide
           key={feature.id}
