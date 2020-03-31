@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { IconCheck, IconClose } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
@@ -15,6 +15,7 @@ import { useScrollToTop } from '../../common/utils/hooks';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_all.json';
+import { availableCategories } from '../constants';
 
 const cx = classNames.bind(styles);
 
@@ -92,7 +93,7 @@ const ContentPage: React.FC = () => {
           className={cx(styles.categoryNavigation, {
             categoryNavigationListView: !state.mapViewToggle,
           })}
-          categories={state.availableCategories.map(makeFilterFromCategoryId)}
+          categories={availableCategories.map(makeFilterFromCategoryId)}
           translated={true}
           onClick={(categoryId: string) => {
             actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));

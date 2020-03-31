@@ -4,7 +4,7 @@ import HeroBanner from './HeroBanner';
 
 export default {
   title: 'HeroBanner',
-  component: HeroBanner
+  component: HeroBanner,
 };
 
 export const HeroBannerExample = () => {

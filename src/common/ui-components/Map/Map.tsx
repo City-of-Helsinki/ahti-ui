@@ -8,6 +8,7 @@ import MapGL, {
   TransitionInterpolator,
   EasingFunction,
   TRANSITION_EVENTS,
+  PointerEvent,
 } from 'react-map-gl';
 import { BBox } from 'geojson';
 import useSupercluster from 'use-supercluster';
@@ -24,8 +25,9 @@ import {
   clusteringRadius,
   selectedFeatureZoomLevel,
   transitionDuration,
-} from '../../constants';
+} from '../../../domain/constants';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
+import ClusterIcon from '../ClusterIcon/ClusterIcon';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './Map.module.scss';
 import { getMapStyle, getFlyToPoint, getPoints, getRoutes } from './mapUtils';
@@ -139,6 +141,24 @@ const Map: React.FC<MapProps> = ({
     options: { radius: clusteringRadius, maxZoom: viewPort.maxZoom },
   });
 
+  const onMapClick = (event: PointerEvent) => {
+    const clickedRoute =
+      event.features &&
+      event.features.find((feature) => 'route-line' === feature.layer.id);
+
+    if (!clickedRoute) {
+      return;
+    }
+
+    const clickedFeature = features.find(
+      (feature) => feature.properties.ahtiId === clickedRoute.properties.ahtiId
+    );
+
+    if (clickedFeature) {
+      onClick(clickedFeature);
+    }
+  };
+
   return (
     <MapGL
       {...viewPort}
@@ -149,38 +169,8 @@ const Map: React.FC<MapProps> = ({
       ref={mapRef}
       onViewportChange={setViewPort}
       clickRadius={10}
-      onNativeClick={(event) => {
-        const clickedRoute =
-          event.features &&
-          event.features.find((feature) => 'route-line' === feature.layer.id);
-
-        if (!clickedRoute) {
-          return;
-        }
-
-        const clickedFeature = features.find(
-          (feature) =>
-            feature.properties.ahtiId === clickedRoute.properties.ahtiId
-        );
-
-        if (clickedFeature) {
-          onClick(clickedFeature);
-        }
-      }}
+      onNativeClick={onMapClick}
     >
-      <div className={styles.mapControls}>
-        <GeolocateControl
-          positionOptions={{ enableHighAccuracy: true }}
-          trackUserLocation={true}
-          label={t('map.geolocate')}
-        />
-        <div className={styles.mapControlsDivider}></div>
-        <NavigationControl
-          zoomInLabel={t('map.zoom_in')}
-          zoomOutLabel={t('map.zoom_out')}
-          showCompass={false}
-        />
-      </div>
       {clusters.map((cluster: any) => {
         const [longitude, latitude] = cluster.geometry.coordinates;
         const { cluster: isCluster } = cluster.properties;
@@ -195,15 +185,15 @@ const Map: React.FC<MapProps> = ({
               latitude={latitude}
               longitude={longitude}
             >
-              <div
+              {/* <div
                 className={styles.clusterMarker}
                 style={{
                   width: `${10 + (pointCount / points.length) * 20}px`,
                   height: `${10 + (pointCount / points.length) * 20}px`,
                 }}
-              >
-                {pointCount}
-              </div>
+              > */}
+              <ClusterIcon pointCount={pointCount} />
+              {/* </div> */}
             </Marker>
           );
         } else {
@@ -213,6 +203,19 @@ const Map: React.FC<MapProps> = ({
           );
         }
       })}
+      <div className={styles.mapControls}>
+        <GeolocateControl
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+          label={t('map.geolocate')}
+        />
+        <div className={styles.mapControlsDivider}></div>
+        <NavigationControl
+          zoomInLabel={t('map.zoom_in')}
+          zoomOutLabel={t('map.zoom_out')}
+          showCompass={false}
+        />
+      </div>
     </MapGL>
   );
 };

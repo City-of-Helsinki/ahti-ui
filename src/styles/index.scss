@@ -208,10 +208,14 @@ body {
   }
   .slick-prev:before {
     content: 'â†';
+    width: 22px;
+    margin: 0 auto;
   }
   .slick-next:before,
   [dir='rtl'] .slick-prev:before {
     content: 'â†’';
+    width: 22px;
+    margin: 0 auto;
   }
   .slick-next {
     right: -25px;

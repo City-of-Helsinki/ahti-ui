@@ -28,7 +28,7 @@ build-production:
   extends: .build
   variables:
     DOCKER_IMAGE_NAME: '$CI_PROJECT_NAME-production'
-    DOCKER_BUILD_ARG_REACT_APP_AHTI_GRAPHQL_API_URI: 'https://ahti-api.test.kuva.hel.ninja/graphql'
+    DOCKER_BUILD_ARG_REACT_APP_AHTI_GRAPHQL_API_URI: 'https://ahti-api.prod.kuva.hel.ninja/graphql'
   only:
     refs:
       - master

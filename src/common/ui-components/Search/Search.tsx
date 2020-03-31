@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { IconSearch } from 'hds-react';
 import classNames from 'classnames/bind';
 import { useTranslation } from 'react-i18next';
@@ -33,11 +33,18 @@ export const SearchItem: React.FC<SearchItemProps> = ({
   currentSearch,
   onSelect,
 }) => {
+  const { t } = useTranslation();
   const re = new RegExp(`(${escapeRegExp(currentSearch)})`, 'gi');
   const parts = name.split(re);
 
   return (
-    <div className={styles.searchItem} onClick={() => onSelect(id)}>
+    <div
+      className={styles.searchItem}
+      onClick={() => onSelect(id)}
+      role={'button'}
+      aria-label={`${t('search.open')} ${name}`}
+      tabIndex={0}
+    >
       <div>
         <CategoryIcon className={styles.bigIcon} category={category} />
       </div>
@@ -77,7 +84,7 @@ const Search: React.FC<SearchProps> = ({
   const { t } = useTranslation();
   const [searchResults, setSearchResults] = useState<SearchData[]>([]);
   const [currentSearch, setCurrentSearch] = useState<string>('');
-  const [hasFocus, setHasFocus] = useState();
+  const containerRef = useRef(null);
 
   useEffect(() => {
     if (currentSearch === '') {
@@ -108,12 +115,9 @@ const Search: React.FC<SearchProps> = ({
 
   return (
     <div
-      className={cx(styles.container, className, {
-        containerFocused: hasFocus,
-      })}
+      className={cx(styles.container, className)}
       tabIndex={0}
-      onFocus={() => setHasFocus(true)}
-      onBlur={() => setHasFocus(false)}
+      ref={containerRef}
     >
       <div className={styles.search}>
         <div className={styles.searchInputWithIcon}>
@@ -130,7 +134,7 @@ const Search: React.FC<SearchProps> = ({
           />
         </div>
       </div>
-      {hasFocus && searchResults.length > 0 && (
+      {searchResults.length > 0 && (
         <div className={styles.resultsContainerAbsolute}>
           <div
             className={cx(styles.resultsContainerRelative, resultsClassName)}
