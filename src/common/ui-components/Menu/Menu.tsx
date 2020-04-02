@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useHistory } from 'react-router-dom';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
@@ -67,6 +67,7 @@ const Menu: React.FC<MenuProps> = ({
 }) => {
   const { state, actions } = useOvermind();
   const [isOpen, setIsOpen] = useState(false);
+  const history = useHistory();
   const { t } = useTranslation();
 
   const items: MenuCategory[] = translate
@@ -137,7 +138,7 @@ const Menu: React.FC<MenuProps> = ({
           <Search
             featuresToSearch={state.features}
             onSelect={(ahtiId) => {
-              actions.setPathname('/content');
+              history.push('/content');
               actions.selectFeatureById(ahtiId);
             }}
             isMenuOpen={isOpen}

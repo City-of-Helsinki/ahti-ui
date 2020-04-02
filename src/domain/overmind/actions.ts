@@ -12,7 +12,6 @@ export const clearContentState: Action = ({ state }) => {
   state.tagFilters = [];
   state.categoryFilters = [];
   state.selectedFeature = null;
-  state.pathname = '/';
 };
 
 export const addCategoryFilter: Action<Filter> = (
@@ -145,8 +144,8 @@ export const selectFeatureById: AsyncAction<string> = async (
   ).feature;
 };
 
-export const setPathname: Action<string> = ({ state }, pathname) => {
-  state.pathname = pathname;
+export const setQueryString: Action<string> = ({ state }, queryString) => {
+  state.queryString = queryString;
 };
 
 export const selectHarbor: AsyncAction<string> = async ({ state }, ahtiId) => {
