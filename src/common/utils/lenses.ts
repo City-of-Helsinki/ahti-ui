@@ -26,3 +26,14 @@ export const featuresLens: Lens<FeaturesQuery, Feature[]> = {
     throw Error('Setting not supported');
   },
 };
+
+export const ferriesLens: Lens<Feature, Feature[]> = {
+  get: (feature) => {
+    return feature.properties.children.filter(
+      (child) => child.properties.category.id === 'ahti:category:ferry'
+    );
+  },
+  set: () => {
+    throw Error('Setting not supported');
+  },
+};
