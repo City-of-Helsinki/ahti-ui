@@ -10,7 +10,7 @@ import {
 import { useOvermind } from '../../../../domain/overmind';
 
 export interface IslandRoutesProps {
-  readonly harbors: Harbor[];
+  readonly harbors: Feature[];
   readonly ferries: Feature[];
 }
 
@@ -25,11 +25,13 @@ const IslandRoutes: React.FC<IslandRoutesProps> = ({ harbors, ferries }) => {
           <h2 className={styles.heading}>
             {t('card.island_content.routes.harbors')}
           </h2>
-          {harbors.map((harbor: Harbor, id: number) => (
+          {harbors.map((harbor: Feature, id: number) => (
             <button
               className={styles.item}
               key={id}
-              onClick={() => actions.selectHarbor(harbor.properties.ahtiId)}
+              onClick={() =>
+                actions.selectFeatureById(harbor.properties.ahtiId)
+              }
             >
               {harbor.properties.name}
             </button>
