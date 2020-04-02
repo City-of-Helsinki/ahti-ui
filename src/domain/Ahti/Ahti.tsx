@@ -15,6 +15,7 @@ import { useUrlState } from '../utils/hooks';
 
 const Ahti: React.FC = () => {
   const { state, actions } = useOvermind();
+  const history = useHistory();
   useUrlState();
 
   return (
@@ -24,7 +25,7 @@ const Ahti: React.FC = () => {
         menuCategories={menuCategories}
         translate={true}
         onSelect={(menuItem: MenuItem) => {
-          actions.setPathname('/content');
+          history.push('/content');
           menuItem.categoryIds.forEach((categoryId) => {
             actions.addCategoryFilter({ id: categoryId });
           });
@@ -37,7 +38,7 @@ const Ahti: React.FC = () => {
           <Search
             featuresToSearch={state.features}
             onSelect={(ahtiId) => {
-              actions.setPathname('/content');
+              history.push('/content');
               actions.selectFeatureById(ahtiId);
             }}
             className={styles.search}
