@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="100%" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>category-marina</title>
+    <desc>Created with Sketch.</desc>
+    <g id="category-marina" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-2" transform="translate(10.000000, 10.000000)" stroke="#000000">
+            <line x1="13.208729" y1="8.39988852" x2="13.0556336" y2="24.5221356" id="Line-5-Copy" stroke-width="1.36499994" stroke-linecap="square"></line>
+            <line x1="7" y1="9.5" x2="19" y2="9.5" id="Line-2" stroke-width="1.36" fill="#000000" stroke-linecap="square"></line>
+            <path d="M9.02545131,32 C11.9341905,30.7790461 14.2389925,28.2565526 15.3235838,25.09657 C15.7610482,23.8220071 16,22.4437329 16,21.0053218 C16,15.9903096 13.0953868,11.7063002 9,10" id="Oval-Copy" stroke-width="1.36499994" stroke-linecap="round" transform="translate(12.500000, 21.000000) rotate(-270.000000) translate(-12.500000, -21.000000) "></path>
+            <circle id="Oval-Copy-2" stroke-width="1.36499994" cx="12.5" cy="3.5" r="3.5"></circle>
+            <polyline id="Path-8" stroke-width="0.913499964" stroke-linecap="round" stroke-linejoin="round" transform="translate(2.457543, 18.119240) rotate(16.000000) translate(-2.457543, -18.119240) " points="0.69657368 19.8543531 0.708986203 16.3841272 4.21851199 16.491511"></polyline>
+            <polyline id="Path-8-Copy" stroke-width="0.913499964" stroke-linecap="round" stroke-linejoin="round" transform="translate(23.255928, 18.119240) scale(-1, 1) rotate(16.000000) translate(-23.255928, -18.119240) " points="21.4949593 19.8543531 21.5073718 16.3841272 25.0168976 16.491511"></polyline>
+        </g>
+    </g>
+</svg>

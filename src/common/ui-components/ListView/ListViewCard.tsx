@@ -13,7 +13,7 @@ export interface ListViewCardProps {
 
 const ListViewCard: React.FC<ListViewCardProps> = ({ feature, onClick }) => {
   const { t } = useTranslation();
-  const category = feature?.properties?.category?.name;
+  const category = feature?.properties?.category?.id;
   const name = feature?.properties?.name;
   const shortDescription = feature?.properties?.shortDescription;
   const imageUrl = getRandomImageUrl(feature?.properties?.images, null);
