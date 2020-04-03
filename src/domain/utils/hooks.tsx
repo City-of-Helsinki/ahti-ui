@@ -8,6 +8,12 @@ export const useUrlState = () => {
   const { state, actions } = useOvermind();
   const history = useHistory();
 
+  // Keep state's pathname in sync with history.
+  // For example internal links in the app.
+  useEffect(() => {
+    actions.setPathname(history.location.pathname);
+  }, [history.location.pathname]);
+
   // Push state changes to url.
   useEffect(() => {
     const queryStr = queryString.stringify({
@@ -23,10 +29,4 @@ export const useUrlState = () => {
     state.tagFilters,
     state.mapViewToggle,
   ]);
-
-  // Keep state's pathname in sync with history.
-  // For example internal links in the app.
-  useEffect(() => {
-    actions.setPathname(history.location.pathname);
-  }, [history.location.pathname]);
 };

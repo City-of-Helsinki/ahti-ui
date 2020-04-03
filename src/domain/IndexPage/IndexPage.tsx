@@ -88,6 +88,9 @@ const IndexPage: React.FC = () => {
             actions.addCategoryFilter(
               makeFilterFromCategoryId('ahti:category:restaurant')
             );
+            actions.addCategoryFilter(
+              makeFilterFromCategoryId('ahti:category:cafe')
+            );
           }}
         >
           {t('index.section3_button')}
