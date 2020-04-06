@@ -1,0 +1,26 @@
+.slickSliderContainer {
+  .slick-prev {
+    left: 25px;
+  }
+  .slick-next {
+    right: 25px;
+  }
+
+  .slick-prev::before {
+    transform: rotate(180deg);
+    content: url('../../../assets/icons/chevron_right.svg');
+  }
+
+  [dir='rtl'] .slick-prev::before {
+    content: url('../../../assets/icons/chevron_right.svg');
+  }
+
+  .slick-next::before {
+    content: url('../../../assets/icons/chevron_right.svg');
+  }
+
+  [dir='rtl'] .slick-next::before {
+    transform: rotate(180deg);
+    content: url('../../../assets/icons/chevron_right.svg');
+  }
+}

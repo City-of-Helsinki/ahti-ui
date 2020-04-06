@@ -1,10 +1,12 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames/bind';
 
 import { useOvermind } from '../../../domain/overmind';
 import { Feature } from '../../../domain/api/generated/types.d';
 import Slide from '../Slide/Slide';
+import styles from './Slider.module.scss';
 
 export interface SimpleSliderProps {
   readonly features: Feature[];
@@ -22,30 +24,30 @@ const SimpleSlider: React.FC<SimpleSliderProps> = ({ features }) => {
   };
   const { actions } = useOvermind();
 
-  // console.log('state', state.features);
   return (
-    <Slider {...settings}>
-      {features.map((mapFeature) => (
-        <Slide
-          key={mapFeature.id}
-          backgroundImage={
-            mapFeature.properties.images.length > 0
-              ? mapFeature.properties.images[0].url
-              : null
-          }
-        >
-          <Link to={'/content'}>
-            <h3
-              onClick={() => {
-                actions.selectFeature(mapFeature);
-              }}
+    <div className={classNames(styles.slickSliderContainer)}>
+      <Slider {...settings}>
+        {features.map((mapFeature) => (
+          <Link
+            to={'/content'}
+            onClick={() => {
+              actions.selectFeature(mapFeature);
+            }}
+          >
+            <Slide
+              key={mapFeature.id}
+              backgroundImage={
+                mapFeature.properties.images.length > 0
+                  ? mapFeature.properties.images[0].url
+                  : null
+              }
             >
-              {mapFeature.properties.name}
-            </h3>
+              <h3>{mapFeature.properties.name}</h3>
+            </Slide>
           </Link>
-        </Slide>
-      ))}
-    </Slider>
+        ))}
+      </Slider>
+    </div>
   );
 };
 
