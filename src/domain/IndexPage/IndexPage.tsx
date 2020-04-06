@@ -18,7 +18,7 @@ import SimpleSlider from '../../common/ui-components/Slider/Slider';
 import { availableCategories } from '../constants';
 
 const IndexPage: React.FC = () => {
-  const { actions } = useOvermind();
+  const { state, actions } = useOvermind();
   const { data, refetch, loading } = useFeaturesQuery({
     variables: {
       first: 4,
@@ -47,9 +47,6 @@ const IndexPage: React.FC = () => {
         </Link>
       </HeroBanner>
       <section className={styles.section}>
-        {!loading && data && <SimpleSlider features={featuresLens.get(data)} />}
-      </section>
-      <section className={styles.section}>
         <h2>{t('index.section1_header')}</h2>
         <p>{t('index.section1_paragraph')}</p>
         <CategoryNavigation
@@ -62,6 +59,11 @@ const IndexPage: React.FC = () => {
         />
       </section>
 
+      <section className={styles.section}>
+        <h2>{t('index.section2_header')}</h2>
+        <p>{t('index.section2_paragraph')}</p>
+        {!loading && data && <SimpleSlider features={featuresLens.get(data)} />}
+      </section>
       <section className={styles.section}>
         <h2>{t('index.section3_header')}</h2>
         {loading && (
