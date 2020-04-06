@@ -60,6 +60,21 @@ const IndexPage: React.FC = () => {
               actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
             }}
           />
+
+          <Link
+            className={styles.link}
+            to={'/content'}
+            onClick={() => {
+              actions.addCategoryFilter(
+                makeFilterFromCategoryId('ahti:category:restaurant')
+              );
+              actions.addCategoryFilter(
+                makeFilterFromCategoryId('ahti:category:cafe')
+              );
+            }}
+          >
+            {t('index.section3_button')}
+          </Link>
         </section>
 
         <section className={styles.section}>
