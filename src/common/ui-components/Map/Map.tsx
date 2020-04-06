@@ -26,11 +26,11 @@ import {
   selectedFeatureZoomLevel,
   transitionDuration,
 } from '../../../domain/constants';
-import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import ClusterIcon from '../ClusterIcon/ClusterIcon';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './Map.module.scss';
 import { getMapStyle, getFlyToPoint, getPoints, getRoutes } from './mapUtils';
+import PinIcon from './PinIcon/PinIcon';
 
 /*
 // Approach for clustering used from here
@@ -119,10 +119,7 @@ const Map: React.FC<MapProps> = ({
         latitude={pointFeature.geometry.coordinates[1]}
       >
         <div onClick={onMarkerClick} className={styles.markerContent}>
-          <CategoryIcon
-            category={feature?.properties?.category?.id}
-            className={isSelected ? styles.bigIcon : undefined}
-          />
+          <PinIcon category={feature?.properties?.category?.id} />
         </div>
       </Marker>
     );

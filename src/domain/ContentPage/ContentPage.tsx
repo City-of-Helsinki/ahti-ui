@@ -15,7 +15,13 @@ import { useScrollToTop } from '../../common/utils/hooks';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_all.json';
+
 import { categories } from '../constants';
+
+import { availableCategories } from '../constants';
+import { ReactComponent as IconList } from '../../assets/icons/icon-list.svg';
+import { ReactComponent as IconMap } from '../../assets/icons/icon-map.svg';
+
 
 const cx = classNames.bind(styles);
 
@@ -39,9 +45,9 @@ const ContentPage: React.FC = () => {
           onClose={(ahtiId) => actions.removeFilter(ahtiId)}
         />
         <Toggle
-          onIcon={<IconCheck />}
+          onIcon={<IconMap />}
           onIconText={t('content.map')}
-          offIcon={<IconClose />}
+          offIcon={<IconList />}
           offIconText={t('content.list')}
           toggleState={state.mapViewToggle}
           onToggle={() => actions.toggleMapView()}
