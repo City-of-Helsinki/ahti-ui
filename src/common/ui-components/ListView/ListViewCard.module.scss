@@ -6,6 +6,10 @@
   justify-content: space-between;
   background-color: var(--hds-ui-color-white);
   cursor: pointer;
+
+  img {
+    flex: 1;
+  }
 }
 
 .infoContainer {
