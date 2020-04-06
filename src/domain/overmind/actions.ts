@@ -98,6 +98,7 @@ export const setFeaturesLoading: Action<boolean> = (
 
 const fetchFeatureData = async (query: DocumentNode, ahtiId: string) => {
   const { data } = await graphQLClient.query({
+    fetchPolicy: 'network-only',
     query: query,
     variables: { ahtiId: ahtiId },
   });
