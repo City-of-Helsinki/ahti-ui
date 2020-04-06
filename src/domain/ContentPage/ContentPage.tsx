@@ -1,5 +1,4 @@
 import React from 'react';
-import { IconCheck, IconClose } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 
@@ -62,7 +61,9 @@ const ContentPage: React.FC = () => {
           {!state.selectedFeature && !state.mapViewToggle && (
             <ListView
               features={state.features}
-              onClick={(feature) => actions.selectFeature(feature)}
+              onClick={(feature) => {
+                actions.selectFeature(feature);
+              }}
             />
           )}
           {state.mapViewToggle && (
@@ -80,13 +81,13 @@ const ContentPage: React.FC = () => {
             </div>
           )}
           {state.selectedFeature && (
-            <>
+            <React.Fragment>
               <BackButton onBack={() => actions.clearSelectedFeature()} />
               <Card
                 feature={state.selectedFeature}
                 onSelectFilter={actions.addTagFilter}
               />
-            </>
+            </React.Fragment>
           )}
         </div>
       )}

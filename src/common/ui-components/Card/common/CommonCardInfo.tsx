@@ -15,7 +15,7 @@ const CommonCardInfo = ({ feature }: { feature: any }) => {
   return (
     <div className={styles.infoContainer}>
       {url && url.length > 0 && (
-        <>
+        <React.Fragment>
           <hr className={styles.line} />
           <a
             target="_blank"
@@ -28,7 +28,7 @@ const CommonCardInfo = ({ feature }: { feature: any }) => {
               <div className={styles.bodyText}>{url}</div>
             </div>
           </a>
-        </>
+        </React.Fragment>
       )}
 
       {phoneNumber && phoneNumber.length > 0 && (

@@ -28,7 +28,7 @@ const Card: React.FC<CardProps> = ({
 
   const renderTags = () => {
     return (
-      <>
+      <React.Fragment>
         {tags.map((tag: Tag, id: number) => (
           <span
             key={id}
@@ -40,7 +40,7 @@ const Card: React.FC<CardProps> = ({
             }
           >{`#${tag.name}`}</span>
         ))}
-      </>
+      </React.Fragment>
     );
   };
 
