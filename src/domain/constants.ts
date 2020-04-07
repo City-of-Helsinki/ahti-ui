@@ -105,10 +105,12 @@ export const menuCategories: MenuCategory[] = [
   },
 ];
 
-export const availableCategories: string[] = [
-  'ahti:category:island',
-  'ahti:category:restaurant',
-  'ahti:category:sightseeing',
-  'ahti:category:sauna',
-  'ahti:category:cafe',
-];
+export const categories: Record<string, string> = {
+  ISLAND: 'ahti:category:island',
+  RESTAURANT: 'ahti:category:restaurant',
+  SIGHTSEEING: 'ahti:category:sightseeing',
+  SAUNA: 'ahti:category:sauna',
+  CAFE: 'ahti:category:cafe',
+  HARBOR: 'ahti:category:harbor',
+  FERRY: 'ahti:category:ferry',
+};
