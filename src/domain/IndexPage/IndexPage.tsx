@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import WrappedMenu from '../../common/ui-components/WrappedMenu/WrappedMenu';
 import { useOvermind } from '../overmind';
-import { availableCategories } from '../constants';
+import { categories } from '../constants';
 import HeroBanner from '../../common/ui-components/HeroBanner/HeroBanner';
 import ListView from '../../common/ui-components/ListView/ListView';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
@@ -19,8 +19,7 @@ import spinnerAnimation from '../../common/ui-components/Spinner/animations/spin
 import videoUrl from '../../assets/videos/Ahti_vertical.mp4';
 
 const IndexPage: React.FC = () => {
-  const { state, actions } = useOvermind();
-  // const { actions } = useOvermind();
+  const { actions } = useOvermind();
   const { data, refetch, loading } = useFeaturesQuery({
     variables: {
       first: 4,
@@ -50,12 +49,13 @@ const IndexPage: React.FC = () => {
             {t('index.see_all_button')}
           </Link>
         </HeroBanner>
+
         <section className={styles.section}>
           <h2>{t('index.section1_header')}</h2>
           <p>{t('index.section1_paragraph')}</p>
           <CategoryNavigation
             translated={true}
-            categories={availableCategories.map(makeFilterFromCategoryId)}
+            categories={Object.values(categories).map(makeFilterFromCategoryId)}
             onClick={(categoryId: string) => {
               actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
             }}

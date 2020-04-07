@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 
 import WrappedMenu from '../../common/ui-components/WrappedMenu/WrappedMenu';
 import { useOvermind } from '../overmind';
-import { availableCategories } from '../constants';
+import { categories } from '../constants';
 import styles from './ContentPage.module.scss';
 import Breadcrumb from '../../common/ui-components/Breadcrumb/Breadcrumb';
 import Toggle from '../../common/ui-components/Toggle/Toggle';
@@ -17,9 +17,8 @@ import { useScrollToTop } from '../../common/utils/hooks';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_all.json';
-
-// import { ReactComponent as IconList } from '../../assets/icons/icon-list.svg';
-// import { ReactComponent as IconMap } from '../../assets/icons/icon-map.svg';
+import { ReactComponent as IconList } from '../../assets/icons/icon-list.svg';
+import { ReactComponent as IconMap } from '../../assets/icons/icon-map.svg';
 
 const cx = classNames.bind(styles);
 
@@ -99,7 +98,7 @@ const ContentPage: React.FC = () => {
             className={cx(styles.categoryNavigation, {
               categoryNavigationListView: !state.mapViewToggle,
             })}
-            categories={availableCategories.map(makeFilterFromCategoryId)}
+            categories={Object.values(categories).map(makeFilterFromCategoryId)}
             translated={true}
             onClick={(categoryId: string) => {
               actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
