@@ -5,7 +5,6 @@ import { Koros } from 'hds-react';
 import { Video } from '../Video/Video';
 import styles from './HeroBanner.module.scss';
 import ImageWithCard from '../ImageWithCard/ImageWithCard';
-import videoUrl from '../../../assets/videos/Ahti_vertical.mp4';
 
 const cx = classNames.bind(styles);
 
