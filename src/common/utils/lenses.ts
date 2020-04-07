@@ -1,4 +1,5 @@
 import { Feature, FeaturesQuery } from '../../domain/api/generated/types.d';
+import { categories } from '../../domain/constants';
 
 export interface Lens<A, B> {
   get: (a: A) => B;
@@ -21,6 +22,28 @@ export const featuresLens: Lens<FeaturesQuery, Feature[]> = {
       []
     );
     return features;
+  },
+  set: () => {
+    throw Error('Setting not supported');
+  },
+};
+
+export const ferriesLens: Lens<Feature, Feature[]> = {
+  get: (feature) => {
+    return feature.properties.children.filter(
+      (child) => child.properties.category.id === categories.FERRY
+    );
+  },
+  set: () => {
+    throw Error('Setting not supported');
+  },
+};
+
+export const harborsLens: Lens<Feature, Feature[]> = {
+  get: (feature) => {
+    return feature.properties.children.filter(
+      (child) => child.properties.category.id === categories.HARBOR
+    );
   },
   set: () => {
     throw Error('Setting not supported');

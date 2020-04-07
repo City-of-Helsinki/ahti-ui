@@ -29,6 +29,7 @@ const SimpleSlider: React.FC<SimpleSliderProps> = ({ features }) => {
       <Slider {...settings}>
         {features.map((mapFeature) => (
           <Link
+            key={mapFeature.id}
             to={'/content'}
             onClick={() => {
               actions.selectFeature(mapFeature);
