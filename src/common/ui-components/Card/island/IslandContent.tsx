@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Tab, Tabs } from '../../Tabs/Tabs';
 import CardDescription from '../common/CardDescription';
 import IslandRoutes from './IslandRoutes';
+import { ferriesLens, harborsLens } from '../../../utils/lenses';
 
 export interface IslandContentProps {
   readonly island: any;
@@ -11,6 +12,10 @@ export interface IslandContentProps {
 
 const IslandContent: React.FC<IslandContentProps> = ({ island }) => {
   const { t } = useTranslation();
+
+  const ferries = ferriesLens.get(island);
+  const harbors = harborsLens.get(island);
+
   return (
     <Tabs>
       <Tab title={t('card.island_content.description_tab')}>
@@ -18,15 +23,9 @@ const IslandContent: React.FC<IslandContentProps> = ({ island }) => {
       </Tab>
       <Tab
         title={t('card.island_content.routes_tab')}
-        disabled={
-          island.properties.ferries.length === 0 &&
-          island.properties.harbors.length === 0
-        }
+        disabled={ferries.length === 0 && harbors.length === 0}
       >
-        <IslandRoutes
-          harbors={island.properties.harbors}
-          ferries={island.properties.ferries}
-        />
+        <IslandRoutes harbors={harbors} ferries={ferries} />
       </Tab>
       <Tab title={t('card.island_content.services_tab')} disabled>
         <div></div>

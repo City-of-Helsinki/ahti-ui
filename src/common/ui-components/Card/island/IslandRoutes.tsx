@@ -2,12 +2,16 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './IslandRoutes.module.scss';
-import { Ferry, Harbor } from '../../../../domain/api/generated/types.d';
+import {
+  Feature,
+  Ferry,
+  Harbor,
+} from '../../../../domain/api/generated/types.d';
 import { useOvermind } from '../../../../domain/overmind';
 
 export interface IslandRoutesProps {
-  readonly harbors: Harbor[];
-  readonly ferries: Ferry[];
+  readonly harbors: Feature[];
+  readonly ferries: Feature[];
 }
 
 const IslandRoutes: React.FC<IslandRoutesProps> = ({ harbors, ferries }) => {
@@ -21,11 +25,13 @@ const IslandRoutes: React.FC<IslandRoutesProps> = ({ harbors, ferries }) => {
           <h2 className={styles.heading}>
             {t('card.island_content.routes.harbors')}
           </h2>
-          {harbors.map((harbor: Harbor, id: number) => (
+          {harbors.map((harbor: Feature, id: number) => (
             <button
               className={styles.item}
               key={id}
-              onClick={() => actions.selectHarbor(harbor.properties.ahtiId)}
+              onClick={() =>
+                actions.selectFeatureById(harbor.properties.ahtiId)
+              }
             >
               {harbor.properties.name}
             </button>
@@ -37,11 +43,11 @@ const IslandRoutes: React.FC<IslandRoutesProps> = ({ harbors, ferries }) => {
           <h2 className={styles.heading}>
             {t('card.island_content.routes.ferries')}
           </h2>
-          {ferries.map((ferry: Ferry, id: number) => (
+          {ferries.map((ferry: Feature, id: number) => (
             <button
               className={styles.item}
               key={id}
-              onClick={() => actions.selectFerry(ferry.properties.ahtiId)}
+              onClick={() => actions.selectFeatureById(ferry.properties.ahtiId)}
             >
               {ferry.properties.name}
             </button>

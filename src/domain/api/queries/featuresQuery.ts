@@ -28,6 +28,24 @@ const FEATURES_QUERY = gql`
           }
           properties {
             ahtiId
+            children {
+              properties {
+                ahtiId
+                name
+                category {
+                  id
+                }
+              }
+            }
+            parents {
+              properties {
+                ahtiId
+                name
+                category {
+                  id
+                }
+              }
+            }
             category {
               id
             }
