@@ -15,7 +15,6 @@ import { featuresLens } from '../../common/utils/lenses';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_rudder.json';
 import SimpleSlider from '../../common/ui-components/Slider/Slider';
-// import { availableCategories } from '../constants';
 import { categories } from '../constants';
 
 const IndexPage: React.FC = () => {
