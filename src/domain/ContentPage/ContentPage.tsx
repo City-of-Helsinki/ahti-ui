@@ -14,9 +14,13 @@ import { useScrollToTop } from '../../common/utils/hooks';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_all.json';
+
+import { categories } from '../constants';
+
 import { availableCategories } from '../constants';
 import { ReactComponent as IconList } from '../../assets/icons/icon-list.svg';
 import { ReactComponent as IconMap } from '../../assets/icons/icon-map.svg';
+
 
 const cx = classNames.bind(styles);
 
@@ -96,7 +100,7 @@ const ContentPage: React.FC = () => {
           className={cx(styles.categoryNavigation, {
             categoryNavigationListView: !state.mapViewToggle,
           })}
-          categories={availableCategories.map(makeFilterFromCategoryId)}
+          categories={Object.values(categories).map(makeFilterFromCategoryId)}
           translated={true}
           onClick={(categoryId: string) => {
             actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
