@@ -144,11 +144,13 @@ export type FeatureProperties = {
   links: Array<ExternalLink>;
   modifiedAt: Scalars['DateTime'];
   name: Scalars['String'];
+  oneLiner: Scalars['String'];
   openingHoursPeriods: Array<OpeningHoursPeriod>;
   parents: Array<Maybe<Feature>>;
   shortDescription: Scalars['String'];
   source: FeatureSource;
   tags: Array<Tag>;
+  teaser?: Maybe<Teaser>;
   translations: Array<FeatureTranslations>;
   url?: Maybe<Scalars['String']>;
 };
@@ -171,6 +173,7 @@ export type FeatureTranslations = {
   languageCode: FeatureTranslationLanguageCode;
   name: Scalars['String'];
   url: Scalars['String'];
+  oneLiner: Scalars['String'];
   description: Scalars['String'];
 };
 
@@ -333,6 +336,14 @@ export type Tag = {
   name: Scalars['String'];
 };
 
+export type Teaser = {
+  __typename?: 'Teaser';
+  id: Scalars['ID'];
+  feature: Feature;
+  header?: Maybe<Scalars['String']>;
+  main?: Maybe<Scalars['String']>;
+};
+
 export enum Weekday {
   Monday = 'MONDAY',
   Tuesday = 'TUESDAY',
@@ -424,8 +435,52 @@ export type FeatureQuery = { __typename?: 'Query' } & {
             | 'url'
             | 'modifiedAt'
           > & {
+              children: Array<
+                Maybe<
+                  { __typename?: 'Feature' } & {
+                    properties: Maybe<
+                      { __typename?: 'FeatureProperties' } & Pick<
+                        FeatureProperties,
+                        'ahtiId' | 'name'
+                      > & {
+                          category: Maybe<
+                            { __typename?: 'FeatureCategory' } & Pick<
+                              FeatureCategory,
+                              'id'
+                            >
+                          >;
+                        }
+                    >;
+                  }
+                >
+              >;
+              parents: Array<
+                Maybe<
+                  { __typename?: 'Feature' } & {
+                    properties: Maybe<
+                      { __typename?: 'FeatureProperties' } & Pick<
+                        FeatureProperties,
+                        'ahtiId' | 'name'
+                      > & {
+                          category: Maybe<
+                            { __typename?: 'FeatureCategory' } & Pick<
+                              FeatureCategory,
+                              'id'
+                            >
+                          >;
+                        }
+                    >;
+                  }
+                >
+              >;
               category: Maybe<
                 { __typename?: 'FeatureCategory' } & Pick<FeatureCategory, 'id'>
+              >;
+              links: Array<
+                { __typename?: 'ExternalLink' } & Pick<
+                  ExternalLink,
+                  'type' | 'url'
+                >
               >;
               tags: Array<{ __typename?: 'Tag' } & Pick<Tag, 'id' | 'name'>>;
               contactInfo: Maybe<
@@ -501,6 +556,42 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                         | 'url'
                         | 'modifiedAt'
                       > & {
+                          children: Array<
+                            Maybe<
+                              { __typename?: 'Feature' } & {
+                                properties: Maybe<
+                                  { __typename?: 'FeatureProperties' } & Pick<
+                                    FeatureProperties,
+                                    'ahtiId' | 'name'
+                                  > & {
+                                      category: Maybe<
+                                        {
+                                          __typename?: 'FeatureCategory';
+                                        } & Pick<FeatureCategory, 'id'>
+                                      >;
+                                    }
+                                >;
+                              }
+                            >
+                          >;
+                          parents: Array<
+                            Maybe<
+                              { __typename?: 'Feature' } & {
+                                properties: Maybe<
+                                  { __typename?: 'FeatureProperties' } & Pick<
+                                    FeatureProperties,
+                                    'ahtiId' | 'name'
+                                  > & {
+                                      category: Maybe<
+                                        {
+                                          __typename?: 'FeatureCategory';
+                                        } & Pick<FeatureCategory, 'id'>
+                                      >;
+                                    }
+                                >;
+                              }
+                            >
+                          >;
                           category: Maybe<
                             { __typename?: 'FeatureCategory' } & Pick<
                               FeatureCategory,
@@ -658,8 +749,30 @@ export const FeatureDocument = gql`
       }
       properties {
         ahtiId
+        children {
+          properties {
+            ahtiId
+            name
+            category {
+              id
+            }
+          }
+        }
+        parents {
+          properties {
+            ahtiId
+            name
+            category {
+              id
+            }
+          }
+        }
         category {
           id
+        }
+        links {
+          type
+          url
         }
         name
         tags {
@@ -787,6 +900,24 @@ export const FeaturesDocument = gql`
           }
           properties {
             ahtiId
+            children {
+              properties {
+                ahtiId
+                name
+                category {
+                  id
+                }
+              }
+            }
+            parents {
+              properties {
+                ahtiId
+                name
+                category {
+                  id
+                }
+              }
+            }
             category {
               id
             }
