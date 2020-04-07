@@ -9,11 +9,13 @@ const cx = classnames.bind(styles);
 export interface LanguageSelectProps {
   readonly supportedLanguages: string[];
   readonly className?: string;
+  readonly darkMenu?: boolean;
 }
 
 const LanguageSelect: React.FC<LanguageSelectProps> = ({
   supportedLanguages,
   className,
+  darkMenu,
 }) => {
   const { i18n } = useTranslation();
 
@@ -27,6 +29,8 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({
             className={cx({
               languageButton: true,
               languageButtonEnabled: language === i18n.language,
+              languageSwitchTextDark: darkMenu,
+              languageSwitchTextWhite: !darkMenu,
             })}
             lang={language}
           >

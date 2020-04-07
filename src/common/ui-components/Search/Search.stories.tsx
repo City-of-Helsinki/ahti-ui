@@ -1,6 +1,7 @@
 import React from 'react';
-import Search from './Search';
 import { ApolloProvider } from '@apollo/react-common';
+
+import Search from './Search';
 import graphQLClient from '../../../domain/api';
 
 export default {
@@ -19,6 +20,7 @@ export const DefaultSearch = () => (
     onSelect={(item) => {
       alert(`clicked: ${item}`);
     }}
+    isMenuOpen={true}
   />
 );
 
