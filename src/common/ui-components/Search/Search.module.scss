@@ -66,6 +66,10 @@
   @include flex;
 }
 
+.searchIcon {
+  background-color: aqua;
+}
+
 .infoImage {
   height: $image-width;
   width: $image-width;
