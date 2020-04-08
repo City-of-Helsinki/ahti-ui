@@ -11,11 +11,19 @@ import Footer from '../Footer/Footer';
 import ContentPage from '../ContentPage/ContentPage';
 import IndexPage from '../IndexPage/IndexPage';
 import { menuCategories } from '../constants';
-import { useUrlState } from '../utils/hooks';
+import {
+  useFeatures,
+  useTags,
+  useCategories,
+  useUrlState,
+} from '../utils/hooks';
 
 const Ahti: React.FC = () => {
   const { state, actions } = useOvermind();
   useUrlState();
+  useTags();
+  useCategories();
+  useFeatures();
 
   return (
     <div className={styles.ahti}>

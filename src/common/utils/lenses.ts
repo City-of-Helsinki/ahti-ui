@@ -1,4 +1,11 @@
-import { Feature, FeaturesQuery } from '../../domain/api/generated/types.d';
+import {
+  CategoriesQuery,
+  Feature,
+  FeatureCategory,
+  FeaturesQuery,
+  Tag,
+  TagsQuery,
+} from '../../domain/api/generated/types.d';
 
 export interface Lens<A, B> {
   get: (a: A) => B;
@@ -21,6 +28,30 @@ export const featuresLens: Lens<FeaturesQuery, Feature[]> = {
       []
     );
     return features;
+  },
+  set: () => {
+    throw Error('Setting not supported');
+  },
+};
+
+export const tagsLens: Lens<TagsQuery, Tag[]> = {
+  get: (data) => {
+    if (!data || !data.tags) {
+      return [];
+    }
+    return data.tags as Tag[];
+  },
+  set: () => {
+    throw Error('Setting not supported');
+  },
+};
+
+export const categoriesLens: Lens<CategoriesQuery, FeatureCategory[]> = {
+  get: (data) => {
+    if (!data || !data.featureCategories) {
+      return [];
+    }
+    return data.featureCategories as FeatureCategory[];
   },
   set: () => {
     throw Error('Setting not supported');
