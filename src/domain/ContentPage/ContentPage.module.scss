@@ -1,6 +1,8 @@
 @import '../../styles/partials/variables';
 
 .container {
+  position: relative;
+  top: 6rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;

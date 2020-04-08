@@ -7,7 +7,6 @@ import FERRY_QUERY from '../api/queries/ferryQuery';
 import FEATURE_QUERY from '../api/queries/featureQuery';
 import graphQLClient from '../api/';
 import { Filter } from '../../../alltypes';
-import { availableCategories } from '../constants';
 
 export const clearContentState: Action = ({ state }) => {
   state.tagFilters = [];

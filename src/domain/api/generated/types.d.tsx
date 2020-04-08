@@ -501,6 +501,44 @@ export type FeatureQuery = { __typename?: 'Query' } & {
             | 'url'
             | 'modifiedAt'
           > & {
+              children: Array<
+                Maybe<
+                  { __typename?: 'Feature' } & {
+                    properties: Maybe<
+                      { __typename?: 'FeatureProperties' } & Pick<
+                        FeatureProperties,
+                        'ahtiId' | 'name'
+                      > & {
+                          category: Maybe<
+                            { __typename?: 'FeatureCategory' } & Pick<
+                              FeatureCategory,
+                              'id'
+                            >
+                          >;
+                        }
+                    >;
+                  }
+                >
+              >;
+              parents: Array<
+                Maybe<
+                  { __typename?: 'Feature' } & {
+                    properties: Maybe<
+                      { __typename?: 'FeatureProperties' } & Pick<
+                        FeatureProperties,
+                        'ahtiId' | 'name'
+                      > & {
+                          category: Maybe<
+                            { __typename?: 'FeatureCategory' } & Pick<
+                              FeatureCategory,
+                              'id'
+                            >
+                          >;
+                        }
+                    >;
+                  }
+                >
+              >;
               category: Maybe<
                 { __typename?: 'FeatureCategory' } & Pick<FeatureCategory, 'id'>
               >;
@@ -584,6 +622,42 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                         | 'url'
                         | 'modifiedAt'
                       > & {
+                          children: Array<
+                            Maybe<
+                              { __typename?: 'Feature' } & {
+                                properties: Maybe<
+                                  { __typename?: 'FeatureProperties' } & Pick<
+                                    FeatureProperties,
+                                    'ahtiId' | 'name'
+                                  > & {
+                                      category: Maybe<
+                                        {
+                                          __typename?: 'FeatureCategory';
+                                        } & Pick<FeatureCategory, 'id'>
+                                      >;
+                                    }
+                                >;
+                              }
+                            >
+                          >;
+                          parents: Array<
+                            Maybe<
+                              { __typename?: 'Feature' } & {
+                                properties: Maybe<
+                                  { __typename?: 'FeatureProperties' } & Pick<
+                                    FeatureProperties,
+                                    'ahtiId' | 'name'
+                                  > & {
+                                      category: Maybe<
+                                        {
+                                          __typename?: 'FeatureCategory';
+                                        } & Pick<FeatureCategory, 'id'>
+                                      >;
+                                    }
+                                >;
+                              }
+                            >
+                          >;
                           category: Maybe<
                             { __typename?: 'FeatureCategory' } & Pick<
                               FeatureCategory,
@@ -815,6 +889,24 @@ export const FeatureDocument = gql`
       }
       properties {
         ahtiId
+        children {
+          properties {
+            ahtiId
+            name
+            category {
+              id
+            }
+          }
+        }
+        parents {
+          properties {
+            ahtiId
+            name
+            category {
+              id
+            }
+          }
+        }
         category {
           id
         }
@@ -949,6 +1041,24 @@ export const FeaturesDocument = gql`
           }
           properties {
             ahtiId
+            children {
+              properties {
+                ahtiId
+                name
+                category {
+                  id
+                }
+              }
+            }
+            parents {
+              properties {
+                ahtiId
+                name
+                category {
+                  id
+                }
+              }
+            }
             category {
               id
             }

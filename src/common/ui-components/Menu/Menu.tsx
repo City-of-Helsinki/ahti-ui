@@ -1,11 +1,15 @@
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { IconMenu, IconClose } from 'hds-react';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
 
-import { ReactComponent as AhtiLogo } from '../../../assets/icons/ahti_logo.svg';
+import Search from '../Search/Search';
+import LanguageSelect from '../LanguageSelect/LanguageSelect';
+import { SUPPORTED_LANGUAGES } from '../../../common/translation/TranslationConstants';
+import { useOvermind } from '../../../domain/overmind';
+import AhtiLogo from '../AhtiLogo/AhtiLogo';
+import MenuIcon from '../MenuIcon/MenuIcon';
 import NavDropdown from './NavDropdown/NavDropdown';
 import styles from './Menu.module.scss';
 
@@ -25,11 +29,9 @@ export type MenuCategory = {
 };
 
 export interface MenuProps {
-  readonly className?: string;
   readonly translate?: boolean;
+  readonly menuDark?: boolean;
   readonly menuCategories: MenuCategory[];
-  readonly openComponent?: ReactNode;
-  readonly closedComponent?: ReactNode;
   onSelect?(menuItem: MenuItem): void;
   onLogoClick?(): void;
 }
@@ -57,14 +59,13 @@ const translateMenuCategories = (
 };
 
 const Menu: React.FC<MenuProps> = ({
-  className,
   translate = false,
+  menuDark,
   menuCategories,
-  openComponent,
-  closedComponent,
   onSelect,
   onLogoClick,
 }) => {
+  const { state, actions } = useOvermind();
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
 
@@ -108,25 +109,41 @@ const Menu: React.FC<MenuProps> = ({
   };
 
   return (
-    <div className={classNames(styles.container, className)}>
+    <div
+      className={
+        isOpen
+          ? classNames(styles.container_open)
+          : classNames(styles.container)
+      }
+    >
       <div className={styles.headerContainer}>
-        <div>
-          <RouterLink
-            to={'/'}
-            onClick={() => onLogoClick && onLogoClick()}
-            aria-label={t('menu.home')}
-            tabIndex={0}
-          >
-            <AhtiLogo />
+        <div className={styles.menuElement}>
+          <RouterLink to={'/'} onClick={() => onLogoClick && onLogoClick()}>
+            <AhtiLogo fillColor={menuDark || isOpen ? '#001A33' : 'white'} />
           </RouterLink>
         </div>
-        <div>
-          <div className={styles.headerComponent}>
-            {isOpen && openComponent}
-            {!isOpen && closedComponent}
+        <div className={styles.menuElement}>
+          <div>
+            <LanguageSelect
+              supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
+              darkMenu={menuDark}
+            />
           </div>
         </div>
-        <div>
+        <div
+          className={styles.menuElementFront}
+          onClick={() => setIsOpen(true)}
+        >
+          <Search
+            featuresToSearch={state.features}
+            onSelect={(ahtiId) => {
+              actions.setPathname('/content');
+              actions.selectFeatureById(ahtiId);
+            }}
+            isMenuOpen={isOpen}
+          />
+        </div>
+        <div className={styles.menuElement}>
           <button
             className={styles.toggleMenuButton}
             onClick={() => setIsOpen(!isOpen)}
@@ -134,9 +151,9 @@ const Menu: React.FC<MenuProps> = ({
             tabIndex={0}
           >
             {isOpen ? (
-              <IconClose className={styles.icon} />
+              <MenuIcon isDark={menuDark} isOpen={true} />
             ) : (
-              <IconMenu className={styles.icon} />
+              <MenuIcon isDark={menuDark} />
             )}
           </button>
         </div>
