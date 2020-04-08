@@ -2,11 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './IslandRoutes.module.scss';
-import {
-  Feature,
-  Ferry,
-  Harbor,
-} from '../../../../domain/api/generated/types.d';
+import { Feature } from '../../../../domain/api/generated/types.d';
 import { useOvermind } from '../../../../domain/overmind';
 
 export interface IslandRoutesProps {
