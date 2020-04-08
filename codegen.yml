@@ -8,12 +8,9 @@ generates:
       - typescript
       - typescript-operations
       - typescript-react-apollo
+      - add: '/* eslint-disable */'
     config:
       scalars:
         DateTime: Date
       withHOC: false
       withHooks: true
-hooks:
-  afterAllFileWrite:
-    - eslint --fix
-    - prettier --write
