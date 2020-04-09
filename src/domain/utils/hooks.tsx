@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import * as queryString from 'query-string';
 
 import { useOvermind } from '../overmind';
@@ -7,6 +8,11 @@ import { useOvermind } from '../overmind';
 export const useUrlState = () => {
   const { state, actions } = useOvermind();
   const history = useHistory();
+  const { trackPageView } = useMatomo();
+
+  useEffect(() => {
+    trackPageView({ href: window.location.href });
+  }, [window.location.href]);
 
   // Keep state's pathname in sync with history.
   // For example internal links in the app.
