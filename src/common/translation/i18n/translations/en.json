@@ -9,8 +9,7 @@
     "see_all_button": "Discover",
     "section1_header": "Destinations, services and experiences",
     "section1_paragraph": "Discover the seaside and services of Helsinki and neighboring municipalities in the same place.",
-    "section2_header": "New in Ahti",
-    "section2_paragraph": "Ahti has been updated and we have added new features.",
+    "section2_header": "Services for boaters on the map",
     "section3_header": "Seaside restaurants and cafes",
     "section3_button": "Browse all restaurants and cafes",
     "section4_header": "Seaside experiences",
@@ -30,6 +29,8 @@
     "ahti:category:sightseeing": "Sightseeing",
     "ahti:category:sauna": "Saunas",
     "ahti:category:ferry": "Ferries",
+    "ahti:category:harbor": "Harbors",
+    "ahti:category:bar": "Bars",
 
     "ahti:tag:swimming": "Swimming"
   },
@@ -209,5 +210,10 @@
   },
   "breadcrumb": {
     "close": "Close selected filter"
+  },
+  "boater_services": {
+    "guest_harbors": "View all harbors",
+    "restaurants": "View all seaside restaurants",
+    "rental_boats": "See all boat rental options"
   }
 }

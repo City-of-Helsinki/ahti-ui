@@ -9,7 +9,7 @@
     "see_all_button": "Tutustu kohteisiin",
     "section1_header": "Merellisiä kohteita, elämyksiä ja palveluita",
     "section1_paragraph": "Löydä Helsingin lähiseudun merellinen ympäristö ja palvelut samasta paikasta.",
-    "section2_header": "Uutta Ahdissa",
+    "section2_header": "Veneilijöiden palvelut kartalla",
     "section2_paragraph": "Ahti on uudistunut ja olemme lisänneet uusia toiminnallisuuksia.",
     "section3_header": "Merelliset kahvilat ja ravintolat",
     "section3_button": "Selaa kaikkia ravintoloita ja kahviloita",
@@ -30,6 +30,8 @@
     "ahti:category:sightseeing": "Nähtävyydet",
     "ahti:category:sauna": "Saunat",
     "ahti:category:ferry": "Lautat",
+    "ahti:category:harbor": "Satamat",
+    "ahti:category:bar": "Baarit",
 
     "ahti:tag:swimming": "Uinti"
   },
@@ -209,5 +211,10 @@
   },
   "breadcrumb": {
     "close": "Sulje selekoitu filtteri"
+  },
+  "boater_services": {
+    "guest_harbors": "Etsi satamia",
+    "restaurants": "Kaikki Helsingin merelliset ravintolat",
+    "rental_boats": "Vuokraa vene käyttöösi"
   }
 }

@@ -1,4 +1,6 @@
 import { MenuCategory } from '../common/ui-components/Menu/Menu';
+import { ContentSliderItem } from '../common/ui-components/Slider/ContentSlider/ContentSlider';
+import { Filter } from '../../alltypes';
 
 // Map defaults
 export const initialLatitude = 60.13;
@@ -102,6 +104,31 @@ export const menuCategories: MenuCategory[] = [
       { categoryIds: [], tagIds: [], name: 'motorboats', disabled: true },
       { categoryIds: [], tagIds: [], name: 'other', disabled: true },
     ],
+  },
+];
+
+export const boaterServicesSliderContent: ContentSliderItem[] = [
+  {
+    categoryFilters: [{ id: 'ahti:category:harbor' }],
+    tagFilters: [],
+    title: 'boater_services.guest_harbors',
+    imageUrl: '/images/placeholder.png',
+  },
+  {
+    categoryFilters: [
+      { id: 'ahti:category:restaurant' },
+      { id: 'ahti:category:cafe' },
+      { id: 'ahti:category:bar' },
+    ],
+    tagFilters: [],
+    title: 'boater_services.restaurants',
+    imageUrl: '/images/placeholder.png',
+  },
+  {
+    categoryFilters: [],
+    tagFilters: [],
+    title: 'boater_services.rental_boats',
+    imageUrl: '/images/placeholder.png',
   },
 ];
 
