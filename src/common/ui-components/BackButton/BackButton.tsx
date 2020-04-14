@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 
+import { ReactComponent as ArrowLeft } from '../../../assets/icons/arrow_left.svg';
 import styles from './BackButton.module.scss';
 
 export interface BackButtonProps {
@@ -16,6 +17,7 @@ const BackButton: React.FC<BackButtonProps> = ({ className, onBack }) => {
       className={classNames(styles.backButton, className)}
       onClick={() => onBack()}
     >
+      <ArrowLeft />
       {t('common.back')}
     </button>
   );

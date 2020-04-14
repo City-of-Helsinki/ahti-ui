@@ -3,9 +3,6 @@
 
 $menu-z-index: 1000;
 
-.menuContentContainer {
-  height: 80vh;
-}
 .container {
   width: 100%;
   padding: $padding;
@@ -17,9 +14,9 @@ $menu-z-index: 1000;
   z-index: $menu-z-index;
 }
 
-.container_open {
+.containerOpen {
   padding: $padding;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 
   position: absolute;
