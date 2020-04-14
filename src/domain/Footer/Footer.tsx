@@ -23,8 +23,14 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
       >{`© Copyright ${new Date().getFullYear()} • ${t(
         'common.all_rights_reserved'
       )}`}</div>
-      <div className={styles.tos}>
+      <div className={styles.links}>
         <Link to={'/terms'}>{t('common.terms_of_service')}</Link>
+        <a href={t('footer.boating_url')} target={'_blank'}>
+          {t('footer.boating')}
+        </a>
+        <a href={t('footer.sea_rescue_url')} target={'_blank'}>
+          {t('footer.sea_rescue')}
+        </a>
       </div>
     </footer>
   );

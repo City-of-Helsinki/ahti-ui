@@ -210,5 +210,11 @@
   },
   "breadcrumb": {
     "close": "Sulje selekoitu filtteri"
+  },
+  "footer": {
+    "boating": "Kaupungin veneilysivut",
+    "boating_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily",
+    "sea_rescue": "Meripelastusohjeet",
+    "sea_rescue_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/lisatietoa-veneilysta/meripelastusohjeet/"
   }
 }
