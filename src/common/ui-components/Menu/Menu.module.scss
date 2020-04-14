@@ -43,6 +43,14 @@ $menu-z-index: 1000;
   padding-top: $padding;
   padding-bottom: $padding;
   background: transparent;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background: transparent;
+  align-items: flex-start;
 }
 
 .navLink {
@@ -61,9 +69,17 @@ $menu-z-index: 1000;
 }
 
 .menuElement {
+  position: relative;
+  flex: 1;
   z-index: 200;
 }
 
+.toggleMenuButton {
+  position: absolute;
+  right: 0;
+}
+
 .menuElementFront {
+  flex: 3;
   z-index: 8;
 }
