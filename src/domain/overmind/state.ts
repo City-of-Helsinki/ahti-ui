@@ -1,14 +1,13 @@
 import { Feature } from '../api/generated/types.d';
-import { MenuCategory } from '../../common/ui-components/Menu/Menu';
 import { Filter } from '../../../alltypes';
 
 export type State = {
   // Connected to URL parameters
+  queryString: string;
   selectedFeature: Feature | null;
   tagFilters: Filter[];
   categoryFilters: Filter[];
   mapViewToggle: boolean;
-  pathname: string;
 
   // App internal
   features: Feature[];
@@ -16,11 +15,11 @@ export type State = {
 };
 
 export const state: State = {
+  queryString: '',
   mapViewToggle: false,
   selectedFeature: null,
   features: [],
   featuresLoading: true,
   tagFilters: [],
   categoryFilters: [],
-  pathname: '/',
 };

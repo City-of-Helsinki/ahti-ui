@@ -14,6 +14,7 @@ const FEATURES_QUERY = gql`
       taggedWithAny: $tag
     ) {
       pageInfo {
+        startCursor
         endCursor
         hasNextPage
       }
