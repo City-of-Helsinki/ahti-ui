@@ -112,9 +112,7 @@ const Menu: React.FC<MenuProps> = ({
   return (
     <div
       className={
-        isOpen
-          ? classNames(styles.container_open)
-          : classNames(styles.container)
+        isOpen ? classNames(styles.containerOpen) : classNames(styles.container)
       }
     >
       <div className={styles.headerContainer}>
