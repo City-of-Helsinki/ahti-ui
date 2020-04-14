@@ -16,6 +16,7 @@ export type Scalars = {
   GenericScalar: any;
   Geometry: any;
   DateTime: Date;
+  Decimal: any;
   Date: any;
   Time: any;
 };
@@ -32,6 +33,12 @@ export type ContactInfo = {
   phoneNumber: Scalars['String'];
   email: Scalars['String'];
   address?: Maybe<Address>;
+};
+
+export type Depth = {
+  __typename?: 'Depth';
+  min: Scalars['Float'];
+  max: Scalars['Float'];
 };
 
 export type Distance = {
@@ -116,6 +123,12 @@ export type FeatureConnection = {
   edges: Array<Maybe<FeatureEdge>>;
 };
 
+export type FeatureDetails = {
+  __typename?: 'FeatureDetails';
+  harbor?: Maybe<HarborDetails>;
+  priceList: Array<Maybe<PriceTag>>;
+};
+
 export type FeatureEdge = {
   __typename?: 'FeatureEdge';
   node?: Maybe<Feature>;
@@ -138,6 +151,7 @@ export type FeatureProperties = {
   contactInfo?: Maybe<ContactInfo>;
   createdAt: Scalars['DateTime'];
   description?: Maybe<Scalars['String']>;
+  details?: Maybe<FeatureDetails>;
   ferries: Array<Ferry>;
   harbors: Array<Harbor>;
   images: Array<Image>;
@@ -236,6 +250,20 @@ export type HarborDepth = {
   maxDepth: Scalars['Int'];
 };
 
+export type HarborDetails = {
+  __typename?: 'HarborDetails';
+  moorings?: Maybe<Array<HarborMooringType>>;
+  depth?: Maybe<Depth>;
+};
+
+export enum HarborMooringType {
+  Slip = 'SLIP',
+  SternBuoy = 'STERN_BUOY',
+  SternPole = 'STERN_POLE',
+  Quayside = 'QUAYSIDE',
+  SeaBuoy = 'SEA_BUOY',
+}
+
 export type HarborPricing = {
   __typename?: 'HarborPricing';
   hour?: Maybe<Scalars['Int']>;
@@ -296,6 +324,15 @@ export type PageInfo = {
   endCursor?: Maybe<Scalars['String']>;
 };
 
+export type PriceTag = {
+  __typename?: 'PriceTag';
+  id: Scalars['ID'];
+  feature: Feature;
+  price: Scalars['Decimal'];
+  item: Scalars['String'];
+  unit?: Maybe<Scalars['String']>;
+};
+
 export type Query = {
   __typename?: 'Query';
   feature?: Maybe<Feature>;
@@ -303,6 +340,7 @@ export type Query = {
   features?: Maybe<FeatureConnection>;
   ferry?: Maybe<Ferry>;
   harbor?: Maybe<Harbor>;
+  tags?: Maybe<Array<Maybe<Tag>>>;
 };
 
 export type QueryFeatureArgs = {
@@ -333,7 +371,20 @@ export type QueryHarborArgs = {
 export type Tag = {
   __typename?: 'Tag';
   id: Scalars['String'];
+  features: FeatureConnection;
   name: Scalars['String'];
+};
+
+export type TagFeaturesArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+  distanceLte?: Maybe<Distance>;
+  updatedSince?: Maybe<Scalars['DateTime']>;
+  taggedWithAny?: Maybe<Array<Maybe<Scalars['String']>>>;
+  taggedWithAll?: Maybe<Array<Maybe<Scalars['String']>>>;
+  category?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type Teaser = {
@@ -413,6 +464,21 @@ type CommonFeatures_Harbor_Fragment = { __typename?: 'Harbor' } & {
 export type CommonFeaturesFragment =
   | CommonFeatures_Ferry_Fragment
   | CommonFeatures_Harbor_Fragment;
+
+export type CategoriesQueryVariables = {};
+
+export type CategoriesQuery = { __typename?: 'Query' } & {
+  featureCategories: Maybe<
+    Array<
+      Maybe<
+        { __typename?: 'FeatureCategory' } & Pick<
+          FeatureCategory,
+          'id' | 'name'
+        >
+      >
+    >
+  >;
+};
 
 export type FeatureQueryVariables = {
   ahtiId?: Maybe<Scalars['String']>;
@@ -535,7 +601,7 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
     { __typename?: 'FeatureConnection' } & {
       pageInfo: { __typename?: 'PageInfo' } & Pick<
         PageInfo,
-        'endCursor' | 'hasNextPage'
+        'startCursor' | 'endCursor' | 'hasNextPage'
       >;
       edges: Array<
         Maybe<
@@ -706,6 +772,12 @@ export type HarborQuery = { __typename?: 'Query' } & {
   >;
 };
 
+export type TagsQueryVariables = {};
+
+export type TagsQuery = { __typename?: 'Query' } & {
+  tags: Maybe<Array<Maybe<{ __typename?: 'Tag' } & Pick<Tag, 'id' | 'name'>>>>;
+};
+
 export const CommonFeaturesFragmentDoc = gql`
   fragment CommonFeatures on FeatureInterface {
     geometry {
@@ -738,6 +810,74 @@ export const CommonFeaturesFragmentDoc = gql`
     }
   }
 `;
+export const CategoriesDocument = gql`
+  query categories {
+    featureCategories {
+      id
+      name
+    }
+  }
+`;
+export type CategoriesComponentProps = Omit<
+  ApolloReactComponents.QueryComponentOptions<
+    CategoriesQuery,
+    CategoriesQueryVariables
+  >,
+  'query'
+>;
+
+export const CategoriesComponent = (props: CategoriesComponentProps) => (
+  <ApolloReactComponents.Query<CategoriesQuery, CategoriesQueryVariables>
+    query={CategoriesDocument}
+    {...props}
+  />
+);
+
+/**
+ * __useCategoriesQuery__
+ *
+ * To run a query within a React component, call `useCategoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useCategoriesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useCategoriesQuery(
+  baseOptions?: ApolloReactHooks.QueryHookOptions<
+    CategoriesQuery,
+    CategoriesQueryVariables
+  >
+) {
+  return ApolloReactHooks.useQuery<CategoriesQuery, CategoriesQueryVariables>(
+    CategoriesDocument,
+    baseOptions
+  );
+}
+export function useCategoriesLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+    CategoriesQuery,
+    CategoriesQueryVariables
+  >
+) {
+  return ApolloReactHooks.useLazyQuery<
+    CategoriesQuery,
+    CategoriesQueryVariables
+  >(CategoriesDocument, baseOptions);
+}
+export type CategoriesQueryHookResult = ReturnType<typeof useCategoriesQuery>;
+export type CategoriesLazyQueryHookResult = ReturnType<
+  typeof useCategoriesLazyQuery
+>;
+export type CategoriesQueryResult = ApolloReactCommon.QueryResult<
+  CategoriesQuery,
+  CategoriesQueryVariables
+>;
 export const FeatureDocument = gql`
   query feature($ahtiId: String) {
     feature(ahtiId: $ahtiId) {
@@ -886,6 +1026,7 @@ export const FeaturesDocument = gql`
       taggedWithAny: $tag
     ) {
       pageInfo {
+        startCursor
         endCursor
         hasNextPage
       }
@@ -1185,4 +1326,64 @@ export type HarborLazyQueryHookResult = ReturnType<typeof useHarborLazyQuery>;
 export type HarborQueryResult = ApolloReactCommon.QueryResult<
   HarborQuery,
   HarborQueryVariables
+>;
+export const TagsDocument = gql`
+  query tags {
+    tags {
+      id
+      name
+    }
+  }
+`;
+export type TagsComponentProps = Omit<
+  ApolloReactComponents.QueryComponentOptions<TagsQuery, TagsQueryVariables>,
+  'query'
+>;
+
+export const TagsComponent = (props: TagsComponentProps) => (
+  <ApolloReactComponents.Query<TagsQuery, TagsQueryVariables>
+    query={TagsDocument}
+    {...props}
+  />
+);
+
+/**
+ * __useTagsQuery__
+ *
+ * To run a query within a React component, call `useTagsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTagsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTagsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTagsQuery(
+  baseOptions?: ApolloReactHooks.QueryHookOptions<TagsQuery, TagsQueryVariables>
+) {
+  return ApolloReactHooks.useQuery<TagsQuery, TagsQueryVariables>(
+    TagsDocument,
+    baseOptions
+  );
+}
+export function useTagsLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+    TagsQuery,
+    TagsQueryVariables
+  >
+) {
+  return ApolloReactHooks.useLazyQuery<TagsQuery, TagsQueryVariables>(
+    TagsDocument,
+    baseOptions
+  );
+}
+export type TagsQueryHookResult = ReturnType<typeof useTagsQuery>;
+export type TagsLazyQueryHookResult = ReturnType<typeof useTagsLazyQuery>;
+export type TagsQueryResult = ApolloReactCommon.QueryResult<
+  TagsQuery,
+  TagsQueryVariables
 >;

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import WrappedMenu from '../../common/ui-components/WrappedMenu/WrappedMenu';
@@ -28,11 +28,12 @@ const IndexPage: React.FC = () => {
     },
   });
   const { t, i18n } = useTranslation();
+  const history = useHistory();
   useScrollToTop();
 
   useEffect(() => {
     refetch();
-  }, [i18n.language, refetch]);
+  }, [i18n.language]);
 
   const makeFilterFromCategoryId = (categoryId: string) => {
     return {
@@ -58,6 +59,7 @@ const IndexPage: React.FC = () => {
             translated={true}
             categories={Object.values(categories).map(makeFilterFromCategoryId)}
             onClick={(categoryId: string) => {
+              history.push('content');
               actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
             }}
           />
@@ -83,6 +85,7 @@ const IndexPage: React.FC = () => {
           {!loading && data && (
             <ListView
               onClick={(feature: Feature) => {
+                history.push('/content');
                 actions.selectFeature(feature);
               }}
               features={featuresLens.get(data)}
