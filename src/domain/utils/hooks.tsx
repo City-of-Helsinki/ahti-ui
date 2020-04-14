@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useMatomo } from '@datapunt/matomo-tracker-react';
 import * as queryString from 'query-string';
 
 import { useOvermind } from '../overmind';
@@ -18,6 +19,11 @@ import {
 export const useUrlState = () => {
   const { state, actions } = useOvermind();
   const history = useHistory();
+  const { trackPageView } = useMatomo();
+
+  useEffect(() => {
+    trackPageView({ href: window.location.href });
+  }, [window.location.href]);
 
   const setStateFromURL = () => {
     const parsed = queryString.parse(history.location.search);
