@@ -1,5 +1,4 @@
 import React from 'react';
-import { IconCheck, IconClose } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 
@@ -44,9 +43,9 @@ const ContentPage: React.FC = () => {
             onClose={(ahtiId) => actions.removeFilter(ahtiId)}
           />
           <Toggle
-            onIcon={<IconCheck />}
+            onIcon={<IconMap />}
             onIconText={t('content.map')}
-            offIcon={<IconClose />}
+            offIcon={<IconList />}
             offIconText={t('content.list')}
             toggleState={state.mapViewToggle}
             onToggle={() => actions.toggleMapView()}
