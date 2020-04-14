@@ -1,5 +1,7 @@
+@import '../../../styles/partials/variables';
+
 .backButton {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 26px;
+  font-size: $font-size;
+  font-weight: $font-width-thick;
+  line-height: $line-height;
 }
