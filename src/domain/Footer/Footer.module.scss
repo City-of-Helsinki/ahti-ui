@@ -30,3 +30,12 @@ $logo-width: 8rem;
   height: $logo-height;
   margin-top: $margin * 3;
 }
+
+.links {
+  margin: $margin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  white-space: nowrap;
+}
