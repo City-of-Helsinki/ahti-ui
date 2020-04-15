@@ -138,6 +138,7 @@ const Menu: React.FC<MenuProps> = ({
             onSelect={(ahtiId) => {
               history.push('/content');
               actions.selectFeatureById(ahtiId);
+              setIsOpen(false);
             }}
             isMenuOpen={isOpen}
           />
