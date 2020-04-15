@@ -5,9 +5,9 @@ import Card from '../Card';
 import HarborContent from '../harbor/HarborContent';
 import IslandContent from '../island/IslandContent';
 import FerryContent from '../ferry/FerryContent';
-import harborData from '../../../../domain/api/client/staticData/harbors.json';
 import ferryData from '../../../../domain/api/client/staticData/ferries.json';
 import island from './mockIsland.json';
+import harbor from './mockHarbor.json';
 
 const contentTypes = [HarborContent, IslandContent, FerryContent];
 
@@ -25,7 +25,6 @@ const onlyContains = (
 };
 
 describe('Card', () => {
-  const harbor = harborData[0];
   const ferry = ferryData[0];
 
   it('data determines content', () => {
