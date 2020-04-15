@@ -153,7 +153,6 @@ export type FeatureProperties = {
   description?: Maybe<Scalars['String']>;
   details?: Maybe<FeatureDetails>;
   ferries: Array<Ferry>;
-  harbors: Array<Harbor>;
   images: Array<Image>;
   links: Array<ExternalLink>;
   modifiedAt: Scalars['DateTime'];
@@ -230,26 +229,6 @@ export type GeometryObjectType = {
   coordinates?: Maybe<Scalars['GenericScalar']>;
 };
 
-export type Harbor = FeatureInterface & {
-  __typename?: 'Harbor';
-  id: Scalars['ID'];
-  type?: Maybe<Scalars['String']>;
-  geometry: GeometryObjectType;
-  bbox?: Maybe<Scalars['GenericScalar']>;
-  properties: GenericFeatureProperties;
-  pricing: HarborPricing;
-  mooringTypes: Array<MooringType>;
-  mooringInformation: Scalars['String'];
-  depth: HarborDepth;
-  bookingUrl?: Maybe<Scalars['String']>;
-};
-
-export type HarborDepth = {
-  __typename?: 'HarborDepth';
-  minDepth: Scalars['Int'];
-  maxDepth: Scalars['Int'];
-};
-
 export type HarborDetails = {
   __typename?: 'HarborDetails';
   moorings?: Maybe<Array<HarborMooringType>>;
@@ -263,14 +242,6 @@ export enum HarborMooringType {
   Quayside = 'QUAYSIDE',
   SeaBuoy = 'SEA_BUOY',
 }
-
-export type HarborPricing = {
-  __typename?: 'HarborPricing';
-  hour?: Maybe<Scalars['Int']>;
-  day?: Maybe<Scalars['Int']>;
-  overnight?: Maybe<Scalars['Int']>;
-  week?: Maybe<Scalars['Int']>;
-};
 
 export type HasContactInfo = {
   url: Scalars['String'];
@@ -289,12 +260,6 @@ export type License = {
   id: Scalars['ID'];
   name: Scalars['String'];
 };
-
-export enum MooringType {
-  Buoy = 'BUOY',
-  Pole = 'POLE',
-  Pier = 'PIER',
-}
 
 export type Node = {
   id: Scalars['ID'];
@@ -339,7 +304,6 @@ export type Query = {
   featureCategories?: Maybe<Array<Maybe<FeatureCategory>>>;
   features?: Maybe<FeatureConnection>;
   ferry?: Maybe<Ferry>;
-  harbor?: Maybe<Harbor>;
   tags?: Maybe<Array<Maybe<Tag>>>;
 };
 
@@ -361,10 +325,6 @@ export type QueryFeaturesArgs = {
 };
 
 export type QueryFerryArgs = {
-  ahtiId: Scalars['String'];
-};
-
-export type QueryHarborArgs = {
   ahtiId: Scalars['String'];
 };
 
@@ -405,7 +365,7 @@ export enum Weekday {
   Sunday = 'SUNDAY',
 }
 
-type CommonFeatures_Ferry_Fragment = { __typename?: 'Ferry' } & {
+export type CommonFeaturesFragment = { __typename?: 'Ferry' } & {
   geometry: { __typename?: 'GeometryObjectType' } & Pick<
     GeometryObjectType,
     'type' | 'coordinates'
@@ -432,38 +392,6 @@ type CommonFeatures_Ferry_Fragment = { __typename?: 'Ferry' } & {
         };
     };
 };
-
-type CommonFeatures_Harbor_Fragment = { __typename?: 'Harbor' } & {
-  geometry: { __typename?: 'GeometryObjectType' } & Pick<
-    GeometryObjectType,
-    'type' | 'coordinates'
-  >;
-  properties: { __typename?: 'GenericFeatureProperties' } & Pick<
-    GenericFeatureProperties,
-    'name' | 'description' | 'modifiedAt' | 'url'
-  > & {
-      images: Array<
-        { __typename?: 'Image' } & Pick<Image, 'url' | 'copyrightOwner'>
-      >;
-      tags: Array<{ __typename?: 'Tag' } & Pick<Tag, 'name'>>;
-      source: { __typename?: 'FeatureSource' } & Pick<FeatureSource, 'system'>;
-      contactInfo: { __typename?: 'ContactInfo' } & Pick<
-        ContactInfo,
-        'phoneNumber'
-      > & {
-          address: Maybe<
-            { __typename?: 'Address' } & Pick<
-              Address,
-              'streetAddress' | 'postalCode' | 'municipality'
-            >
-          >;
-        };
-    };
-};
-
-export type CommonFeaturesFragment =
-  | CommonFeatures_Ferry_Fragment
-  | CommonFeatures_Harbor_Fragment;
 
 export type CategoriesQueryVariables = {};
 
@@ -501,6 +429,20 @@ export type FeatureQuery = { __typename?: 'Query' } & {
             | 'url'
             | 'modifiedAt'
           > & {
+              details: Maybe<
+                { __typename?: 'FeatureDetails' } & {
+                  harbor: Maybe<
+                    { __typename?: 'HarborDetails' } & Pick<
+                      HarborDetails,
+                      'moorings'
+                    > & {
+                        depth: Maybe<
+                          { __typename?: 'Depth' } & Pick<Depth, 'min' | 'max'>
+                        >;
+                      }
+                  >;
+                }
+              >;
               children: Array<
                 Maybe<
                   { __typename?: 'Feature' } & {
@@ -576,13 +518,6 @@ export type FeatureQuery = { __typename?: 'Query' } & {
                   } & Pick<GenericFeatureProperties, 'ahtiId' | 'name'>;
                 }
               >;
-              harbors: Array<
-                { __typename?: 'Harbor' } & {
-                  properties: {
-                    __typename?: 'GenericFeatureProperties';
-                  } & Pick<GenericFeatureProperties, 'ahtiId' | 'name'>;
-                }
-              >;
             }
         >;
       }
@@ -622,6 +557,23 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                         | 'url'
                         | 'modifiedAt'
                       > & {
+                          details: Maybe<
+                            { __typename?: 'FeatureDetails' } & {
+                              harbor: Maybe<
+                                { __typename?: 'HarborDetails' } & Pick<
+                                  HarborDetails,
+                                  'moorings'
+                                > & {
+                                    depth: Maybe<
+                                      { __typename?: 'Depth' } & Pick<
+                                        Depth,
+                                        'min' | 'max'
+                                      >
+                                    >;
+                                  }
+                              >;
+                            }
+                          >;
                           children: Array<
                             Maybe<
                               { __typename?: 'Feature' } & {
@@ -706,16 +658,6 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                               >;
                             }
                           >;
-                          harbors: Array<
-                            { __typename?: 'Harbor' } & {
-                              properties: {
-                                __typename?: 'GenericFeatureProperties';
-                              } & Pick<
-                                GenericFeatureProperties,
-                                'ahtiId' | 'name'
-                              >;
-                            }
-                          >;
                         }
                     >;
                   }
@@ -746,29 +688,7 @@ export type FerryQuery = { __typename?: 'Query' } & {
             'streetAddress' | 'municipality'
           >
         >;
-      } & CommonFeatures_Ferry_Fragment
-  >;
-};
-
-export type HarborQueryVariables = {
-  ahtiId: Scalars['String'];
-};
-
-export type HarborQuery = { __typename?: 'Query' } & {
-  harbor: Maybe<
-    { __typename?: 'Harbor' } & Pick<
-      Harbor,
-      'mooringTypes' | 'mooringInformation' | 'bookingUrl'
-    > & {
-        pricing: { __typename?: 'HarborPricing' } & Pick<
-          HarborPricing,
-          'hour' | 'day' | 'overnight' | 'week'
-        >;
-        depth: { __typename?: 'HarborDepth' } & Pick<
-          HarborDepth,
-          'minDepth' | 'maxDepth'
-        >;
-      } & CommonFeatures_Harbor_Fragment
+      } & CommonFeaturesFragment
   >;
 };
 
@@ -889,6 +809,15 @@ export const FeatureDocument = gql`
       }
       properties {
         ahtiId
+        details {
+          harbor {
+            moorings
+            depth {
+              min
+              max
+            }
+          }
+        }
         children {
           properties {
             ahtiId
@@ -938,12 +867,6 @@ export const FeatureDocument = gql`
         }
         modifiedAt
         ferries @client {
-          properties {
-            ahtiId
-            name
-          }
-        }
-        harbors @client {
           properties {
             ahtiId
             name
@@ -1041,6 +964,15 @@ export const FeaturesDocument = gql`
           }
           properties {
             ahtiId
+            details {
+              harbor {
+                moorings
+                depth {
+                  min
+                  max
+                }
+              }
+            }
             children {
               properties {
                 ahtiId
@@ -1090,12 +1022,6 @@ export const FeaturesDocument = gql`
             }
             modifiedAt
             ferries @client {
-              properties {
-                ahtiId
-                name
-              }
-            }
-            harbors @client {
               properties {
                 ahtiId
                 name
@@ -1245,87 +1171,6 @@ export type FerryLazyQueryHookResult = ReturnType<typeof useFerryLazyQuery>;
 export type FerryQueryResult = ApolloReactCommon.QueryResult<
   FerryQuery,
   FerryQueryVariables
->;
-export const HarborDocument = gql`
-  query harbor($ahtiId: String!) {
-    harbor(ahtiId: $ahtiId) @client {
-      ...CommonFeatures
-      pricing {
-        hour
-        day
-        overnight
-        week
-      }
-      depth {
-        minDepth
-        maxDepth
-      }
-      mooringTypes
-      mooringInformation
-      bookingUrl
-    }
-  }
-  ${CommonFeaturesFragmentDoc}
-`;
-export type HarborComponentProps = Omit<
-  ApolloReactComponents.QueryComponentOptions<
-    HarborQuery,
-    HarborQueryVariables
-  >,
-  'query'
-> &
-  ({ variables: HarborQueryVariables; skip?: boolean } | { skip: boolean });
-
-export const HarborComponent = (props: HarborComponentProps) => (
-  <ApolloReactComponents.Query<HarborQuery, HarborQueryVariables>
-    query={HarborDocument}
-    {...props}
-  />
-);
-
-/**
- * __useHarborQuery__
- *
- * To run a query within a React component, call `useHarborQuery` and pass it any options that fit your needs.
- * When your component renders, `useHarborQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useHarborQuery({
- *   variables: {
- *      ahtiId: // value for 'ahtiId'
- *   },
- * });
- */
-export function useHarborQuery(
-  baseOptions?: ApolloReactHooks.QueryHookOptions<
-    HarborQuery,
-    HarborQueryVariables
-  >
-) {
-  return ApolloReactHooks.useQuery<HarborQuery, HarborQueryVariables>(
-    HarborDocument,
-    baseOptions
-  );
-}
-export function useHarborLazyQuery(
-  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
-    HarborQuery,
-    HarborQueryVariables
-  >
-) {
-  return ApolloReactHooks.useLazyQuery<HarborQuery, HarborQueryVariables>(
-    HarborDocument,
-    baseOptions
-  );
-}
-export type HarborQueryHookResult = ReturnType<typeof useHarborQuery>;
-export type HarborLazyQueryHookResult = ReturnType<typeof useHarborLazyQuery>;
-export type HarborQueryResult = ApolloReactCommon.QueryResult<
-  HarborQuery,
-  HarborQueryVariables
 >;
 export const TagsDocument = gql`
   query tags {
