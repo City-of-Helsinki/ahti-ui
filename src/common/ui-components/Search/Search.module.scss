@@ -3,8 +3,6 @@
 @import '../../../styles/partials/mixins';
 
 .container {
-  background-color: var(--hds-ui-color-white);
-
   /* Hide the scrollbar, but keep scrolling enabled */
   overflow-y: $vertical-overflow-scrollable;
 
@@ -13,6 +11,7 @@
 
   /* Internet Explorer 10+ */
   -ms-overflow-style: none;
+  // position: relative;
 }
 
 .container::-webkit-scrollbar {
@@ -53,9 +52,15 @@
 }
 
 .searchInput {
-  @include fullWidth;
-  border: none;
-  margin-left: $margin;
+  // @include fullWidth;
+  position: absolute;
+  height: 26px;
+  top: 0;
+  left: 26px;
+  width: 100%;
+  border-bottom: 3px solid black;
+  // margin-left: $margin;
+  background-color: var(--hds-ui-color-white);
 }
 
 .searchInput:focus {
@@ -64,10 +69,19 @@
 
 .searchInputWithIcon {
   @include flex;
+  position: relative;
+  height: 26px;
 }
 
 .searchIcon {
-  background-color: aqua;
+  position: absolute;
+  left: 0;
+}
+
+.searchIconRight {
+  right: 0;
+  position: absolute;
+  transition: position 2s;
 }
 
 .infoImage {
@@ -77,19 +91,21 @@
 }
 
 .search {
-  @include flex;
+  // @include flex;
   position: relative;
-  z-index: 799;
+  height: 26px;
+  z-index: 700;
+  // flex: 1;
+  // background-color: pink;
 }
 
 .resultsContainerAbsolute {
-  width: 100%;
+  width: $root-width;
   min-height: 100vh;
   position: absolute;
   padding-top: 6rem;
   top: 0;
   left: 0;
-  background-color: white;
 }
 
 .resultsContainerRelative {

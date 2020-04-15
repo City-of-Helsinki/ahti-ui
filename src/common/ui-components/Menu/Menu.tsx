@@ -140,6 +140,7 @@ const Menu: React.FC<MenuProps> = ({
               actions.selectFeatureById(ahtiId);
             }}
             isMenuOpen={isOpen}
+            isDark={menuDark}
           />
         </div>
         <div className={styles.menuElement}>

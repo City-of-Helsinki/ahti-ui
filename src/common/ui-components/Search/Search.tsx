@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { IconSearch } from 'hds-react';
+// import { IconSearch } from 'hds-react';
 import classNames from 'classnames/bind';
 import { useTranslation } from 'react-i18next';
 
+import SearchIcon from './SearchIcon';
 import styles from './Search.module.scss';
 import {
   Feature,
@@ -72,6 +73,7 @@ interface SearchProps {
   readonly maxItems?: number;
   readonly featuresToSearch: Feature[];
   readonly isMenuOpen: boolean;
+  readonly isDark?: boolean;
   onSelect(id: string): void;
 }
 
@@ -81,18 +83,24 @@ const Search: React.FC<SearchProps> = ({
   featuresToSearch,
   maxItems = 10,
   isMenuOpen,
+  isDark,
   onSelect,
 }) => {
   const { t } = useTranslation();
   const [searchResults, setSearchResults] = useState<SearchData[]>([]);
   const [currentSearch, setCurrentSearch] = useState<string>('');
+  const [showInput, setShowInput] = useState(false);
   const containerRef = useRef(null);
 
   useEffect(() => {
     if (currentSearch === '' || !isMenuOpen) {
       setSearchResults([]);
+      if (!isMenuOpen) {
+        setShowInput(false);
+      }
       return;
     }
+
     const properties = featuresToSearch.reduce((acc: any, curr: any) => {
       if (curr.properties) {
         return [...acc, curr.properties];
@@ -113,7 +121,7 @@ const Search: React.FC<SearchProps> = ({
         )
         .slice(0, maxItems)
     );
-  }, [currentSearch, featuresToSearch, maxItems]);
+  }, [currentSearch, featuresToSearch, isMenuOpen, maxItems]);
 
   return (
     <div
@@ -123,17 +131,30 @@ const Search: React.FC<SearchProps> = ({
     >
       <div className={styles.search}>
         <div className={styles.searchInputWithIcon}>
-          <div>
-            <IconSearch className={styles.bigIcon} />
+          <div
+            onClick={() => setShowInput(true)}
+            className={
+              showInput ? styles.searchIcon : classNames(styles.searchIconRight)
+            }
+          >
+            <SearchIcon
+              className={styles.bigIcon}
+              fill={isMenuOpen ? 'black' : 'white'}
+            />
           </div>
-          <input
-            type="text"
-            value={currentSearch}
-            className={styles.searchInput}
-            onChange={(event) => setCurrentSearch(event.target.value)}
-            aria-label={t('search.search')}
-            placeholder={t('search.search')}
-          />
+          {showInput ? (
+            <input
+              type="text"
+              value={currentSearch}
+              className={styles.searchInput}
+              onChange={(event) => {
+                setShowInput(true);
+                setCurrentSearch(event.target.value);
+              }}
+              aria-label={t('search.search')}
+              placeholder={t('search.search')}
+            />
+          ) : null}
         </div>
       </div>
       {searchResults.length > 0 && (
