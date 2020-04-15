@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentSlider renders without crashing 1`] = `"<div class=\\"commonSlider\\"><div class=\\"slick-slider slick-initialized\\"><div class=\\"slick-list\\"><div class=\\"slick-track\\" style=\\"width:0%;left:NaN%\\"></div></div></div></div>"`;
