@@ -11,6 +11,7 @@ import { useOvermind } from '../../../domain/overmind';
 import AhtiLogo from '../AhtiLogo/AhtiLogo';
 import MenuIcon from '../MenuIcon/MenuIcon';
 import NavDropdown from './NavDropdown/NavDropdown';
+import { useScrollDisabling } from '../../../common/utils/hooks';
 import styles from './Menu.module.scss';
 
 export type MenuItem = {
@@ -108,6 +109,8 @@ const Menu: React.FC<MenuProps> = ({
       </div>
     );
   };
+
+  useScrollDisabling(!isOpen);
 
   return (
     <div
