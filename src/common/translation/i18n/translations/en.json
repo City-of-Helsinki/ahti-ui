@@ -213,5 +213,11 @@
   },
   "breadcrumb": {
     "close": "Close selected filter"
+  },
+  "footer": {
+    "boating": "City of Helsinki's boating page",
+    "boating_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating",
+    "sea_rescue": "Sea rescue directions",
+    "sea_rescue_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating/boating-information/sea-rescue-directions/"
   }
 }
