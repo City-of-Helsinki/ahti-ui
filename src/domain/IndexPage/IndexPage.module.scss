@@ -43,3 +43,22 @@ $koros-margin: -5rem;
 .listSpinner {
   margin: $margin * 2;
 }
+
+.slide {
+  height: $index-content-slide-height;
+  margin: $margin / 4;
+  background-size: cover;
+  background-position: center;
+  padding: $padding;
+  box-shadow: inset 0 0 $index-content-slide-height / 2
+    var(--hds-ui-color-black-90);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  p {
+    hyphens: auto;
+    font-weight: $font-width-thick;
+    color: var(--hds-ui-color-white);
+  }
+}
