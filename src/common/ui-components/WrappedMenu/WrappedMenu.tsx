@@ -16,12 +16,8 @@ const WrappedMenu: React.FC<any> = ({ menuDark }) => {
       menuDark={menuDark}
       onSelect={(menuItem: MenuItem) => {
         history.push('/content');
-        menuItem.categoryIds.forEach((categoryId) => {
-          actions.addCategoryFilter({ id: categoryId });
-        });
-        menuItem.tagIds.forEach((tagId) => {
-          actions.addTagFilter({ id: tagId });
-        });
+        actions.setCategoryFiltersById(menuItem.categoryIds);
+        actions.setTagFiltersById(menuItem.tagIds);
       }}
       onLogoClick={() => actions.clearContentState()}
     />
