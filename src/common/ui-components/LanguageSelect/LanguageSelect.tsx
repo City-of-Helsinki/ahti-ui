@@ -18,6 +18,7 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({
 }) => {
   const { i18n } = useTranslation();
 
+  // console.log('changed to', darkMenu);
   return (
     <React.Fragment>
       {supportedLanguages.map((language: string, id: number) => {
@@ -25,12 +26,19 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({
           <button
             key={id}
             onClick={() => i18n.changeLanguage(language)}
-            className={cx({
-              languageButton: true,
-              languageButtonEnabled: language === i18n.language,
-              languageSwitchTextDark: darkMenu,
-              languageSwitchTextWhite: !darkMenu,
-            })}
+            className={
+              darkMenu
+                ? cx({
+                    languageButton: true,
+                    languageButtonEnabled: language === i18n.language,
+                    languageSwitchTextDark: darkMenu,
+                  })
+                : cx({
+                    languageButton: true,
+                    languageButtonEnabled: language === i18n.language,
+                    languageSwitchTextWhite: true,
+                  })
+            }
             lang={language}
           >
             {language}
