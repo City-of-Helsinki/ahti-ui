@@ -31,13 +31,13 @@
     "ahti:category:ferry": "Ferries",
     "ahti:category:harbor": "Harbors",
     "ahti:category:bar": "Bars",
-
     "ahti:tag:swimming": "Swimming"
   },
   "external_links": {
     "services": "Services related to this destination",
     "ahti:link:satamapaikkacom": "Book a pier at satamapaikka.com",
-    "ahti:link:jtline": "Browse timetables at the JT-line homepage"
+    "ahti:link:jtline": "Browse timetables at the JT-line homepage",
+    "servicemap": "See this location on servicemap"
   },
   "dropdown": {
     "label": "Menu",
@@ -190,9 +190,11 @@
       "overnightPricing": "Overnight",
       "booking": "Make a booking",
       "mooringTypes": {
-        "buoy": "Buoy",
-        "pole": "Pole",
-        "pier": "Pier"
+        "SLIP": "Slip",
+        "STERN_BUOY": "Stern buoy",
+        "STERN_POLE": "Stern pole",
+        "QUAYSIDE": "Quayside",
+        "SEA_BUOY": "Sea buoy"
       }
     }
   },

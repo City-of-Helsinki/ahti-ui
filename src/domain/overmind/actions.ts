@@ -2,7 +2,6 @@ import { DocumentNode } from 'graphql';
 
 import { Feature, FeatureCategory, Tag } from '../api/generated/types.d';
 import { Action, AsyncAction } from './';
-import HARBOR_QUERY from '../api/queries/harborQuery';
 import FERRY_QUERY from '../api/queries/ferryQuery';
 import FEATURE_QUERY from '../api/queries/featureQuery';
 import graphQLClient from '../api/';
@@ -154,10 +153,6 @@ export const selectFeatureById: AsyncAction<string> = async (
 
 export const setQueryString: Action<string> = ({ state }, queryString) => {
   state.queryString = queryString;
-};
-
-export const selectHarbor: AsyncAction<string> = async ({ state }, ahtiId) => {
-  state.selectedFeature = (await fetchFeatureData(HARBOR_QUERY, ahtiId)).harbor;
 };
 
 export const selectFerry: AsyncAction<string> = async ({ state }, ahtiId) => {

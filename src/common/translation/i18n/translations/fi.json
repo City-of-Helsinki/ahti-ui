@@ -38,7 +38,8 @@
   "external_links": {
     "services": "Kohteeseen liittyviä palveluja",
     "ahti:link:satamapaikkacom": "Varaa venepaikka satamapaikka.comin kautta",
-    "ahti:link:jtline": "Selaa aikatauluja JT-linen kotisivuilla"
+    "ahti:link:jtline": "Selaa aikatauluja JT-linen kotisivuilla",
+    "servicemap": "Katso kohdetta palvelukartalla"
   },
   "dropdown": {
     "label": "Valikko",
@@ -184,16 +185,18 @@
     "harbor_content": {
       "mooring": "Rantautumistiedot",
       "mooringInformation": "Venepaikat",
-      "mooringType": "Kiinnistystavat",
+      "mooringType": "Kiinnitystapa",
       "depth": "Syvyys",
       "pricing": "Hinnat ja varaukset",
       "dayPricing": "Päivävierailu",
       "overnightPricing": "Yöpyminen",
       "booking": "Varaa venepaikka",
       "mooringTypes": {
-        "buoy": "Poijukiinnitys",
-        "pole": "Paalukiinnitys",
-        "pier": "Laituri"
+        "SLIP": "Jättämä",
+        "STERN_BUOY": "Peräkiinnitys (poiju)",
+        "STERN_POLE": "Peräkiinnitys (paalu)",
+        "QUAYSIDE": "Laiturikiinnitys",
+        "SEA_BUOY": "Poiju"
       }
     }
   },
