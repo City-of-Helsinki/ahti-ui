@@ -96,6 +96,9 @@ const Map: React.FC<MapProps> = ({
 
     const isSelected =
       pointFeature?.properties?.itemId === selectedFeature?.properties?.ahtiId;
+    const feature = features.find(
+      (feature) => feature.properties.ahtiId === pointFeature.properties.itemId
+    );
     const onMarkerClick = () => {
       onClick(feature);
       window && window.scrollTo({ top: 0 });
@@ -111,7 +114,6 @@ const Map: React.FC<MapProps> = ({
         transitionDuration: transitionDuration,
       });
     };
-    const feature = features.find((feature) => feature.id === pointFeature.id);
     return (
       <Marker
         key={`pin-${id}`}
