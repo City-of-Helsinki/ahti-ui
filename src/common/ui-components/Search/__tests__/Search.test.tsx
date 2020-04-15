@@ -7,19 +7,14 @@ import mockFeatures from './mockFeatures.json';
 
 describe('Search', () => {
   let searchWrapper: ReactWrapper;
+  const mock = mockFeatures;
 
   beforeEach(() => {
     searchWrapper = mount(
       // @ts-ignore
-      <Search
-        featuresToSearch={mockFeatures}
-        onSelect={jest.fn()}
-        isMenuOpen={true}
-      />
+      <Search featuresToSearch={mock} onSelect={jest.fn()} isMenuOpen={true} />
     );
   });
-
-  console.log('searchWrapper', searchWrapper);
 
   it('matches snapshot', () => {
     expect(searchWrapper.html()).toMatchSnapshot();

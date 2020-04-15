@@ -8,9 +8,21 @@
       "__typename": "GeometryObjectType"
     },
     "properties": {
+      "createdAt": "28-07-1989",
+      "children": [],
+      "links": [],
+      "oneLiner": "Text",
+      "openingHoursPeriods": [],
+      "parents": [],
+      "translations": {},
       "ahtiId": "myhelsinki:place:364",
       "category": {
         "id": "ahti:category:island",
+        "features": {
+          "pageInfo": "some info",
+          "edges": []
+        },
+        "name": "Name",
         "__typename": "FeatureCategory"
       },
       "name": "Harakan luontokeskus",
