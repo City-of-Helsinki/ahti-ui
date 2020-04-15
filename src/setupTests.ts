@@ -3,19 +3,19 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom/extend-expect';
+import 'jest-canvas-mock';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import './common/translation/i18n/i18n';
 
-configure({ adapter: new Adapter() });
+// @ts-ignore
+import 'matchmedia-polyfill';
+import 'matchmedia-polyfill/matchMedia.addListener';
 
-// Polyfill for react-slick
-window.matchMedia =
-  window.matchMedia ||
-  function() {
-    return {
-      matches: false,
-      addListener: function() {},
-      removeListener: function() {}
-    };
-  };
+// initialize();
+
+// import { initialize } from './common/translation/i18n/i18n';
+
+// Likely want to requier both polyfills..
+
+configure({ adapter: new Adapter() });

@@ -41,7 +41,7 @@ const Filter: FilterI = ({
   options,
   onShow,
   onClose,
-  countMatches
+  countMatches,
 }) => {
   const { t } = useTranslation();
   const [selected, setSelected] = useState<Set<any>>(new Set());
@@ -95,7 +95,7 @@ const Filter: FilterI = ({
                     key={id}
                     onClick={() => onToggle(item.key)}
                     className={cx(styles.filterOption, {
-                      activeButton: selected.has(item.key)
+                      activeButton: selected.has(item.key),
                     })}
                   >
                     {selected.has(item.key) && (

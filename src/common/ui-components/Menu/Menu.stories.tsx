@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import Menu, { MenuCategory, MenuItem } from './Menu';
-import LanguageSelect from '../LanguageSelect/LanguageSelect';
-import { SUPPORTED_LANGUAGES } from '../../translation/TranslationConstants';
+import Menu, { MenuCategory } from './Menu';
 
 const defaultMenuItems: MenuCategory[] = [
   {
@@ -13,9 +11,9 @@ const defaultMenuItems: MenuCategory[] = [
       {
         categoryIds: ['ahti:category:island'],
         tagIds: [],
-        name: 'all_islands'
-      }
-    ]
+        name: 'all_islands',
+      },
+    ],
   },
   {
     title: 'travel_to_islands',
@@ -25,21 +23,21 @@ const defaultMenuItems: MenuCategory[] = [
         categoryIds: [],
         tagIds: [],
         name: 'water_bus_and_ferries',
-        disabled: true
+        disabled: true,
       },
       {
         categoryIds: [],
         tagIds: [],
         name: 'boat_rides_and_taxis',
-        disabled: true
+        disabled: true,
       },
       {
         categoryIds: [],
         tagIds: [],
         name: 'sightseeing_and_cruises',
-        disabled: true
-      }
-    ]
+        disabled: true,
+      },
+    ],
   },
   {
     title: 'saunas_and_swimming',
@@ -49,14 +47,14 @@ const defaultMenuItems: MenuCategory[] = [
       {
         categoryIds: [],
         tagIds: ['ahti:category:swimming'],
-        name: 'swimming'
+        name: 'swimming',
       },
       {
         categoryIds: [],
         tagIds: ['ahti:category:swimming'],
-        name: 'ice_swimming'
-      }
-    ]
+        name: 'ice_swimming',
+      },
+    ],
   },
   {
     title: 'restaurants',
@@ -65,15 +63,15 @@ const defaultMenuItems: MenuCategory[] = [
       {
         categoryIds: ['ahti:category:restaurant'],
         tagIds: [],
-        name: 'restaurants'
+        name: 'restaurants',
       },
       { categoryIds: ['ahti:category:cafe'], tagIds: [], name: 'cafes' },
       {
         categoryIds: ['ahti:category:bar'],
         tagIds: [],
-        name: 'beer_and_wine_bars'
-      }
-    ]
+        name: 'beer_and_wine_bars',
+      },
+    ],
   },
   {
     title: 'boater_services',
@@ -85,9 +83,9 @@ const defaultMenuItems: MenuCategory[] = [
         categoryIds: [],
         tagIds: [],
         name: 'septic_tank_draining',
-        disabled: true
-      }
-    ]
+        disabled: true,
+      },
+    ],
   },
   {
     title: 'rental_boats',
@@ -95,14 +93,16 @@ const defaultMenuItems: MenuCategory[] = [
     menuItems: [
       { categoryIds: [], tagIds: [], name: 'rowboats', disabled: true },
       { categoryIds: [], tagIds: [], name: 'motorboats', disabled: true },
-      { categoryIds: [], tagIds: [], name: 'other', disabled: true }
-    ]
-  }
+      { categoryIds: [], tagIds: [], name: 'other', disabled: true },
+    ],
+  },
 ];
 
 export default {
   title: 'Menu',
-  decorators: [(storyFn: () => React.ReactNode) => <Router>{storyFn()}</Router>]
+  decorators: [
+    (storyFn: () => React.ReactNode) => <Router>{storyFn()}</Router>,
+  ],
 };
 
 export const TranslatedMenuItems = () => {
@@ -110,23 +110,13 @@ export const TranslatedMenuItems = () => {
 };
 
 TranslatedMenuItems.story = {
-  name: 'Translated menu items'
+  name: 'Translated menu items',
 };
 
 export const MenuWithLanguageSelect = () => {
-  return (
-    <Menu
-      menuCategories={defaultMenuItems}
-      translate={true}
-      openComponent={
-        <LanguageSelect
-          supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
-        />
-      }
-    />
-  );
+  return <Menu menuCategories={defaultMenuItems} translate={true} />;
 };
 
 MenuWithLanguageSelect.story = {
-  name: 'Menu with language selection'
+  name: 'Menu with language selection',
 };

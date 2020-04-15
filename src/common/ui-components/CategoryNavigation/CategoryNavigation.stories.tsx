@@ -4,7 +4,7 @@ import CategoryNavigation from './CategoryNavigation';
 
 export default {
   title: 'CategoryNavigation',
-  component: CategoryNavigation
+  component: CategoryNavigation,
 };
 
 const noop = () => {
@@ -20,14 +20,14 @@ export const MultipleCategories = () => (
       { id: 'ahti:category:island', name: 'Islands' },
       { id: 'ahti:category:island', name: 'Islands' },
       { id: 'ahti:category:island', name: 'Islands' },
-      { id: 'ahti:category:island', name: 'Islands' }
+      { id: 'ahti:category:island', name: 'Islands' },
     ]}
     onClick={noop}
   />
 );
 
 MultipleCategories.story = {
-  name: 'Multiple categories'
+  name: 'Multiple categories',
 };
 
 export const SingleCategory = () => (
@@ -38,7 +38,7 @@ export const SingleCategory = () => (
 );
 
 SingleCategory.story = {
-  name: 'Single category'
+  name: 'Single category',
 };
 
 export const MaxItemsCategories = () => (
@@ -46,7 +46,7 @@ export const MaxItemsCategories = () => (
     categories={[
       { id: 'ahti:category:island', name: 'Islands' },
       { id: 'ahti:category:island', name: 'Islands' },
-      { id: 'ahti:category:island', name: 'Islands' }
+      { id: 'ahti:category:island', name: 'Islands' },
     ]}
     maxDisplayedCategories={3}
     onClick={noop}
@@ -54,5 +54,5 @@ export const MaxItemsCategories = () => (
 );
 
 MaxItemsCategories.story = {
-  name: 'Max items # of categories'
+  name: 'Max items # of categories',
 };

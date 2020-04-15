@@ -13,6 +13,7 @@
   background-color: var(--hds-ui-color-white);
   border-radius: $small-icon-height * 2;
   padding: $small-icon-height / 4 $small-icon-height / 2;
+  box-shadow: $pill-box-shadow;
 }
 
 .toggleOn {

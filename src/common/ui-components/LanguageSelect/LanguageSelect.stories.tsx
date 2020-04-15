@@ -5,7 +5,7 @@ import { SUPPORTED_LANGUAGES } from '../../translation/TranslationConstants';
 
 export default {
   title: 'LanguageSelect',
-  component: LanguageSelect
+  component: LanguageSelect,
 };
 
 export const SupportedLanguages = () => (
@@ -13,5 +13,5 @@ export const SupportedLanguages = () => (
 );
 
 SupportedLanguages.story = {
-  name: 'Supported languages'
+  name: 'Supported languages',
 };

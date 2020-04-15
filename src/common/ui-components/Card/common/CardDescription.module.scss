@@ -1,16 +1,6 @@
 @import '../../../../styles/partials/variables';
 @import '../../../../styles/partials/mixins';
 
-.descriptionContainer {
-  max-height: 200px;
-  overflow: hidden;
-}
-
-.descriptionContainerOpen {
-  max-height: unset;
-  overflow: unset;
-}
-
 .showMoreButton {
   @include buttonReset;
   color: var(--hds-brand-color-coat-of-arms-blue);

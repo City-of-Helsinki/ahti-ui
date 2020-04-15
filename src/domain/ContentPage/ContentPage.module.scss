@@ -1,5 +1,13 @@
 @import '../../styles/partials/variables';
 
+.container {
+  position: relative;
+  top: 6rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .subHeading {
   display: flex;
   flex-direction: row;
@@ -24,4 +32,11 @@
 
 .mapContainerShrunk {
   height: 35vh;
+}
+
+.spinner {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

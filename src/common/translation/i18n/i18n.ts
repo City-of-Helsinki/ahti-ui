@@ -12,18 +12,18 @@ i18n
   .init({
     resources: {
       en: {
-        translation: en
+        translation: en,
       },
       fi: {
-        translation: fi
-      }
+        translation: fi,
+      },
     },
     whitelist: Object.values(SUPPORTED_LANGUAGES),
     fallbackLng: SUPPORTED_LANGUAGES.FI,
     nsSeparator: false,
     interpolation: {
-      escapeValue: false // not needed for react as it escapes by default
-    }
+      escapeValue: false, // not needed for react as it escapes by default
+    },
   });
 
 export default i18n;

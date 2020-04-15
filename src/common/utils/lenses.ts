@@ -1,4 +1,12 @@
-import { Feature, FeaturesQuery } from '../../domain/api/generated/types.d';
+import {
+  CategoriesQuery,
+  Feature,
+  FeatureCategory,
+  FeaturesQuery,
+  Tag,
+  TagsQuery,
+} from '../../domain/api/generated/types.d';
+import { categories } from '../../domain/constants';
 
 export interface Lens<A, B> {
   get: (a: A) => B;
@@ -6,7 +14,7 @@ export interface Lens<A, B> {
 }
 
 export const featuresLens: Lens<FeaturesQuery, Feature[]> = {
-  get: data => {
+  get: (data) => {
     if (!data.features) {
       return [];
     }
@@ -24,5 +32,51 @@ export const featuresLens: Lens<FeaturesQuery, Feature[]> = {
   },
   set: () => {
     throw Error('Setting not supported');
-  }
+  },
+};
+
+export const ferriesLens: Lens<Feature, Feature[]> = {
+  get: (feature) => {
+    return feature.properties.children.filter(
+      (child) => child.properties.category.id === categories.FERRY
+    );
+  },
+  set: () => {
+    throw Error('Setting not supported');
+  },
+};
+
+export const harborsLens: Lens<Feature, Feature[]> = {
+  get: (feature) => {
+    return feature.properties.children.filter(
+      (child) => child.properties.category.id === categories.HARBOR
+    );
+  },
+  set: () => {
+    throw Error('Setting not supported');
+  },
+};
+
+export const tagsLens: Lens<TagsQuery, Tag[]> = {
+  get: (data) => {
+    if (!data || !data.tags) {
+      return [];
+    }
+    return data.tags as Tag[];
+  },
+  set: () => {
+    throw Error('Setting not supported');
+  },
+};
+
+export const categoriesLens: Lens<CategoriesQuery, FeatureCategory[]> = {
+  get: (data) => {
+    if (!data || !data.featureCategories) {
+      return [];
+    }
+    return data.featureCategories as FeatureCategory[];
+  },
+  set: () => {
+    throw Error('Setting not supported');
+  },
 };

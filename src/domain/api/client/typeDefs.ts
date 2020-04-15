@@ -44,46 +44,13 @@ const typeDefs = gql`
     child: Int!
   }
 
-  type Harbor implements FeatureInterface {
-    id: ID!
-    type: String
-    geometry: GeometryObjectType!
-    bbox: GenericScalar
-    properties: GenericFeatureProperties!
-    pricing: HarborPricing!
-    mooringTypes: [MooringType!]!
-    mooringInformation: String!
-    depth: HarborDepth!
-    bookingUrl: String
-  }
-
-  type HarborPricing {
-    hour: Int
-    day: Int
-    overnight: Int
-    week: Int
-  }
-
-  type HarborDepth {
-    minDepth: Int!
-    maxDepth: Int!
-  }
-
-  enum MooringType {
-    BUOY
-    POLE
-    PIER
-  }
-
   extend type FeatureProperties {
     shortDescription: String!
-    harbors: [Harbor!]!
     ferries: [Ferry!]!
   }
 
   extend type Query {
     ferry(ahtiId: String!): Ferry
-    harbor(ahtiId: String!): Harbor
   }
 `;
 

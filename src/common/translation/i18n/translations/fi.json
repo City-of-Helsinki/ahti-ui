@@ -6,7 +6,7 @@
   },
   "index": {
     "main_header": "Löydä upea merellinen Helsinki!",
-    "see_all_button": "Tutustu kohteisiin",
+    "see_all_button": "Näytä kaikki kohteet ja palvelut",
     "section1_header": "Merellisiä kohteita, elämyksiä ja palveluita",
     "section1_paragraph": "Löydä Helsingin lähiseudun merellinen ympäristö ja palvelut samasta paikasta.",
     "section2_header": "Uutta Ahdissa",
@@ -29,8 +29,17 @@
     "ahti:category:cafe": "Kahvilat",
     "ahti:category:sightseeing": "Nähtävyydet",
     "ahti:category:sauna": "Saunat",
+    "ahti:category:ferry": "Lautat",
+    "ahti:category:harbor": "Satamat",
+    "ahti:category:bar": "Baarit",
 
     "ahti:tag:swimming": "Uinti"
+  },
+  "external_links": {
+    "services": "Kohteeseen liittyviä palveluja",
+    "ahti:link:satamapaikkacom": "Varaa venepaikka satamapaikka.comin kautta",
+    "ahti:link:jtline": "Selaa aikatauluja JT-linen kotisivuilla",
+    "servicemap": "Katso kohdetta palvelukartalla"
   },
   "dropdown": {
     "label": "Valikko",
@@ -107,6 +116,7 @@
     "button": "Hyväksy"
   },
   "menu": {
+    "home": "avaa etusivu",
     "open": "avaa valikko",
     "close": "sulje valikko",
     "open_submenu": "avaa alivalikko",
@@ -175,24 +185,40 @@
     "harbor_content": {
       "mooring": "Rantautumistiedot",
       "mooringInformation": "Venepaikat",
-      "mooringType": "Kiinnistystavat",
+      "mooringType": "Kiinnitystapa",
       "depth": "Syvyys",
       "pricing": "Hinnat ja varaukset",
       "dayPricing": "Päivävierailu",
       "overnightPricing": "Yöpyminen",
       "booking": "Varaa venepaikka",
       "mooringTypes": {
-        "buoy": "Poijukiinnitys",
-        "pole": "Paalukiinnitys",
-        "pier": "Laituri"
+        "SLIP": "Jättämä",
+        "STERN_BUOY": "Peräkiinnitys (poiju)",
+        "STERN_POLE": "Peräkiinnitys (paalu)",
+        "QUAYSIDE": "Laiturikiinnitys",
+        "SEA_BUOY": "Poiju"
       }
     }
   },
   "search": {
     "search": "Hae",
+    "open": "Avaa kohde",
     "close": "Sulje haku"
   },
   "filter": {
     "close": "Sulje suodattimet"
+  },
+  "list_view": {
+    "open": "Avaa kohde",
+    "image_alt": "Kuva"
+  },
+  "breadcrumb": {
+    "close": "Sulje selekoitu filtteri"
+  },
+  "footer": {
+    "boating": "Kaupungin veneilysivut",
+    "boating_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily",
+    "sea_rescue": "Meripelastusohjeet",
+    "sea_rescue_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/lisatietoa-veneilysta/meripelastusohjeet/"
   }
 }

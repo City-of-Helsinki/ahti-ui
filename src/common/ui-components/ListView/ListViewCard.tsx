@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Feature } from '../../../domain/api/generated/types.d';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
@@ -11,13 +12,20 @@ export interface ListViewCardProps {
 }
 
 const ListViewCard: React.FC<ListViewCardProps> = ({ feature, onClick }) => {
-  const category = feature?.properties?.category?.name;
+  const { t } = useTranslation();
+  const category = feature?.properties?.category?.id;
   const name = feature?.properties?.name;
   const shortDescription = feature?.properties?.shortDescription;
   const imageUrl = getRandomImageUrl(feature?.properties?.images, null);
 
   return (
-    <div className={styles.container} role={'button'} onClick={onClick}>
+    <div
+      className={styles.container}
+      role={'button'}
+      onClick={onClick}
+      tabIndex={0}
+      aria-label={`${t('list_view.open')}: ${name}`}
+    >
       <div className={styles.infoContainer}>
         <div>
           <CategoryIcon category={category} className={styles.bigIcon} />
@@ -31,7 +39,7 @@ const ListViewCard: React.FC<ListViewCardProps> = ({ feature, onClick }) => {
         <img
           src={imageUrl}
           className={styles.image}
-          alt={''}
+          alt={`${t('list_view.image_alt')}: ${name}`}
           width={100}
           height={84}
         />

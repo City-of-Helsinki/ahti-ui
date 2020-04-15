@@ -32,7 +32,7 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
       selected >= children.length ||
       children[selected].props.disabled
     ) {
-      setSelected(children.findIndex(child => !child.props.disabled));
+      setSelected(children.findIndex((child) => !child.props.disabled));
     }
   }, [children, selected]);
 
@@ -42,7 +42,7 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
         key={id}
         className={cx({
           unselected: selected !== id,
-          disabled: child.props.disabled
+          disabled: child.props.disabled,
         })}
         onClick={() => setSelected(id)}
         role={'tab'}

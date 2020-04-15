@@ -1,6 +1,7 @@
 import React from 'react';
-import Search from './Search';
 import { ApolloProvider } from '@apollo/react-common';
+
+import Search from './Search';
 import graphQLClient from '../../../domain/api';
 
 export default {
@@ -9,19 +10,20 @@ export default {
   decorators: [
     (storyFn: () => React.ReactNode) => (
       <ApolloProvider client={graphQLClient}>{storyFn()}</ApolloProvider>
-    )
-  ]
+    ),
+  ],
 };
 
 export const DefaultSearch = () => (
   <Search
     featuresToSearch={[]}
-    onSelect={item => {
+    onSelect={(item) => {
       alert(`clicked: ${item}`);
     }}
+    isMenuOpen={true}
   />
 );
 
 DefaultSearch.story = {
-  name: 'Default Search'
+  name: 'Default Search',
 };

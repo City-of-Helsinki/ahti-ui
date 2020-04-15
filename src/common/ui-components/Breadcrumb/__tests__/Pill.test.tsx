@@ -16,10 +16,7 @@ describe('Pill', () => {
       <Pill name={'first'} category={'a'} onClose={onCloseMock} />
     );
     expect(onCloseMock).toBeCalledTimes(0);
-    wrapper
-      .find('button')
-      .first()
-      .simulate('click');
+    wrapper.find('button').first().simulate('click');
     expect(onCloseMock).toBeCalledTimes(1);
   });
 });

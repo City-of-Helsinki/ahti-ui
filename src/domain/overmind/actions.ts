@@ -1,8 +1,7 @@
 import { DocumentNode } from 'graphql';
 
-import { Feature } from '../api/generated/types.d';
+import { Feature, FeatureCategory, Tag } from '../api/generated/types.d';
 import { Action, AsyncAction } from './';
-import HARBOR_QUERY from '../api/queries/harborQuery';
 import FERRY_QUERY from '../api/queries/ferryQuery';
 import FEATURE_QUERY from '../api/queries/featureQuery';
 import graphQLClient from '../api/';
@@ -19,26 +18,82 @@ export const addCategoryFilter: Action<Filter> = (
   categoryFilter
 ) => {
   if (
-    !state.categoryFilters.map(filter => filter.id).includes(categoryFilter.id)
+    !state.categoryFilters
+      .map((filter) => filter.id)
+      .includes(categoryFilter.id)
   ) {
     state.categoryFilters = [...state.categoryFilters, categoryFilter];
   }
 };
 
 export const addTagFilter: Action<Filter> = ({ state }, tagFilter) => {
-  if (!state.tagFilters.map(filter => filter.id).includes(tagFilter.id)) {
+  if (!state.tagFilters.map((filter) => filter.id).includes(tagFilter.id)) {
     state.tagFilters = [...state.tagFilters, tagFilter];
   }
+};
+
+export const setTagFiltersById: Action<string[]> = (
+  { state },
+  tagFilterIds
+) => {
+  state.tagFilters = tagFilterIds.map((filterId) => {
+    return {
+      id: filterId,
+    };
+  });
+};
+
+export const setCategoryFiltersById: Action<string[]> = (
+  { state },
+  categoryFilterIds
+) => {
+  state.categoryFilters = categoryFilterIds.map((categoryId) => {
+    return {
+      id: categoryId,
+    };
+  });
+};
+
+export const translateTagFilters: Action<Tag[]> = (
+  { state },
+  availableTags
+) => {
+  state.tagFilters = state.tagFilters.map((tagFilter) => {
+    const found = availableTags.find(
+      (availableTag) => availableTag.id === tagFilter.id
+    );
+    return found ? found : tagFilter;
+  });
+};
+
+export const translateCategoryFilters: Action<FeatureCategory[]> = (
+  { state },
+  availableCategories
+) => {
+  state.categoryFilters = state.categoryFilters.map((categoryFilter) => {
+    const found = availableCategories.find(
+      (availableCategory) => availableCategory.id === categoryFilter.id
+    );
+    return found ? found : categoryFilter;
+  });
 };
 
 export const removeFilter: Action<string> = ({ state }, filterId) => {
   if (filterId.startsWith('ahti:category')) {
     state.categoryFilters = state.categoryFilters.filter(
-      categoryFilter => categoryFilter.id !== filterId
+      (categoryFilter) => categoryFilter.id !== filterId
     );
   } else if (filterId.startsWith('ahti:tag')) {
     state.tagFilters = state.tagFilters.filter(
-      tagFilter => tagFilter.id !== filterId
+      (tagFilter) => tagFilter.id !== filterId
+    );
+  } else {
+    // Filter could be of some other type, need to test both.
+    state.categoryFilters = state.categoryFilters.filter(
+      (categoryFilter) => categoryFilter.id !== filterId
+    );
+    state.tagFilters = state.tagFilters.filter(
+      (tagFilter) => tagFilter.id !== filterId
     );
   }
 };
@@ -47,20 +102,28 @@ export const toggleMapView: Action = ({ state }) => {
   state.mapViewToggle = !state.mapViewToggle;
 };
 
+export const setMapViewToggle: Action<boolean> = ({ state }, mapViewToggle) => {
+  state.mapViewToggle = mapViewToggle;
+};
+
 export const setFeatures: Action<Feature[]> = ({ state }, features) => {
   state.features = features;
 };
 
-const fetchFeatureData = async (query: DocumentNode, ahtiId: string) => {
-  const { data } = await graphQLClient.query({
-    query: query,
-    variables: { ahtiId: ahtiId }
-  });
-  return data;
+export const setFeaturesLoading: Action<boolean> = (
+  { state },
+  featuresLoading
+) => {
+  state.featuresLoading = featuresLoading;
 };
 
-export const selectFeature: Action<Feature> = ({ state }, feature) => {
-  state.selectedFeature = { ...feature };
+const fetchFeatureData = async (query: DocumentNode, ahtiId: string) => {
+  const { data } = await graphQLClient.query({
+    fetchPolicy: 'network-only',
+    query: query,
+    variables: { ahtiId: ahtiId },
+  });
+  return data;
 };
 
 export const clearSelectedFeature: Action = ({ state }) => {
@@ -76,8 +139,8 @@ export const selectFeatureById: AsyncAction<string> = async (
   ).feature;
 };
 
-export const selectHarbor: AsyncAction<string> = async ({ state }, ahtiId) => {
-  state.selectedFeature = (await fetchFeatureData(HARBOR_QUERY, ahtiId)).harbor;
+export const setQueryString: Action<string> = ({ state }, queryString) => {
+  state.queryString = queryString;
 };
 
 export const selectFerry: AsyncAction<string> = async ({ state }, ahtiId) => {

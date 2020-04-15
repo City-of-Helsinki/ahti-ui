@@ -2,15 +2,16 @@
 
 $menu-z-index: 1000;
 
+.ahti {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .menu {
-  position: sticky;
   top: 0;
   background-color: var(--hds-ui-color-white);
   z-index: $menu-z-index;
-}
-
-.search {
-  width: $search-component-width;
 }
 
 .searchResults {

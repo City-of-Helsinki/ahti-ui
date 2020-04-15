@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { KeyboardEventHandler, useState } from 'react';
 import classNames from 'classnames/bind';
 import { IconAngleRight } from 'hds-react';
 import { useTranslation } from 'react-i18next';
@@ -18,10 +18,15 @@ const NavDropdown: React.FC<NavDropdownProps> = ({
   title,
   category,
   initiallyOpen = false,
-  children
+  children,
 }) => {
   const [isOpen, setIsOpen] = useState(initiallyOpen);
   const { t } = useTranslation();
+
+  const enterPressed = (event: React.KeyboardEvent): boolean => {
+    const code = event.keyCode || event.which;
+    return code === 13;
+  };
 
   // FIXME: layout:grid doesn't work inside buttons on chrome. hence a div is used here instead
   return (
@@ -29,9 +34,11 @@ const NavDropdown: React.FC<NavDropdownProps> = ({
       <div
         className={styles.headerContainer}
         onClick={() => setIsOpen(!isOpen)}
+        onKeyPress={(event) => enterPressed(event) && setIsOpen(!isOpen)}
         role={'button'}
         aria-pressed={isOpen}
         aria-label={isOpen ? t('menu.close_submenu') : t('menu.open_submenu')}
+        tabIndex={0}
       >
         <CategoryIcon category={category} className={styles.icon} />
         <div className={styles.titleContainer}>{title}</div>
@@ -39,7 +46,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({
           className={cx({
             icon: true,
             angleIconOpen: isOpen,
-            angleIconClosed: !isOpen
+            angleIconClosed: !isOpen,
           })}
         />
       </div>

@@ -8,7 +8,7 @@ export type ImageWithCardProps = React.PropsWithChildren<{
 const ImageWithCard: React.FC<ImageWithCardProps> = ({
   src,
   children,
-  className
+  className,
 }) => {
   return (
     <div style={{ backgroundImage: `url(${src})` }} className={className}>

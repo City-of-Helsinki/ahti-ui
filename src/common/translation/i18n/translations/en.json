@@ -6,7 +6,7 @@
   },
   "index": {
     "main_header": "Discover the beautiful archipelago of Helsinki!",
-    "see_all_button": "Discover",
+    "see_all_button": "Show all destinations and services",
     "section1_header": "Destinations, services and experiences",
     "section1_paragraph": "Discover the seaside and services of Helsinki and neighboring municipalities in the same place.",
     "section2_header": "New in Ahti",
@@ -29,8 +29,17 @@
     "ahti:category:cafe": "Cafes",
     "ahti:category:sightseeing": "Sightseeing",
     "ahti:category:sauna": "Saunas",
+    "ahti:category:ferry": "Ferries",
+    "ahti:category:harbor": "Harbors",
+    "ahti:category:bar": "Bars",
 
     "ahti:tag:swimming": "Swimming"
+  },
+  "external_links": {
+    "services": "Services related to this destination",
+    "ahti:link:satamapaikkacom": "Book a pier at satamapaikka.com",
+    "ahti:link:jtline": "Browse timetables at the JT-line homepage",
+    "servicemap": "See this location on servicemap"
   },
   "dropdown": {
     "label": "Menu",
@@ -107,6 +116,7 @@
     "button": "Accept"
   },
   "menu": {
+    "home": "go to homepage",
     "open": "open menu",
     "close": "close menu",
     "open_submenu": "open submenu",
@@ -182,17 +192,33 @@
       "overnightPricing": "Overnight",
       "booking": "Make a booking",
       "mooringTypes": {
-        "buoy": "Buoy",
-        "pole": "Pole",
-        "pier": "Pier"
+        "SLIP": "Slip",
+        "STERN_BUOY": "Stern buoy",
+        "STERN_POLE": "Stern pole",
+        "QUAYSIDE": "Quayside",
+        "SEA_BUOY": "Sea buoy"
       }
     }
   },
   "search": {
     "search": "Search",
+    "open": "Open result",
     "close": "Close search"
   },
   "filter": {
     "close": "Close filters"
+  },
+  "list_view": {
+    "open": "Open item",
+    "image_alt": "Image"
+  },
+  "breadcrumb": {
+    "close": "Close selected filter"
+  },
+  "footer": {
+    "boating": "City of Helsinki's boating page",
+    "boating_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating",
+    "sea_rescue": "Sea rescue directions",
+    "sea_rescue_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating/boating-information/sea-rescue-directions/"
   }
 }

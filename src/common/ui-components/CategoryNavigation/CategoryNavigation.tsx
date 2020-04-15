@@ -26,7 +26,7 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
   selectedId,
   maxDisplayedCategories = 5,
   translated = false,
-  onClick
+  onClick,
 }) => {
   const { t, i18n } = useTranslation();
   const sliderSettings = {
@@ -35,7 +35,12 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
       categories.length > maxDisplayedCategories
         ? maxDisplayedCategories
         : categories.length,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+  };
+
+  const enterPressed = (event: React.KeyboardEvent): boolean => {
+    const code = event.keyCode || event.which;
+    return code === 13;
   };
 
   return (
@@ -48,9 +53,10 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
           <div
             role={'button'}
             className={cx(styles.categoryContainer, {
-              categoryIconSelected: category.id === selectedId
+              categoryIconSelected: category.id === selectedId,
             })}
             onClick={() => onClick(category.id)}
+            onKeyPress={(event) => enterPressed(event) && onClick(category.id)}
             tabIndex={0}
           >
             <div className={styles.categoryIconContainer}>
