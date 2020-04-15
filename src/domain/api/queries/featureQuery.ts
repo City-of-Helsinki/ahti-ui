@@ -11,6 +11,15 @@ const FEATURE_QUERY = gql`
       }
       properties {
         ahtiId
+        details {
+          harbor {
+            moorings
+            depth {
+              min
+              max
+            }
+          }
+        }
         children {
           properties {
             ahtiId
@@ -60,12 +69,6 @@ const FEATURE_QUERY = gql`
         }
         modifiedAt
         ferries @client {
-          properties {
-            ahtiId
-            name
-          }
-        }
-        harbors @client {
           properties {
             ahtiId
             name

@@ -1,0 +1,60 @@
+{
+  "id": "RmVhdHVyZToyMzc4",
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [25.177235, 60.207714],
+    "__typename": "GeometryObjectType"
+  },
+  "properties": {
+    "ahtiId": "venepaikka:harbor:SGFyYm9yTm9kZTo3OGVmNGFhMC0yMmRiLTRiYzctYmMyZC05MmU0NGY2N2EwZmU=",
+    "details": {
+      "harbor": {
+        "moorings": ["SLIP"],
+        "depth": null,
+        "__typename": "HarborDetails"
+      },
+      "__typename": "FeatureDetails"
+    },
+    "children": [],
+    "parents": [],
+    "category": {
+      "id": "ahti:category:harbor",
+      "__typename": "FeatureCategory"
+    },
+    "links": [
+      {
+        "type": "servicemap",
+        "url": "https://palvelukartta.hel.fi/fi/unit/40842",
+        "__typename": "ExternalLink"
+      }
+    ],
+    "name": "Porslahden venesatama",
+    "tags": [
+      {
+        "id": "ahti:tag:harbor",
+        "name": "satama",
+        "__typename": "Tag"
+      }
+    ],
+    "description": "",
+    "url": "",
+    "contactInfo": {
+      "phoneNumber": "",
+      "address": {
+        "postalCode": "00990",
+        "municipality": "Helsinki",
+        "__typename": "Address"
+      },
+      "__typename": "ContactInfo"
+    },
+    "images": [],
+    "source": {
+      "system": "venepaikka",
+      "__typename": "FeatureSource"
+    },
+    "modifiedAt": "2020-04-08T07:45:15.113994+00:00",
+    "__typename": "FeatureProperties"
+  },
+  "__typename": "Feature"
+}

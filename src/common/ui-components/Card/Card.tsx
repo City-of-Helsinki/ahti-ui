@@ -10,6 +10,7 @@ import { Filter } from '../../../../alltypes';
 import { Tag } from '../../../domain/api/generated/types.d';
 import CommonCardInfo from './common/CommonCardInfo';
 import CardLinks from './common/CardLinks';
+import { categories } from '../../../domain/constants';
 
 export interface CardProps {
   readonly className?: string;
@@ -25,6 +26,7 @@ const Card: React.FC<CardProps> = ({
   const type = feature.__typename;
   const { name, images, tags } = feature.properties;
   const { postalCode, municipality } = feature.properties.contactInfo.address;
+  const category = feature.properties.category.id;
 
   const renderTags = () => {
     return (
@@ -55,8 +57,10 @@ const Card: React.FC<CardProps> = ({
           >{`${postalCode} ${municipality}`}</h2>
           <div className={styles.tagsContainer}>{renderTags()}</div>
 
-          {type === 'Feature' && <IslandContent island={feature} />}
-          {type === 'Harbor' && <HarborContent harbor={feature} />}
+          {type === 'Feature' && category !== categories.HARBOR && (
+            <IslandContent island={feature} />
+          )}
+          {category === categories.HARBOR && <HarborContent harbor={feature} />}
           {type === 'Ferry' && <FerryContent ferry={feature} />}
 
           {feature?.properties?.links?.length > 0 && (
