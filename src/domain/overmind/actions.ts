@@ -26,10 +26,18 @@ export const addCategoryFilter: Action<Filter> = (
   }
 };
 
+export const setCategoryFilters: Action<Filter[]> = ({ state }, filters) => {
+  state.categoryFilters = filters;
+};
+
 export const addTagFilter: Action<Filter> = ({ state }, tagFilter) => {
   if (!state.tagFilters.map((filter) => filter.id).includes(tagFilter.id)) {
     state.tagFilters = [...state.tagFilters, tagFilter];
   }
+};
+
+export const setTagFilters: Action<Filter[]> = ({ state }, filters) => {
+  state.tagFilters = filters;
 };
 
 export const setTagFiltersById: Action<string[]> = (
