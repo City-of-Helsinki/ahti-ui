@@ -3,7 +3,12 @@
 
 .languageButton {
   @include buttonReset;
-  margin: $margin/4;
+  display: inline-block;
+  width: 49%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  padding-bottom: 0;
 }
 
 .languageButtonEnabled {

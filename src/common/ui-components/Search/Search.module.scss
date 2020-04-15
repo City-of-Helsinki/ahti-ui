@@ -101,7 +101,7 @@ $menu_component_line_width: 3px;
   width: $root-width;
   min-height: 100vh;
   position: absolute;
-  padding-top: $menu_height;
+  padding-top: $menu_height - 1rem;
   top: 0;
   left: 0;
 }

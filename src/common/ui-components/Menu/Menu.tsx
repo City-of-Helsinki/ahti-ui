@@ -124,7 +124,7 @@ const Menu: React.FC<MenuProps> = ({
             <AhtiLogo fillColor={menuDark || isOpen ? '#001A33' : 'white'} />
           </RouterLink>
         </div>
-        <div className={styles.menuElement}>
+        <div className={styles.menuElementLang}>
           <div>
             <LanguageSelect
               supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}

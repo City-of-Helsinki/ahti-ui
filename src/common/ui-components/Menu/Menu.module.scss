@@ -71,6 +71,19 @@ $menu-z-index: 1000;
   z-index: 200;
 }
 
+.menuElementLang {
+  position: relative;
+  flex: 2;
+  z-index: 200;
+
+  > div {
+    width: 100%;
+    // background-color: purple;
+    padding: 0;
+    height: 26px;
+  }
+}
+
 .toggleMenuButton {
   position: absolute;
   right: 0;

@@ -14,13 +14,12 @@ export interface LanguageSelectProps {
 
 const LanguageSelect: React.FC<LanguageSelectProps> = ({
   supportedLanguages,
-  className,
   darkMenu,
 }) => {
   const { i18n } = useTranslation();
 
   return (
-    <div className={className}>
+    <React.Fragment>
       {supportedLanguages.map((language: string, id: number) => {
         return (
           <button
@@ -38,7 +37,7 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({
           </button>
         );
       })}
-    </div>
+    </React.Fragment>
   );
 };
 
