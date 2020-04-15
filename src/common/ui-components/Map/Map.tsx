@@ -96,6 +96,9 @@ const Map: React.FC<MapProps> = ({
 
     const isSelected =
       pointFeature?.properties?.itemId === selectedFeature?.properties?.ahtiId;
+    const feature = features.find(
+      (feature) => feature.properties.ahtiId === pointFeature.properties.itemId
+    );
     const onMarkerClick = () => {
       onClick(feature);
       window && window.scrollTo({ top: 0 });
@@ -111,7 +114,6 @@ const Map: React.FC<MapProps> = ({
         transitionDuration: transitionDuration,
       });
     };
-    const feature = features.find((feature) => feature.id === pointFeature.id);
     return (
       <Marker
         key={`pin-${id}`}
@@ -168,7 +170,7 @@ const Map: React.FC<MapProps> = ({
       clickRadius={10}
       onNativeClick={onMapClick}
     >
-      {clusters.map((cluster: any) => {
+      {clusters.map((cluster: any, id: number) => {
         const [longitude, latitude] = cluster.geometry.coordinates;
         const { cluster: isCluster } = cluster.properties;
         // this is temporary, new designs should come soon
@@ -178,7 +180,7 @@ const Map: React.FC<MapProps> = ({
           } = cluster.properties as ClusterProperties;
           return (
             <Marker
-              key={`cluster-${cluster.id}`}
+              key={`cluster-${id}`}
               latitude={latitude}
               longitude={longitude}
             >
@@ -194,10 +196,7 @@ const Map: React.FC<MapProps> = ({
             </Marker>
           );
         } else {
-          return renderPin(
-            cluster as PointFeature<GeoJsonProperties>,
-            cluster.id
-          );
+          return renderPin(cluster as PointFeature<GeoJsonProperties>, id);
         }
       })}
       <div className={styles.mapControls}>
