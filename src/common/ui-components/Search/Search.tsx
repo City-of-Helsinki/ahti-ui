@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-// import { IconSearch } from 'hds-react';
 import classNames from 'classnames/bind';
 import { useTranslation } from 'react-i18next';
 
@@ -73,7 +72,6 @@ interface SearchProps {
   readonly maxItems?: number;
   readonly featuresToSearch: Feature[];
   readonly isMenuOpen: boolean;
-  readonly isDark?: boolean;
   onSelect(id: string): void;
 }
 
@@ -83,7 +81,6 @@ const Search: React.FC<SearchProps> = ({
   featuresToSearch,
   maxItems = 10,
   isMenuOpen,
-  isDark,
   onSelect,
 }) => {
   const { t } = useTranslation();
