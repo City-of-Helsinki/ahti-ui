@@ -216,5 +216,11 @@
     "guest_harbors": "Etsi satamia",
     "restaurants": "Kaikki Helsingin merelliset ravintolat",
     "rental_boats": "Vuokraa vene käyttöösi"
+},
+  "footer": {
+    "boating": "Kaupungin veneilysivut",
+    "boating_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily",
+    "sea_rescue": "Meripelastusohjeet",
+    "sea_rescue_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/lisatietoa-veneilysta/meripelastusohjeet/"
   }
 }
