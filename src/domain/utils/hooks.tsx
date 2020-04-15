@@ -101,16 +101,14 @@ type FeaturesQueryVariables = {
 export const useFeatures = () => {
   const { i18n } = useTranslation();
   const { state, actions } = useOvermind();
+  const [pageInfo, setPageInfo] = useState(null);
   const [queryVariables, setQueryVariables] = useState<FeaturesQueryVariables>({
     categories: [],
     tags: [],
   });
-  const { data, networkStatus, refetch, client } = useFeaturesQuery({
+  const { data, networkStatus, refetch, client, fetchMore } = useFeaturesQuery({
     variables: {
-      first:
-        state.tagFilters.length === 0 && state.categoryFilters.length === 0
-          ? 100
-          : undefined,
+      first: 25,
       category: queryVariables.categories,
       tag: queryVariables.tags,
     },
@@ -131,16 +129,36 @@ export const useFeatures = () => {
     }
     refetch();
   }, [i18n.language]);
-
   useEffect(() => {
     // Inspect network status enum:
     // https://github.com/apollographql/apollo-client/blob/master/src/core/networkStatus.ts
-    actions.setFeaturesLoading(networkStatus ? networkStatus < 7 : false);
-  }, [networkStatus]);
+    const isLoading = networkStatus ? networkStatus < 7 : false;
+    actions.setFeaturesLoading(isLoading);
+
+    if (!isLoading && pageInfo && pageInfo.hasNextPage) {
+      fetchMore({
+        variables: { after: pageInfo.endCursor },
+        updateQuery: (prev: any, { fetchMoreResult }) => {
+          if (!fetchMoreResult) return prev;
+          return Object.assign({}, prev, {
+            features: {
+              edges: [
+                ...prev.features.edges,
+                ...fetchMoreResult.features.edges,
+              ],
+              pageInfo: fetchMoreResult.features.pageInfo,
+              __typename: fetchMoreResult.features.__typename,
+            },
+          });
+        },
+      });
+    }
+  }, [networkStatus, pageInfo]);
 
   useEffect(() => {
     if (data) {
       actions.setFeatures([...featuresLens.get(data)]);
+      setPageInfo(data.features.pageInfo);
     }
   }, [data]);
 };
