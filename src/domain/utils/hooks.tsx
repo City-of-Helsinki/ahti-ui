@@ -80,7 +80,10 @@ export const useUrlState = () => {
     actions.setQueryString(qs);
 
     if (history.location.search !== qs) {
-      history.push({ search: qs });
+      history.push({
+        pathname: qs === '' ? history.location.pathname : '/content',
+        search: qs,
+      });
     }
   }, [
     state.selectedFeature,
@@ -94,7 +97,7 @@ export const useFeatures = () => {
   const { i18n } = useTranslation();
   const { state, actions } = useOvermind();
   const [cursor, setCursor] = useState<string>('');
-  const { data, loading } = useFeaturesQuery({
+  const { data, loading, refetch } = useFeaturesQuery({
     variables: {
       first: 50,
       after: cursor,
@@ -109,7 +112,6 @@ export const useFeatures = () => {
   }, [state.tagFilters, state.categoryFilters]);
 
   useEffect(() => {
-    console.log(i18n.language);
     actions.setFeatures([]);
     setCursor('');
     if (state.selectedFeature) {
