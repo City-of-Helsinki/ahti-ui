@@ -11,9 +11,15 @@ describe('Search', () => {
   beforeEach(() => {
     searchWrapper = mount(
       // @ts-ignore
-      <Search featuresToSearch={mockFeatures} onSelect={jest.fn()} />
+      <Search
+        featuresToSearch={mockFeatures}
+        onSelect={jest.fn()}
+        isMenuOpen={true}
+      />
     );
   });
+
+  console.log('searchWrapper', searchWrapper);
 
   it('matches snapshot', () => {
     expect(searchWrapper.html()).toMatchSnapshot();
@@ -21,10 +27,11 @@ describe('Search', () => {
 
   it('returns items on search', async () => {
     expect(searchWrapper.find(SearchItem)).toHaveLength(0);
+    searchWrapper.find('svg').simulate('click');
     searchWrapper.find('input').simulate('focus');
-    // searchWrapper.find('input').simulate('change', { target: { value: 'a' } });
+    searchWrapper.find('input').simulate('change', { target: { value: 'a' } });
     await waitForExpect(() => {
-      // expect(searchWrapper.find(SearchItem)).toHaveLength(1);
+      expect(searchWrapper.find(SearchItem)).toHaveLength(1);
     });
   });
 });
