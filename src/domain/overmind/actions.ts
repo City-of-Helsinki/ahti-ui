@@ -134,10 +134,6 @@ const fetchFeatureData = async (query: DocumentNode, ahtiId: string) => {
   return data;
 };
 
-export const selectFeature: Action<Feature> = ({ state }, feature) => {
-  state.selectedFeature = { ...feature };
-};
-
 export const clearSelectedFeature: Action = ({ state }) => {
   state.selectedFeature = null;
 };

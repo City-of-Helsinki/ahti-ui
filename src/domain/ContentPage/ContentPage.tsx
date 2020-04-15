@@ -64,7 +64,9 @@ const ContentPage: React.FC = () => {
             {!state.selectedFeature && !state.mapViewToggle && (
               <ListView
                 features={state.features}
-                onClick={(feature) => actions.selectFeature(feature)}
+                onClick={(feature) =>
+                  actions.selectFeatureById(feature.properties.ahtiId)
+                }
               />
             )}
             {state.mapViewToggle && (
@@ -77,7 +79,9 @@ const ContentPage: React.FC = () => {
                   className={styles.map}
                   features={state.features}
                   selectedFeature={state.selectedFeature}
-                  onClick={actions.selectFeature}
+                  onClick={(feature) =>
+                    actions.selectFeatureById(feature.properties.ahtiId)
+                  }
                 />
               </div>
             )}

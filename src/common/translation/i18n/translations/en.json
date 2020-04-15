@@ -6,7 +6,7 @@
   },
   "index": {
     "main_header": "Discover the beautiful archipelago of Helsinki!",
-    "see_all_button": "Discover",
+    "see_all_button": "Show all destinations and services",
     "section1_header": "Destinations, services and experiences",
     "section1_paragraph": "Discover the seaside and services of Helsinki and neighboring municipalities in the same place.",
     "section2_header": "Services for boaters on the map",
@@ -217,12 +217,11 @@
     "guest_harbors": "View all harbors",
     "restaurants": "View all seaside restaurants",
     "rental_boats": "See all boat rental options"
-},
+  },
   "footer": {
     "boating": "City of Helsinki's boating page",
     "boating_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating",
     "sea_rescue": "Sea rescue directions",
     "sea_rescue_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating/boating-information/sea-rescue-directions/"
-
   }
 }

@@ -6,7 +6,7 @@
   },
   "index": {
     "main_header": "Löydä upea merellinen Helsinki!",
-    "see_all_button": "Tutustu kohteisiin",
+    "see_all_button": "Näytä kaikki kohteet ja palvelut",
     "section1_header": "Merellisiä kohteita, elämyksiä ja palveluita",
     "section1_paragraph": "Löydä Helsingin lähiseudun merellinen ympäristö ja palvelut samasta paikasta.",
     "section2_header": "Veneilijöiden palvelut kartalla",
@@ -219,7 +219,7 @@
     "guest_harbors": "Etsi satamia",
     "restaurants": "Kaikki Helsingin merelliset ravintolat",
     "rental_boats": "Vuokraa vene käyttöösi"
-},
+  },
   "footer": {
     "boating": "Kaupungin veneilysivut",
     "boating_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily",
