@@ -11,6 +11,7 @@ export const clearContentState: Action = ({ state }) => {
   state.tagFilters = [];
   state.categoryFilters = [];
   state.selectedFeature = null;
+  state.mapViewToggle = false;
 };
 
 export const addCategoryFilter: Action<Filter> = (
