@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 import WrappedMenu from '../../common/ui-components/WrappedMenu/WrappedMenu';
 import { useOvermind } from '../overmind';
-import { boaterServicesSliderContent, categories } from '../constants';
+import { categories } from '../constants';
 import HeroBanner from '../../common/ui-components/HeroBanner/HeroBanner';
 import ListView from '../../common/ui-components/ListView/ListView';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
@@ -17,7 +17,6 @@ import { featuresLens } from '../../common/utils/lenses';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_rudder.json';
 import videoUrl from '../../assets/videos/Ahti_vertical.mp4';
-import ContentSlider from '../../common/ui-components/Slider/ContentSlider/ContentSlider';
 import { Filter } from '../../../alltypes';
 
 const IndexPage: React.FC = () => {
@@ -51,7 +50,6 @@ const IndexPage: React.FC = () => {
             {t('index.see_all_button')}
           </Link>
         </HeroBanner>
-
         <section className={styles.section}>
           <h2>{t('index.section1_header')}</h2>
           <p>{t('index.section1_paragraph')}</p>
@@ -60,20 +58,6 @@ const IndexPage: React.FC = () => {
             categories={Object.values(categories).map(makeFilterFromId)}
             onClick={(categoryId: string) => {
               actions.addCategoryFilter(makeFilterFromId(categoryId));
-            }}
-          />
-        </section>
-
-        <section className={styles.section}>
-          <h2>{t('index.section2_header')}</h2>
-          <ContentSlider
-            items={boaterServicesSliderContent}
-            translated={true}
-            slideClassName={styles.slide}
-            onClick={(item) => {
-              actions.setMapViewToggle(true);
-              actions.setTagFilters(item.tagFilters);
-              actions.setCategoryFilters(item.categoryFilters);
             }}
           />
         </section>
@@ -108,7 +92,6 @@ const IndexPage: React.FC = () => {
             {t('index.section3_button')}
           </Link>
         </section>
-
         <PromotionCard
           imageSrc={'/images/new_in_ahti.jpg'}
           header={t('index.section5_header')}
