@@ -41,7 +41,9 @@ h5,
 h6 {
   max-width: 33em;
 }
-
+html {
+  overflow-x: hidden;
+}
 body {
   overflow-x: hidden;
   height: 100vh;
