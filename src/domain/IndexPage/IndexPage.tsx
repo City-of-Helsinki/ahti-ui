@@ -75,7 +75,7 @@ const IndexPage: React.FC = () => {
           {!loading && data && (
             <ListView
               onClick={(feature: Feature) => {
-                actions.selectFeature(feature);
+                actions.selectFeatureById(feature.properties.ahtiId);
               }}
               features={featuresLens.get(data)}
             />

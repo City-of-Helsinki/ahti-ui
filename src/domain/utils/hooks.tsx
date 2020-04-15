@@ -93,45 +93,54 @@ export const useUrlState = () => {
   ]);
 };
 
+type FeaturesQueryVariables = {
+  readonly categories: string[];
+  readonly tags: string[];
+};
+
 export const useFeatures = () => {
   const { i18n } = useTranslation();
   const { state, actions } = useOvermind();
-  const [cursor, setCursor] = useState<string>('');
-  const { data, loading, refetch } = useFeaturesQuery({
+  const [queryVariables, setQueryVariables] = useState<FeaturesQueryVariables>({
+    categories: [],
+    tags: [],
+  });
+  const { data, networkStatus, refetch, client } = useFeaturesQuery({
     variables: {
-      first: 50,
-      after: cursor,
-      category: state.categoryFilters.map((filter) => filter.id),
-      tag: state.tagFilters.map((filter) => filter.id),
+      first:
+        state.tagFilters.length === 0 && state.categoryFilters.length === 0
+          ? 100
+          : undefined,
+      category: queryVariables.categories,
+      tag: queryVariables.tags,
     },
   });
 
   useEffect(() => {
-    actions.setFeatures([]);
-    setCursor('');
+    setQueryVariables({
+      tags: state.tagFilters.map((filter) => filter.id),
+      categories: state.categoryFilters.map((filter) => filter.id),
+    });
+    refetch();
   }, [state.tagFilters, state.categoryFilters]);
 
   useEffect(() => {
-    actions.setFeatures([]);
-    setCursor('');
+    client.cache.reset();
     if (state.selectedFeature) {
       actions.selectFeatureById(state.selectedFeature.properties.ahtiId);
     }
+    refetch();
   }, [i18n.language]);
 
   useEffect(() => {
-    // Only set as loading when no features have been fetched and the query hook's state is loading,
-    // as the "streaming" of data will cause the loading state to be true.
-    actions.setFeaturesLoading(loading && state.features.length === 0);
-  }, [loading]);
+    // Inspect network status enum:
+    // https://github.com/apollographql/apollo-client/blob/master/src/core/networkStatus.ts
+    actions.setFeaturesLoading(networkStatus ? networkStatus < 7 : false);
+  }, [networkStatus]);
 
-  // Paginates the request until no more pages are left.
   useEffect(() => {
     if (data) {
-      actions.setFeatures([...state.features, ...featuresLens.get(data)]);
-      if (data.features.pageInfo.hasNextPage) {
-        setCursor(data.features.pageInfo.endCursor);
-      }
+      actions.setFeatures([...featuresLens.get(data)]);
     }
   }, [data]);
 };
