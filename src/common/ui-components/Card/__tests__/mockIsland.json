@@ -9,6 +9,10 @@
   "properties": {
     "ahtiId": "myhelsinki:place:1208",
     "type": "myhelsinki",
+    "category": {
+      "id": "ahti:category:island",
+      "__typename": "FeatureCategory"
+    },
     "name": "Pihlajasaari",
     "tags": [
       {
