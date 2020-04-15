@@ -540,129 +540,39 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
       >;
       edges: Array<
         Maybe<
-          { __typename?: 'FeatureEdge' } & Pick<FeatureEdge, 'cursor'> & {
-              node: Maybe<
-                { __typename?: 'Feature' } & Pick<Feature, 'id' | 'type'> & {
-                    geometry: { __typename?: 'GeometryObjectType' } & Pick<
-                      GeometryObjectType,
-                      'type' | 'coordinates'
-                    >;
-                    properties: Maybe<
-                      { __typename?: 'FeatureProperties' } & Pick<
-                        FeatureProperties,
-                        | 'ahtiId'
-                        | 'name'
-                        | 'description'
-                        | 'shortDescription'
-                        | 'url'
-                        | 'modifiedAt'
-                      > & {
-                          details: Maybe<
-                            { __typename?: 'FeatureDetails' } & {
-                              harbor: Maybe<
-                                { __typename?: 'HarborDetails' } & Pick<
-                                  HarborDetails,
-                                  'moorings'
-                                > & {
-                                    depth: Maybe<
-                                      { __typename?: 'Depth' } & Pick<
-                                        Depth,
-                                        'min' | 'max'
-                                      >
-                                    >;
-                                  }
-                              >;
-                            }
-                          >;
-                          children: Array<
-                            Maybe<
-                              { __typename?: 'Feature' } & {
-                                properties: Maybe<
-                                  { __typename?: 'FeatureProperties' } & Pick<
-                                    FeatureProperties,
-                                    'ahtiId' | 'name'
-                                  > & {
-                                      category: Maybe<
-                                        {
-                                          __typename?: 'FeatureCategory';
-                                        } & Pick<FeatureCategory, 'id'>
-                                      >;
-                                    }
-                                >;
-                              }
-                            >
-                          >;
-                          parents: Array<
-                            Maybe<
-                              { __typename?: 'Feature' } & {
-                                properties: Maybe<
-                                  { __typename?: 'FeatureProperties' } & Pick<
-                                    FeatureProperties,
-                                    'ahtiId' | 'name'
-                                  > & {
-                                      category: Maybe<
-                                        {
-                                          __typename?: 'FeatureCategory';
-                                        } & Pick<FeatureCategory, 'id'>
-                                      >;
-                                    }
-                                >;
-                              }
-                            >
-                          >;
-                          category: Maybe<
-                            { __typename?: 'FeatureCategory' } & Pick<
-                              FeatureCategory,
-                              'id'
-                            >
-                          >;
-                          links: Array<
-                            { __typename?: 'ExternalLink' } & Pick<
-                              ExternalLink,
-                              'type' | 'url'
-                            >
-                          >;
-                          tags: Array<
-                            { __typename?: 'Tag' } & Pick<Tag, 'id' | 'name'>
-                          >;
-                          contactInfo: Maybe<
-                            { __typename?: 'ContactInfo' } & Pick<
-                              ContactInfo,
-                              'phoneNumber'
-                            > & {
-                                address: Maybe<
-                                  { __typename?: 'Address' } & Pick<
-                                    Address,
-                                    'postalCode' | 'municipality'
-                                  >
-                                >;
-                              }
-                          >;
-                          images: Array<
-                            { __typename?: 'Image' } & Pick<
-                              Image,
-                              'url' | 'copyrightOwner'
-                            >
-                          >;
-                          source: { __typename?: 'FeatureSource' } & Pick<
-                            FeatureSource,
-                            'system'
-                          >;
-                          ferries: Array<
-                            { __typename?: 'Ferry' } & {
-                              properties: {
-                                __typename?: 'GenericFeatureProperties';
-                              } & Pick<
-                                GenericFeatureProperties,
-                                'ahtiId' | 'name'
-                              >;
-                            }
-                          >;
-                        }
-                    >;
-                  }
-              >;
-            }
+          { __typename?: 'FeatureEdge' } & {
+            node: Maybe<
+              { __typename?: 'Feature' } & {
+                geometry: { __typename?: 'GeometryObjectType' } & Pick<
+                  GeometryObjectType,
+                  'type' | 'coordinates'
+                >;
+                properties: Maybe<
+                  { __typename?: 'FeatureProperties' } & Pick<
+                    FeatureProperties,
+                    | 'ahtiId'
+                    | 'name'
+                    | 'description'
+                    | 'shortDescription'
+                    | 'url'
+                  > & {
+                      category: Maybe<
+                        { __typename?: 'FeatureCategory' } & Pick<
+                          FeatureCategory,
+                          'id'
+                        >
+                      >;
+                      images: Array<
+                        { __typename?: 'Image' } & Pick<
+                          Image,
+                          'url' | 'copyrightOwner'
+                        >
+                      >;
+                    }
+                >;
+              }
+            >;
+          }
         >
       >;
     }
@@ -954,78 +864,23 @@ export const FeaturesDocument = gql`
         hasNextPage
       }
       edges {
-        cursor
         node {
-          id
-          type
           geometry {
             type
             coordinates
           }
           properties {
             ahtiId
-            details {
-              harbor {
-                moorings
-                depth {
-                  min
-                  max
-                }
-              }
-            }
-            children {
-              properties {
-                ahtiId
-                name
-                category {
-                  id
-                }
-              }
-            }
-            parents {
-              properties {
-                ahtiId
-                name
-                category {
-                  id
-                }
-              }
-            }
             category {
               id
             }
-            links {
-              type
-              url
-            }
             name
-            tags {
-              id
-              name
-            }
             description
             shortDescription @client
             url
-            contactInfo {
-              phoneNumber
-              address {
-                postalCode
-                municipality
-              }
-            }
             images {
               url
               copyrightOwner
-            }
-            source {
-              system
-            }
-            modifiedAt
-            ferries @client {
-              properties {
-                ahtiId
-                name
-              }
             }
           }
         }

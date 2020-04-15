@@ -80,7 +80,10 @@ export const useUrlState = () => {
     actions.setQueryString(qs);
 
     if (history.location.search !== qs) {
-      history.push({ search: qs });
+      history.push({
+        pathname: qs === '' ? history.location.pathname : '/content',
+        search: qs,
+      });
     }
   }, [
     state.selectedFeature,
@@ -90,46 +93,72 @@ export const useUrlState = () => {
   ]);
 };
 
+type FeaturesQueryVariables = {
+  readonly categories: string[];
+  readonly tags: string[];
+};
+
 export const useFeatures = () => {
   const { i18n } = useTranslation();
   const { state, actions } = useOvermind();
-  const [cursor, setCursor] = useState<string>('');
-  const { data, loading } = useFeaturesQuery({
+  const [pageInfo, setPageInfo] = useState(null);
+  const [queryVariables, setQueryVariables] = useState<FeaturesQueryVariables>({
+    categories: [],
+    tags: [],
+  });
+  const { data, networkStatus, refetch, client, fetchMore } = useFeaturesQuery({
     variables: {
-      first: 50,
-      after: cursor,
-      category: state.categoryFilters.map((filter) => filter.id),
-      tag: state.tagFilters.map((filter) => filter.id),
+      first: 25,
+      category: queryVariables.categories,
+      tag: queryVariables.tags,
     },
   });
 
   useEffect(() => {
-    actions.setFeatures([]);
-    setCursor('');
+    setQueryVariables({
+      tags: state.tagFilters.map((filter) => filter.id),
+      categories: state.categoryFilters.map((filter) => filter.id),
+    });
+    refetch();
   }, [state.tagFilters, state.categoryFilters]);
 
   useEffect(() => {
-    console.log(i18n.language);
-    actions.setFeatures([]);
-    setCursor('');
+    client.cache.reset();
     if (state.selectedFeature) {
       actions.selectFeatureById(state.selectedFeature.properties.ahtiId);
     }
+    refetch();
   }, [i18n.language]);
-
   useEffect(() => {
-    // Only set as loading when no features have been fetched and the query hook's state is loading,
-    // as the "streaming" of data will cause the loading state to be true.
-    actions.setFeaturesLoading(loading && state.features.length === 0);
-  }, [loading]);
+    // Inspect network status enum:
+    // https://github.com/apollographql/apollo-client/blob/master/src/core/networkStatus.ts
+    const isLoading = networkStatus ? networkStatus < 7 : false;
+    actions.setFeaturesLoading(isLoading);
 
-  // Paginates the request until no more pages are left.
+    if (!isLoading && pageInfo && pageInfo.hasNextPage) {
+      fetchMore({
+        variables: { after: pageInfo.endCursor },
+        updateQuery: (prev: any, { fetchMoreResult }) => {
+          if (!fetchMoreResult) return prev;
+          return Object.assign({}, prev, {
+            features: {
+              edges: [
+                ...prev.features.edges,
+                ...fetchMoreResult.features.edges,
+              ],
+              pageInfo: fetchMoreResult.features.pageInfo,
+              __typename: fetchMoreResult.features.__typename,
+            },
+          });
+        },
+      });
+    }
+  }, [networkStatus, pageInfo]);
+
   useEffect(() => {
     if (data) {
-      actions.setFeatures([...state.features, ...featuresLens.get(data)]);
-      if (data.features.pageInfo.hasNextPage) {
-        setCursor(data.features.pageInfo.endCursor);
-      }
+      actions.setFeatures([...featuresLens.get(data)]);
+      setPageInfo(data.features.pageInfo);
     }
   }, [data]);
 };
