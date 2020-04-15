@@ -3,6 +3,10 @@
     "__typename": "Ferry",
     "toIsland": "myhelsinki:place:1208",
     "properties": {
+      "category": {
+        "id": "ahti:category:island",
+        "__typename": "FeatureCategory"
+      },
       "__typename": "GenericFeatureProperties",
       "source": {
         "__typename": "FeatureSource",
@@ -12,6 +16,7 @@
       },
       "ahtiId": "ahti:ferry:1",
       "name": "Vesibussi Merisatama-Pihlajasaaret",
+
       "tags": [
         { "name": "vesibussi", "__typename": "Tag" },
         { "name": "pihlajasaari", "__typename": "Tag" }

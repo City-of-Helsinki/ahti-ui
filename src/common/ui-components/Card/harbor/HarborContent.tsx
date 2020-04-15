@@ -1,16 +1,26 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import classNames from 'classnames';
 
 import commonStyles from '../common/commonStyles.module.scss';
-import { formatDepth, formatPrice } from '../../../utils/text';
+import { formatDepth } from '../../../utils/text';
+import {
+  Feature,
+  HarborMooringType,
+} from '../../../../domain/api/generated/types.d';
 
 export interface HarborContentProps {
-  readonly harbor: any;
+  readonly harbor: Feature;
 }
 
 const HarborContent: React.FC<HarborContentProps> = ({ harbor }) => {
   const { t } = useTranslation();
+  const harborDetails = harbor.properties.details?.harbor;
+
+  if (!harborDetails) {
+    return null;
+  }
+
+  const { moorings, depth } = harborDetails;
 
   return (
     <div className={commonStyles.container}>
@@ -21,37 +31,29 @@ const HarborContent: React.FC<HarborContentProps> = ({ harbor }) => {
         {t('card.harbor_content.mooring')}
       </h2>
       <div className={commonStyles.gridItem}>
-        <div>{`${t('card.harbor_content.mooringInformation')}:`}</div>
-        <div>{harbor.mooringInformation}</div>
-        <div>{`${t('card.harbor_content.mooringType')}:`}</div>
-        <div>
-          {harbor.mooringTypes
-            .map((mooringType: string) =>
-              t(`card.harbor_content.mooringTypes.${mooringType}`)
-            )
-            .join(', ')}
-        </div>
-        <div>{`${t('card.harbor_content.depth')}:`}</div>
-        <div>{formatDepth(harbor.depth)}</div>
-      </div>
-      <h2 className={commonStyles.subheading}>
-        {t('card.harbor_content.pricing')}
-      </h2>
-      <div className={commonStyles.gridItem}>
-        <div>{`${t('card.harbor_content.dayPricing')}:`}</div>
-        <div>{`${formatPrice(harbor.pricing.day)}`}</div>
-        <div>{`${t('card.harbor_content.overnightPricing')}:`}</div>
-        <div>{`${formatPrice(harbor.pricing.overnight)}`}</div>
-      </div>
-      <div
-        className={classNames(
-          commonStyles.gridItem,
-          commonStyles.bookingUrlContainer
+        {moorings && (
+          <>
+            <div>{`${t('card.harbor_content.mooringType')}:`}</div>
+            <div>
+              {moorings
+                .map((mooringType: HarborMooringType) =>
+                  t(`card.harbor_content.mooringTypes.${mooringType}`)
+                )
+                .join(', ')}
+            </div>
+          </>
         )}
-      >
-        <a className={commonStyles.bookingUrl} href={harbor.bookingUrl}>{`${t(
-          'card.harbor_content.booking'
-        )}`}</a>
+        {depth && (
+          <>
+            <div>{`${t('card.harbor_content.depth')}:`}</div>
+            <div>
+              {formatDepth({
+                minDepth: depth.min,
+                maxDepth: depth.max,
+              })}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
