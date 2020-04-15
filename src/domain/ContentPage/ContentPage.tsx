@@ -19,8 +19,6 @@ import spinnerAnimation from '../../common/ui-components/Spinner/animations/spin
 import { ReactComponent as IconList } from '../../assets/icons/icon-list.svg';
 import { ReactComponent as IconMap } from '../../assets/icons/icon-map.svg';
 
-// import { IconCheck, IconClose } from 'hds-react';
-
 const cx = classNames.bind(styles);
 
 const ContentPage: React.FC = () => {
