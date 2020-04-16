@@ -2,9 +2,10 @@
 @import '../../../styles/partials/variables';
 @import '../../../styles/partials/mixins';
 
-.container {
-  background-color: var(--hds-ui-color-white);
+$menu_component_height: 26px;
+$menu_component_line_width: 3px;
 
+.container {
   /* Hide the scrollbar, but keep scrolling enabled */
   overflow-y: $vertical-overflow-scrollable;
 
@@ -13,6 +14,7 @@
 
   /* Internet Explorer 10+ */
   -ms-overflow-style: none;
+  // position: relative;
 }
 
 .container::-webkit-scrollbar {
@@ -53,9 +55,14 @@
 }
 
 .searchInput {
-  @include fullWidth;
-  border: none;
-  margin-left: $margin;
+  position: absolute;
+  height: $menu_component_height;
+  top: 0;
+  left: $menu_component_height;
+  width: 100%;
+  border-bottom: $menu_component_line_width solid black;
+  background-color: var(--hds-ui-color-white);
+  padding-left: $padding/2;
 }
 
 .searchInput:focus {
@@ -64,6 +71,18 @@
 
 .searchInputWithIcon {
   @include flex;
+  position: relative;
+  height: $menu_component_height;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0;
+}
+
+.searchIconRight {
+  right: 0;
+  position: absolute;
 }
 
 .infoImage {
@@ -73,22 +92,22 @@
 }
 
 .search {
-  @include flex;
   position: relative;
-  z-index: 799;
+  height: $menu_component_height;
+  z-index: 700;
 }
 
 .resultsContainerAbsolute {
-  width: 100%;
+  width: $root-width;
   min-height: 100vh;
   position: absolute;
-  padding-top: 6rem;
+  padding-top: $menu_height - 1rem;
   top: 0;
   left: 0;
-  background-color: white;
 }
 
 .resultsContainerRelative {
   position: relative;
   background-color: var(--hds-ui-color-white);
+  min-height: 100vh;
 }

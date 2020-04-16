@@ -3,8 +3,8 @@
 .navIcon3,
 .navIcon3Open,
 .navIcon3Dark {
-  width: 25px;
-  height: 25px;
+  width: 26px;
+  height: 26px;
   position: relative;
   top: 0px;
   right: 0px;
@@ -25,7 +25,7 @@
   display: block;
   position: absolute;
   z-index: 1000000000;
-  height: 5px;
+  height: 3px;
   width: 100%;
   opacity: 1;
   left: 0;
@@ -57,13 +57,13 @@
 .navIcon3Open span:nth-child(3),
 .navIcon3Dark span:nth-child(2),
 .navIcon3Dark span:nth-child(3) {
-  top: 10px;
+  top: 10.5px;
 }
 
 .navIcon3 span:nth-child(4),
 .navIcon3Open span:nth-child(4),
 .navIcon3Dark span:nth-child(4) {
-  top: 20px;
+  top: 22px;
 }
 
 .navIcon3Open span,

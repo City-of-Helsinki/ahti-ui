@@ -31,7 +31,7 @@ const HeroBanner: React.FC<HeroBannerProps> = ({
           <div className={cx(styles.container)}>{children}</div>
         </section>
       </ImageWithCard>
-
+      <div className={classNames(styles.blur)}></div>
       <div className={styles.korosContainer}>
         <Koros className={styles.koros} />
       </div>

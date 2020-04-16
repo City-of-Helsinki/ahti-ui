@@ -14,31 +14,38 @@ export interface LanguageSelectProps {
 
 const LanguageSelect: React.FC<LanguageSelectProps> = ({
   supportedLanguages,
-  className,
   darkMenu,
 }) => {
   const { i18n } = useTranslation();
 
+  // console.log('changed to', darkMenu);
   return (
-    <div className={className}>
+    <React.Fragment>
       {supportedLanguages.map((language: string, id: number) => {
         return (
           <button
             key={id}
             onClick={() => i18n.changeLanguage(language)}
-            className={cx({
-              languageButton: true,
-              languageButtonEnabled: language === i18n.language,
-              languageSwitchTextDark: darkMenu,
-              languageSwitchTextWhite: !darkMenu,
-            })}
+            className={
+              darkMenu
+                ? cx({
+                    languageButton: true,
+                    languageButtonEnabled: language === i18n.language,
+                    languageSwitchTextDark: darkMenu,
+                  })
+                : cx({
+                    languageButton: true,
+                    languageButtonEnabled: language === i18n.language,
+                    languageSwitchTextWhite: true,
+                  })
+            }
             lang={language}
           >
             {language}
           </button>
         );
       })}
-    </div>
+    </React.Fragment>
   );
 };
 

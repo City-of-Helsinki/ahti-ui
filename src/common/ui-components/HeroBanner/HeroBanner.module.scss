@@ -1,11 +1,12 @@
 @import '../../../styles/partials/variables';
 @import '../../../styles/partials/mixins';
+
+$koros-margin: -5rem;
+
 .container {
   position: absolute;
   z-index: 1;
 }
-
-$koros-margin: -5rem;
 
 .korosContainer {
   height: 0;
@@ -31,6 +32,16 @@ $koros-margin: -5rem;
   p {
     margin: $margin 0;
   }
+}
+
+.blur {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 496px;
+  background-color: rgba(1, 10, 74, 0.3);
 }
 
 .imageWithCardSection {

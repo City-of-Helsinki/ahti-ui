@@ -11,6 +11,7 @@ import { useOvermind } from '../../../domain/overmind';
 import AhtiLogo from '../AhtiLogo/AhtiLogo';
 import MenuIcon from '../MenuIcon/MenuIcon';
 import NavDropdown from './NavDropdown/NavDropdown';
+import { useScrollDisabling } from '../../../common/utils/hooks';
 import styles from './Menu.module.scss';
 
 export type MenuItem = {
@@ -108,6 +109,8 @@ const Menu: React.FC<MenuProps> = ({
     );
   };
 
+  useScrollDisabling(!isOpen);
+
   return (
     <div
       className={
@@ -120,13 +123,11 @@ const Menu: React.FC<MenuProps> = ({
             <AhtiLogo fillColor={menuDark || isOpen ? '#001A33' : 'white'} />
           </RouterLink>
         </div>
-        <div className={styles.menuElement}>
-          <div>
-            <LanguageSelect
-              supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
-              darkMenu={menuDark}
-            />
-          </div>
+        <div className={styles.menuElementLang}>
+          <LanguageSelect
+            supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
+            darkMenu={menuDark}
+          />
         </div>
         <div
           className={styles.menuElementFront}
