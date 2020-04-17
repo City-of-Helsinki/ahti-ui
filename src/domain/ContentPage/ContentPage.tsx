@@ -63,6 +63,7 @@ const ContentPage: React.FC = () => {
           <div className={styles.content}>
             {!state.selectedFeature && !state.mapViewToggle && (
               <ListView
+                className={styles.listView}
                 features={state.features}
                 onClick={(feature) =>
                   actions.selectFeatureById(feature.properties.ahtiId)
