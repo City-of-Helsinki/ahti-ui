@@ -1,12 +1,8 @@
-@import '../../../../styles/partials/variables';
-@import '../../../../styles/partials/mixins';
+@import '../../../../styles/mixins';
 
 .showMoreButton {
   @include buttonReset;
   color: var(--hds-brand-color-coat-of-arms-blue);
-  font-size: 14px;
-  line-height: $line-height;
-  font-weight: $font-width-thick;
 
   &::after {
     font-size: 120%;

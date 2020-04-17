@@ -1,17 +1,10 @@
 @import '../../../styles/icons';
-@import '../../../styles/partials/variables';
-@import '../../../styles/partials/mixins';
+@import '../../../styles/spacings';
+@import '../../../styles/mixins';
 
 .container {
   background-color: var(--hds-ui-color-white);
-
-  /* Hide the scrollbar, but keep scrolling enabled */
-  overflow-y: $vertical-overflow-scrollable;
-
-  /* Firefox */
-  scrollbar-width: none;
-
-  /* Internet Explorer 10+ */
+  overflow-y: scroll;
   -ms-overflow-style: none;
 }
 
@@ -28,18 +21,16 @@
 }
 
 .infoContainer {
-  @include fullWidth;
   @include flex(column);
   border-bottom: 1px;
   border-bottom-style: solid;
   border-bottom-color: var(--hds-ui-color-black-10);
-  margin-left: $margin;
+  margin-left: unit(1);
+  width: 100%;
 }
 
 .name {
-  font-size: $font-size;
-  font-weight: $font-width-thick;
-  line-height: $line-height;
+  font-weight: 700;
 }
 
 .nameMark {
@@ -53,9 +44,9 @@
 }
 
 .searchInput {
-  @include fullWidth;
+  width: 100%;
   border: none;
-  margin-left: $margin;
+  margin-left: unit(1);
 }
 
 .searchInput:focus {
@@ -66,16 +57,9 @@
   @include flex;
 }
 
-.infoImage {
-  height: $image-width;
-  width: $image-width;
-  cursor: pointer;
-}
-
 .search {
   @include flex;
   position: relative;
-  z-index: 799;
 }
 
 .resultsContainerAbsolute {

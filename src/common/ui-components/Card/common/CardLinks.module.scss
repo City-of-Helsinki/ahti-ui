@@ -1,17 +1,17 @@
-@import '../../../../styles/partials/variables';
-@import '../../../../styles/partials/mixins';
+@import '../../../../styles/spacings';
+@import '../../../../styles/mixins';
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: $margin 0;
+  margin: unit(1) 0;
 
-  @include vertical-margin-between(cardLink, $margin / 2);
+  @include vertical-margin-between(cardLink, unit(0.5));
 }
 
 .heading {
   font-size: var(--hds-text-lg);
-  font-weight: $font-width-thick;
-  margin-bottom: $margin;
+  font-weight: 700;
+  margin-bottom: unit(1);
 }

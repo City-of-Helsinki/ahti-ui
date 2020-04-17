@@ -1,31 +1,29 @@
-@import '../../../styles/partials/variables';
-@import '../../../styles/partials/mixins';
+@import '../../../styles/spacings';
+@import '../../../styles/mixins';
 
 .cardTextContainer {
+  width: 100%;
   box-sizing: border-box;
-  padding: $padding;
-  @include fullWidth;
+  padding: unit(1);
   min-height: 30vh;
   background-color: var(--hds-ui-color-white);
   color: var(--hds-ui-color-black);
 }
 
 .cardContainer {
-  @include fullWidth;
+  width: 100%;
   box-sizing: border-box;
   background-color: var(--hds-ui-color-white);
 }
 
 .nameHeading {
-  font-weight: $font-width-thick;
+  font-weight: 700;
   font-size: 24px;
   line-height: 28.8px;
 }
 
 .addressHeading {
-  font-weight: $font-width-normal;
-  font-size: $font-size;
-  line-height: $line-height;
+  font-weight: 400;
 }
 
 .tagsContainer {
@@ -36,8 +34,7 @@
 
 .tagsContainerSpan {
   font-size: 14px;
-  font-weight: $font-width-thick;
-  line-height: $line-height;
+  font-weight: 700;
   margin-right: 5px;
   cursor: pointer;
 }

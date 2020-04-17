@@ -1,58 +1,44 @@
-@import '../../../styles/partials/variables';
-@import '../../../styles/partials/mixins';
+@import '../../../styles/spacings';
+@import '../../../styles/mixins';
+@import '../../../styles/z-index';
 
 $menu-z-index: 1000;
 
 .container {
   width: 100%;
-  padding: $padding;
-  height: $menu_height;
+  padding: unit(1);
+  height: 200px;
   position: absolute;
   top: 0;
   left: 0;
   background-color: transparent;
-  z-index: $menu-z-index;
 }
 
 .containerOpen {
-  padding: $padding;
+  padding: unit(1);
   height: 100%;
   width: 100%;
 
   position: absolute;
   top: 0;
   background-color: var(--hds-ui-color-white);
-  z-index: $menu-z-index;
+  z-index: z-index(menu);
 }
 
 .search {
-  width: $search-component-width;
-}
-
-.searchResults {
-  width: $search-component-width;
-  z-index: $menu-z-index;
+  width: 250px;
 }
 
 .headerContainer {
   @include flex;
-  justify-content: space-between;
-  padding-top: $padding;
-  padding-bottom: $padding;
+  padding-top: unit(1);
   background: transparent;
-
-  display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  background: transparent;
   align-items: flex-start;
 }
 
 .navLink {
   text-decoration: none;
-  line-height: $line-height;
   color: var(--hds-ui-color-black);
 }
 
@@ -62,7 +48,8 @@ $menu-z-index: 1000;
 }
 
 .navDropdownContent {
-  @include flex(true);
+  @include flex(column);
+  align-items: flex-start;
 }
 
 .menuElement {

@@ -1,20 +1,14 @@
-@import '../../styles/partials/variables';
+@import '../../styles/mixins';
 
 $menu-z-index: 1000;
 
 .ahti {
-  display: flex;
-  flex-direction: column;
+  @include flex(column);
   height: 100%;
 }
 
 .menu {
   top: 0;
   background-color: var(--hds-ui-color-white);
-  z-index: $menu-z-index;
-}
-
-.searchResults {
-  width: $search-component-width;
   z-index: $menu-z-index;
 }

@@ -1,12 +1,3 @@
-@mixin fullWidth {
-  width: $full-width;
-}
-
-@mixin fullHeight {
-  min-height: 100vh;
-  height: 100%;
-}
-
 @mixin disabledLink {
   pointer-events: none;
   cursor: not-allowed;

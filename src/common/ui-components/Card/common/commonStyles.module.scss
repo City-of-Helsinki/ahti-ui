@@ -1,36 +1,30 @@
 @import '../../../../styles/icons';
-@import '../../../../styles/partials/variables';
+@import '../../../../styles/spacings';
 
 .container {
   font-size: 14px;
-  font-weight: $font-width-normal;
-  line-height: $line-height;
 }
 
 .bodyText {
   font-size: 14px;
-  line-height: $line-height;
   white-space: pre-line;
 }
 
 .subheading {
   color: rgb(29, 29, 29);
-  font-size: $font-size;
-  font-weight: $font-width-thick;
-  line-height: $line-height;
+  font-weight: 700;
 }
 
 .gridItem {
   display: grid;
   grid-template-columns: 30% auto;
   grid-column-gap: 2rem;
-  margin-top: $margin;
-  margin-bottom: $margin;
+  margin: unit(1);
 }
 
 .bookingUrlContainer {
-  margin-top: $margin * 3;
-  margin-bottom: $margin * 2;
+  margin-top: unit(3);
+  margin-bottom: unit(2);
   color: var(--hds-ui-color-white);
 }
 
@@ -38,12 +32,10 @@
   grid-column: 2;
   display: flex;
   justify-content: center;
-  padding: $padding/2;
+  padding: unit(0.5);
   background-color: var(--hds-brand-color-coat-of-arms-blue);
   color: var(--hds-ui-color-white);
   text-decoration: none;
-  font-size: $font-size;
-  line-height: $line-height;
 }
 
 .infoLink {
@@ -52,7 +44,7 @@
 }
 
 .line {
-  margin: $margin 0;
+  margin: unit(1) 0;
   border-color: var(--hds-ui-color-black);
 }
 
@@ -60,7 +52,6 @@
   display: flex;
   justify-content: space-between;
   font-size: 14px;
-  line-height: $line-height;
 }
 
 .iconContainer {
@@ -71,5 +62,5 @@
 
 .infoIcon {
   @extend .icon;
-  margin-right: $margin;
+  margin-right: unit(1);
 }

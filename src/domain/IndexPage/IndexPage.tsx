@@ -45,7 +45,7 @@ const IndexPage: React.FC = () => {
     <React.Fragment>
       <WrappedMenu menuDark={false}></WrappedMenu>
       <div className={classNames(styles.pageContainer)}>
-        <HeroBanner videoUrl={videoUrl}>
+        <HeroBanner>
           <h1>{t('index.main_header')}</h1>
           <Link className={styles.link} to={'/content'}>
             {t('index.see_all_button')}

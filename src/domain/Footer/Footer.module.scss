@@ -1,15 +1,11 @@
-@import '../../styles/partials/mixins';
-@import '../../styles/partials/variables';
-
-$logo-color: var(--hds-ui-colors-black);
-$logo-height: 4rem;
-$logo-width: 8rem;
+@import '../../styles/mixins';
+@import '../../styles/spacings';
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: $margin * 10 0 $margin * 2 0;
+  margin: unit(10) 0 unit(2) 0;
   font-size: 14px;
 }
 
@@ -17,7 +13,7 @@ $logo-width: 8rem;
   border: 0.1px solid rgba(29, 29, 29, 0.2);
   height: 1px;
   width: 346px;
-  margin: $margin * 3 0;
+  margin: unit(3) 0;
 }
 
 .koros {
@@ -25,14 +21,14 @@ $logo-width: 8rem;
 }
 
 .logo {
-  @include helsinki-logo($logo-color);
-  width: $logo-width;
-  height: $logo-height;
-  margin-top: $margin * 3;
+  @include helsinki-logo(var(--hds-ui-colors-black));
+  width: 4rem;
+  height: 8rem;
+  margin-top: unit(3);
 }
 
 .links {
-  margin: $margin;
+  margin: unit(1);
   display: flex;
   flex-direction: column;
   justify-content: space-around;

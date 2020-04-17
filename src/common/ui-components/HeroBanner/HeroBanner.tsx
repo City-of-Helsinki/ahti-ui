@@ -9,17 +9,10 @@ import ImageWithCard from '../ImageWithCard/ImageWithCard';
 const cx = classNames.bind(styles);
 
 type HeroBannerProps = React.PropsWithChildren<{
-  src?: string;
-  hasVideo?: boolean;
   videoUrl?: string;
 }>;
 
-const HeroBanner: React.FC<HeroBannerProps> = ({
-  src,
-  children,
-  hasVideo,
-  videoUrl,
-}) => {
+const HeroBanner: React.FC<HeroBannerProps> = ({ children, videoUrl }) => {
   return (
     <React.Fragment>
       <ImageWithCard
