@@ -4,6 +4,8 @@ $small-icon-width: 12px;
 $small-icon-height: 12px;
 $big-icon-width: 26px;
 $big-icon-height: 26px;
+$large-icon-width: 38px;
+$large-icon-height: 38px;
 
 .icon {
   width: $icon-width;
@@ -18,4 +20,9 @@ $big-icon-height: 26px;
 .bigIcon {
   width: $big-icon-width;
   height: $big-icon-height;
+}
+
+.largeIcon {
+  width: $large-icon-width;
+  height: $large-icon-height;
 }

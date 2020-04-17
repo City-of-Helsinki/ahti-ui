@@ -6,10 +6,6 @@
   justify-content: space-between;
   background-color: var(--hds-ui-color-white);
   cursor: pointer;
-
-  img {
-    flex: 1;
-  }
 }
 
 .infoContainer {
@@ -34,4 +30,10 @@
 .shortDescription {
   font-size: 12px;
   line-height: 16px;
+}
+
+.image {
+  object-fit: cover;
+  min-height: 100%;
+  width: 100px;
 }
