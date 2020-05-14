@@ -39,7 +39,8 @@
     "services": "Kohteeseen liittyviä palveluja",
     "ahti:link:satamapaikkacom": "Varaa venepaikka satamapaikka.comin kautta",
     "ahti:link:jtline": "Selaa aikatauluja JT-linen kotisivuilla",
-    "servicemap": "Katso kohdetta palvelukartalla"
+    "servicemap": "Katso kohdetta palvelukartalla",
+    "ticket_shop": "Varaa matkalippu"
   },
   "dropdown": {
     "label": "Valikko",
@@ -162,7 +163,7 @@
   },
   "card": {
     "modified_at": "Päivitetty",
-    "source": "Tiedot",
+    "source": "Tietolähde",
     "show_more": "Näytä enemmän",
     "show_less": "Näytä vähemmän",
     "island_content": {

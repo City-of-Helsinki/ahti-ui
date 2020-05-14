@@ -5,11 +5,6 @@
   font-size: 14px;
 }
 
-.bodyText {
-  font-size: 14px;
-  white-space: pre-line;
-}
-
 .subheading {
   color: rgb(29, 29, 29);
   font-weight: 700;
@@ -22,13 +17,13 @@
   margin: unit(1);
 }
 
-.bookingUrlContainer {
+.urlContainer {
   margin-top: unit(3);
   margin-bottom: unit(2);
   color: var(--hds-ui-color-white);
 }
 
-.bookingUrl {
+.url {
   grid-column: 2;
   display: flex;
   justify-content: center;

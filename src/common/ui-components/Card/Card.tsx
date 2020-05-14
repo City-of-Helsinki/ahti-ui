@@ -52,9 +52,9 @@ const Card: React.FC<CardProps> = ({
         {images && images.length > 0 && <CardImageContainer images={images} />}
         <div className={styles.cardTextContainer}>
           <h1 className={styles.nameHeading}>{name}</h1>
-          <h2
+          <div
             className={styles.addressHeading}
-          >{`${postalCode} ${municipality}`}</h2>
+          >{`${postalCode} ${municipality}`}</div>
           <div className={styles.tagsContainer}>{renderTags()}</div>
 
           {type === 'Feature' && category !== categories.HARBOR && (

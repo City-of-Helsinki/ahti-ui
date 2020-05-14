@@ -32,12 +32,9 @@ const FerryContent: React.FC<FerryContentProps> = ({ ferry }) => {
         <div>{`${ferry.portAddress.streetAddress}, ${ferry.portAddress.municipality}`}</div>
       </div>
       <div
-        className={classNames(
-          commonStyles.gridItem,
-          commonStyles.bookingUrlContainer
-        )}
+        className={classNames(commonStyles.gridItem, commonStyles.urlContainer)}
       >
-        <a className={commonStyles.bookingUrl} href={ferry.bookingUrl}>{`${t(
+        <a className={commonStyles.url} href={ferry.bookingUrl}>{`${t(
           'card.ferry_content.booking'
         )}`}</a>
       </div>

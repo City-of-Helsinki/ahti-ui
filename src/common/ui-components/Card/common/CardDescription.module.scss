@@ -1,18 +1,18 @@
 @import '../../../../styles/mixins';
+@import '../../../../styles/spacings';
 
 .showMoreButton {
   @include buttonReset;
   color: var(--hds-brand-color-coat-of-arms-blue);
+  margin-top: unit(0.5);
 
   &::after {
-    font-size: 120%;
     content: ' ▼';
   }
 }
 
 .showLess {
   &::after {
-    font-size: 120%;
     content: ' ▲';
   }
 }

@@ -4,7 +4,7 @@
 .cardTextContainer {
   width: 100%;
   box-sizing: border-box;
-  padding: unit(1);
+  padding: 0 unit(1) unit(0.5);
   min-height: 30vh;
   background-color: var(--hds-ui-color-white);
   color: var(--hds-ui-color-black);
@@ -20,6 +20,7 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 28.8px;
+  margin: unit(0.5) 0;
 }
 
 .addressHeading {
