@@ -40,7 +40,7 @@ const NavDropdown: React.FC<NavDropdownProps> = ({
         aria-label={isOpen ? t('menu.close_submenu') : t('menu.open_submenu')}
         tabIndex={0}
       >
-        <CategoryIcon category={category} className={styles.icon} />
+        <CategoryIcon category={category} className={styles.largeIcon} />
         <div className={styles.titleContainer}>{title}</div>
         <IconAngleRight
           className={cx({
