@@ -184,15 +184,7 @@ const Map: React.FC<MapProps> = ({
               latitude={latitude}
               longitude={longitude}
             >
-              {/* <div
-                className={styles.clusterMarker}
-                style={{
-                  width: `${10 + (pointCount / points.length) * 20}px`,
-                  height: `${10 + (pointCount / points.length) * 20}px`,
-                }}
-              > */}
               <ClusterIcon pointCount={pointCount} />
-              {/* </div> */}
             </Marker>
           );
         } else {
@@ -205,7 +197,7 @@ const Map: React.FC<MapProps> = ({
           trackUserLocation={true}
           label={t('map.geolocate')}
         />
-        <div className={styles.mapControlsDivider}></div>
+        <div className={styles.mapControlsDivider} />
         <NavigationControl
           zoomInLabel={t('map.zoom_in')}
           zoomOutLabel={t('map.zoom_out')}
