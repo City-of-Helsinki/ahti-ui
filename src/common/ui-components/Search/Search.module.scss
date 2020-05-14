@@ -1,11 +1,15 @@
 @import '../../../styles/icons';
 @import '../../../styles/spacings';
 @import '../../../styles/mixins';
+@import '../../../styles/z-index';
 
 .container {
+  z-index: z-index(menu);
   background-color: var(--hds-ui-color-white);
   overflow-y: scroll;
   -ms-overflow-style: none;
+  padding: unit(1);
+  box-shadow: 0 12px 12px -12px var(--hds-ui-color-black);
 }
 
 .container::-webkit-scrollbar {
@@ -13,11 +17,9 @@
   height: 0;
 }
 
-.containerFocused {
-}
-
 .searchItem {
   @include flex;
+  margin: unit(1) 0;
 }
 
 .infoContainer {
@@ -44,7 +46,6 @@
 }
 
 .searchInput {
-  width: 100%;
   border: none;
   margin-left: unit(1);
 }
@@ -55,24 +56,14 @@
 
 .searchInputWithIcon {
   @include flex;
+  width: 100%;
 }
 
 .search {
   @include flex;
-  position: relative;
 }
 
-.resultsContainerAbsolute {
-  width: 100%;
-  min-height: 100vh;
-  position: absolute;
-  padding-top: 6rem;
-  top: 0;
-  left: 0;
-  background-color: white;
-}
-
-.resultsContainerRelative {
-  position: relative;
+.resultsContainer {
   background-color: var(--hds-ui-color-white);
+  width: 100%;
 }

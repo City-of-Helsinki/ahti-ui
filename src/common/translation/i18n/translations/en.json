@@ -224,5 +224,8 @@
     "boating_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating",
     "sea_rescue": "Sea rescue directions",
     "sea_rescue_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating/boating-information/sea-rescue-directions/"
+  },
+  "language_select": {
+    "select_language": "Select language"
   }
 }

@@ -1,0 +1,17 @@
+@import '../../styles/spacings';
+@import '../../styles/z-index';
+
+.wrapper {
+  width: 100%;
+  z-index: z-index(menu);
+}
+
+.menuLight {
+  position: absolute;
+  top: 0;
+}
+
+.absolute {
+  position: absolute;
+  width: 100%;
+}

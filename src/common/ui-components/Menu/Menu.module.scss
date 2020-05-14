@@ -1,40 +1,24 @@
 @import '../../../styles/spacings';
 @import '../../../styles/mixins';
 @import '../../../styles/z-index';
-
-$menu-z-index: 1000;
+@import '../../../styles/icons';
 
 .container {
   width: 100%;
-  padding: unit(1);
-  height: 200px;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: transparent;
 }
 
 .containerOpen {
-  padding: unit(1);
-  height: 100%;
   width: 100%;
-
-  position: absolute;
-  top: 0;
   background-color: var(--hds-ui-color-white);
-  z-index: z-index(menu);
-}
-
-.search {
-  width: 250px;
 }
 
 .headerContainer {
   @include flex;
-  padding-top: unit(1);
   background: transparent;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: flex-start;
+  padding: unit(1);
 }
 
 .navLink {
@@ -52,18 +36,40 @@ $menu-z-index: 1000;
   align-items: flex-start;
 }
 
-.menuElement {
-  position: relative;
-  flex: 1;
-  z-index: 200;
+.menuToggles {
+  @include flex;
 }
 
 .toggleMenuButton {
-  position: absolute;
-  right: 0;
+  margin-left: unit(0.5);
 }
 
-.menuElementFront {
-  flex: 3;
-  z-index: 8;
+.logoDark {
+  @include helsinki-logo(#000);
+  width: 4rem;
+  height: 2rem;
+}
+
+.logo {
+  @include helsinki-logo(#fff);
+  width: 4rem;
+  height: 2rem;
+}
+
+.lightIcon {
+  color: var(--hds-ui-color-white);
+}
+
+.darkIcon {
+  color: var(--hds-ui-color-black);
+}
+
+.menuContentWrapper {
+  position: relative;
+}
+
+.menuContent {
+  padding: 0 unit(1) unit(1);
+  background-color: var(--hds-ui-color-white);
+  box-shadow: 0 12px 12px -12px var(--hds-ui-color-black);
 }

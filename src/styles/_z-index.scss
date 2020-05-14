@@ -1,7 +1,7 @@
 $z-index: (
   video: -1,
   // slick-slider occupies z-index 1
-    menu: 2,
+    menu: 5,
 );
 
 @function z-index($key) {

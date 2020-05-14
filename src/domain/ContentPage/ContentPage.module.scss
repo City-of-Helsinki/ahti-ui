@@ -1,8 +1,6 @@
 @import '../../styles/spacings';
 
 .container {
-  position: relative;
-  top: 6rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -26,12 +24,10 @@
 }
 
 .mapContainer {
-  height: 100vh;
+  position: absolute;
+  left: 0;
+  height: 100%;
   width: 100%;
-}
-
-.mapContainerShrunk {
-  height: 35vh;
 }
 
 .spinner {

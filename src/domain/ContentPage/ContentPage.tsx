@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 
-import WrappedMenu from '../../common/ui-components/WrappedMenu/WrappedMenu';
+import WrappedMenu from '../WrappedMenu/WrappedMenu';
 import { useOvermind } from '../overmind';
 import { categories } from '../constants';
 import styles from './ContentPage.module.scss';

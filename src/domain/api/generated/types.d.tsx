@@ -562,6 +562,16 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                           'id'
                         >
                       >;
+                      contactInfo: Maybe<
+                        { __typename?: 'ContactInfo' } & {
+                          address: Maybe<
+                            { __typename?: 'Address' } & Pick<
+                              Address,
+                              'municipality'
+                            >
+                          >;
+                        }
+                      >;
                       images: Array<
                         { __typename?: 'Image' } & Pick<
                           Image,
@@ -873,6 +883,11 @@ export const FeaturesDocument = gql`
             ahtiId
             category {
               id
+            }
+            contactInfo {
+              address {
+                municipality
+              }
             }
             name
             description

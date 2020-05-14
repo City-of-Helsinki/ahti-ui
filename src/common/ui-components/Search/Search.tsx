@@ -10,6 +10,7 @@ import {
 } from '../../../domain/api/generated/types.d';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
 import escapeRegExp from './utils/escapeRegExp';
+import MenuIcon from '../MenuIcon/MenuIcon';
 
 const cx = classNames.bind(styles);
 
@@ -36,6 +37,8 @@ export const SearchItem: React.FC<SearchItemProps> = ({
   const { t } = useTranslation();
   const re = new RegExp(`(${escapeRegExp(currentSearch)})`, 'gi');
   const parts = name.split(re);
+
+  console.log(location);
 
   return (
     <div
@@ -71,8 +74,8 @@ interface SearchProps {
   readonly resultsClassName?: string;
   readonly maxItems?: number;
   readonly featuresToSearch: Feature[];
-  readonly isMenuOpen: boolean;
   onSelect(id: string): void;
+  onClose(): void;
 }
 
 const Search: React.FC<SearchProps> = ({
@@ -80,16 +83,16 @@ const Search: React.FC<SearchProps> = ({
   resultsClassName,
   featuresToSearch,
   maxItems = 10,
-  isMenuOpen,
   onSelect,
+  onClose,
 }) => {
   const { t } = useTranslation();
   const [searchResults, setSearchResults] = useState<SearchData[]>([]);
   const [currentSearch, setCurrentSearch] = useState<string>('');
-  const containerRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
-    if (currentSearch === '' || !isMenuOpen) {
+    if (currentSearch === '') {
       setSearchResults([]);
       return;
     }
@@ -104,7 +107,7 @@ const Search: React.FC<SearchProps> = ({
           return {
             id: property.ahtiId,
             name: property.name,
-            location: property?.contactInfo?.address?.municipality,
+            location: property.contactInfo?.address?.municipality,
             category: property.category?.id,
           };
         })
@@ -115,12 +118,14 @@ const Search: React.FC<SearchProps> = ({
     );
   }, [currentSearch, featuresToSearch, maxItems]);
 
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [inputRef]);
+
   return (
-    <div
-      className={cx(styles.container, className)}
-      tabIndex={0}
-      ref={containerRef}
-    >
+    <div className={cx(styles.container, className)} tabIndex={0}>
       <div className={styles.search}>
         <div className={styles.searchInputWithIcon}>
           <div>
@@ -133,14 +138,20 @@ const Search: React.FC<SearchProps> = ({
             onChange={(event) => setCurrentSearch(event.target.value)}
             aria-label={t('search.search')}
             placeholder={t('search.search')}
+            ref={inputRef}
           />
         </div>
+        <button
+          className={styles.toggleMenuButton}
+          onClick={onClose}
+          tabIndex={0}
+        >
+          <MenuIcon isDark={true} isOpen={true} />
+        </button>
       </div>
       {searchResults.length > 0 && (
-        <div className={styles.resultsContainerAbsolute}>
-          <div
-            className={cx(styles.resultsContainerRelative, resultsClassName)}
-          >
+        <div className={styles.resultsContainer}>
+          <div className={resultsClassName}>
             {searchResults.map((item: SearchData, id: number) => (
               <SearchItem
                 key={id}
