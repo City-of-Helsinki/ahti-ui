@@ -1327,7 +1327,8 @@
       "source": "openmaptiles",
       "source-layer": "transportation",
       "layout": {},
-      "paint": { "line-color": "hsl(205, 38%, 76%)" }
+      "paint": { "line-color": "hsl(205, 38%, 76%)" },
+      "filter": ["all", ["!in", "class", "ferry"]]
     },
     {
       "id": "place-city",
