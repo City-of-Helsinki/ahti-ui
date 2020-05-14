@@ -85,6 +85,18 @@ const Map: React.FC<MapProps> = ({
     maxZoom: maxZoomLevel,
   });
 
+  const onPointClick = (longitude: number, latitude: number, zoom?: number) => {
+    window && window.scrollTo({ top: 0 });
+    setViewPort({
+      ...viewPort,
+      longitude: longitude,
+      latitude: latitude,
+      zoom: zoom ? zoom : viewPort.zoom + 1,
+      transitionInterpolator: new FlyToInterpolator(),
+      transitionDuration: transitionDuration,
+    });
+  };
+
   const mapRef = useRef<StaticMap>();
   const renderPin = (
     pointFeature: PointFeature<GeoJsonProperties>,
@@ -101,18 +113,13 @@ const Map: React.FC<MapProps> = ({
     );
     const onMarkerClick = () => {
       onClick(feature);
-      window && window.scrollTo({ top: 0 });
-      setViewPort({
-        ...viewPort,
-        longitude: feature.geometry.coordinates[0],
-        latitude: feature.geometry.coordinates[1],
-        zoom:
-          viewPort.zoom > selectedFeatureZoomLevel
-            ? viewPort.zoom
-            : selectedFeatureZoomLevel,
-        transitionInterpolator: new FlyToInterpolator(),
-        transitionDuration: transitionDuration,
-      });
+      onPointClick(
+        feature.geometry.coordinates[0],
+        feature.geometry.coordinates[1],
+        viewPort.zoom > selectedFeatureZoomLevel
+          ? viewPort.zoom
+          : selectedFeatureZoomLevel
+      );
     };
     return (
       <Marker
@@ -184,7 +191,10 @@ const Map: React.FC<MapProps> = ({
               latitude={latitude}
               longitude={longitude}
             >
-              <ClusterIcon pointCount={pointCount} />
+              <ClusterIcon
+                pointCount={pointCount}
+                onClick={() => onPointClick(longitude, latitude)}
+              />
             </Marker>
           );
         } else {

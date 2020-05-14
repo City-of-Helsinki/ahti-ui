@@ -7,9 +7,9 @@ export default {
   component: ClusterIcon,
 };
 
-export const ClusterIconSmallValue = () => <ClusterIcon pointCount={'1'} />;
+export const ClusterIconSmallValue = () => <ClusterIcon pointCount={1} />;
 export const ClusterIconStoryBiggerValue = () => (
-  <ClusterIcon pointCount={'89'} />
+  <ClusterIcon pointCount={89} />
 );
 
 ClusterIconSmallValue.story = {
