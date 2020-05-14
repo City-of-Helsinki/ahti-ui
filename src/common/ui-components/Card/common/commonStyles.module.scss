@@ -7,6 +7,8 @@
 
 .subheading {
   color: rgb(29, 29, 29);
+  font-size: var(--hds-text-lg);
+  line-height: var(--hds-text-base-line-height);
   font-weight: 700;
 }
 
@@ -14,7 +16,7 @@
   display: grid;
   grid-template-columns: 30% auto;
   grid-column-gap: 2rem;
-  margin: unit(1);
+  margin: unit(1) 0;
 }
 
 .urlContainer {

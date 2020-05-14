@@ -186,7 +186,7 @@
     "harbor_content": {
       "mooring": "Rantautumistiedot",
       "mooringInformation": "Venepaikat",
-      "mooringType": "Kiinnitystapa",
+      "mooringType": "Kiinnitystavat",
       "depth": "Syvyys",
       "pricing": "Hinnat ja varaukset",
       "dayPricing": "Päivävierailu",
