@@ -1,29 +1,29 @@
 @import '../../styles/mixins';
 @import '../../styles/spacings';
 
+$content-color: var(--hds-ui-color-white);
+
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: unit(10) 0 unit(2) 0;
+  margin-top: unit(10);
   font-size: 14px;
+  background-color: var(--hds-brand-color-coat-of-arms-blue);
+  color: $content-color;
 }
 
 .divider {
-  border: 0.1px solid rgba(29, 29, 29, 0.2);
+  border: 0.1px solid $content-color;
   height: 1px;
   width: 346px;
   margin: unit(3) 0;
 }
 
-.koros {
-  color: var(--hds-ui-color-black-10);
-}
-
 .logo {
-  @include helsinki-logo(var(--hds-ui-colors-black));
-  width: 4rem;
-  height: 8rem;
+  @include helsinki-logo(#fff);
+  width: 8rem;
+  height: 4rem;
   margin-top: unit(3);
 }
 
@@ -34,4 +34,9 @@
   justify-content: space-around;
   align-items: center;
   white-space: nowrap;
+
+  > a {
+    color: inherit;
+    margin: unit(0.25) 0;
+  }
 }

@@ -37,11 +37,11 @@
   }
 
   > .#{$_classname}:first-of-type {
-    margin-left: $_width;
+    margin-left: 0;
   }
 
   > .#{$_classname}:last-of-type {
-    margin-right: $_width;
+    margin-right: 0;
   }
 }
 
