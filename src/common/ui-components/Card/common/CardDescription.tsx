@@ -24,7 +24,7 @@ const CardDescription: React.FC<CardDescriptionProps> = ({
       <div className={cx(commonStyles.bodyText)}>
         {showMoreToggled || description.length <= shortDescriptionLength
           ? description
-          : description.substr(0, 500) + '...'}
+          : description.substr(0, shortDescriptionLength) + '...'}
       </div>
 
       {description.length > shortDescriptionLength && (

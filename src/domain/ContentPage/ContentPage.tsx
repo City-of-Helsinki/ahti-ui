@@ -87,13 +87,15 @@ const ContentPage: React.FC = () => {
               </div>
             )}
             {state.selectedFeature && (
-              <>
+              <div
+                className={cx({ selectedFeatureMapView: state.mapViewToggle })}
+              >
                 <BackButton onBack={() => actions.clearSelectedFeature()} />
                 <Card
                   feature={state.selectedFeature}
                   onSelectFilter={actions.addTagFilter}
                 />
-              </>
+              </div>
             )}
           </div>
         )}
