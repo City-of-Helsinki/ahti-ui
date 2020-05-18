@@ -38,8 +38,6 @@ export const SearchItem: React.FC<SearchItemProps> = ({
   const re = new RegExp(`(${escapeRegExp(currentSearch)})`, 'gi');
   const parts = name.split(re);
 
-  console.log(location);
-
   return (
     <div
       className={styles.searchItem}
