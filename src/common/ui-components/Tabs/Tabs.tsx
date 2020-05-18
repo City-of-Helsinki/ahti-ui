@@ -27,12 +27,10 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
   const [selected, setSelected] = useState(-1);
 
   useEffect(() => {
-    if (
-      selected === -1 ||
-      selected >= children.length ||
-      children[selected].props.disabled
-    ) {
-      setSelected(children.findIndex((child) => !child.props.disabled));
+    if (selected === -1 || !children[selected]) {
+      setSelected(
+        children.findIndex((child) => child?.props && !child.props.disabled)
+      );
     }
   }, [children, selected]);
 
