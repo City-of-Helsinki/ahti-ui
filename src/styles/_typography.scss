@@ -1,15 +1,15 @@
-:root {
-  --hds-text-base-size: 16px;
-  --hds-text-base-line-height: 19px;
+#root {
+  --hds-text-base-size: 1rem;
+  --hds-text-base-line-height: 1.2;
   --hds-text-sm-line-height: 1.86;
   --hds-text-body-line-height: 1.625;
 
-  --hds-text-sm: 0.875em;
-  --hds-text-md: 1.125em;
-  --hds-text-lg: 1.25em;
-  --hds-text-xl: 1.5em;
-  --hds-text-xxl: 2.25em;
-  --hds-text-xxxl: 3.25em;
+  --hds-text-sm: 0.875rem;
+  --hds-text-md: 1.125rem;
+  --hds-text-lg: 1.25rem;
+  --hds-text-xl: 1.5rem;
+  --hds-text-xxl: 2.25rem;
+  --hds-text-xxxl: 3.25rem;
 
   --hds-theme-primary-font: 'HelsinkiGrotesk';
 }
