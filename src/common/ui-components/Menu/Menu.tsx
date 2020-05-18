@@ -118,26 +118,23 @@ const Menu: React.FC<MenuProps> = ({
 
   return (
     <div
-      className={
-        isOpen
-          ? classNames(className, styles.containerOpen)
-          : classNames(className, styles.container)
-      }
+      className={classNames(
+        styles.container,
+        { [styles.containerOpen]: isOpen, [styles.dark]: menuDark || isOpen },
+        className
+      )}
     >
       <div className={styles.headerContainer}>
-        <RouterLink to={'/'} onClick={() => onLogoClick && onLogoClick()}>
+        <RouterLink to={'/'} onClick={() => onLogoClick?.()}>
           <AhtiLogo fillColor={menuDark || isOpen ? '#001A33' : 'white'} />
         </RouterLink>
 
-        <div className={menuDark ? styles.logoDark : styles.logo} />
+        <div className={styles.logo} />
 
         <div className={styles.menuToggles}>
           <button onClick={onSearchIconClick}>
             <IconSearch
-              className={classNames(styles.bigIcon, {
-                [styles.lightIcon]: !menuDark && !isOpen,
-                [styles.darkIcon]: menuDark || isOpen,
-              })}
+              className={classNames(styles.bigIcon, styles.menuIcon)}
             />
           </button>
 

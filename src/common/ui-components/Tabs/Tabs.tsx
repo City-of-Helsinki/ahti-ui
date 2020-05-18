@@ -37,7 +37,7 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
   }, [children, selected]);
 
   const renderLink = (child: React.ReactElement<TabProps>, id: number) => {
-    if (!child.props || !child.props.children) {
+    if (!child.props?.children) {
       return null;
     }
     return (
@@ -57,7 +57,7 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
   };
 
   const renderContent = (child: React.ReactElement<TabProps>, id: number) => {
-    if (!child.props || !child.props.children) {
+    if (!child.props?.children) {
       return null;
     }
     return (

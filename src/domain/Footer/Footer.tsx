@@ -24,11 +24,21 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         'common.all_rights_reserved'
       )}`}</div>
       <div className={styles.links}>
-        <Link to={'/terms'}>{t('common.terms_of_service')}</Link>
-        <a href={t('footer.boating_url')} target={'_blank'}>
+        <Link to={'/terms'} className={styles.link}>
+          {t('common.terms_of_service')}
+        </Link>
+        <a
+          className={styles.link}
+          href={t('footer.boating_url')}
+          target={'_blank'}
+        >
           {t('footer.boating')}
         </a>
-        <a href={t('footer.sea_rescue_url')} target={'_blank'}>
+        <a
+          className={styles.link}
+          href={t('footer.sea_rescue_url')}
+          target={'_blank'}
+        >
           {t('footer.sea_rescue')}
         </a>
       </div>

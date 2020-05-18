@@ -89,11 +89,11 @@ const Map: React.FC<MapProps> = ({
     window && window.scrollTo({ top: 0 });
     setViewPort({
       ...viewPort,
-      longitude: longitude,
-      latitude: latitude,
-      zoom: zoom ? zoom : viewPort.zoom + 1,
+      longitude,
+      latitude,
+      zoom: zoom || viewPort.zoom + 1,
       transitionInterpolator: new FlyToInterpolator(),
-      transitionDuration: transitionDuration,
+      transitionDuration,
     });
   };
 

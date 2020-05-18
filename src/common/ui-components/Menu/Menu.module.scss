@@ -6,6 +6,14 @@
 .container {
   width: 100%;
   background-color: transparent;
+  &.dark {
+    .menuIcon {
+      color: var(--hds-ui-color-black);
+    }
+    .logo {
+      @include helsinki-logo(#000);
+    }
+  }
 }
 
 .containerOpen {
@@ -44,24 +52,14 @@
   margin-left: unit(0.5);
 }
 
-.logoDark {
-  @include helsinki-logo(#000);
-  width: 4rem;
-  height: 2rem;
-}
-
 .logo {
   @include helsinki-logo(#fff);
   width: 4rem;
   height: 2rem;
 }
 
-.lightIcon {
+.menuIcon {
   color: var(--hds-ui-color-white);
-}
-
-.darkIcon {
-  color: var(--hds-ui-color-black);
 }
 
 .menuContentWrapper {

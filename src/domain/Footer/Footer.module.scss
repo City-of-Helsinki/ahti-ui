@@ -34,9 +34,9 @@ $content-color: var(--hds-ui-color-white);
   justify-content: space-around;
   align-items: center;
   white-space: nowrap;
+}
 
-  > a {
-    color: inherit;
-    margin: unit(0.25) 0;
-  }
+.link {
+  color: inherit;
+  margin: unit(0.25) 0;
 }
