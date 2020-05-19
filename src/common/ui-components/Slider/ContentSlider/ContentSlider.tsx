@@ -29,7 +29,7 @@ const ContentSlider: React.FC<ContentSliderProps> = ({
   items,
   translated,
   onClick,
-  infinite = false,
+  infinite = true,
   initialSlide = 0,
   slidesToScroll = 1,
   slidesToShow = 2,

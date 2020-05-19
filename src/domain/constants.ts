@@ -132,6 +132,31 @@ export const boaterServicesSliderContent: ContentSliderItem[] = [
   },
 ];
 
+export const seasideExperiencesSliderContent: ContentSliderItem[] = [
+  {
+    categoryFilters: [{ id: 'ahti:category:harbor' }],
+    tagFilters: [],
+    title: 'boater_services.guest_harbors',
+    imageUrl: '/images/placeholder.png',
+  },
+  {
+    categoryFilters: [
+      { id: 'ahti:category:restaurant' },
+      { id: 'ahti:category:cafe' },
+      { id: 'ahti:category:bar' },
+    ],
+    tagFilters: [],
+    title: 'boater_services.restaurants',
+    imageUrl: '/images/placeholder.png',
+  },
+  {
+    categoryFilters: [],
+    tagFilters: [],
+    title: 'boater_services.rental_boats',
+    imageUrl: '/images/placeholder.png',
+  },
+];
+
 export const categories: Record<string, string> = {
   ISLAND: 'ahti:category:island',
   RESTAURANT: 'ahti:category:restaurant',

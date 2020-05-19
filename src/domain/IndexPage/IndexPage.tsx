@@ -5,7 +5,11 @@ import classNames from 'classnames';
 
 import WrappedMenu from '../WrappedMenu/WrappedMenu';
 import { useOvermind } from '../overmind';
-import { boaterServicesSliderContent, categories } from '../constants';
+import {
+  boaterServicesSliderContent,
+  categories,
+  seasideExperiencesSliderContent,
+} from '../constants';
 import HeroBanner from '../../common/ui-components/HeroBanner/HeroBanner';
 import ListView from '../../common/ui-components/ListView/ListView';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
@@ -106,6 +110,20 @@ const IndexPage: React.FC = () => {
           >
             {t('index.section3_button')}
           </Link>
+        </section>
+
+        <section className={styles.section}>
+          <h2>{t('index.section4_header')}</h2>
+          <ContentSlider
+            items={seasideExperiencesSliderContent}
+            translated={true}
+            slideClassName={styles.slide}
+            onClick={(item) => {
+              actions.setMapViewToggle(true);
+              actions.setTagFilters(item.tagFilters);
+              actions.setCategoryFilters(item.categoryFilters);
+            }}
+          />
         </section>
 
         <PromotionCard
