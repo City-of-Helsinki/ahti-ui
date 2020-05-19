@@ -101,9 +101,7 @@ const ContentPage: React.FC = () => {
         )}
         {!state.selectedFeature && (
           <CategoryNavigation
-            className={cx(styles.categoryNavigation, {
-              categoryNavigationListView: !state.mapViewToggle,
-            })}
+            className={styles.categoryNavigation}
             categories={Object.values(categories).map(makeFilterFromCategoryId)}
             translated={true}
             onClick={(categoryId: string) => {

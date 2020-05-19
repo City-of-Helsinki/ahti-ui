@@ -176,6 +176,7 @@ const Map: React.FC<MapProps> = ({
       onViewportChange={setViewPort}
       clickRadius={10}
       onNativeClick={onMapClick}
+      attributionControl={null}
     >
       {clusters.map((cluster: any, id: number) => {
         const [longitude, latitude] = cluster.geometry.coordinates;
