@@ -2,7 +2,8 @@
   "common": {
     "back": "Back",
     "terms_of_service": "Terms of Service",
-    "all_rights_reserved": "All rights reserved"
+    "all_rights_reserved": "All rights reserved",
+    "network_error": "Your network has disconnected"
   },
   "index": {
     "main_header": "Discover the beautiful archipelago of Helsinki!",
