@@ -29,7 +29,12 @@ import {
 import ClusterIcon from '../ClusterIcon/ClusterIcon';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './Map.module.scss';
-import { getMapStyle, getFlyToPoint, getPoints, getRoutes } from './mapUtils';
+import {
+  getMapStyleWithRoutes,
+  getFlyToPoint,
+  getPoints,
+  getRoutes,
+} from './mapUtils';
 import PinIcon from './PinIcon/PinIcon';
 
 /*
@@ -168,7 +173,7 @@ const Map: React.FC<MapProps> = ({
   return (
     <MapGL
       {...viewPort}
-      mapStyle={getMapStyle(routes)}
+      mapStyle={getMapStyleWithRoutes(routes)}
       width={'100%'}
       height={'100%'}
       className={className}

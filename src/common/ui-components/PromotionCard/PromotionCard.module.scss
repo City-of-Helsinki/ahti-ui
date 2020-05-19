@@ -6,12 +6,13 @@ $promotion-card-height: 338px;
 
 .promotionSection {
   position: relative;
-  top: $promotion-card-width * (7 / 10);
+  bottom: 10%;
   left: 10%;
   width: 80%;
   color: var(--hds-ui-color-white);
   background-color: var(--hds-brand-color-fog);
   padding: unit(2) unit(1);
+  margin-top: 10%;
 
   h1,
   h2,

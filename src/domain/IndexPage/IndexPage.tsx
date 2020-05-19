@@ -22,6 +22,7 @@ import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_rudder.json';
 import ContentSlider from '../../common/ui-components/Slider/ContentSlider/ContentSlider';
 import { Filter } from '../../../alltypes';
+import Footer from '../Footer/Footer';
 
 const IndexPage: React.FC = () => {
   const { actions } = useOvermind();
@@ -135,6 +136,7 @@ const IndexPage: React.FC = () => {
           className={styles.imageWithCardSection}
         />
       </div>
+      <Footer />
     </React.Fragment>
   );
 };

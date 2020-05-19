@@ -228,5 +228,29 @@
   },
   "language_select": {
     "select_language": "Select language"
+  },
+  "suggestion_form": {
+    "heading": "Ehdota lisättävä palvelu Ahtiin",
+    "name": "Palvelun nimi",
+    "description": "Palvelun kuvaus",
+    "short_description": "Palvelun lyhyt kuvaus",
+    "website": "Palvelun verkkosivu",
+    "address": "Palvelun osoite",
+    "phone": "Palvelun puhelinnumero",
+    "email": "Palvelun sähköpostiosoite",
+    "category": "Palvelun kategoria",
+    "tags": "Lisää palvelulle tageja alla olevasta listasta",
+    "location": "Valitse kartalta palvelun sijainti",
+    "submit": "Lähetä palvelun tiedot",
+    "coordinates": "Valitse kartalta palvelun sijainti",
+    "selected_tags": "Valitut tagit",
+    "no_selected_tags": "Ei yhtäkään valittua tagia",
+    "on_submit": "Ehdotuksesi on vastaanotettu!",
+    "errors": {
+      "required": "Tämä kenttä on pakollinen",
+      "email": "Kentän arvo ei ole kelvollinen sähköposti",
+      "translated_field_required": "Suomalainen käännös tälle kentälle on pakollinen",
+      "check_form": "Tietoja ei voitu lähettä. Tarkista syöttämäsi tiedot"
+    }
   }
 }

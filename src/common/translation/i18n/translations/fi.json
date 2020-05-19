@@ -15,10 +15,9 @@
     "section3_header": "Merelliset kahvilat ja ravintolat",
     "section3_button": "Selaa kaikkia ravintoloita ja kahviloita",
     "section4_header": "Merelliset kokemukset",
-    "section5_header": "Uutta Ahdissa",
-    "section5_subheader": "Rutkasti uusia toiminnallisuuksia",
-    "section5_paragraph": "Tutustu Helsingin merellliseen ympäristöön.",
-    "section5_link": "Katso kaikki uudistukset"
+    "section5_header": "Ehdota uusi palvelu Ahtiin",
+    "section5_paragraph": "Paranna Ahtia täyttämällä palvelusi tiedot",
+    "section5_link": "Avaa lomake"
   },
   "content": {
     "map": "Kartta",
@@ -230,5 +229,29 @@
   },
   "language_select": {
     "select_language": "Valitse kieli"
+  },
+  "suggestion_form": {
+    "heading": "Ehdota lisättävä palvelu Ahtiin",
+    "name": "Palvelun nimi",
+    "description": "Palvelun kuvaus",
+    "short_description": "Palvelun lyhyt kuvaus",
+    "website": "Palvelun verkkosivu",
+    "address": "Palvelun osoite",
+    "phone": "Palvelun puhelinnumero",
+    "email": "Palvelun sähköpostiosoite",
+    "category": "Palvelun kategoria",
+    "tags": "Lisää palvelulle tageja alla olevasta listasta",
+    "location": "Valitse kartalta palvelun sijainti",
+    "submit": "Lähetä palvelun tiedot",
+    "coordinates": "Valitse kartalta palvelun sijainti",
+    "selected_tags": "Valitut tagit",
+    "no_selected_tags": "Ei yhtäkään valittua tagia",
+    "on_submit": "Ehdotuksesi on vastaanotettu!",
+    "errors": {
+      "required": "Tämä kenttä on pakollinen",
+      "email": "Kentän arvo ei ole kelvollinen sähköposti",
+      "translated_field_required": "Suomalainen käännös tälle kentälle on pakollinen",
+      "check_form": "Tietoja ei voitu lähettä. Tarkista syöttämäsi tiedot"
+    }
   }
 }

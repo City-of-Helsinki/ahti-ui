@@ -1,0 +1,32 @@
+@import '../../styles/spacings';
+
+.labelText {
+  color: var(--label-color-default);
+  display: block;
+  font-size: var(--fontsize-subtitle);
+  font-weight: 700;
+  margin-bottom: var(--spacing-3-xs);
+}
+
+.mapContainer {
+  width: 100%;
+  height: 250px;
+}
+
+.tag {
+  padding: unit(0.25);
+}
+
+.tag:hover {
+  background-color: var(--hds-brand-color-fog);
+}
+
+.noSelectedTags {
+  color: var(--hds-ui-color-black-70);
+}
+
+.form {
+  > * {
+    margin: unit(2) unit(1);
+  }
+}

@@ -21,7 +21,6 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({
 
   return (
     <div className={className}>
-      {`${t('language_select.select_language')}: `}
       {supportedLanguages.map((language: string, id: number) => {
         return (
           <button

@@ -25,6 +25,7 @@ const Pill: React.FC<PillProps> = ({ category, name, onClose }) => {
       <button
         onClick={onClose}
         aria-label={`${t('breadcrumb.close')}: ${name}`}
+        type="button"
       >
         <IconClose className={styles.smallIcon} />
       </button>

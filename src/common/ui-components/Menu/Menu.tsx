@@ -80,10 +80,6 @@ const Menu: React.FC<MenuProps> = ({
   const renderMenuContent = () => {
     return (
       <div className={classNames(styles.menuContent, contentClassName)}>
-        <LanguageSelect
-          supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
-          darkMenu={true}
-        />
         {items.map((item: MenuCategory, id: number) => {
           return (
             <NavDropdown key={id} title={item.title} category={item.category}>
@@ -130,6 +126,11 @@ const Menu: React.FC<MenuProps> = ({
         </RouterLink>
 
         <div className={styles.logo} />
+
+        <LanguageSelect
+          supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
+          darkMenu={menuDark}
+        />
 
         <div className={styles.menuToggles}>
           <button onClick={onSearchIconClick}>

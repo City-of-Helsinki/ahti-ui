@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Footer from '../Footer/Footer';
+import SuggestionPage from '../SuggestionPage/SuggestionPage';
 import ContentPage from '../ContentPage/ContentPage';
 import IndexPage from '../IndexPage/IndexPage';
 import {
@@ -26,9 +26,11 @@ const Ahti: React.FC = () => {
         <Route path={'/content'}>
           <ContentPage />
         </Route>
-        <Route path={'/'}>
+        <Route exact path={'/'}>
           <IndexPage />
-          <Footer />
+        </Route>
+        <Route exact path={'/new'}>
+          <SuggestionPage />
         </Route>
       </Switch>
       <ToastContainer />

@@ -49,6 +49,7 @@
     "@types/react-slick": "^0.23.4",
     "@types/react-swipeable-views": "^0.13.0",
     "@types/supercluster": "^5.0.2",
+    "@types/yup": "^0.28.3",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
     "apollo-boost": "^0.4.7",
@@ -74,10 +75,11 @@
     "eslint-plugin-react-hooks": "^1.6.1",
     "faker": "^4.1.0",
     "file-loader": "4.3.0",
+    "formik": "^2.1.4",
     "fs-extra": "^8.1.0",
     "geojson": "^0.5.0",
     "graphql": "^14.6.0",
-    "hds-react": "^0.5.4",
+    "hds-react": "^0.7.1",
     "html-webpack-plugin": "4.0.0-beta.5",
     "i18next": "^19.1.0",
     "i18next-browser-languagedetector": "^4.0.1",
@@ -127,7 +129,8 @@
     "webpack": "4.41.2",
     "webpack-dev-server": "3.9.0",
     "webpack-manifest-plugin": "2.2.0",
-    "workbox-webpack-plugin": "4.3.1"
+    "workbox-webpack-plugin": "4.3.1",
+    "yup": "^0.28.5"
   },
   "devDependencies": {
     "@apollo/react-testing": "^3.1.3",

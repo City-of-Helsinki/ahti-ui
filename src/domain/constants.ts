@@ -151,8 +151,8 @@ export const seasideExperiencesSliderContent: ContentSliderItem[] = [
   },
   {
     categoryFilters: [],
-    tagFilters: [],
-    title: 'boater_services.rental_boats',
+    tagFilters: [{ id: 'ahti:tag:sup' }],
+    title: 'seaside_experiences.sup',
     imageUrl: '/images/placeholder.png',
   },
 ];

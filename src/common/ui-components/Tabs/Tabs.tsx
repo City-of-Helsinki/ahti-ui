@@ -48,6 +48,7 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
         onClick={() => setSelected(id)}
         role={'tab'}
         disabled={child.props.disabled}
+        type="button"
       >
         {child.props.title}
       </button>
