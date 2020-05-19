@@ -1,12 +1,3 @@
-@mixin fullWidth {
-  width: $full-width;
-}
-
-@mixin fullHeight {
-  min-height: 100vh;
-  height: 100%;
-}
-
 @mixin disabledLink {
   pointer-events: none;
   cursor: not-allowed;
@@ -46,11 +37,11 @@
   }
 
   > .#{$_classname}:first-of-type {
-    margin-left: $_width;
+    margin-left: 0;
   }
 
   > .#{$_classname}:last-of-type {
-    margin-right: $_width;
+    margin-right: 0;
   }
 }
 

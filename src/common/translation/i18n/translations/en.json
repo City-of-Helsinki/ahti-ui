@@ -37,7 +37,8 @@
     "services": "Services related to this destination",
     "ahti:link:satamapaikkacom": "Book a pier at satamapaikka.com",
     "ahti:link:jtline": "Browse timetables at the JT-line homepage",
-    "servicemap": "See this location on servicemap"
+    "servicemap": "See this location on servicemap",
+    "ticket_shop": "Reserve a ticket"
   },
   "dropdown": {
     "label": "Menu",
@@ -160,7 +161,7 @@
   },
   "card": {
     "modified_at": "Updated",
-    "source": "Source",
+    "source": "Data source",
     "show_more": "Show more",
     "show_less": "Show less",
     "island_content": {
@@ -223,5 +224,8 @@
     "boating_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating",
     "sea_rescue": "Sea rescue directions",
     "sea_rescue_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating/boating-information/sea-rescue-directions/"
+  },
+  "language_select": {
+    "select_language": "Select language"
   }
 }

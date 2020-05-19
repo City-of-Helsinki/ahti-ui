@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
-import WrappedMenu from '../../common/ui-components/WrappedMenu/WrappedMenu';
+import WrappedMenu from '../WrappedMenu/WrappedMenu';
 import { useOvermind } from '../overmind';
 import { boaterServicesSliderContent, categories } from '../constants';
 import HeroBanner from '../../common/ui-components/HeroBanner/HeroBanner';
@@ -16,7 +16,6 @@ import PromotionCard from '../../common/ui-components/PromotionCard/PromotionCar
 import { featuresLens } from '../../common/utils/lenses';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_rudder.json';
-import videoUrl from '../../assets/videos/Ahti_vertical.mp4';
 import ContentSlider from '../../common/ui-components/Slider/ContentSlider/ContentSlider';
 import { Filter } from '../../../alltypes';
 
@@ -43,11 +42,11 @@ const IndexPage: React.FC = () => {
 
   return (
     <React.Fragment>
-      <WrappedMenu menuDark={false}></WrappedMenu>
+      <WrappedMenu />
       <div className={classNames(styles.pageContainer)}>
-        <HeroBanner videoUrl={videoUrl}>
-          <h1>{t('index.main_header')}</h1>
-          <Link className={styles.link} to={'/content'}>
+        <HeroBanner>
+          <h1 className={styles.bannerHeading}>{t('index.main_header')}</h1>
+          <Link className={styles.bannerLink} to={'/content'}>
             {t('index.see_all_button')}
           </Link>
         </HeroBanner>

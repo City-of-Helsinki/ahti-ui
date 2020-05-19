@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Feature } from '../../../domain/api/generated/types.d';
 import CategoryIcon from '../CategoryIcon/CategoryIcon';
-import { getRandomImageUrl } from '../../utils/images';
+import { getFirstImageUrl } from '../../utils/images';
 import styles from './ListViewCard.module.scss';
 
 export interface ListViewCardProps {
@@ -16,7 +16,7 @@ const ListViewCard: React.FC<ListViewCardProps> = ({ feature, onClick }) => {
   const category = feature?.properties?.category?.id;
   const name = feature?.properties?.name;
   const shortDescription = feature?.properties?.shortDescription;
-  const imageUrl = getRandomImageUrl(feature?.properties?.images, null);
+  const imageUrl = getFirstImageUrl(feature?.properties?.images, null);
 
   return (
     <div
@@ -28,7 +28,7 @@ const ListViewCard: React.FC<ListViewCardProps> = ({ feature, onClick }) => {
     >
       <div className={styles.infoContainer}>
         <div>
-          <CategoryIcon category={category} className={styles.bigIcon} />
+          <CategoryIcon category={category} className={styles.largeIcon} />
         </div>
         <div className={styles.infoTextContainer}>
           <h2 className={styles.heading}>{name}</h2>
@@ -41,7 +41,6 @@ const ListViewCard: React.FC<ListViewCardProps> = ({ feature, onClick }) => {
           className={styles.image}
           alt={`${t('list_view.image_alt')}: ${name}`}
           width={100}
-          height={84}
         />
       )}
     </div>

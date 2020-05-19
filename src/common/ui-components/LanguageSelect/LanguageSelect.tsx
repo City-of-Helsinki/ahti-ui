@@ -17,10 +17,11 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({
   className,
   darkMenu,
 }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className={className}>
+      {`${t('language_select.select_language')}: `}
       {supportedLanguages.map((language: string, id: number) => {
         return (
           <button

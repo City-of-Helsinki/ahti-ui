@@ -3,7 +3,12 @@ import classNames from 'classnames';
 
 import styles from './ClusterIcon.module.scss';
 
-const ClusterIcon: React.FC<any> = ({ pointCount }) => {
+interface ClusterIconProps {
+  readonly pointCount: number;
+  onClick?(): void;
+}
+
+const ClusterIcon: React.FC<ClusterIconProps> = ({ pointCount, onClick }) => {
   return (
     <svg
       width="41px"
@@ -11,6 +16,8 @@ const ClusterIcon: React.FC<any> = ({ pointCount }) => {
       viewBox="0 0 41 43"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
+      transform="translate(-20.5, -21.5)"
+      onClick={onClick}
     >
       <g
         id="Map-View-Design"

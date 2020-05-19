@@ -21,15 +21,11 @@ const IslandContent: React.FC<IslandContentProps> = ({ island }) => {
       <Tab title={t('card.island_content.description_tab')}>
         <CardDescription description={island.properties.description} />
       </Tab>
-      <Tab
-        title={t('card.island_content.routes_tab')}
-        disabled={ferries.length === 0 && harbors.length === 0}
-      >
-        <IslandRoutes harbors={harbors} ferries={ferries} />
-      </Tab>
-      <Tab title={t('card.island_content.services_tab')} disabled>
-        <div></div>
-      </Tab>
+      {(ferries.length > 0 || harbors.length > 0) && (
+        <Tab title={t('card.island_content.routes_tab')}>
+          <IslandRoutes harbors={harbors} ferries={ferries} />
+        </Tab>
+      )}
     </Tabs>
   );
 };

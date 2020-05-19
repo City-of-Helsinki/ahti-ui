@@ -1,20 +1,17 @@
-@import '../../../styles/partials/variables';
+@import '../../../styles/spacings';
 
 .navigation {
   display: flex;
   justify-content: space-between;
-  margin-bottom: $margin;
+  margin-bottom: unit(1);
 
   button {
-    font-size: $font-size;
-    font-weight: $font-width-medium;
-
+    font-weight: 500;
     border: none;
     background: none;
-    padding: ($padding/2) $padding ($padding/2) $padding;
+    padding: unit(0.5) unit(1) unit(0.5) unit(1);
     color: var(--hds-brand-color-coat-of-arms-blue);
     border-bottom: 2px solid var(--hds-brand-color-coat-of-arms-blue);
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -22,13 +19,13 @@
 
   .unselected {
     color: var(--hds-ui-color-black);
-    border-bottom: $border-bottom-unset;
+    border-bottom: unset;
   }
 
   .disabled {
     pointer-events: none;
     color: var(--hds-ui-color-black-70);
-    border-bottom: $border-bottom-unset;
+    border-bottom: unset;
   }
 }
 
@@ -36,7 +33,4 @@
   .unselected {
     display: none;
   }
-}
-
-.tabItem {
 }

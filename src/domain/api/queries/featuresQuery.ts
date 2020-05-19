@@ -29,6 +29,11 @@ const FEATURES_QUERY = gql`
             category {
               id
             }
+            contactInfo {
+              address {
+                municipality
+              }
+            }
             name
             description
             shortDescription @client

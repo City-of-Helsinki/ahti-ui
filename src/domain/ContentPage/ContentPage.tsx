@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames/bind';
 
-import WrappedMenu from '../../common/ui-components/WrappedMenu/WrappedMenu';
+import WrappedMenu from '../WrappedMenu/WrappedMenu';
 import { useOvermind } from '../overmind';
 import { categories } from '../constants';
 import styles from './ContentPage.module.scss';
@@ -63,6 +63,7 @@ const ContentPage: React.FC = () => {
           <div className={styles.content}>
             {!state.selectedFeature && !state.mapViewToggle && (
               <ListView
+                className={styles.listView}
                 features={state.features}
                 onClick={(feature) =>
                   actions.selectFeatureById(feature.properties.ahtiId)
@@ -86,13 +87,15 @@ const ContentPage: React.FC = () => {
               </div>
             )}
             {state.selectedFeature && (
-              <>
+              <div
+                className={cx({ selectedFeatureMapView: state.mapViewToggle })}
+              >
                 <BackButton onBack={() => actions.clearSelectedFeature()} />
                 <Card
                   feature={state.selectedFeature}
                   onSelectFilter={actions.addTagFilter}
                 />
-              </>
+              </div>
             )}
           </div>
         )}

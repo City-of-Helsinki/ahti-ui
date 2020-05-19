@@ -1,10 +1,13 @@
-@import '../../styles/partials/variables';
+@import '../../styles/spacings';
+@import '../../styles/z-index';
 
 .container {
-  position: relative;
-  top: 6rem;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+}
+
+.content {
   flex-grow: 1;
 }
 
@@ -12,13 +15,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: $padding;
+  padding: unit(1);
+  z-index: z-index(content-subheading);
 }
 
 .categoryNavigation {
   position: sticky;
   bottom: 0;
-  padding: $padding 0;
+  padding: unit(1) 0;
 }
 
 .categoryNavigationListView {
@@ -26,12 +30,19 @@
 }
 
 .mapContainer {
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
   width: 100%;
 }
 
 .mapContainerShrunk {
-  height: 35vh;
+  height: 40%;
+}
+.selectedFeatureMapView {
+  position: absolute;
+  top: 40%;
 }
 
 .spinner {
@@ -39,4 +50,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.listView {
+  padding: unit(1);
 }

@@ -1,6 +1,5 @@
 @import '../../../styles/icons';
-@import '../../../styles/partials/variables';
-@import '../../../styles/partials/mixins';
+@import '../../../styles/mixins';
 
 .container {
   display: flex;
@@ -13,7 +12,7 @@
   background-color: var(--hds-ui-color-white);
   border-radius: $small-icon-height * 2;
   padding: $small-icon-height / 4 $small-icon-height / 2;
-  box-shadow: $pill-box-shadow;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 .toggleOn {
@@ -29,6 +28,6 @@
 .text {
   margin-left: $small-icon-width / 2;
   font-size: $small-icon-width;
-  font-weight: $font-width-thick;
+  font-weight: 700;
   white-space: nowrap;
 }

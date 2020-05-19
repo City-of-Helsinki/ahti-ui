@@ -27,16 +27,17 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
   const [selected, setSelected] = useState(-1);
 
   useEffect(() => {
-    if (
-      selected === -1 ||
-      selected >= children.length ||
-      children[selected].props.disabled
-    ) {
-      setSelected(children.findIndex((child) => !child.props.disabled));
+    if (selected === -1 || !children[selected]) {
+      setSelected(
+        children.findIndex((child) => child?.props && !child.props.disabled)
+      );
     }
   }, [children, selected]);
 
   const renderLink = (child: React.ReactElement<TabProps>, id: number) => {
+    if (!child.props?.children) {
+      return null;
+    }
     return (
       <button
         key={id}
@@ -54,6 +55,9 @@ const Tabs: React.FC<TabsProps> = ({ children }) => {
   };
 
   const renderContent = (child: React.ReactElement<TabProps>, id: number) => {
+    if (!child.props?.children) {
+      return null;
+    }
     return (
       <div
         key={id}

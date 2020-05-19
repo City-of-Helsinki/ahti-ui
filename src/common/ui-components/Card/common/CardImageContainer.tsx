@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import SwipeableViews from 'react-swipeable-views';
 import classNames from 'classnames/bind';
+import { Koros } from 'hds-react';
 
 import styles from './CardImageContainer.module.scss';
 import { Image } from '../../../../domain/api/generated/types.d';
@@ -65,6 +66,7 @@ const CardImageContainer: React.FC<CardImageContainerProps> = ({ images }) => {
           );
         })}
       </SwipeableViews>
+      <Koros className={styles.koros} flipHorizontal={false} />
       {images.length > 1 && (
         <Pagination dots={images.length} index={index} setIndex={setIndex} />
       )}

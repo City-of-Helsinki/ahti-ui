@@ -85,6 +85,18 @@ const Map: React.FC<MapProps> = ({
     maxZoom: maxZoomLevel,
   });
 
+  const onPointClick = (longitude: number, latitude: number, zoom?: number) => {
+    window && window.scrollTo({ top: 0 });
+    setViewPort({
+      ...viewPort,
+      longitude,
+      latitude,
+      zoom: zoom || viewPort.zoom + 1,
+      transitionInterpolator: new FlyToInterpolator(),
+      transitionDuration,
+    });
+  };
+
   const mapRef = useRef<StaticMap>();
   const renderPin = (
     pointFeature: PointFeature<GeoJsonProperties>,
@@ -101,18 +113,13 @@ const Map: React.FC<MapProps> = ({
     );
     const onMarkerClick = () => {
       onClick(feature);
-      window && window.scrollTo({ top: 0 });
-      setViewPort({
-        ...viewPort,
-        longitude: feature.geometry.coordinates[0],
-        latitude: feature.geometry.coordinates[1],
-        zoom:
-          viewPort.zoom > selectedFeatureZoomLevel
-            ? viewPort.zoom
-            : selectedFeatureZoomLevel,
-        transitionInterpolator: new FlyToInterpolator(),
-        transitionDuration: transitionDuration,
-      });
+      onPointClick(
+        feature.geometry.coordinates[0],
+        feature.geometry.coordinates[1],
+        viewPort.zoom > selectedFeatureZoomLevel
+          ? viewPort.zoom
+          : selectedFeatureZoomLevel
+      );
     };
     return (
       <Marker
@@ -184,15 +191,10 @@ const Map: React.FC<MapProps> = ({
               latitude={latitude}
               longitude={longitude}
             >
-              {/* <div
-                className={styles.clusterMarker}
-                style={{
-                  width: `${10 + (pointCount / points.length) * 20}px`,
-                  height: `${10 + (pointCount / points.length) * 20}px`,
-                }}
-              > */}
-              <ClusterIcon pointCount={pointCount} />
-              {/* </div> */}
+              <ClusterIcon
+                pointCount={pointCount}
+                onClick={() => onPointClick(longitude, latitude)}
+              />
             </Marker>
           );
         } else {
@@ -205,7 +207,7 @@ const Map: React.FC<MapProps> = ({
           trackUserLocation={true}
           label={t('map.geolocate')}
         />
-        <div className={styles.mapControlsDivider}></div>
+        <div className={styles.mapControlsDivider} />
         <NavigationControl
           zoomInLabel={t('map.zoom_in')}
           zoomOutLabel={t('map.zoom_out')}

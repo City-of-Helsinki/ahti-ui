@@ -39,7 +39,8 @@
     "services": "Kohteeseen liittyviä palveluja",
     "ahti:link:satamapaikkacom": "Varaa venepaikka satamapaikka.comin kautta",
     "ahti:link:jtline": "Selaa aikatauluja JT-linen kotisivuilla",
-    "servicemap": "Katso kohdetta palvelukartalla"
+    "servicemap": "Katso kohdetta palvelukartalla",
+    "ticket_shop": "Varaa matkalippu"
   },
   "dropdown": {
     "label": "Valikko",
@@ -162,7 +163,7 @@
   },
   "card": {
     "modified_at": "Päivitetty",
-    "source": "Tiedot",
+    "source": "Tietolähde",
     "show_more": "Näytä enemmän",
     "show_less": "Näytä vähemmän",
     "island_content": {
@@ -185,7 +186,7 @@
     "harbor_content": {
       "mooring": "Rantautumistiedot",
       "mooringInformation": "Venepaikat",
-      "mooringType": "Kiinnitystapa",
+      "mooringType": "Kiinnitystavat",
       "depth": "Syvyys",
       "pricing": "Hinnat ja varaukset",
       "dayPricing": "Päivävierailu",
@@ -225,5 +226,8 @@
     "boating_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily",
     "sea_rescue": "Meripelastusohjeet",
     "sea_rescue_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/lisatietoa-veneilysta/meripelastusohjeet/"
+  },
+  "language_select": {
+    "select_language": "Valitse kieli"
   }
 }

@@ -1,5 +1,5 @@
-@import '../../../styles/partials/mixins';
-@import '../../../styles/partials/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/spacings';
 
 $promotion-card-width: 100%;
 $promotion-card-height: 338px;
@@ -11,12 +11,12 @@ $promotion-card-height: 338px;
   width: 80%;
   color: var(--hds-ui-color-white);
   background-color: var(--hds-brand-color-fog);
-  padding: $padding * 2 $padding;
+  padding: unit(2) unit(1);
 
   h1,
   h2,
   h3 {
-    font-weight: $font-width-thick;
+    font-weight: 700;
   }
 
   h1 {
@@ -24,7 +24,8 @@ $promotion-card-height: 338px;
   }
 
   p {
-    margin: $margin 0;
+    margin-top: unit(1);
+    margin-bottom: unit(2);
   }
 }
 
@@ -38,5 +39,5 @@ $promotion-card-height: 338px;
 
 .link {
   @include ahti-link(currentColor);
-  font-weight: $font-width-medium;
+  font-weight: 500;
 }

@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({
 }: CardProps) => {
   const type = feature.__typename;
   const { name, images, tags } = feature.properties;
-  const { postalCode, municipality } = feature.properties.contactInfo.address;
+  const address = feature.properties?.contactInfo?.address;
   const category = feature.properties.category.id;
 
   const renderTags = () => {
@@ -52,9 +52,11 @@ const Card: React.FC<CardProps> = ({
         {images && images.length > 0 && <CardImageContainer images={images} />}
         <div className={styles.cardTextContainer}>
           <h1 className={styles.nameHeading}>{name}</h1>
-          <h2
-            className={styles.addressHeading}
-          >{`${postalCode} ${municipality}`}</h2>
+          {address && (
+            <div
+              className={styles.addressHeading}
+            >{`${address.postalCode} ${address.municipality}`}</div>
+          )}
           <div className={styles.tagsContainer}>{renderTags()}</div>
 
           {type === 'Feature' && category !== categories.HARBOR && (

@@ -7,6 +7,7 @@ import '../Slider.scss';
 import { CommonSliderProps } from '../Slider';
 import { Filter } from '../../../../../alltypes';
 import Slide from '../Slide/Slide';
+import styles from './ContentSlider.module.scss';
 
 export type ContentSliderItem = {
   readonly categoryFilters: Filter[];
@@ -55,7 +56,9 @@ const ContentSlider: React.FC<ContentSliderProps> = ({
             className={slideClassName}
             onClick={() => onClick && onClick(item)}
           >
-            <p>{translated ? t(item.title) : item.title}</p>
+            <p className={styles.title}>
+              {translated ? t(item.title) : item.title}
+            </p>
           </Slide>
         ))}
       </Slider>
