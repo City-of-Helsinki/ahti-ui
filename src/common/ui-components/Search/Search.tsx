@@ -149,7 +149,7 @@ const Search: React.FC<SearchProps> = ({
       </div>
       {searchResults.length > 0 && (
         <div className={styles.resultsContainer}>
-          <div className={resultsClassName}>
+          <div className={classNames(styles.resultsContent, resultsClassName)}>
             {searchResults.map((item: SearchData, id: number) => (
               <SearchItem
                 key={id}

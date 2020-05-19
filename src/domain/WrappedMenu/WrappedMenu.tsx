@@ -17,11 +17,7 @@ const WrappedMenu: React.FC<WrappedMenuProps> = ({ menuDark = false }) => {
 
   if (isSearchOpen) {
     return (
-      <div
-        className={classNames(styles.wrapper, {
-          [styles.transparent]: !menuDark,
-        })}
-      >
+      <div className={styles.wrapper}>
         <Search
           featuresToSearch={state.features}
           onSelect={(ahtiId) => {
@@ -32,6 +28,7 @@ const WrappedMenu: React.FC<WrappedMenuProps> = ({ menuDark = false }) => {
             setIsSearchOpen(false);
           }}
           className={classNames({ [styles.absolute]: !menuDark })}
+          resultsClassName={classNames({ [styles.absolute]: menuDark })}
         />
       </div>
     );
@@ -50,7 +47,7 @@ const WrappedMenu: React.FC<WrappedMenuProps> = ({ menuDark = false }) => {
         onLogoClick={() => actions.clearContentState()}
         onSearchIconClick={() => setIsSearchOpen(true)}
         className={classNames(styles.padding, {
-          [styles.menuLight]: !menuDark,
+          [styles.absolute]: !menuDark,
         })}
         contentClassName={classNames({ [styles.absolute]: menuDark })}
       />
