@@ -50,6 +50,7 @@ const getValidationSchema = (
     tags: Yup.array().of(Yup.string().oneOf(validTagIds)),
     name: getTranslatedFieldValidationSchema(t),
     description: getTranslatedFieldValidationSchema(t),
+    shortDescription: getTranslatedFieldValidationSchema(t),
     coordinates: Yup.object()
       .shape({
         latitude: Yup.number().required(t('suggestion_form.errors.required')),
