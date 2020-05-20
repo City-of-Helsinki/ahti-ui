@@ -251,7 +251,7 @@
       "required": "Tämä kenttä on pakollinen",
       "email": "Kentän arvo ei ole kelvollinen sähköposti",
       "translated_field_required": "Suomalainen käännös tälle kentälle on pakollinen",
-      "check_form": "Tietoja ei voitu lähettä. Tarkista syöttämäsi tiedot"
+      "check_form": "Tietoja ei voitu lähettä. Tarkista syöttämäsi tiedot."
     }
   }
 }

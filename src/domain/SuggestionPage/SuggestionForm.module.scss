@@ -1,4 +1,5 @@
 @import '../../styles/spacings';
+@import '../../styles/mixins';
 
 .labelText {
   color: var(--label-color-default);
@@ -27,6 +28,24 @@
 
 .form {
   > * {
-    margin: unit(2) unit(1);
+    margin: unit(2) 0;
   }
+}
+
+.formHeading {
+  margin-bottom: 0;
+}
+
+.koros {
+  margin-top: 0;
+  color: var(--hds-brand-color-coat-of-arms-blue);
+}
+
+.formControls {
+  @include flex(column);
+}
+
+.formError {
+  margin-top: unit(0.25);
+  color: var(--hds-ui-color-error);
 }

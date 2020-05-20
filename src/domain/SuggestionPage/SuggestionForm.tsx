@@ -4,7 +4,7 @@ import { TFunction } from 'i18next';
 import * as Yup from 'yup';
 import { ObjectSchema } from 'yup';
 import { useTranslation } from 'react-i18next';
-import { TextInput, Button } from 'hds-react';
+import { TextInput, Button, Koros } from 'hds-react';
 
 import { FeatureCategory, Tag } from '../api/generated/types.d';
 import { initialLatitude, initialLongitude } from '../constants';
@@ -41,9 +41,7 @@ const getValidationSchema = (
   const validTagIds = tags.map((tag) => tag.id);
 
   return Yup.object().shape({
-    email: Yup.string()
-      .email(t('suggestion_form.errors.email'))
-      .required(t('suggestion_form.errors.required')),
+    email: Yup.string().email(t('suggestion_form.errors.email')),
     categoryId: Yup.string()
       .oneOf(validCategoryIds)
       .required(t('suggestion_form.errors.required')),
@@ -95,7 +93,11 @@ const SuggestionForm: React.FC<SuggestionFormProps> = ({
       {({ values, errors, handleChange, handleSubmit }) => {
         return (
           <form onSubmit={handleSubmit} className={styles.form}>
-            <h2>{t('suggestion_form.heading')}</h2>
+            <Koros flipHorizontal={true} className={styles.koros} />
+            <h2 className={styles.formHeading}>
+              {t('suggestion_form.heading')}
+            </h2>
+
             <TranslatedFieldInput
               labelText={t('suggestion_form.name')}
               id={'name'}
@@ -190,10 +192,14 @@ const SuggestionForm: React.FC<SuggestionFormProps> = ({
               handleChange={handleChange}
             />
 
-            <Button type="submit">{t('suggestion_form.submit')}</Button>
-            {Object.keys(errors).length !== 0 && (
-              <span>{t('suggestion_form.errors.check_form')}</span>
-            )}
+            <div className={styles.formControls}>
+              <Button type="submit">{t('suggestion_form.submit')}</Button>
+              {Object.keys(errors).length !== 0 && (
+                <span className={styles.formError}>
+                  {t('suggestion_form.errors.check_form')}
+                </span>
+              )}
+            </div>
           </form>
         );
       }}
