@@ -8,9 +8,8 @@
 
 .section {
   background-color: var(--hds-ui-color-white);
-  margin: unit(1) 0;
-  padding: unit(1);
   position: relative;
+  margin: unit(2) 0;
 
   p {
     margin: unit(1) 0;
@@ -55,9 +54,9 @@
   height: 200px;
   box-shadow: inset 0 0 250px / 2 var(--hds-ui-color-black-90);
   margin: unit(0.25);
+  padding: unit(1);
   background-size: cover;
   background-position: center;
-  padding: unit(1);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

@@ -48,7 +48,7 @@ const IndexPage: React.FC = () => {
   return (
     <React.Fragment>
       <WrappedMenu />
-      <div className={classNames(styles.pageContainer)}>
+      <div className={styles.pageContainer}>
         <HeroBanner>
           <h1 className={styles.bannerHeading}>{t('index.main_header')}</h1>
           <Link className={styles.bannerLink} to={'/content'}>
@@ -79,6 +79,7 @@ const IndexPage: React.FC = () => {
               actions.setTagFilters(item.tagFilters);
               actions.setCategoryFilters(item.categoryFilters);
             }}
+            slidesToShow={1}
           />
         </section>
 
@@ -124,6 +125,7 @@ const IndexPage: React.FC = () => {
               actions.setTagFilters(item.tagFilters);
               actions.setCategoryFilters(item.categoryFilters);
             }}
+            slidesToShow={1}
           />
         </section>
 
