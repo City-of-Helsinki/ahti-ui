@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
 
 import WrappedMenu from '../WrappedMenu/WrappedMenu';
 import { useOvermind } from '../overmind';
