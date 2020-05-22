@@ -6,6 +6,7 @@ import * as queryString from 'query-string';
 
 import { useOvermind } from '../overmind';
 import {
+  FeaturesQuery,
   useCategoriesQuery,
   useFeaturesQuery,
   useTagsQuery,
@@ -138,8 +139,9 @@ export const useFeatures = () => {
     if (!isLoading && pageInfo && pageInfo.hasNextPage) {
       fetchMore({
         variables: { after: pageInfo.endCursor },
-        updateQuery: (prev: any, { fetchMoreResult }) => {
+        updateQuery: (prev: FeaturesQuery, { fetchMoreResult }) => {
           if (!fetchMoreResult) return prev;
+          if (!prev) return fetchMoreResult;
           return Object.assign({}, prev, {
             features: {
               edges: [
