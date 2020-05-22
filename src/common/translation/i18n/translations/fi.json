@@ -229,7 +229,6 @@
     "email": "Palvelun sähköpostiosoite",
     "category": "Palvelun kategoria",
     "tags": "Lisää palvelulle tageja alla olevasta listasta",
-    "location": "Valitse kartalta palvelun sijainti",
     "submit": "Lähetä palvelun tiedot",
     "coordinates": "Valitse kartalta palvelun sijainti",
     "selected_tags": "Valitut tagit",

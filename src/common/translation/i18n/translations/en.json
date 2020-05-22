@@ -218,27 +218,26 @@
     "select_language": "Select language"
   },
   "suggestion_form": {
-    "heading": "Ehdota lisättävä palvelu Ahtiin",
-    "name": "Palvelun nimi",
-    "description": "Palvelun kuvaus",
-    "short_description": "Palvelun lyhyt kuvaus",
-    "website": "Palvelun verkkosivu",
-    "address": "Palvelun osoite",
-    "phone": "Palvelun puhelinnumero",
-    "email": "Palvelun sähköpostiosoite",
-    "category": "Palvelun kategoria",
-    "tags": "Lisää palvelulle tageja alla olevasta listasta",
-    "location": "Valitse kartalta palvelun sijainti",
-    "submit": "Lähetä palvelun tiedot",
-    "coordinates": "Valitse kartalta palvelun sijainti",
-    "selected_tags": "Valitut tagit",
-    "no_selected_tags": "Ei yhtäkään valittua tagia",
-    "on_submit": "Ehdotuksesi on vastaanotettu!",
+    "heading": "Suggest a service to add to Ahti",
+    "name": "Name",
+    "description": "Description",
+    "short_description": "Short description",
+    "website": "Website",
+    "address": "Address",
+    "phone": "Phone number",
+    "email": "E-mail",
+    "category": "Category",
+    "tags": "Add tags that describe the service from the list below",
+    "submit": "Submit information",
+    "coordinates": "Select the location of the service from the map below",
+    "selected_tags": "Selected tags",
+    "no_selected_tags": "No selected tags",
+    "on_submit": "Your submission has been received!",
     "errors": {
-      "required": "Tämä kenttä on pakollinen",
-      "email": "Kentän arvo ei ole kelvollinen sähköposti",
-      "translated_field_required": "Suomalainen käännös tälle kentälle on pakollinen",
-      "check_form": "Tietoja ei voitu lähettä. Tarkista syöttämäsi tiedot"
+      "required": "This field is required",
+      "email": "Must be a valid e-mail address",
+      "translated_field_required": "A finnish translation for this field is required",
+      "check_form": "The form could not be submitted. Please check the submitted information."
     }
   }
 }
