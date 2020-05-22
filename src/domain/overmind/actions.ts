@@ -63,30 +63,6 @@ export const setCategoryFiltersById: Action<string[]> = (
   });
 };
 
-export const translateTagFilters: Action<Tag[]> = (
-  { state },
-  availableTags
-) => {
-  state.tagFilters = state.tagFilters.map((tagFilter) => {
-    const found = availableTags.find(
-      (availableTag) => availableTag.id === tagFilter.id
-    );
-    return found ? found : tagFilter;
-  });
-};
-
-export const translateCategoryFilters: Action<FeatureCategory[]> = (
-  { state },
-  availableCategories
-) => {
-  state.categoryFilters = state.categoryFilters.map((categoryFilter) => {
-    const found = availableCategories.find(
-      (availableCategory) => availableCategory.id === categoryFilter.id
-    );
-    return found ? found : categoryFilter;
-  });
-};
-
 export const removeFilter: Action<string> = ({ state }, filterId) => {
   if (filterId.startsWith('ahti:category')) {
     state.categoryFilters = state.categoryFilters.filter(

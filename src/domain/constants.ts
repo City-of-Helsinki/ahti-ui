@@ -135,7 +135,7 @@ export const menuCategories: MenuCategory[] = [
     menuItems: [
       { categoryIds: [], tagIds: ['ahti:tag:sup'], name: 'sup' },
       { categoryIds: [], tagIds: ['ahti:tag:kayak'], name: 'kayak' },
-      { categoryIds: [], tagIds: ['ahti:tag:canoe'], name: 'kayak' },
+      { categoryIds: [], tagIds: ['ahti:tag:canoeing'], name: 'kayak' },
       { categoryIds: [], tagIds: ['ahti:tag:rowing_boat'], name: 'rowing' },
       {
         categoryIds: [],
@@ -193,8 +193,8 @@ export const seasideExperiencesSliderContent: ContentSliderItem[] = [
   },
   {
     categoryFilters: [],
-    tagFilters: [{ id: 'ahti:tag:canoe' }],
-    title: 'seaside_experiences.canoe',
+    tagFilters: [{ id: 'ahti:tag:canoeing' }],
+    title: 'seaside_experiences.canoeing',
     imageUrl: '/images/placeholder.png',
   },
   {

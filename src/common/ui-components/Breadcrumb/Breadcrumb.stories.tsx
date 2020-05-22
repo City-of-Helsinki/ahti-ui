@@ -31,6 +31,7 @@ export const BreadcrumbStaticData = () => {
       onClose={(id: string) =>
         setBreadcrumbItems(breadcrumbItems.filter((item) => item.id !== id))
       }
+      translations={new Map()}
     />
   );
 };

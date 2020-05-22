@@ -22,14 +22,22 @@ const staticBreadcrumbItems: BreadcrumbItem[] = [
 describe('Breadcrumb', () => {
   it('renders the component', () => {
     const wrapper = shallow(
-      <Breadcrumb items={staticBreadcrumbItems} onClose={jest.fn} />
+      <Breadcrumb
+        items={staticBreadcrumbItems}
+        onClose={jest.fn}
+        translations={new Map()}
+      />
     );
     expect(wrapper.html()).toMatchSnapshot();
   });
 
   it('renders correct number of pills', () => {
     const wrapper = shallow(
-      <Breadcrumb items={staticBreadcrumbItems} onClose={jest.fn} />
+      <Breadcrumb
+        items={staticBreadcrumbItems}
+        onClose={jest.fn}
+        translations={new Map()}
+      />
     );
     expect(wrapper.find(Pill)).toHaveLength(3);
   });

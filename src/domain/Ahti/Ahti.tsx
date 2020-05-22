@@ -6,18 +6,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import SuggestionPage from '../SuggestionPage/SuggestionPage';
 import ContentPage from '../ContentPage/ContentPage';
 import IndexPage from '../IndexPage/IndexPage';
-import {
-  useFeatures,
-  useTags,
-  useCategories,
-  useUrlState,
-} from '../utils/hooks';
+import { useFeatures, useUrlState } from '../utils/hooks';
 import styles from './Ahti.module.scss';
 
 const Ahti: React.FC = () => {
   useUrlState();
-  useTags();
-  useCategories();
   useFeatures();
 
   return (

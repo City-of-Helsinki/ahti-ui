@@ -1,10 +1,8 @@
-import {
-  ApolloClient,
-  InMemoryCache,
-  HttpLink,
-  ApolloLink,
-} from 'apollo-boost';
+import { ApolloClient } from 'apollo-client';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { HttpLink } from 'apollo-link-http';
 import { onError } from 'apollo-link-error';
+import { ApolloLink } from 'apollo-link';
 import { RetryLink } from 'apollo-link-retry';
 import { toast } from 'react-toastify';
 
@@ -16,9 +14,17 @@ let networkErrorToastId: any = null;
 
 const httpLink = new HttpLink({
   uri: process.env.REACT_APP_AHTI_GRAPHQL_API_URI,
-  headers: {
-    'accept-language': i18n.language || window.localStorage.i18nextLng || 'fi',
-  },
+  credentials: 'omit',
+});
+
+const acceptLanguageLink = new ApolloLink((operation, forward) => {
+  operation.setContext({
+    headers: {
+      'accept-language':
+        i18n.language || window.localStorage.i18nextLng || 'fi',
+    },
+  });
+  return forward(operation);
 });
 
 const errorLink = onError(({ networkError, operation, forward }) => {
@@ -49,7 +55,12 @@ const retryLink = new RetryLink({
   },
 });
 
-const link = ApolloLink.from([retryLink, errorLink, httpLink]);
+const link = ApolloLink.from([
+  retryLink,
+  errorLink,
+  acceptLanguageLink,
+  httpLink,
+]);
 
 export default new ApolloClient({
   link,

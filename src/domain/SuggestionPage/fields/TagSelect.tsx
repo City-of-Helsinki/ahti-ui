@@ -3,6 +3,7 @@ import React from 'react';
 import { Tag } from '../../api/generated/types.d';
 import styles from '../SuggestionForm.module.scss';
 import Breadcrumb from '../../../common/ui-components/Breadcrumb/Breadcrumb';
+import { useTagAndCategoryTranslations } from '../../utils/hooks';
 
 interface TagSelectProps {
   readonly labelText: string;
@@ -23,6 +24,7 @@ const TagSelect: React.FC<TagSelectProps> = ({
   onSelect,
   onDeselect,
 }) => {
+  const tagAndCategoryTranslations = useTagAndCategoryTranslations();
   return (
     <div>
       <div>
@@ -34,7 +36,7 @@ const TagSelect: React.FC<TagSelectProps> = ({
             type="button"
             className={styles.tag}
           >
-            {tag.name}
+            {`#${tag.name}`}
           </button>
         ))}
       </div>
@@ -48,10 +50,10 @@ const TagSelect: React.FC<TagSelectProps> = ({
             items={selectedTagIds.map((selectedTagId) => {
               return {
                 id: selectedTagId,
-                name: tags.find((tag) => tag.id === selectedTagId).name,
               };
             })}
             onClose={onDeselect}
+            translations={tagAndCategoryTranslations}
           />
         )}
       </div>

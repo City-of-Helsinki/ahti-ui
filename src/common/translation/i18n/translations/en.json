@@ -22,17 +22,6 @@
     "map": "Map",
     "list": "List"
   },
-  "categories_and_tags": {
-    "ahti:category:island": "Islands",
-    "ahti:category:restaurant": "Restaurants",
-    "ahti:category:cafe": "Cafes",
-    "ahti:category:sightseeing": "Sightseeing",
-    "ahti:category:sauna": "Saunas",
-    "ahti:category:ferry": "Ferries",
-    "ahti:category:harbor": "Harbors",
-    "ahti:category:bar": "Bars",
-    "ahti:tag:swimming": "Swimming"
-  },
   "external_links": {
     "services": "Services related to this destination",
     "ahti:link:satamapaikkacom": "Book a pier at satamapaikka.com",

@@ -11,7 +11,11 @@ describe('CategoryNavigation', () => {
 
   it('renders without crashing', () => {
     const wrapper = shallow(
-      <CategoryNavigation categories={[mockCategory]} onClick={jest.fn} />
+      <CategoryNavigation
+        categories={[mockCategory]}
+        onClick={jest.fn}
+        translations={new Map()}
+      />
     );
     expect(wrapper.html()).toMatchSnapshot();
   });
@@ -22,6 +26,7 @@ describe('CategoryNavigation', () => {
         categories={Array(10).fill(mockCategory)}
         maxDisplayedCategories={5}
         onClick={jest.fn}
+        translations={new Map()}
       />
     );
     expect(wrapper.find('.slick-next').exists()).toBeTruthy();
@@ -33,6 +38,7 @@ describe('CategoryNavigation', () => {
         categories={Array(3).fill(mockCategory)}
         maxDisplayedCategories={5}
         onClick={jest.fn}
+        translations={new Map()}
       />
     );
     expect(wrapper.find('.slick-next').exists()).toBeFalsy();
@@ -41,7 +47,11 @@ describe('CategoryNavigation', () => {
   it('calls onClick with id of clicked category', () => {
     const mockOnClick = jest.fn();
     const wrapper = shallow(
-      <CategoryNavigation categories={[mockCategory]} onClick={mockOnClick} />
+      <CategoryNavigation
+        categories={[mockCategory]}
+        onClick={mockOnClick}
+        translations={new Map()}
+      />
     );
     wrapper.find('.categoryContainer').simulate('click');
     expect(mockOnClick).toBeCalledWith(mockCategory.id);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
@@ -6,8 +6,7 @@ import { useTranslation } from 'react-i18next';
 import {
   FeatureCategory,
   Tag,
-  useCategoriesQuery,
-  useTagsQuery,
+  useTagsAndCategoriesQuery,
 } from '../api/generated/types.d';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_rudder.json';
@@ -15,15 +14,17 @@ import styles from '../ContentPage/ContentPage.module.scss';
 import SuggestionForm from './SuggestionForm';
 
 const SuggestionFormContainer: React.FC = () => {
-  const {
-    data: categoryData,
-    loading: categoriesLoading,
-  } = useCategoriesQuery();
-  const { data: tagData, loading: tagsLoading } = useTagsQuery();
-  const { t } = useTranslation();
+  const { data, loading, refetch } = useTagsAndCategoriesQuery({
+    fetchPolicy: 'no-cache',
+  });
+  const { t, i18n } = useTranslation();
   const history = useHistory();
 
-  if (categoriesLoading || tagsLoading) {
+  useEffect(() => {
+    refetch();
+  }, [i18n.language]);
+
+  if (loading) {
     return (
       <Spinner
         animation={spinnerAnimation}
@@ -34,8 +35,8 @@ const SuggestionFormContainer: React.FC = () => {
     );
   }
 
-  const categories = categoryData.featureCategories;
-  const tags = tagData.tags;
+  const categories = data.featureCategories;
+  const tags = data.tags;
 
   return (
     <SuggestionForm

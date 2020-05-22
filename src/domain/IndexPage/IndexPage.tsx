@@ -22,16 +22,19 @@ import spinnerAnimation from '../../common/ui-components/Spinner/animations/spin
 import ContentSlider from '../../common/ui-components/Slider/ContentSlider/ContentSlider';
 import { Filter } from '../../../alltypes';
 import Footer from '../Footer/Footer';
+import { useTagAndCategoryTranslations } from '../utils/hooks';
 
 const IndexPage: React.FC = () => {
   const { actions } = useOvermind();
   const { data, refetch, loading } = useFeaturesQuery({
+    fetchPolicy: 'network-only',
     variables: {
       first: 4,
       category: ['ahti:category:restaurant', 'ahti:category:cafe'],
     },
   });
   const { t, i18n } = useTranslation();
+  const tagAndCategoryTranslations = useTagAndCategoryTranslations();
   useScrollToTop();
 
   useEffect(() => {
@@ -59,7 +62,7 @@ const IndexPage: React.FC = () => {
           <h2>{t('index.section1_header')}</h2>
           <p>{t('index.section1_paragraph')}</p>
           <CategoryNavigation
-            translated={true}
+            translations={tagAndCategoryTranslations}
             categories={Object.values(categories).map(makeFilterFromId)}
             onClick={(categoryId: string) => {
               actions.addCategoryFilter(makeFilterFromId(categoryId));

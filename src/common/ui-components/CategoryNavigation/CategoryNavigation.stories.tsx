@@ -23,6 +23,7 @@ export const MultipleCategories = () => (
       { id: 'ahti:category:island', name: 'Islands' },
     ]}
     onClick={noop}
+    translations={new Map()}
   />
 );
 
@@ -34,6 +35,7 @@ export const SingleCategory = () => (
   <CategoryNavigation
     categories={[{ id: 'ahti:category:island', name: 'Islands' }]}
     onClick={noop}
+    translations={new Map()}
   />
 );
 
@@ -50,6 +52,7 @@ export const MaxItemsCategories = () => (
     ]}
     maxDisplayedCategories={3}
     onClick={noop}
+    translations={new Map()}
   />
 );
 

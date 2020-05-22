@@ -291,8 +291,6 @@ export type PageInfo = {
 
 export type PriceTag = {
   __typename?: 'PriceTag';
-  id: Scalars['ID'];
-  feature: Feature;
   price: Scalars['Decimal'];
   item: Scalars['String'];
   unit?: Maybe<Scalars['String']>;
@@ -610,6 +608,22 @@ export type FerryQuery = { __typename?: 'Query' } & {
         >;
       } & CommonFeaturesFragment
   >;
+};
+
+export type TagsAndCategoriesQueryVariables = {};
+
+export type TagsAndCategoriesQuery = { __typename?: 'Query' } & {
+  featureCategories: Maybe<
+    Array<
+      Maybe<
+        { __typename?: 'FeatureCategory' } & Pick<
+          FeatureCategory,
+          'id' | 'name'
+        >
+      >
+    >
+  >;
+  tags: Maybe<Array<Maybe<{ __typename?: 'Tag' } & Pick<Tag, 'id' | 'name'>>>>;
 };
 
 export type TagsQueryVariables = {};
@@ -1041,6 +1055,85 @@ export type FerryLazyQueryHookResult = ReturnType<typeof useFerryLazyQuery>;
 export type FerryQueryResult = ApolloReactCommon.QueryResult<
   FerryQuery,
   FerryQueryVariables
+>;
+export const TagsAndCategoriesDocument = gql`
+  query tagsAndCategories {
+    featureCategories {
+      id
+      name
+    }
+    tags {
+      id
+      name
+    }
+  }
+`;
+export type TagsAndCategoriesComponentProps = Omit<
+  ApolloReactComponents.QueryComponentOptions<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >,
+  'query'
+>;
+
+export const TagsAndCategoriesComponent = (
+  props: TagsAndCategoriesComponentProps
+) => (
+  <ApolloReactComponents.Query<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >
+    query={TagsAndCategoriesDocument}
+    {...props}
+  />
+);
+
+/**
+ * __useTagsAndCategoriesQuery__
+ *
+ * To run a query within a React component, call `useTagsAndCategoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTagsAndCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTagsAndCategoriesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTagsAndCategoriesQuery(
+  baseOptions?: ApolloReactHooks.QueryHookOptions<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >
+) {
+  return ApolloReactHooks.useQuery<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >(TagsAndCategoriesDocument, baseOptions);
+}
+export function useTagsAndCategoriesLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >
+) {
+  return ApolloReactHooks.useLazyQuery<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >(TagsAndCategoriesDocument, baseOptions);
+}
+export type TagsAndCategoriesQueryHookResult = ReturnType<
+  typeof useTagsAndCategoriesQuery
+>;
+export type TagsAndCategoriesLazyQueryHookResult = ReturnType<
+  typeof useTagsAndCategoriesLazyQuery
+>;
+export type TagsAndCategoriesQueryResult = ApolloReactCommon.QueryResult<
+  TagsAndCategoriesQuery,
+  TagsAndCategoriesQueryVariables
 >;
 export const TagsDocument = gql`
   query tags {

@@ -7,15 +7,10 @@ import * as queryString from 'query-string';
 import { useOvermind } from '../overmind';
 import {
   FeaturesQuery,
-  useCategoriesQuery,
   useFeaturesQuery,
-  useTagsQuery,
+  useTagsAndCategoriesQuery,
 } from '../api/generated/types.d';
-import {
-  featuresLens,
-  tagsLens,
-  categoriesLens,
-} from '../../common/utils/lenses';
+import { featuresLens } from '../../common/utils/lenses';
 
 export const useUrlState = () => {
   const { state, actions } = useOvermind();
@@ -165,32 +160,23 @@ export const useFeatures = () => {
   }, [data]);
 };
 
-export const useTags = () => {
+export const useTagAndCategoryTranslations = () => {
   const { i18n } = useTranslation();
-  const { actions } = useOvermind();
-  const { data, refetch } = useTagsQuery();
-
-  useEffect(() => {
-    const fetchedTags = tagsLens.get(data);
-    actions.translateTagFilters(fetchedTags);
-  }, [data]);
+  const { data, refetch } = useTagsAndCategoriesQuery();
 
   useEffect(() => {
     refetch();
   }, [i18n.language]);
-};
 
-export const useCategories = () => {
-  const { i18n } = useTranslation();
-  const { actions } = useOvermind();
-  const { data, refetch } = useCategoriesQuery();
+  const translations = new Map();
 
-  useEffect(() => {
-    const fetchedCategories = categoriesLens.get(data);
-    actions.translateCategoryFilters(fetchedCategories);
-  }, [data]);
+  if (!data) {
+    return translations;
+  }
 
-  useEffect(() => {
-    refetch();
-  }, [i18n.language]);
+  [...data.tags, ...data.featureCategories].forEach((item) =>
+    translations.set(item.id, item.name)
+  );
+
+  return translations;
 };
