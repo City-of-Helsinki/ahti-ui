@@ -560,6 +560,7 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                           'id'
                         >
                       >;
+                      tags: Array<{ __typename?: 'Tag' } & Pick<Tag, 'id'>>;
                       contactInfo: Maybe<
                         { __typename?: 'ContactInfo' } & {
                           address: Maybe<
@@ -896,6 +897,9 @@ export const FeaturesDocument = gql`
           properties {
             ahtiId
             category {
+              id
+            }
+            tags {
               id
             }
             contactInfo {

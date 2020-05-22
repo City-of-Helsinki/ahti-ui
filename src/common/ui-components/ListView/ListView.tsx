@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 
 import ListViewCard from './ListViewCard';
 import { Feature } from '../../../domain/api/generated/types.d';

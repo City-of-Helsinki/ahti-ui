@@ -126,6 +126,9 @@ const Map: React.FC<MapProps> = ({
           : selectedFeatureZoomLevel
       );
     };
+    const tags = feature?.properties?.tags?.map((tag) => tag.id);
+    const category = feature?.properties?.category?.id;
+    const all = tags ? [category, ...tags] : [category];
     return (
       <Marker
         key={`pin-${id}`}
@@ -133,7 +136,7 @@ const Map: React.FC<MapProps> = ({
         latitude={pointFeature.geometry.coordinates[1]}
       >
         <div onClick={onMarkerClick} className={styles.markerContent}>
-          <PinIcon category={feature?.properties?.category?.id} />
+          <PinIcon tags={all} />
         </div>
       </Marker>
     );

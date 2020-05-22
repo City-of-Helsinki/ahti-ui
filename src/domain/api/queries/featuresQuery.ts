@@ -29,6 +29,9 @@ const FEATURES_QUERY = gql`
             category {
               id
             }
+            tags {
+              id
+            }
             contactInfo {
               address {
                 municipality

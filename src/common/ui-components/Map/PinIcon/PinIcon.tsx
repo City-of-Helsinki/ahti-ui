@@ -8,49 +8,49 @@ import { ReactComponent as IconWaterTaxi } from '../../../../assets/icons/pins/p
 import { ReactComponent as IconSauna } from '../../../../assets/icons/pins/pin-sauna.svg';
 import { ReactComponent as IconCafe } from '../../../../assets/icons/pins/pin-cafe.svg';
 import { ReactComponent as IconMarina } from '../../../../assets/icons/pins/pin-marina.svg';
+import { ReactComponent as IconBar } from '../../../../assets/icons/pins/pin-bar.svg';
+import { ReactComponent as IconBeach } from '../../../../assets/icons/pins/pin-beach.svg';
+import { ReactComponent as IconKayak } from '../../../../assets/icons/pins/pin-kayak.svg';
+import { ReactComponent as IconRowingBoat } from '../../../../assets/icons/pins/pin-rowing-boat-rental.svg';
+import { ReactComponent as IconFerry } from '../../../../assets/icons/pins/pin-ferry.svg';
+import { ReactComponent as IconAttraction } from '../../../../assets/icons/pins/pin-attraction.svg';
 import styles from './PinIcon.module.scss';
 
 interface CategoryIconProps {
   readonly className?: string;
-  readonly category?: string;
+  readonly tags?: string[];
 }
 
-const PinIcon: React.FC<CategoryIconProps> = ({ className, category }) => {
-  let Icon;
+export const PIN_ICONS_MAP: Record<string, any> = {
+  'ahti:category:island': IconLocation,
+  'ahti:category:restaurant': IconFood,
+  'ahti:category:cafe': IconCafe,
+  'ahti:category:bar': IconBar,
+  'ahti:category:sauna': IconSauna,
+  'ahti:category:beach': IconBeach,
+  'ahti:category:harbor': IconMarina,
+  'ahti:category:ferry': IconFerry,
+  'ahti:category:route': IconRoute,
+  'ahti:category:watertaxi': IconWaterTaxi,
+  'ahti:category:sightseeing': IconAttraction,
 
-  switch (category) {
-    case 'ahti:category:island':
-      Icon = IconLocation;
-      break;
-    case 'ahti:category:restaurant':
-      Icon = IconFood;
-      break;
-    case 'ahti:category:cafe':
-      Icon = IconCafe;
-      break;
-    case 'ahti:category:sauna':
-      Icon = IconSauna;
-      break;
-    case 'ahti:category:harbor':
-      Icon = IconMarina;
-      break;
-    case 'ahti:category:ferry':
-      Icon = IconRoute;
-      break;
-    case 'ahti:category:route':
-      Icon = IconRoute;
-      break;
-    case 'ahti:category:sightseeing':
-      Icon = IconRoute;
-      break;
-    case 'ahti:category:watertaxi':
-      Icon = IconWaterTaxi;
-      break;
-    default:
-      Icon = IconLocation;
+  'ahti:tag:kayak': IconKayak,
+  'ahti:tag:rowing_boat': IconRowingBoat,
+  'ahti:tag:canoeing': IconKayak,
+  'ahti:tag:attraction': IconAttraction,
+  'ahti:tag:sightseeing': IconAttraction,
+};
+
+const PinIcon: React.FC<CategoryIconProps> = ({ className, tags }) => {
+  if (!tags) {
+    return <IconLocation className={classNames(className, styles.offset)} />;
   }
-
-  return <Icon className={classNames(className, styles.offset)} />;
+  const Icon = PIN_ICONS_MAP[tags.find((tag) => PIN_ICONS_MAP[tag])];
+  return Icon ? (
+    <Icon className={classNames(className, styles.offset)} />
+  ) : (
+    <IconLocation className={classNames(className, styles.offset)} />
+  );
 };
 
 export default PinIcon;

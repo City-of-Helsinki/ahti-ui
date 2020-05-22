@@ -3,7 +3,7 @@ import { IconClose } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 
 import styles from './Pill.module.scss';
-import CategoryIcon from '../CategoryIcon/CategoryIcon';
+import CategoryIcon, { CATEGORY_ICONS_MAP } from '../CategoryIcon/CategoryIcon';
 
 export interface PillProps {
   readonly category?: string;
@@ -16,7 +16,7 @@ const Pill: React.FC<PillProps> = ({ category, name, onClose }) => {
 
   return (
     <div className={styles.pill}>
-      {category && (
+      {CATEGORY_ICONS_MAP[category] && (
         <div>
           <CategoryIcon className={styles.smallIcon} category={category} />
         </div>
