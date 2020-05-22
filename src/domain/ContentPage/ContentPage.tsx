@@ -34,6 +34,11 @@ const ContentPage: React.FC = () => {
     };
   };
 
+  const hasFeatures = (child: React.ReactNode) => {
+    if (state.features.length > 0) return child;
+    return <div className={styles.noItems}>{t('content.no_items')}</div>;
+  };
+
   return (
     <React.Fragment>
       <WrappedMenu menuDark={true} />
@@ -63,31 +68,34 @@ const ContentPage: React.FC = () => {
         )}
         {!state.featuresLoading && (
           <div className={styles.content}>
-            {!state.selectedFeature && !state.mapViewToggle && (
-              <ListView
-                className={styles.listView}
-                features={state.features}
-                onClick={(feature) =>
-                  actions.selectFeatureById(feature.properties.ahtiId)
-                }
-              />
-            )}
-            {state.mapViewToggle && (
-              <div
-                className={cx(styles.mapContainer, {
-                  mapContainerShrunk: state.selectedFeature,
-                })}
-              >
-                <Map
-                  className={styles.map}
+            {!state.selectedFeature &&
+              !state.mapViewToggle &&
+              hasFeatures(
+                <ListView
+                  className={styles.listView}
                   features={state.features}
-                  selectedFeature={state.selectedFeature}
                   onClick={(feature) =>
                     actions.selectFeatureById(feature.properties.ahtiId)
                   }
                 />
-              </div>
-            )}
+              )}
+            {state.mapViewToggle &&
+              hasFeatures(
+                <div
+                  className={cx(styles.mapContainer, {
+                    mapContainerShrunk: state.selectedFeature,
+                  })}
+                >
+                  <Map
+                    className={styles.map}
+                    features={state.features}
+                    selectedFeature={state.selectedFeature}
+                    onClick={(feature) =>
+                      actions.selectFeatureById(feature.properties.ahtiId)
+                    }
+                  />
+                </div>
+              )}
             {state.selectedFeature && (
               <div
                 className={cx({ selectedFeatureMapView: state.mapViewToggle })}

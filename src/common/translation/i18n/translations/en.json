@@ -20,7 +20,8 @@
   },
   "content": {
     "map": "Map",
-    "list": "List"
+    "list": "List",
+    "no_items": "No search results found for the selected filters."
   },
   "external_links": {
     "services": "Services related to this destination",

@@ -21,7 +21,8 @@
   },
   "content": {
     "map": "Kartta",
-    "list": "Lista"
+    "list": "Lista",
+    "no_items": "Ei hakutuloksia valituille suodattimille."
   },
   "external_links": {
     "services": "Kohteeseen liittyviä palveluja",
