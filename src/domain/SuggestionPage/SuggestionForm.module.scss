@@ -27,6 +27,11 @@
 }
 
 .form {
+}
+
+.formContent {
+  padding: 0 unit(1);
+
   > * {
     margin: unit(2) 0;
   }
@@ -37,7 +42,6 @@
 }
 
 .koros {
-  margin-top: 0;
   color: var(--hds-brand-color-coat-of-arms-blue);
 }
 
