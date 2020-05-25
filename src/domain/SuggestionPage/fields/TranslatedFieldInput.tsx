@@ -13,6 +13,7 @@ interface TranslatedFieldInputProps {
   readonly handleChange: FormikHandlers['handleChange'];
   readonly textArea?: boolean;
   readonly error?: string;
+  readonly className?: string;
 }
 
 const TranslatedFieldInput: React.FC<TranslatedFieldInputProps> = ({
@@ -22,10 +23,11 @@ const TranslatedFieldInput: React.FC<TranslatedFieldInputProps> = ({
   handleChange,
   textArea,
   error,
+  className,
 }) => {
   const Input = textArea ? TextArea : TextInput;
   return (
-    <div>
+    <div className={className}>
       <label className={styles.labelText}>{labelText}</label>
       <Tabs>
         <Tab title={'fi'}>

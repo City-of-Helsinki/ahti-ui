@@ -45,12 +45,9 @@ const PinIcon: React.FC<CategoryIconProps> = ({ className, tags }) => {
   if (!tags) {
     return <IconLocation className={classNames(className, styles.offset)} />;
   }
-  const Icon = PIN_ICONS_MAP[tags.find((tag) => PIN_ICONS_MAP[tag])];
-  return Icon ? (
-    <Icon className={classNames(className, styles.offset)} />
-  ) : (
-    <IconLocation className={classNames(className, styles.offset)} />
-  );
+  const Icon =
+    PIN_ICONS_MAP[tags.find((tag) => PIN_ICONS_MAP[tag])] || IconLocation;
+  return <Icon className={classNames(className, styles.offset)} />;
 };
 
 export default PinIcon;

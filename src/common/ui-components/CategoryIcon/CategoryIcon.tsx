@@ -31,12 +31,8 @@ export const CATEGORY_ICONS_MAP: Record<string, any> = {
 };
 
 const CategoryIcon: React.FC<CategoryIconProps> = ({ className, category }) => {
-  const Icon = CATEGORY_ICONS_MAP[category];
-  return Icon ? (
-    <Icon className={className ? className : styles.icon} />
-  ) : (
-    <IconLocation className={className ? className : styles.icon} />
-  );
+  const Icon = CATEGORY_ICONS_MAP[category] || IconLocation;
+  return <Icon className={className ? className : styles.icon} />;
 };
 
 export default CategoryIcon;

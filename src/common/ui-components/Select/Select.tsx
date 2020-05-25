@@ -39,7 +39,11 @@ const Select: React.FC<SelectProps> = ({
 
   return (
     <div className={className}>
-      {labelText && <label className={styles.labelText}>{labelText}</label>}
+      {labelText && (
+        <label className={styles.labelText} htmlFor={id}>
+          {labelText}
+        </label>
+      )}
       <select
         name={name}
         id={id}

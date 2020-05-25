@@ -30,21 +30,21 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         <a
           className={styles.link}
           href={t('footer.boating_url')}
-          target={'_blank'}
+          target="_blank"
         >
           {t('footer.boating')}
         </a>
         <a
           className={styles.link}
           href={t('footer.sea_rescue_url')}
-          target={'_blank'}
+          target="_blank"
         >
           {t('footer.sea_rescue')}
         </a>
         <a
           className={styles.link}
           href={t('footer.feedback_url')}
-          target={'_blank'}
+          target="_blank"
         >
           {t('footer.feedback')}
         </a>

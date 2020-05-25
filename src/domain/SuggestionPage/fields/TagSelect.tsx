@@ -42,10 +42,9 @@ const TagSelect: React.FC<TagSelectProps> = ({
       </div>
       <div>
         <label className={styles.labelText}>{selectedLabelText}</label>
-        {selectedTagIds.length === 0 && (
+        {selectedTagIds.length === 0 ? (
           <span className={styles.noSelectedTags}>{noSelectedTagsText}</span>
-        )}
-        {selectedTagIds.length > 0 && (
+        ) : (
           <Breadcrumb
             items={selectedTagIds.map((selectedTagId) => {
               return {
