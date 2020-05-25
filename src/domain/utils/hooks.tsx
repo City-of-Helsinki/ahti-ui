@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 import * as queryString from 'query-string';
+import equal from 'fast-deep-equal';
 
 import { useOvermind } from '../overmind';
 import {
@@ -115,7 +116,6 @@ export const useFeatures = () => {
       tags: state.tagFilters.map((filter) => filter.id),
       categories: state.categoryFilters.map((filter) => filter.id),
     });
-    refetch();
   }, [state.tagFilters, state.categoryFilters]);
 
   useEffect(() => {
@@ -125,6 +125,17 @@ export const useFeatures = () => {
     }
     refetch();
   }, [i18n.language]);
+
+  const variablesMatchState = (variables: any) => {
+    const tags = state.tagFilters.map((tag) => tag.id);
+    const categories = state.categoryFilters.map((category) => category.id);
+    const { tag: variableTags, category: variableCategories } = variables;
+    return (
+      equal(tags, variableTags ?? []) &&
+      equal(categories, variableCategories ?? [])
+    );
+  };
+
   useEffect(() => {
     // Inspect network status enum:
     // https://github.com/apollographql/apollo-client/blob/master/src/core/networkStatus.ts
@@ -134,9 +145,9 @@ export const useFeatures = () => {
     if (!isLoading && pageInfo && pageInfo.hasNextPage) {
       fetchMore({
         variables: { after: pageInfo.endCursor },
-        updateQuery: (prev: FeaturesQuery, { fetchMoreResult }) => {
-          if (!fetchMoreResult) return prev;
-          if (!prev) return fetchMoreResult;
+        updateQuery: (prev: FeaturesQuery, { fetchMoreResult, variables }) => {
+          if (!prev) return prev;
+          if (!fetchMoreResult || !variablesMatchState(variables)) return prev;
           return Object.assign({}, prev, {
             features: {
               edges: [
