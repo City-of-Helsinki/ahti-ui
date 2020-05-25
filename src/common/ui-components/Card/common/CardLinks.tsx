@@ -19,7 +19,8 @@ const CardLinks: React.FC<CardLinkProps> = ({ links }) => {
         return (
           <a
             key={id}
-            target={'_blank'}
+            target="_blank"
+            rel="noopener noreferrer"
             href={link.url}
             className={classNames(commonStyles.url, styles.cardLink)}
           >

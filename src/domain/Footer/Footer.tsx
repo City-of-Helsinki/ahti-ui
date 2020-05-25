@@ -31,6 +31,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           className={styles.link}
           href={t('footer.boating_url')}
           target="_blank"
+          rel="noopener noreferrer"
         >
           {t('footer.boating')}
         </a>
@@ -38,6 +39,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           className={styles.link}
           href={t('footer.sea_rescue_url')}
           target="_blank"
+          rel="noopener noreferrer"
         >
           {t('footer.sea_rescue')}
         </a>
@@ -45,6 +47,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           className={styles.link}
           href={t('footer.feedback_url')}
           target="_blank"
+          rel="noopener noreferrer"
         >
           {t('footer.feedback')}
         </a>
