@@ -41,6 +41,13 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         >
           {t('footer.sea_rescue')}
         </a>
+        <a
+          className={styles.link}
+          href={t('footer.feedback_url')}
+          target={'_blank'}
+        >
+          {t('footer.feedback')}
+        </a>
       </div>
     </footer>
   );

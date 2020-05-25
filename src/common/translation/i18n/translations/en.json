@@ -226,7 +226,9 @@
     "boating": "City of Helsinki's boating page",
     "boating_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating",
     "sea_rescue": "Sea rescue directions",
-    "sea_rescue_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating/boating-information/sea-rescue-directions/"
+    "sea_rescue_url": "https://www.hel.fi/helsinki/en/culture/recreation/boating/boating-information/sea-rescue-directions/",
+    "feedback": "Give feedback",
+    "feedback_url": "https://www.hel.fi/helsinki/en/administration/participate/feedback"
   },
   "language_select": {
     "select_language": "Select language"
