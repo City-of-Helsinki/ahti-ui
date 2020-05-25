@@ -129,7 +129,7 @@ const Menu: React.FC<MenuProps> = ({
 
         <LanguageSelect
           supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
-          darkMenu={menuDark}
+          darkMenu={menuDark || isOpen}
         />
 
         <div className={styles.menuToggles}>

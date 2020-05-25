@@ -218,9 +218,16 @@
     "close": "Close selected filter"
   },
   "boater_services": {
-    "guest_harbor": "View all harbors",
-    "restaurants": "View all seaside restaurants",
-    "rental_boats": "See all boat rental options"
+    "guest_harbors": "All guest harbors",
+    "service_stations": "Service stations, boat maintenance and repair",
+    "boat_launch": "Boat launch locations"
+  },
+  "seaside_experiences": {
+    "sightseeing": "Sightseeing",
+    "restaurants": "All seaside restaurants",
+    "small_boats": "Rowing, SUP, kayaking and canoeing",
+    "city_boats": "City boats",
+    "boat_rental": "Rental boats"
   },
   "footer": {
     "boating": "City of Helsinki's boating page",

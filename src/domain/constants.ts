@@ -150,24 +150,23 @@ export const menuCategories: MenuCategory[] = [
 export const boaterServicesSliderContent: ContentSliderItem[] = [
   {
     categoryFilters: [{ id: 'ahti:category:harbor' }],
-    tagFilters: [],
+    tagFilters: [{ id: 'ahti:category:guest_harbor' }],
     title: 'boater_services.guest_harbors',
     imageUrl: '/images/placeholder.png',
   },
   {
     categoryFilters: [
-      { id: 'ahti:category:restaurant' },
-      { id: 'ahti:category:cafe' },
-      { id: 'ahti:category:bar' },
+      { id: 'ahti:category:service_station' },
+      { id: 'ahti:category:boat_maintenance' },
     ],
     tagFilters: [],
-    title: 'boater_services.restaurants',
+    title: 'boater_services.service_stations',
     imageUrl: '/images/placeholder.png',
   },
   {
     categoryFilters: [],
-    tagFilters: [],
-    title: 'boater_services.rental_boats',
+    tagFilters: [{ id: 'ahti:tag:slipway' }, { id: 'ahti:tag:boat_lift' }],
+    title: 'boater_services.boat_launch',
     imageUrl: '/images/placeholder.png',
   },
 ];
@@ -180,39 +179,36 @@ export const seasideExperiencesSliderContent: ContentSliderItem[] = [
     imageUrl: '/images/placeholder.png',
   },
   {
-    categoryFilters: [],
-    tagFilters: [{ id: 'ahti:tag:sup' }],
-    title: 'seaside_experiences.sup',
+    categoryFilters: [
+      { id: 'ahti:category:restaurant' },
+      { id: 'ahti:category:cafe' },
+      { id: 'ahti:category:bar' },
+    ],
+    tagFilters: [],
+    title: 'seaside_experiences.restaurants',
     imageUrl: '/images/placeholder.png',
   },
   {
     categoryFilters: [],
-    tagFilters: [{ id: 'ahti:tag:kayak' }],
-    title: 'seaside_experiences.kayak',
-    imageUrl: '/images/placeholder.png',
-  },
-  {
-    categoryFilters: [],
-    tagFilters: [{ id: 'ahti:tag:canoeing' }],
-    title: 'seaside_experiences.canoeing',
-    imageUrl: '/images/placeholder.png',
-  },
-  {
-    categoryFilters: [],
-    tagFilters: [{ id: 'ahti:tag:rowing_boat' }],
-    title: 'seaside_experiences.rowing_boat',
+    tagFilters: [
+      { id: 'ahti:tag:sup' },
+      { id: 'ahti:tag:kayak' },
+      { id: 'ahti:tag:canoeing' },
+      { id: 'ahti:tag:rowing_boat' },
+    ],
+    title: 'seaside_experiences.small_boats',
     imageUrl: '/images/placeholder.png',
   },
   {
     categoryFilters: [],
     tagFilters: [{ id: 'ahti:tag:city_boat' }],
-    title: 'seaside_experiences.city_boat',
+    title: 'seaside_experiences.city_boats',
     imageUrl: '/images/placeholder.png',
   },
   {
     categoryFilters: [],
     tagFilters: [{ id: 'ahti:tag:rental_boat' }],
-    title: 'seaside_experiences.rental_boat',
+    title: 'seaside_experiences.boat_rental',
     imageUrl: '/images/placeholder.png',
   },
 ];

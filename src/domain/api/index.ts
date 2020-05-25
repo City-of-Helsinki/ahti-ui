@@ -14,6 +14,9 @@ let networkErrorToastId: any = null;
 
 const httpLink = new HttpLink({
   uri: process.env.REACT_APP_AHTI_GRAPHQL_API_URI,
+  fetchOptions: {
+    mode: 'cors',
+  },
 });
 
 const acceptLanguageLink = new ApolloLink((operation, forward) => {

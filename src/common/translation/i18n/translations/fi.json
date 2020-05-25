@@ -214,9 +214,16 @@
     "close": "Sulje selekoitu filtteri"
   },
   "boater_services": {
-    "guest_harbors": "Etsi satamia",
+    "guest_harbors": "Kaikki vierasvenesatamat",
+    "service_stations": "Veneiden huoltoasemat ja venekorjaamot",
+    "boat_launch": "Veneiden vesillelaskupaikat"
+  },
+  "seaside_experiences": {
+    "sightseeing": "Nähtävyydet",
     "restaurants": "Kaikki Helsingin merelliset ravintolat",
-    "rental_boats": "Vuokraa vene käyttöösi"
+    "small_boats": "Soutuveneily, suppilautailu, kajakit ja kanootit",
+    "city_boats": "Kaupunkiveneily",
+    "boat_rental": "Vuokraveneet"
   },
   "footer": {
     "boating": "Kaupungin veneilysivut",
