@@ -133,16 +133,16 @@ export const menuCategories: MenuCategory[] = [
     title: 'rental_services',
     category: 'ahti:category:rental_service',
     menuItems: [
-      { categoryIds: [], tagIds: ['ahti:tag:sup'], name: 'sup' },
-      { categoryIds: [], tagIds: ['ahti:tag:kayak'], name: 'kayak' },
-      { categoryIds: [], tagIds: ['ahti:tag:canoeing'], name: 'kayak' },
-      { categoryIds: [], tagIds: ['ahti:tag:rowing_boat'], name: 'rowing' },
       {
         categoryIds: [],
         tagIds: ['ahti:tag:rental_boat'],
         name: 'rental_boat',
       },
       { categoryIds: [], tagIds: ['ahti:tag:city_boat'], name: 'city_boat' },
+      { categoryIds: [], tagIds: ['ahti:tag:rowing_boat'], name: 'rowing' },
+      { categoryIds: [], tagIds: ['ahti:tag:sup'], name: 'sup' },
+      { categoryIds: [], tagIds: ['ahti:tag:kayak'], name: 'kayak' },
+      { categoryIds: [], tagIds: ['ahti:tag:canoeing'], name: 'canoe' },
     ],
   },
 ];

@@ -116,7 +116,7 @@
       "saunas_and_swimming": "Saunas and swimming",
       "restaurants": "Seaside cafes and restaurants",
       "boater_services": "Boater services",
-      "rental_boats": "Rental boats and equipment"
+      "rental_services": "Rental boats and equipment"
     },
     "link": {
       "islands": {
@@ -138,14 +138,27 @@
         "beer_and_wine_bars": "Wine and beer bars"
       },
       "boater_services": {
-        "mooring": "Guest harbors",
+        "harbor": "All harbors",
+        "guest_harbor": "Guest harbors",
         "maintenance": "Boat maintenance",
-        "septic_tank_draining": "Septic tank draining"
+        "septic_tank_draining": "Septic tank draining",
+        "service_station": "Service stations",
+        "gas_station": "Gas stations",
+        "slipway": "Slipways",
+        "boat_lift": "Boat lifts"
       },
       "rental_boats": {
         "rowboats": "Rowing boats",
         "motorboats": "Motorboats",
         "other": "Other rental services"
+      },
+      "rental_services": {
+        "sup": "SUP boarding",
+        "canoe": "Canoeing",
+        "kayak": "Kayaking",
+        "rowing": "Rowing boats",
+        "rental_boat": "Rental boats",
+        "city_boat": "City boats"
       }
     }
   },
@@ -205,7 +218,7 @@
     "close": "Close selected filter"
   },
   "boater_services": {
-    "guest_harbors": "View all harbors",
+    "guest_harbor": "View all harbors",
     "restaurants": "View all seaside restaurants",
     "rental_boats": "See all boat rental options"
   },

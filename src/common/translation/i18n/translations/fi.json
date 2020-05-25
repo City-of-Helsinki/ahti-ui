@@ -117,7 +117,7 @@
       "saunas_and_swimming": "Saunat, uinti ja avannot",
       "restaurants": "Merelliset kahvilat ja ravintolat",
       "boater_services": "Venelijän palvelut",
-      "rental_boats": "Vuokraveneet ja -välineet"
+      "rental_services": "Vuokraveneet ja -välineet"
     },
     "link": {
       "islands": {
@@ -139,14 +139,22 @@
         "beer_and_wine_bars": "Olut- ja viinibaarit"
       },
       "boater_services": {
-        "mooring": "Vierasvenesatamat",
-        "maintenance": "Venehuoltoasemat",
-        "septic_tank_draining": "Septityhjennyspisteet"
+        "harbor": "Kaikki satamat",
+        "guest_harbor": "Vierasvenesatamat",
+        "maintenance": "Venehuollot",
+        "septic_tank_draining": "Septityhjennyspisteet",
+        "service_station": "Service stations",
+        "gas_station": "Polttoainepisteet",
+        "slipway": "Vesillelaskuluiskat",
+        "boat_lift": "Suurien alusten nosto"
       },
-      "rental_boats": {
-        "rowboats": "Kaupunkisoutuveneet",
-        "motorboats": "Moottoriveneet",
-        "other": "Muut vuokraveneet"
+      "rental_services": {
+        "sup": "Suppilaudat",
+        "canoe": "Kanootit",
+        "kayak": "Kajakit",
+        "rowing": "Soutuveneet",
+        "rental_boat": "Vuokraveneet",
+        "city_boat": "Kaupunkiveneet"
       }
     }
   },
