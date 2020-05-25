@@ -21,6 +21,7 @@
 
 .subHeading {
   display: flex;
+  flex-shrink: 0;
   flex-direction: row;
   justify-content: space-between;
   padding: 0 unit(1) unit(1);
