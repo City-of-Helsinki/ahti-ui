@@ -16,7 +16,9 @@ export type Submission = {
   tagIds: string[];
   categoryId: string;
   website: string;
-  address: string;
+  streetAddress: string;
+  postalCode: string;
+  municipality: string;
   phoneNumber: string;
   email: string;
   coordinates: Coordinates;

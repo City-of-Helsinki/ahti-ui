@@ -242,7 +242,9 @@
     "description": "Palvelun kuvaus",
     "short_description": "Palvelun lyhyt kuvaus",
     "website": "Palvelun verkkosivu",
-    "address": "Palvelun osoite",
+    "street_address": "Palvelun katuosoite",
+    "postal_code": "Palvelun postinumero",
+    "municipality": "Palvelun kunta",
     "phone": "Palvelun puhelinnumero",
     "email": "Palvelun sähköpostiosoite",
     "category": "Palvelun kategoria",
@@ -252,11 +254,13 @@
     "selected_tags": "Valitut tagit",
     "no_selected_tags": "Ei yhtäkään valittua tagia",
     "on_submit": "Ehdotuksesi on vastaanotettu!",
+    "submitting": "Tietoja käsitellään",
     "errors": {
       "required": "Tämä kenttä on pakollinen",
       "email": "Kentän arvo ei ole kelvollinen sähköposti",
       "translated_field_required": "Suomalainen käännös tälle kentälle on pakollinen",
-      "check_form": "Tietoja ei voitu lähettä. Tarkista syöttämäsi tiedot."
+      "check_form": "Tietoja ei voitu lähettä. Tarkista syöttämäsi tiedot.",
+      "submission_error": "Tietojen lähettämisessä tapahtui virhe. Yritä uudelleen."
     }
   }
 }

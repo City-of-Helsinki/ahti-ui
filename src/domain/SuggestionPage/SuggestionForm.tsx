@@ -19,6 +19,8 @@ interface SuggestionFormProps {
   readonly categories: FeatureCategory[];
   readonly tags: Tag[];
   onSubmit(value: Submission): void;
+  isSubmitting?: boolean;
+  error?: Error;
 }
 
 const getTranslatedFieldValidationSchema = (t: TFunction) =>
@@ -62,6 +64,8 @@ const SuggestionForm: React.FC<SuggestionFormProps> = ({
   categories,
   tags,
   onSubmit,
+  isSubmitting = false,
+  error,
 }) => {
   const { t } = useTranslation();
   const validationSchema = getValidationSchema(t, categories, tags);
@@ -73,7 +77,9 @@ const SuggestionForm: React.FC<SuggestionFormProps> = ({
     tagIds: [],
     categoryId: categories[0].id,
     website: '',
-    address: '',
+    streetAddress: '',
+    municipality: '',
+    postalCode: '',
     phoneNumber: '',
     email: '',
     coordinates: {
@@ -121,6 +127,7 @@ const SuggestionForm: React.FC<SuggestionFormProps> = ({
                 id={'shortDescription'}
                 value={values.shortDescription}
                 handleChange={handleChange}
+                error={errors?.shortDescription?.fi}
               />
 
               <Select
@@ -174,9 +181,21 @@ const SuggestionForm: React.FC<SuggestionFormProps> = ({
                 onChange={handleChange}
               />
               <TextInput
-                labelText={t('suggestion_form.address')}
-                id="address"
-                value={values.address}
+                labelText={t('suggestion_form.street_address')}
+                id="streetAddress"
+                value={values.streetAddress}
+                onChange={handleChange}
+              />
+              <TextInput
+                labelText={t('suggestion_form.postal_code')}
+                id="postalCode"
+                value={values.postalCode}
+                onChange={handleChange}
+              />
+              <TextInput
+                labelText={t('suggestion_form.municipality')}
+                id="municiplality"
+                value={values.municipality}
                 onChange={handleChange}
               />
               <TextInput
@@ -194,10 +213,19 @@ const SuggestionForm: React.FC<SuggestionFormProps> = ({
               />
 
               <div className={styles.formControls}>
-                <Button type="submit">{t('suggestion_form.submit')}</Button>
+                <Button type="submit" disabled={isSubmitting}>
+                  {isSubmitting
+                    ? t('suggestion_form.submitting')
+                    : t('suggestion_form.submit')}
+                </Button>
                 {Object.keys(errors).length !== 0 && (
                   <span className={styles.formError}>
                     {t('suggestion_form.errors.check_form')}
+                  </span>
+                )}
+                {error && (
+                  <span className={styles.formError}>
+                    {t('suggestion_form.errors.submission_error')}
                   </span>
                 )}
               </div>

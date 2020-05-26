@@ -246,7 +246,9 @@
     "description": "Description",
     "short_description": "Short description",
     "website": "Website",
-    "address": "Address",
+    "street_address": "Street address",
+    "postal_code": "Postal code",
+    "municipality": "Municipality",
     "phone": "Phone number",
     "email": "E-mail",
     "category": "Category",
@@ -256,11 +258,13 @@
     "selected_tags": "Selected tags",
     "no_selected_tags": "No selected tags",
     "on_submit": "Your submission has been received!",
+    "submitting": "Form is being submitted",
     "errors": {
       "required": "This field is required",
       "email": "Must be a valid e-mail address",
       "translated_field_required": "A finnish translation for this field is required",
-      "check_form": "The form could not be submitted. Please check the submitted information."
+      "check_form": "The form could not be submitted. Please check the submitted information.",
+      "submission_error": "Error occurred while submitting form. Please try again."
     }
   }
 }
