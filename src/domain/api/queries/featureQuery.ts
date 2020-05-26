@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 const FEATURE_QUERY = gql`
   query feature($ahtiId: String) {

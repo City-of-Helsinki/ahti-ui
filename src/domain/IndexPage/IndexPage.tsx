@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
 
-import WrappedMenu from '../../common/ui-components/WrappedMenu/WrappedMenu';
+import WrappedMenu from '../WrappedMenu/WrappedMenu';
 import { useOvermind } from '../overmind';
-import { categories } from '../constants';
+import {
+  boaterServicesSliderContent,
+  categories,
+  seasideExperiencesSliderContent,
+} from '../constants';
 import HeroBanner from '../../common/ui-components/HeroBanner/HeroBanner';
 import ListView from '../../common/ui-components/ListView/ListView';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
@@ -16,24 +19,29 @@ import PromotionCard from '../../common/ui-components/PromotionCard/PromotionCar
 import { featuresLens } from '../../common/utils/lenses';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_rudder.json';
-import videoUrl from '../../assets/videos/Ahti_vertical.mp4';
+import ContentSlider from '../../common/ui-components/Slider/ContentSlider/ContentSlider';
+import { Filter } from '../../../alltypes';
+import Footer from '../Footer/Footer';
+import { useTagAndCategoryTranslations } from '../utils/hooks';
 
 const IndexPage: React.FC = () => {
   const { actions } = useOvermind();
   const { data, refetch, loading } = useFeaturesQuery({
+    fetchPolicy: 'network-only',
     variables: {
       first: 4,
       category: ['ahti:category:restaurant', 'ahti:category:cafe'],
     },
   });
   const { t, i18n } = useTranslation();
+  const tagAndCategoryTranslations = useTagAndCategoryTranslations();
   useScrollToTop();
 
   useEffect(() => {
     refetch();
-  }, [i18n.language]);
+  }, [i18n.language, refetch]);
 
-  const makeFilterFromCategoryId = (categoryId: string) => {
+  const makeFilterFromId = (categoryId: string): Filter => {
     return {
       id: categoryId,
     };
@@ -41,11 +49,11 @@ const IndexPage: React.FC = () => {
 
   return (
     <React.Fragment>
-      <WrappedMenu menuDark={false}></WrappedMenu>
-      <div className={classNames(styles.pageContainer)}>
-        <HeroBanner videoUrl={videoUrl}>
-          <h1>{t('index.main_header')}</h1>
-          <Link className={styles.link} to={'/content'}>
+      <WrappedMenu />
+      <div className={styles.pageContainer}>
+        <HeroBanner>
+          <h1 className={styles.bannerHeading}>{t('index.main_header')}</h1>
+          <Link className={styles.bannerLink} to={'/content'}>
             {t('index.see_all_button')}
           </Link>
         </HeroBanner>
@@ -54,11 +62,26 @@ const IndexPage: React.FC = () => {
           <h2>{t('index.section1_header')}</h2>
           <p>{t('index.section1_paragraph')}</p>
           <CategoryNavigation
-            translated={true}
-            categories={Object.values(categories).map(makeFilterFromCategoryId)}
+            translations={tagAndCategoryTranslations}
+            categories={Object.values(categories).map(makeFilterFromId)}
             onClick={(categoryId: string) => {
-              actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
+              actions.addCategoryFilter(makeFilterFromId(categoryId));
             }}
+          />
+        </section>
+
+        <section className={styles.section}>
+          <h2>{t('index.section2_header')}</h2>
+          <ContentSlider
+            items={boaterServicesSliderContent}
+            translated={true}
+            slideClassName={styles.slide}
+            onClick={(item) => {
+              actions.setMapViewToggle(true);
+              actions.setTagFilters(item.tagFilters);
+              actions.setCategoryFilters(item.categoryFilters);
+            }}
+            slidesToShow={1}
           />
         </section>
 
@@ -85,12 +108,27 @@ const IndexPage: React.FC = () => {
             to={'/content'}
             onClick={() => {
               actions.addCategoryFilter(
-                makeFilterFromCategoryId('ahti:category:restaurant')
+                makeFilterFromId('ahti:category:restaurant')
               );
             }}
           >
             {t('index.section3_button')}
           </Link>
+        </section>
+
+        <section className={styles.section}>
+          <h2>{t('index.section4_header')}</h2>
+          <ContentSlider
+            items={seasideExperiencesSliderContent}
+            translated={true}
+            slideClassName={styles.slide}
+            onClick={(item) => {
+              actions.setMapViewToggle(true);
+              actions.setTagFilters(item.tagFilters);
+              actions.setCategoryFilters(item.categoryFilters);
+            }}
+            slidesToShow={1}
+          />
         </section>
 
         <PromotionCard
@@ -102,6 +140,7 @@ const IndexPage: React.FC = () => {
           className={styles.imageWithCardSection}
         />
       </div>
+      <Footer />
     </React.Fragment>
   );
 };

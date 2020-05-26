@@ -8,7 +8,7 @@ import localizedToDMS from '../../../utils/dms';
 const CommonCardInfo = ({ feature }: { feature: any }) => {
   const { url, modifiedAt } = feature.properties;
   const source = feature.properties.source.system;
-  const phoneNumber = feature.properties.contactInfo.phoneNumber;
+  const phoneNumber = feature.properties?.contactInfo?.phoneNumber;
 
   const { t, i18n } = useTranslation();
 

@@ -2,44 +2,34 @@
   "common": {
     "back": "Takaisin",
     "terms_of_service": "Käyttöehdot",
-    "all_rights_reserved": "Kaikki oikeudet pidätetään"
+    "all_rights_reserved": "Kaikki oikeudet pidätetään",
+    "network_error": "Verkkoyhteys on katkennut"
   },
   "index": {
     "main_header": "Löydä upea merellinen Helsinki!",
     "see_all_button": "Näytä kaikki kohteet ja palvelut",
     "section1_header": "Merellisiä kohteita, elämyksiä ja palveluita",
     "section1_paragraph": "Löydä Helsingin lähiseudun merellinen ympäristö ja palvelut samasta paikasta.",
-    "section2_header": "Uutta Ahdissa",
+    "section2_header": "Veneilijöiden palvelut kartalla",
     "section2_paragraph": "Ahti on uudistunut ja olemme lisänneet uusia toiminnallisuuksia.",
     "section3_header": "Merelliset kahvilat ja ravintolat",
     "section3_button": "Selaa kaikkia ravintoloita ja kahviloita",
     "section4_header": "Merelliset kokemukset",
-    "section5_header": "Uutta Ahdissa",
-    "section5_subheader": "Rutkasti uusia toiminnallisuuksia",
-    "section5_paragraph": "Tutustu Helsingin merellliseen ympäristöön.",
-    "section5_link": "Katso kaikki uudistukset"
+    "section5_header": "Ehdota uusi palvelu Ahtiin",
+    "section5_paragraph": "Paranna Ahtia täyttämällä palvelusi tiedot.",
+    "section5_link": "Avaa lomake"
   },
   "content": {
     "map": "Kartta",
-    "list": "Lista"
-  },
-  "categories_and_tags": {
-    "ahti:category:island": "Saaret",
-    "ahti:category:restaurant": "Ravintolat",
-    "ahti:category:cafe": "Kahvilat",
-    "ahti:category:sightseeing": "Nähtävyydet",
-    "ahti:category:sauna": "Saunat",
-    "ahti:category:ferry": "Lautat",
-    "ahti:category:harbor": "Satamat",
-    "ahti:category:bar": "Baarit",
-
-    "ahti:tag:swimming": "Uinti"
+    "list": "Lista",
+    "no_items": "Ei hakutuloksia valituille suodattimille."
   },
   "external_links": {
     "services": "Kohteeseen liittyviä palveluja",
     "ahti:link:satamapaikkacom": "Varaa venepaikka satamapaikka.comin kautta",
     "ahti:link:jtline": "Selaa aikatauluja JT-linen kotisivuilla",
-    "servicemap": "Katso kohdetta palvelukartalla"
+    "servicemap": "Katso kohdetta palvelukartalla",
+    "ticket_shop": "Varaa matkalippu"
   },
   "dropdown": {
     "label": "Valikko",
@@ -127,7 +117,7 @@
       "saunas_and_swimming": "Saunat, uinti ja avannot",
       "restaurants": "Merelliset kahvilat ja ravintolat",
       "boater_services": "Venelijän palvelut",
-      "rental_boats": "Vuokraveneet ja -välineet"
+      "rental_services": "Vuokraveneet ja -välineet"
     },
     "link": {
       "islands": {
@@ -149,20 +139,28 @@
         "beer_and_wine_bars": "Olut- ja viinibaarit"
       },
       "boater_services": {
-        "mooring": "Vierasvenesatamat",
-        "maintenance": "Venehuoltoasemat",
-        "septic_tank_draining": "Septityhjennyspisteet"
+        "harbor": "Kaikki satamat",
+        "guest_harbor": "Vierasvenesatamat",
+        "maintenance": "Venehuollot",
+        "septic_tank_draining": "Septityhjennyspisteet",
+        "service_station": "Huoltoasemat",
+        "gas_station": "Polttoainepisteet",
+        "slipway": "Vesillelaskuluiskat",
+        "boat_lift": "Suurien alusten nosto"
       },
-      "rental_boats": {
-        "rowboats": "Kaupunkisoutuveneet",
-        "motorboats": "Moottoriveneet",
-        "other": "Muut vuokraveneet"
+      "rental_services": {
+        "sup": "Suppilaudat",
+        "canoe": "Kanootit",
+        "kayak": "Kajakit",
+        "rowing": "Soutuveneet",
+        "rental_boat": "Vuokraveneet",
+        "city_boat": "Kaupunkiveneet"
       }
     }
   },
   "card": {
     "modified_at": "Päivitetty",
-    "source": "Tiedot",
+    "source": "Tietolähde",
     "show_more": "Näytä enemmän",
     "show_less": "Näytä vähemmän",
     "island_content": {
@@ -185,7 +183,7 @@
     "harbor_content": {
       "mooring": "Rantautumistiedot",
       "mooringInformation": "Venepaikat",
-      "mooringType": "Kiinnitystapa",
+      "mooringType": "Kiinnitystavat",
       "depth": "Syvyys",
       "pricing": "Hinnat ja varaukset",
       "dayPricing": "Päivävierailu",
@@ -215,10 +213,54 @@
   "breadcrumb": {
     "close": "Sulje selekoitu filtteri"
   },
+  "boater_services": {
+    "guest_harbors": "Kaikki vierasvenesatamat",
+    "service_stations": "Veneiden huoltoasemat ja venekorjaamot",
+    "boat_launch": "Veneiden vesillelaskupaikat"
+  },
+  "seaside_experiences": {
+    "sightseeing": "Nähtävyydet",
+    "restaurants": "Kaikki Helsingin merelliset ravintolat",
+    "small_boats": "Soutuveneily, suppilautailu, kajakit ja kanootit",
+    "city_boats": "Kaupunkiveneily",
+    "boat_rental": "Vuokraveneet"
+  },
   "footer": {
     "boating": "Kaupungin veneilysivut",
     "boating_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily",
     "sea_rescue": "Meripelastusohjeet",
-    "sea_rescue_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/lisatietoa-veneilysta/meripelastusohjeet/"
+    "sea_rescue_url": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/lisatietoa-veneilysta/meripelastusohjeet/",
+    "feedback": "Anna palautetta",
+    "feedback_url": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/osallistu-ja-vaikuta/palaute/anna-palautetta"
+  },
+  "language_select": {
+    "select_language": "Valitse kieli"
+  },
+  "suggestion_form": {
+    "heading": "Ehdota lisättävä palvelu Ahtiin",
+    "name": "Palvelun nimi",
+    "description": "Palvelun kuvaus",
+    "short_description": "Palvelun lyhyt kuvaus",
+    "website": "Palvelun verkkosivu",
+    "street_address": "Palvelun katuosoite",
+    "postal_code": "Palvelun postinumero",
+    "municipality": "Palvelun kunta",
+    "phone": "Palvelun puhelinnumero",
+    "email": "Palvelun sähköpostiosoite",
+    "category": "Palvelun kategoria",
+    "tags": "Lisää palvelulle tageja alla olevasta listasta",
+    "submit": "Lähetä palvelun tiedot",
+    "coordinates": "Valitse kartalta palvelun sijainti",
+    "selected_tags": "Valitut tagit",
+    "no_selected_tags": "Ei yhtäkään valittua tagia",
+    "on_submit": "Ehdotuksesi on vastaanotettu!",
+    "submitting": "Tietoja käsitellään",
+    "errors": {
+      "required": "Tämä kenttä on pakollinen",
+      "email": "Kentän arvo ei ole kelvollinen sähköposti",
+      "translated_field_required": "Suomalainen käännös tälle kentälle on pakollinen",
+      "check_form": "Tietoja ei voitu lähettä. Tarkista syöttämäsi tiedot.",
+      "submission_error": "Tietojen lähettämisessä tapahtui virhe. Yritä uudelleen."
+    }
   }
 }

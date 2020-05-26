@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 
 import ListViewCard from './ListViewCard';
 import { Feature } from '../../../domain/api/generated/types.d';
@@ -17,7 +16,7 @@ const ListView: React.FC<ListViewProps> = ({
   onClick,
 }) => {
   return (
-    <div className={classNames(styles.container, className)}>
+    <div className={className}>
       {features.length > 0 && <hr className={styles.line} />}
       {features.map((feature: Feature, id: number) => {
         return (

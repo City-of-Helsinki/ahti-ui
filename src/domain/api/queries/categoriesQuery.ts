@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 const CATEGORIES_QUERY = gql`
   query categories {

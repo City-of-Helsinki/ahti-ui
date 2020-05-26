@@ -1,17 +1,14 @@
-@import '../../../styles/partials/variables';
-@import '../../../styles/partials/mixins';
-.container {
-  position: absolute;
-  z-index: 1;
-}
+@import '../../../styles/spacings';
+@import '../../../styles/mixins';
+@import '../../../styles/z-index';
 
-$koros-margin: -5rem;
+$koros-margin: -1rem;
 
 .korosContainer {
   height: 0;
   position: relative;
   // Apply margin to lifted koros
-  margin-bottom: $koros-margin + $margin;
+  margin-bottom: $koros-margin + 1rem;
 }
 
 .koros {
@@ -26,26 +23,16 @@ $koros-margin: -5rem;
 .section {
   position: relative;
   z-index: 10;
-  margin: $margin * 5 $margin;
+  margin: unit(5) unit(1);
 
   p {
-    margin: $margin 0;
+    margin: unit(1) 0;
   }
 }
 
 .imageWithCardSection {
   color: var(--hds-ui-color-white);
   background-color: transparent;
-
-  h1,
-  h2,
-  h3 {
-    font-weight: $font-width-thick;
-  }
-
-  h1 {
-    font-size: 40px;
-  }
 }
 
 .imageWithCard {
@@ -56,10 +43,9 @@ $koros-margin: -5rem;
 }
 
 .topImageWithCard {
-  padding: 90px 1rem;
+  padding: 90px unit(1);
 }
 
 .link {
   @include ahti-link(currentColor);
-  font-weight: $font-width-medium;
 }

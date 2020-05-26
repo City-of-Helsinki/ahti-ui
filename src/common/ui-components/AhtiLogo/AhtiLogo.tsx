@@ -15,7 +15,7 @@ const AhtiLogo: React.FC<AhtiLogo> = ({ fillColor }) => {
       aria-label="Ahti"
       focusable="false"
     >
-      <g clip-path="url(#clip0)">
+      <g>
         <path
           d="M17.5569 13.93L12.7444 0H7.24438L2.50063 13.93L0.0256348 21.14C0.644385 21.56 1.40063 21.84 2.22563 21.84C3.11938 21.84 3.87563 21.56 4.56313 21.07L5.93813 16.87H13.8444L13.9819 17.29L15.1506 20.79C15.8381 21.49 16.8006 21.91 17.8319 21.91C18.6569 21.91 19.3444 21.7 19.9631 21.28L17.5569 13.93ZM9.10063 7.28C9.51313 6.02 9.92563 4.41 9.92563 4.41H9.99438C9.99438 4.41 10.4069 6.02 10.8194 7.28L12.6756 13.02H7.24438L9.10063 7.28Z"
           fill={fillColor}
@@ -37,16 +37,6 @@ const AhtiLogo: React.FC<AhtiLogo> = ({ fillColor }) => {
           fill={fillColor}
         />
       </g>
-      <defs>
-        <clipPath id="clip0">
-          <rect
-            width="55"
-            height="22"
-            fill="white"
-            transform="translate(0.0256348)"
-          />
-        </clipPath>
-      </defs>
     </svg>
   );
 };

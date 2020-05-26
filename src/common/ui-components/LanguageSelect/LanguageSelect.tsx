@@ -17,7 +17,7 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({
   className,
   darkMenu,
 }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <div className={className}>

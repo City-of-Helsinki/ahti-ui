@@ -20,7 +20,9 @@ export const DefaultSearch = () => (
     onSelect={(item) => {
       alert(`clicked: ${item}`);
     }}
-    isMenuOpen={true}
+    onClose={() => {
+      /* noop */
+    }}
   />
 );
 

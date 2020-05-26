@@ -1,7 +1,7 @@
 /* eslint-disable */
 import gql from 'graphql-tag';
-import * as React from 'react';
 import * as ApolloReactCommon from '@apollo/react-common';
+import * as React from 'react';
 import * as ApolloReactComponents from '@apollo/react-components';
 import * as ApolloReactHooks from '@apollo/react-hooks';
 export type Maybe<T> = T | null;
@@ -33,6 +33,29 @@ export type ContactInfo = {
   phoneNumber: Scalars['String'];
   email: Scalars['String'];
   address?: Maybe<Address>;
+};
+
+export type ContactInfoInput = {
+  streetAddress?: Maybe<Scalars['String']>;
+  postalCode?: Maybe<Scalars['String']>;
+  municipality?: Maybe<Scalars['String']>;
+  phoneNumber?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+};
+
+export type CreateFeatureMutationInput = {
+  translations: Array<FeatureTranslationsInput>;
+  geometry: Scalars['Geometry'];
+  contactInfo?: Maybe<ContactInfoInput>;
+  categoryId?: Maybe<Scalars['String']>;
+  tagIds?: Maybe<Array<Maybe<Scalars['String']>>>;
+  clientMutationId?: Maybe<Scalars['String']>;
+};
+
+export type CreateFeatureMutationPayload = {
+  __typename?: 'CreateFeatureMutationPayload';
+  feature?: Maybe<Feature>;
+  clientMutationId?: Maybe<Scalars['String']>;
 };
 
 export type Depth = {
@@ -175,19 +198,21 @@ export type FeatureSource = {
   id: Scalars['String'];
 };
 
-export enum FeatureTranslationLanguageCode {
-  Fi = 'FI',
-  En = 'EN',
-  Sv = 'SV',
-}
-
 export type FeatureTranslations = {
   __typename?: 'FeatureTranslations';
-  languageCode: FeatureTranslationLanguageCode;
+  languageCode: Language;
   name: Scalars['String'];
   url: Scalars['String'];
   oneLiner: Scalars['String'];
   description: Scalars['String'];
+};
+
+export type FeatureTranslationsInput = {
+  languageCode: Language;
+  name: Scalars['String'];
+  description?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
+  oneLiner?: Maybe<Scalars['String']>;
 };
 
 export type Ferry = FeatureInterface & {
@@ -255,10 +280,25 @@ export type Image = {
   license: License;
 };
 
+export enum Language {
+  Fi = 'FI',
+  En = 'EN',
+  Sv = 'SV',
+}
+
 export type License = {
   __typename?: 'License';
   id: Scalars['ID'];
   name: Scalars['String'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  createFeature?: Maybe<CreateFeatureMutationPayload>;
+};
+
+export type MutationCreateFeatureArgs = {
+  input: CreateFeatureMutationInput;
 };
 
 export type Node = {
@@ -291,8 +331,6 @@ export type PageInfo = {
 
 export type PriceTag = {
   __typename?: 'PriceTag';
-  id: Scalars['ID'];
-  feature: Feature;
   price: Scalars['Decimal'];
   item: Scalars['String'];
   unit?: Maybe<Scalars['String']>;
@@ -349,8 +387,6 @@ export type TagFeaturesArgs = {
 
 export type Teaser = {
   __typename?: 'Teaser';
-  id: Scalars['ID'];
-  feature: Feature;
   header?: Maybe<Scalars['String']>;
   main?: Maybe<Scalars['String']>;
 };
@@ -391,6 +427,19 @@ export type CommonFeaturesFragment = { __typename?: 'Ferry' } & {
           >;
         };
     };
+};
+
+export type CreateFeatureMutationVariables = {
+  input: CreateFeatureMutationInput;
+};
+
+export type CreateFeatureMutation = { __typename?: 'Mutation' } & {
+  createFeature: Maybe<
+    { __typename?: 'CreateFeatureMutationPayload' } & Pick<
+      CreateFeatureMutationPayload,
+      'clientMutationId'
+    >
+  >;
 };
 
 export type CategoriesQueryVariables = {};
@@ -562,6 +611,17 @@ export type FeaturesQuery = { __typename?: 'Query' } & {
                           'id'
                         >
                       >;
+                      tags: Array<{ __typename?: 'Tag' } & Pick<Tag, 'id'>>;
+                      contactInfo: Maybe<
+                        { __typename?: 'ContactInfo' } & {
+                          address: Maybe<
+                            { __typename?: 'Address' } & Pick<
+                              Address,
+                              'municipality'
+                            >
+                          >;
+                        }
+                      >;
                       images: Array<
                         { __typename?: 'Image' } & Pick<
                           Image,
@@ -602,6 +662,22 @@ export type FerryQuery = { __typename?: 'Query' } & {
   >;
 };
 
+export type TagsAndCategoriesQueryVariables = {};
+
+export type TagsAndCategoriesQuery = { __typename?: 'Query' } & {
+  featureCategories: Maybe<
+    Array<
+      Maybe<
+        { __typename?: 'FeatureCategory' } & Pick<
+          FeatureCategory,
+          'id' | 'name'
+        >
+      >
+    >
+  >;
+  tags: Maybe<Array<Maybe<{ __typename?: 'Tag' } & Pick<Tag, 'id' | 'name'>>>>;
+};
+
 export type TagsQueryVariables = {};
 
 export type TagsQuery = { __typename?: 'Query' } & {
@@ -640,6 +716,73 @@ export const CommonFeaturesFragmentDoc = gql`
     }
   }
 `;
+export const CreateFeatureDocument = gql`
+  mutation createFeature($input: CreateFeatureMutationInput!) {
+    createFeature(input: $input) {
+      clientMutationId
+    }
+  }
+`;
+export type CreateFeatureMutationFn = ApolloReactCommon.MutationFunction<
+  CreateFeatureMutation,
+  CreateFeatureMutationVariables
+>;
+export type CreateFeatureComponentProps = Omit<
+  ApolloReactComponents.MutationComponentOptions<
+    CreateFeatureMutation,
+    CreateFeatureMutationVariables
+  >,
+  'mutation'
+>;
+
+export const CreateFeatureComponent = (props: CreateFeatureComponentProps) => (
+  <ApolloReactComponents.Mutation<
+    CreateFeatureMutation,
+    CreateFeatureMutationVariables
+  >
+    mutation={CreateFeatureDocument}
+    {...props}
+  />
+);
+
+/**
+ * __useCreateFeatureMutation__
+ *
+ * To run a mutation, you first call `useCreateFeatureMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateFeatureMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createFeatureMutation, { data, loading, error }] = useCreateFeatureMutation({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useCreateFeatureMutation(
+  baseOptions?: ApolloReactHooks.MutationHookOptions<
+    CreateFeatureMutation,
+    CreateFeatureMutationVariables
+  >
+) {
+  return ApolloReactHooks.useMutation<
+    CreateFeatureMutation,
+    CreateFeatureMutationVariables
+  >(CreateFeatureDocument, baseOptions);
+}
+export type CreateFeatureMutationHookResult = ReturnType<
+  typeof useCreateFeatureMutation
+>;
+export type CreateFeatureMutationResult = ApolloReactCommon.MutationResult<
+  CreateFeatureMutation
+>;
+export type CreateFeatureMutationOptions = ApolloReactCommon.BaseMutationOptions<
+  CreateFeatureMutation,
+  CreateFeatureMutationVariables
+>;
 export const CategoriesDocument = gql`
   query categories {
     featureCategories {
@@ -874,6 +1017,14 @@ export const FeaturesDocument = gql`
             category {
               id
             }
+            tags {
+              id
+            }
+            contactInfo {
+              address {
+                municipality
+              }
+            }
             name
             description
             shortDescription @client
@@ -1026,6 +1177,85 @@ export type FerryLazyQueryHookResult = ReturnType<typeof useFerryLazyQuery>;
 export type FerryQueryResult = ApolloReactCommon.QueryResult<
   FerryQuery,
   FerryQueryVariables
+>;
+export const TagsAndCategoriesDocument = gql`
+  query tagsAndCategories {
+    featureCategories {
+      id
+      name
+    }
+    tags {
+      id
+      name
+    }
+  }
+`;
+export type TagsAndCategoriesComponentProps = Omit<
+  ApolloReactComponents.QueryComponentOptions<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >,
+  'query'
+>;
+
+export const TagsAndCategoriesComponent = (
+  props: TagsAndCategoriesComponentProps
+) => (
+  <ApolloReactComponents.Query<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >
+    query={TagsAndCategoriesDocument}
+    {...props}
+  />
+);
+
+/**
+ * __useTagsAndCategoriesQuery__
+ *
+ * To run a query within a React component, call `useTagsAndCategoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTagsAndCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTagsAndCategoriesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTagsAndCategoriesQuery(
+  baseOptions?: ApolloReactHooks.QueryHookOptions<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >
+) {
+  return ApolloReactHooks.useQuery<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >(TagsAndCategoriesDocument, baseOptions);
+}
+export function useTagsAndCategoriesLazyQuery(
+  baseOptions?: ApolloReactHooks.LazyQueryHookOptions<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >
+) {
+  return ApolloReactHooks.useLazyQuery<
+    TagsAndCategoriesQuery,
+    TagsAndCategoriesQueryVariables
+  >(TagsAndCategoriesDocument, baseOptions);
+}
+export type TagsAndCategoriesQueryHookResult = ReturnType<
+  typeof useTagsAndCategoriesQuery
+>;
+export type TagsAndCategoriesLazyQueryHookResult = ReturnType<
+  typeof useTagsAndCategoriesLazyQuery
+>;
+export type TagsAndCategoriesQueryResult = ApolloReactCommon.QueryResult<
+  TagsAndCategoriesQuery,
+  TagsAndCategoriesQueryVariables
 >;
 export const TagsDocument = gql`
   query tags {

@@ -3,15 +3,14 @@ import { Link as RouterLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
 import { TFunction } from 'i18next';
+import { IconSearch } from 'hds-react';
 
-import Search from '../Search/Search';
-import LanguageSelect from '../LanguageSelect/LanguageSelect';
-import { SUPPORTED_LANGUAGES } from '../../../common/translation/TranslationConstants';
-import { useOvermind } from '../../../domain/overmind';
 import AhtiLogo from '../AhtiLogo/AhtiLogo';
 import MenuIcon from '../MenuIcon/MenuIcon';
 import NavDropdown from './NavDropdown/NavDropdown';
 import styles from './Menu.module.scss';
+import LanguageSelect from '../LanguageSelect/LanguageSelect';
+import { SUPPORTED_LANGUAGES } from '../../translation/TranslationConstants';
 
 export type MenuItem = {
   readonly categoryIds: string[];
@@ -32,8 +31,11 @@ export interface MenuProps {
   readonly translate?: boolean;
   readonly menuDark?: boolean;
   readonly menuCategories: MenuCategory[];
+  readonly className?: string;
+  readonly contentClassName?: string;
   onSelect?(menuItem: MenuItem): void;
   onLogoClick?(): void;
+  onSearchIconClick?(): void;
 }
 
 const translateMenuCategories = (
@@ -64,8 +66,10 @@ const Menu: React.FC<MenuProps> = ({
   menuCategories,
   onSelect,
   onLogoClick,
+  className,
+  contentClassName,
+  onSearchIconClick,
 }) => {
-  const { state, actions } = useOvermind();
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
 
@@ -75,7 +79,7 @@ const Menu: React.FC<MenuProps> = ({
 
   const renderMenuContent = () => {
     return (
-      <div className={styles.menuContentContainer}>
+      <div className={classNames(styles.menuContent, contentClassName)}>
         {items.map((item: MenuCategory, id: number) => {
           return (
             <NavDropdown key={id} title={item.title} category={item.category}>
@@ -110,38 +114,31 @@ const Menu: React.FC<MenuProps> = ({
 
   return (
     <div
-      className={
-        isOpen ? classNames(styles.containerOpen) : classNames(styles.container)
-      }
+      className={classNames(
+        styles.container,
+        { [styles.containerOpen]: isOpen, [styles.dark]: menuDark || isOpen },
+        className
+      )}
     >
       <div className={styles.headerContainer}>
-        <div className={styles.menuElement}>
-          <RouterLink to={'/'} onClick={() => onLogoClick && onLogoClick()}>
-            <AhtiLogo fillColor={menuDark || isOpen ? '#001A33' : 'white'} />
-          </RouterLink>
-        </div>
-        <div className={styles.menuElement}>
-          <div>
-            <LanguageSelect
-              supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
-              darkMenu={menuDark}
+        <RouterLink to={'/'} onClick={() => onLogoClick?.()}>
+          <AhtiLogo fillColor={menuDark || isOpen ? '#001A33' : 'white'} />
+        </RouterLink>
+
+        <div className={styles.logo} />
+
+        <LanguageSelect
+          supportedLanguages={Object.values(SUPPORTED_LANGUAGES)}
+          darkMenu={menuDark || isOpen}
+        />
+
+        <div className={styles.menuToggles}>
+          <button onClick={onSearchIconClick}>
+            <IconSearch
+              className={classNames(styles.bigIcon, styles.menuIcon)}
             />
-          </div>
-        </div>
-        <div
-          className={styles.menuElementFront}
-          onClick={() => setIsOpen(true)}
-        >
-          <Search
-            featuresToSearch={state.features}
-            onSelect={(ahtiId) => {
-              actions.selectFeatureById(ahtiId);
-              setIsOpen(false);
-            }}
-            isMenuOpen={isOpen}
-          />
-        </div>
-        <div className={styles.menuElement}>
+          </button>
+
           <button
             className={styles.toggleMenuButton}
             onClick={() => setIsOpen(!isOpen)}
@@ -156,7 +153,9 @@ const Menu: React.FC<MenuProps> = ({
           </button>
         </div>
       </div>
-      {isOpen && renderMenuContent()}
+      <div className={styles.menuContentWrapper}>
+        {isOpen && renderMenuContent()}
+      </div>
     </div>
   );
 };

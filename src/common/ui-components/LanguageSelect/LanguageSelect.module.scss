@@ -1,18 +1,18 @@
-@import '../../../styles/partials/variables';
-@import '../../../styles/partials/mixins';
+@import '../../../styles/spacings';
+@import '../../../styles/mixins';
 
 .languageButton {
   @include buttonReset;
-  margin: $margin/4;
+  margin: unit(0.25);
 }
 
 .languageButtonEnabled {
-  font-weight: $font-width-thick;
+  font-weight: 700;
 }
 
 .languageSwitchTextDark {
-  color: black;
+  color: var(--hds-ui-color-black);
 }
 .languageSwitchTextWhite {
-  color: white;
+  color: var(--hds-ui-color-white);
 }

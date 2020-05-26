@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import classNames from 'classnames';
 
 import { ExternalLink } from '../../../../domain/api/generated/types.d';
 import commonStyles from '../common/commonStyles.module.scss';
@@ -18,9 +19,10 @@ const CardLinks: React.FC<CardLinkProps> = ({ links }) => {
         return (
           <a
             key={id}
-            target={'_blank'}
+            target="_blank"
+            rel="noopener noreferrer"
             href={link.url}
-            className={commonStyles.bookingUrl}
+            className={classNames(commonStyles.url, styles.cardLink)}
           >
             {t(`external_links.${link.type}`)}
           </a>

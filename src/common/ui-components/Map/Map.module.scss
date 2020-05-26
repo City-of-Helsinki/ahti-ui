@@ -1,18 +1,19 @@
 @import '../../../styles/icons';
-@import '../../../styles/partials/variables';
-@import '../../../styles/partials/mixins';
+@import '../../../styles/spacings';
+@import '../../../styles/mixins';
 
 .markerContent {
   cursor: pointer;
 }
 
 .mapControls {
+  width: 29px;
   float: right;
-  margin-right: $margin;
-  margin-top: $margin;
+  margin-right: unit(1);
+  margin-top: 30%;
 
   .mapControlsDivider {
-    margin: $margin;
+    margin: unit(1);
   }
 }
 

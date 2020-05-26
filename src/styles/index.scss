@@ -2,55 +2,23 @@
 @import '~slick-carousel/slick/slick.css';
 @import '~slick-carousel/slick/slick-theme.css';
 
-@import './sanitize.scss';
-@import './html5doctor.scss';
-@import './fonts.scss';
-@import './hds-brand-colors.css';
-@import './typography.scss';
-@import './partials/variables.scss';
+@import 'external/html5doctor';
+@import 'external/sanitize';
+@import 'fonts';
+@import 'colors';
+@import 'typography';
 
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-  font-size: $text-base-size;
-  font-weight: $text-base-weight;
-  font-style: $text-base-style;
-  line-height: $text-line-height;
-  text-align: $text-base-align;
-  text-transform: none;
-  white-space: normal;
-  word-spacing: normal;
-  hyphenate-lines: 3;
-  text-indent: 0;
-  letter-spacing: 0.05em;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-p,
-span,
-blockquote,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  max-width: 33em;
+html,
+body {
+  height: 100%;
 }
 
 body {
-  overflow-x: hidden;
-  height: 100vh;
-
-  font-size: $text-base-size;
-  font-family: $font-family;
+  font-size: 16px;
+  font-family: var(--hds-theme-primary-font), Arial;
 
   #root {
-    width: $root-width;
+    width: 375px;
     height: 100%;
     margin: 0 auto;
     position: relative;

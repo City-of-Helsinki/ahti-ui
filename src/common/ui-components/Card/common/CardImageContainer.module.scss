@@ -1,10 +1,13 @@
 @import '../../../../styles/icons';
 
-$slideHeight: 20rem;
-$dotShadow: 6px;
-$dotShadowEnabled: $dotShadow * 2;
+$slideHeight: 15rem;
+
+.container {
+  position: relative;
+}
 
 .slideContainer {
+  box-shadow: inset 0 40px 40px -40px var(--hds-ui-color-black);
   height: $slideHeight;
   width: 100%;
 }
@@ -16,27 +19,33 @@ $dotShadowEnabled: $dotShadow * 2;
 }
 
 .dotsContainer {
-  width: 0;
-  height: 0;
+  position: absolute;
+  top: 0;
 }
 
 .dots {
-  bottom: $slideHeight - 0.5rem;
-  left: 0.5rem;
   display: flex;
   flex-direction: row;
 }
 
 .dot {
-  background-color: var(--hds-ui-color-black-60);
+  border: 2px solid var(--hds-ui-color-white);
   height: $small-icon-height;
   width: $small-icon-width;
   border-radius: $small-icon-width / 2;
-  box-shadow: 0 0 $dotShadow 0 var(--hds-ui-color-black-60);
   margin: $small-icon-width / 4;
 }
 
 .dotEnabled {
-  background-color: var(--hds-brand-color-coat-of-arms-blue);
-  box-shadow: 0 0 $dotShadowEnabled 0 var(--hds-brand-color-coat-of-arms-blue);
+  background-color: var(--hds-ui-color-white);
+}
+
+.koros {
+  position: absolute;
+  color: white;
+  bottom: 0;
+  height: 1rem;
+  rect {
+    height: 1rem;
+  }
 }

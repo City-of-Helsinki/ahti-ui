@@ -1,41 +1,42 @@
-@import '../../styles/partials/mixins';
-@import '../../styles/partials/variables';
+@import '../../styles/mixins';
+@import '../../styles/spacings';
 
-$logo-color: var(--hds-ui-colors-black);
-$logo-height: 4rem;
-$logo-width: 8rem;
+$content-color: var(--hds-ui-color-white);
 
 .container {
   display: flex;
+  flex-shrink: 0;
   flex-direction: column;
   align-items: center;
-  margin: $margin * 10 0 $margin * 2 0;
   font-size: 14px;
+  background-color: var(--hds-brand-color-coat-of-arms-blue);
+  color: $content-color;
 }
 
 .divider {
-  border: 0.1px solid rgba(29, 29, 29, 0.2);
+  border: 0.1px solid $content-color;
   height: 1px;
   width: 346px;
-  margin: $margin * 3 0;
-}
-
-.koros {
-  color: var(--hds-ui-color-black-10);
+  margin: unit(3) 0;
 }
 
 .logo {
-  @include helsinki-logo($logo-color);
-  width: $logo-width;
-  height: $logo-height;
-  margin-top: $margin * 3;
+  @include helsinki-logo(#fff);
+  width: 8rem;
+  height: 4rem;
+  margin-top: unit(3);
 }
 
 .links {
-  margin: $margin;
+  margin: unit(1);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   white-space: nowrap;
+}
+
+.link {
+  color: inherit;
+  margin: unit(0.25) 0;
 }

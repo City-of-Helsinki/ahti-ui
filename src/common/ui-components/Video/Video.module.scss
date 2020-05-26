@@ -1,26 +1,11 @@
-@import '../../../styles/partials/variables';
-
-$video_container_height: 100vh;
-$video_player_offset: -10px;
-
-$video_container_z-index: 0;
-$video_z-index: -1;
-$video_width: 375px;
+@import '../../../styles/z-index';
 
 .container {
   position: absolute;
   width: 100%;
-  height: $video_container_height;
-  top: $video_player_offset;
-  left: 0px;
-  z-index: $video_container_z-index;
+  left: 0;
 }
 
-// this is an exception due to specific component implementation,
-// but should be considered bad practice otherwise
-/* stylelint-disable */
 .container video {
-  width: 375px !important;
-  height: auto !important;
-  z-index: $video_z-index !important;
+  z-index: z-index(video) !important;
 }

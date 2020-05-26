@@ -1,0 +1,14 @@
+$z-index: (
+  video: -1,
+  // slick-slider occupies z-index 1
+    content-subheading: 4,
+  menu: 5,
+);
+
+@function z-index($key) {
+  @return map-get($z-index, $key);
+}
+
+@mixin z-index($key) {
+  z-index: z-index($key);
+}

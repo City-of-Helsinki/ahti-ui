@@ -84,8 +84,20 @@ export const getRoutes = (
   };
 };
 
-export const getMapStyle = (
-  routes: GeoJSON.FeatureCollection<GeoJSON.LineString>
+export const getMapStyle = (): {} => {
+  return {
+    ...mapStyle,
+    sprite:
+      window.location.protocol +
+      '//' +
+      window.location.hostname +
+      (window.location.port ? ':' + window.location.port : '') +
+      '/sprites/ahti-sprite',
+  };
+};
+
+export const getMapStyleWithRoutes = (
+  routes?: GeoJSON.FeatureCollection<GeoJSON.LineString>
 ): {} => {
   return {
     ...mapStyle,

@@ -11,6 +11,7 @@ export const clearContentState: Action = ({ state }) => {
   state.tagFilters = [];
   state.categoryFilters = [];
   state.selectedFeature = null;
+  state.mapViewToggle = false;
 };
 
 export const addCategoryFilter: Action<Filter> = (
@@ -26,10 +27,18 @@ export const addCategoryFilter: Action<Filter> = (
   }
 };
 
+export const setCategoryFilters: Action<Filter[]> = ({ state }, filters) => {
+  state.categoryFilters = filters;
+};
+
 export const addTagFilter: Action<Filter> = ({ state }, tagFilter) => {
   if (!state.tagFilters.map((filter) => filter.id).includes(tagFilter.id)) {
     state.tagFilters = [...state.tagFilters, tagFilter];
   }
+};
+
+export const setTagFilters: Action<Filter[]> = ({ state }, filters) => {
+  state.tagFilters = filters;
 };
 
 export const setTagFiltersById: Action<string[]> = (
@@ -51,30 +60,6 @@ export const setCategoryFiltersById: Action<string[]> = (
     return {
       id: categoryId,
     };
-  });
-};
-
-export const translateTagFilters: Action<Tag[]> = (
-  { state },
-  availableTags
-) => {
-  state.tagFilters = state.tagFilters.map((tagFilter) => {
-    const found = availableTags.find(
-      (availableTag) => availableTag.id === tagFilter.id
-    );
-    return found ? found : tagFilter;
-  });
-};
-
-export const translateCategoryFilters: Action<FeatureCategory[]> = (
-  { state },
-  availableCategories
-) => {
-  state.categoryFilters = state.categoryFilters.map((categoryFilter) => {
-    const found = availableCategories.find(
-      (availableCategory) => availableCategory.id === categoryFilter.id
-    );
-    return found ? found : categoryFilter;
   });
 };
 

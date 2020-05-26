@@ -1,0 +1,55 @@
+@import '../../styles/spacings';
+@import '../../styles/mixins';
+
+.labelText {
+  color: var(--label-color-default);
+  display: block;
+  font-size: var(--fontsize-subtitle);
+  font-weight: 700;
+  margin-bottom: var(--spacing-3-xs);
+}
+
+.mapContainer {
+  width: 100%;
+  height: 250px;
+}
+
+.tag {
+  padding: unit(0.25);
+}
+
+.tag:hover {
+  background-color: var(--hds-brand-color-fog);
+}
+
+.noSelectedTags {
+  color: var(--hds-ui-color-black-70);
+}
+
+.form {
+}
+
+.formContent {
+  padding: 0 unit(1);
+
+  > * {
+    margin: unit(2) 0;
+  }
+}
+
+.formHeading {
+  margin-bottom: 0;
+}
+
+.koros {
+  color: var(--hds-brand-color-coat-of-arms-blue);
+}
+
+.formControls {
+  @include flex(column);
+}
+
+.formError {
+  margin-top: unit(0.25);
+  color: var(--hds-ui-color-error);
+}

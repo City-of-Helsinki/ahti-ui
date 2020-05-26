@@ -1,7 +1,5 @@
-@import '../../styles/partials/variables';
-@import '../../styles/partials/mixins';
-
-$koros-margin: -5rem;
+@import '../../styles/spacings';
+@import '../../styles/mixins';
 
 .pageContainer {
   position: relative;
@@ -10,13 +8,11 @@ $koros-margin: -5rem;
 
 .section {
   background-color: var(--hds-ui-color-white);
-  margin: $margin * 4 0;
-  padding: $padding;
   position: relative;
-  z-index: 10;
+  margin: unit(2) unit(1);
 
   p {
-    margin: $margin 0;
+    margin: unit(1) 0;
   }
 }
 
@@ -27,7 +23,7 @@ $koros-margin: -5rem;
   h1,
   h2,
   h3 {
-    font-weight: $font-width-thick;
+    font-weight: 700;
   }
 
   h1 {
@@ -37,9 +33,37 @@ $koros-margin: -5rem;
 
 .link {
   @include ahti-link(currentColor);
-  font-weight: $font-width-medium;
+  font-weight: 500;
+}
+
+.bannerLink {
+  @include ahti-link(currentColor);
+  font-weight: 500;
+  text-shadow: var(--hds-ui-color-black) 1px 0 10px;
+}
+
+.bannerHeading {
+  text-shadow: var(--hds-ui-color-black) 1px 0 10px;
 }
 
 .listSpinner {
-  margin: $margin * 2;
+  margin: unit(2);
+}
+
+.slide {
+  height: 200px;
+  box-shadow: inset 0 0 250px / 2 var(--hds-ui-color-black-90);
+  margin: unit(0.25);
+  padding: unit(1);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  p {
+    hyphens: auto;
+    font-weight: 700;
+    color: var(--hds-ui-color-white);
+  }
 }
