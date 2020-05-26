@@ -29,7 +29,12 @@ import {
 import ClusterIcon from '../ClusterIcon/ClusterIcon';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import styles from './Map.module.scss';
-import { getMapStyle, getFlyToPoint, getPoints, getRoutes } from './mapUtils';
+import {
+  getMapStyleWithRoutes,
+  getFlyToPoint,
+  getPoints,
+  getRoutes,
+} from './mapUtils';
 import PinIcon from './PinIcon/PinIcon';
 
 /*
@@ -121,6 +126,9 @@ const Map: React.FC<MapProps> = ({
           : selectedFeatureZoomLevel
       );
     };
+    const tags = feature?.properties?.tags?.map((tag) => tag.id);
+    const category = feature?.properties?.category?.id;
+    const all = tags ? [category, ...tags] : [category];
     return (
       <Marker
         key={`pin-${id}`}
@@ -128,7 +136,7 @@ const Map: React.FC<MapProps> = ({
         latitude={pointFeature.geometry.coordinates[1]}
       >
         <div onClick={onMarkerClick} className={styles.markerContent}>
-          <PinIcon category={feature?.properties?.category?.id} />
+          <PinIcon tags={all} />
         </div>
       </Marker>
     );
@@ -168,7 +176,7 @@ const Map: React.FC<MapProps> = ({
   return (
     <MapGL
       {...viewPort}
-      mapStyle={getMapStyle(routes)}
+      mapStyle={getMapStyleWithRoutes(routes)}
       width={'100%'}
       height={'100%'}
       className={className}
@@ -176,6 +184,7 @@ const Map: React.FC<MapProps> = ({
       onViewportChange={setViewPort}
       clickRadius={10}
       onNativeClick={onMapClick}
+      attributionControl={null}
     >
       {clusters.map((cluster: any, id: number) => {
         const [longitude, latitude] = cluster.geometry.coordinates;

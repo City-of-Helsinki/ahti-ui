@@ -1,6 +1,5 @@
 import { MenuCategory } from '../common/ui-components/Menu/Menu';
 import { ContentSliderItem } from '../common/ui-components/Slider/ContentSlider/ContentSlider';
-import { Filter } from '../../alltypes';
 
 // Map defaults
 export const initialLatitude = 60.13;
@@ -30,29 +29,27 @@ export const menuCategories: MenuCategory[] = [
     category: 'ahti:category:ferry',
     menuItems: [
       {
-        categoryIds: ['ahti:category:ferry'],
+        categoryIds: ['ahti:category:water_bus', 'ahti:category:ferry'],
         tagIds: [],
         name: 'water_bus_and_ferries',
       },
       {
-        categoryIds: [],
+        categoryIds: ['ahti:category:water_taxi', 'ahti:category:boat_ride'],
         tagIds: [],
         name: 'boat_rides_and_taxis',
-        disabled: true,
       },
       {
-        categoryIds: [],
+        categoryIds: ['ahti:category:sightseeing', 'ahti:category:cruise'],
         tagIds: [],
         name: 'sightseeing_and_cruises',
-        disabled: true,
       },
     ],
   },
   {
     title: 'saunas_and_swimming',
-    category: 'ahti:category:swimming',
+    category: 'ahti:category:sauna',
     menuItems: [
-      { categoryIds: [], tagIds: ['ahti:category:sauna'], name: 'saunas' },
+      { categoryIds: ['ahti:category:sauna'], tagIds: [], name: 'saunas' },
       {
         categoryIds: [],
         tagIds: ['ahti:tag:swimming'],
@@ -60,7 +57,7 @@ export const menuCategories: MenuCategory[] = [
       },
       {
         categoryIds: [],
-        tagIds: ['ahti:tag:swimming'],
+        tagIds: ['ahti:tag:ice_swimming'],
         name: 'ice_swimming',
       },
     ],
@@ -86,23 +83,66 @@ export const menuCategories: MenuCategory[] = [
     title: 'boater_services',
     category: 'ahti:category:service',
     menuItems: [
-      { categoryIds: [], tagIds: [], name: 'mooring', disabled: true },
-      { categoryIds: [], tagIds: [], name: 'maintenance', disabled: true },
+      {
+        categoryIds: ['ahti:category:harbor'],
+        tagIds: [],
+        name: 'harbor',
+      },
+      {
+        categoryIds: ['ahti:category:harbor'],
+        tagIds: [
+          'ahti:tag:guest_harbor',
+          'ahti:tag:city_guest_harbor',
+          'ahti:tag:private_guest_harbor',
+        ],
+        name: 'guest_harbor',
+      },
+      {
+        categoryIds: ['ahti:category:service_station'],
+        tagIds: [],
+        name: 'service_station',
+      },
+      {
+        categoryIds: ['ahti:category:boat_maintenance'],
+        tagIds: [],
+        name: 'maintenance',
+      },
       {
         categoryIds: [],
-        tagIds: [],
+        tagIds: ['ahti:tag:septic_tank_draining'],
         name: 'septic_tank_draining',
-        disabled: true,
+      },
+      {
+        categoryIds: [],
+        tagIds: ['ahti:tag:gas_station'],
+        name: 'gas_station',
+      },
+      {
+        categoryIds: [],
+        tagIds: ['ahti:tag:slipway'],
+        name: 'slipway',
+      },
+      {
+        categoryIds: [],
+        tagIds: ['ahti:tag:boat_lift'],
+        name: 'boat_lift',
       },
     ],
   },
   {
-    title: 'rental_boats',
-    category: 'ahti:category:service',
+    title: 'rental_services',
+    category: 'ahti:category:rental_service',
     menuItems: [
-      { categoryIds: [], tagIds: [], name: 'rowboats', disabled: true },
-      { categoryIds: [], tagIds: [], name: 'motorboats', disabled: true },
-      { categoryIds: [], tagIds: [], name: 'other', disabled: true },
+      {
+        categoryIds: [],
+        tagIds: ['ahti:tag:rental_boat'],
+        name: 'rental_boat',
+      },
+      { categoryIds: [], tagIds: ['ahti:tag:city_boat'], name: 'city_boat' },
+      { categoryIds: [], tagIds: ['ahti:tag:rowing_boat'], name: 'rowing' },
+      { categoryIds: [], tagIds: ['ahti:tag:sup'], name: 'sup' },
+      { categoryIds: [], tagIds: ['ahti:tag:kayak'], name: 'kayak' },
+      { categoryIds: [], tagIds: ['ahti:tag:canoeing'], name: 'canoe' },
     ],
   },
 ];
@@ -110,8 +150,32 @@ export const menuCategories: MenuCategory[] = [
 export const boaterServicesSliderContent: ContentSliderItem[] = [
   {
     categoryFilters: [{ id: 'ahti:category:harbor' }],
-    tagFilters: [],
+    tagFilters: [{ id: 'ahti:category:guest_harbor' }],
     title: 'boater_services.guest_harbors',
+    imageUrl: '/images/placeholder.png',
+  },
+  {
+    categoryFilters: [
+      { id: 'ahti:category:service_station' },
+      { id: 'ahti:category:boat_maintenance' },
+    ],
+    tagFilters: [],
+    title: 'boater_services.service_stations',
+    imageUrl: '/images/placeholder.png',
+  },
+  {
+    categoryFilters: [],
+    tagFilters: [{ id: 'ahti:tag:slipway' }, { id: 'ahti:tag:boat_lift' }],
+    title: 'boater_services.boat_launch',
+    imageUrl: '/images/placeholder.png',
+  },
+];
+
+export const seasideExperiencesSliderContent: ContentSliderItem[] = [
+  {
+    categoryFilters: [{ id: 'ahti:category:sightseeing' }],
+    tagFilters: [],
+    title: 'seaside_experiences.sightseeing',
     imageUrl: '/images/placeholder.png',
   },
   {
@@ -121,13 +185,30 @@ export const boaterServicesSliderContent: ContentSliderItem[] = [
       { id: 'ahti:category:bar' },
     ],
     tagFilters: [],
-    title: 'boater_services.restaurants',
+    title: 'seaside_experiences.restaurants',
     imageUrl: '/images/placeholder.png',
   },
   {
     categoryFilters: [],
-    tagFilters: [],
-    title: 'boater_services.rental_boats',
+    tagFilters: [
+      { id: 'ahti:tag:sup' },
+      { id: 'ahti:tag:kayak' },
+      { id: 'ahti:tag:canoeing' },
+      { id: 'ahti:tag:rowing_boat' },
+    ],
+    title: 'seaside_experiences.small_boats',
+    imageUrl: '/images/placeholder.png',
+  },
+  {
+    categoryFilters: [],
+    tagFilters: [{ id: 'ahti:tag:city_boat' }],
+    title: 'seaside_experiences.city_boats',
+    imageUrl: '/images/placeholder.png',
+  },
+  {
+    categoryFilters: [],
+    tagFilters: [{ id: 'ahti:tag:rental_boat' }],
+    title: 'seaside_experiences.boat_rental',
     imageUrl: '/images/placeholder.png',
   },
 ];
@@ -140,4 +221,7 @@ export const categories: Record<string, string> = {
   CAFE: 'ahti:category:cafe',
   HARBOR: 'ahti:category:harbor',
   FERRY: 'ahti:category:ferry',
+  RENTAL_SERVICE: 'ahti:category:rental_service',
+  SERVICE_STATION: 'ahti:category:service_station',
+  BOAT_MAINTENANCE: 'ahti:category:boat_maintenance',
 };

@@ -11,11 +11,20 @@
   flex-grow: 1;
 }
 
+.noItems {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--hds-ui-color-black-50);
+}
+
 .subHeading {
   display: flex;
+  flex-shrink: 0;
   flex-direction: row;
   justify-content: space-between;
-  padding: unit(1);
+  padding: 0 unit(1) unit(1);
   z-index: z-index(content-subheading);
 }
 
@@ -23,9 +32,6 @@
   position: sticky;
   bottom: 0;
   padding: unit(1) 0;
-}
-
-.categoryNavigationListView {
   background-color: var(--hds-ui-color-white);
 }
 
@@ -38,11 +44,13 @@
 }
 
 .mapContainerShrunk {
-  height: 40%;
+  height: 45%;
 }
+
 .selectedFeatureMapView {
   position: absolute;
   top: 40%;
+  width: 100%;
 }
 
 .spinner {
@@ -53,5 +61,5 @@
 }
 
 .listView {
-  padding: unit(1);
+  padding: 0 unit(1);
 }

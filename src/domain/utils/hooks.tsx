@@ -3,18 +3,15 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useMatomo } from '@datapunt/matomo-tracker-react';
 import * as queryString from 'query-string';
+import equal from 'fast-deep-equal';
 
 import { useOvermind } from '../overmind';
 import {
-  useCategoriesQuery,
+  FeaturesQuery,
   useFeaturesQuery,
-  useTagsQuery,
+  useTagsAndCategoriesQuery,
 } from '../api/generated/types.d';
-import {
-  featuresLens,
-  tagsLens,
-  categoriesLens,
-} from '../../common/utils/lenses';
+import { featuresLens } from '../../common/utils/lenses';
 
 export const useUrlState = () => {
   const { state, actions } = useOvermind();
@@ -119,7 +116,6 @@ export const useFeatures = () => {
       tags: state.tagFilters.map((filter) => filter.id),
       categories: state.categoryFilters.map((filter) => filter.id),
     });
-    refetch();
   }, [state.tagFilters, state.categoryFilters]);
 
   useEffect(() => {
@@ -129,6 +125,17 @@ export const useFeatures = () => {
     }
     refetch();
   }, [i18n.language]);
+
+  const variablesMatchState = (variables: any) => {
+    const tags = state.tagFilters.map((tag) => tag.id);
+    const categories = state.categoryFilters.map((category) => category.id);
+    const { tag: variableTags, category: variableCategories } = variables;
+    return (
+      equal(tags, variableTags ?? []) &&
+      equal(categories, variableCategories ?? [])
+    );
+  };
+
   useEffect(() => {
     // Inspect network status enum:
     // https://github.com/apollographql/apollo-client/blob/master/src/core/networkStatus.ts
@@ -138,8 +145,9 @@ export const useFeatures = () => {
     if (!isLoading && pageInfo && pageInfo.hasNextPage) {
       fetchMore({
         variables: { after: pageInfo.endCursor },
-        updateQuery: (prev: any, { fetchMoreResult }) => {
-          if (!fetchMoreResult) return prev;
+        updateQuery: (prev: FeaturesQuery, { fetchMoreResult, variables }) => {
+          if (!prev) return prev;
+          if (!fetchMoreResult || !variablesMatchState(variables)) return prev;
           return Object.assign({}, prev, {
             features: {
               edges: [
@@ -163,32 +171,23 @@ export const useFeatures = () => {
   }, [data]);
 };
 
-export const useTags = () => {
+export const useTagAndCategoryTranslations = () => {
   const { i18n } = useTranslation();
-  const { actions } = useOvermind();
-  const { data, refetch } = useTagsQuery();
-
-  useEffect(() => {
-    const fetchedTags = tagsLens.get(data);
-    actions.translateTagFilters(fetchedTags);
-  }, [data]);
+  const { data, refetch } = useTagsAndCategoriesQuery();
 
   useEffect(() => {
     refetch();
   }, [i18n.language]);
-};
 
-export const useCategories = () => {
-  const { i18n } = useTranslation();
-  const { actions } = useOvermind();
-  const { data, refetch } = useCategoriesQuery();
+  const translations = new Map();
 
-  useEffect(() => {
-    const fetchedCategories = categoriesLens.get(data);
-    actions.translateCategoryFilters(fetchedCategories);
-  }, [data]);
+  if (!data) {
+    return translations;
+  }
 
-  useEffect(() => {
-    refetch();
-  }, [i18n.language]);
+  [...data.tags, ...data.featureCategories].forEach((item) =>
+    translations.set(item.id, item.name)
+  );
+
+  return translations;
 };

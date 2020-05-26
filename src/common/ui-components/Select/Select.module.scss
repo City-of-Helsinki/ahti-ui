@@ -1,0 +1,50 @@
+@import '../../../styles/spacings';
+
+$white: var(--hds-ui-color-white);
+
+.select {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 1.15;
+  padding: unit(1) unit(0.75);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  border: 2px solid var(--hds-ui-color-black-50);
+  border-radius: 0;
+  background-color: var(--hds-ui-color-white);
+  background-image: url('./angleDown.svg'), linear-gradient($white, $white);
+  background-repeat: no-repeat, repeat;
+  background-position: right unit(1) top 50%, 0 0;
+  background-size: 1em auto, 100%;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &:focus {
+    border-color: var(--hds-ui-color-black);
+  }
+
+  &.disabled {
+    background: var(--hds-ui-color-black-10);
+    border-color: var(--hds-ui-color-black-10);
+    color: var(--hds-ui-color-black-70);
+  }
+}
+
+.select option {
+  font-weight: normal;
+}
+
+.labelText {
+  color: var(--label-color-default);
+  display: block;
+  font-size: var(--fontsize-subtitle);
+  font-weight: 700;
+  margin-bottom: var(--spacing-3-xs);
+}

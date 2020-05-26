@@ -29,7 +29,7 @@ const ContentSlider: React.FC<ContentSliderProps> = ({
   items,
   translated,
   onClick,
-  infinite = false,
+  infinite = true,
   initialSlide = 0,
   slidesToScroll = 1,
   slidesToShow = 2,
@@ -42,6 +42,8 @@ const ContentSlider: React.FC<ContentSliderProps> = ({
     speed: speed,
     slidesToShow: slidesToShow,
     slidesToScroll: slidesToScroll,
+    centerMode: true,
+    centerPadding: '60px',
   };
 
   const { t } = useTranslation();

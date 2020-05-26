@@ -13,6 +13,7 @@ import Map from '../../common/ui-components/Map/Map';
 import BackButton from '../../common/ui-components/BackButton/BackButton';
 import Card from '../../common/ui-components/Card/Card';
 import { useScrollToTop } from '../../common/utils/hooks';
+import { useTagAndCategoryTranslations } from '../utils/hooks';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_all.json';
@@ -24,6 +25,7 @@ const cx = classNames.bind(styles);
 const ContentPage: React.FC = () => {
   const { state, actions } = useOvermind();
   const { t } = useTranslation();
+  const tagAndCategoryTranslations = useTagAndCategoryTranslations();
   useScrollToTop();
 
   const makeFilterFromCategoryId = (categoryId: string) => {
@@ -32,14 +34,19 @@ const ContentPage: React.FC = () => {
     };
   };
 
+  const hasFeatures = (child: React.ReactNode) => {
+    if (state.features.length > 0) return child;
+    return <div className={styles.noItems}>{t('content.no_items')}</div>;
+  };
+
   return (
     <React.Fragment>
-      <WrappedMenu menuDark={true}></WrappedMenu>
+      <WrappedMenu menuDark={true} />
       <div className={styles.container}>
         <div className={styles.subHeading}>
           <Breadcrumb
             items={[...state.categoryFilters, ...state.tagFilters]}
-            translated={true}
+            translations={tagAndCategoryTranslations}
             onClose={(ahtiId) => actions.removeFilter(ahtiId)}
           />
           <Toggle
@@ -61,31 +68,34 @@ const ContentPage: React.FC = () => {
         )}
         {!state.featuresLoading && (
           <div className={styles.content}>
-            {!state.selectedFeature && !state.mapViewToggle && (
-              <ListView
-                className={styles.listView}
-                features={state.features}
-                onClick={(feature) =>
-                  actions.selectFeatureById(feature.properties.ahtiId)
-                }
-              />
-            )}
-            {state.mapViewToggle && (
-              <div
-                className={cx(styles.mapContainer, {
-                  mapContainerShrunk: state.selectedFeature,
-                })}
-              >
-                <Map
-                  className={styles.map}
+            {!state.selectedFeature &&
+              !state.mapViewToggle &&
+              hasFeatures(
+                <ListView
+                  className={styles.listView}
                   features={state.features}
-                  selectedFeature={state.selectedFeature}
                   onClick={(feature) =>
                     actions.selectFeatureById(feature.properties.ahtiId)
                   }
                 />
-              </div>
-            )}
+              )}
+            {state.mapViewToggle &&
+              hasFeatures(
+                <div
+                  className={cx(styles.mapContainer, {
+                    mapContainerShrunk: state.selectedFeature,
+                  })}
+                >
+                  <Map
+                    className={styles.map}
+                    features={state.features}
+                    selectedFeature={state.selectedFeature}
+                    onClick={(feature) =>
+                      actions.selectFeatureById(feature.properties.ahtiId)
+                    }
+                  />
+                </div>
+              )}
             {state.selectedFeature && (
               <div
                 className={cx({ selectedFeatureMapView: state.mapViewToggle })}
@@ -101,11 +111,9 @@ const ContentPage: React.FC = () => {
         )}
         {!state.selectedFeature && (
           <CategoryNavigation
-            className={cx(styles.categoryNavigation, {
-              categoryNavigationListView: !state.mapViewToggle,
-            })}
+            className={styles.categoryNavigation}
             categories={Object.values(categories).map(makeFilterFromCategoryId)}
-            translated={true}
+            translations={tagAndCategoryTranslations}
             onClick={(categoryId: string) => {
               actions.addCategoryFilter(makeFilterFromCategoryId(categoryId));
             }}

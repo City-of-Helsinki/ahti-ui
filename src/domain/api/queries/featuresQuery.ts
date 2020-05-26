@@ -1,4 +1,4 @@
-import { gql } from 'apollo-boost';
+import gql from 'graphql-tag';
 
 const FEATURES_QUERY = gql`
   query features(
@@ -27,6 +27,9 @@ const FEATURES_QUERY = gql`
           properties {
             ahtiId
             category {
+              id
+            }
+            tags {
               id
             }
             contactInfo {
