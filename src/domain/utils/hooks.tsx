@@ -173,7 +173,9 @@ export const useFeatures = () => {
 
 export const useTagAndCategoryTranslations = () => {
   const { i18n } = useTranslation();
-  const { data, refetch } = useTagsAndCategoriesQuery();
+  const { data, refetch } = useTagsAndCategoriesQuery({
+    fetchPolicy: 'network-only',
+  });
 
   useEffect(() => {
     refetch();
