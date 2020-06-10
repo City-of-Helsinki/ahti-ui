@@ -150,7 +150,7 @@ export const menuCategories: MenuCategory[] = [
 export const boaterServicesSliderContent: ContentSliderItem[] = [
   {
     categoryFilters: [{ id: 'ahti:category:harbor' }],
-    tagFilters: [{ id: 'ahti:category:guest_harbor' }],
+    tagFilters: [{ id: 'ahti:tag:guest_harbor' }],
     title: 'boater_services.guest_harbors',
     imageUrl: '/images/placeholder.png',
   },
