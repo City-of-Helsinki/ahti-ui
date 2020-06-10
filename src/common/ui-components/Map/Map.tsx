@@ -145,7 +145,11 @@ const Map: React.FC<MapProps> = ({
   const getBounds: () => BBox | null = function () {
     const current = mapRef?.current;
     if (!current) return null;
-    return current.getMap().getBounds().toArray().flat() as BBox;
+    return current
+      .getMap()
+      .getBounds()
+      .toArray()
+      .reduce((acc, val) => acc.concat(val), []) as BBox;
   };
   const bounds = getBounds();
   const { clusters } = useSupercluster<GeoJsonProperties, ClusterProperties>({
