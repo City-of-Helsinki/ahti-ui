@@ -264,7 +264,8 @@
       "email": "Must be a valid e-mail address",
       "translated_field_required": "A finnish translation for this field is required",
       "check_form": "The form could not be submitted. Please check the submitted information.",
-      "submission_error": "Error occurred while submitting form. Please try again."
+      "submission_error": "Error occurred while submitting form. Please try again.",
+      "max_characters": "The length of this field must not exceed {{maxCharacters}} characters for all translations."
     }
   }
 }

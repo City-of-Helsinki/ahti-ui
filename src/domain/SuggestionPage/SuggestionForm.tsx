@@ -23,16 +23,37 @@ interface SuggestionFormProps {
   error?: Error;
 }
 
-const getTranslatedFieldValidationSchema = (t: TFunction) =>
-  Yup.object()
+const getTranslatedFieldValidationSchema = (t: TFunction, max?: number) => {
+  if (!max) {
+    return Yup.object()
+      .shape({
+        fi: Yup.string().required(
+          t('suggestion_form.errors.translated_field_required')
+        ),
+        en: Yup.string(),
+        sv: Yup.string(),
+      })
+      .required(t('suggestion_form.errors.translated_field_required'));
+  }
+  return Yup.object()
     .shape({
-      fi: Yup.string().required(
-        t('suggestion_form.errors.translated_field_required')
+      fi: Yup.string()
+        .max(
+          max,
+          t('suggestion_form.errors.max_characters', { maxCharacters: max })
+        )
+        .required(t('suggestion_form.errors.translated_field_required')),
+      en: Yup.string().max(
+        max,
+        t('suggestion_form.errors.max_characters', { maxCharacters: max })
       ),
-      en: Yup.string(),
-      sv: Yup.string(),
+      sv: Yup.string().max(
+        max,
+        t('suggestion_form.errors.max_characters', { maxCharacters: max })
+      ),
     })
     .required(t('suggestion_form.errors.translated_field_required'));
+};
 
 const getValidationSchema = (
   t: TFunction,
@@ -48,9 +69,9 @@ const getValidationSchema = (
       .oneOf(validCategoryIds)
       .required(t('suggestion_form.errors.required')),
     tags: Yup.array().of(Yup.string().oneOf(validTagIds)),
-    name: getTranslatedFieldValidationSchema(t),
+    name: getTranslatedFieldValidationSchema(t, 64),
     description: getTranslatedFieldValidationSchema(t),
-    shortDescription: getTranslatedFieldValidationSchema(t),
+    shortDescription: getTranslatedFieldValidationSchema(t, 64),
     coordinates: Yup.object()
       .shape({
         latitude: Yup.number().required(t('suggestion_form.errors.required')),
@@ -110,7 +131,7 @@ const SuggestionForm: React.FC<SuggestionFormProps> = ({
                 id={'name'}
                 value={values.name}
                 handleChange={handleChange}
-                error={errors?.name?.fi}
+                error={errors?.name}
               />
 
               <TranslatedFieldInput
@@ -119,7 +140,7 @@ const SuggestionForm: React.FC<SuggestionFormProps> = ({
                 value={values.description}
                 handleChange={handleChange}
                 textArea={true}
-                error={errors?.description?.fi}
+                error={errors?.description}
               />
 
               <TranslatedFieldInput
@@ -127,7 +148,7 @@ const SuggestionForm: React.FC<SuggestionFormProps> = ({
                 id={'shortDescription'}
                 value={values.shortDescription}
                 handleChange={handleChange}
-                error={errors?.shortDescription?.fi}
+                error={errors?.shortDescription}
               />
 
               <Select

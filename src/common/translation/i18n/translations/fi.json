@@ -260,7 +260,8 @@
       "email": "Kentän arvo ei ole kelvollinen sähköposti",
       "translated_field_required": "Suomalainen käännös tälle kentälle on pakollinen",
       "check_form": "Tietoja ei voitu lähettä. Tarkista syöttämäsi tiedot.",
-      "submission_error": "Tietojen lähettämisessä tapahtui virhe. Yritä uudelleen."
+      "submission_error": "Tietojen lähettämisessä tapahtui virhe. Yritä uudelleen.",
+      "max_characters": "Tämän kentän pituus tulee olla enintään {{maxCharacters}} merkkiä jokaiselle käännökselle."
     }
   }
 }
