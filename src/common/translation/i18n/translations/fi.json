@@ -1,6 +1,6 @@
 {
   "common": {
-    "back": "Takaisin",
+    "close": "Sulje",
     "terms_of_service": "Käyttöehdot",
     "all_rights_reserved": "Kaikki oikeudet pidätetään",
     "network_error": "Verkkoyhteys on katkennut"
