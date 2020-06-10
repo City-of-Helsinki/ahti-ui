@@ -267,5 +267,10 @@
       "submission_error": "Error occurred while submitting form. Please try again.",
       "max_characters": "The length of this field must not exceed {{maxCharacters}} characters for all translations."
     }
+  },
+  "testing_environment_warning": {
+    "label": "Note",
+    "close_button_label": "Close notification",
+    "link_text": "You are currently browsing the test version of Ahti. Click this link to open the production version."
   }
 }

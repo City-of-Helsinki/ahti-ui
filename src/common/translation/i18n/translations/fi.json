@@ -263,5 +263,10 @@
       "submission_error": "Tietojen lähettämisessä tapahtui virhe. Yritä uudelleen.",
       "max_characters": "Tämän kentän pituus tulee olla enintään {{maxCharacters}} merkkiä jokaiselle käännökselle."
     }
+  },
+  "testing_environment_warning": {
+    "label": "Huomio",
+    "close_button_label": "Sulje huomio",
+    "link_text": "Selaat Ahdin testiversiota. Klikkaa tätä linkkiä jatkaaksesi Ahdin tuotantoversioon."
   }
 }
