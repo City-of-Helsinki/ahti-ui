@@ -1,0 +1,12 @@
+@import '../../../styles/icons';
+@import '../../../styles/spacings';
+
+.backButton {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.marginRight {
+  margin-right: unit(0.25);
+}

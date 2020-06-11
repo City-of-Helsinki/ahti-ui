@@ -1,6 +1,7 @@
 @import '../../styles/mixins';
 
 .ahti {
+  position: relative;
   @include flex(column);
   height: 100%;
 }
