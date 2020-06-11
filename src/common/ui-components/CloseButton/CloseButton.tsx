@@ -15,7 +15,7 @@ const CloseButton: React.FC<CloseButtonProps> = ({ className, onClose }) => {
   return (
     <button
       className={classNames(styles.backButton, className)}
-      onClick={() => onClose()}
+      onClick={onClose}
     >
       <IconClose className={classNames(styles.smallIcon, styles.marginRight)} />
       {t('common.close')}
