@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormikHandlers } from 'formik';
+import { FormikErrors, FormikHandlers } from 'formik';
 import { TextArea, TextInput } from 'hds-react';
 
 import styles from '../SuggestionForm.module.scss';
@@ -12,7 +12,7 @@ interface TranslatedFieldInputProps {
   readonly value: TranslatedField;
   readonly handleChange: FormikHandlers['handleChange'];
   readonly textArea?: boolean;
-  readonly error?: string;
+  readonly error?: FormikErrors<TranslatedField>;
   readonly className?: string;
 }
 
@@ -36,7 +36,6 @@ const TranslatedFieldInput: React.FC<TranslatedFieldInputProps> = ({
             value={value.fi}
             onChange={handleChange}
             invalid={!!error}
-            helperText={error}
           />
         </Tab>
         <Tab title={'en'}>
@@ -45,7 +44,6 @@ const TranslatedFieldInput: React.FC<TranslatedFieldInputProps> = ({
             value={value.en}
             onChange={handleChange}
             invalid={!!error}
-            helperText={error}
           />
         </Tab>
         <Tab title={'sv'}>
@@ -54,10 +52,14 @@ const TranslatedFieldInput: React.FC<TranslatedFieldInputProps> = ({
             value={value.sv}
             onChange={handleChange}
             invalid={!!error}
-            helperText={error}
           />
         </Tab>
       </Tabs>
+      {error && (
+        <span className={styles.formError}>
+          {error.fi ?? error.en ?? error.sv}
+        </span>
+      )}
     </div>
   );
 };

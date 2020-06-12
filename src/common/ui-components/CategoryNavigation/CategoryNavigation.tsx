@@ -57,7 +57,10 @@ const CategoryNavigation: React.FC<CategoryNavigationProps> = ({
             tabIndex={0}
           >
             <div className={styles.categoryIconContainer}>
-              <CategoryIcon category={category.id} className={styles.bigIcon} />
+              <CategoryIcon
+                category={category.id}
+                className={styles.largeIcon}
+              />
             </div>
             <div className={styles.categoryName}>
               {translations.get(category.id) ?? (category.name || '')}

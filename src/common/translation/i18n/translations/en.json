@@ -1,6 +1,6 @@
 {
   "common": {
-    "back": "Back",
+    "close": "Close",
     "terms_of_service": "Terms of Service",
     "all_rights_reserved": "All rights reserved",
     "network_error": "Your network has disconnected"
@@ -264,7 +264,13 @@
       "email": "Must be a valid e-mail address",
       "translated_field_required": "A finnish translation for this field is required",
       "check_form": "The form could not be submitted. Please check the submitted information.",
-      "submission_error": "Error occurred while submitting form. Please try again."
+      "submission_error": "Error occurred while submitting form. Please try again.",
+      "max_characters": "The length of this field must not exceed {{maxCharacters}} characters for all translations."
     }
+  },
+  "testing_environment_warning": {
+    "label": "Note",
+    "close_button_label": "Close notification",
+    "link_text": "You are currently browsing the test version of Ahti. Click this link to open the production version."
   }
 }

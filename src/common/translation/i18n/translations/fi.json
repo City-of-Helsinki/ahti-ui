@@ -1,6 +1,6 @@
 {
   "common": {
-    "back": "Takaisin",
+    "close": "Sulje",
     "terms_of_service": "Käyttöehdot",
     "all_rights_reserved": "Kaikki oikeudet pidätetään",
     "network_error": "Verkkoyhteys on katkennut"
@@ -260,7 +260,13 @@
       "email": "Kentän arvo ei ole kelvollinen sähköposti",
       "translated_field_required": "Suomalainen käännös tälle kentälle on pakollinen",
       "check_form": "Tietoja ei voitu lähettä. Tarkista syöttämäsi tiedot.",
-      "submission_error": "Tietojen lähettämisessä tapahtui virhe. Yritä uudelleen."
+      "submission_error": "Tietojen lähettämisessä tapahtui virhe. Yritä uudelleen.",
+      "max_characters": "Tämän kentän pituus tulee olla enintään {{maxCharacters}} merkkiä jokaiselle käännökselle."
     }
+  },
+  "testing_environment_warning": {
+    "label": "Huomio",
+    "close_button_label": "Sulje huomio",
+    "link_text": "Selaat Ahdin testiversiota. Klikkaa tätä linkkiä jatkaaksesi Ahdin tuotantoversioon."
   }
 }

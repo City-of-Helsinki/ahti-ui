@@ -10,12 +10,12 @@ import Breadcrumb from '../../common/ui-components/Breadcrumb/Breadcrumb';
 import Toggle from '../../common/ui-components/Toggle/Toggle';
 import ListView from '../../common/ui-components/ListView/ListView';
 import Map from '../../common/ui-components/Map/Map';
-import BackButton from '../../common/ui-components/BackButton/BackButton';
 import Card from '../../common/ui-components/Card/Card';
 import { useScrollToTop } from '../../common/utils/hooks';
 import { useTagAndCategoryTranslations } from '../utils/hooks';
 import CategoryNavigation from '../../common/ui-components/CategoryNavigation/CategoryNavigation';
 import Spinner from '../../common/ui-components/Spinner/Spinner';
+import CloseButton from '../../common/ui-components/CloseButton/CloseButton';
 import spinnerAnimation from '../../common/ui-components/Spinner/animations/spinner_all.json';
 import { ReactComponent as IconList } from '../../assets/icons/icon-list.svg';
 import { ReactComponent as IconMap } from '../../assets/icons/icon-map.svg';
@@ -100,7 +100,7 @@ const ContentPage: React.FC = () => {
               <div
                 className={cx({ selectedFeatureMapView: state.mapViewToggle })}
               >
-                <BackButton onBack={() => actions.clearSelectedFeature()} />
+                <CloseButton onClose={() => actions.clearSelectedFeature()} />
                 <Card
                   feature={state.selectedFeature}
                   onSelectFilter={actions.addTagFilter}
