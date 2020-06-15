@@ -4,6 +4,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import en from './translations/en.json';
 import fi from './translations/fi.json';
+import sv from './translations/sv.json';
 import { SUPPORTED_LANGUAGES } from '../TranslationConstants';
 
 i18n
@@ -16,6 +17,9 @@ i18n
       },
       fi: {
         translation: fi,
+      },
+      sv: {
+        translation: sv,
       },
     },
     whitelist: Object.values(SUPPORTED_LANGUAGES),
