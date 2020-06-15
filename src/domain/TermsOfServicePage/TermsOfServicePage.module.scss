@@ -1,0 +1,19 @@
+@import '../../styles/spacings';
+
+.koros {
+  color: var(--hds-brand-color-coat-of-arms-blue);
+}
+
+.content {
+  h1,
+  h2,
+  h3 {
+    margin: unit(2) 0 unit(1);
+  }
+
+  p {
+    margin: unit(0.5) 0;
+  }
+
+  margin-bottom: unit(1);
+}
