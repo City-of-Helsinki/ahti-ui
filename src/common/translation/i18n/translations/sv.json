@@ -31,57 +31,12 @@
     "servicemap": "Kolla den här platsen på tjänstekartan",
     "ticket_shop": "Boka en biljett"
   },
-  "dropdown": {
-    "label": "Valikko",
-    "change_language": "Ändra språk till engelska",
-    "add_location": "Lägg till plats eller tjänst",
-    "add_location_target": "https://docs.google.com/forms/d/e/1FAIpQLSe6xJj1vpjNfinde6Ly3jv_BG7Reev0KGAKH8O7QPsIVn3IUg/viewform?usp=sf_link",
-    "give_feedback": "Ge feedback",
-    "give_feedback_target": "https://docs.google.com/forms/d/e/1FAIpQLSegIqAsxVscFnk2iPneXahSpV1cnGjXZ2d_98fSSh0ZOsA1JA/viewform?usp=sf_link",
-    "about": "Om Ahti",
-    "boat_page": "Stadens båtsidor",
-    "boat_page_target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily",
-    "rescue_directions": "Sjöräddningsinstruktioner",
-    "rescue_directions_target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/lisatietoa-veneilysta/meripelastusohjeet/"
-  },
   "map": {
     "show_all_button": "Visa allt",
     "back_button": "Tillbaka",
-    "tag_card": {
-      "locations": "Platser",
-      "point_list_header": "Saker att göra",
-      "point_list_subheader": "Populära destinationer"
-    },
     "zoom_in": "Zooma in",
     "zoom_out": "Zooma ut",
     "geolocate": "Visa din position"
-  },
-  "footer": {
-    "header": "Maritima links",
-    "link1": {
-      "content": "Bastur",
-      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/lisatietoa-ulkoilusta/saunat/saunat"
-    },
-    "link2": {
-      "content": "Båtliv",
-      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
-    },
-    "link3": {
-      "content": "Fiske",
-      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/kalastus/"
-    },
-    "link4": {
-      "content": "I skärgården",
-      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/"
-    },
-    "link5": {
-      "content": "Båtplatser",
-      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
-    },
-    "body": "Den här tjänsten är under utveckling och du använder en testversion.",
-    "learn_more": "Läs mer om Ahti.",
-    "attribution": "© Helsingfors stad 2019 |",
-    "attribution_link": "https://www.hel.fi/helsinki/fi"
   },
   "types": {
     "island": "Öar",
