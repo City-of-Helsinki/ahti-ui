@@ -1,0 +1,272 @@
+{
+  "common": {
+    "close": "Stäng",
+    "terms_of_service": "Användarvillkor",
+    "all_rights_reserved": "Alla rättigheter förbehållna",
+    "network_error": "Ditt nätverk har kopplats från"
+  },
+  "index": {
+    "main_header": "Upptäck Helsingfors vackra skärgård!",
+    "see_all_button": "Visa alla destinationer och tjänster",
+    "section1_header": "Maritima destinationer, upplevelser och tjänster",
+    "section1_paragraph": "Upptäck havet och tjänsterna i Helsingfors och angränsande kommuner på samma plats",
+    "section2_header": "Tjänster för båtfolk på kartan",
+    "section2_paragraph": "Ahti har förnyats och vi har lagt till nya funktioner",
+    "section3_header": "Maritima kaféer och restauranger",
+    "section3_button": "Surfa på alla restauranger och kaféer",
+    "section4_header": "Maritima upplevelser",
+    "section5_header": "Föreslå en ny tjänst till Ahti",
+    "section5_paragraph": "Förbättra Ahti genom att fylla i din tjänsteinformation.",
+    "section5_link": "Öppna formuläret"
+  },
+  "content": {
+    "map": "Karta",
+    "list": "Lista",
+    "no_items": "Inga sökresultat hittades för de valda filtren."
+  },
+  "external_links": {
+    "services": "Tjänster relaterade till denna destination",
+    "ahti:link:satamapaikkacom": "Boka båtplatsen via satamapaikka.com",
+    "ahti:link:jtline": "Surfa tidtabeller på JT-lines webbsidor",
+    "servicemap": "Kolla den här platsen på tjänstekartan",
+    "ticket_shop": "Boka en biljett"
+  },
+  "dropdown": {
+    "label": "Valikko",
+    "change_language": "Ändra språk till engelska",
+    "add_location": "Lägg till plats eller tjänst",
+    "add_location_target": "https://docs.google.com/forms/d/e/1FAIpQLSe6xJj1vpjNfinde6Ly3jv_BG7Reev0KGAKH8O7QPsIVn3IUg/viewform?usp=sf_link",
+    "give_feedback": "Ge feedback",
+    "give_feedback_target": "https://docs.google.com/forms/d/e/1FAIpQLSegIqAsxVscFnk2iPneXahSpV1cnGjXZ2d_98fSSh0ZOsA1JA/viewform?usp=sf_link",
+    "about": "Om Ahti",
+    "boat_page": "Stadens båtsidor",
+    "boat_page_target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily",
+    "rescue_directions": "Sjöräddningsinstruktioner",
+    "rescue_directions_target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/lisatietoa-veneilysta/meripelastusohjeet/"
+  },
+  "map": {
+    "show_all_button": "Visa allt",
+    "back_button": "Tillbaka",
+    "tag_card": {
+      "locations": "Platser",
+      "point_list_header": "Saker att göra",
+      "point_list_subheader": "Populära destinationer"
+    },
+    "zoom_in": "Zooma in",
+    "zoom_out": "Zooma ut",
+    "geolocate": "Visa din position"
+  },
+  "footer": {
+    "header": "Maritima links",
+    "link1": {
+      "content": "Bastur",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/lisatietoa-ulkoilusta/saunat/saunat"
+    },
+    "link2": {
+      "content": "Båtliv",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
+    "link3": {
+      "content": "Fiske",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/kalastus/"
+    },
+    "link4": {
+      "content": "I skärgården",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/"
+    },
+    "link5": {
+      "content": "Båtplatser",
+      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
+    },
+    "body": "Den här tjänsten är under utveckling och du använder en testversion.",
+    "learn_more": "Läs mer om Ahti.",
+    "attribution": "© Helsingfors stad 2019 |",
+    "attribution_link": "https://www.hel.fi/helsinki/fi"
+  },
+  "types": {
+    "island": "Öar",
+    "route": "Rutter till öar",
+    "cityboat": "Stadsbåtar",
+    "sauna": "Bastur",
+    "rent": "Båtuthyrning",
+    "sup": "SUP boarding",
+    "experience": "Upplevelser",
+    "kayak": "Kanotpaddling",
+    "charter": "Charter",
+    "sightseeing": "Sightseeing",
+    "learn": "Båtutbildning",
+    "taxi": "Båtturer",
+    "visitor": "Gästhamnar",
+    "parking": "Båtparkering",
+    "station": "Båtstationer",
+    "myhelsinki": "MyHelsinki Platser"
+  },
+  "cookie_consent": {
+    "text": "Denna tjänst är under utveckling och använder cookies för att samla in anonymiserad användardata som kan användas senare.",
+    "button": "Acceptera"
+  },
+  "menu": {
+    "home": "gå till hemsidan",
+    "open": "öppna menyn",
+    "close": "stäng menyn",
+    "open_submenu": "öppna submenyn",
+    "close_submenu": "stäng submenyn",
+    "title": {
+      "islands": "Öar",
+      "travel_to_islands": "Vattenbussar, färjor och båtturer",
+      "saunas_and_swimming": "Bastur och bad",
+      "restaurants": "Maritima kaféer och restauranger",
+      "boater_services": "Båtservice",
+      "rental_services": "Uthyrningsbåtar och utrustning"
+    },
+    "link": {
+      "islands": {
+        "all_islands": "Alla öar"
+      },
+      "travel_to_islands": {
+        "water_bus_and_ferries": "Vattenbussar och färjerutter",
+        "boat_rides_and_taxis": "Båtturer och taxi",
+        "sightseeing_and_cruises": "Sightseeing och kryssningar"
+      },
+      "saunas_and_swimming": {
+        "saunas": "Bastur",
+        "swimming": "Simning",
+        "ice_swimming": "Is simning"
+      },
+      "restaurants": {
+        "restaurants": "Restauranger",
+        "cafes": "Kaféet",
+        "beer_and_wine_bars": "Vin och ölbarer"
+      },
+      "boater_services": {
+        "harbor": "Alla hamnar",
+        "guest_harbor": "Gästhamnar",
+        "maintenance": "Båtunderhåll",
+        "septic_tank_draining": "Septisk tank tömningplatser",
+        "service_station": "Servicestationer",
+        "gas_station": "Bensinstationer",
+        "slipway": "Sjösättningramper",
+        "boat_lift": "Lyft av stora fartyg"
+      },
+      "rental_services": {
+        "sup": "SUP boarding",
+        "canoe": "Kanotpaddling",
+        "kayak": "Kajakpaddling",
+        "rowing": "Roddbåtar",
+        "rental_boat": "Uthyrningsbåtar",
+        "city_boat": "Stadsbåtar"
+      }
+    }
+  },
+  "card": {
+    "modified_at": "Uppdaterad",
+    "source": "Datakälla",
+    "show_more": "Visa mer",
+    "show_less": "Visa mindre",
+    "island_content": {
+      "services_tab": "Tjänster",
+      "routes_tab": "Rutter",
+      "description_tab": "Beskrivning",
+      "routes": {
+        "ferries": "Vattenbussar och färjor",
+        "harbors": "Gästhamnar"
+      }
+    },
+    "ferry_content": {
+      "duration": "Varaktighet",
+      "pricing": "Biljetter",
+      "adultPricing": "Vuxen",
+      "childPricing": "Barn",
+      "startingPort": "Avgångsplattform",
+      "booking": "Tidtabeller och biljetter"
+    },
+    "harbor_content": {
+      "mooring": "Båtförtöjning",
+      "mooringInformation": "Båtplatser",
+      "mooringType": "Förtöjningstyper",
+      "depth": "Djup",
+      "pricing": "Priser och bokning",
+      "dayPricing": "Dagsbesök",
+      "overnightPricing": "Övernattning",
+      "booking": "Boka en båtplats",
+      "mooringTypes": {
+        "SLIP": "Slip",
+        "STERN_BUOY": "Stern buoy",
+        "STERN_POLE": "Stern pole",
+        "QUAYSIDE": "Quayside",
+        "SEA_BUOY": "Sea buoy"
+      }
+    }
+  },
+  "search": {
+    "search": "Sök",
+    "open": "Öppna resultat",
+    "close": "Stäng sökningen"
+  },
+  "filter": {
+    "close": "Stäng filter"
+  },
+  "list_view": {
+    "open": "Öppna objekt",
+    "image_alt": "Bild"
+  },
+  "breadcrumb": {
+    "close": "Stäng valt filter"
+  },
+  "boater_services": {
+    "guest_harbors": "Alla gästhamnar",
+    "service_stations": "Servicestationer, båtunderhåll och reparation",
+    "boat_launch": "Platser för båtlansering"
+  },
+  "seaside_experiences": {
+    "sightseeing": "Sightseeing",
+    "restaurants": "Alla Helsingfors maritima restauranger",
+    "small_boats": "Rodd, SUP, kajakpaddling och paddling",
+    "city_boats": "Stadsbåtar",
+    "boat_rental": "Uthyrningsbåtar"
+  },
+  "footer": {
+    "boating": "Helsingfors stads båtsidor",
+    "boating_url": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv",
+    "sea_rescue": "Sjöräddningsinstruktioner",
+    "sea_rescue_url": "https://www.hel.fi/helsinki/sv/kultur-och-fritid/friluftsliv/botliv/mer-information-om-batliv/anvisningar-for-sjoraddning/",
+    "feedback": "Ge feedback",
+    "feedback_url": "https://www.hel.fi/kulttuurin-ja-vapaa-ajan-toimiala/sv/kontaktuppgifter-och-respons/Respons/"
+  },
+  "language_select": {
+    "select_language": "Välj språk"
+  },
+  "suggestion_form": {
+    "heading": "Föreslå en tjänst att lägga till i Ahti",
+    "name": "Namnet på tjänsten",
+    "description": "Tjänstebeskrivning",
+    "short_description": "Kort tjänstebeskrivning",
+    "website": "Hemsida",
+    "street_address": "Gatuadress",
+    "postal_code": "Postnummer",
+    "municipality": "Kommun",
+    "phone": "Telefonnummer",
+    "email": "E-post",
+    "category": "Kategori",
+    "tags": "Lägg till taggar som beskriver tjänsten från listan nedan",
+    "submit": "Skicka in information",
+    "coordinates": "Välj platsen för tjänsten på kartan nedan",
+    "selected_tags": "Valda taggar",
+    "no_selected_tags": "Inga valda taggar",
+    "on_submit": "Ditt förslag har mottagits!",
+    "submitting": "Uppgifterna behandlas",
+    "errors": {
+      "required": "Detta fält krävs",
+      "email": "Måste vara en giltig e-postadress",
+      "translated_field_required": "En finsk översättning för detta fält krävs",
+      "check_form": "Formuläret kunde inte lämnas in. Var god och kontrollera den skickade informationen.",
+      "submission_error": "Ett fel inträffade i formuläret. Var god och försök igen.",
+      "max_characters": "Längden på detta fält får inte överstiga {{maxCharacters}} tecken för alla översättningar."
+    }
+  },
+  "testing_environment_warning": {
+    "label": "Notera",
+    "close_button_label": "Stäng avisering",
+    "link_text": "Du surfar just nu på testversionen av Ahti. Klicka på den här länken för att öppna produktionsversionen."
+  }
+}
