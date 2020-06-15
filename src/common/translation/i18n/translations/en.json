@@ -8,7 +8,7 @@
   "index": {
     "main_header": "Discover the beautiful archipelago of Helsinki!",
     "see_all_button": "Show all destinations and services",
-    "section1_header": "Destinations, services and experiences",
+    "section1_header": "Seaside destinations, services and experiences",
     "section1_paragraph": "Discover the seaside and services of Helsinki and neighboring municipalities in the same place.",
     "section2_header": "Services for boaters on the map",
     "section3_header": "Seaside restaurants and cafes",
@@ -30,57 +30,12 @@
     "servicemap": "See this location on servicemap",
     "ticket_shop": "Reserve a ticket"
   },
-  "dropdown": {
-    "label": "Menu",
-    "change_language": "Vaihda kieli Suomeksi",
-    "add_location": "Add location or service",
-    "add_location_target": "https://docs.google.com/forms/d/e/1FAIpQLSeUKV9KPXBjDZHNRnVi3vB1N-fayYxFy3tirFdKplAIFYqxRw/viewform?usp=sf_link",
-    "give_feedback": "Give feedback",
-    "give_feedback_target": "https://docs.google.com/forms/d/e/1FAIpQLSefN-qtj9EOpV6iLcaKj2LrQYV-fhjEAeqB4g1rQPIdSIYLdA/viewform?usp=sf_link",
-    "about": "About Ahti",
-    "boat_page": "City's boat page",
-    "boat_page_target": "https://www.hel.fi/helsinki/en/culture/recreation/boating/",
-    "rescue_directions": "Sea rescue directions",
-    "rescue_directions_target": "https://www.hel.fi/helsinki/en/culture/recreation/boating/boating-information/sea-rescue-directions/"
-  },
   "map": {
     "show_all_button": "Show all",
     "back_button": "Back",
-    "tag_card": {
-      "locations": "locations",
-      "point_list_header": "Things to do",
-      "point_list_subheader": "Locations available for travellers in"
-    },
     "zoom_in": "Zoom In",
     "zoom_out": "Zoom Out",
     "geolocate": "Show Your Location"
-  },
-  "footer": {
-    "header": "Maritime links",
-    "link1": {
-      "content": "Saunas",
-      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/lisatietoa-ulkoilusta/saunat/saunat"
-    },
-    "link2": {
-      "content": "Boating",
-      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
-    },
-    "link3": {
-      "content": "Fishing",
-      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/kalastus/"
-    },
-    "link4": {
-      "content": "In islands",
-      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/saaristossa/"
-    },
-    "link5": {
-      "content": "Boat spots",
-      "target": "https://www.hel.fi/helsinki/fi/kulttuuri-ja-vapaa-aika/ulkoilu/veneily/"
-    },
-    "body": "This service is under development and you’re using a test version.",
-    "learn_more": "Learn more about Ahti.",
-    "attribution": "© City of Helsinki 2019 |",
-    "attribution_link": "https://www.hel.fi/helsinki/en"
   },
   "types": {
     "island": "Islands",
@@ -146,11 +101,6 @@
         "gas_station": "Gas stations",
         "slipway": "Slipways",
         "boat_lift": "Boat lifts"
-      },
-      "rental_boats": {
-        "rowboats": "Rowing boats",
-        "motorboats": "Motorboats",
-        "other": "Other rental services"
       },
       "rental_services": {
         "sup": "SUP boarding",

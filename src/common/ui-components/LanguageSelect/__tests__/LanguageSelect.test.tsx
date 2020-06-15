@@ -24,10 +24,7 @@ describe('LanguageSelect', () => {
     const mockOnLanguageChange = jest.fn();
     i18next.on('languageChanged', mockOnLanguageChange);
     expect(mockOnLanguageChange.mock.calls.length).toBe(0);
-    wrapper
-      .find('.languageButton')
-      .not('.languageButtonEnabled')
-      .simulate('click');
+    wrapper.find('.languageButton').at(0).simulate('click');
     expect(mockOnLanguageChange.mock.calls.length).toBe(1);
   });
 });
