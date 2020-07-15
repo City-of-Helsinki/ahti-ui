@@ -14,8 +14,8 @@ const toDegreesMinutesAndSeconds = (coordinate: number): string => {
 };
 
 const localizedToDMS = (
-  latitude: number,
   longitude: number,
+  latitude: number,
   locale: string
 ): string => {
   const latitudeDMS = toDegreesMinutesAndSeconds(latitude);
