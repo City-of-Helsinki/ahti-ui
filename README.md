@@ -1,5 +1,7 @@
 # UI for the City of Helsinki Ahti project
 
+**Note! Ahti project has ended and is no longer being actively developed.**
+
 ## About
 
 ### What?
@@ -25,27 +27,10 @@ to know and enjoy the Helsinki archipelago.
 
 The first official release of Ahti is prepared for 16.6.2020 and continuous development is expected to continue after release.
 
-## Deployments
-
-Production environment:
-https://ahti.hel.fi/
-
-Testing environment:
-https://ahti.test.kuva.hel.ninja/
-
 ## See also
 
 The backend source repository:
 https://github.com/City-of-Helsinki/ahti
-
-Backend production API:
-https://ahti-api.prod.kuva.hel.ninja/graphql
-
-Backend testing API:
-https://ahti-api.test.kuva.hel.ninja/graphql
-
-CI/CD pipelines:
-https://gitlab.com/City-of-Helsinki/KuVa/github-mirrors/ahti-ui
 
 ## Development
 
@@ -60,14 +45,6 @@ For an isolated development environment, you can use our the following docker co
 
 `docker-compose up` to start the dockerized dev-environment.<br>
 `docker-compose down` stops the container.
-
-### Contributing
-
-For contribution guidelines see `CONTRIBUTING.md`.
-
-### Issue tracking
-
-https://helsinkisolutionoffice.atlassian.net/projects/AHTI/issues/?filter=allissues
 
 ## Available Scripts
 
