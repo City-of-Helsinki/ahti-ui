@@ -3,7 +3,16 @@
     margin: 0;
   }
 
-  button {
-    padding: 1.8rem 1.8rem 0 0;
+  @media all and (min-width: 768px) {
+    button {
+      padding: 1.875em 1.875em 0 0;
+    }
+  }
+
+  @media all and (max-width: 768px) {
+    button {
+      height: unset;
+      padding-bottom: 0;
+    }
   }
 }
